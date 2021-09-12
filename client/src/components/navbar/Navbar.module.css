@@ -1,0 +1,58 @@
+@value Black, White from '../../common/colors.css';
+@value Container from '../../common/size.css';
+span {
+  display: block;
+}
+.container {
+  max-width: Container;
+  margin: 0 auto;
+}
+.btns {
+  /* max-width: 100%; */
+  list-style: none;
+  background-color: Black;
+  color: White;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.btn {
+  width: 7rem;
+  padding: 0.9em 0.5em 0.9em 0.5em;
+  text-align: center;
+  background-color: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+.logo {
+  background-color: Black;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logoborder {
+  /* border: 1px solid red; */
+  width: 40%;
+  font-size: 3rem;
+  color: White;
+  font-weight: bold;
+  text-align: center;
+}
+.category {
+  background-color: Black;
+}
+.categoryBox {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.title {
+  width: 10rem;
+  height: 2rem;
+  color: White;
+  text-align: center;
+  cursor: pointer;
+}
