@@ -1,6 +1,6 @@
-import styles from "./MyPage.module.css";
+import styles from './MyPage.module.css';
 
-import React from "react";
+import React from 'react';
 
 const MyPage = (props) => {
   return (

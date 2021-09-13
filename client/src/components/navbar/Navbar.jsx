@@ -1,23 +1,23 @@
-import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import React from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
-import styles from "./Navbar.module.css";
+import styles from './Navbar.module.css';
 
 const Navbar = () => {
   const history = useHistory();
   const clickLogo = () => {
-    history.push("/");
+    history.push('/');
   };
   return (
     <section className={styles.container}>
       <ul className={styles.btns}>
-        <Link to="/signin">
+        <Link to='/signin'>
           <li className={styles.btn}>로그인</li>
         </Link>
-        <Link to="/join">
+        <Link to='/join'>
           <li className={styles.btn}>회원가입</li>
         </Link>
-        <Link to="/mypage">
+        <Link to='/mypage'>
           <li className={styles.btn}>마이페이지</li>
         </Link>
       </ul>
@@ -30,7 +30,7 @@ const Navbar = () => {
       <div className={styles.category}>
         <ul className={styles.categoryBox}>
           <li className={styles.title}>ABOUT</li>
-          <Link to="/gallery">
+          <Link to='/gallery'>
             <li className={styles.title}>GALLERY</li>
           </Link>
           <li className={styles.title}>REVIEW</li>

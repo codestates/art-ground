@@ -3,15 +3,109 @@
 .container {
   max-width: 1024px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 0.5rem 5rem 0.5rem;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  /* Firefox */
+  -webkit-animation: fadein 2s;
+  /* Safari and Chrome */
+  -o-animation: fadein 2s;
+  /* Opera */
 }
 
 .subNavBar {
   display: flex;
   font-size: 0.8rem;
+  border-bottom: 1px solid rgb(201, 201, 201);
+  color: rgb(100, 100, 100);
 }
 
 .subMenu {
   display: block;
-  margin: 2rem 2rem 2rem 0;
+  margin: 3rem 0.5rem 1rem 0.5rem;
+}
+
+/* 아래에서부터 단일 썸네일 */
+.objectList {
+  margin-top: 2.5rem;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 0.5rem;
+  grid-row-gap: 2.5rem;
+}
+
+.thumbnail {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  object-fit: cover;
+  /* background-size: cover; */
+  margin-bottom: 0.2rem;
+}
+
+.title {
+  font-size: 0.8rem;
+  margin-bottom: 0.1rem;
+  color: rgb(44, 44, 44);
+}
+
+.period {
+  font-size: 0.5rem;
+  color: rgb(156, 156, 156);
+}
+
+@media screen and (max-width: 768px) {
+  .objectList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .objectList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

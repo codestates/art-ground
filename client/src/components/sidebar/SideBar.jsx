@@ -1,6 +1,6 @@
-import styles from "./SideBar.module.css";
+import styles from './SideBar.module.css';
 
-import React from "react";
+import React from 'react';
 
 const SideBar = (props) => {
   return (
