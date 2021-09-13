@@ -1,0 +1,23 @@
+@value Black, White from '../../common/colors.css';
+@value Container from '../../common/size.css';
+
+.container {
+  max-width: Container;
+  height: 100%;
+  margin: 0 auto;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.side {
+  flex: 1;
+  height: 40rem;
+  border: 1px solid black;
+}
+.content {
+  flex: 4;
+  height: 40rem;
+  border: 1px solid black;
+}

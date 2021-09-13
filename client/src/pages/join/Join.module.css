@@ -1,0 +1,53 @@
+@value Black, White from '../../common/colors.css';
+@value Container from '../../common/size.css';
+
+.container {
+  max-width: Container;
+  margin: 0 auto;
+}
+.joinbox {
+  width: 100%;
+  height: 43rem;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  width: 250px;
+  height: 50px;
+  background-color: White;
+  border: 1px solid grey;
+  outline: none;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: rgb(49, 45, 45);
+  color: white;
+}
+.btn.second {
+  margin-top: 3rem;
+}
+.Box {
+  width: 30rem;
+  height: 20rem;
+
+  padding: 0.8rem;
+  /* display: none; */
+}
+
+.inputbox {
+  /*ul*/
+  list-style: none;
+}
+
+.backToLogin {
+  margin-top: 4rem;
+  color: rgb(82, 79, 79);
+  cursor: pointer;
+}
+.bold {
+  font-weight: bold;
+  color: black;
+}

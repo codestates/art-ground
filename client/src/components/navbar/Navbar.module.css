@@ -4,7 +4,7 @@ span {
   display: block;
 }
 .container {
-  max-width: Container;
+  max-width: 100%;
   margin: 0 auto;
 }
 .btns {
@@ -39,6 +39,7 @@ span {
   color: White;
   font-weight: bold;
   text-align: center;
+  cursor: pointer;
 }
 .category {
   background-color: Black;
