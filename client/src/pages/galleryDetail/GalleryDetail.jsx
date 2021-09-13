@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './GalleryDetail.module.css';
 
-const GalleryDetail = (props) => {
+const GalleryDetail = ({viewArtDetail}) => {
+
   const [btnSlider, setBtnSlider] = useState(1);
 
   const sliderNum = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -17,7 +19,7 @@ const GalleryDetail = (props) => {
     'https://images.velog.io/images/devjade/post/794f3b2c-f679-4d69-9bd8-b845efd96993/image.png'
   ];
 
-  const slider = (el) => { //슬라이더 기능 수정해야 함.....
+  const slider = (el) => {
     setBtnSlider(el);
   };
 
@@ -84,7 +86,9 @@ const GalleryDetail = (props) => {
       <ul className={styles.workBox}>
         {dummyImg.map(el =>
           <li>
-            <img className={styles.work} src={el} alt='art' />
+            <Link to='/artdetail'>
+              <img className={styles.work} src={el} alt='art' onClick={() => viewArtDetail(el)}/>
+            </Link>
             <span className={styles.workTitle}>호크니1</span>
             <span className={styles.workContent}>제작연도 : 2021, 재료 : Digital drawing, 크기 : 59.4x42.0cm</span>
           </li>)}
