@@ -1,0 +1,17 @@
+/* @value Container from '../../common/size.css' */
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.subNavBar {
+  display: flex;
+  font-size: 0.8rem;
+}
+
+.subMenu {
+  display: block;
+  margin: 2rem 2rem 2rem 0;
+}

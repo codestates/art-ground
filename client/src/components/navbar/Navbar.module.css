@@ -1,5 +1,6 @@
 @value Black, White from '../../common/colors.css';
 @value Container from '../../common/size.css';
+
 span {
   display: block;
 }
