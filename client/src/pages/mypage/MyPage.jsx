@@ -1,12 +1,17 @@
 import styles from "./MyPage.module.css";
-
 import React from "react";
+import SideBar from "../../components/sidebar/SideBar";
+import MyInfo from "../../components/myinfo/MyInfo";
 
 const MyPage = (props) => {
   return (
     <section className={styles.container}>
-      <div className={styles.side}>사이드바컴포넌트</div>
-      <div className={styles.content}>내용</div>
+      <div className={styles.side}>
+        <SideBar />
+      </div>
+      <div className={styles.content}>
+        <MyInfo />
+      </div>
     </section>
   );
 };
