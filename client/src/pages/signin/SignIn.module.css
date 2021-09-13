@@ -1,0 +1,78 @@
+@value Black, White from '../../common/colors.css';
+@value Container from '../../common/size.css';
+
+span {
+  display: block;
+}
+.container {
+  max-width: Container;
+  margin: 0 auto;
+}
+.joinbox {
+  width: 100%;
+  height: 43rem;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  width: 250px;
+  height: 50px;
+  background-color: White;
+  border: 1px solid grey;
+  outline: none;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: rgb(49, 45, 45);
+  color: white;
+}
+.btn.second {
+  margin-top: 3rem;
+}
+.Box {
+  width: 30rem;
+  height: 20rem;
+  padding: 0.8rem;
+}
+
+.inputbox {
+  /*ul*/
+  list-style: none;
+}
+
+.oauthBox {
+  margin-top: 3rem;
+  width: 250px;
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.oauthBtn2 {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+.oauthBtn1 {
+  width: 70px;
+  height: 70px;
+  border: 1px solid rgb(197, 196, 196);
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+.google {
+  width: 100%;
+  height: 100%;
+  margin-left: 1px;
+}
+.kakao {
+  width: 100%;
+  height: 100%;
+  margin-left: 1px;
+}

@@ -1,0 +1,132 @@
+@value Black, White from '../../common/colors.css';
+@value Container from '../../common/size.css';
+
+.container {
+  max-width: Container;
+  margin: 0 auto;
+  /* border: 1px solid black; */
+}
+.audiencBox,
+.authorBox {
+  width: 100%;
+  height: 100%;
+  padding: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.inputbox {
+  /*ul*/
+  list-style: none;
+  border: 0;
+  padding: 4rem;
+}
+.title {
+  width: 30rem;
+  height: 3rem;
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+.input {
+  width: 30rem;
+  height: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+input {
+  width: 25rem;
+  height: 3rem;
+  border: none;
+  border: 1px solid gainsboro;
+  text-indent: 10px;
+  outline: none;
+  font-size: 1rem;
+}
+
+/*email */
+.email {
+  width: 18rem;
+}
+.mailckBtn {
+  width: 6rem;
+  height: 3rem;
+  text-align: center;
+  background-color: white;
+  border: 1px solid grey;
+  margin-left: 10px;
+  outline: none;
+  cursor: pointer;
+}
+.joinBtn {
+  /* border: 1px solid red; */
+  width: 30rem;
+  height: 3rem;
+  text-align: center;
+}
+.realJoin,
+.realJoin2 {
+  width: 250px;
+  height: 50px;
+  background-color: White;
+  border: 1px solid black;
+  outline: none;
+  cursor: pointer;
+}
+.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  text-indent: 0.2rem;
+}
+img {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin: 0 0 1rem 2.5rem;
+}
+.infoText {
+  font-size: 13px;
+}
+
+/*author extra*/
+.noRequiredText {
+  text-indent: 3rem;
+  font-size: 13px;
+}
+.profileBox {
+  width: 30rem;
+  height: 12rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.imgBox {
+  border: 1px solid grey;
+  width: 18rem;
+  height: 9rem;
+  margin: 0 auto;
+  border-radius: 30%;
+}
+.addImg {
+  width: 18rem;
+  height: 2rem;
+  margin: 0.8rem 0 0 0.8rem;
+}
+.introInfoBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem;
+}
+.introInfo {
+  width: 25rem;
+  height: 5rem;
+  border: 1px solid gainsboro;
+  outline: none;
+  text-indent: 0.2rem;
+}
+.realJoin2 {
+  margin-top: 25px;
+}
