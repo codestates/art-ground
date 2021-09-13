@@ -19,6 +19,8 @@
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.12",
-    "redis": "^3.1.2"
+    "redis": "^3.1.2",
+    "sequelize": "^6.6.5",
+    "sequelize-auto": "^0.8.4"
   }
 }

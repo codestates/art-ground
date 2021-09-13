@@ -7,7 +7,7 @@ import SignUp from "./pages/signup/SignUp";
 import SignIn from "./pages/signin/SignIn";
 import SignInDetail from "./pages/signindetail/SignInDetail";
 import MyPage from "./pages/mypage/MyPage";
-
+import Gallery from "./pages/gallery/Gallery";
 
 function App() {
   //가입
