@@ -1,8 +1,11 @@
 import styles from "./SignIn.module.css";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import Google from "../google/Google";
 
 const SignIn = ({ setIsAuthorLogin, setIsAudienceLogin }) => {
+  const history = useHistory();
+
   const audienceClicked = () => {
     setIsAuthorLogin(false);
     setIsAudienceLogin(true);
@@ -12,6 +15,7 @@ const SignIn = ({ setIsAuthorLogin, setIsAudienceLogin }) => {
     setIsAuthorLogin(true);
     setIsAudienceLogin(false);
   };
+
   return (
     <section className={styles.container}>
       <div className={styles.joinbox}>
@@ -29,20 +33,25 @@ const SignIn = ({ setIsAuthorLogin, setIsAudienceLogin }) => {
           </button>
         </Link>
         <div className={styles.oauthBox}>
-          <span className={styles.oauthBtn1}>
-            <img
-              src="../../../images/googleicon.png"
-              alt="google"
-              className={styles.google}
-            ></img>
-          </span>
-          <span className={styles.oauthBtn2}>
-            <img
-              src="../../../images/kakaoicon.jpg"
-              alt="kakao"
-              className={styles.kakao}
-            ></img>
-          </span>
+          <Link to="/signin/google">
+            <button className={styles.oauthBtn1}>
+              <img
+                src="../../../images/googleicon.png"
+                alt="google"
+                className={styles.google}
+              ></img>
+            </button>
+          </Link>
+
+          <Link to="/signin/kakao">
+            <button className={styles.oauthBtn2}>
+              <img
+                src="../../../images/kakaoicon.jpg"
+                alt="kakao"
+                className={styles.kakao}
+              ></img>
+            </button>
+          </Link>
         </div>
       </div>
     </section>

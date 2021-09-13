@@ -22,7 +22,7 @@ const SignInDetail = ({ isAuthorLogin, isAudienceLogin }) => {
             <span className={styles.infoText}>비밀번호</span>
           </li>
           <li className={styles.input}>
-            <input type="text" placeholder="password 입력해주세요"></input>
+            <input type="password" placeholder="password 입력해주세요"></input>
           </li>
           <li className={styles.input}>유효성검사none</li>
           {isAudienceLogin ? (

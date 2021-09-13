@@ -1,0 +1,43 @@
+@value Black, White from '../../common/colors.css';
+@value Container from '../../common/size.css';
+
+label {
+  display: block;
+}
+
+.container {
+  max-width: Container;
+  margin: 0 auto;
+  border: 1px solid red;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.modiBox {
+  border: 1px solid gold;
+  width: 80%;
+}
+.imgBox {
+  border: 1px solid gold;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.imgBorder {
+  /* label */
+  width: 200px;
+  height: 200px;
+  border: 1px solid red;
+  cursor: pointer;
+}
+.imgInput {
+  text-align: center;
+  width: 115px;
+  height: 30px;
+}
