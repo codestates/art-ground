@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
+
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
@@ -29,7 +30,9 @@ const Navbar = () => {
       <div className={styles.category}>
         <ul className={styles.categoryBox}>
           <li className={styles.title}>ABOUT</li>
-          <li className={styles.title}>GALLERY</li>
+          <Link to="/gallery">
+            <li className={styles.title}>GALLERY</li>
+          </Link>
           <li className={styles.title}>REVIEW</li>
           <li className={styles.title}>EXHIBITION??</li>
           <li className={styles.title}>CONTACT</li>

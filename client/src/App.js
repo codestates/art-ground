@@ -8,6 +8,7 @@ import SignIn from "./pages/signin/SignIn";
 import SignInDetail from "./pages/signindetail/SignInDetail";
 import MyPage from "./pages/mypage/MyPage";
 
+
 function App() {
   //가입
   const [isAuthorJoined, setIsAuthorJoined] = useState(false);
@@ -47,6 +48,9 @@ function App() {
         </Route>
         <Route exact path="/mypage">
           <MyPage />
+        </Route>
+        <Route path="/gallery">
+          <Gallery />
         </Route>
       </Switch>
     </Router>
