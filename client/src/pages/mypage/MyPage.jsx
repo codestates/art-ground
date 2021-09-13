@@ -3,6 +3,7 @@ import React from "react";
 import SideBar from "../../components/sidebar/SideBar";
 import MyInfo from "../../components/myinfo/MyInfo";
 
+
 const MyPage = (props) => {
   return (
     <section className={styles.container}>

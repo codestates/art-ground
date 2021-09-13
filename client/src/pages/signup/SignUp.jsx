@@ -1,6 +1,6 @@
-import styles from "./SignUp.module.css";
+import styles from './SignUp.module.css';
 
-import React from "react";
+import React from 'react';
 
 const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
   return (
@@ -51,38 +51,39 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
           </ul>
         </div>
       ) : null}
+
       {isAuthorJoined ? (
         <div className={styles.authorBox}>
           <ul className={styles.inputbox}>
             <li className={styles.title}>작가 회원가입</li>
             <li className={styles.info}>
-              <img src="../../../images/required.png" alt=""></img>
+              <img src='../../../images/required.png' alt='' />
               <span className={styles.infoText}>이메일</span>
             </li>
             <li className={styles.input}>
               <input
-                type="text"
-                placeholder="email입력해주세요"
+                type='text'
+                placeholder='email입력해주세요'
                 className={styles.email}
-              ></input>
+              />
               <button className={styles.mailckBtn}>인증하기</button>
             </li>
             <li className={styles.info}>
-              <img src="../../../images/required.png" alt=""></img>
+              <img src='../../../images/required.png' alt='' />
               <span className={styles.infoText}>닉네임</span>
             </li>
             <li className={styles.input}>
-              <input type="text" placeholder="nickname 입력해주세요"></input>
+              <input type='text' placeholder='nickname 입력해주세요' />
             </li>
             <li className={styles.info}>
-              <img src="../../../images/required.png" alt=""></img>
+              <img src='../../../images/required.png' alt='' />
               <span className={styles.infoText}>비밀번호</span>
             </li>
             <li className={styles.input}>
-              <input type="text" placeholder="password 입력해주세요"></input>
+              <input type='text' placeholder='password 입력해주세요' />
             </li>
             <li className={styles.input}>
-              <input type="text" placeholder="password 확인해주세요"></input>
+              <input type='text' placeholder='password 확인해주세요' />
             </li>
             <li className={styles.input}>유효성검사none</li>
             {/* 프로필사진 */}
@@ -90,8 +91,8 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
               <span className={styles.noRequiredText}>프로필이미지</span>
             </li>
             <li className={styles.profileBox}>
-              <div className={styles.imgBox}></div>
-              <input type="file" className={styles.addImg}></input>
+              <div className={styles.imgBox} />
+              <input type='file' className={styles.addImg} />
             </li>
             {/* 작가소개 */}
             <li className={styles.info}>
@@ -99,9 +100,9 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
             </li>
             <li className={styles.introInfoBox}>
               <textarea
-                placeholder="마이페이지에서 수정이 가능합니다."
+                placeholder='마이페이지에서 수정이 가능합니다.'
                 className={styles.introInfo}
-              ></textarea>
+              />
             </li>
             <li className={styles.joinBtn}>
               <button className={styles.realJoin2}>가입하기</button>
