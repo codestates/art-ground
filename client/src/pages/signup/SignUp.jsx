@@ -5,48 +5,53 @@ import React from 'react';
 const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
   return (
     <section className={styles.container}>
-      {isAudienceJoined
-        ? (
-          <div className={styles.audiencBox}>
-            <ul className={styles.inputbox}>
-              <li className={styles.title}>관람객 회원가입</li>
-              <li className={styles.info}>
-                <img src='../../../images/required.png' alt='' />
-                <span className={styles.infoText}>이메일</span>
-              </li>
-              <li className={styles.input}>
-                <input
-                  type='text'
-                  placeholder='email입력해주세요'
-                  className={styles.email}
-                />
-                <button className={styles.mailckBtn}>인증하기</button>
-              </li>
-              <li className={styles.info}>
-                <img src='../../../images/required.png' alt='' />
-                <span className={styles.infoText}>닉네임</span>
-              </li>
-              <li className={styles.input}>
-                <input type='text' placeholder='nickname 입력해주세요' />
-              </li>
-              <li className={styles.info}>
-                <img src='../../../images/required.png' alt='' />
-                <span className={styles.infoText}>비밀번호</span>
-              </li>
-              <li className={styles.input}>
-                <input type='text' placeholder='password 입력해주세요' />
-              </li>
-              <li className={styles.input}>
-                <input type='text' placeholder='password 확인해주세요' />
-              </li>
-              <li className={styles.input}>유효성검사none</li>
-              <li className={styles.joinBtn}>
-                <button className={styles.realJoin}>가입하기</button>
-              </li>
-            </ul>
-          </div>
-          )
-        : null}
+      {isAudienceJoined ? (
+        <div className={styles.audiencBox}>
+          <ul className={styles.inputbox}>
+            <li className={styles.title}>관람객 회원가입</li>
+            <li className={styles.info}>
+              <img src="../../../images/required.png" alt=""></img>
+              <span className={styles.infoText}>이메일</span>
+            </li>
+            <li className={styles.input}>
+              <input
+                type="text"
+                placeholder="email입력해주세요"
+                className={styles.email}
+              ></input>
+              <button className={styles.mailckBtn}>인증하기</button>
+            </li>
+            <li className={styles.info}>
+              <img src="../../../images/required.png" alt=""></img>
+              <span className={styles.infoText}>닉네임</span>
+            </li>
+            <li className={styles.input}>
+              <input type="text" placeholder="nickname 입력해주세요"></input>
+            </li>
+            <li className={styles.info}>
+              <img src="../../../images/required.png" alt=""></img>
+              <span className={styles.infoText}>비밀번호</span>
+            </li>
+            <li className={styles.input}>
+              <input
+                type="password"
+                placeholder="password 입력해주세요"
+              ></input>
+            </li>
+            <li className={styles.input}>
+              <input
+                type="password"
+                placeholder="password 확인해주세요"
+              ></input>
+            </li>
+            <li className={styles.input}>유효성검사none</li>
+            <li className={styles.joinBtn}>
+              <button className={styles.realJoin}>가입하기</button>
+            </li>
+          </ul>
+        </div>
+      ) : null}
+
       {isAuthorJoined ? (
         <div className={styles.authorBox}>
           <ul className={styles.inputbox}>

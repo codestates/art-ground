@@ -1,17 +1,22 @@
-import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Navbar from './components/navbar/Navbar';
-import Join from './pages/join/Join';
-import { useState } from 'react';
-import SignUp from './pages/signup/SignUp';
-import SignIn from './pages/signin/SignIn';
-import SignInDetail from './pages/signindetail/SignInDetail';
-import MyPage from './pages/mypage/MyPage';
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Navbar from "./components/navbar/Navbar";
+import Join from "./pages/join/Join";
+import { useState } from "react";
+import SignUp from "./pages/signup/SignUp";
+import SignIn from "./pages/signin/SignIn";
+import SignInDetail from "./pages/signindetail/SignInDetail";
+import MyPage from "./pages/mypage/MyPage";
+import SideBar from "./components/sidebar/SideBar";
+import MyInfo from "./components/myinfo/MyInfo";
+import Modify from "./pages/modify/Modify";
+import Google from "./pages/google/Google";
+import Kakao from "./pages/kakao/Kakao";
 import Gallery from './pages/gallery/Gallery';
 import GalleryDetail from './pages/galleryDetail/GalleryDetail';
 
-function App () {
-  // 가입
+function App() {
+  //가입
   const [isAuthorJoined, setIsAuthorJoined] = useState(false);
   const [isAudienceJoined, setIsAudienceJoined] = useState(false);
   // 로그인
@@ -35,7 +40,13 @@ function App () {
             isAudienceLogin={isAudienceLogin}
           />
         </Route>
-        <Route exact path='/join'>
+        <Route path="/signin/google">
+          <Google />
+        </Route>
+        <Route path="/signin/kakao">
+          <Kakao />
+        </Route>
+        <Route exact path="/join">
           <Join
             setIsAuthorJoined={setIsAuthorJoined}
             setIsAudienceJoined={setIsAudienceJoined}
@@ -56,6 +67,10 @@ function App () {
         <Route path='/artdetail'>
           <GalleryDetail />
         </Route>
+        <Route exact path="/modify">
+          <Modify />
+        </Route>
+        
       </Switch>
     </Router>
   );
