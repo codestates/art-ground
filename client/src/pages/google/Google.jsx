@@ -2,7 +2,7 @@ import styles from "./Google.module.css";
 
 import React from "react";
 
-const Google = (props) => {
+const Google = () => {
   return (
     <section className={styles.container}>
       <div>

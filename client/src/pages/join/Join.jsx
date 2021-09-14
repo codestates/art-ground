@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 
 const Join = ({ setIsAuthorJoined, setIsAudienceJoined }) => {
   const clickAudience = () => {
-    setIsAuthorJoined(true);
-    setIsAudienceJoined(false);
+    setIsAudienceJoined(true);
+    setIsAuthorJoined(false);
   };
 
   const clickAuthor = () => {
-    setIsAudienceJoined(true);
-    setIsAuthorJoined(false);
+    setIsAuthorJoined(true);
+    setIsAudienceJoined(false);
   };
 
   return (

@@ -7,8 +7,6 @@ import SignUp from "./pages/signup/SignUp";
 import SignIn from "./pages/signin/SignIn";
 import SignInDetail from "./pages/signindetail/SignInDetail";
 import MyPage from "./pages/mypage/MyPage";
-import SideBar from "./components/sidebar/SideBar";
-import MyInfo from "./components/myinfo/MyInfo";
 import Modify from "./pages/modify/Modify";
 import Google from "./pages/google/Google";
 import Kakao from "./pages/kakao/Kakao";
@@ -38,14 +36,12 @@ function App() {
             isAudienceLogin={isAudienceLogin}
           />
         </Route>
-
         <Route path="/signin/google">
           <Google />
         </Route>
         <Route path="/signin/kakao">
           <Kakao />
         </Route>
-
         <Route exact path="/join">
           <Join
             setIsAuthorJoined={setIsAuthorJoined}

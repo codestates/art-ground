@@ -21,7 +21,7 @@ span {
   width: 250px;
   height: 50px;
   background-color: White;
-  border: 1px solid grey;
+  border: 1px solid gainsboro;
   outline: none;
   cursor: pointer;
 }
@@ -54,6 +54,7 @@ span {
 .oauthBtn2 {
   width: 70px;
   height: 70px;
+  border: none;
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;

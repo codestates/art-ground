@@ -1,0 +1,10 @@
+@value Black, White from '../../common/colors.css';
+@value Container from '../../common/size.css';
+
+.container {
+  max-width: Container;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+  font-size: 30px;
+  text-align: center;
+}
