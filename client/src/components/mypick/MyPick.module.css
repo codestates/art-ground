@@ -1,0 +1,44 @@
+@value Black, White from '../../common/colors.css';
+@value Container from '../../common/size.css';
+
+.container {
+  max-width: Container;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.exBox {
+  border: 1px solid gainsboro;
+  padding: 0.2rem;
+  width: 90%;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.thumBox {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background-color: black;
+}
+.eximg {
+  width: 80%;
+  height: 100%;
+  margin-left: 10%;
+}
+.infoBox {
+  width: 100%;
+  height: 50px;
+  border: 1px solid gainsboro;
+}
+.title {
+  text-indent: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.date {
+  text-indent: 10px;
+  font-size: 0.8rem;
+}
