@@ -27,7 +27,7 @@
 
 /* 아래에서부터 단일 썸네일 */
 .objectList {
-  margin-top: 2.5rem;
+  margin-top: 1rem;
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -41,17 +41,26 @@
   margin: 0;
   object-fit: cover;
   /* background-size: cover; */
-  margin-bottom: 0.2rem;
 }
 
+.titleAndLike {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .title {
   font-size: 0.9rem;
-  margin-bottom: 0.1rem;
   color: rgb(44, 44, 44);
+}
+.like {
+  padding-right: 0.2rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: rgb(97, 97, 97);
 }
 
 .period {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: rgb(156, 156, 156);
 }
 

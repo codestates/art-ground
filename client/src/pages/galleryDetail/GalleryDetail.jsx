@@ -6,6 +6,7 @@ const GalleryDetail = ({viewArtDetail}) => {
 
   const [btnSlider, setBtnSlider] = useState(1);
 
+  const tags = ['#현대미술', '#일러스트레이션', '#회화']
   const sliderNum = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const dummyImg = [
     'https://t1.daumcdn.net/cfile/tistory/9995E34F5D5C9FB134',
@@ -25,7 +26,9 @@ const GalleryDetail = ({viewArtDetail}) => {
 
   return (
     <section className={styles.container}>
-      <div className={styles.space} />
+      <div className={styles.space}>
+        {tags.map(el=> <span className={styles.tag}>{el}</span>)}
+      </div>
       <div className={styles.title}>데이비드 호크니展</div>
 
       <div className={styles.outer}>
@@ -59,7 +62,7 @@ const GalleryDetail = ({viewArtDetail}) => {
       </div>
 
       <div className={styles.btnWrap}>
-        {sliderNum.map(el => <button className={styles.btn} onClick={() => slider(el)}> </button>)}
+        {sliderNum.map(el => <button className={el===btnSlider? styles.btnClicked : styles.btn} onClick={() => slider(el)}> </button>)}
       </div>
 
       <p className={styles.content}>생존작가로서 최고의 경매가를 기록한 데이비드 호크니의 작품 133점을 소개하는 아시아 지역 첫 대규모 개인전인 〈데이비드 호크니〉展에 여러분을 초대합니다.

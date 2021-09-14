@@ -46,6 +46,6 @@
   color: rgb(163, 163, 163);
 }
 
-.deleteBtn.hover {
+.deleteBtn:hover {
   color: rgb(46, 46, 46);
 }

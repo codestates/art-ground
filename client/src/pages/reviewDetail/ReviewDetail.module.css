@@ -23,6 +23,7 @@
 .imgBox {
   width: 35%;
   height: auto;
+  margin-left: 1.2rem;
 }
 
 .metaData {
@@ -55,6 +56,7 @@
   display: flex;
   padding: 0.7rem 0 0.25rem 0;
   border-bottom: 1px solid rgb(231, 231, 231);
+  font-size: 0.75rem;
 }
 
 .thumbnail {
@@ -104,7 +106,8 @@
 }
 
 .reply {
-  width: 80%;
+  /* border: 1px solid rgb(179, 179, 179); */
+  width: 90%;
   height: 2rem;
   border: none;
   font-size: 0.9rem;
@@ -114,18 +117,20 @@
   font-size: 0.8rem;
   height: 100%;
   padding: 0.5rem;
+  margin-bottom: 0.2rem;
   border: 1px solid rgb(172, 172, 172);
   border-radius: 5px;
   background-color: white;
   color: rgb(95, 95, 95);
   transition: 0.3s;
+  white-space: nowrap;
 }
 
 .replyIcon:hover {
   background-color: rgb(241, 241, 241);
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 680px) {
   .artDetail {
     flex-direction: column;
     /* align-items: center; */
@@ -133,6 +138,7 @@
   .imgBox {
     width: 60%;
     padding: 0 1.2rem;
+    margin-left: 0;
     /* align-items: center; */
   }
 

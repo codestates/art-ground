@@ -13,8 +13,20 @@
 }
 
 .space {
-  height: 4.8rem;
+  margin-top: 3rem;
   border-bottom: 1px solid rgb(201, 201, 201);
+  display: flex;
+  padding: 0.7rem 0 0.25rem 0.5rem;
+  border-bottom: 1px solid rgb(231, 231, 231);
+  font-size: 0.75rem;
+}
+
+.tag {
+  margin-right: 0.5rem;
+  border: 1px solid rgb(199, 199, 199);
+  border-radius: 5px;
+  padding: 0.2rem;
+  white-space: nowrap;
 }
 
 .title {
@@ -111,10 +123,18 @@
 .btn {
   cursor: pointer;
   margin: 0 0.5rem;
-  border: 1px solid gray;
+  border: 1px solid rgb(190, 190, 190);
   padding: 0.2rem;
   border-radius: 50%;
-  background-color: Gray;
+  background-color: rgb(190, 190, 190);
+}
+.btnClicked {
+  cursor: pointer;
+  margin: 0 0.5rem;
+  border: 1px solid rgb(53, 53, 53);
+  padding: 0.2rem;
+  border-radius: 50%;
+  background-color: rgb(53, 53, 53);
 }
 .content {
   padding: 4rem 2rem;

@@ -86,6 +86,9 @@
   .period {
     margin-top: 0.1rem;
   }
+  .reviewCount {
+    font-size: 0.75rem;
+  }
 
   .reviewBtn {
     margin-bottom: 0.5rem;
