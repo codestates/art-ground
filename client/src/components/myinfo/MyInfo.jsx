@@ -17,7 +17,11 @@ const MyInfo = () => {
       <div className={styles.infobox1}>
         <div className={styles.imgbox}>
           <div className={styles.imgborder}>
-            {/* <img src="" alt=""></img> */}
+            <img
+              className={styles.ProfileView}
+              src="../../../images/author.webp"
+              alt=""
+            ></img>
           </div>
         </div>
         <div className={styles.textbox}>
@@ -27,7 +31,7 @@ const MyInfo = () => {
               <input
                 type="text"
                 className={styles.inputbox}
-                defaultValue="tkdkagody@naver.com"
+                defaultValue="photographer@gmail.com"
                 readOnly
               ></input>
             </li>
@@ -36,7 +40,7 @@ const MyInfo = () => {
               <input
                 type="text"
                 className={styles.inputbox}
-                defaultValue="유다다"
+                defaultValue="photographer"
                 readOnly
               ></input>
             </li>
@@ -54,7 +58,7 @@ const MyInfo = () => {
             id="textarea"
             className={styles.authorText}
             placeholder="작가님을 소개해주세요"
-            defaultValue="안녕하세요 인물사진 전문가 유다다입니다. 많은 관심부탁드립니다"
+            defaultValue="무용가들의 우아한 동작과 섬세한 표정을 고스란히 담아내는 무용 사진가입니다. 무용가를 전문적으로 촬영한다는 점도 무척 신기한데, 마치 무대 위에서 함께 연기를 하기라도 한 듯 실감나게 표현한다는 점은 더욱 놀랍습니다. 그리고, 김윤식 작가가 체코국립발레단 소속의 현역 발레리노라는 사실까지 알게 되면 그에 대한 호기심은 더욱 커집니다. "
             readOnly
           ></textarea>
         </div>

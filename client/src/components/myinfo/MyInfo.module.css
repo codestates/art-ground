@@ -45,8 +45,14 @@
   width: 230px;
   height: 230px;
   border-radius: 50%;
-  background-color: black;
-  opacity: 0.3;
+  background-color: rgb(233, 233, 26);
+  /* opacity: 0.3; */
+}
+.ProfileView {
+  width: 100%;
+  height: 100%;
+  margin-left: 1px;
+  border-radius: 50%;
 }
 .textbox {
   flex: 3;
