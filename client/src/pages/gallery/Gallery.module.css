@@ -15,7 +15,7 @@
 
 .subNavBar {
   display: flex;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   border-bottom: 1px solid rgb(201, 201, 201);
   color: rgb(100, 100, 100);
 }
@@ -45,13 +45,13 @@
 }
 
 .title {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   margin-bottom: 0.1rem;
   color: rgb(44, 44, 44);
 }
 
 .period {
-  font-size: 0.5rem;
+  font-size: 0.7rem;
   color: rgb(156, 156, 156);
 }
 

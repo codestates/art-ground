@@ -1,0 +1,98 @@
+.container {
+  width: 100%;
+  display: flex;
+  margin: 2.5rem 0;
+  padding: 0 0.5rem;
+  border-bottom: 1px solid rgb(219, 219, 219);
+}
+
+.imgBox {
+  width: 35%;
+}
+.thumbnail {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  object-fit: cover;
+}
+
+.metaData {
+  padding-left: 0.8rem;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  color: rgb(44, 44, 44);
+}
+
+.period {
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  color: rgb(156, 156, 156);
+}
+
+.titleAndBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.reviewCount {
+  text-align: end;
+  font-size: 0.9rem;
+  color: rgb(221, 105, 105);
+  font-weight: bold;
+}
+.btnWrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+.reviewBtn {
+  cursor: pointer;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  width: 7rem;
+  color: rgb(95, 95, 95);
+  background-color: white;
+  border: 1px solid rgb(172, 172, 172);
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.reviewBtn:hover {
+  background-color: rgb(241, 241, 241);
+}
+
+@media screen and (max-width: 768px) {
+  .imgBox {
+    width: 45%;
+  }
+
+  .metaData {
+    width: 55%;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .title {
+    margin-top: 0.2rem;
+  }
+
+  .period {
+    margin-top: 0.1rem;
+  }
+
+  .reviewBtn {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    width: 6rem;
+  }
+  .btnWrap {
+    margin-top: 0.2rem;
+  }
+}

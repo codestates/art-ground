@@ -16,6 +16,8 @@ import Gallery from './pages/gallery/Gallery';
 import GalleryDetail from './pages/galleryDetail/GalleryDetail';
 import Main from "./pages/main/Main";
 import ArtDetail from "./components/artDetail/ArtDetail";
+import ReviewList from "./pages/reviewList/ReviewList";
+import ReviewDetail from "./pages/reviewDetail/ReviewDetail";
 
 function App() {
   //가입
@@ -89,6 +91,14 @@ function App() {
         <Route path='/artdetail'>
           <ArtDetail art={artDetail}/>
         </Route> : null}
+        <Route path='/reviewlist'>
+          <Navbar />  
+          <ReviewList />
+        </Route>
+        <Route path='/reviewdetail'>
+          <Navbar />  
+          <ReviewDetail />
+        </Route>
         <Route exact path="/modify">
         <Navbar /> 
           <Modify />
