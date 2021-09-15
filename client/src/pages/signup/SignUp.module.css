@@ -38,11 +38,18 @@
 input {
   width: 25rem;
   height: 3rem;
-  border: none;
   border: 1px solid gainsboro;
   text-indent: 10px;
   outline: none;
   font-size: 1rem;
+}
+
+.errmsg {
+  width: 30rem;
+  height: 3rem;
+  text-align: center;
+  color: red;
+  font-weight: bold;
 }
 
 /*email */
@@ -95,24 +102,56 @@ img {
   text-indent: 3rem;
   font-size: 13px;
 }
+/* profile img */
 .profileBox {
   width: 30rem;
-  height: 12rem;
-  text-align: center;
+  height: 15rem;
   margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.imgBox {
-  border: 1px solid grey;
-  width: 18rem;
-  height: 9rem;
-  margin: 0 auto;
-  border-radius: 30%;
+.imgBorder {
+  width: 200px;
+  height: 200px;
+  background-color: gainsboro;
+  border-radius: 50%;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
-.addImg {
-  width: 18rem;
-  height: 2rem;
-  margin: 0.8rem 0 0 0.8rem;
+.imgInput {
+  text-align: center;
+  width: 115px;
+  height: 30px;
+  position: absolute;
+  top: 900px;
 }
+.ProfileView {
+  width: 100%;
+  height: 100%;
+  margin-left: 1px;
+}
+.editbox {
+  z-index: 1;
+  width: 3%;
+  height: 6%;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 950px;
+  right: 830px;
+}
+.edit {
+  width: 90%;
+  height: 90%;
+  z-index: 2;
+  margin-left: 4px;
+  margin-top: 4px;
+  cursor: pointer;
+}
+/* author intro */
 .introInfoBox {
   display: flex;
   flex-direction: row;
@@ -126,7 +165,40 @@ img {
   border: 1px solid gainsboro;
   outline: none;
   text-indent: 0.2rem;
+  overflow-y: scroll;
+  resize: none;
 }
 .realJoin2 {
   margin-top: 25px;
+}
+
+/* pass visibility */
+.passinput {
+  width: 25.5rem;
+  height: 3rem;
+  margin-bottom: 2rem;
+  border: 1px solid gainsboro;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: 36px;
+}
+.visibility {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  margin-top: 2px;
+  position: relative;
+  left: -10px;
+}
+.eyeimg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: -40px;
+}
+.passborder {
+  border: 0;
+  height: 2.5rem;
 }

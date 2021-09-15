@@ -1,6 +1,6 @@
-import styles from "./Kakao.module.css";
+import styles from './Kakao.module.css';
 
-import React from "react";
+import React from 'react';
 
 const Kakao = () => {
   return (
