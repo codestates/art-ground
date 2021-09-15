@@ -1,5 +1,8 @@
-const express = require('express');
-const logger = require('morgan');
+
+const express = require("express");
+const logger = require("morgan");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 class App {
   constructor () {
@@ -23,10 +26,22 @@ class App {
     this.app.use(logger('dev'));
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: false }));
+    this.app.use(
+      cors({
+        origin: [
+          "http://localhost:3000",
+          "http://pickmeup-client.s3-website.ap-northeast-2.amazonaws.com",
+        ],
+        credentials: true,
+        methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
+      })
+    ); // 응답 상태 200으로 설정}));
+    this.app.use(cookieParser());
   }
 
-  getRouting () {
-    this.app.use(require('./controllers'));
+  getRouting() {
+    this.app.use(require("./controllers"));
+
 
     this.app.get('/', (req, res) => {
       res.status(200).send('hello world');

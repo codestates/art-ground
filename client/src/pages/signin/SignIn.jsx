@@ -34,15 +34,17 @@ const SignIn = ({ setIsAuthorLogin, setIsAudienceLogin }) => {
         </Link>
         <div className={styles.oauthBox}>
 
-          <Link to='/signin/google'>
-            <button className={styles.oauthBtn1}>
+          <button className={styles.oauthBtn1}>
+            <a href="https://accounts.google.com/o/oauth2/v2/auth?scope=openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20&access_type=offline&include_granted_scopes=true&response_type=code&state=state_parameter_passthrough_value&redirect_uri=http://localhost:3000/signin/google&client_id=712078359002-ms5bo3h03tenocjb8sib9mdq6q46jdet.apps.googleusercontent.com">
+
               <img
                 src='../../../images/googleicon.png'
                 alt='google'
                 className={styles.google}
-              />
-            </button>
-          </Link>
+
+              ></img>
+            </a>
+          </button>
 
           <Link to='/signin/kakao'>
             <button className={styles.oauthBtn2}>
