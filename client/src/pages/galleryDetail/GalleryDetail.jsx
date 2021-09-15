@@ -17,7 +17,7 @@ const GalleryDetail = (props) => {
     'https://images.velog.io/images/devjade/post/794f3b2c-f679-4d69-9bd8-b845efd96993/image.png'
   ];
 
-  const slider = (el) => { //슬라이더 기능 수정해야 함.....
+  const slider = (el) => { // 슬라이더 기능 수정해야 함.....
     setBtnSlider(el);
   };
 
@@ -28,25 +28,26 @@ const GalleryDetail = (props) => {
 
       <div className={styles.outer}>
         <div className={
-          btnSlider === 1 ? 
-          styles.sliderOuter :
-          btnSlider === 2 ?
-          styles.sliderOuter2 :
-          btnSlider === 3 ?
-          styles.sliderOuter3 :
-          btnSlider === 4 ? 
-          styles.sliderOuter4 :
-          btnSlider === 5 ?
-          styles.sliderOuter5 :
-          btnSlider === 6 ?
-          styles.sliderOuter6 :
-          btnSlider === 7 ? 
-          styles.sliderOuter7 :
-          btnSlider === 8 ?
-          styles.sliderOuter8 :
-          styles.sliderOuter9 
-          }>
-          
+          btnSlider === 1
+            ? styles.sliderOuter
+            : btnSlider === 2
+              ? styles.sliderOuter2
+              : btnSlider === 3
+                ? styles.sliderOuter3
+                : btnSlider === 4
+                  ? styles.sliderOuter4
+                  : btnSlider === 5
+                    ? styles.sliderOuter5
+                    : btnSlider === 6
+                      ? styles.sliderOuter6
+                      : btnSlider === 7
+                        ? styles.sliderOuter7
+                        : btnSlider === 8
+                          ? styles.sliderOuter8
+                          : styles.sliderOuter9
+          }
+        >
+
           {dummyImg.map(el =>
             <div className={styles.sliderWrap}>
               <img className={styles.slider} src='https://images.velog.io/images/devjade/post/1716edd9-798c-4cf2-9fe9-26f8537d8084/image.png' alt='slider' />

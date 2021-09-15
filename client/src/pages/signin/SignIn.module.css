@@ -24,10 +24,12 @@ span {
   border: 1px solid grey;
   outline: none;
   cursor: pointer;
+  transition: all 0.5s;
 }
 .btn:hover {
-  background-color: rgb(49, 45, 45);
+  background-color: black;
   color: white;
+  transition: transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02);
 }
 .btn.second {
   margin-top: 3rem;
@@ -57,6 +59,7 @@ span {
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
+  border: none;
 }
 .oauthBtn1 {
   width: 70px;

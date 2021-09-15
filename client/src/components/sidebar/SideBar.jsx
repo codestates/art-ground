@@ -9,6 +9,7 @@ const SideBar = () => {
       <div className={styles.category}>찜한 전시회</div>
       <div className={styles.category}>내 전시회</div>
       <div className={styles.category}>내가 참여한 경매</div>
+      준비중입니다 페이지로 바뀔예정..
     </section>
   );
 };

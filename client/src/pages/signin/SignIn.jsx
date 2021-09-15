@@ -1,8 +1,7 @@
-import styles from "./SignIn.module.css";
-import React from "react";
-import { Link, useHistory } from "react-router-dom";
-import Google from "../google/Google";
-
+import styles from './SignIn.module.css';
+import React from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import Google from '../google/Google';
 
 const SignIn = ({ setIsAuthorLogin, setIsAudienceLogin }) => {
   const history = useHistory();
@@ -35,23 +34,23 @@ const SignIn = ({ setIsAuthorLogin, setIsAudienceLogin }) => {
         </Link>
         <div className={styles.oauthBox}>
 
-          <Link to="/signin/google">
+          <Link to='/signin/google'>
             <button className={styles.oauthBtn1}>
               <img
-                src="../../../images/googleicon.png"
-                alt="google"
+                src='../../../images/googleicon.png'
+                alt='google'
                 className={styles.google}
-              ></img>
+              />
             </button>
           </Link>
 
-          <Link to="/signin/kakao">
+          <Link to='/signin/kakao'>
             <button className={styles.oauthBtn2}>
               <img
-                src="../../../images/kakaoicon.jpg"
-                alt="kakao"
+                src='../../../images/kakaoicon.jpg'
+                alt='kakao'
                 className={styles.kakao}
-              ></img>
+              />
             </button>
           </Link>
         </div>
