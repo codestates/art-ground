@@ -1,6 +1,5 @@
 import './App.css';
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
@@ -19,6 +18,7 @@ import MyInfo from './components/myinfo/MyInfo';
 import Modify from './pages/modify/Modify';
 import Google from './pages/google/Google';
 import Kakao from './pages/kakao/Kakao';
+
 import Gallery from './pages/gallery/Gallery';
 import GalleryDetail from './pages/galleryDetail/GalleryDetail';
 
@@ -26,6 +26,8 @@ import axios from 'axios';
 
 import Main from "./pages/main/Main";
 import ArtDetail from "./components/artDetail/ArtDetail";
+import ReviewList from "./pages/reviewList/ReviewList";
+import ReviewDetail from "./pages/reviewDetail/ReviewDetail";
 
 
 function App () {
@@ -93,7 +95,6 @@ function App () {
   }
 
   return (
-    <Router>
       <Switch>
         <Route exact path='/'>
           <Main />
@@ -158,13 +159,20 @@ function App () {
         <Route path='/artdetail'>
           <ArtDetail art={artDetail}/>
         </Route> : null}
+        <Route path='/reviewlist'>
+          <Navbar />  
+          <ReviewList />
+        </Route>
+        <Route path='/reviewdetail'>
+          <Navbar />  
+          <ReviewDetail />
+        </Route>
         <Route exact path="/modify">
         <Navbar /> 
           <Modify  userinfo={userinfo}/>
 
         </Route>
       </Switch>
-    </Router>
   );
 }
 
