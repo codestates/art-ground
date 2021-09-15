@@ -21,8 +21,12 @@ import Google from './pages/google/Google';
 import Kakao from './pages/kakao/Kakao';
 import Gallery from './pages/gallery/Gallery';
 import GalleryDetail from './pages/galleryDetail/GalleryDetail';
-import Landing from './pages/landing/Landing';
+
 import axios from 'axios';
+
+import Main from "./pages/main/Main";
+import ArtDetail from "./components/artDetail/ArtDetail";
+
 
 function App () {
   const history = useHistory();
@@ -31,6 +35,7 @@ function App () {
   const [isAudienceJoined, setIsAudienceJoined] = useState(false);
   const [isAuthorLogin, setIsAuthorLogin] = useState(false);
   const [isAudienceLogin, setIsAudienceLogin] = useState(false);
+
   // 로그인,유저인포(상태)
   const [isLogin, setIsLogin] = useState(false);
   const [userinfo, setUserinfo] = useState(null);
@@ -79,49 +84,84 @@ function App () {
       <Switch>
         <Route exact path='/'>
           <Landing isLogin={isLogin} userinfo={userinfo} />
+
+  // 개별작품상세
+  const [artDetail, setArtDetail] = useState('');
+
+  const viewArtDetail = (el) => {
+    setArtDetail(el);
+  }
+
+  return (
+    <Router>
+      <Switch>
+        <Route exact path='/'>
+          <Main />
+
         </Route>
         <Route exact path='/signin'>
+          <Navbar /> 
           <SignIn
             setIsAuthorLogin={setIsAuthorLogin}
             setIsAudienceLogin={setIsAudienceLogin}
           />
         </Route>
         <Route path='/signin/detail'>
+          <Navbar /> 
           <SignInDetail
             isAuthorLogin={isAuthorLogin}
             isAudienceLogin={isAudienceLogin}
             handleResponseSuccess={handleResponseSuccess}
           />
         </Route>
-        <Route path='/signin/google'>
+
+        <Route path="/signin/google">
+          <Navbar /> 
           <Google />
         </Route>
-        <Route path='/signin/kakao'>
+        <Route path="/signin/kakao">
+          <Navbar /> 
           <Kakao />
         </Route>
-        <Route exact path='/join'>
+        <Route exact path="/join">
+          <Navbar /> 
           <Join
             setIsAuthorJoined={setIsAuthorJoined}
             setIsAudienceJoined={setIsAudienceJoined}
           />
         </Route>
         <Route path='/join/signup'>
+          <Navbar /> 
           <SignUp
             isAuthorJoined={isAuthorJoined}
             isAudienceJoined={isAudienceJoined}
           />
         </Route>
         <Route exact path='/mypage'>
+<Navbar /> 
           {isLogin ? <MyPage userinfo={userinfo} /> : <SideBar />}
+
+           
+          
+
         </Route>
         <Route path='/gallery'>
+          <Navbar />  
           <Gallery />
         </Route>
-        <Route path='/artdetail'>
-          <GalleryDetail />
+        <Route path='/gallerydetail'>
+          <Navbar />  
+          <GalleryDetail viewArtDetail={viewArtDetail}/>
         </Route>
-        <Route exact path='/modify'>
-          <Modify userinfo={userinfo} />
+
+        {artDetail ? 
+        <Route path='/artdetail'>
+          <ArtDetail art={artDetail}/>
+        </Route> : null}
+        <Route exact path="/modify">
+        <Navbar /> 
+          <Modify  userinfo={userinfo}/>
+
         </Route>
       </Switch>
     </Router>

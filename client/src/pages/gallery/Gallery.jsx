@@ -11,7 +11,7 @@ const Gallery = (props) => {
         <span className={styles.subMenu}>PREMIUM</span>
       </div>
       <ul className={styles.objectList}>
-        <Link to='/artdetail'>
+        <Link to='/gallerydetail'>
           <li className={styles.object}>
             <img className={styles.thumbnail} src='http://www.news-paper.co.kr/news/photo/201903/39919_25361_5530.jpg' alt='thumbnail' />
             <div className={styles.title}>데이비드 호크니展</div>
