@@ -20,10 +20,10 @@ import Kakao from './pages/kakao/Kakao';
 import Gallery from './pages/gallery/Gallery';
 import GalleryDetail from './pages/galleryDetail/GalleryDetail';
 import axios from 'axios';
-import Main from "./pages/main/Main";
 import ArtDetail from "./components/artDetail/ArtDetail";
 import ReviewList from "./pages/reviewList/ReviewList";
 import ReviewDetail from "./pages/reviewDetail/ReviewDetail";
+import Landing from './pages/landing/Landing';
 
 
 function App () {
@@ -195,7 +195,6 @@ function App () {
             handleLogout={handleLogout}
           />  
           <Modify  userinfo={userinfo}/>
-
         </Route>
       </Switch>
   );
