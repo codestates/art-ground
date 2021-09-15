@@ -57,7 +57,10 @@ const Navbar = ({ isLogin, handleLogout }) => {
             <Link to='/reviewlist'>
               <li className={styles.title}>REVIEW</li>
             </Link>
-            <li className={styles.title}>EXHIBITION??</li>
+            <Link to='/register'>
+              <li className={styles.title}>REGISTER</li>
+            </Link>
+            <li className={styles.title}>AUCTION</li>
             <li className={styles.title}>CONTACT</li>
           </ul>
         </div>

@@ -24,6 +24,7 @@ import ArtDetail from "./components/artDetail/ArtDetail";
 import ReviewList from "./pages/reviewList/ReviewList";
 import ReviewDetail from "./pages/reviewDetail/ReviewDetail";
 import Landing from './pages/landing/Landing';
+import Register from './pages/register/Register';
 
 
 function App () {
@@ -78,125 +79,133 @@ function App () {
   }
 
   return (
-      <Switch>
-        <Route exact path='/'>
-          <Landing isLogin={isLogin} userinfo={userinfo} />
-        </Route>
-        <Route exact path='/signin'>
-          <Navbar
-            isLogin={isLogin}
-            userinfo={userinfo}
-            handleLogout={handleLogout}
-          /> 
-          <SignIn
-            setIsAuthorLogin={setIsAuthorLogin}
-            setIsAudienceLogin={setIsAudienceLogin}
-          />
-        </Route>
-        <Route path='/signin/detail'>
-          <Navbar
-            isLogin={isLogin}
-            userinfo={userinfo}
-            handleLogout={handleLogout}
-          />  
-          <SignInDetail
-            isAuthorLogin={isAuthorLogin}
-            isAudienceLogin={isAudienceLogin}
-            handleResponseSuccess={handleResponseSuccess}
-          />
-        </Route>
-
-        <Route path="/signin/google">
-          <Navbar
-            isLogin={isLogin}
-            userinfo={userinfo}
-            handleLogout={handleLogout}
-          /> 
-          <Google />
-        </Route>
-        <Route path="/signin/kakao">
-          <Navbar
-            isLogin={isLogin}
-            userinfo={userinfo}
-            handleLogout={handleLogout}
-          /> 
-          <Kakao />
-        </Route>
-        <Route exact path="/join">
-          <Navbar
-            isLogin={isLogin}
-            userinfo={userinfo}
-            handleLogout={handleLogout}
-          />  
-          <Join
-            setIsAuthorJoined={setIsAuthorJoined}
-            setIsAudienceJoined={setIsAudienceJoined}
-          />
-        </Route>
-        <Route path='/join/signup'>
+    <Switch>
+      <Route exact path='/'>
+        <Landing isLogin={isLogin} userinfo={userinfo} />
+      </Route>
+      <Route exact path='/signin'>
         <Navbar
-            isLogin={isLogin}
-            userinfo={userinfo}
-            handleLogout={handleLogout}
-          /> 
-          <SignUp
-            isAuthorJoined={isAuthorJoined}
-            isAudienceJoined={isAudienceJoined}
-          />
-        </Route>
-        <Route exact path='/mypage'>
-          <Navbar
-            isLogin={isLogin}
-            userinfo={userinfo}
-            handleLogout={handleLogout}
-          /> 
-          {isLogin ? <MyPage userinfo={userinfo} /> : <SideBar />}
-        </Route>
-        <Route path='/gallery'>
-          <Navbar
-            isLogin={isLogin}
-            userinfo={userinfo}
-            handleLogout={handleLogout}
-          />  
-          <Gallery />
-        </Route>
-        <Route path='/gallerydetail'>
-          <Navbar
-            isLogin={isLogin}
-            userinfo={userinfo}
-            handleLogout={handleLogout}
-          />  
-          <GalleryDetail viewArtDetail={viewArtDetail}/>
-        </Route>
-        {artDetail ? 
-        <Route path='/artdetail'>
-          <ArtDetail art={artDetail}/>
-        </Route> : null}
-        <Route path='/reviewlist'>
-          <Navbar
-            isLogin={isLogin}
-            userinfo={userinfo}
-            handleLogout={handleLogout}
-          />    
-          <ReviewList />
-        </Route>
-        <Route path='/reviewdetail'>
-          <Navbar
-            isLogin={isLogin}
-            userinfo={userinfo}
-            handleLogout={handleLogout}
-          />    
-          <ReviewDetail />
-        </Route>
-        <Route exact path="/modify">
-          <Navbar
-            isLogin={isLogin}
-            userinfo={userinfo}
-            handleLogout={handleLogout}
-          />  
-          <Modify  userinfo={userinfo}/>
-        </Route>
-      </Switch>
+          isLogin={isLogin}
+          userinfo={userinfo}
+          handleLogout={handleLogout}
+        /> 
+        <SignIn
+          setIsAuthorLogin={setIsAuthorLogin}
+          setIsAudienceLogin={setIsAudienceLogin}
+        />
+      </Route>
+      <Route path='/signin/detail'>
+        <Navbar
+          isLogin={isLogin}
+          userinfo={userinfo}
+          handleLogout={handleLogout}
+        />  
+        <SignInDetail
+          isAuthorLogin={isAuthorLogin}
+          isAudienceLogin={isAudienceLogin}
+          handleResponseSuccess={handleResponseSuccess}
+        />
+      </Route>
+
+      <Route path="/signin/google">
+        <Navbar
+          isLogin={isLogin}
+          userinfo={userinfo}
+          handleLogout={handleLogout}
+        /> 
+        <Google />
+      </Route>
+      <Route path="/signin/kakao">
+        <Navbar
+          isLogin={isLogin}
+          userinfo={userinfo}
+          handleLogout={handleLogout}
+        /> 
+        <Kakao />
+      </Route>
+      <Route exact path="/join">
+        <Navbar
+          isLogin={isLogin}
+          userinfo={userinfo}
+          handleLogout={handleLogout}
+        />  
+        <Join
+          setIsAuthorJoined={setIsAuthorJoined}
+          setIsAudienceJoined={setIsAudienceJoined}
+        />
+      </Route>
+      <Route path='/join/signup'>
+      <Navbar
+          isLogin={isLogin}
+          userinfo={userinfo}
+          handleLogout={handleLogout}
+        /> 
+        <SignUp
+          isAuthorJoined={isAuthorJoined}
+          isAudienceJoined={isAudienceJoined}
+        />
+      </Route>
+      <Route exact path='/mypage'>
+        <Navbar
+          isLogin={isLogin}
+          userinfo={userinfo}
+          handleLogout={handleLogout}
+        /> 
+        {isLogin ? <MyPage userinfo={userinfo} /> : <SideBar />}
+      </Route>
+      <Route path='/gallery'>
+        <Navbar
+          isLogin={isLogin}
+          userinfo={userinfo}
+          handleLogout={handleLogout}
+        />  
+        <Gallery />
+      </Route>
+      <Route path='/gallerydetail'>
+        <Navbar
+          isLogin={isLogin}
+          userinfo={userinfo}
+          handleLogout={handleLogout}
+        />  
+        <GalleryDetail viewArtDetail={viewArtDetail}/>
+      </Route>
+      {artDetail ? 
+      <Route path='/artdetail'>
+        <ArtDetail art={artDetail}/>
+      </Route> : null}
+      <Route path='/reviewlist'>
+        <Navbar
+          isLogin={isLogin}
+          userinfo={userinfo}
+          handleLogout={handleLogout}
+        />    
+        <ReviewList />
+      </Route>
+      <Route path='/reviewdetail'>
+        <Navbar
+          isLogin={isLogin}
+          userinfo={userinfo}
+          handleLogout={handleLogout}
+        />    
+        <ReviewDetail />
+      </Route>
+      <Route path='/register'>
+        <Navbar
+          isLogin={isLogin}
+          userinfo={userinfo}
+          handleLogout={handleLogout}
+        />    
+        <Register />
+      </Route>
+      <Route exact path="/modify">
+        <Navbar
+          isLogin={isLogin}
+          userinfo={userinfo}
+          handleLogout={handleLogout}
+        />  
+        <Modify  userinfo={userinfo}/>
+      </Route>
+    </Switch>
   );
 }
 
