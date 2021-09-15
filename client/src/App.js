@@ -5,7 +5,6 @@ import {
   Redirect,
   useHistory
 } from 'react-router-dom';
-
 import Navbar from './components/navbar/Navbar';
 import Join from './pages/join/Join';
 import { useEffect, useState } from 'react';
@@ -18,12 +17,9 @@ import MyInfo from './components/myinfo/MyInfo';
 import Modify from './pages/modify/Modify';
 import Google from './pages/google/Google';
 import Kakao from './pages/kakao/Kakao';
-
 import Gallery from './pages/gallery/Gallery';
 import GalleryDetail from './pages/galleryDetail/GalleryDetail';
-
 import axios from 'axios';
-
 import Main from "./pages/main/Main";
 import ArtDetail from "./components/artDetail/ArtDetail";
 import ReviewList from "./pages/reviewList/ReviewList";
@@ -72,20 +68,7 @@ function App () {
     setUserinfo(null);
     setIsLogin(false);
   };
-
   useEffect(() => {}, []);
-
-  return (
-    <Router>
-      <Navbar
-        isLogin={isLogin}
-        userinfo={userinfo}
-        handleLogout={handleLogout}
-      />
-
-      <Switch>
-        <Route exact path='/'>
-          <Landing isLogin={isLogin} userinfo={userinfo} />
 
   // 개별작품상세
   const [artDetail, setArtDetail] = useState('');
@@ -97,18 +80,25 @@ function App () {
   return (
       <Switch>
         <Route exact path='/'>
-          <Main />
-
+          <Landing isLogin={isLogin} userinfo={userinfo} />
         </Route>
         <Route exact path='/signin'>
-          <Navbar /> 
+          <Navbar
+            isLogin={isLogin}
+            userinfo={userinfo}
+            handleLogout={handleLogout}
+          /> 
           <SignIn
             setIsAuthorLogin={setIsAuthorLogin}
             setIsAudienceLogin={setIsAudienceLogin}
           />
         </Route>
         <Route path='/signin/detail'>
-          <Navbar /> 
+          <Navbar
+            isLogin={isLogin}
+            userinfo={userinfo}
+            handleLogout={handleLogout}
+          />  
           <SignInDetail
             isAuthorLogin={isAuthorLogin}
             isAudienceLogin={isAudienceLogin}
@@ -117,58 +107,93 @@ function App () {
         </Route>
 
         <Route path="/signin/google">
-          <Navbar /> 
+          <Navbar
+            isLogin={isLogin}
+            userinfo={userinfo}
+            handleLogout={handleLogout}
+          /> 
           <Google />
         </Route>
         <Route path="/signin/kakao">
-          <Navbar /> 
+          <Navbar
+            isLogin={isLogin}
+            userinfo={userinfo}
+            handleLogout={handleLogout}
+          /> 
           <Kakao />
         </Route>
         <Route exact path="/join">
-          <Navbar /> 
+          <Navbar
+            isLogin={isLogin}
+            userinfo={userinfo}
+            handleLogout={handleLogout}
+          />  
           <Join
             setIsAuthorJoined={setIsAuthorJoined}
             setIsAudienceJoined={setIsAudienceJoined}
           />
         </Route>
         <Route path='/join/signup'>
-          <Navbar /> 
+        <Navbar
+            isLogin={isLogin}
+            userinfo={userinfo}
+            handleLogout={handleLogout}
+          /> 
           <SignUp
             isAuthorJoined={isAuthorJoined}
             isAudienceJoined={isAudienceJoined}
           />
         </Route>
         <Route exact path='/mypage'>
-<Navbar /> 
+          <Navbar
+            isLogin={isLogin}
+            userinfo={userinfo}
+            handleLogout={handleLogout}
+          /> 
           {isLogin ? <MyPage userinfo={userinfo} /> : <SideBar />}
-
-           
-          
-
         </Route>
         <Route path='/gallery'>
-          <Navbar />  
+          <Navbar
+            isLogin={isLogin}
+            userinfo={userinfo}
+            handleLogout={handleLogout}
+          />  
           <Gallery />
         </Route>
         <Route path='/gallerydetail'>
-          <Navbar />  
+          <Navbar
+            isLogin={isLogin}
+            userinfo={userinfo}
+            handleLogout={handleLogout}
+          />  
           <GalleryDetail viewArtDetail={viewArtDetail}/>
         </Route>
-
         {artDetail ? 
         <Route path='/artdetail'>
           <ArtDetail art={artDetail}/>
         </Route> : null}
         <Route path='/reviewlist'>
-          <Navbar />  
+          <Navbar
+            isLogin={isLogin}
+            userinfo={userinfo}
+            handleLogout={handleLogout}
+          />    
           <ReviewList />
         </Route>
         <Route path='/reviewdetail'>
-          <Navbar />  
+          <Navbar
+            isLogin={isLogin}
+            userinfo={userinfo}
+            handleLogout={handleLogout}
+          />    
           <ReviewDetail />
         </Route>
         <Route exact path="/modify">
-        <Navbar /> 
+          <Navbar
+            isLogin={isLogin}
+            userinfo={userinfo}
+            handleLogout={handleLogout}
+          />  
           <Modify  userinfo={userinfo}/>
 
         </Route>
