@@ -1,0 +1,7 @@
+@value Black, White from '../../common/colors.css';
+@value Container from '../../common/size.css';
+
+.container {
+  max-width: Container;
+  margin: 0 auto;
+}
