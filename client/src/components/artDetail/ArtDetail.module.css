@@ -1,0 +1,29 @@
+.background {
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  position: relative;
+}
+
+.img {
+  position: absolute;
+  width: auto;
+  height: 90vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  color: gray;
+  font-size: 1.5rem;
+}
+
+.closeBtn:hover {
+  color: whitesmoke;
+}
