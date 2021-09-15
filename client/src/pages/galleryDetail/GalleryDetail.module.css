@@ -197,6 +197,7 @@
   padding: 2rem 0.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-rows: repeat(auto-fit); */
   grid-column-gap: 0.5rem;
   grid-row-gap: 1.2rem;
   list-style: none;

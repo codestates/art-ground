@@ -35,35 +35,6 @@
   grid-row-gap: 2.5rem;
 }
 
-.thumbnail {
-  width: 100%;
-  height: auto;
-  margin: 0;
-  object-fit: cover;
-  /* background-size: cover; */
-}
-
-.titleAndLike {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.title {
-  font-size: 0.9rem;
-  color: rgb(44, 44, 44);
-}
-.like {
-  padding-right: 0.2rem;
-  font-size: 1.3rem;
-  cursor: pointer;
-  color: rgb(97, 97, 97);
-}
-
-.period {
-  font-size: 0.8rem;
-  color: rgb(156, 156, 156);
-}
-
 @media screen and (max-width: 768px) {
   .objectList {
     grid-template-columns: 1fr 1fr;

@@ -5,12 +5,14 @@
 }
 
 .subMenu {
+  font-size: 0.9rem;
   cursor: pointer;
   display: block;
   margin: 3rem 0.5rem 0.5rem 0.5rem;
   color: rgb(150, 150, 150);
 }
 .subMenuClicked {
+  font-size: 0.9rem;
   cursor: pointer;
   display: block;
   margin: 3rem 0.5rem 0.5rem 0.5rem;
@@ -20,10 +22,14 @@
 .categories {
   display: flex;
   align-items: center;
-  margin-top: 1rem;
-  padding-left: 0.5rem;
+  margin: 1rem 0 1rem 0;
+  padding: 0 0.5rem;
   width: 100%;
-  overflow: hidden;
+  overflow-x: scroll;
+}
+
+.categories::-webkit-scrollbar {
+  display: none;
 }
 
 .hashtag {

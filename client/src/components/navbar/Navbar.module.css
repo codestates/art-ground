@@ -12,6 +12,16 @@ span {
   max-width: Container;
   margin: 0 auto;
 }
+
+/* .topNavBox {
+  display: flex;
+  justify-content: space-between;
+} */
+
+.moreOpt {
+  display: none;
+}
+
 .btns {
   /* max-width: 100%; */
   list-style: none;
@@ -19,18 +29,21 @@ span {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  margin-right: 1.5rem;
 }
 .btn {
-  width: 7rem;
-  padding: 0.9em 0.5em 0.9em 0.5em;
-  text-align: center;
+  display: inline-block;
+  width: auto;
+  margin: 1.8em 0.8rem;
+  text-align: right;
   background-color: none;
   border: none;
   cursor: pointer;
   font-size: 0.8rem;
+  white-space: nowrap;
 }
 .logo {
-  height: 10rem;
+  height: 7rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,18 +56,111 @@ span {
   font-weight: bold;
   text-align: center;
   cursor: pointer;
+  /* white-space: nowrap; */
 }
 
 .categoryBox {
+  font-size: 0.95rem;
   list-style: none;
+  height: 3.2rem;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 .title {
-  width: 10rem;
-  height: 2rem;
+  width: 5rem;
+  line-height: 3.2rem;
   color: White;
   text-align: center;
   cursor: pointer;
+}
+.title:hover {
+  font-weight: bold;
+}
+
+.closeBtn {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .moreOpt {
+    all: unset;
+    cursor: pointer;
+    color: white;
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
+    font-size: 1.2rem;
+  }
+  .topNavBox {
+    display: flex;
+    justify-content: space-between;
+  }
+  .category {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15rem;
+    height: 100vh;
+    background-color: rgb(251, 251, 251);
+    opacity: 0.957;
+    box-shadow: -1px 0 15px rgba(83, 83, 83, 0.15);
+    transition: 0.4s;
+  }
+  .categoryBox {
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 3rem 3rem 3rem;
+    row-gap: 2.5rem;
+  }
+
+  .closeBtn {
+    all: unset;
+    cursor: pointer;
+    color: rgb(125, 125, 125);
+    position: absolute;
+    top: 1rem;
+    left: 13rem;
+    transition: 0.3s;
+  }
+  .closeBtn:hover {
+    color: rgb(0, 0, 0);
+  }
+  .title {
+    all: unset;
+    color: rgb(47, 47, 47);
+  }
+
+  .categoryClose {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 15rem;
+    height: 100vh;
+    background-color: white;
+    box-shadow: -1px 0 4px rgba(83, 83, 83, 0.15);
+    transition: 0.4s;
+  }
+  .logo {
+    padding-bottom: 1.5rem;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .btns {
+    margin-right: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .btns {
+    margin-right: 0.5rem;
+  }
+  .btn {
+    margin: 1.8em 0.5rem;
+  }
+  .moreOpt {
+    margin-left: 1rem;
+  }
 }

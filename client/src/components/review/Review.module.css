@@ -11,7 +11,7 @@
 }
 .thumbnail {
   width: 100%;
-  height: auto;
+  height: 14rem;
   margin: 0;
   object-fit: cover;
 }
@@ -76,9 +76,12 @@
   .metaData {
     width: 55%;
   }
+  .thumbnail {
+    height: 12rem;
+  }
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 568px) {
   .title {
     margin-top: 0.2rem;
   }
@@ -97,5 +100,8 @@
   }
   .btnWrap {
     margin-top: 0.2rem;
+  }
+  .thumbnail {
+    height: 10rem;
   }
 }

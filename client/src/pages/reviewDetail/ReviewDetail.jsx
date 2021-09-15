@@ -44,6 +44,7 @@ const ReviewDetail = (props) => {
           <button className={styles.replyIcon}>등록</button>
         </div>
 
+        <div className={styles.replyCount}>총 N개</div>
         <Reply/>
         <Reply/>
         <Reply/>

@@ -1,5 +1,5 @@
 .reply {
-  margin: 2rem 2rem 0 2rem;
+  margin: 1.5rem 2rem 0 2rem;
   padding: 1rem;
   border: 1px solid rgb(226, 226, 226);
   border-radius: 5px;
@@ -44,6 +44,7 @@
 .deleteBtn {
   cursor: pointer;
   color: rgb(163, 163, 163);
+  transition: 0.3s;
 }
 
 .deleteBtn:hover {
