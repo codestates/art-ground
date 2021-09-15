@@ -25,6 +25,7 @@ import ReviewList from "./pages/reviewList/ReviewList";
 import ReviewDetail from "./pages/reviewDetail/ReviewDetail";
 import Landing from './pages/landing/Landing';
 import Register from './pages/register/Register';
+import Auction from './pages/auction/Auction';
 
 
 function App () {
@@ -196,6 +197,14 @@ function App () {
           handleLogout={handleLogout}
         />    
         <Register />
+      </Route>
+      <Route path='/auction'>
+        <Navbar
+          isLogin={isLogin}
+          userinfo={userinfo}
+          handleLogout={handleLogout}
+        />    
+        <Auction />
       </Route>
       <Route exact path="/modify">
         <Navbar

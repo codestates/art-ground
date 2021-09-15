@@ -60,7 +60,9 @@ const Navbar = ({ isLogin, handleLogout }) => {
             <Link to='/register'>
               <li className={styles.title}>REGISTER</li>
             </Link>
-            <li className={styles.title}>AUCTION</li>
+            <Link to='/auction'>
+              <li className={styles.title}>AUCTION</li>
+            </Link>
             <li className={styles.title}>CONTACT</li>
           </ul>
         </div>

@@ -1,0 +1,35 @@
+.container {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadein 1s;
+  -moz-animation: fadein 1s;
+  /* Firefox */
+  -webkit-animation: fadein 1s;
+  /* Safari and Chrome */
+  -o-animation: fadein 1s;
+  /* Opera */
+}
+
+.icon {
+  font-size: 8rem;
+  color: rgb(110, 110, 110);
+}
+
+.content {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem 0;
+  color: rgb(51, 51, 51);
+}
+
+.subContent {
+  font-size: 0.9rem;
+  color: rgb(156, 156, 156);
+  margin-bottom: 0.5rem;
+}
