@@ -41,12 +41,6 @@ const Navbar = ({ isLogin, handleLogout }) => {
           <Link to='/mypage'>
             <li className={styles.btn}>마이페이지</li>
           </Link>
-          <Link to='/reviewlist'>
-            <li className={styles.title}>REVIEW</li>
-          </Link>          
-          <li className={styles.title}>EXHIBITION??</li>
-          <li className={styles.title}>CONTACT</li>
-
         </ul>
         <div className={styles.logo}>
           <span className={styles.logoborder} onClick={clickLogo}>
@@ -60,7 +54,9 @@ const Navbar = ({ isLogin, handleLogout }) => {
             <Link to='/gallery'>
               <li className={styles.title}>GALLERY</li>
             </Link>
-            <li className={styles.title}>REVIEW</li>
+            <Link to='/reviewlist'>
+              <li className={styles.title}>REVIEW</li>
+            </Link>
             <li className={styles.title}>EXHIBITION??</li>
             <li className={styles.title}>CONTACT</li>
           </ul>
