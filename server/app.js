@@ -1,11 +1,10 @@
-
 const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
 class App {
-  constructor () {
+  constructor() {
     this.app = express();
 
     // 미들웨어 셋팅
@@ -21,9 +20,9 @@ class App {
     this.errorHandler();
   }
 
-  setMiddleWare () {
+  setMiddleWare() {
     // 미들웨어 셋팅
-    this.app.use(logger('dev'));
+    this.app.use(logger("dev"));
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: false }));
     this.app.use(
@@ -42,19 +41,18 @@ class App {
   getRouting() {
     this.app.use(require("./controllers"));
 
-
-    this.app.get('/', (req, res) => {
-      res.status(200).send('hello world');
+    this.app.get("/", (req, res) => {
+      res.status(200).send("hello world...");
     });
   }
 
-  status404 () {
+  status404() {
     this.app.use((req, res, _) => {
       res.status(404);
     });
   }
 
-  errorHandler () {
+  errorHandler() {
     this.app.use((err, req, res, _) => {
       res.status(500);
     });
