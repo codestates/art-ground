@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Join from "./pages/join/Join";
 import { useState } from "react";
@@ -34,7 +34,6 @@ function App() {
   }
 
   return (
-    <Router>
       <Switch>
         <Route exact path='/'>
           <Main />
@@ -105,7 +104,6 @@ function App() {
         </Route>
         
       </Switch>
-    </Router>
   );
 }
 
