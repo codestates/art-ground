@@ -73,7 +73,9 @@ const Navbar = ({ isLogin, handleLogout }) => {
             <Link to='/auction'>
               <li className={styles.title} onClick={handleNavClose}>AUCTION</li>
             </Link>
-            <li className={styles.title} onClick={handleNavClose}>CONTACT</li>
+            <Link to='/contact'>
+              <li className={styles.title} onClick={handleNavClose}>CONTACT</li>
+            </Link>
           </ul>
           <span className={styles.closeBtn} onClick={handleNavClose}><i class="fas fa-times"></i></span>
         </div>
