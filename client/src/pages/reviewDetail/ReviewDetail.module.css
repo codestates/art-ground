@@ -1,0 +1,195 @@
+.container {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 3rem 0 5rem 0;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  /* Firefox */
+  -webkit-animation: fadein 2s;
+  /* Safari and Chrome */
+  -o-animation: fadein 2s;
+  /* Opera */
+}
+
+.artDetail {
+  margin: 3rem 1rem;
+  padding: 1.5rem 0.5rem;
+  border: 1px solid rgb(226, 226, 226);
+  display: flex;
+  /* border-radius: 5px; */
+}
+
+.imgBox {
+  width: 35%;
+  height: auto;
+  margin-left: 1.2rem;
+}
+
+.metaData {
+  padding: 0.5rem 1.2rem 0 1.2rem;
+  width: 65%;
+}
+
+.metaContent {
+  display: flex;
+  font-size: 0.9rem;
+  color: rgb(95, 95, 95);
+  width: 100%;
+}
+
+.list {
+  margin-right: 0.7rem;
+  width: 20%;
+}
+
+.content {
+  width: 80%;
+}
+.listDetail {
+  padding: 1rem 0 0.5rem 0;
+  border-bottom: 1px solid rgb(231, 231, 231);
+  white-space: nowrap;
+}
+
+.tagList {
+  display: flex;
+  padding: 0.7rem 0 0.25rem 0;
+  border-bottom: 1px solid rgb(231, 231, 231);
+  font-size: 0.75rem;
+}
+
+.thumbnail {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.title {
+  color: rgb(66, 66, 66);
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+}
+
+.tag {
+  margin-right: 0.5rem;
+  border: 1px solid rgb(199, 199, 199);
+  border-radius: 5px;
+  padding: 0.2rem;
+  white-space: nowrap;
+}
+
+.review {
+  color: white;
+  background: rgb(66, 66, 66);
+  margin: 3rem 1rem 0 1rem;
+  padding: 0.8rem 0.5rem;
+  width: 6rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.replies {
+  margin: 0rem 1rem;
+  padding: 1.5rem 0.5rem 6rem 0.5rem;
+  border: 1px solid rgb(226, 226, 226);
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.replyBox {
+  margin: 2rem 2rem 4rem 2rem;
+  border-bottom: 1px solid rgb(179, 179, 179);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.reply {
+  /* border: 1px solid rgb(179, 179, 179); */
+  width: 90%;
+  height: 2rem;
+  border: none;
+  font-size: 0.9rem;
+}
+.replyIcon {
+  cursor: pointer;
+  font-size: 0.8rem;
+  height: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.2rem;
+  border: 1px solid rgb(172, 172, 172);
+  border-radius: 5px;
+  background-color: white;
+  color: rgb(95, 95, 95);
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.replyIcon:hover {
+  background-color: rgb(241, 241, 241);
+}
+
+@media screen and (max-width: 680px) {
+  .artDetail {
+    flex-direction: column;
+    /* align-items: center; */
+  }
+  .imgBox {
+    width: 60%;
+    padding: 0 1.2rem;
+    margin-left: 0;
+    /* align-items: center; */
+  }
+
+  .metaData {
+    width: 100%;
+    padding: 1.5rem 1.2rem 0 1.2rem;
+  }
+  .title {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

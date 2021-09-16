@@ -1,0 +1,81 @@
+@value Black, White from '../../common/colors.css';
+@value Container from '../../common/size.css';
+
+span {
+  display: block;
+}
+.container {
+  max-width: 100%;
+}
+.top {
+  max-width: 100%;
+  background-color: rgb(163, 159, 159);
+}
+.navBox {
+  max-width: Container;
+  margin: 0 auto;
+  background-color: rgb(163, 159, 159);
+}
+
+.logo {
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logoborder {
+  width: 50%;
+  font-size: 2rem;
+  color: White;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+.bottom {
+  max-width: 100%;
+  background-color: rgb(53, 52, 52);
+}
+.categoryBox {
+  list-style: none;
+  max-width: Container;
+  margin: 0 auto;
+}
+.title {
+  list-style: none;
+  width: 100%;
+  height: 40px;
+  color: White;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  cursor: pointer;
+}
+.libox {
+  width: 10%;
+  line-height: 40px;
+  text-align: center;
+}
+.libox:hover {
+  color: black;
+  background-color: white;
+}
+.liboxClick {
+  width: 10%;
+  line-height: 40px;
+  text-align: center;
+  color: black;
+  background-color: white;
+}
+/*contents*/
+.content {
+  max-width: Container;
+  margin: 0 auto;
+}
+.exhibit {
+  width: 100%;
+}
+.review {
+  width: 100%;
+}

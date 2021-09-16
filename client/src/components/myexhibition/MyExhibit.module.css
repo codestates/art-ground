@@ -1,0 +1,108 @@
+@value Black, White from '../../common/colors.css';
+@value Container from '../../common/size.css';
+
+.container {
+  max-width: Container;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  /* Firefox */
+  -webkit-animation: fadein 2s;
+  /* Safari and Chrome */
+  -o-animation: fadein 2s;
+  /* Opera */
+}
+.exBox {
+  border-bottom: 1px solid gainsboro;
+  padding: 0.1rem;
+  width: 95%;
+  margin-top: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+}
+.thumBox {
+  flex: 3.5;
+  height: 200px;
+  overflow: hidden;
+}
+.eximg {
+  width: 100%;
+  height: 100%;
+  margin-left: 10%;
+}
+.infoBox {
+  flex: 6.5;
+  margin-top: 5px;
+}
+.title {
+  text-indent: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.date {
+  text-indent: 10px;
+  font-size: 0.8rem;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 460px;
+  }
+  .thumBox {
+    flex: 5;
+    height: 200px;
+    overflow: hidden;
+  }
+  .infoBox {
+    flex: 3;
+    margin-top: 5px;
+  }
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

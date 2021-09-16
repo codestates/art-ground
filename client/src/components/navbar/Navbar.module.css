@@ -6,12 +6,15 @@ span {
 }
 .container {
   max-width: 100%;
+  background-color: Black;
+}
+.navBox {
+  max-width: Container;
   margin: 0 auto;
 }
 .btns {
   /* max-width: 100%; */
   list-style: none;
-  background-color: Black;
   color: White;
   display: flex;
   flex-direction: row;
@@ -27,7 +30,6 @@ span {
   font-size: 0.8rem;
 }
 .logo {
-  background-color: Black;
   height: 10rem;
   display: flex;
   justify-content: center;
@@ -42,9 +44,7 @@ span {
   text-align: center;
   cursor: pointer;
 }
-.category {
-  background-color: Black;
-}
+
 .categoryBox {
   list-style: none;
   display: flex;

@@ -1,5 +1,5 @@
-require("dotenv").config();
-const app = require("./app.js");
+require('dotenv').config();
+const app = require('./app.js');
 const PORT = process.env.HTTPS_PORT || 80;
 const https_PORT = 443;
 const https = require("https");
@@ -36,7 +36,7 @@ const fs = require("fs");
 // } else {
 //   server =
 app.listen(PORT, () => {
-  console.log("Express listening on port", PORT);
+  console.log('Express listening on port', PORT);
 });
 //}
 
