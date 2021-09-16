@@ -4,6 +4,7 @@
   border: 1px solid rgb(226, 226, 226);
   border-radius: 5px;
   display: flex;
+  position: relative;
 }
 
 .contentBox {
@@ -49,4 +50,20 @@
 
 .deleteBtn:hover {
   color: rgb(46, 46, 46);
+}
+
+@media screen and (max-width: 568px) {
+  .profile {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .deleteBtn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+  .contentBox {
+    padding: 0 0.8rem;
+  }
 }

@@ -15,6 +15,7 @@ const GalleryContent = (props) => {
     <>
       <li className={styles.object}>
         <Link to='/gallerydetail'>
+          <div className={styles.layer}></div>
           <img className={styles.thumbnail} src='http://www.news-paper.co.kr/news/photo/201903/39919_25361_5530.jpg' alt='thumbnail' />
         </Link>
         <div className={styles.titleAndLike}>
@@ -27,6 +28,7 @@ const GalleryContent = (props) => {
       </li>
       <li className={styles.object}>
         <Link to='/gallerydetail'>
+          <div className={styles.layer}></div>
           <img className={styles.thumbnail} src='https://images.velog.io/images/devjade/post/4f3086dd-2f8a-4f34-b0aa-cb5d7e8772d2/image.png' alt='thumbnail' />
         </Link>
         <div className={styles.titleAndLike}>

@@ -1,22 +1,19 @@
 @value Black, White from '../../common/colors.css';
 @value Container from '../../common/size.css';
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
 span {
   display: block;
 }
 .container {
   max-width: 100%;
-  background-color: Black;
+  /* background-color: #393939; */
+  background-color: #222222;
+  box-shadow: 0 -5px 15px rgb(57, 57, 57);
 }
 .navBox {
   max-width: Container;
   margin: 0 auto;
 }
-
-/* .topNavBox {
-  display: flex;
-  justify-content: space-between;
-} */
 
 .moreOpt {
   display: none;
@@ -25,7 +22,7 @@ span {
 .btns {
   /* max-width: 100%; */
   list-style: none;
-  color: White;
+  color: rgb(228, 228, 228);
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -34,13 +31,16 @@ span {
 .btn {
   display: inline-block;
   width: auto;
-  margin: 1.8em 0.8rem;
+  margin: 1.8em 0.8rem 0.5rem 0.8rem;
   text-align: right;
   background-color: none;
   border: none;
   cursor: pointer;
   font-size: 0.8rem;
   white-space: nowrap;
+}
+.btn:hover {
+  font-weight: bold;
 }
 .logo {
   height: 7rem;
@@ -56,7 +56,13 @@ span {
   font-weight: bold;
   text-align: center;
   cursor: pointer;
-  /* white-space: nowrap; */
+  font-family: "Josefin Slab", serif;
+}
+
+.logoImg {
+  margin: 0;
+  height: auto;
+  width: 16rem;
 }
 
 .categoryBox {
@@ -68,9 +74,11 @@ span {
   justify-content: space-evenly;
 }
 .title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
   width: 5rem;
   line-height: 3.2rem;
-  color: White;
+  color: rgb(228, 228, 228);
   text-align: center;
   cursor: pointer;
 }
@@ -102,9 +110,10 @@ span {
     width: 15rem;
     height: 100vh;
     background-color: rgb(251, 251, 251);
-    opacity: 0.957;
-    box-shadow: -1px 0 15px rgba(83, 83, 83, 0.15);
-    transition: 0.4s;
+    opacity: 0.95;
+    box-shadow: 5px 0 15px rgba(83, 83, 83, 0.15);
+    transition: 0.5s;
+    z-index: 10;
   }
   .categoryBox {
     all: unset;
@@ -129,6 +138,7 @@ span {
   .title {
     all: unset;
     color: rgb(47, 47, 47);
+    font-family: "Nunito", sans-serif;
   }
 
   .categoryClose {
@@ -139,28 +149,30 @@ span {
     height: 100vh;
     background-color: white;
     box-shadow: -1px 0 4px rgba(83, 83, 83, 0.15);
-    transition: 0.4s;
+    transition: 0.5s;
   }
   .logo {
     padding-bottom: 1.5rem;
     height: auto;
   }
-}
-
-@media screen and (max-width: 768px) {
   .btns {
-    margin-right: 0.5rem;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .btns {
-    margin-right: 0.5rem;
+    margin-right: 0.8rem;
   }
   .btn {
     margin: 1.8em 0.5rem;
   }
+}
+@media screen and (max-width: 580px) {
+  .logoImg {
+    width: 13rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
   .moreOpt {
     margin-left: 1rem;
+  }
+  .logoImg {
+    width: 10rem;
   }
 }

@@ -27,7 +27,7 @@
 
 /* 아래에서부터 단일 썸네일 */
 .objectList {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

@@ -26,6 +26,7 @@ import ReviewDetail from "./pages/reviewDetail/ReviewDetail";
 import Landing from './pages/landing/Landing';
 import Register from './pages/register/Register';
 import Auction from './pages/auction/Auction';
+import ScrollButton from "./components/scrollButton/ScrollButton";
 
 
 function App () {
@@ -161,6 +162,7 @@ function App () {
           handleLogout={handleLogout}
         />  
         <Gallery />
+        <ScrollButton />
       </Route>
       <Route path='/gallerydetail'>
         <Navbar
@@ -169,6 +171,7 @@ function App () {
           handleLogout={handleLogout}
         />  
         <GalleryDetail viewArtDetail={viewArtDetail}/>
+        <ScrollButton />
       </Route>
       {artDetail ? 
       <Route path='/artdetail'>
@@ -181,6 +184,7 @@ function App () {
           handleLogout={handleLogout}
         />    
         <ReviewList />
+        <ScrollButton />
       </Route>
       <Route path='/reviewdetail'>
         <Navbar
@@ -189,6 +193,7 @@ function App () {
           handleLogout={handleLogout}
         />    
         <ReviewDetail />
+        <ScrollButton />
       </Route>
       <Route path='/register'>
         <Navbar
@@ -197,6 +202,7 @@ function App () {
           handleLogout={handleLogout}
         />    
         <Register />
+        <ScrollButton />
       </Route>
       <Route path='/auction'>
         <Navbar
