@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Object from '../../components/object/Object';
-import SubNavBar from '../../components/subNavBar/SubNavBar';
-import styles from './Gallery.module.css';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import Object from '../../components/object/Object'
+import SubNavBar from '../../components/subNavBar/SubNavBar'
+import styles from './Gallery.module.css'
 
 const Gallery = (props) => {
   return (
@@ -19,7 +19,7 @@ const Gallery = (props) => {
           </Link>
           <div className={styles.titleAndLike}>
             <span className={styles.title}>데이비드 호크니展</span>
-            <span className={styles.like}><i class="far fa-heart"></i></span>
+            <span className={styles.like}><i class='far fa-heart' /></span>
           </div>
           <div className={styles.period}>전시 기간: 2021-09-13 ~ 2021-12-31</div>
         </li>
@@ -29,7 +29,7 @@ const Gallery = (props) => {
           </Link>
           <div className={styles.titleAndLike}>
             <span className={styles.title}>데이비드 호크니展</span>
-            <span className={styles.like}><i class="far fa-heart"></i></span>
+            <span className={styles.like}><i class='far fa-heart' /></span>
           </div>
           <div className={styles.period}>전시 기간: 2021-09-13 ~ 2021-12-31</div>
         </li>
@@ -39,7 +39,7 @@ const Gallery = (props) => {
           </Link>
           <div className={styles.titleAndLike}>
             <span className={styles.title}>데이비드 호크니展</span>
-            <span className={styles.like}><i class="far fa-heart"></i></span>
+            <span className={styles.like}><i class='far fa-heart' /></span>
           </div>
           <div className={styles.period}>전시 기간: 2021-09-13 ~ 2021-12-31</div>
         </li>
@@ -49,7 +49,7 @@ const Gallery = (props) => {
           </Link>
           <div className={styles.titleAndLike}>
             <span className={styles.title}>데이비드 호크니展</span>
-            <span className={styles.like}><i class="far fa-heart"></i></span>
+            <span className={styles.like}><i class='far fa-heart' /></span>
           </div>
           <div className={styles.period}>전시 기간: 2021-09-13 ~ 2021-12-31</div>
         </li>
@@ -58,7 +58,7 @@ const Gallery = (props) => {
 
     </section>
 
-  );
-};
+  )
+}
 
-export default Gallery;
+export default Gallery

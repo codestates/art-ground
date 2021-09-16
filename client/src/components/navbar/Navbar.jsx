@@ -1,40 +1,38 @@
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom'
 
-import styles from './Navbar.module.css';
+import styles from './Navbar.module.css'
 
 const Navbar = ({ isLogin, handleLogout }) => {
-  const history = useHistory();
+  const history = useHistory()
 
   const clickLogo = () => {
-    history.push('/');
-  };
+    history.push('/')
+  }
 
   return (
     <section className={styles.container}>
       <div className={styles.navBox}>
         <ul className={styles.btns}>
-          {!isLogin
-            ? (
-              <li
-                className={styles.btn}
-                onClick={() => {
-                  history.push('/signin');
-                }}
-              >
-                로그인
-              </li>
-              )
-            : (
-              <li
-                className={styles.btn}
-                onClick={() => {
-                  handleLogout();
-                  history.push('/');
-                }}
-              >
-                로그아웃
-              </li>
-              )}
+          {!isLogin ? (
+            <li
+              className={styles.btn}
+              onClick={() => {
+                history.push('/signin')
+              }}
+            >
+              로그인
+            </li>
+          ) : (
+            <li
+              className={styles.btn}
+              onClick={() => {
+                handleLogout()
+                history.push('/')
+              }}
+            >
+              로그아웃
+            </li>
+          )}
           <Link to='/join'>
             <li className={styles.btn}>회원가입</li>
           </Link>
@@ -58,12 +56,14 @@ const Navbar = ({ isLogin, handleLogout }) => {
               <li className={styles.title}>REVIEW</li>
             </Link>
             <li className={styles.title}>EXHIBITION??</li>
-            <li className={styles.title}>CONTACT</li>
+            <Link to='/contact'>
+              <li className={styles.title}>CONTACT</li>
+            </Link>
           </ul>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

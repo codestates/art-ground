@@ -1,6 +1,6 @@
-import styles from './Google.module.css';
+import styles from './Google.module.css'
 
-import React from 'react';
+import React from 'react'
 
 const Google = (props) => {
   return (
@@ -11,7 +11,7 @@ const Google = (props) => {
         </a>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Google;
+export default Google

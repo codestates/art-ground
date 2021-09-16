@@ -1,25 +1,29 @@
-import styles from './MyInfo.module.css';
+import styles from './MyInfo.module.css'
 
-import React from 'react';
-import { useHistory } from 'react-router';
+import React from 'react'
+import { useHistory } from 'react-router'
 
 const MyInfo = ({ userinfo }) => {
-  const history = useHistory();
-  const { userEmail, nickname, profileImg, authorDesc } = userinfo;
-  console.log(userEmail, '-----------myinfo');
+  const history = useHistory()
+  const { userEmail, nickname, profileImg, authorDesc } = userinfo
+  console.log(userEmail, '-----------myinfo')
 
   const modifyCLick = () => {
-    history.push('/modify');
-  };
+    history.push('/modify')
+  }
   const deleteAccount = () => {
     // 탈퇴요청보내기
-  };
+  }
   return (
     <section className={styles.container}>
       <div className={styles.infobox1}>
         <div className={styles.imgbox}>
           <div className={styles.imgborder}>
-            <img className={styles.ProfileView} src={profileImg} alt='' />
+            <img
+              className={styles.ProfileView}
+              src={profileImg}
+              alt='profileImg'
+            />
           </div>
         </div>
         <div className={styles.textbox}>
@@ -70,7 +74,7 @@ const MyInfo = ({ userinfo }) => {
         </button>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default MyInfo;
+export default MyInfo
