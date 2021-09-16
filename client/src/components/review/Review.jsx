@@ -1,13 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styles from './Review.module.css';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import styles from './Review.module.css'
 
 const Review = (props) => {
-  return(
+  return (
     <li className={styles.container}>
       <div className={styles.imgBox}>
         <Link to='/reviewdetail'>
-          <img className={styles.thumbnail} src="http://www.news-paper.co.kr/news/photo/201903/39919_25361_5530.jpg" alt="thumbnail"/>
+          <img className={styles.thumbnail} src='http://www.news-paper.co.kr/news/photo/201903/39919_25361_5530.jpg' alt='thumbnail' />
         </Link>
       </div>
       <div className={styles.metaData}>
@@ -24,9 +24,9 @@ const Review = (props) => {
           </div>
         </div>
       </div>
-      
+
     </li>
   )
 }
 
-export default Review;
+export default Review
