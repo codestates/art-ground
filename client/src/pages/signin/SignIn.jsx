@@ -1,20 +1,20 @@
-import styles from './SignIn.module.css';
-import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import Google from '../google/Google';
+import styles from './SignIn.module.css'
+import React from 'react'
+import { Link, useHistory } from 'react-router-dom'
+import Google from '../google/Google'
 
 const SignIn = ({ setIsAuthorLogin, setIsAudienceLogin }) => {
-  const history = useHistory();
+  const history = useHistory()
 
   const audienceClicked = () => {
-    setIsAuthorLogin(false);
-    setIsAudienceLogin(true);
-  };
+    setIsAuthorLogin(false)
+    setIsAudienceLogin(true)
+  }
 
   const authorClicked = () => {
-    setIsAuthorLogin(true);
-    setIsAudienceLogin(false);
-  };
+    setIsAuthorLogin(true)
+    setIsAudienceLogin(false)
+  }
 
   return (
     <section className={styles.container}>
@@ -58,7 +58,7 @@ const SignIn = ({ setIsAuthorLogin, setIsAudienceLogin }) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default SignIn;
+export default SignIn

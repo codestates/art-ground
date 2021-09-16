@@ -1,16 +1,16 @@
-import styles from './Join.module.css';
-import { Link } from 'react-router-dom';
+import styles from './Join.module.css'
+import { Link } from 'react-router-dom'
 
 const Join = ({ setIsAuthorJoined, setIsAudienceJoined }) => {
   const clickAudience = () => {
-    setIsAudienceJoined(true);
-    setIsAuthorJoined(false);
-  };
+    setIsAudienceJoined(true)
+    setIsAuthorJoined(false)
+  }
 
   const clickAuthor = () => {
-    setIsAuthorJoined(true);
-    setIsAudienceJoined(false);
-  };
+    setIsAuthorJoined(true)
+    setIsAudienceJoined(false)
+  }
 
   return (
     <section className={styles.container}>
@@ -36,7 +36,7 @@ const Join = ({ setIsAuthorJoined, setIsAudienceJoined }) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Join;
+export default Join

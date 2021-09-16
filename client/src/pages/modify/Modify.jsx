@@ -1,47 +1,47 @@
-import styles from './Modify.module.css';
+import styles from './Modify.module.css'
 
-import { useHistory } from 'react-router';
-import { useState } from 'react';
+import { useHistory } from 'react-router'
+import { useState } from 'react'
 
 const Modify = ({ userinfo }) => {
-  const history = useHistory();
+  const history = useHistory()
 
-  const { userEmail, nickname, profileImg, authorDesc } = userinfo;
+  const { userEmail, nickname, profileImg, authorDesc } = userinfo
   const cancleClick = () => {
-    history.push('/mypage');
-  };
+    history.push('/mypage')
+  }
 
-  const [userMail, setUserMail] = useState(userEmail);
-  const [nickName, setNickName] = useState(nickname);
-  const [img, setImg] = useState(profileImg);
-  const [authDesc, setAuthDesc] = useState(authorDesc);
-  const [password, setPassword] = useState('');
-  const [password2, setPassword2] = useState('');
+  const [userMail, setUserMail] = useState(userEmail)
+  const [nickName, setNickName] = useState(nickname)
+  const [img, setImg] = useState(profileImg)
+  const [authDesc, setAuthDesc] = useState(authorDesc)
+  const [password, setPassword] = useState('')
+  const [password2, setPassword2] = useState('')
 
   // 이미지 핸들링
   const imgHandle = (event) => {
     // url 가져오기
-    const image = event.target.files[0];
+    const image = event.target.files[0]
     if (image) {
-      const imageUrl = URL.createObjectURL(image);
-      setImg(imageUrl);
+      const imageUrl = URL.createObjectURL(image)
+      setImg(imageUrl)
     }
-  };
+  }
   const emailHandle = (event) => {
-    setUserMail(event.target.value);
-  };
+    setUserMail(event.target.value)
+  }
   const nickNameHandle = (event) => {
-    setNickName(event.target.value);
-  };
+    setNickName(event.target.value)
+  }
   const passHandle = (event) => {
-    setPassword(event.target.value);
-  };
+    setPassword(event.target.value)
+  }
   const passHandle2 = (event) => {
-    setPassword2(event.target.value);
-  };
+    setPassword2(event.target.value)
+  }
   const authDescHandle = (event) => {
-    setAuthDesc(event.target.value);
-  };
+    setAuthDesc(event.target.value)
+  }
 
   return (
     <section className={styles.container}>
@@ -132,7 +132,7 @@ const Modify = ({ userinfo }) => {
         </div>
       </form>
     </section>
-  );
-};
+  )
+}
 
-export default Modify;
+export default Modify

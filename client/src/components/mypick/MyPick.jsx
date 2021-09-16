@@ -1,6 +1,6 @@
-import styles from './MyPick.module.css';
+import styles from './MyPick.module.css'
 
-import React from 'react';
+import React from 'react'
 
 const MyPick = () => {
   return (
@@ -61,7 +61,7 @@ const MyPick = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default MyPick;
+export default MyPick

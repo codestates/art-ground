@@ -1,73 +1,73 @@
-import styles from './SignInDetail.module.css';
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useHistory } from 'react-router';
+import styles from './SignInDetail.module.css'
+import React, { useState } from 'react'
+import axios from 'axios'
+import { useHistory } from 'react-router'
 
-axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true
 
 const SignInDetail = ({
   isAuthorLogin,
   isAudienceLogin,
   handleResponseSuccess
 }) => {
-  const history = useHistory();
+  const history = useHistory()
 
   const [loginInfo, setLoginInfo] = useState({
     user_email: '',
     password: ''
-  });
-  const [errorMessage, setErrorMessage] = useState('');
+  })
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleInputValue = (key) => (e) => {
-    setLoginInfo({ ...loginInfo, [key]: e.target.value });
-  };
+    setLoginInfo({ ...loginInfo, [key]: e.target.value })
+  }
 
   const checkEmail = (asValue) => {
     const regExp =
-      /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-    return regExp.test(asValue);
-  };
+      /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i
+    return regExp.test(asValue)
+  }
 
-  const { user_email, password } = loginInfo;
+  const { user_email, password } = loginInfo
   const clickAudLogin = () => {
     if (!user_email || !password) {
-      setErrorMessage('아이디와 비밀번호를 모두 입력해주세요');
+      setErrorMessage('아이디와 비밀번호를 모두 입력해주세요')
     }
 
     if (!checkEmail(user_email)) {
-      setErrorMessage('이메일 형식을 맞춰주세요');
-      return false;
+      setErrorMessage('이메일 형식을 맞춰주세요')
+      return false
     }
 
-    setErrorMessage('');
+    setErrorMessage('')
     // axios
     //   .post("/sign-in", loginInfo)
     //   .then((result) => {});
-    handleResponseSuccess();
-    history.push('/landing');
-  };
+    handleResponseSuccess()
+    // history.push("/landing");
+  }
   const clickAuthLogin = () => {
     if (!user_email || !password) {
-      setErrorMessage('아이디와 비밀번호를 모두 입력해주세요');
+      setErrorMessage('아이디와 비밀번호를 모두 입력해주세요')
     } else {
-      setErrorMessage('');
+      setErrorMessage('')
       // axios
       //   .post("http://www.art-ground.net/sign-in", loginInfo)
       //   .then((result) => {});
-      handleResponseSuccess();
+      handleResponseSuccess()
       // history.push("/");
     }
-  };
+  }
 
   const onKeyPress = (e) => {
     if (e.key === 'Enter') {
     }
-  };
+  }
 
-  const [passOpen, setPassOpen] = useState(false);
+  const [passOpen, setPassOpen] = useState(false)
   const clickEye = () => {
-    setPassOpen(!passOpen);
-  };
+    setPassOpen(!passOpen)
+  }
 
   return (
     <section className={styles.container}>
@@ -93,39 +93,35 @@ const SignInDetail = ({
             </li>
 
             <li className={styles.passinput}>
-              {!passOpen
-                ? (
-                  <input
-                    type='password'
-                    placeholder='비밀번호는 4-12자의 영문과숫자만 가능합니다.'
-                    onChange={handleInputValue('password')}
-                    className={styles.passborder}
-                  />
-                  )
-                : (
-                  <input
-                    type='text'
-                    placeholder='비밀번호는 4-12자의 영문과숫자만 가능합니다.'
-                    onChange={handleInputValue('password')}
-                    className={styles.passborder}
-                  />
-                  )}
+              {!passOpen ? (
+                <input
+                  type='password'
+                  placeholder='비밀번호는 4-12자의 영문과숫자만 가능합니다.'
+                  onChange={handleInputValue('password')}
+                  className={styles.passborder}
+                />
+              ) : (
+                <input
+                  type='text'
+                  placeholder='비밀번호는 4-12자의 영문과숫자만 가능합니다.'
+                  onChange={handleInputValue('password')}
+                  className={styles.passborder}
+                />
+              )}
               <div className={styles.visibility} onClick={clickEye}>
-                {!passOpen
-                  ? (
-                    <img
-                      src='../../../images/visibility.svg'
-                      alt=''
-                      className={styles.eyeimg}
-                    />
-                    )
-                  : (
-                    <img
-                      src='../../../images/visibility_off.svg'
-                      alt=''
-                      className={styles.eyeimg}
-                    />
-                    )}
+                {!passOpen ? (
+                  <img
+                    src='../../../images/visibility.svg'
+                    alt=''
+                    className={styles.eyeimg}
+                  />
+                ) : (
+                  <img
+                    src='../../../images/visibility_off.svg'
+                    alt=''
+                    className={styles.eyeimg}
+                  />
+                )}
               </div>
             </li>
 
@@ -137,44 +133,38 @@ const SignInDetail = ({
               ></input>
             </li> */}
 
-            {errorMessage
-              ? (
-                <li className={`${styles.input} ${styles.errmsg}`}>
-                  {errorMessage}
-                </li>
-                )
-              : null}
-            {isAudienceLogin
-              ? (
-                <li className={styles.loginBtns}>
-                  <button
-                    className={styles.loginbtn}
-                    onClick={clickAudLogin}
-                    onKeyPress={onKeyPress}
-                  >
-                    관람객 로그인하기
-                  </button>
-                </li>
-                )
-              : null}
-            {isAuthorLogin
-              ? (
-                <li className={styles.loginBtns}>
-                  <button
-                    className={styles.loginbtn}
-                    onClick={clickAuthLogin}
-                    onKeyPress={onKeyPress}
-                  >
-                    작가 로그인하기
-                  </button>
-                </li>
-                )
-              : null}
+            {errorMessage ? (
+              <li className={`${styles.input} ${styles.errmsg}`}>
+                {errorMessage}
+              </li>
+            ) : null}
+            {isAudienceLogin ? (
+              <li className={styles.loginBtns}>
+                <button
+                  className={styles.loginbtn}
+                  onClick={clickAudLogin}
+                  onKeyPress={onKeyPress}
+                >
+                  관람객 로그인하기
+                </button>
+              </li>
+            ) : null}
+            {isAuthorLogin ? (
+              <li className={styles.loginBtns}>
+                <button
+                  className={styles.loginbtn}
+                  onClick={clickAuthLogin}
+                  onKeyPress={onKeyPress}
+                >
+                  작가 로그인하기
+                </button>
+              </li>
+            ) : null}
           </ul>
         </form>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default SignInDetail;
+export default SignInDetail
