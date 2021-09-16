@@ -1,164 +1,215 @@
-@value Black, White from '../../common/colors.css';
+@value Black, White, TitleColor from '../../common/colors.css';
 @value Container from '../../common/size.css';
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
+
+span,
+label {
+  display: block;
+}
 
 .container {
   max-width: Container;
   margin: 0 auto;
-  /* border: 1px solid black; */
 }
-.loginBox {
+.signupBox {
   width: 100%;
-  height: 100%;
-  padding: 0.2rem;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem 2rem;
+}
+.ulBox {
+  list-style: none;
+  padding: 1rem;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.inputbox {
-  /*ul*/
-  list-style: none;
-  border: 0;
-  padding: 4rem;
+li {
+  margin-bottom: 10px;
 }
-.title {
-  width: 30rem;
-  height: 3rem;
+.titleBox {
   text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-size: 1.7rem;
+  color: rgb(66, 66, 66);
 }
-.input,
-.errmsg {
-  width: 30rem;
-  height: 3rem;
-  text-align: center;
-  margin-bottom: 2rem;
+.columnBox {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-size: 0.9rem;
+  margin-top: 5px;
 }
-input {
-  width: 25rem;
-  height: 3rem;
-  border: none;
+.imgBorder {
+  width: 2%;
+}
+.icon {
+  width: 90%;
+  height: 50%;
+  margin-left: 1px;
+}
+.columnText {
+  width: 95%;
+}
+.inputBox {
+  width: 70%;
+  height: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem;
+}
+.mailBox {
+  width: 100%;
+  height: 3.2rem;
+  line-height: 3rem;
+  text-indent: 0.6rem;
   border: 1px solid gainsboro;
-  text-indent: 10px;
+}
+.text {
+  width: 95%;
+  border: none;
+  height: 92%;
   outline: none;
   font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
 }
 
-.loginBtns {
-  width: 30rem;
-  height: 3rem;
-  text-align: center;
+.passBox {
+  width: 100%;
+  height: 3.2rem;
+  text-indent: 0.6rem;
+  line-height: 3rem;
+  border: 1px solid gainsboro;
+  display: flex;
+  flex-direction: row;
 }
-.loginbtn {
-  width: 250px;
-  height: 50px;
-  background-color: White;
-  border: 1px solid black;
+.passText {
+  width: 98%;
+  border: none;
+  height: 100%;
+  outline: none;
+  font-size: 0.9rem;
+  margin-left: 0.8rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+}
+.eyeBorder {
+  width: 30px;
+  position: relative;
+}
+.eyeimg {
+  width: 80%;
+  height: 80%;
+  cursor: pointer;
+  position: absolute;
+  left: -20px;
+  top: 3px;
+}
+.btnBox {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+.joinBtn {
+  width: 30%;
+  height: 3rem;
+  padding: 0.2rem;
+  border: 1px solid gainsboro;
+  background-color: white;
   outline: none;
   cursor: pointer;
+  font-size: 0.8rem;
   transition: all 0.5s;
 }
-.loginbtn:hover {
+.joinBtn:hover {
   background-color: black;
   color: white;
   transition: transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02);
 }
 
-.info {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  text-indent: 0.2rem;
-}
-img {
-  width: 0.5rem;
-  height: 0.5rem;
-  margin: 0 0 1rem 2.5rem;
-}
-.infoText {
-  font-size: 13px;
-}
-
-/* pass visibility */
-.passinput {
-  width: 25.5rem;
+.ouathBtn {
+  width: 30%;
   height: 3rem;
-  margin-bottom: 2rem;
-  border: 1px solid gainsboro;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-left: 36px;
-}
-.visibility {
-  width: 1.5rem;
-  height: 1.5rem;
-  cursor: pointer;
-  margin-top: 2px;
-  position: relative;
-  left: -10px;
-}
-.eyeimg {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: -40px;
-}
-.passborder {
-  border: 0;
-  height: 2.5rem;
-}
-
-.errmsg {
-  color: red;
-}
-
-/*oauth*/
-.oauthBox {
-  margin-top: 3rem;
-  width: 470px;
-  height: 80px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-.oauthBtn2 {
-  width: 145px;
-  height: 50px;
-  border: 1px solid rgb(197, 196, 196);
-  background-color: #f7e600;
-  border-radius: 5%;
-  overflow: hidden;
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  color: #3a1d1d;
-}
-.oauthBtn1 {
-  width: 145px;
-  height: 50px;
-  border: 1px solid rgb(197, 196, 196);
+  padding: 0.2rem;
   background-color: white;
-  border-radius: 5%;
-  overflow: hidden;
+  border: 1px solid black;
   cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
 }
-.google {
-  width: 40px;
-  height: 40px;
-  margin-left: 5px;
-  margin-top: 20px;
+
+@media screen and (max-width: 768px) {
+  .signupBox {
+    width: 100%;
+  }
+  .ulBox {
+    width: 80%;
+  }
+  .imgBorder {
+    width: 5%;
+  }
+
+  .eyeimg {
+    width: 70%;
+    height: 70%;
+    left: -20px;
+    top: 7px;
+  }
 }
-.kakao {
-  width: 40px;
-  height: 40px;
-  margin-left: 3px;
-  margin-top: 20px;
+@media screen and (max-width: 580px) {
+  .signupBox {
+    width: 100%;
+  }
+  .ulBox {
+    width: 100%;
+  }
+  .confirm {
+    width: 22%;
+  }
+  .imgBorder {
+    width: 5%;
+  }
+
+  .eyeimg {
+    width: 70%;
+    height: 70%;
+    left: -2px;
+    top: 7px;
+  }
+  .joinBtn {
+    width: 40%;
+    padding: 0.1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .signupBox {
+    width: 100%;
+  }
+  .ulBox {
+    width: 100%;
+  }
+  .imgBorder {
+    width: 5%;
+  }
+  .eyeimg {
+    width: 70%;
+    height: 70%;
+    left: -2px;
+    top: 7px;
+  }
+  .joinBtn {
+    width: 40%;
+    padding: 0.1rem;
+  }
 }
