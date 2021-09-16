@@ -6,7 +6,7 @@ const ReviewList = (props) => {
   return (
     <section className={styles.container}>
       <div className={styles.searchBox}>
-        <input className={styles.search} placeholder="검색" type="text" />
+        <input className={styles.search} placeholder="전시회 검색" type="text" />
         <button className={styles.searchIcon}>
           <i class="fas fa-search"></i>
         </button>

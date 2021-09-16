@@ -1,7 +1,9 @@
 
+
 import styles from "./Google.module.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 
 
 const Google = (props) => {
@@ -54,7 +56,7 @@ const Google = (props) => {
       <div></div>
 
     </section>
-  );
-};
+  )
+}
 
-export default Google;
+export default Google

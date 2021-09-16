@@ -22,6 +22,7 @@ class App {
 
   setMiddleWare() {
     // 미들웨어 셋팅
+
     this.app.use(logger("dev"));
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: false }));
@@ -42,7 +43,7 @@ class App {
     this.app.use(require("./controllers"));
 
     this.app.get("/", (req, res) => {
-      res.status(200).send("hello world...");
+      res.status(200).send("hello world");
     });
   }
 

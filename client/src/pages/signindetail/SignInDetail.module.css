@@ -46,7 +46,6 @@ input {
 }
 
 .loginBtns {
-  /* border: 1px solid red; */
   width: 30rem;
   height: 3rem;
   text-align: center;
@@ -115,4 +114,51 @@ img {
 
 .errmsg {
   color: red;
+}
+
+/*oauth*/
+.oauthBox {
+  margin-top: 3rem;
+  width: 470px;
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.oauthBtn2 {
+  width: 145px;
+  height: 50px;
+  border: 1px solid rgb(197, 196, 196);
+  background-color: #f7e600;
+  border-radius: 5%;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #3a1d1d;
+}
+.oauthBtn1 {
+  width: 145px;
+  height: 50px;
+  border: 1px solid rgb(197, 196, 196);
+  background-color: white;
+  border-radius: 5%;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.google {
+  width: 40px;
+  height: 40px;
+  margin-left: 5px;
+  margin-top: 20px;
+}
+.kakao {
+  width: 40px;
+  height: 40px;
+  margin-left: 3px;
+  margin-top: 20px;
 }

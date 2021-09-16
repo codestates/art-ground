@@ -1,6 +1,6 @@
-import styles from './MyExhibit.module.css';
+import styles from './MyExhibit.module.css'
 
-import React from 'react';
+import React from 'react'
 
 const MyExhibit = () => {
   return (
@@ -32,7 +32,7 @@ const MyExhibit = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default MyExhibit;
+export default MyExhibit

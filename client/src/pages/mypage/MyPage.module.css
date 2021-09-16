@@ -5,11 +5,17 @@
   max-width: Container;
   /* height: 100%; */
   margin: 0 auto;
-
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  /* Firefox */
+  -webkit-animation: fadein 2s;
+  /* Safari and Chrome */
+  -o-animation: fadein 2s;
+  /* Opera */
 }
 .side {
   flex: 1;
@@ -67,4 +73,76 @@
   font-size: 0.9rem;
   background-color: black;
   color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: Container;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .side {
+    width: 100%;
+    height: 10rem;
+  }
+  .content {
+    height: 40rem;
+  }
+  .sidebar {
+    max-width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .category {
+    height: 6rem;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
