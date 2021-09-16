@@ -56,7 +56,7 @@ const Navbar = ({ isLogin, handleLogout }) => {
           </ul>
         </div>
         <div className={styles.logo}>
-          <img className={styles.logoImg} src="../../../images/mainLogo.png" alt="logo" onClick={clickLogo} />
+          <img className={styles.logoImg} src="../../../images/Original on Transparent.png" alt="logo" onClick={clickLogo} />
         </div>
         <div className={navOpen? styles.category: styles.categoryClose}>
           <ul className={styles.categoryBox}>

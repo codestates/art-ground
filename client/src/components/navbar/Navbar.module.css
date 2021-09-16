@@ -54,7 +54,7 @@ span {
 .logoImg {
   margin: 0;
   height: auto;
-  width: 16rem;
+  width: 15rem;
 }
 
 .categoryBox {
@@ -157,7 +157,7 @@ span {
 }
 @media screen and (max-width: 580px) {
   .logoImg {
-    width: 13rem;
+    width: 12rem;
   }
 }
 
