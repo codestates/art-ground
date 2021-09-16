@@ -52,7 +52,10 @@
   color: rgb(46, 46, 46);
 }
 
-@media screen and (max-width: 568px) {
+@media screen and (max-width: 580px) {
+  .reply {
+    margin: 1.5rem 0.5rem 0 0.5rem;
+  }
   .profile {
     width: 3.5rem;
     height: 3.5rem;
@@ -64,6 +67,6 @@
     right: 1rem;
   }
   .contentBox {
-    padding: 0 0.8rem;
+    padding: 0 0 0 0.8rem;
   }
 }

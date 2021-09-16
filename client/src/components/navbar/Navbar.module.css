@@ -1,6 +1,7 @@
 @value Black, White from '../../common/colors.css';
 @value Container from '../../common/size.css';
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
+
 span {
   display: block;
 }
@@ -129,6 +130,7 @@ span {
   .title {
     all: unset;
     color: rgb(53, 53, 53);
+    font-weight: 300;
     font-family: "Poppins", sans-serif;
   }
 
