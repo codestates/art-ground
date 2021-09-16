@@ -1,15 +1,60 @@
-import styles from './Google.module.css'
 
-import React from 'react'
+
+import styles from "./Google.module.css";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+
 
 const Google = (props) => {
+  const [accessToken, setAccessToken] = useState();
+  const [userInfo, setUserInfo] = useState();
+  const [refreshToken, setRefreshToken] = useState();
+  useEffect(() => {
+    console.log("useEffect...");
+    const url = new URL(window.location.href);
+    const authorizationCode = url.searchParams.get("code");
+    console.log(authorizationCode);
+    if (authorizationCode) {
+      getAccessToken(authorizationCode);
+    }
+    return () => {};
+  }, []);
+
+  useEffect(() => {
+    getUserInfo(accessToken);
+    return () => {};
+  }, [accessToken]);
+
+  const getUserInfo = async (accessToken) => {
+    axios
+      .get(`http://localhost:5000/receive/userinfo?accessToken=${accessToken}`)
+      .then((res) => {
+        console.log(res.data);
+        setUserInfo(res.data);
+      });
+  };
+
+  const getAccessToken = async (authorizationCode) => {
+    axios
+      .post(`http://localhost:5000/receive/token`, { authorizationCode })
+      .then((res) => {
+        console.log(res.data);
+        if (!refreshToken) {
+          setRefreshToken(res.data.refreshToken);
+        }
+        setAccessToken(res.data.access_token);
+      });
+    try {
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <section className={styles.container}>
-      <div>
-        <a href='https://accounts.google.com/o/oauth2/v2/auth?scope=openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20&access_type=offline&include_granted_scopes=true&response_type=code&state=state_parameter_passthrough_value&redirect_uri=http://localhost:3000/signin&client_id=712078359002-ms5bo3h03tenocjb8sib9mdq6q46jdet.apps.googleusercontent.com'>
-          구글
-        </a>
-      </div>
+
+      <div></div>
+
     </section>
   )
 }
