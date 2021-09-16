@@ -21,6 +21,9 @@ import ReviewDetail from './pages/reviewDetail/ReviewDetail'
 import Landing from './pages/landing/Landing'
 import Contact from './pages/contact/Contact'
 import Admin from './pages/admin/Admin'
+import Register from './pages/register/Register';
+import Auction from './pages/auction/Auction';
+import ScrollButton from "./components/scrollButton/ScrollButton";
 
 function App () {
   const history = useHistory()
@@ -153,37 +156,57 @@ function App () {
           isLogin={isLogin}
           userinfo={userinfo}
           handleLogout={handleLogout}
-        />
+        />  
         <Gallery />
+        <ScrollButton />
       </Route>
       <Route path='/gallerydetail'>
         <Navbar
           isLogin={isLogin}
           userinfo={userinfo}
           handleLogout={handleLogout}
-        />
-        <GalleryDetail viewArtDetail={viewArtDetail} />
+        />  
+        <GalleryDetail viewArtDetail={viewArtDetail}/>
+        <ScrollButton />
       </Route>
-      {artDetail ? (
-        <Route path='/artdetail'>
-          <ArtDetail art={artDetail} />
-        </Route>
-      ) : null}
+      {artDetail ? 
+      <Route path='/artdetail'>
+        <ArtDetail art={artDetail}/>
+      </Route> : null}
       <Route path='/reviewlist'>
         <Navbar
           isLogin={isLogin}
           userinfo={userinfo}
           handleLogout={handleLogout}
-        />
+        />    
         <ReviewList />
+        <ScrollButton />
       </Route>
       <Route path='/reviewdetail'>
         <Navbar
           isLogin={isLogin}
           userinfo={userinfo}
           handleLogout={handleLogout}
-        />
+        />    
         <ReviewDetail />
+        <ScrollButton />
+      </Route>
+      <Route path='/register'>
+        <Navbar
+          isLogin={isLogin}
+          userinfo={userinfo}
+          handleLogout={handleLogout}
+        />    
+        <Register />
+        <ScrollButton />
+      </Route>
+      <Route path='/auction'>
+        <Navbar
+          isLogin={isLogin}
+          userinfo={userinfo}
+          handleLogout={handleLogout}
+        />    
+        <Auction />
       </Route>
       <Route exact path='/modify'>
         <Navbar
