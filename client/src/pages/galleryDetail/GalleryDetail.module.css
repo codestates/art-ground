@@ -3,12 +3,12 @@
   max-width: 1024px;
   margin: 0 auto;
   padding: 0 0 5rem 0;
-  animation: fadein 2.5s;
-  -moz-animation: fadein 2.5s;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s;
   /* Firefox */
-  -webkit-animation: fadein 2.5s;
+  -webkit-animation: fadein 2s;
   /* Safari and Chrome */
-  -o-animation: fadein 2.5s;
+  -o-animation: fadein 2s;
   /* Opera */
 }
 
@@ -197,6 +197,7 @@
   padding: 2rem 0.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-rows: repeat(auto-fit); */
   grid-column-gap: 0.5rem;
   grid-row-gap: 1.2rem;
   list-style: none;
