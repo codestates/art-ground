@@ -22,9 +22,19 @@ const GalleryDetail = ({viewArtDetail}) => {
 
 
   const slider = (el) => {
-
     setBtnSlider(el);
   };
+
+  const sliderDown = () => {
+    if(btnSlider!==1){
+      setBtnSlider(btnSlider-1)
+    }
+  }
+  const sliderUp = () => {
+    if(btnSlider!==9){
+      setBtnSlider(btnSlider+1)
+    }
+  }
 
   return (
     <section className={styles.container}>
@@ -56,12 +66,14 @@ const GalleryDetail = ({viewArtDetail}) => {
         >
 
           {dummyImg.map(el =>
-            <div className={styles.sliderWrap}>
-              <img className={styles.slider} src='https://images.velog.io/images/devjade/post/1716edd9-798c-4cf2-9fe9-26f8537d8084/image.png' alt='slider' />
-              <img className={styles.sliderPic} src={el} alt='sliderIn' />
-            </div>
+              <div className={styles.sliderWrap}>
+                <img className={styles.slider} src='https://images.velog.io/images/devjade/post/1716edd9-798c-4cf2-9fe9-26f8537d8084/image.png' alt='slider' />
+                <img className={styles.sliderPic} src={el} alt='sliderIn' />
+              </div>
           )}
         </div>
+        <span className={styles.leftArrow} onClick={sliderDown}><i class="fas fa-chevron-left"></i></span>
+        <span className={styles.rightArrow} onClick={sliderUp}><i class="fas fa-chevron-right"></i></span>
       </div>
 
       <div className={styles.btnWrap}>

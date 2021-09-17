@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
@@ -18,6 +18,31 @@ const Navbar = ({ isLogin, handleLogout }) => {
     setNavOpen(true);
   };
 
+  ///////////스크롤 시 navbar 컬러 변경//////////////////////////////
+  const [ScrollY, setScrollY] = useState(0);
+  const [navStatus, setNavStatus] = useState(false);
+  const [navFixed, setNavFixed] = useState(false); 
+
+  const handleFollow = () => {
+    setScrollY(window.pageYOffset);
+    setNavFixed(true);
+    if(ScrollY > 400) { 
+      setNavStatus(true);
+    } else { 
+      setNavStatus(false);
+    }
+  }
+  
+  useEffect(() => {
+    const watch = () => {
+      window.addEventListener('scroll', handleFollow)
+    }
+    watch();
+    return () => {
+      window.removeEventListener('scroll', handleFollow)
+    }
+  })
+  ////////////////////////////////////////////////////////////
   return (
     <section className={styles.container}>
       <div className={styles.navBox}>
@@ -64,9 +89,11 @@ const Navbar = ({ isLogin, handleLogout }) => {
         </div>
         <div className={navOpen ? styles.category : styles.categoryClose}>
           <ul className={styles.categoryBox}>
-            <li className={styles.title} onClick={handleNavClose}>
-              ABOUT
-            </li>
+            <Link to="/about">
+              <li className={styles.title} onClick={handleNavClose}>
+                ABOUT
+              </li>
+            </Link>
             <Link to="/gallery">
               <li className={styles.title} onClick={handleNavClose}>
                 GALLERY

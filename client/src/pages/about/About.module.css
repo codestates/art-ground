@@ -1,0 +1,21 @@
+.container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  text-align: center;
+  height: 2rem;
+}
+.imgBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+}

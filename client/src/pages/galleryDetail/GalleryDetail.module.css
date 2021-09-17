@@ -40,6 +40,7 @@
 }
 .outer {
   overflow: hidden;
+  position: relative;
 }
 
 .sliderOuter {
@@ -119,6 +120,28 @@
   /* max-height: 50%; */
 }
 
+.leftArrow,
+.rightArrow {
+  cursor: pointer;
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  color: whitesmoke;
+  transition: 0.3s;
+}
+.leftArrow {
+  left: 0.7rem;
+}
+
+.rightArrow {
+  right: 0.7rem;
+}
+
+.leftArrow:hover,
+.rightArrow:hover {
+  color: gray;
+}
+
 .btnWrap {
   text-align: center;
 }
@@ -151,7 +174,7 @@
 }
 
 .artist {
-  padding: 2rem;
+  padding: 2rem 1rem;
   color: gray;
   font-size: 0.8rem;
   display: flex;
@@ -188,7 +211,7 @@
 }
 
 .artistContent {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   line-height: 1.2rem;
 }
 
@@ -232,6 +255,10 @@
 @media screen and (max-width: 480px) {
   .workBox {
     grid-template-columns: 1fr;
+  }
+  .leftArrow,
+  .rightArrow {
+    font-size: 1.5rem;
   }
 }
 

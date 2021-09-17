@@ -24,6 +24,7 @@ import Admin from './pages/admin/Admin'
 import Register from './pages/register/Register';
 import Auction from './pages/auction/Auction';
 import ScrollButton from "./components/scrollButton/ScrollButton";
+import About from './pages/about/About'
 
 function App () {
   const history = useHistory()
@@ -150,6 +151,15 @@ function App () {
           handleLogout={handleLogout}
         />
         {isLogin ? <MyPage userinfo={userinfo} /> : <SideBar />}
+      </Route>
+      <Route path='/about'>
+        <Navbar
+          isLogin={isLogin}
+          userinfo={userinfo}
+          handleLogout={handleLogout}
+        />  
+        <About />
+        <ScrollButton />
       </Route>
       <Route path='/gallery'>
         <Navbar
