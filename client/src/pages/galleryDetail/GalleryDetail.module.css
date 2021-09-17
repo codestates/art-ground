@@ -15,10 +15,10 @@
 }
 
 .space {
-  margin-top: 3rem;
+  margin: 3rem 0rem;
   border-bottom: 1px solid rgb(201, 201, 201);
   display: flex;
-  padding: 0.7rem 0 0.25rem 0.5rem;
+  padding: 1.5rem 0 0.25rem 1.5rem;
   border-bottom: 1px solid rgb(231, 231, 231);
   font-size: 0.75rem;
 }
@@ -34,9 +34,17 @@
 .title {
   display: flex;
   justify-content: center;
-  margin: 3rem 0 2rem 0;
+  margin: 3rem 0 0.5rem 0;
   font-size: 1.3rem;
   font-family: "Nanum Gothic Coding", monospace;
+}
+.date {
+  display: flex;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: rgb(156, 156, 156);
+  margin-bottom: 2rem;
+  font-style: italic;
 }
 .outer {
   overflow: hidden;
@@ -125,7 +133,7 @@
   cursor: pointer;
   font-size: 2rem;
   position: absolute;
-  top: 50%;
+  top: 46.5%;
   color: whitesmoke;
   transition: 0.3s;
 }
@@ -170,11 +178,13 @@
 }
 
 .intro {
-  padding: 2rem 0 0 1rem;
+  padding: 2rem 0 0 0.5rem;
+  margin: 0 1rem;
 }
 
 .artist {
-  padding: 2rem 1rem;
+  padding: 2rem 0.5rem;
+  margin: 0 1rem;
   color: gray;
   font-size: 0.8rem;
   display: flex;
@@ -216,11 +226,13 @@
 }
 
 .workList {
-  padding: 4rem 0 0 1rem;
+  padding: 4rem 0 0 0.5rem;
+  margin: 0 1rem;
 }
 
 .workBox {
   padding: 2rem 0.5rem;
+  margin: 0 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   /* grid-template-rows: repeat(auto-fit); */

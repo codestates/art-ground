@@ -42,6 +42,7 @@ const GalleryDetail = ({viewArtDetail}) => {
         {tags.map(el=> <span className={styles.tag}>{el}</span>)}
       </div>
       <div className={styles.title}>데이비드 호크니展</div>
+      <div className={styles.date}>2021. 9. 17 ~ 2021. 12. 31</div>
 
       <div className={styles.outer}>
         <div className={
