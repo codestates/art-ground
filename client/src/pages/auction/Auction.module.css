@@ -75,3 +75,8 @@
     opacity: 1;
   }
 }
+.logoImg {
+  margin: 0;
+  height: auto;
+  width: 16rem;
+}

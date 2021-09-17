@@ -25,7 +25,7 @@ const Register = (props) => {
       <div className={styles.categoryName}>전시 시작일</div>
       <input className={styles.textInput} type="text" placeholder="전시 시작일은 신청일로부터 7일 이후 날짜로 설정 가능합니다."/>
       <div className={styles.categoryName}>전시 마감일</div>
-      <input className={styles.textInput} type="text" placeholder="최대 전시 가능한 기간은 90일 입니다."/>
+      <input className={styles.textInput} type="text" placeholder="최대 전시 가능한 기간은 90일입니다."/>
       <div className={styles.categoryName}>전시장르<span class={styles.subGenre}>(복수선택가능)</span></div>
       <div className={styles.tags}>
         {tags.map((el) => 
