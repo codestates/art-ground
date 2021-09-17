@@ -163,12 +163,14 @@ const SignInDetail = ({
                 </button>
               )}
             </li>
-            <li className={styles.btnBox}>
-              <button className={styles.ouathBtn} onClick={clickGoole}>
-                구글 로그인
-              </button>
-              <button className={styles.ouathBtn}>카카오로그인</button>
-            </li>
+            {isAudienceLogin ? (
+              <li className={styles.btnBox}>
+                <button className={styles.ouathBtn} onClick={clickGoole}>
+                  구글 로그인
+                </button>
+                <button className={styles.ouathBtn}>카카오로그인</button>
+              </li>
+            ) : null}
           </ul>
         </form>
       </div>
