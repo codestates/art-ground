@@ -2,6 +2,7 @@ import styles from "./SignUp.module.css";
 import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
+const CryptoJS = require("crypto-js");
 
 axios.defaults.withCredentials = true;
 const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
@@ -13,6 +14,7 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
     password: "",
     password2: "",
   });
+  console.log(audInfo);
   const [authInfo, setAuthInfo] = useState({
     authorEmail: "",
     name: "",
@@ -49,6 +51,7 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
     return regExp.test(asValue);
   };
 
+  const secretKey = "Klassiker";
   const clickAudJoin = () => {
     // 관람객회원가입버튼클릭시
     // 유효성검사
@@ -71,16 +74,26 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
     }
 
     // 임시
-    alert("가입이 완료되었습니다");
-    history.push("/");
+    // alert("가입이 완료되었습니다");
+    // history.push("/");
+
+    const encryptedPassword = CryptoJS.AES.encrypt(
+      JSON.stringify({ password }),
+      secretKey
+    ).toString();
 
     // axios 요청하기
     const userData = {
       userEmail,
       nickname,
-      password,
+      password: encryptedPassword,
     };
-    // axios.post(``, userData);
+    // .post("https://art-ground.link/sign-up/user", userData)
+    axios
+      .post("https://localhost:5000/sign-up/user", userData)
+      .then((result) => {
+        console.log(result, "-----관람객요청");
+      });
   };
 
   const clickAuthJoin = () => {
@@ -105,19 +118,22 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
       return false;
     }
 
-    // 임시
-    alert("가입이 완료되었씁니다");
-    history.push("/");
+    const encryptedPassword = CryptoJS.AES.encrypt(
+      JSON.stringify({ password }),
+      secretKey
+    ).toString();
 
     // axios 요청하기
     const userData = {
       authorEmail,
       name,
-      password,
-      authorDesc,
-      authorImg,
+      password: encryptedPassword,
     };
-    // axios.post(``, userData);
+    axios
+      .post("https://art-ground.link/sign-up/author", userData)
+      .then((result) => {
+        console.log(result, "-----작가요청");
+      });
   };
 
   const handleInputValue = (key) => (e) => {
@@ -132,7 +148,7 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
       <div>
         <form onSubmit={(e) => e.preventDefault()} className={styles.signupBox}>
           <ul className={styles.ulBox}>
-            <li className={styles.titleBox}>관람객회원가입</li>
+            <li className={styles.titleBox}>회원가입</li>
             <li className={styles.columnBox}>
               <span className={styles.imgBorder}>
                 <img

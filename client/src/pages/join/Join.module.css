@@ -1,5 +1,6 @@
 @value Black, White from '../../common/colors.css';
 @value Container from '../../common/size.css';
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
 
 .container {
   max-width: Container;
@@ -19,6 +20,8 @@
   height: 50px;
   background-color: White;
   border: 2px solid gainsboro;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
   outline: none;
   cursor: pointer;
 }
@@ -41,10 +44,14 @@
 
 .backToLogin {
   margin-top: 4rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
   color: rgb(82, 79, 79);
   cursor: pointer;
 }
 .bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
   font-weight: bold;
   color: black;
 }
