@@ -1,13 +1,15 @@
 @value Black, White from '../../common/colors.css';
 @value Container from '../../common/size.css';
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
+
 span {
   display: block;
 }
 .container {
   max-width: 100%;
   /* background-color: #393939; */
-  background-color: #222222;
+  background-color: #202020;
+  /* background-color: black; */
   box-shadow: 0 -5px 15px rgb(57, 57, 57);
 }
 .navBox {
@@ -48,21 +50,11 @@ span {
   justify-content: center;
   align-items: center;
 }
-.logoborder {
-  /* border: 1px solid red; */
-  width: 40%;
-  font-size: 3rem;
-  color: White;
-  font-weight: bold;
-  text-align: center;
-  cursor: pointer;
-  font-family: "Josefin Slab", serif;
-}
 
 .logoImg {
   margin: 0;
   height: auto;
-  width: 16rem;
+  width: 15rem;
 }
 
 .categoryBox {
@@ -137,8 +129,9 @@ span {
   }
   .title {
     all: unset;
-    color: rgb(47, 47, 47);
-    font-family: "Nunito", sans-serif;
+    color: rgb(53, 53, 53);
+    font-weight: 300;
+    font-family: "Poppins", sans-serif;
   }
 
   .categoryClose {
@@ -164,15 +157,12 @@ span {
 }
 @media screen and (max-width: 580px) {
   .logoImg {
-    width: 13rem;
+    width: 12rem;
   }
 }
 
 @media screen and (max-width: 480px) {
   .moreOpt {
     margin-left: 1rem;
-  }
-  .logoImg {
-    width: 10rem;
   }
 }

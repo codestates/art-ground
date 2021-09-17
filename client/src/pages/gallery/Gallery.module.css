@@ -4,12 +4,12 @@
   max-width: 1024px;
   margin: 0 auto;
   padding: 0 0.5rem 5rem 0.5rem;
-  animation: fadein 2s;
-  -moz-animation: fadein 2s;
+  animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s;
   /* Firefox */
-  -webkit-animation: fadein 2s;
+  -webkit-animation: fadein 1.5s;
   /* Safari and Chrome */
-  -o-animation: fadein 2s;
+  -o-animation: fadein 1.5s;
   /* Opera */
 }
 

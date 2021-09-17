@@ -4,6 +4,7 @@ import styles from './Auction.module.css';
 const Auction = (props) => {
   return (
     <section className={styles.container}>
+      <img className={styles.logoImg} src="../../../images/text.png" alt="logo" />
       <div className={styles.icon}>
         <i class="fas fa-exclamation-triangle"></i>
       </div>
@@ -16,6 +17,7 @@ const Auction = (props) => {
       <div className={styles.subContent}>
         빠른 시일내에 준비하여 찾아뵙겠습니다.
       </div>
+      <img className={styles.logoImg} src="../../../images/text.png" alt="logo" />
     </section>
   )
 }

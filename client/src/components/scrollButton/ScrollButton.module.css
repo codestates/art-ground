@@ -11,7 +11,7 @@
   border-radius: 50%;
   display: flex;
   opacity: 0.8;
-  box-shadow: 1px 1px 3px 1px #cfcfcf;
+  box-shadow: 1px 1px 1px 1px #cfcfcf;
   transition: opacity 0.5s ease-in;
 }
 
