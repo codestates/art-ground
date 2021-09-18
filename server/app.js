@@ -1,8 +1,6 @@
 const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
-// const https = require("https");
-// const fs = require("fs");
 const cookieParser = require("cookie-parser");
 
 class App {
@@ -38,7 +36,7 @@ class App {
     this.app.use(express.urlencoded({ extended: false }));
     this.app.use(
       cors({
-        origin: ["https://localhost:3000", "https://art-ground.io"],
+        origin: ["http://localhost:3000", "https://art-ground.io"],
         credentials: true,
         methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
       })
