@@ -111,7 +111,7 @@ li {
   height: 80%;
   cursor: pointer;
   position: absolute;
-  left: -20px;
+  left: 2px;
   top: 3px;
 }
 .btnBox {
@@ -153,37 +153,45 @@ li {
     width: 100%;
   }
   .ulBox {
-    width: 80%;
+    width: 100%;
+    padding: 0.4rem;
   }
   .imgBorder {
-    width: 5%;
+    width: 3%;
   }
-
+  .eyeBorder {
+    width: 30px;
+  }
   .eyeimg {
     width: 70%;
     height: 70%;
-    left: -20px;
+    left: 3px;
     top: 7px;
   }
 }
 @media screen and (max-width: 580px) {
   .signupBox {
     width: 100%;
+    padding: 6rem 1rem;
   }
   .ulBox {
     width: 100%;
+    padding: 0.4rem;
   }
   .confirm {
     width: 22%;
   }
   .imgBorder {
-    width: 5%;
+    width: 3%;
   }
 
+  .eyeBorder {
+    width: 30px;
+  }
   .eyeimg {
     width: 70%;
     height: 70%;
-    left: -2px;
+    left: 3px;
     top: 7px;
   }
   .joinBtn {
@@ -195,17 +203,22 @@ li {
 @media screen and (max-width: 480px) {
   .signupBox {
     width: 100%;
+    padding: 6rem 1rem;
   }
   .ulBox {
     width: 100%;
+    padding: 0.4rem;
   }
   .imgBorder {
-    width: 5%;
+    width: 2%;
+  }
+  .eyeBorder {
+    width: 30px;
   }
   .eyeimg {
     width: 70%;
     height: 70%;
-    left: -2px;
+    left: 3px;
     top: 7px;
   }
   .joinBtn {

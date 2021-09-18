@@ -3,7 +3,7 @@ import styles from './SubNavBar.module.css';
 
 const SubNavBar = (props) => {
 
-  const tags=['전체', '#회화', '#일러스트', '#순수미술', '#응용미술', '#판화', '#개인전', '#사진전', '#서양화', '#동양화', '#추상화', '#팝아트', '#인물화', '#풍경화', '#정물화'];
+  const tags=['전체', '#회화', '#일러스트', '#순수미술', '#응용미술', '#판화', '#개인전', '#사진전', '#추상화', '#팝아트', '#인물화', '#풍경화', '#정물화'];
   const [tagClicked, setTagClicked] = useState('전체');
   const [isStandard, setIsStandard] = useState(true);
   const [isPremium, setIsPremium] = useState(false);
