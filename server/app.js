@@ -1,6 +1,8 @@
 const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
+// const https = require("https");
+// const fs = require("fs");
 const cookieParser = require("cookie-parser");
 
 class App {
@@ -23,23 +25,20 @@ class App {
   setMiddleWare() {
     // 미들웨어 셋팅
     // https redirecting
-    // this.app.use((req, res, next) => {
-    //   if (req.secure) {
-    //     next();
-    //   } else {
-    //     const to = `https://${req.hostname}${req.url}`;
-    //     res.redirect(to);
-    //   }
-    // });
+    this.app.use((req, res, next) => {
+      if (req.secure) {
+        next();
+      } else {
+        const to = `https://${req.hostname}${req.url}`;
+        res.redirect(to);
+      }
+    });
     this.app.use(logger("dev"));
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: false }));
     this.app.use(
       cors({
-        origin: [
-          "http://localhost:3000",
-          "http://pickmeup-client.s3-website.ap-northeast-2.amazonaws.com",
-        ],
+        origin: ["https://localhost:3000", "https://art-ground.io"],
         credentials: true,
         methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
       })
@@ -49,9 +48,8 @@ class App {
 
   getRouting() {
     this.app.use(require("./controllers"));
-
     this.app.get("/", (req, res) => {
-      res.status(200).send("hello world");
+      res.status(200).send("hello world...");
     });
   }
 
