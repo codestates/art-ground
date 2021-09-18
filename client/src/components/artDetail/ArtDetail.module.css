@@ -1,3 +1,13 @@
+.container {
+  animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s;
+  /* Firefox */
+  -webkit-animation: fadein 1.5s;
+  /* Safari and Chrome */
+  -o-animation: fadein 1.5s;
+  /* Opera */
+}
+
 .background {
   width: 100vw;
   height: 100vh;
@@ -7,12 +17,15 @@
 
 .img {
   position: absolute;
-  width: auto;
-  height: 90vh;
+  width: 100%;
+  max-width: 768px;
+  height: auto;
+  max-height: 90vh;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
+  object-fit: cover;
 }
 
 .closeBtn {
@@ -26,4 +39,46 @@
 
 .closeBtn:hover {
   color: whitesmoke;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
