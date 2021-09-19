@@ -19,6 +19,26 @@ const fs = require("fs");
 // });
 // }
 
+// let server;
+// if (fs.existsSync("./key.pem") && fs.existsSync("./cert.pem")) {
+//   server = https.createServer(
+//     {
+//       key: fs.readFileSync(__dirname + "/key.pem", "utf-8"),
+//       cert: fs.readFileSync(__dirname + "/cert.pem", "utf-8"),
+//     },
+//     function (req, res) {
+//       res.write("HTTPS SUCCESS");
+//       res.end();
+//     }
+//   );
+//   server.listen(PORT, () => console.log("server runnning"));
+// } else {
+//   server =
+// app.listen(PORT, () => {
+//   console.log("Express listening on port", PORT);
+// });
+//}
+
 // https
 //   .createServer(
 //     {
@@ -41,7 +61,9 @@ if (fs.existsSync("./key.pem") && fs.existsSync("./cert.pem")) {
   const credentials = { key: privateKey, cert: certificate };
 
   server = https.createServer(credentials, app);
-  server.listen(PORT, () => console.log("Express listening on port", PORT));
+  server.listen(PORT, () =>
+    console.log("Express https listening on port", PORT)
+  );
 } else {
   server = app.listen(PORT, () => {
     console.log("Express listening on port", PORT);
