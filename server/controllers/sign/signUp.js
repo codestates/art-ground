@@ -7,6 +7,7 @@ const saltRounds = 10;
 module.exports = {
   // 일반 회원가입
   generalSignUp: async (req, res) => {
+    console.log(process.env.CRYPTOJS_SECRETKEY);
     /* 
         1. body값에서 user_email, password, nickname, user_type 구조분해 할당으로 받기
         2. 파라미터 중에서 하나라도 빠지면 422
@@ -26,7 +27,7 @@ module.exports = {
       // password 암호화 작업
       // cryptojs 복호화
       let byte = CryptoJS.AES.decrypt(password, process.env.CRYPTOJS_SECRETKEY);
-      console.log("byte:", JSON.parse(byte.toString(CryptoJS.enc.Utf8)));
+      console.log("byte:", JSON.parse(byte));
       // console.log("byte2:", byte.toString(CryptoJS.enc.Utf8));
       const decryptedPassword = JSON.parse(byte.toString(CryptoJS.enc.Utf8));
       // byte.toString(CryptoJS.enc.Utf8);
