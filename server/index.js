@@ -34,9 +34,9 @@ const fs = require("fs");
 //   server.listen(PORT, () => console.log("server runnning"));
 // } else {
 //   server =
-app.listen(PORT, () => {
-  console.log("Express listening on port", PORT);
-});
+// app.listen(PORT, () => {
+//   console.log("Express listening on port", PORT);
+// });
 //}
 
 // https
@@ -61,9 +61,11 @@ if (fs.existsSync("./key.pem") && fs.existsSync("./cert.pem")) {
   const credentials = { key: privateKey, cert: certificate };
 
   server = https.createServer(credentials, app);
-  server.listen(PORT, () => console.log("Express listening on port", PORT));
+  server.listen(PORT, () =>
+    console.log("Express https listening on port", PORT)
+  );
 } else {
-  server = app.listen(port, () => {
+  server = app.listen(PORT, () => {
     console.log("Express listening on port", PORT);
   });
 }
