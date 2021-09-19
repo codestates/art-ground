@@ -37,7 +37,7 @@ class App {
     this.app.use(
       cors({
         origin: [
-          "http://localhost:3000",
+          "https://localhost:3000",
           "http://pickmeup-client.s3-website.ap-northeast-2.amazonaws.com",
         ],
         credentials: true,
