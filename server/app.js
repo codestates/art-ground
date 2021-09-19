@@ -1,8 +1,6 @@
 const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
-// const https = require("https");
-// const fs = require("fs");
 const cookieParser = require("cookie-parser");
 
 class App {
