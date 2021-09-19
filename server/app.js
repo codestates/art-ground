@@ -36,7 +36,9 @@ class App {
     this.app.use(express.urlencoded({ extended: false }));
     this.app.use(
       cors({
-        origin: ["http://localhost:3000", "https://art-ground.io"],
+
+        origin: ["http://localhost:3000","https://localhost:3000", "https://art-ground.io"],
+
         credentials: true,
         methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
       })

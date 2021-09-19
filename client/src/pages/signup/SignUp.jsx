@@ -88,9 +88,9 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
       nickname,
       password: encryptedPassword,
     };
-    // .post("https://art-ground.link/sign-up/user", userData)
+
     axios
-      .post("https://localhost:5000/sign-up/user", userData)
+      .post("https://art-ground.link/sign-up/user", userData)
       .then((result) => {
         console.log(result, "-----관람객요청");
       });
