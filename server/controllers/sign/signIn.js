@@ -15,6 +15,7 @@ module.exports = {
             user_email: userEmail,
           },
         })
+        // 코드 리팩토링
         .then(async (data) => {
           if (!data) {
             return res.status(401).json({ message: "invalid user" }); //404로 바꿔야 하나?
