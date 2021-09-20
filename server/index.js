@@ -1,6 +1,6 @@
 require("dotenv").config();
 const app = require("./app.js");
-const PORT = process.env.HTTPS_PORT || 5001;
+const PORT = process.env.HTTPS_PORT || 80;
 const https = require("https");
 const fs = require("fs");
 
@@ -61,9 +61,7 @@ if (fs.existsSync("./key.pem") && fs.existsSync("./cert.pem")) {
   const credentials = { key: privateKey, cert: certificate };
 
   server = https.createServer(credentials, app);
-  server.listen(PORT, () =>
-    console.log("Express https listening on port", PORT)
-  );
+  server.listen(PORT, () => console.log("Express listening on port", PORT));
 } else {
   server = app.listen(PORT, () => {
     console.log("Express listening on port", PORT);

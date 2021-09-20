@@ -233,6 +233,7 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
 
                 <span className={styles.eyeBorder}>
                   <img
+
                     src={visibility}
                     alt=""
                     className={styles.eyeimg}

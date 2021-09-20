@@ -7,12 +7,21 @@ span {
 }
 .container {
   width: 100%;
-  /* background-color: #393939; */
   background-color: #202020;
   box-shadow: 0 -5px 15px rgb(57, 57, 57);
-  /* position: fixed;
+  position: fixed;
   top: 0;
-  left: 0; */
+  z-index: 10;
+  transition: 0.2s;
+}
+.containerScroll {
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 -5px 10px rgb(57, 57, 57);
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  transition: 0.2s;
 }
 
 .navBox {
@@ -21,7 +30,8 @@ span {
   margin: 0 auto;
 }
 
-.moreOpt {
+.moreOpt,
+.moreOptScroll {
   display: none;
 }
 
@@ -34,10 +44,18 @@ span {
   justify-content: flex-end;
   margin-right: 1.5rem;
 }
+.btnsScroll {
+  list-style: none;
+  color: rgb(53, 53, 53);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 1.5rem;
+}
 .btn {
   display: inline-block;
   width: auto;
-  margin: 1.8em 0.8rem 0.5rem 0.8rem;
+  margin: 1.5em 0.8rem 0rem 0.8rem;
   text-align: right;
   background-color: none;
   border: none;
@@ -49,37 +67,66 @@ span {
   font-weight: bold;
 }
 .logo {
-  width: 100%;
-  height: 7rem;
+  /* width: auto; */
+  height: 6.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.2s;
 }
 
 .logoImg {
   margin: 0;
-  height: auto;
-  width: 15rem;
+  height: 65%;
+  transition: 0.2s;
+}
+.logoScroll {
+  margin-top: -1.5rem;
+  margin-left: 1.5rem;
+  height: 3rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  transition: 0.2s;
+}
+.logoImgScroll {
+  margin: 0;
+  height: 90%;
+  transition: 0.2s;
 }
 
 .categoryBox {
   font-size: 1rem;
   list-style: none;
-  height: 3.2rem;
+  height: 2.5rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 .title {
   font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
   font-weight: 200;
   width: 5rem;
-  line-height: 3.2rem;
+  margin: 0 2rem;
+  line-height: 2.5rem;
   color: rgb(228, 228, 228);
   text-align: center;
   cursor: pointer;
 }
-.title:hover {
+.titleScroll {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 200;
+  width: 5rem;
+  margin: 0 2rem;
+  line-height: 2.5rem;
+  text-align: center;
+  cursor: pointer;
+  color: rgb(53, 53, 53);
+}
+.title:hover,
+.titleScroll:hover {
   font-weight: bold;
 }
 
@@ -91,23 +138,61 @@ span {
   .moreOpt {
     all: unset;
     cursor: pointer;
+    position: absolute;
     color: white;
-    margin-top: 1.5rem;
-    margin-left: 1.5rem;
+    top: 1.5rem;
+    left: 1.5rem;
     font-size: 1.2rem;
   }
-  .topNavBox {
-    display: flex;
-    justify-content: space-between;
+  .moreOptScroll {
+    all: unset;
+    cursor: pointer;
+    position: absolute;
+    color: rgb(117, 117, 117);
+    top: 1.5rem;
+    left: 1.5rem;
+    font-size: 1.2rem;
   }
-  .category {
+  .topNav {
+    all: unset;
     position: fixed;
     top: 0;
     left: 0;
-    width: 17rem;
+    width: 18rem;
+    height: 6rem;
+    background-color: rgb(251, 251, 251);
+    opacity: 0.95;
+    /* border-right: 1px solid rgb(238, 238, 238); */
+    box-shadow: 5px 0 15px rgba(83, 83, 83, 0.15);
+    transition: 0.5s;
+    z-index: 10;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .btns,
+  .btnsScroll {
+    all: unset;
+    margin: 3.5rem 2.5rem;
+  }
+
+  .btn {
+    all: unset;
+    margin: 0 0.5rem;
+    font-size: 0.85rem;
+    color: rgb(53, 53, 53);
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+  }
+  .category {
+    position: fixed;
+    top: 6rem;
+    left: 0;
+    width: 18rem;
     height: 100vh;
     background-color: rgb(251, 251, 251);
     opacity: 0.95;
+    /* border-right: 1px solid rgb(238, 238, 238); */
     box-shadow: 5px 0 15px rgba(83, 83, 83, 0.15);
     transition: 0.5s;
     z-index: 10;
@@ -116,8 +201,9 @@ span {
     all: unset;
     display: flex;
     flex-direction: column;
-    padding: 4rem 3rem 3rem 3rem;
-    row-gap: 2rem;
+    padding: 2rem 3rem 3rem 3rem;
+    row-gap: 1.5rem;
+    text-align: right;
   }
 
   .closeBtn {
@@ -125,14 +211,15 @@ span {
     cursor: pointer;
     color: rgb(125, 125, 125);
     position: absolute;
-    top: 1rem;
-    left: 15rem;
+    top: -4.8rem;
+    left: 16rem;
     transition: 0.3s;
   }
   .closeBtn:hover {
     color: rgb(0, 0, 0);
   }
-  .title {
+  .title,
+  .titleScroll {
     all: unset;
     color: rgb(53, 53, 53);
     font-weight: 300;
@@ -141,33 +228,43 @@ span {
 
   .categoryClose {
     position: fixed;
+    top: 6rem;
+    left: -100%;
+    width: 18rem;
+    height: 100vh;
+    background-color: rgb(251, 251, 251);
+    opacity: 0.95;
+    box-shadow: 5px 0 15px rgba(83, 83, 83, 0.15);
+    transition: 0.5s;
+    z-index: 10;
+  }
+  .topNavClose {
+    position: fixed;
     top: 0;
     left: -100%;
-    width: 17rem;
-    height: 100vh;
-    background-color: white;
-    box-shadow: -1px 0 4px rgba(83, 83, 83, 0.15);
+    width: 18rem;
+    height: 6rem;
+    background-color: rgb(251, 251, 251);
+    opacity: 0.95;
+    border-bottom: 1px solid rgb(238, 238, 238);
+    box-shadow: 5px 0 15px rgba(83, 83, 83, 0.15);
     transition: 0.5s;
+    z-index: 10;
+    display: flex;
+    justify-content: flex-end;
   }
-  .logo {
-    padding-bottom: 1.5rem;
-    height: auto;
+  .logo,
+  .logoScroll {
+    margin-top: 0;
+    margin-left: 0;
+    padding: 1.5rem 0 1.3rem;
+    height: 6rem;
+    justify-content: center;
+    position: relative;
   }
-  .btns {
-    margin-right: 0.8rem;
-  }
-  .btn {
-    margin: 1.8em 0.5rem;
+  .logoImg,
+  .logoImgScroll {
+    width: auto;
+    height: 100%;
   }
 }
-@media screen and (max-width: 580px) {
-  .logoImg {
-    width: 12rem;
-  }
-}
-
-/* @media screen and (max-width: 480px) {
-  .moreOpt {
-    margin-left: 1rem;
-  }
-} */

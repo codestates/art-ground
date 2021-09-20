@@ -10,6 +10,7 @@ label {
 .container {
   max-width: Container;
   margin: 0 auto;
+  padding-top: 11rem;
 }
 .signupBox {
   width: 100%;
@@ -155,6 +156,9 @@ li {
   transition: transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02);
 }
 @media screen and (max-width: 768px) {
+  .container {
+    padding-top: 6rem;
+  }
   .signupBox {
     width: 100%;
   }
