@@ -22,24 +22,33 @@ const Navbar = ({ isLogin, handleLogout }) => {
   const [ScrollY, setScrollY] = useState(0);
   const [navStatus, setNavStatus] = useState(false);
 
+//   const [navFixed, setNavFixed] = useState(false);
+
+//   const handleFollow = () => {
+//     setScrollY(window.pageYOffset);
+//     setNavFixed(true);
+//     if (ScrollY > 400) {
+
+
   const handleFollow = () => {
     setScrollY(window.pageYOffset);
     if(ScrollY > 50) { 
+
       setNavStatus(true);
-    } else { 
+    } else {
       setNavStatus(false);
     }
-  }
-  
+  };
+
   useEffect(() => {
     const watch = () => {
-      window.addEventListener('scroll', handleFollow)
-    }
+      window.addEventListener("scroll", handleFollow);
+    };
     watch();
     return () => {
-      window.removeEventListener('scroll', handleFollow)
-    }
-  })
+      window.removeEventListener("scroll", handleFollow);
+    };
+  });
   ////////////////////////////////////////////////////////////
   return (
     <section className={navStatus? styles.containerScroll : styles.container}>

@@ -18,6 +18,7 @@ const SignInDetail = ({
   const [loginInfo, setLoginInfo] = useState({
     userEmail: "",
     password: "",
+    userType: "",
   });
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -61,25 +62,43 @@ const SignInDetail = ({
     const userData = {
       userEmail,
       password: encryptedPassword,
+
+      userType: 1,
+
     };
     setErrorMessage("");
     axios.post("https://localhost:5000/sign-in", userData).then((result) => {
       console.log(result, "-----관람객로그인요청");
+
+      handleResponseSuccess();
     });
-    //handleResponseSuccess();
-    // history.push("/landing");
+
   };
   const clickAuthLogin = () => {
     if (!userEmail || !password) {
       setErrorMessage("아이디와 비밀번호를 모두 입력해주세요");
-    } else {
-      setErrorMessage("");
-      // axios
-      //   .post("http://www.art-ground.net/sign-in", loginInfo)
-      //   .then((result) => {});
-      handleResponseSuccess();
-      // history.push("/");
     }
+
+    if (!checkEmail(userEmail)) {
+      setErrorMessage("이메일 형식을 맞춰주세요");
+      return false;
+    }
+
+    const encryptedPassword = CryptoJS.AES.encrypt(
+      JSON.stringify(password),
+      secretKey
+    ).toString();
+
+    const userData = {
+      userEmail,
+      password: encryptedPassword,
+      userType: 1,
+    };
+    setErrorMessage("");
+    axios.post("https://localhost:5000/sign-in", userData).then((result) => {
+      console.log(result, "-----관람객로그인요청");
+      handleResponseSuccess();
+    });
   };
 
   const onKeyPress = (e) => {

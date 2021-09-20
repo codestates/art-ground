@@ -79,6 +79,7 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
 
     const encryptedPassword = CryptoJS.AES.encrypt(
       JSON.stringify(password),
+
       secretKey
     ).toString();
 
