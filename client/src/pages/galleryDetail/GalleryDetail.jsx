@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import styles from './GalleryDetail.module.css'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import styles from './GalleryDetail.module.css';
 
-const GalleryDetail = ({ viewArtDetail }) => {
-  const [btnSlider, setBtnSlider] = useState(1)
+const GalleryDetail = ({viewArtDetail}) => {
+
+  const [btnSlider, setBtnSlider] = useState(1);
 
   const tags = ['#현대미술', '#일러스트레이션', '#회화']
-  const sliderNum = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  const sliderNum = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const dummyImg = [
     'https://t1.daumcdn.net/cfile/tistory/9995E34F5D5C9FB134',
     'https://images.velog.io/images/devjade/post/4f3086dd-2f8a-4f34-b0aa-cb5d7e8772d2/image.png',
@@ -17,18 +18,31 @@ const GalleryDetail = ({ viewArtDetail }) => {
     'https://t1.daumcdn.net/cfile/tistory/99E5A8495C91A3021B',
     'https://images.velog.io/images/devjade/post/c11ba610-f5fe-4074-a3b8-c892edf13dd1/%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%87%E1%85%B5%E1%84%83%E1%85%B3%E1%84%92%E1%85%A9%E1%84%8F%E1%85%B3%E1%84%82%E1%85%B5.png',
     'https://images.velog.io/images/devjade/post/794f3b2c-f679-4d69-9bd8-b845efd96993/image.png'
-  ]
+  ];
+
 
   const slider = (el) => {
-    setBtnSlider(el)
+    setBtnSlider(el);
+  };
+
+  const sliderDown = () => {
+    if(btnSlider!==1){
+      setBtnSlider(btnSlider-1)
+    }
+  }
+  const sliderUp = () => {
+    if(btnSlider!==9){
+      setBtnSlider(btnSlider+1)
+    }
   }
 
   return (
     <section className={styles.container}>
       <div className={styles.space}>
-        {tags.map(el => <span className={styles.tag}>{el}</span>)}
+        {tags.map(el=> <span className={styles.tag}>{el}</span>)}
       </div>
       <div className={styles.title}>데이비드 호크니展</div>
+      <div className={styles.date}>2021. 9. 17 ~ 2021. 12. 31</div>
 
       <div className={styles.outer}>
         <div className={
@@ -53,16 +67,18 @@ const GalleryDetail = ({ viewArtDetail }) => {
         >
 
           {dummyImg.map(el =>
-            <div className={styles.sliderWrap}>
-              <img className={styles.slider} src='https://images.velog.io/images/devjade/post/1716edd9-798c-4cf2-9fe9-26f8537d8084/image.png' alt='slider' />
-              <img className={styles.sliderPic} src={el} alt='sliderIn' />
-            </div>
+              <div className={styles.sliderWrap}>
+                <img className={styles.slider} src='https://images.velog.io/images/devjade/post/1716edd9-798c-4cf2-9fe9-26f8537d8084/image.png' alt='slider' />
+                <img className={styles.sliderPic} src={el} alt='sliderIn' />
+              </div>
           )}
         </div>
+        <span className={styles.leftArrow} onClick={sliderDown}><i class="fas fa-chevron-left"></i></span>
+        <span className={styles.rightArrow} onClick={sliderUp}><i class="fas fa-chevron-right"></i></span>
       </div>
 
       <div className={styles.btnWrap}>
-        {sliderNum.map(el => <button className={el === btnSlider ? styles.btnClicked : styles.btn} onClick={() => slider(el)}> </button>)}
+        {sliderNum.map(el => <button className={el===btnSlider? styles.btnClicked : styles.btn} onClick={() => slider(el)}> </button>)}
       </div>
 
       <p className={styles.content}>생존작가로서 최고의 경매가를 기록한 데이비드 호크니의 작품 133점을 소개하는 아시아 지역 첫 대규모 개인전인 〈데이비드 호크니〉展에 여러분을 초대합니다.
@@ -90,7 +106,7 @@ const GalleryDetail = ({ viewArtDetail }) => {
         {dummyImg.map(el =>
           <li>
             <Link to='/artdetail'>
-              <img className={styles.work} src={el} alt='art' onClick={() => viewArtDetail(el)} />
+              <img className={styles.work} src={el} alt='art' onClick={() => viewArtDetail(el)}/>
             </Link>
             <span className={styles.workTitle}>호크니1</span>
             <span className={styles.workContent}>제작연도 : 2021, 재료 : Digital drawing, 크기 : 59.4x42.0cm</span>
@@ -99,7 +115,7 @@ const GalleryDetail = ({ viewArtDetail }) => {
       </ul>
       <div className={styles.space} />
     </section>
-  )
-}
+  );
+};
 
-export default GalleryDetail
+export default GalleryDetail;

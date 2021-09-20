@@ -5,6 +5,7 @@ import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 const CryptoJS = require("crypto-js");
 
+
 axios.defaults.withCredentials = true;
 
 const SignInDetail = ({
@@ -38,6 +39,7 @@ const SignInDetail = ({
       /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
     return regExp.test(asValue);
   };
+
 
   const { userEmail, password } = loginInfo;
   const secretKey = "Klassiker";
@@ -144,14 +146,13 @@ const SignInDetail = ({
                     onChange={handleInputValue("password")}
                   ></input>
                 )}
-
                 <span className={styles.eyeBorder}>
-                  {/* <img
+                  <img
                     src={visibility}
                     alt=""
                     className={styles.eyeimg}
                     onClick={clickEye}
-                  /> */}
+                  />
                 </span>
               </div>
             </li>
