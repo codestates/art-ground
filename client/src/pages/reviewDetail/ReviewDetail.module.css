@@ -156,6 +156,13 @@
   .title {
     margin-bottom: 0.5rem;
   }
+  .replyBox {
+    margin: 1rem 1rem 2rem;
+  }
+  .replyCount {
+    margin: 0 1rem;
+    padding: 0;
+  }
 }
 
 @keyframes fadein {

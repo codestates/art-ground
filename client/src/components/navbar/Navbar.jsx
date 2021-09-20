@@ -18,7 +18,7 @@ const Navbar = ({ isLogin, handleLogout }) => {
     setNavOpen(true);
   };
 
-  ///////////스크롤 시 navbar 컬러 변경//////////////////////////////
+  ///////////스크롤 시 navbar 컬러 변경(작업중)//////////////////////////////
   const [ScrollY, setScrollY] = useState(0);
   const [navStatus, setNavStatus] = useState(false);
   const [navFixed, setNavFixed] = useState(false); 

@@ -80,6 +80,7 @@
   border: 1px solid rgb(172, 172, 172);
   border-radius: 5px;
   transition: 0.3s;
+  white-space: nowrap;
 }
 
 .reviewBtn:hover {
