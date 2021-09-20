@@ -16,14 +16,13 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
     userType: "",
   });
   console.log(audInfo);
-  const [authInfo, setAuthInfo] = useState({
-    authorEmail: "",
-    name: "",
-    password: "",
-    password2: "",
-    authorDesc: "",
-    authorImg: null,
-  });
+  // const [authInfo, setAuthInfo] = useState({
+  //   authorEmail: "",
+  //   name: "",
+  //   password: "",
+  //   password2: "",
+  //   userType: "",
+  // });
   const [passOpen, setPassOpen] = useState(false);
   const [passOpen2, setPassOpen2] = useState(false);
 
@@ -79,7 +78,8 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
     // history.push("/");
 
     const encryptedPassword = CryptoJS.AES.encrypt(
-      JSON.stringify( password ),
+      JSON.stringify(password),
+
       secretKey
     ).toString();
 
@@ -92,19 +92,25 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
     };
 
     axios
+      // .post("https://localhost:5000/sign-up/user", userData)
       // .post("https://art-ground.link/sign-up/user", userData)
       .post("https://localhost:5000/sign-up/user", userData)
       .then((result) => {
-        console.log(result, "-----관람객요청");
+        if (result.data.message === "sign-up ok") {
+          console.log(result, "-----관람객요청");
+          history.push("/about");
+        }
+      })
+      .cathch((err) => {
+        setErrorMessage("이미 존재하는 사용자입니다.");
       });
   };
 
   const clickAuthJoin = () => {
     // 작가회원가입버튼클릭시
     // 유효성검사
-    const { authorEmail, name, password, password2, authorDesc, authorImg } =
-      authInfo;
-    if (!authorEmail || !name || !password || !password2) {
+    const { userEmail, nickname, password, password2, userType } = audInfo;
+    if (!userEmail || !nickname || !password || !password2) {
       setErrorMessage("모든 항목을 입력해주세요");
       return false;
     }
@@ -116,26 +122,28 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
       setErrorMessage("비밀번호는 4-12자리의 숫자,영문입니다.");
       return false;
     }
-    if (!checkEmail(authorEmail)) {
+    if (!checkEmail(userEmail)) {
       setErrorMessage("이메일 형식을 맞춰주세요");
       return false;
     }
 
     const encryptedPassword = CryptoJS.AES.encrypt(
-      JSON.stringify({ password }),
+      JSON.stringify(password),
       secretKey
     ).toString();
 
     // axios 요청하기
     const userData = {
-      authorEmail,
-      name,
+      authorEmail: userEmail,
+      name: nickname,
       password: encryptedPassword,
+      userType: 2,
     };
     axios
       .post("https://localhost:5000/sign-up/author", userData)
       .then((result) => {
         console.log(result, "-----작가요청");
+        //history.push("/about");
       });
   };
 
