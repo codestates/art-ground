@@ -162,7 +162,7 @@ span {
     height: 6rem;
     background-color: rgb(251, 251, 251);
     opacity: 0.95;
-    border-bottom: 1px solid rgb(238, 238, 238);
+    /* border-right: 1px solid rgb(238, 238, 238); */
     box-shadow: 5px 0 15px rgba(83, 83, 83, 0.15);
     transition: 0.5s;
     z-index: 10;
@@ -192,6 +192,7 @@ span {
     height: 100vh;
     background-color: rgb(251, 251, 251);
     opacity: 0.95;
+    /* border-right: 1px solid rgb(238, 238, 238); */
     box-shadow: 5px 0 15px rgba(83, 83, 83, 0.15);
     transition: 0.5s;
     z-index: 10;
