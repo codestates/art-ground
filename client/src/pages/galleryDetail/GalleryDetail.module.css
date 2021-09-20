@@ -4,7 +4,7 @@
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
-  padding: 0 0 5rem 0;
+  padding: 13.5rem 0 5rem 0;
   animation: fadein 1.5s;
   -moz-animation: fadein 1.5s;
   /* Firefox */
@@ -256,6 +256,9 @@
 }
 
 @media screen and (max-width: 768px) {
+  .container {
+    padding: 6rem 0 5rem 0;
+  }
   .workBox {
     grid-template-columns: 1fr 1fr;
   }

@@ -46,16 +46,17 @@ const Navbar = ({ isLogin, handleLogout }) => {
   return (
     <section className={styles.container}>
       <div className={styles.navBox}>
-        <div className={styles.topNavBox}>
-          <span className={styles.moreOpt} onClick={handleNavOpen}>
+        <div className={navOpen? styles.topNav : styles.topNavClose}>
+          {/* <span className={styles.moreOpt} onClick={handleNavOpen}>
             <i class="fas fa-bars"></i>
-          </span>
+          </span> */}
           <ul className={styles.btns}>
             {!isLogin ? (
               <li
                 className={styles.btn}
                 onClick={() => {
                   history.push("/signin");
+                  setNavOpen(false);
                 }}
               >
                 로그인
@@ -65,6 +66,7 @@ const Navbar = ({ isLogin, handleLogout }) => {
                 className={styles.btn}
                 onClick={() => {
                   handleLogout();
+                  setNavOpen(false);
                   history.push("/");
                 }}
               >
@@ -72,14 +74,17 @@ const Navbar = ({ isLogin, handleLogout }) => {
               </li>
             )}
             <Link to="/join">
-              <li className={styles.btn}>회원가입</li>
+              <li className={styles.btn} onClick={handleNavClose}>회원가입</li>
             </Link>
             <Link to="/mypage">
-              <li className={styles.btn}>마이페이지</li>
+              <li className={styles.btn} onClick={handleNavClose}>마이페이지</li>
             </Link>
           </ul>
         </div>
         <div className={styles.logo}>
+          <span className={styles.moreOpt} onClick={handleNavOpen}>
+            <i class="fas fa-bars"></i>
+          </span>
           <img
             className={styles.logoImg}
             src="../../../images/Original on Transparent.png"
@@ -109,11 +114,11 @@ const Navbar = ({ isLogin, handleLogout }) => {
                 REGISTER
               </li>
             </Link>
-            <Link to="/auction">
+            {/* <Link to="/auction">
               <li className={styles.title} onClick={handleNavClose}>
                 AUCTION
               </li>
-            </Link>
+            </Link> */}
             <Link to="/contact">
               <li className={styles.title} onClick={handleNavClose}>
                 CONTACT

@@ -1,3 +1,7 @@
+/* body {
+  padding-top: 0;
+} */
+
 .container {
   animation: fadein 1.5s;
   -moz-animation: fadein 1.5s;
