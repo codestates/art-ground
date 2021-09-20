@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   margin: 0;
-  padding-top: 13.5rem;
+  padding-top: 12rem;
   display: flex;
   flex-direction: column;
   animation: fadein 1.5s;
