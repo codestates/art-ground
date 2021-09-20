@@ -3,7 +3,7 @@ const {
   exhibition: exhibitionModels,
   images: imagesModel,
 } = require("../../models");
-const { isValid } = require("../../utils/validCheck");
+
 module.exports.register = async (req, res) => {
   const userInfo = isAuthorized(req);
 
@@ -60,5 +60,9 @@ module.exports.register = async (req, res) => {
     } else {
       res.status(422).json({ message: "insufficient parameters supplied" });
     }
+  } else {
+    res.status(401).json({
+      message: "invalid user",
+    });
   }
 };

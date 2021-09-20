@@ -8,6 +8,8 @@ const { signOut } = require("./sign/signOut");
 const { getMyInfo } = require("./mypage");
 const { register } = require("./exhibition/register");
 const { getExhibition } = require("./exhibition");
+const { exhibitionLike } = require("./exhibition/likes");
+const { withdrawalLike } = require("./exhibition/withdrawalLike");
 router.post("/receive/token", getToken);
 router.get("/receive/userinfo?", getUserInfo);
 router.post("/sign-up/user", generalSignUp);
@@ -21,4 +23,6 @@ router.get("/mypage", getMyInfo);
 // exhibition
 router.post("/exhibition/register", register);
 router.get("/exhibition", getExhibition);
+router.post("/exhibition/like", exhibitionLike);
+router.delete("/exhibition/like", withdrawalLike);
 module.exports = router;
