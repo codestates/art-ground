@@ -21,27 +21,27 @@ const Navbar = ({ isLogin, handleLogout }) => {
   ///////////스크롤 시 navbar 컬러 변경(작업중)//////////////////////////////
   const [ScrollY, setScrollY] = useState(0);
   const [navStatus, setNavStatus] = useState(false);
-  const [navFixed, setNavFixed] = useState(false); 
+  const [navFixed, setNavFixed] = useState(false);
 
   const handleFollow = () => {
     setScrollY(window.pageYOffset);
     setNavFixed(true);
-    if(ScrollY > 400) { 
+    if (ScrollY > 400) {
       setNavStatus(true);
-    } else { 
+    } else {
       setNavStatus(false);
     }
-  }
-  
+  };
+
   useEffect(() => {
     const watch = () => {
-      window.addEventListener('scroll', handleFollow)
-    }
+      window.addEventListener("scroll", handleFollow);
+    };
     watch();
     return () => {
-      window.removeEventListener('scroll', handleFollow)
-    }
-  })
+      window.removeEventListener("scroll", handleFollow);
+    };
+  });
   ////////////////////////////////////////////////////////////
   return (
     <section className={styles.container}>

@@ -24,7 +24,9 @@ import Admin from "./pages/admin/Admin";
 import Register from "./pages/register/Register";
 import Auction from "./pages/auction/Auction";
 import ScrollButton from "./components/scrollButton/ScrollButton";
-import About from './pages/about/About'
+
+import About from "./pages/about/About";
+import ScrollTab from "./components/scrollTab/ScrollTab";
 
 function App() {
   const history = useHistory();
@@ -40,7 +42,7 @@ function App() {
 
   const isAuthenticated = () => {
     // 내정보 불러오기 axios요청
-    // axios.get("/mypage").then((result) => {
+    // axios.get("https://localhost:5000/sign-in").then((result) => {
     //   setIsLogin(true);
     //   setUserinfo(result.data.data.userInfo);
     // });
@@ -56,15 +58,14 @@ function App() {
 
   const handleResponseSuccess = () => {
     isAuthenticated();
-    history.push("/");
+    history.push("/about");
   };
 
   const handleLogout = () => {
-    // axios.post("sign-out").then((result) => {
-    //   setUserinfo(null);
-    //   setIsLogin(false);
-    //   history.push("/");
-    // });
+    axios.post("https://localhost:5000/sign-out").then((result) => {
+      console.log(result, "signout~~~~~~~~~~~~~~~~~~");
+    });
+
     setUserinfo(null);
     setIsLogin(false);
   };
@@ -152,16 +153,16 @@ function App() {
         />
         {isLogin ? <MyPage userinfo={userinfo} /> : <SideBar />}
       </Route>
-      <Route path='/about'>
+      <Route path="/about">
         <Navbar
           isLogin={isLogin}
           userinfo={userinfo}
           handleLogout={handleLogout}
-        />  
+        />
         <About />
-        <ScrollButton />
+        <ScrollTab />
       </Route>
-      <Route path='/gallery'>
+      <Route path="/gallery">
         <Navbar
           isLogin={isLogin}
           userinfo={userinfo}

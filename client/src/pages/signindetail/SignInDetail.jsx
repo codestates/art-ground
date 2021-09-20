@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
+const CryptoJS = require("crypto-js");
 
 axios.defaults.withCredentials = true;
 
@@ -14,8 +15,9 @@ const SignInDetail = ({
   const history = useHistory();
 
   const [loginInfo, setLoginInfo] = useState({
-    user_email: "",
+    userEmail: "",
     password: "",
+    userType: "",
   });
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -38,35 +40,59 @@ const SignInDetail = ({
     return regExp.test(asValue);
   };
 
-  const { user_email, password } = loginInfo;
+  const { userEmail, password } = loginInfo;
+  const secretKey = "Klassiker";
   const clickAudLogin = () => {
-    if (!user_email || !password) {
+    if (!userEmail || !password) {
       setErrorMessage("아이디와 비밀번호를 모두 입력해주세요");
     }
 
-    if (!checkEmail(user_email)) {
+    if (!checkEmail(userEmail)) {
       setErrorMessage("이메일 형식을 맞춰주세요");
       return false;
     }
 
+    const encryptedPassword = CryptoJS.AES.encrypt(
+      JSON.stringify(password),
+      secretKey
+    ).toString();
+
+    const userData = {
+      userEmail,
+      password: encryptedPassword,
+      userType: 1,
+    };
     setErrorMessage("");
-    // axios
-    //   .post("/sign-in", loginInfo)
-    //   .then((result) => {});
-    handleResponseSuccess();
-    // history.push("/landing");
+    axios.post("https://localhost:5000/sign-in", userData).then((result) => {
+      console.log(result, "-----관람객로그인요청");
+      handleResponseSuccess();
+    });
   };
   const clickAuthLogin = () => {
-    if (!user_email || !password) {
+    if (!userEmail || !password) {
       setErrorMessage("아이디와 비밀번호를 모두 입력해주세요");
-    } else {
-      setErrorMessage("");
-      // axios
-      //   .post("http://www.art-ground.net/sign-in", loginInfo)
-      //   .then((result) => {});
-      handleResponseSuccess();
-      // history.push("/");
     }
+
+    if (!checkEmail(userEmail)) {
+      setErrorMessage("이메일 형식을 맞춰주세요");
+      return false;
+    }
+
+    const encryptedPassword = CryptoJS.AES.encrypt(
+      JSON.stringify(password),
+      secretKey
+    ).toString();
+
+    const userData = {
+      userEmail,
+      password: encryptedPassword,
+      userType: 1,
+    };
+    setErrorMessage("");
+    axios.post("https://localhost:5000/sign-in", userData).then((result) => {
+      console.log(result, "-----관람객로그인요청");
+      handleResponseSuccess();
+    });
   };
 
   const onKeyPress = (e) => {
@@ -102,7 +128,7 @@ const SignInDetail = ({
                   type="text"
                   className={styles.text}
                   placeholder="이메일을 입력해주세요"
-                  onChange={handleInputValue("user_email")}
+                  onChange={handleInputValue("userEmail")}
                 ></input>
               </div>
             </li>
