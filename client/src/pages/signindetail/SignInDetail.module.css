@@ -10,6 +10,7 @@ label {
 .container {
   max-width: Container;
   margin: 0 auto;
+  padding-top: 13.5rem;
 }
 .signupBox {
   width: 100%;
@@ -149,6 +150,9 @@ li {
 }
 
 @media screen and (max-width: 768px) {
+  .container {
+    padding-top: 6rem;
+  }
   .signupBox {
     width: 100%;
   }

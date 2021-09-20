@@ -5,13 +5,13 @@
 .container {
   max-width: Container;
   margin: 0 auto;
-  padding: 3rem;
-  animation: fadein 2s;
-  -moz-animation: fadein 2s;
+  padding: 16.5rem 3rem 3rem 3rem;
+  animation: fadein 1s;
+  -moz-animation: fadein 1s;
   /* Firefox */
-  -webkit-animation: fadein 2s;
+  -webkit-animation: fadein 1s;
   /* Safari and Chrome */
-  -o-animation: fadein 2s;
+  -o-animation: fadein 1s;
   /* Opera */
 }
 .contactBox {
@@ -212,6 +212,9 @@ input {
 }
 
 @media screen and (max-width: 768px) {
+  .container {
+    padding: 9rem 3rem 3rem 3rem;
+  }
   .contactBox {
     display: flex;
     flex-direction: column;

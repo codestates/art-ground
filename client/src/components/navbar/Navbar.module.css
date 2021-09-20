@@ -10,9 +10,9 @@ span {
   /* background-color: #393939; */
   background-color: #202020;
   box-shadow: 0 -5px 15px rgb(57, 57, 57);
-  /* position: fixed;
+  position: fixed;
   top: 0;
-  left: 0; */
+  z-index: 10;
 }
 
 .navBox {
@@ -49,7 +49,7 @@ span {
   font-weight: bold;
 }
 .logo {
-  width: 100%;
+  width: auto;
   height: 7rem;
   display: flex;
   justify-content: center;
@@ -68,12 +68,13 @@ span {
   height: 3.2rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 .title {
   font-family: "Poppins", sans-serif;
   font-weight: 200;
   width: 5rem;
+  margin: 0 2rem;
   line-height: 3.2rem;
   color: rgb(228, 228, 228);
   text-align: center;
@@ -91,20 +92,46 @@ span {
   .moreOpt {
     all: unset;
     cursor: pointer;
+    position: absolute;
     color: white;
-    margin-top: 1.5rem;
-    margin-left: 1.5rem;
+    top: 1.5rem;
+    left: 1.5rem;
     font-size: 1.2rem;
   }
-  .topNavBox {
-    display: flex;
-    justify-content: space-between;
-  }
-  .category {
+  .topNav {
     position: fixed;
     top: 0;
     left: 0;
-    width: 17rem;
+    width: 18rem;
+    height: 6rem;
+    background-color: rgb(251, 251, 251);
+    opacity: 0.95;
+    border-bottom: 1px solid rgb(238, 238, 238);
+    box-shadow: 5px 0 15px rgba(83, 83, 83, 0.15);
+    transition: 0.5s;
+    z-index: 10;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .btns {
+    all: unset;
+    margin: 3.5rem 2.5rem;
+  }
+
+  .btn {
+    all: unset;
+    margin: 0 0.5rem;
+    font-size: 0.85rem;
+    color: rgb(53, 53, 53);
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+  }
+  .category {
+    position: fixed;
+    top: 6rem;
+    left: 0;
+    width: 18rem;
     height: 100vh;
     background-color: rgb(251, 251, 251);
     opacity: 0.95;
@@ -116,8 +143,9 @@ span {
     all: unset;
     display: flex;
     flex-direction: column;
-    padding: 4rem 3rem 3rem 3rem;
-    row-gap: 2rem;
+    padding: 2rem 3rem 3rem 3rem;
+    row-gap: 1.5rem;
+    text-align: right;
   }
 
   .closeBtn {
@@ -125,8 +153,8 @@ span {
     cursor: pointer;
     color: rgb(125, 125, 125);
     position: absolute;
-    top: 1rem;
-    left: 15rem;
+    top: -4.8rem;
+    left: 16rem;
     transition: 0.3s;
   }
   .closeBtn:hover {
@@ -141,33 +169,38 @@ span {
 
   .categoryClose {
     position: fixed;
+    top: 6rem;
+    left: -100%;
+    width: 18rem;
+    height: 100vh;
+    background-color: rgb(251, 251, 251);
+    opacity: 0.95;
+    box-shadow: 5px 0 15px rgba(83, 83, 83, 0.15);
+    transition: 0.5s;
+    z-index: 10;
+  }
+  .topNavClose {
+    position: fixed;
     top: 0;
     left: -100%;
-    width: 17rem;
-    height: 100vh;
-    background-color: white;
-    box-shadow: -1px 0 4px rgba(83, 83, 83, 0.15);
+    width: 18rem;
+    height: 6rem;
+    background-color: rgb(251, 251, 251);
+    opacity: 0.95;
+    border-bottom: 1px solid rgb(238, 238, 238);
+    box-shadow: 5px 0 15px rgba(83, 83, 83, 0.15);
     transition: 0.5s;
+    z-index: 10;
+    display: flex;
+    justify-content: flex-end;
   }
   .logo {
-    padding-bottom: 1.5rem;
-    height: auto;
+    padding: 1.5rem 0 1.3rem;
+    height: 6rem;
+    position: relative;
   }
-  .btns {
-    margin-right: 0.8rem;
-  }
-  .btn {
-    margin: 1.8em 0.5rem;
-  }
-}
-@media screen and (max-width: 580px) {
   .logoImg {
-    width: 12rem;
+    width: auto;
+    height: 100%;
   }
 }
-
-/* @media screen and (max-width: 480px) {
-  .moreOpt {
-    margin-left: 1rem;
-  }
-} */

@@ -4,7 +4,7 @@
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
-  padding: 5rem 7rem;
+  padding: 18.5rem 7rem;
   display: flex;
   flex-direction: column;
   color: rgb(66, 66, 66);
@@ -19,6 +19,7 @@
 
 .title {
   text-align: center;
+  font-size: 1.2rem;
   margin-bottom: 2.5rem;
   font-family: "Nanum Gothic Coding", monospace;
 }
@@ -150,7 +151,7 @@ input[type="checkbox"] {
 
 @media screen and (max-width: 768px) {
   .container {
-    padding: 4rem 3rem;
+    padding: 10rem 3rem;
   }
   .artFile {
     width: 40%;
@@ -160,7 +161,7 @@ input[type="checkbox"] {
   }
 }
 
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 580px) {
   .container {
     padding: 4rem 1rem;
   }

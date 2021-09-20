@@ -2,7 +2,7 @@
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
-  padding: 3rem 0 5rem 0;
+  padding: 13.5rem 0 5rem 0;
   animation: fadein 1.5s;
   -moz-animation: fadein 1.5s;
   /* Firefox */
@@ -136,6 +136,11 @@
   color: rgb(82, 82, 82);
   font-size: 0.9rem;
 }
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 6rem 0 5rem 0;
+  }
+}
 
 @media screen and (max-width: 680px) {
   .artDetail {
@@ -143,7 +148,7 @@
     /* align-items: center; */
   }
   .imgBox {
-    width: 60%;
+    width: 45%;
     padding: 0 1.2rem;
     margin-left: 0;
     /* align-items: center; */

@@ -13,6 +13,7 @@ span {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  padding-top: 13.5rem;
 }
 
 /*프로필이미지*/
@@ -141,4 +142,10 @@ span {
   background-color: black;
   color: white;
   transition: transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02);
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding-top: 6rem;
+  }
 }
