@@ -3,7 +3,7 @@
 .container {
   max-width: 1024px;
   margin: 0 auto;
-  padding: 13.5rem 0.5rem 5rem 0.5rem;
+  padding: 12rem 0.5rem 5rem 0.5rem;
   animation: fadein 1.5s;
   -moz-animation: fadein 1.5s;
   /* Firefox */
