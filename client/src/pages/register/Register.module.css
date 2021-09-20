@@ -4,7 +4,7 @@
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
-  padding: 17rem 7rem;
+  padding: 16rem 7rem 5rem 7rem;
   display: flex;
   flex-direction: column;
   color: rgb(66, 66, 66);
@@ -151,7 +151,7 @@ input[type="checkbox"] {
 
 @media screen and (max-width: 768px) {
   .container {
-    padding: 10rem 3rem;
+    padding: 10rem 3rem 5rem 3rem;
   }
   .artFile {
     width: 40%;
@@ -163,7 +163,7 @@ input[type="checkbox"] {
 
 @media screen and (max-width: 580px) {
   .container {
-    padding: 4rem 1rem;
+    padding: 9rem 1rem 3rem 1rem;
   }
 }
 @keyframes fadein {

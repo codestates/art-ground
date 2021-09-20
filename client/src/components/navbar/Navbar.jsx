@@ -24,7 +24,7 @@ const Navbar = ({ isLogin, handleLogout }) => {
 
   const handleFollow = () => {
     setScrollY(window.pageYOffset);
-    if(ScrollY > 150) { 
+    if(ScrollY > 50) { 
       setNavStatus(true);
     } else { 
       setNavStatus(false);
@@ -85,7 +85,7 @@ const Navbar = ({ isLogin, handleLogout }) => {
           </span>
           {navStatus? <img
             className={navStatus? styles.logoImgScroll : styles.logoImg}
-            src="../../../images/Monochrome on Transparent_light.png"
+            src="../../../images/Monochrome on Transparent.png"
             alt="logo"
             onClick={clickLogo}
           />: <img
