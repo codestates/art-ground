@@ -79,7 +79,6 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
 
     const encryptedPassword = CryptoJS.AES.encrypt(
       JSON.stringify(password),
-
       secretKey
     ).toString();
 
@@ -232,12 +231,13 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
                 )}
 
                 <span className={styles.eyeBorder}>
-                  {/* <img
+                  <img
+
                     src={visibility}
                     alt=""
                     className={styles.eyeimg}
                     onClick={clickEye}
-                  /> */}
+                  />
                 </span>
               </div>
             </li>
@@ -269,12 +269,12 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
                   ></input>
                 )}
                 <span className={styles.eyeBorder}>
-                  {/* <img
+                  <img
                     src={visibility2}
                     alt=""
                     className={styles.eyeimg}
                     onClick={clickEye2}
-                  /> */}
+                  />
                 </span>
               </div>
             </li>

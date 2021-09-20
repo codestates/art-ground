@@ -3,6 +3,13 @@
 
 .container {
   max-width: Container;
+  padding-top: 12rem;
   margin: 0 auto;
   border: 1px solid red;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding-top: 6rem;
+  }
 }

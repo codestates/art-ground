@@ -5,16 +5,17 @@
   max-width: Container;
   /* height: 100%; */
   margin: 0 auto;
+  padding-top: 12rem;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  animation: fadein 2s;
-  -moz-animation: fadein 2s;
+  animation: fadein 1s;
+  -moz-animation: fadein 1s;
   /* Firefox */
-  -webkit-animation: fadein 2s;
+  -webkit-animation: fadein 1s;
   /* Safari and Chrome */
-  -o-animation: fadein 2s;
+  -o-animation: fadein 1s;
   /* Opera */
 }
 .side {
@@ -77,12 +78,7 @@
 
 @media screen and (max-width: 768px) {
   .container {
-    max-width: Container;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    padding-top: 6rem;
   }
   .side {
     width: 100%;
