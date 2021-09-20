@@ -26,7 +26,7 @@ module.exports = {
       // password 암호화 작업
       // cryptojs 복호화
       let byte = CryptoJS.AES.decrypt(password, process.env.CRYPTOJS_SECRETKEY);
-      console.log("byte:", JSON.parse(byte.toString(CryptoJS.enc.Utf8)));
+      console.log("byte:", byte);
       const decryptedPassword = JSON.parse(byte.toString(CryptoJS.enc.Utf8));
       console.log("password:", decryptedPassword);
       // bcrypt 재암호화
