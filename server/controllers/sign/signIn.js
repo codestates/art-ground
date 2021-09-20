@@ -3,7 +3,6 @@ const { users } = require("../../models");
 const { generateAccessToken, sendAccessToken } = require("../tokenFunction");
 const cryptoJS = require("crypto-js");
 const bcrypt = require("bcrypt");
-const saltRounds = 10;
 
 module.exports = {
   signIn: (req, res) => {
@@ -20,7 +19,33 @@ module.exports = {
           if (!data) {
             return res.status(401).json({ message: "invalid user" }); //404로 바꿔야 하나?
           }
+          let byte = cryptoJS.AES.decrypt(
+            password,
+            process.env.CRYPTOJS_SECRETKEY
+          );
+          console.log("byte:", byte);
+
+          let decodedPassword = JSON.parse(byte.toString(cryptoJS.enc.Utf8));
+          console.log("decoded:", decodedPassword);
+
+          const validPassword = await bcrypt.compare(
+            decodedPassword.password,
+            data.dataValues.password
+          );
+          console.log("validpw:", validPassword);
+
+          if (validPassword) {
+            delete data.dataValues.password;
+            delete data.dataValues.iat;
+            // delete data.dataValues.exp;
+            const accessToken = generateAccessToken(data.dataValues);
+            sendAccessToken(res, accessToken);
+          } else {
+            return res.status(401).json({ message: "invalid user" });
+          }
         });
-    } catch {}
+    } catch (error) {
+      console.log(error);
+    }
   },
 };

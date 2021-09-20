@@ -11,6 +11,7 @@
     "aws-sdk": "^2.987.0",
     "axios": "^0.21.4",
     "crypto-js": "^4.1.1",
+    "mkcert": "^1.4.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.5",
@@ -20,7 +21,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "https": "HTTPS=true SSL_CRT_FILE='../server/cert.pem' SSL_KEY_FILE=../server/key.pem react-scripts start",
+    "https": "HTTPS=true SSL_CRT_FILE=cert.pem SSL_KEY_FILE=key.pem react-scripts start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
