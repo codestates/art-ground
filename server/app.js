@@ -22,23 +22,15 @@ class App {
 
   setMiddleWare() {
     // 미들웨어 셋팅
-    // https redirecting
-    this.app.use((req, res, next) => {
-      if (req.secure) {
-        next();
-      } else {
-        const to = `https://${req.hostname}${req.url}`;
-        res.redirect(to);
-      }
-    });
     this.app.use(logger("dev"));
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: false }));
     this.app.use(
       cors({
         origin: [
-          "http://localhost:3000",
+
           "https://localhost:3000",
+          "http://localhost:3000",
           "https://art-ground.io",
         ],
 

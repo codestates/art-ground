@@ -78,7 +78,9 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
     // history.push("/");
 
     const encryptedPassword = CryptoJS.AES.encrypt(
-      JSON.stringify(password),
+
+      JSON.stringify( password ),
+
       secretKey
     ).toString();
 
@@ -92,7 +94,10 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
 
     axios
       // .post("https://art-ground.link/sign-up/user", userData)
-      .post("https://localhost:5001/sign-up/user", userData)
+
+
+      .post("https://localhost:5000/sign-up/user", userData)
+
       .then((result) => {
         console.log(result, "-----관람객요청");
       });
