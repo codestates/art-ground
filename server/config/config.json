@@ -2,7 +2,7 @@
   "development": {
     "username": "admin",
     "password": "root1234",
-    "database": "pick_me_up",
+    "database": "art_ground",
     "host": "my-database-practice.ctobugrb9z8w.ap-northeast-2.rds.amazonaws.com",
     "dialect": "mysql",
     "port":"13306"
@@ -17,7 +17,7 @@
   "production": {
     "username": "admin",
     "password": "root1234",
-    "database": "pick_me_up",
+    "database": "art_ground",
     "host": "my-database-practice.ctobugrb9z8w.ap-northeast-2.rds.amazonaws.com",
     "dialect": "mysql",
     "port":"13306"
