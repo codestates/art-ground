@@ -21,8 +21,7 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
     name: "",
     password: "",
     password2: "",
-    authorDesc: "",
-    authorImg: null,
+    userType: "",
   });
   const [passOpen, setPassOpen] = useState(false);
   const [passOpen2, setPassOpen2] = useState(false);
@@ -79,7 +78,9 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
     // history.push("/");
 
     const encryptedPassword = CryptoJS.AES.encrypt(
+
       JSON.stringify( password ),
+
       secretKey
     ).toString();
 
@@ -93,7 +94,10 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
 
     axios
       // .post("https://art-ground.link/sign-up/user", userData)
+
+
       .post("https://localhost:5000/sign-up/user", userData)
+
       .then((result) => {
         console.log(result, "-----관람객요청");
       });
@@ -102,8 +106,7 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
   const clickAuthJoin = () => {
     // 작가회원가입버튼클릭시
     // 유효성검사
-    const { authorEmail, name, password, password2, authorDesc, authorImg } =
-      authInfo;
+    const { authorEmail, name, password, password2, userType } = authInfo;
     if (!authorEmail || !name || !password || !password2) {
       setErrorMessage("모든 항목을 입력해주세요");
       return false;
@@ -122,7 +125,7 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
     }
 
     const encryptedPassword = CryptoJS.AES.encrypt(
-      JSON.stringify({ password }),
+      JSON.stringify(password),
       secretKey
     ).toString();
 
@@ -131,6 +134,7 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
       authorEmail,
       name,
       password: encryptedPassword,
+      userType: 2,
     };
     axios
       .post("https://art-ground.link/sign-up/author", userData)

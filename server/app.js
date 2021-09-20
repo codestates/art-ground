@@ -28,10 +28,12 @@ class App {
     this.app.use(
       cors({
         origin: [
+
           "https://localhost:3000",
           "http://localhost:3000",
           "https://art-ground.io",
         ],
+
         credentials: true,
         methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
       })
