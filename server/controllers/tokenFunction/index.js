@@ -18,12 +18,24 @@ module.exports = {
     }
   },
   sendAccessToken: (res, accessToken) => {
-    res.json({ data: { accessToken }, message: "ok" });
+    res
+      .cookie("accessToken", accessToken, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+      })
+      .status(200)
+      .send("AccessToken ready");
   },
   sendRefreshToken: (res, refreshToken) => {
-    res.cookie("refreshToken", refreshToken, {
-      httpOnly: true,
-    });
+    res
+      .cookie("refreshToken", refreshToken, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+      })
+      .status(200)
+      .send("RefreshToken ready");
   },
   checkRefeshToken: (refreshToken) => {
     try {
