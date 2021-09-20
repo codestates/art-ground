@@ -7,7 +7,6 @@ const saltRounds = 10;
 module.exports = {
   // 일반 회원가입
   generalSignUp: async (req, res) => {
-    console.log(process.env.CRYPTOJS_SECRETKEY);
     /* 
         1. body값에서 user_email, password, nickname, user_type 구조분해 할당으로 받기
         2. 파라미터 중에서 하나라도 빠지면 422
@@ -27,10 +26,8 @@ module.exports = {
       // password 암호화 작업
       // cryptojs 복호화
       let byte = CryptoJS.AES.decrypt(password, process.env.CRYPTOJS_SECRETKEY);
-      console.log("byte:", JSON.parse(byte));
-      // console.log("byte2:", byte.toString(CryptoJS.enc.Utf8));
+      console.log("byte:", byte);
       const decryptedPassword = JSON.parse(byte.toString(CryptoJS.enc.Utf8));
-      // byte.toString(CryptoJS.enc.Utf8);
       console.log("password:", decryptedPassword);
       // bcrypt 재암호화
       const salt = await bcrypt.genSalt(saltRounds);
@@ -61,46 +58,49 @@ module.exports = {
     }
   },
   // 작가 회원가입
-  authorSignUp: (req, res) => {
-    const { authorEmail, password, name, authorDesc, userType } = req.body;
-    console.log(authorEmail, password, name, authorDesc, userType);
+  authorSignUp: async (req, res) => {
+    try {
+      const { authorEmail, password, name, userType } = req.body;
+      console.log(authorEmail, password, name, userType);
 
-    if (!authorEmail || !password || !name || !userType || !authorDesc) {
-      return res
-        .status(422)
-        .json({ message: "insufficient parameters supplied" });
-    }
-    // password 암호화 작업
-    // cryptojs 복호화
-    let byte = cryptoJS.AES.decrypt(password, process.env.CRYPTOJS_SECRETKEY);
-    console.log("byte:", byte);
-    password = JSON.parse(byte.toString(cryptoJS.enc.Utf8)).password;
-    console.log("password:", password);
-    // bcrypt 재암호화
-    const salt = bcrypt.genSalt(saltRounds);
-    password = bcrypt.hash(password, salt);
-
-    users
-      .findOrCreate({
+      if (!authorEmail || !password || !name || !userType) {
+        return res
+          .status(422)
+          .json({ message: "insufficient parameters supplied" });
+      }
+      // password 암호화 작업
+      // cryptojs 복호화
+      let byte = CryptoJS.AES.decrypt(password, process.env.CRYPTOJS_SECRETKEY);
+      console.log("byte:", byte);
+      const decryptedPassword = JSON.parse(byte.toString(CryptoJS.enc.Utf8));
+      console.log("password:", decryptedPassword);
+      // bcrypt 재암호화
+      const salt = await bcrypt.genSalt(saltRounds);
+      console.log("salt:", salt);
+      const encryptedPassword = await bcrypt.hash(decryptedPassword, salt);
+      console.log("encrypted:", encryptedPassword);
+      // time stamp 시간이 한국 시간이 아닌듯..?
+      // async await으로 리팩토링 진행 중
+      const data = await users.findOne({
         where: {
           user_email: authorEmail,
         },
-        default: {
-          password: password,
+      });
+      console.log("data:", data);
+      if (data) {
+        return res.status(409).json({ message: "email exists" });
+      } else {
+        const info = await users.create({
+          user_email: authorEmail,
+          password: encryptedPassword,
           nickname: name,
           user_type: userType,
-        },
-      })
-      .then(([result, created]) => {
-        if (!created) {
-          return res.status(409).json({ message: "email exists" });
-        }
-        const data = result.dataValues;
-        console.log("userinfo:", data);
+        });
+        console.log("info:", info);
         return res.status(201).json({ message: "sign-up ok" });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
