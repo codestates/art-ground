@@ -22,7 +22,6 @@ import Landing from "./pages/landing/Landing";
 import Contact from "./pages/contact/Contact";
 import Admin from "./pages/admin/Admin";
 import Register from "./pages/register/Register";
-import Auction from "./pages/auction/Auction";
 import ScrollButton from "./components/scrollButton/ScrollButton";
 import About from './pages/about/About'
 
@@ -210,14 +209,6 @@ function App() {
         />
         <Register />
         <ScrollButton />
-      </Route>
-      <Route path="/auction">
-        <Navbar
-          isLogin={isLogin}
-          userinfo={userinfo}
-          handleLogout={handleLogout}
-        />
-        <Auction />
       </Route>
       <Route exact path="/modify">
         <Navbar
