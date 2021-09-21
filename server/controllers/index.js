@@ -14,6 +14,7 @@ router.use("/sign-up", sign);
 router.use("/sign-in", sign);
 router.use("/sign-out", sign);
 router.use("/receive", sign);
+router.use("/kakao", sign);
 
 // mypage
 router.get("/mypage", getMyInfo);
