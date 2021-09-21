@@ -215,7 +215,9 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
           />
-          <Register />
+          <Register
+            userinfo={userinfo}
+          />
           <ScrollButton />
         </Route>
         <Route path="/3dgallery">
