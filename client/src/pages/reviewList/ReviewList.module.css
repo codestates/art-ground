@@ -46,7 +46,7 @@
 
 @media screen and (max-width: 768px) {
   .container {
-    padding: 6rem 0.5rem 5rem 0.5rem;
+    padding: 4.5rem 0.5rem 5rem 0.5rem;
   }
 }
 @media screen and (max-width: 580px) {

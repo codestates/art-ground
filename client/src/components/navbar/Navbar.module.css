@@ -82,7 +82,7 @@ span {
 }
 .logoScroll {
   margin-top: -1.5rem;
-  margin-left: 1.5rem;
+  margin-left: 2rem;
   height: 3rem;
   display: flex;
   justify-content: flex-start;
@@ -117,8 +117,8 @@ span {
 .titleScroll {
   font-family: "Poppins", sans-serif;
   font-size: 0.85rem;
-  font-weight: 200;
-  width: 5rem;
+  font-weight: 300;
+  width: 4rem;
   margin: 0 2rem;
   line-height: 2.5rem;
   text-align: center;
@@ -140,18 +140,18 @@ span {
     cursor: pointer;
     position: absolute;
     color: white;
-    top: 1.5rem;
-    left: 1.5rem;
-    font-size: 1.2rem;
+    top: 1.2rem;
+    left: 1.2rem;
+    font-size: 1rem;
   }
   .moreOptScroll {
     all: unset;
     cursor: pointer;
     position: absolute;
     color: rgb(117, 117, 117);
-    top: 1.5rem;
-    left: 1.5rem;
-    font-size: 1.2rem;
+    top: 1.2rem;
+    left: 1.2rem;
+    font-size: 1rem;
   }
   .topNav {
     all: unset;
@@ -257,8 +257,8 @@ span {
   .logoScroll {
     margin-top: 0;
     margin-left: 0;
-    padding: 1.5rem 0 1.3rem;
-    height: 6rem;
+    padding: 1rem 0 0.8rem;
+    height: 4.5rem;
     justify-content: center;
     position: relative;
   }

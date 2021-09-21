@@ -9,6 +9,7 @@ const Register = (props) => {
   const [title, setTitle] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
+  const [type, setType] = useState('')
   const [isClicked, setClicked] = useState([]); //카테고리 담는 배열
   const [art1, setArt1] = useState({
     title: '',
@@ -150,7 +151,12 @@ const Register = (props) => {
       <input className={styles.textInput} type="text" placeholder="전시 시작일은 신청일로부터 7일 이후 날짜로 설정 가능합니다." onChange={handleStartDate}/>
       <div className={styles.categoryName}>전시 마감일</div>
       <input className={styles.textInput} type="text" placeholder="최대 전시 가능한 기간은 90일입니다." onChange={handleEndDate}/>
-      <div className={styles.categoryName}>전시장르<span class={styles.subGenre}>(복수선택가능)</span></div>
+      <div className={styles.categoryName}>전시 타입</div>
+      <div className={styles.types}>
+        <input type="radio" name="type" value="1" className={styles.typeBtn}/><label className={styles.type}>Standard</label>
+        <input type="radio" name="type" value="2" className={styles.typeBtn}/><label className={styles.type}>Premium</label>
+      </div>
+      <div className={styles.categoryName}>전시 장르<span class={styles.subGenre}>(복수선택가능)</span></div>
       <div className={styles.tags}>
         {tags.map((el) => 
             <>

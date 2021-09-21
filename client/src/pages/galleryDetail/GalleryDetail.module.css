@@ -15,7 +15,7 @@
 }
 
 .space {
-  margin: 3rem 0rem;
+  margin: 2rem 0rem;
   border-bottom: 1px solid rgb(201, 201, 201);
   display: flex;
   padding: 1.5rem 0 0.25rem 1.5rem;
@@ -257,7 +257,7 @@
 
 @media screen and (max-width: 768px) {
   .container {
-    padding: 6rem 0 5rem 0;
+    padding: 4.5rem 0 5rem 0;
   }
   .workBox {
     grid-template-columns: 1fr 1fr;
