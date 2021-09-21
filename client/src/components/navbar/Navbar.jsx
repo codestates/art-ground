@@ -3,7 +3,6 @@ import { Link, useHistory } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 const Navbar = ({ isLogin, handleLogout }) => {
-  const [navOpen, setNavOpen] = useState(false);
 
   const history = useHistory();
 
@@ -18,8 +17,8 @@ const Navbar = ({ isLogin, handleLogout }) => {
     setNavOpen(true);
   };
 
-  ///////////스크롤 시 navbar 컬러 변경(작업중)//////////////////////////////
-  const [ScrollY, setScrollY] = useState(0);
+  const [navOpen, setNavOpen] = useState(false); //모바일 시 navbar 사이드로 숨겨짐
+  const [ScrollY, setScrollY] = useState(0); 
   const [navStatus, setNavStatus] = useState(false);
 
 //   const [navFixed, setNavFixed] = useState(false);
@@ -49,7 +48,7 @@ const Navbar = ({ isLogin, handleLogout }) => {
       window.removeEventListener("scroll", handleFollow);
     };
   });
-  ////////////////////////////////////////////////////////////
+  
   return (
     <section className={navStatus? styles.containerScroll : styles.container}>
       <div className={styles.navBox}>

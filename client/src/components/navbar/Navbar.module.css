@@ -209,9 +209,10 @@ span {
   .closeBtn {
     all: unset;
     cursor: pointer;
+    font-size: 1.2rem;
     color: rgb(125, 125, 125);
     position: absolute;
-    top: -4.8rem;
+    top: -5rem;
     left: 16rem;
     transition: 0.3s;
   }
@@ -239,6 +240,7 @@ span {
     z-index: 10;
   }
   .topNavClose {
+    all: unset;
     position: fixed;
     top: 0;
     left: -100%;
@@ -246,7 +248,7 @@ span {
     height: 6rem;
     background-color: rgb(251, 251, 251);
     opacity: 0.95;
-    border-bottom: 1px solid rgb(238, 238, 238);
+    /* border-right: 1px solid rgb(238, 238, 238); */
     box-shadow: 5px 0 15px rgba(83, 83, 83, 0.15);
     transition: 0.5s;
     z-index: 10;
