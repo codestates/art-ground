@@ -12,7 +12,7 @@ span {
   position: fixed;
   top: 0;
   z-index: 10;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 .containerScroll {
   width: 100%;
@@ -21,7 +21,7 @@ span {
   position: fixed;
   top: 0;
   z-index: 10;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 .navBox {
@@ -68,57 +68,59 @@ span {
 }
 .logo {
   /* width: auto; */
-  height: 7rem;
+  height: 6.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 .logoImg {
   margin: 0;
-  height: 75%;
-  transition: 0.3s;
+  height: 65%;
+  transition: 0.2s;
 }
 .logoScroll {
-  height: 4rem;
+  margin-top: -1.5rem;
+  margin-left: 2rem;
+  height: 3rem;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 .logoImgScroll {
   margin: 0;
   height: 90%;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 .categoryBox {
   font-size: 1rem;
   list-style: none;
-  height: 3rem;
+  height: 2.5rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 .title {
   font-family: "Poppins", sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 200;
   width: 5rem;
   margin: 0 2rem;
-  line-height: 3.2rem;
+  line-height: 2.5rem;
   color: rgb(228, 228, 228);
   text-align: center;
   cursor: pointer;
 }
 .titleScroll {
   font-family: "Poppins", sans-serif;
-  font-size: 0.95rem;
-  font-weight: 200;
-  width: 5rem;
+  font-size: 0.85rem;
+  font-weight: 300;
+  width: 4rem;
   margin: 0 2rem;
-  line-height: 3rem;
+  line-height: 2.5rem;
   text-align: center;
   cursor: pointer;
   color: rgb(53, 53, 53);
@@ -138,18 +140,18 @@ span {
     cursor: pointer;
     position: absolute;
     color: white;
-    top: 1.5rem;
-    left: 1.5rem;
-    font-size: 1.2rem;
+    top: 1.2rem;
+    left: 1.2rem;
+    font-size: 1rem;
   }
   .moreOptScroll {
     all: unset;
     cursor: pointer;
     position: absolute;
     color: rgb(117, 117, 117);
-    top: 1.5rem;
-    left: 1.5rem;
-    font-size: 1.2rem;
+    top: 1.2rem;
+    left: 1.2rem;
+    font-size: 1rem;
   }
   .topNav {
     all: unset;
@@ -160,7 +162,7 @@ span {
     height: 6rem;
     background-color: rgb(251, 251, 251);
     opacity: 0.95;
-    border-bottom: 1px solid rgb(238, 238, 238);
+    /* border-right: 1px solid rgb(238, 238, 238); */
     box-shadow: 5px 0 15px rgba(83, 83, 83, 0.15);
     transition: 0.5s;
     z-index: 10;
@@ -190,6 +192,7 @@ span {
     height: 100vh;
     background-color: rgb(251, 251, 251);
     opacity: 0.95;
+    /* border-right: 1px solid rgb(238, 238, 238); */
     box-shadow: 5px 0 15px rgba(83, 83, 83, 0.15);
     transition: 0.5s;
     z-index: 10;
@@ -206,9 +209,10 @@ span {
   .closeBtn {
     all: unset;
     cursor: pointer;
+    font-size: 1.2rem;
     color: rgb(125, 125, 125);
     position: absolute;
-    top: -4.8rem;
+    top: -5rem;
     left: 16rem;
     transition: 0.3s;
   }
@@ -236,6 +240,7 @@ span {
     z-index: 10;
   }
   .topNavClose {
+    all: unset;
     position: fixed;
     top: 0;
     left: -100%;
@@ -243,7 +248,7 @@ span {
     height: 6rem;
     background-color: rgb(251, 251, 251);
     opacity: 0.95;
-    border-bottom: 1px solid rgb(238, 238, 238);
+    /* border-right: 1px solid rgb(238, 238, 238); */
     box-shadow: 5px 0 15px rgba(83, 83, 83, 0.15);
     transition: 0.5s;
     z-index: 10;
@@ -252,8 +257,11 @@ span {
   }
   .logo,
   .logoScroll {
-    padding: 1.5rem 0 1.3rem;
-    height: 6rem;
+    margin-top: 0;
+    margin-left: 0;
+    padding: 1rem 0 0.8rem;
+    height: 4.5rem;
+    justify-content: center;
     position: relative;
   }
   .logoImg,

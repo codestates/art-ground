@@ -5,7 +5,7 @@
   max-width: Container;
   /* height: 100%; */
   margin: 0 auto;
-  padding-top: 12rem;
+  padding-top: 11rem;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -78,7 +78,7 @@
 
 @media screen and (max-width: 768px) {
   .container {
-    padding-top: 6rem;
+    padding-top: 4.5rem;
   }
   .side {
     width: 100%;

@@ -3,7 +3,7 @@
 .container {
   max-width: 1024px;
   margin: 0 auto;
-  padding: 12rem 0.5rem 5rem 0.5rem;
+  padding: 11rem 0.5rem 5rem 0.5rem;
   animation: fadein 1.5s;
   -moz-animation: fadein 1.5s;
   /* Firefox */
@@ -37,7 +37,7 @@
 
 @media screen and (max-width: 768px) {
   .container {
-    padding: 6rem 0.5rem 5rem 0.5rem;
+    padding: 4.5rem 0.5rem 5rem 0.5rem;
   }
   .objectList {
     grid-template-columns: 1fr 1fr;
