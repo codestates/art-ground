@@ -2,6 +2,7 @@ const { Router } = require("express");
 const router = Router();
 const googleCtrl = require("./google");
 const signCtrl = require("./sign.ctrl");
+const kakaoCtrl = require("./kakao");
 
 // 일반 회원가입
 router.post("/sign-up/user", signCtrl.generalSignUp);
@@ -18,3 +19,7 @@ router.post("/sign-out", signCtrl.signOut);
 // Goole
 router.get("/receive/userinfo?", googleCtrl.getUserInfo);
 router.post("/receive/token", googleCtrl.getToken);
+
+// Kakao
+router.post("/kakao-login/token", kakaoCtrl.getToken);
+router.get("/kakao-logiin/userinfo?", kakaoCtrl.getUserInfo);
