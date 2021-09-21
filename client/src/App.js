@@ -24,13 +24,11 @@ import Admin from "./pages/admin/Admin";
 import Register from "./pages/register/Register";
 import ScrollButton from "./components/scrollButton/ScrollButton";
 
-
 import About from "./pages/about/About";
 import ScrollTab from "./components/scrollTab/ScrollTab";
 
 import ScrollTop from "./components/scrollTop/ScrollTop";
 import ThreeDGallery from "./pages/3dGallery/ThreeDGallery";
-
 
 function App() {
   const history = useHistory();
@@ -43,17 +41,24 @@ function App() {
   // 로그인,유저인포(상태)
   const [isLogin, setIsLogin] = useState(false);
   const [userinfo, setUserinfo] = useState(null);
+  const [modifyRender, setModifyRender] = useState(false);
+  useEffect(() => {
+    //로딩창 띄워야함
+    setTimeout(() => {
+      setModifyRender(true);
+    }, 1000);
+  });
 
   const isAuthenticated = () => {
     // 내정보 불러오기 axios요청
-    // axios.get("https://localhost:5000/sign-in").then((result) => {
+    // axios.get("https://localhost:5000/mypage").then((result) => {
     //   setIsLogin(true);
     //   setUserinfo(result.data.data.userInfo);
     // });
     setIsLogin(true);
     setUserinfo({
       userEmail: "kim@gmail.com",
-      nickname: "photographer kim",
+      nickname: "photographer kim2",
       profileImg: "../images/author.webp",
       authorDesc:
         "무용가들의 우아한 동작과 섬세한 표정을 고스란히 담아내는 무용 사진가입니다. 무용가를 전문적으로 촬영한다는 점도 무척 신기한데, 마치 무대 위에서 함께 연기를 하기라도 한 듯 실감나게 표현한다는 점은 더욱 놀랍습니다. 그리고, 김윤식 작가가 체코국립발레단 소속의 현역 발레리노라는 사실까지 알게 되면 그에 대한 호기심은 더욱 커집니다.",
@@ -73,7 +78,21 @@ function App() {
     setUserinfo(null);
     setIsLogin(false);
   };
-  useEffect(() => {}, []);
+
+  //로그인될때까지 임시
+  useEffect(() => {
+    setIsLogin(true);
+    setUserinfo({
+      userEmail: "kim@gmail.com",
+      nickname: "photographer kim2",
+      profileImg: "https://t1.daumcdn.net/cfile/tistory/9995E34F5D5C9FB134",
+      authorDesc:
+        "무용가들의 우아한 동작과 섬세한 표정을 고스란히 담아내는 무용 사진가입니다. 무용가를 전문적으로 촬영한다는 점도 무척 신기한데, 마치 무대 위에서 함께 연기를 하기라도 한 듯 실감나게 표현한다는 점은 더욱 놀랍습니다. 그리고, 김윤식 작가가 체코국립발레단 소속의 현역 발레리노라는 사실까지 알게 되면 그에 대한 호기심은 더욱 커집니다.",
+    });
+    return () => {};
+  }, []);
+
+  // window.localStorage.setItem("userinfo", JSON.stringify(userinfo));
 
   // 개별작품상세
   const [artDetail, setArtDetail] = useState("");
@@ -111,7 +130,6 @@ function App() {
             handleResponseSuccess={handleResponseSuccess}
           />
         </Route>
-
 
         <Route path="/signin/google">
           <Navbar
@@ -157,18 +175,19 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
           />
-          {isLogin ? <MyPage userinfo={userinfo} /> : <SideBar />}
+          <MyPage userinfo={userinfo} setUserinfo={setUserinfo} />
+          {/* {isLogin ? <MyPage userinfo={userinfo} /> : <SideBar />} */}
         </Route>
-        <Route path='/about'>
+        <Route path="/about">
           <Navbar
             isLogin={isLogin}
             userinfo={userinfo}
             handleLogout={handleLogout}
-          />  
+          />
           <About />
-           <ScrollTab />
+          <ScrollTab />
         </Route>
-        <Route path='/gallery'>
+        <Route path="/gallery">
           <Navbar
             isLogin={isLogin}
             userinfo={userinfo}
@@ -215,10 +234,12 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
           />
+
           <Register
             isAuthorLogin={isAuthorLogin}
             isAudienceLogin={isAudienceLogin}
           />
+
           <ScrollButton />
         </Route>
         <Route path="/3dgallery">
@@ -230,7 +251,7 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
           />
-          <Modify userinfo={userinfo} />
+          {modifyRender ? <Modify userinfo={userinfo} /> : "로딩페이ㅣ지!!"}
         </Route>
         <Route exact path="/contact">
           <Navbar
@@ -245,7 +266,6 @@ function App() {
         </Route>
       </Switch>
     </ScrollTop>
-
   );
 }
 
