@@ -94,14 +94,14 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
     axios
       // .post("https://localhost:5000/sign-up/user", userData)
       // .post("https://art-ground.link/sign-up/user", userData)
-      .post("https://localhost:5000/sign-up/user", userData)
+      .post("https://art-ground.link/sign-up/user", userData)
       .then((result) => {
         if (result.data.message === "sign-up ok") {
           console.log(result, "-----관람객요청");
           history.push("/about");
         }
       })
-      .cathch((err) => {
+      .catch((err) => {
         setErrorMessage("이미 존재하는 사용자입니다.");
       });
   };
@@ -140,10 +140,10 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
       userType: 2,
     };
     axios
-      .post("https://localhost:5000/sign-up/author", userData)
+      .post("https://art-ground.link/sign-up/author", userData)
       .then((result) => {
         console.log(result, "-----작가요청");
-        //history.push("/about");
+        history.push("/about");
       });
   };
 
@@ -233,7 +233,6 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
 
                 <span className={styles.eyeBorder}>
                   <img
-
                     src={visibility}
                     alt=""
                     className={styles.eyeimg}
