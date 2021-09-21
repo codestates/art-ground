@@ -12,7 +12,7 @@ import { Suspense } from "react";
 
 const Loader = () => {
   const { progress } = useProgress();
-  return <Html center>{progress} % loaded</Html>;
+  return <Html center>{progress}% loaded</Html>;
 }
 
 const Model = () => {

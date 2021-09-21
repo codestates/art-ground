@@ -213,7 +213,7 @@ input {
 
 @media screen and (max-width: 768px) {
   .container {
-    padding: 9rem 3rem 3rem 3rem;
+    padding: 7.5rem 3rem 3rem 3rem;
   }
   .contactBox {
     display: flex;
