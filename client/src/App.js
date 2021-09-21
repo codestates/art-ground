@@ -234,7 +234,12 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
           />
-          <Register userinfo={userinfo} />
+
+          <Register
+            isAuthorLogin={isAuthorLogin}
+            isAudienceLogin={isAudienceLogin}
+          />
+
           <ScrollButton />
         </Route>
         <Route path="/3dgallery">
