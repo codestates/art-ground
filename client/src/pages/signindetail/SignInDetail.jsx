@@ -5,7 +5,6 @@ import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 const CryptoJS = require("crypto-js");
 
-
 axios.defaults.withCredentials = true;
 
 const SignInDetail = ({
@@ -41,7 +40,6 @@ const SignInDetail = ({
     return regExp.test(asValue);
   };
 
-
   const { userEmail, password } = loginInfo;
   const secretKey = "Klassiker";
   const clickAudLogin = () => {
@@ -62,17 +60,16 @@ const SignInDetail = ({
     const userData = {
       userEmail,
       password: encryptedPassword,
-
       userType: 1,
-
     };
     setErrorMessage("");
-    axios.post("https://localhost:5000/sign-in", userData).then((result) => {
+    axios.post("https://art-ground.link/sign-in", userData).then((result) => {
       console.log(result, "-----관람객로그인요청");
+      // if(result.data==="AccessToken ready"){
 
+      // }
       handleResponseSuccess();
     });
-
   };
   const clickAuthLogin = () => {
     if (!userEmail || !password) {
@@ -92,11 +89,14 @@ const SignInDetail = ({
     const userData = {
       userEmail,
       password: encryptedPassword,
-      userType: 1,
+      userType: 2,
     };
     setErrorMessage("");
-    axios.post("https://localhost:5000/sign-in", userData).then((result) => {
-      console.log(result, "-----관람객로그인요청");
+    axios.post("https://art-ground.link/sign-in", userData).then((result) => {
+      console.log(result, "-----작가로그인요청");
+      // if(result.data==="AccessToken ready"){
+
+      // }
       handleResponseSuccess();
     });
   };
