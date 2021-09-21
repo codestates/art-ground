@@ -2,10 +2,15 @@ import React, { useState } from 'react';
 import styles from './Register.module.css';
 import AWS from "aws-sdk";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
-const Register = (props) => {
+const Register = ({isAuthorLogin, isAudienceLogin}) => {
 
-  const artCount = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+  const artCount = [];
+  for(let i=0; i<9; i++){
+    artCount.push(String(i+1));
+  } // artCount = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+
   const tags = ['#현대미술', '#일러스트레이션', '#회화'] //더미카테고리
   
   const [title, setTitle] = useState(''); //전시명
@@ -14,6 +19,8 @@ const Register = (props) => {
   const [type, setType] = useState('') //전시타입
   const [isClicked, setClicked] = useState([]); //전시장르
   const [arts, setArts] = useState([{}, {}, {}, {}, {}, {}, {}, {}, {}]) //9개 작품 배열
+
+  const [modalOpen, setModalOpen] = useState(false);
 
   const handleTitle = (event) => {
     setTitle(event.target.value);
@@ -93,21 +100,22 @@ const Register = (props) => {
   }
 
   const createGallery = () => {
-    axios.post(
-      "https://localhost:5000/exhibition/register",
-      {
-        title: title,
-        startDate: startDate,
-        endDate: endDate,
-        exhibitType: type,
-        genreHashtags: JSON.stringify(isClicked), //배열이니까 JSON 처리
-        exibitInfo: arts[0].img, //썸네일로 쓰일 대표작 1점(첫번째 작품)
-        images: JSON.stringify(arts) //배열이니까 JSON 처리
-      }
-    );
+    setModalOpen(true);
+    // axios.post(
+    //   "https://localhost:5000/exhibition/register",
+    //   {
+    //     title: title,
+    //     startDate: startDate,
+    //     endDate: endDate,
+    //     exhibitType: type,
+    //     genreHashtags: JSON.stringify(isClicked), //배열이니까 JSON 처리
+    //     exibitInfo: arts[0].img, //썸네일로 쓰일 대표작 1점(첫번째 작품)
+    //     images: JSON.stringify(arts) //배열이니까 JSON 처리
+    //   }
+    // );
   }
 
-
+  if(isAuthorLogin){
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>전시 신청</h2>
@@ -184,11 +192,63 @@ const Register = (props) => {
       )}
       <div className={styles.submit}>
         <button className={styles.submitBtn} onClick={createGallery}>신청</button>
-        <button className={styles.submitBtn}>취소</button>
+        <Link to="/gallery">
+          <button className={styles.submitBtn}>취소</button>
+        </Link>
       </div>
 
+      {modalOpen ? //모달창
+      <section className={styles.modalContainer}>
+        <div className={styles.modalWrap}>
+          <span className={styles.modalContent}>전시 신청이 완료되었습니다!</span>
+          <p className={styles.modalSubContent}>영업일 기준 7일 이내<br></br>관리자의 승인이 이루어질 예정입니다.</p>
+          <div className={styles.submit}>
+          <Link to="/gallery">
+            <button className={styles.submitBtn} onClick={()=>setModalOpen(false)}>확인</button>
+          </Link>
+          </div>
+        </div>
+      </section>
+      : null}
+
     </section>
-  )
+
+  )} else if(isAudienceLogin){ // 관람객 로그인 시
+    
+    return (
+      <section className={styles.modalContainer}>
+        <div className={styles.modalWrap}>
+          <p className={styles.modalContent}>관람객 회원은<br></br>전시 신청이 불가합니다!</p>
+          <span className={styles.modalSubContent}>작가 회원으로 로그인 해주세요.</span>
+          <div className={styles.oK}>
+            <Link to="/gallery">
+              <button className={styles.oKBtn}>닫기</button>
+            </Link>
+          </div>
+        </div>
+      </section>
+    )
+
+  } else{ //비로그인 시
+    
+    return (
+      <section className={styles.modalContainer}>
+        <div className={styles.modalWrap}>
+          <p className={styles.modalContent}>전시 신청 서비스는<br></br>로그인이 필요합니다!</p>
+          <span className={styles.modalSubContent}>작가 회원으로 로그인 해주세요.</span>
+          <div className={styles.oK}>
+            <Link to="/signin">
+              <button className={styles.oKBtn}>로그인 <br></br>하러가기</button>
+            </Link>
+            <Link to="/gallery">
+              <button className={styles.oKBtn}>닫기</button>
+            </Link>
+          </div>
+        </div>
+      </section>
+    )
+     
+  }
 }
 
 export default Register;
