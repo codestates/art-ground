@@ -1,6 +1,9 @@
 require("dotenv").config();
 const { users } = require("../../models");
-const { generateAccessToken, sendAccessToken } = require("../tokenFunction");
+const {
+  generateAccessToken,
+  sendAccessToken,
+} = require("../../utils/tokenFunction");
 const CryptoJS = require("crypto-js");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
