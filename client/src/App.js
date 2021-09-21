@@ -216,7 +216,8 @@ function App() {
             handleLogout={handleLogout}
           />
           <Register
-            userinfo={userinfo}
+            isAuthorLogin={isAuthorLogin}
+            isAudienceLogin={isAudienceLogin}
           />
           <ScrollButton />
         </Route>
