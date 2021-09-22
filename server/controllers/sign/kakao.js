@@ -38,6 +38,8 @@ module.exports = {
     })
       .then((data) => {
         console.log("userInfo:", data);
+        // 빋이온 정보로 최초 1회 로그인 시에만 db에 정보 저장
+        // 그 이후에는 토큰만 만들어서 보내줌
         res.send(data.data);
       })
       .catch((error) => {
