@@ -1,15 +1,17 @@
 import React, { useState, useRef } from 'react';
 import styles from './SubNavBar.module.css';
 
-const SubNavBar = (props) => {
+const SubNavBar = ({ handleFilter }) => {
 
-  const tags=['전체', '#회화', '#일러스트', '#순수미술', '#응용미술', '#판화', '#개인전', '#사진전', '#추상화', '#팝아트', '#인물화', '#풍경화', '#정물화'];
+  const tags=['전체', '#회화', '#순수미술', '#응용미술', '#일러스트', '#판화', '#개인전', '#사진전', '#추상화', '#팝아트', '#인물화', '#풍경화', '#정물화'];
   const [tagClicked, setTagClicked] = useState('전체');
+  
   const [isStandard, setIsStandard] = useState(true);
-  const [isPremium, setIsPremium] = useState(false);
+  const [isPremium, setIsPremium] = useState(false); //라디오 타입으로 전환하여 tag처럼 관리하기.
   
   const tagHandle = (el) => {
     setTagClicked(el);
+    handleFilter(el)
   }
   const standardHandle = () => {
     setIsStandard(!isStandard);
@@ -60,6 +62,7 @@ const SubNavBar = (props) => {
   const delay = 100;
   const onThrottleDragMove = throttle(onDragMove, delay);
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  
   return(
     <section className={styles.container}>
       <div className={styles.subNavBar}>

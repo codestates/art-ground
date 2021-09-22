@@ -4,13 +4,16 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 
-const GalleryContent = (props) => {
+const GalleryContent = ({ isLogin }) => {
+
+  // 랜더링 해야할 데이터: 썸네일, 타이틀, 전시시작일, 전시마감일, (로그인 했다면) 전시회를 좋아요 했는지 안 했는지
 
   const [isLiked, setLiked] = useState(false);
 
   const handleLike = () => {
     setLiked(!isLiked)
   }
+  //if(isLogin){ // 좋아요를 했는지 안했는지에 따라서 하트 다르게 랜더링. 좋아요 클릭시 좋아요/좋아요 해제 가능
   return(
     <>
       <li className={styles.object}>
@@ -41,6 +44,9 @@ const GalleryContent = (props) => {
       </li>
     </>
   )
+  // } else{ // 좋아요 default 회색하트 랜더링. 클릭 시 로그인해주세요 모달창 띄우기
+
+  // }
 }
 
 export default GalleryContent;

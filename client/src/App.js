@@ -174,7 +174,9 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
           />
-          <Gallery />
+          <Gallery
+            isLogin={isLogin} 
+          />
           <ScrollButton />
         </Route>
         <Route path="/gallerydetail">
