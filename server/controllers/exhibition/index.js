@@ -1,7 +1,7 @@
 const { exhibition: exhibitionModel, images } = require("../../models");
 
 module.exports.getExhibition = async (req, res) => {
-  const { exhibitType: exhibit_type } = req.body;
+  const { type: exhibit_type } = req.params;
   const result = await exhibitionModel.findAll({
     include: [
       {
