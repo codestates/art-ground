@@ -1,7 +1,9 @@
-import styles from './Kakao.module.css'
-require("dotenv").config();
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
+import styles from './Kakao.module.css'
+require("dotenv").config();
+// import React, { useState, useEffect } from 'react'
+// import axios from 'axios';
 
 const Kakao = (props) => {
   const [accessToken, setAccessToken] = useState();
