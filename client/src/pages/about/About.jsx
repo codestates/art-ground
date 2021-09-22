@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import styles from "./About.module.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import AboutSlider from "../../components/aboutSlider/AboutSlider";
+import { Link } from "react-router-dom";
 
 AOS.init();
 
@@ -20,7 +22,7 @@ const About = () => {
       const interval = setInterval(() => {
         setText(Text + txt[Count]);
         setCount(Count + 1);
-      }, 80);
+      }, 70);
       if (Count === txt.length) {
         clearInterval(interval);
       }
@@ -34,11 +36,7 @@ const About = () => {
   return (
     <div className={styles.container}>
       <main className={` ${styles.main1}`}>
-        <img
-          className={styles.main1img}
-          src="../../../images/main.jpeg"
-          alt="이미지 등 비쥬얼요소 자리"
-        />
+        <AboutSlider />
       </main>
       <main className={`${styles.mainback} ${styles.main2}`}>
         <section className={styles.secBorder}>
@@ -58,6 +56,7 @@ const About = () => {
           </div>
         </section>
       </main>
+
       <main className={`${styles.mainback} ${styles.main3}`}>
         <section className={styles.secBorder}>
           <div
@@ -76,7 +75,9 @@ const About = () => {
                 기록한 데이비드 호크니의 작품 133점을 소개하는 아시아 지역 첫
                 대규모 개인전인 〈데이비드 호크니〉展에 여러분을 초대합니다.
               </p>
-              <button className={styles.btn}>관람하러가기</button>
+              <Link to="/gallery">
+                <button className={styles.btn}>관람하러가기</button>
+              </Link>
             </div>
           </div>
         </section>
@@ -99,7 +100,9 @@ const About = () => {
                 기록한 데이비드 호크니의 작품 133점을 소개하는 아시아 지역 첫
                 대규모 개인전인 〈데이비드 호크니〉展에 여러분을 초대합니다.
               </p>
-              <button className={styles.btn}>리뷰보러가기</button>
+              <Link to="/reviewlist">
+                <button className={styles.btn}>리뷰보러가기</button>
+              </Link>
             </div>
           </div>
         </section>
@@ -123,7 +126,9 @@ const About = () => {
                 지역 첫 대규모 개인전인 〈데이비드 호크니〉展에 여러분을
                 초대합니다.
               </p>
-              <button className={styles.btn}>대관하러가기</button>
+              <Link to="/register">
+                <button className={styles.btn}>대관하러가기</button>
+              </Link>
             </div>
           </div>
         </section>

@@ -65,6 +65,9 @@ span {
   font-weight: bold;
 }
 .date {
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
   text-indent: 10px;
   font-size: 0.8rem;
 }

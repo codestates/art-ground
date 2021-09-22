@@ -39,6 +39,7 @@ function App() {
   // 로그인,유저인포(상태)
   const [isLogin, setIsLogin] = useState(false);
   const [userinfo, setUserinfo] = useState(null);
+  const [isAdmin, setisAdmin] = useState(false);
   const [modifyRender, setModifyRender] = useState(false);
   useEffect(() => {
     //로딩창 띄워야함
@@ -49,6 +50,7 @@ function App() {
 
   const isAuthenticated = () => {
     // 내정보 불러오기 axios요청
+    //axios.get("https://art-ground.link/mypage")
     // axios.get("https://localhost:5000/mypage").then((result) => {
     //   setIsLogin(true);
     //   setUserinfo(result.data.data.userInfo);
@@ -70,12 +72,12 @@ function App() {
   };
 
   const handleLogout = () => {
-    axios.post("https://localhost:5000/sign-out").then((result) => {
-      console.log(result, "signout~~~~~~~~~~~~~~~~~~");
+    axios.post("https://art-ground.link/sign-out").then((result) => {
+      if (result.data.message === "successfully signed out!") {
+        setUserinfo(null);
+        setIsLogin(false);
+      }
     });
-
-    setUserinfo(null);
-    setIsLogin(false);
   };
 
   //로그인될때까지 임시
@@ -274,7 +276,7 @@ function App() {
           <Contact />
         </Route>
         <Route exact path="/admin">
-          <Admin />
+          <Admin isAdmin={isAdmin} setisAdmin={setisAdmin} />
         </Route>
       </Switch>
     </ScrollTop>
