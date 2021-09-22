@@ -1,11 +1,15 @@
-const { exhibition: exhibitionModel, images } = require("../../models");
+const {
+  exhibition: exhibitionModel,
+  images: imagesModel,
+  users: userModels,
+} = require("../../models");
 
 module.exports.getExhibition = async (req, res) => {
   const { type: exhibit_type } = req.params;
   const result = await exhibitionModel.findAll({
     include: [
       {
-        model: images,
+        model: imagesModel,
         as: "images",
       },
     ],
@@ -14,5 +18,7 @@ module.exports.getExhibition = async (req, res) => {
     },
   });
   const data = result.map((el) => el.dataValues);
+  const authorDesc = await userModels.findOne;
+
   res.status(200).json({ data });
 };
