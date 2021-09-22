@@ -22,4 +22,4 @@ router.post("/receive/token", googleCtrl.getToken);
 
 // Kakao
 router.post("/kakao-login/token", kakaoCtrl.getToken);
-router.get("/kakao-logiin/userinfo?", kakaoCtrl.getUserInfo);
+router.get("/kakao-login/userinfo?", kakaoCtrl.getUserInfo);
