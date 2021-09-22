@@ -6,26 +6,21 @@ module.exports = {
   // 받은 authorization code로 access token 받기
   getToken: (req, res) => {
     const code = req.body.authorizationCode;
+    console.log("authcode-----:", code);
     const client_id = process.env.KAKAO_CLIENT_ID;
     const redirect_uri = process.env.KAKAO_REDIRECT_URI;
     const grant_type = process.env.GRANT_TYPE;
 
     axios({
       method: "post",
-      url: `https://kauth.kakao.com/oauth/token`,
-      data: {
-        grant_type,
-        client_id,
-        redirect_uri,
-        code,
-      },
+      url: `https://kauth.kakao.com/oauth/token?grant_type=${grant_type}&client_id=${client_id}&redirect_uri=${redirect_uri}&code=${code}`,
       headers: {
         "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
       },
     })
       .then((response) => {
-        console.log("tokendata:", response);
-        res.send(response.access_token);
+        console.log("tokendata:", response.data);
+        res.send(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -33,17 +28,17 @@ module.exports = {
   },
   // 받은 access token으로 사용자 정보 가져오기
   getUserInfo: (req, res) => {
+    console.log("token:", req.query.accessToken);
     axios({
       method: "get",
-      url: `https://kapi.kakao.com/v2/user/me`,
+      url: `https://kapi.kakao.com/v2/user/me?access_token=${req.query.accessToken}`,
       headers: {
         "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
-        Authorization: `Bearer ${req.query.accessToken}`,
       },
     })
       .then((data) => {
         console.log("userInfo:", data);
-        res.send(data.data); // data 들어오는 것 보고 수정
+        res.send(data.data);
       })
       .catch((error) => {
         console.log(error);

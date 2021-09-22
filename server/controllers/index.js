@@ -11,6 +11,12 @@ const { exhibitionLike } = require("./exhibition/likes");
 const { withdrawalLike } = require("./exhibition/withdrawalLike");
 
 // sign
+
+// router.use("/sign-up", sign);
+// router.use("/sign-in", sign);
+// router.use("/sign-out", sign);
+// router.use("/receive", sign);
+
 // 일반 회원가입
 router.post("/sign-up/user", signCtrl.generalSignUp);
 
@@ -29,7 +35,7 @@ router.post("/receive/token", googleCtrl.getToken);
 
 // Kakao
 router.post("/kakao-login/token", kakaoCtrl.getToken);
-router.get("/kakao-logiin/userinfo?", kakaoCtrl.getUserInfo);
+router.get("/kakao-login/userinfo?", kakaoCtrl.getUserInfo);
 
 // mypage
 router.get("/mypage", getMyInfo);
