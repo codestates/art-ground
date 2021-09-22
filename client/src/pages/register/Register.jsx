@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styles from './Register.module.css';
 import AWS from "aws-sdk";
-import { Link } from 'react-router-dom';
+import { Link, useHistory, withRouter } from 'react-router-dom';
 import { createExhibition } from '../../api/galleryApi';
 
-const Register = ({ userinfo }) => {
+const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
 
   const artCount = [];
   for(let i=0; i<9; i++){
@@ -108,7 +108,12 @@ const Register = ({ userinfo }) => {
     createExhibition(title, startDate, endDate, type, content, isClicked, arts);
   }
 
-  if(userinfo.userType === '2'){
+  const history = useHistory();
+  const goBack = () => {
+    history.goBack();
+  }
+
+  if(isAuthorLogin){
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>전시 신청</h2>
@@ -202,7 +207,9 @@ const Register = ({ userinfo }) => {
           <p className={styles.modalSubContent}>영업일 기준 7일 이내<br></br>관리자의 승인이 이루어질 예정입니다.</p>
           <div className={styles.ok}>
           <Link to="/gallery">
-            <button className={styles.okBtn} onClick={()=>setModalOpen(false)}>확인</button>
+            <button className={styles.okBtn} 
+            onClick={()=>setModalOpen(false)}
+            >확인</button>
           </Link>
           </div>
         </div>
@@ -212,7 +219,7 @@ const Register = ({ userinfo }) => {
     </section>
 
   )
-  } else if(userinfo.userType === '1'){ // 관람객 로그인 시
+  } else if(isAudienceLogin){ // 관람객 로그인 시
     
     return (
       <section className={styles.modalContainer}>
@@ -220,9 +227,7 @@ const Register = ({ userinfo }) => {
           <p className={styles.modalContent}>관람객 회원은<br></br>전시 신청이 불가합니다!</p>
           <span className={styles.modalSubContent}>작가 회원으로 로그인 해주세요.</span>
           <div className={styles.ok}>
-            <Link to="/gallery">
-              <button className={styles.okBtn}>닫기</button>
-            </Link>
+            <button className={styles.okBtn} onClick={goBack}>닫기</button>
           </div>
         </div>
       </section>
@@ -239,9 +244,8 @@ const Register = ({ userinfo }) => {
             <Link to="/signin">
               <button className={styles.okBtn}>로그인 <br></br>하러가기</button>
             </Link>
-            <Link to="/gallery">
-              <button className={styles.okBtn}>닫기</button>
-            </Link>
+            <button className={styles.okBtn} onClick={goBack}>닫기</button>
+            
           </div>
         </div>
       </section>
@@ -250,4 +254,4 @@ const Register = ({ userinfo }) => {
   }
 }
 
-export default Register;
+export default withRouter(Register);
