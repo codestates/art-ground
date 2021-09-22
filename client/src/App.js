@@ -23,10 +23,8 @@ import Contact from "./pages/contact/Contact";
 import Admin from "./pages/admin/Admin";
 import Register from "./pages/register/Register";
 import ScrollButton from "./components/scrollButton/ScrollButton";
-
 import About from "./pages/about/About";
 import ScrollTab from "./components/scrollTab/ScrollTab";
-
 import ScrollTop from "./components/scrollTop/ScrollTop";
 import ThreeDGallery from "./pages/3dGallery/ThreeDGallery";
 
@@ -62,6 +60,7 @@ function App() {
       profileImg: "../images/author.webp",
       authorDesc:
         "무용가들의 우아한 동작과 섬세한 표정을 고스란히 담아내는 무용 사진가입니다. 무용가를 전문적으로 촬영한다는 점도 무척 신기한데, 마치 무대 위에서 함께 연기를 하기라도 한 듯 실감나게 표현한다는 점은 더욱 놀랍습니다. 그리고, 김윤식 작가가 체코국립발레단 소속의 현역 발레리노라는 사실까지 알게 되면 그에 대한 호기심은 더욱 커집니다.",
+      userType: '2'
     });
   };
 
@@ -88,6 +87,7 @@ function App() {
       profileImg: "https://t1.daumcdn.net/cfile/tistory/9995E34F5D5C9FB134",
       authorDesc:
         "무용가들의 우아한 동작과 섬세한 표정을 고스란히 담아내는 무용 사진가입니다. 무용가를 전문적으로 촬영한다는 점도 무척 신기한데, 마치 무대 위에서 함께 연기를 하기라도 한 듯 실감나게 표현한다는 점은 더욱 놀랍습니다. 그리고, 김윤식 작가가 체코국립발레단 소속의 현역 발레리노라는 사실까지 알게 되면 그에 대한 호기심은 더욱 커집니다.",
+      userType: '2'
     });
     return () => {};
   }, []);
@@ -96,10 +96,12 @@ function App() {
 
   // 개별작품상세
   const [artDetail, setArtDetail] = useState("");
+  const [gallerySelected, setGallerySelected] = useState(null);
+  const [reviewSelected, setReviewSelected] = useState(null);
 
-  const viewArtDetail = (el) => {
-    setArtDetail(el);
-  };
+  // const viewArtDetail = (el) => {
+  //   setArtDetail(el);
+  // };
 
   return (
     <ScrollTop>
@@ -194,7 +196,8 @@ function App() {
             handleLogout={handleLogout}
           />
           <Gallery
-            isLogin={isLogin} 
+            isLogin={isLogin}
+            gallerySelect={(el) => setGallerySelected(el)} 
           />
           <ScrollButton />
         </Route>
@@ -204,7 +207,10 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
           />
-          <GalleryDetail viewArtDetail={viewArtDetail} />
+          <GalleryDetail 
+            viewArtDetail={(el) => setArtDetail(el)} 
+            gallerySelected={gallerySelected}
+          />
           <ScrollButton />
         </Route>
         {artDetail ? (
@@ -218,7 +224,10 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
           />
-          <ReviewList />
+          <ReviewList 
+            isLogin={isLogin}
+            reviewSelect={(el) => setReviewSelected(el)} 
+            />
           <ScrollButton />
         </Route>
         <Route path="/reviewdetail">
@@ -236,12 +245,9 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
           />
-
           <Register
-            isAuthorLogin={isAuthorLogin}
-            isAudienceLogin={isAudienceLogin}
+            userinfo={userinfo}
           />
-
           <ScrollButton />
         </Route>
         <Route path="/3dgallery">

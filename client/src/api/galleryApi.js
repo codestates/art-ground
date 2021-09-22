@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export function createExhibition(title, startDate, endDate, type, isClicked, arts) {
+export function createExhibition(title, startDate, endDate, type, content, isClicked, arts) {
   
   return axios.post(
     "https://localhost:5000/exhibition/register",
@@ -10,7 +10,7 @@ export function createExhibition(title, startDate, endDate, type, isClicked, art
       endDate: endDate,
       exhibitType: type,
       genreHashtags: JSON.stringify(isClicked), //배열이니까 JSON 처리
-      exibitInfo: arts[0].img, //전시회 content
+      exibitInfo: content,
       images: JSON.stringify(arts) //배열이니까 JSON 처리
     });
 }
@@ -18,19 +18,19 @@ export function createExhibition(title, startDate, endDate, type, isClicked, art
 export function getStandardGallery(){
 
   return axios.get(
-    "https://localhost:5000/exhibition"
+    "https://localhost:5000/exhibition" //파라미터 요청
     )
     .then((res)=> {
-      //여기서 type으로 필터링 한번 하기
+      
     })
 }
 
 export function getPremiumGallery(){
 
   return axios.get(
-    "https://localhost:5000/exhibition"
+    "https://localhost:5000/exhibition" //파라미터 요청
     )
     .then((res)=> {
-      //여기서 type으로 필터링 한번 하기
+      
     })
 }
