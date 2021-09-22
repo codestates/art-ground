@@ -240,7 +240,6 @@ span {
     z-index: 10;
   }
   .topNavClose {
-    all: unset;
     position: fixed;
     top: 0;
     left: -100%;
@@ -248,7 +247,6 @@ span {
     height: 6rem;
     background-color: rgb(251, 251, 251);
     opacity: 0.95;
-    /* border-right: 1px solid rgb(238, 238, 238); */
     box-shadow: 5px 0 15px rgba(83, 83, 83, 0.15);
     transition: 0.5s;
     z-index: 10;
