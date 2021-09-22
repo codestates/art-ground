@@ -1,47 +1,49 @@
-require("dotenv").config();
-const { sign, verify } = require("jsonwebtoken");
+// router.use(endpoint, directory)
+const { Router } = require("express");
+const router = Router();
+const signCtrl = require("./sign/sign.ctrl");
+const kakaoCtrl = require("./sign/kakao");
+const googleCtrl = require("./sign/google");
+const { getMyInfo } = require("./mypage");
+const { register } = require("./exhibition/register");
+const { getExhibition } = require("./exhibition");
+const { exhibitionLike } = require("./exhibition/likes");
+const { withdrawalLike } = require("./exhibition/withdrawalLike");
 
-module.exports = {
-  generateAccessToken: (data) => {
-    return sign(data, process.env.ACCESS_SECRET);
-  },
-  isAuthorized: (req) => {
-    const authorization = req.headers.cookie;
-    if (!authorization) {
-      return null;
-    }
-    const token = authorization.split(";")[0].split("=")[1];
-    try {
-      return verify(token, process.env.ACCESS_SECRET);
-    } catch (err) {
-      return null;
-    }
-  },
-  sendAccessToken: (res, accessToken) => {
-    res
-      .cookie("accessToken", accessToken, {
-        httpOnly: true,
-        secure: true,
-        sameSite: "none",
-      })
-      .status(200)
-      .send("AccessToken ready");
-  },
-  sendRefreshToken: (res, refreshToken) => {
-    res
-      .cookie("refreshToken", refreshToken, {
-        httpOnly: true,
-        secure: true,
-        sameSite: "none",
-      })
-      .status(200)
-      .send("RefreshToken ready");
-  },
-  checkRefeshToken: (refreshToken) => {
-    try {
-      return verify(refreshToken, process.env.REFRESH_SECRET);
-    } catch (err) {
-      return null;
-    }
-  },
-};
+// sign
+
+// router.use("/sign-up", sign);
+// router.use("/sign-in", sign);
+// router.use("/sign-out", sign);
+// router.use("/receive", sign);
+
+// 일반 회원가입
+router.post("/sign-up/user", signCtrl.generalSignUp);
+
+// 작가 회원가입
+router.post("/sign-up/author", signCtrl.authorSignUp);
+
+// 로그인
+router.post("/sign-in", signCtrl.signIn);
+
+// 로그아웃
+router.post("/sign-out", signCtrl.signOut);
+
+// Goole
+router.get("/receive/userinfo?", googleCtrl.getUserInfo);
+router.post("/receive/token", googleCtrl.getToken);
+
+// Kakao
+router.post("/kakao-login/token", kakaoCtrl.getToken);
+router.get("/kakao-login/userinfo?", kakaoCtrl.getUserInfo);
+
+// mypage
+router.get("/mypage", getMyInfo);
+
+// exhibition
+router.post("/exhibition/register", register);
+router.get("/exhibition", getExhibition);
+router.post("/exhibition/like", exhibitionLike);
+router.delete("/exhibition/like", withdrawalLike);
+
+module.exports = router;

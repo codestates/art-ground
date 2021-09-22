@@ -40,7 +40,7 @@ module.exports.register = async (req, res) => {
 
       if (result) {
         const exhibition_id = result.dataValues.id;
-        images.forEach((el) => {
+        JSON.parse(images).forEach((el) => {
           const {
             title,
             imageUrl: image_urls,
