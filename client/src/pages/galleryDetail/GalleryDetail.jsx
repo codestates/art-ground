@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './GalleryDetail.module.css';
 
-const GalleryDetail = ({viewArtDetail}) => {
+const GalleryDetail = ({gallerySelected, viewArtDetail}) => {
 
   const [btnSlider, setBtnSlider] = useState(1);
 
