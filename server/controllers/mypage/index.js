@@ -1,4 +1,4 @@
-const { isAuthorized } = require("../tokenFunction/index");
+const { isAuthorized } = require("../../utils/tokenFunction");
 require("dotenv").config();
 
 module.exports = {
