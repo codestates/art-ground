@@ -1,4 +1,4 @@
-const { isAuthorized } = require("../tokenFunction");
+const { isAuthorized } = require("../../utils/tokenFunction");
 const {
   exhibition: exhibitionModels,
   images: imagesModel,
