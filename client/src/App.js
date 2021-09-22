@@ -236,7 +236,9 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
           />
-          <ReviewDetail />
+          <ReviewDetail 
+            reviewSelected={reviewSelected}
+          />
           <ScrollButton />
         </Route>
         <Route path="/register">

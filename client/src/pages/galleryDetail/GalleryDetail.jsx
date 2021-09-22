@@ -4,6 +4,8 @@ import styles from './GalleryDetail.module.css';
 
 const GalleryDetail = ({gallerySelected, viewArtDetail}) => {
 
+  //gallerySelected--> 전시회 정보
+
   const [btnSlider, setBtnSlider] = useState(1);
 
   const tags = ['#현대미술', '#일러스트레이션', '#회화']
