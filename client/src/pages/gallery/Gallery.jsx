@@ -1,23 +1,97 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getStandardGallery } from '../../api/galleryApi';
 //import { Link } from 'react-router-dom';
 import GalleryContent from '../../components/galleryContent/GalleryContent';
 import SubNavBar from '../../components/subNavBar/SubNavBar';
 import styles from './Gallery.module.css';
 
-const Gallery = (props) => {
+const Gallery = ({ isLogin, gallerySelect }) => {
+
+  const [galleryList, setGalleryList] = useState([]);
+  
+  const [isStandard, setStandard] = useState(true); //STANDARD, PREMIUM 카테고리 상태값
+  const [tagClicked, setTagClicked] = useState('전체'); //해시태그 카테고리 상태값
+  const [sortValue, setSortValue] = useState('최신순'); //최신순, 전시마감일순 정렬 상태값
+
+  const [modalOpen, setModalOpen] = useState(false); //찜하기 클릭시 나타나는 모달창
+
+
+  useEffect(() => {
+    if(isStandard){ 
+      //getStandardGallery();
+
+    } else{
+      //getPremiumGallery();
+    }
+  }, []); 
+
+  const handleStandard = () => { //STANDARD, PREMIUM 필터
+    setStandard(!isStandard)
+  }
+
+  const handleTagFilter = (el) => { //해시태그 필터
+    setTagClicked(el);
+    //getStandardGallery or getPremiumGallery 요청 받은 거에서 필터링...!
+  }
+
+  const handleSort = (event) => { //정렬(api요청 따로 없어도 됌)
+    setSortValue(event.target.value);
+  }
+
+
   return (
     <section className={styles.container}>
-      <SubNavBar />
+      <SubNavBar 
+        isStandard={isStandard} 
+        tagClicked={tagClicked}
+        handleTagFilter={handleTagFilter}
+        handleStandard={handleStandard}
+        sortValue={sortValue}
+        gallerySort={handleSort}
+      />
       <ul className={styles.objectList}>
-        <GalleryContent />
-        <GalleryContent />
-        <GalleryContent />
-        <GalleryContent />
+        <GalleryContent 
+          isLogin={isLogin}
+          handleLikeLogin={()=> setModalOpen(true)} 
+        />
+        <GalleryContent 
+          isLogin={isLogin}
+          handleLikeLogin={()=> setModalOpen(true)} 
+        />
+        <GalleryContent 
+          isLogin={isLogin}
+          handleLikeLogin={()=> setModalOpen(true)} 
+        />
+        <GalleryContent 
+          isLogin={isLogin}
+          handleLikeLogin={()=> setModalOpen(true)} 
+        />        
+        {/* {galleryList.map((el) => (
+          <GalleryContent
+          gallerySelect={gallerySelect} 
+          exhibition={el} 
+          isLogin={isLogin} />
+        ))} */}
       </ul>
 
-    </section>
+      {modalOpen ? //모달창
+      <section className={styles.modalContainer}>
+        <div className={styles.modalWrap}>
+          <span className={styles.modalContent}>전시회를 찜하려면<br></br>로그인이 필요합니다.</span>
+          <p className={styles.modalSubContent}>로그인 페이지로 이동하시겠어요?</p>
+          <div className={styles.ok}>
+            <Link to="/signin">
+              <button className={styles.okBtn}>네</button>
+            </Link>
+            <button className={styles.okBtn} onClick={()=>setModalOpen(false)}>아니요</button>
+          </div>
+        </div>
+      </section>
+      : null}
 
+    </section>
   );
 };
 

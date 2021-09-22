@@ -3,7 +3,6 @@ import { Link, useHistory } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 const Navbar = ({ isLogin, handleLogout }) => {
-  const [navOpen, setNavOpen] = useState(false);
 
   const history = useHistory();
 
@@ -18,29 +17,38 @@ const Navbar = ({ isLogin, handleLogout }) => {
     setNavOpen(true);
   };
 
-  ///////////스크롤 시 navbar 컬러 변경(작업중)//////////////////////////////
-  const [ScrollY, setScrollY] = useState(0);
+  const [navOpen, setNavOpen] = useState(false); //모바일 시 navbar 사이드로 숨겨짐
+  const [ScrollY, setScrollY] = useState(0); 
   const [navStatus, setNavStatus] = useState(false);
+
+//   const [navFixed, setNavFixed] = useState(false);
+
+//   const handleFollow = () => {
+//     setScrollY(window.pageYOffset);
+//     setNavFixed(true);
+//     if (ScrollY > 400) {
+
 
   const handleFollow = () => {
     setScrollY(window.pageYOffset);
-    if(ScrollY > 150) { 
+    if(ScrollY > 50) { 
+
       setNavStatus(true);
-    } else { 
+    } else {
       setNavStatus(false);
     }
-  }
-  
+  };
+
   useEffect(() => {
     const watch = () => {
-      window.addEventListener('scroll', handleFollow)
-    }
+      window.addEventListener("scroll", handleFollow);
+    };
     watch();
     return () => {
-      window.removeEventListener('scroll', handleFollow)
-    }
-  })
-  ////////////////////////////////////////////////////////////
+      window.removeEventListener("scroll", handleFollow);
+    };
+  });
+  
   return (
     <section className={navStatus? styles.containerScroll : styles.container}>
       <div className={styles.navBox}>
@@ -85,7 +93,7 @@ const Navbar = ({ isLogin, handleLogout }) => {
           </span>
           {navStatus? <img
             className={navStatus? styles.logoImgScroll : styles.logoImg}
-            src="../../../images/Monochrome on Transparent_light.png"
+            src="../../../images/Monochrome on Transparent.png"
             alt="logo"
             onClick={clickLogo}
           />: <img
