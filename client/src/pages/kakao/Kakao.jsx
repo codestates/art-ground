@@ -1,7 +1,6 @@
-import styles from "./Kakao.module.css";
-
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import styles from './Kakao.module.css'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 require("dotenv").config();
 
 const Kakao = (props) => {
@@ -13,7 +12,7 @@ const Kakao = (props) => {
     console.log("useEffect...");
     const url = new URL(window.location.href);
     const authorizationCode = url.searchParams.get("code");
-    console.log(authorizationCode);
+    console.log("code:", authorizationCode);
     if (authorizationCode) {
       getAccessToken(authorizationCode);
     }
@@ -24,18 +23,21 @@ const Kakao = (props) => {
     getUserInfo(accessToken);
     return () => {};
   }, [accessToken]);
-
+  
   const getAccessToken = (authorizationCode) => {
-    axios
-      .post(`${process.env.LOCAL_SERVER_URI}/kakao-login/token`, {
-        authorizationCode,
-      })
+    axios({
+      method: "post",
+      url: `https://localhost:5000/kakao-login/token`,
+      data: {
+        authorizationCode
+      }
+    })
       .then((res) => {
         console.log(res.data);
         if (!refreshToken) {
           setRefreshToken(res.data.refresh_token);
         }
-        setAccessToken(res.data.access_token);
+        setAccessToken(res.data.access_token)
       })
       .catch((error) => {
         console.log(error);
@@ -43,10 +45,10 @@ const Kakao = (props) => {
   };
 
   const getUserInfo = (accessToken) => {
-    axios
-      .get(
-        `${process.env.LOCAL_SERVER_URI}/kakao-login/userinfo?accessToken=${accessToken}`
-      )
+    axios({
+      method: "get",
+      url: `https://localhost:5000/kakao-login/userinfo?accessToken=${accessToken}`
+    })
       .then((res) => {
         console.log(res.data);
         setUserInfo(res.data);
@@ -60,7 +62,7 @@ const Kakao = (props) => {
     <section className={styles.container}>
       <div>카카오</div>
     </section>
-  );
-};
+  )
+}
 
-export default Kakao;
+export default Kakao
