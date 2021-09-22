@@ -45,7 +45,7 @@ const Register = ({ userinfo }) => {
   };
 
   const handleType = (event) => {
-    setType(event.target.value)
+    setType(Number(event.target.value))
   }
   
   const handleArtTitle = (el, e) => {

@@ -1,11 +1,11 @@
 
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getStandardGallery } from '../../api/galleryApi';
-//import { Link } from 'react-router-dom';
+import { getPremiumGallery, getStandardGallery } from '../../api/galleryApi';
 import GalleryContent from '../../components/galleryContent/GalleryContent';
 import SubNavBar from '../../components/subNavBar/SubNavBar';
 import styles from './Gallery.module.css';
+
 
 const Gallery = ({ isLogin, gallerySelect }) => {
 
@@ -20,12 +20,13 @@ const Gallery = ({ isLogin, gallerySelect }) => {
 
   useEffect(() => {
     if(isStandard){ 
-      //getStandardGallery();
-
+      getStandardGallery();
+      //(+ setGellaryList)
     } else{
-      //getPremiumGallery();
+      getPremiumGallery();
+      //(+ setGellaryList)
     }
-  }, []); 
+  }, [isStandard]); 
 
   const handleStandard = () => { //STANDARD, PREMIUM 필터
     setStandard(!isStandard)
@@ -79,7 +80,7 @@ const Gallery = ({ isLogin, gallerySelect }) => {
       {modalOpen ? //모달창
       <section className={styles.modalContainer}>
         <div className={styles.modalWrap}>
-          <span className={styles.modalContent}>전시회를 찜하려면<br></br>로그인이 필요합니다.</span>
+          <span className={styles.modalContent}>전시회를 찜하려면<br></br>로그인이 필요합니다!</span>
           <p className={styles.modalSubContent}>로그인 페이지로 이동하시겠어요?</p>
           <div className={styles.ok}>
             <Link to="/signin">
