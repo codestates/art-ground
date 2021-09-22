@@ -2,13 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Review.module.css';
 
-const Review = (props) => {
+const Review = ({ exhibition, reviewSelect }) => {
+
   return(
     <>
       <li className={styles.container}>
         <div className={styles.imgBox}>
           <Link to='/reviewdetail'>
-            <div className={styles.layer}></div>
+            <div className={styles.layer}
+            //onClick={()=> reviewSelect(exhibition)}
+            ></div>
             <img className={styles.thumbnail} src="http://www.news-paper.co.kr/news/photo/201903/39919_25361_5530.jpg" alt="thumbnail"/>
           </Link>
         </div>
@@ -21,7 +24,9 @@ const Review = (props) => {
             <span className={styles.reviewCount}>총 N개의 리뷰가 있어요</span>
             <div className={styles.btnWrap}>
               <Link to='/reviewdetail'>
-                <button className={styles.reviewBtn}>리뷰 쓰러가기</button>
+                <button className={styles.reviewBtn}
+                //onClick={()=> reviewSelect(exhibition)}
+                >리뷰 쓰러가기</button>
               </Link>
             </div>
           </div>

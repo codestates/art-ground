@@ -19,8 +19,13 @@ const Kakao = (props) => {
     return () => {};
   }, []);
 
+  console.log("accesstoken:", accessToken)
+  
   useEffect(() => {
-    getUserInfo(accessToken);
+    console.log("useEffect2...")
+    setTimeout(()=> {
+      getUserInfo(accessToken);
+    }, 2000)
     return () => {};
   }, [accessToken]);
   
@@ -57,7 +62,7 @@ const Kakao = (props) => {
         console.log(error);
       });
   };
-
+  console.log("userinfo:", userInfo)
   return (
     <section className={styles.container}>
       <div>카카오</div>

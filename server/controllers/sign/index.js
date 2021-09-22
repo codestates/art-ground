@@ -3,6 +3,7 @@ const router = Router();
 const googleCtrl = require("./google");
 const signCtrl = require("./sign.ctrl");
 const kakaoCtrl = require("./kakao");
+// 브랜치 파서 리팩토링 시도
 
 // 일반 회원가입
 router.post("/sign-up/user", signCtrl.generalSignUp);
@@ -22,4 +23,7 @@ router.post("/receive/token", googleCtrl.getToken);
 
 // Kakao
 router.post("/kakao-login/token", kakaoCtrl.getToken);
-router.get("/kakao-logiin/userinfo?", kakaoCtrl.getUserInfo);
+router.get("/kakao-login/userinfo?", kakaoCtrl.getUserInfo);
+
+module.exports = router;
+

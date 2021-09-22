@@ -2,9 +2,12 @@ import React from 'react';
 import Reply from '../../components/reply/Reply';
 import styles from './ReviewDetail.module.css';
 
-const ReviewDetail = (props) => {
+const ReviewDetail = ({ reviewSelected }) => {
+
+  //reviewSelected--> 전시회 정보
 
   const tags = ['#현대미술', '#일러스트레이션', '#회화']
+  
   return (
     <section className={styles.container}>
       <div className={styles.artDetail}>

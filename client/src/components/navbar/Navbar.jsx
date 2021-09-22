@@ -53,9 +53,6 @@ const Navbar = ({ isLogin, handleLogout }) => {
     <section className={navStatus? styles.containerScroll : styles.container}>
       <div className={styles.navBox}>
         <div className={navOpen? styles.topNav : styles.topNavClose}>
-          {/* <span className={styles.moreOpt} onClick={handleNavOpen}>
-            <i class="fas fa-bars"></i>
-          </span> */}
           <ul className={navStatus? styles.btnsScroll: styles.btns}>
             {!isLogin ? (
               <li
