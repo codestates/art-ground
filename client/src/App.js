@@ -236,7 +236,9 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
           />
-          <ReviewDetail />
+          <ReviewDetail 
+            reviewSelected={reviewSelected}
+          />
           <ScrollButton />
         </Route>
         <Route path="/register">
@@ -247,6 +249,8 @@ function App() {
           />
           <Register
             userinfo={userinfo}
+            isAuthorLogin={isAuthorLogin}
+            isAudienceLogin={isAudienceLogin}
           />
           <ScrollButton />
         </Route>

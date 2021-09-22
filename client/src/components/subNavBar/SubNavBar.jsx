@@ -70,10 +70,11 @@ const SubNavBar = ({ isStandard, tagClicked, handleTagFilter, handleStandard, so
         <span className={el===tagClicked? styles.hashtagClicked :styles.hashtag} 
         onClick={()=>handleTagFilter(el)}>{el}</span>)}
       </div>
-      
+
       <div className={styles.sortWrap}>
         <select className={styles.sort} value={sortValue} onChange={gallerySort}>
           <option value="최신순">최신순</option>
+          <option value="인기순">인기순</option>
           <option value="전시마감일순">전시마감일순</option>
         </select>
       </div>

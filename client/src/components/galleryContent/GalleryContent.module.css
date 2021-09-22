@@ -34,6 +34,7 @@
   align-items: center;
 } */
 .title {
+  margin-top: 0.3rem;
   font-size: 1rem;
   color: rgb(44, 44, 44);
 }
@@ -43,7 +44,7 @@
   position: absolute;
   top: 0;
   right: -0.5rem;
-  width: 3.5rem;
+  width: 3.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,22 +54,23 @@
   margin-right: 0.5rem;
 }
 .likesCount {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: rgb(97, 97, 97);
 }
 
 .notlike {
   padding-right: 0.4rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: rgb(97, 97, 97);
 }
 .like {
   padding-right: 0.4rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: rgb(241, 112, 112);
 }
 
 .period {
+  margin-top: 0.2rem;
   font-size: 0.8rem;
   color: rgb(156, 156, 156);
 }
