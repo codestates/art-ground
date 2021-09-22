@@ -1,21 +1,20 @@
+// router.use(endpoint, directory)
 const { Router } = require("express");
-const { sign } = require("./sign");
 const router = Router();
-const { getToken, getUserInfo } = require("./sign/google");
-const { generalSignUp, authorSignUp } = require("./sign/signUp");
-const { signIn } = require("./sign/signIn");
-const { signOut } = require("./sign/signOut");
+const { sign } = require("./sign");
+
 const { getMyInfo } = require("./mypage");
 const { register } = require("./exhibition/register");
 const { getExhibition } = require("./exhibition");
 const { exhibitionLike } = require("./exhibition/likes");
 const { withdrawalLike } = require("./exhibition/withdrawalLike");
-router.post("/receive/token", getToken);
-router.get("/receive/userinfo?", getUserInfo);
-router.post("/sign-up/user", generalSignUp);
-router.post("/sign-up/author", authorSignUp);
-router.post("/sign-in", signIn);
-router.post("/sign-out", signOut);
+
+// sign
+router.use("/sign-up", sign);
+router.use("/sign-in", sign);
+router.use("/sign-out", sign);
+router.use("/receive", sign);
+router.use("/kakao", sign);
 
 // mypage
 router.get("/mypage", getMyInfo);

@@ -4,7 +4,7 @@
 .container {
   max-width: Container;
   margin: 0 auto;
-  padding: 12rem;
+  padding: 11rem;
 }
 .joinbox {
   width: 100%;
@@ -52,7 +52,7 @@
 
 @media screen and (max-width: 768px) {
   .container {
-    padding-top: 6rem;
+    padding-top: 4.5rem;
   }
   .joinbox {
     width: 100%;

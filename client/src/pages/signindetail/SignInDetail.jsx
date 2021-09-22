@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
+const CryptoJS = require("crypto-js");
+require("dotenv").config();
+
 
 axios.defaults.withCredentials = true;
 
@@ -14,8 +17,9 @@ const SignInDetail = ({
   const history = useHistory();
 
   const [loginInfo, setLoginInfo] = useState({
-    user_email: "",
+    userEmail: "",
     password: "",
+    userType: "",
   });
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -38,35 +42,65 @@ const SignInDetail = ({
     return regExp.test(asValue);
   };
 
-  const { user_email, password } = loginInfo;
+  const { userEmail, password } = loginInfo;
+  const secretKey = "Klassiker";
   const clickAudLogin = () => {
-    if (!user_email || !password) {
+    if (!userEmail || !password) {
       setErrorMessage("아이디와 비밀번호를 모두 입력해주세요");
     }
 
-    if (!checkEmail(user_email)) {
+    if (!checkEmail(userEmail)) {
       setErrorMessage("이메일 형식을 맞춰주세요");
       return false;
     }
 
+    const encryptedPassword = CryptoJS.AES.encrypt(
+      JSON.stringify(password),
+      secretKey
+    ).toString();
+
+    const userData = {
+      userEmail,
+      password: encryptedPassword,
+      userType: 1,
+    };
     setErrorMessage("");
-    // axios
-    //   .post("/sign-in", loginInfo)
-    //   .then((result) => {});
-    handleResponseSuccess();
-    // history.push("/landing");
+    axios.post("https://art-ground.link/sign-in", userData).then((result) => {
+      console.log(result, "-----관람객로그인요청");
+      // if(result.data==="AccessToken ready"){
+
+      // }
+      handleResponseSuccess();
+    });
   };
   const clickAuthLogin = () => {
-    if (!user_email || !password) {
+    if (!userEmail || !password) {
       setErrorMessage("아이디와 비밀번호를 모두 입력해주세요");
-    } else {
-      setErrorMessage("");
-      // axios
-      //   .post("http://www.art-ground.net/sign-in", loginInfo)
-      //   .then((result) => {});
-      handleResponseSuccess();
-      // history.push("/");
     }
+
+    if (!checkEmail(userEmail)) {
+      setErrorMessage("이메일 형식을 맞춰주세요");
+      return false;
+    }
+
+    const encryptedPassword = CryptoJS.AES.encrypt(
+      JSON.stringify(password),
+      secretKey
+    ).toString();
+
+    const userData = {
+      userEmail,
+      password: encryptedPassword,
+      userType: 2,
+    };
+    setErrorMessage("");
+    axios.post("https://art-ground.link/sign-in", userData).then((result) => {
+      console.log(result, "-----작가로그인요청");
+      // if(result.data==="AccessToken ready"){
+
+      // }
+      handleResponseSuccess();
+    });
   };
 
   const onKeyPress = (e) => {
@@ -79,6 +113,10 @@ const SignInDetail = ({
       "https://accounts.google.com/o/oauth2/v2/auth?scope=openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20&access_type=offline&include_granted_scopes=true&response_type=code&state=state_parameter_passthrough_value&redirect_uri=http://localhost:3000/signin/google&client_id=712078359002-ms5bo3h03tenocjb8sib9mdq6q46jdet.apps.googleusercontent.com";
   };
 
+  const clickKakao = () => {
+    window.location.href = 
+      `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.KAKAO_CLIENT_ID}&redirect_uri=${process.env.KAKAO_REDIRECT_URI}&response_type=code`;
+  }
   return (
     <section className={styles.container}>
       <div>
@@ -102,7 +140,7 @@ const SignInDetail = ({
                   type="text"
                   className={styles.text}
                   placeholder="이메일을 입력해주세요"
-                  onChange={handleInputValue("user_email")}
+                  onChange={handleInputValue("userEmail")}
                 ></input>
               </div>
             </li>
@@ -133,7 +171,6 @@ const SignInDetail = ({
                     onChange={handleInputValue("password")}
                   ></input>
                 )}
-
                 <span className={styles.eyeBorder}>
                   <img
                     src={visibility}
@@ -168,7 +205,9 @@ const SignInDetail = ({
                 <button className={styles.ouathBtn} onClick={clickGoole}>
                   구글 로그인
                 </button>
-                <button className={styles.ouathBtn}>카카오로그인</button>
+                <button className={styles.ouathBtn} onClick={clickKakao}>
+                  카카오 로그인
+                </button>
               </li>
             ) : null}
           </ul>
