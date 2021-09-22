@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styles from './Register.module.css';
 import AWS from "aws-sdk";
-import axios from "axios";
 import { Link } from 'react-router-dom';
+import { createExhibition } from '../../api/galleryApi';
 
 const Register = ({isAuthorLogin, isAudienceLogin}) => {
 
@@ -11,7 +11,7 @@ const Register = ({isAuthorLogin, isAudienceLogin}) => {
     artCount.push(String(i+1));
   } // artCount = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
-  const tags = ['#현대미술', '#일러스트레이션', '#회화'] //더미카테고리
+  const tags = ['#회화', '#순수미술', '#응용미술', '#일러스트', '#판화', '#개인전', '#사진전', '#추상화', '#팝아트', '#인물화', '#풍경화', '#정물화'] //더미카테고리
   
   const [title, setTitle] = useState(''); //전시명
   const [startDate, setStartDate] = useState(''); //전시시작일
@@ -101,21 +101,10 @@ const Register = ({isAuthorLogin, isAudienceLogin}) => {
 
   const createGallery = () => {
     setModalOpen(true);
-    // axios.post(
-    //   "https://localhost:5000/exhibition/register",
-    //   {
-    //     title: title,
-    //     startDate: startDate,
-    //     endDate: endDate,
-    //     exhibitType: type,
-    //     genreHashtags: JSON.stringify(isClicked), //배열이니까 JSON 처리
-    //     exibitInfo: arts[0].img, //썸네일로 쓰일 대표작 1점(첫번째 작품)
-    //     images: JSON.stringify(arts) //배열이니까 JSON 처리
-    //   }
-    // );
+    createExhibition(title, startDate, endDate, type, isClicked, arts);
   }
 
-  if(isAuthorLogin){
+  //if(isAuthorLogin){
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>전시 신청</h2>
@@ -213,42 +202,43 @@ const Register = ({isAuthorLogin, isAudienceLogin}) => {
 
     </section>
 
-  )} else if(isAudienceLogin){ // 관람객 로그인 시
+  )
+  // } else if(isAudienceLogin){ // 관람객 로그인 시
     
-    return (
-      <section className={styles.modalContainer}>
-        <div className={styles.modalWrap}>
-          <p className={styles.modalContent}>관람객 회원은<br></br>전시 신청이 불가합니다!</p>
-          <span className={styles.modalSubContent}>작가 회원으로 로그인 해주세요.</span>
-          <div className={styles.oK}>
-            <Link to="/gallery">
-              <button className={styles.oKBtn}>닫기</button>
-            </Link>
-          </div>
-        </div>
-      </section>
-    )
+  //   return (
+  //     <section className={styles.modalContainer}>
+  //       <div className={styles.modalWrap}>
+  //         <p className={styles.modalContent}>관람객 회원은<br></br>전시 신청이 불가합니다!</p>
+  //         <span className={styles.modalSubContent}>작가 회원으로 로그인 해주세요.</span>
+  //         <div className={styles.oK}>
+  //           <Link to="/gallery">
+  //             <button className={styles.oKBtn}>닫기</button>
+  //           </Link>
+  //         </div>
+  //       </div>
+  //     </section>
+  //   )
 
-  } else{ //비로그인 시
+  // } else{ //비로그인 시
     
-    return (
-      <section className={styles.modalContainer}>
-        <div className={styles.modalWrap}>
-          <p className={styles.modalContent}>전시 신청 서비스는<br></br>로그인이 필요합니다!</p>
-          <span className={styles.modalSubContent}>작가 회원으로 로그인 해주세요.</span>
-          <div className={styles.oK}>
-            <Link to="/signin">
-              <button className={styles.oKBtn}>로그인 <br></br>하러가기</button>
-            </Link>
-            <Link to="/gallery">
-              <button className={styles.oKBtn}>닫기</button>
-            </Link>
-          </div>
-        </div>
-      </section>
-    )
+  //   return (
+  //     <section className={styles.modalContainer}>
+  //       <div className={styles.modalWrap}>
+  //         <p className={styles.modalContent}>전시 신청 서비스는<br></br>로그인이 필요합니다!</p>
+  //         <span className={styles.modalSubContent}>작가 회원으로 로그인 해주세요.</span>
+  //         <div className={styles.oK}>
+  //           <Link to="/signin">
+  //             <button className={styles.oKBtn}>로그인 <br></br>하러가기</button>
+  //           </Link>
+  //           <Link to="/gallery">
+  //             <button className={styles.oKBtn}>닫기</button>
+  //           </Link>
+  //         </div>
+  //       </div>
+  //     </section>
+  //   )
      
-  }
+  // }
 }
 
 export default Register;
