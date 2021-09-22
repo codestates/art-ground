@@ -91,7 +91,7 @@ li {
   transition: all 0.5s;
 }
 .confirm:hover {
-  background-color: black;
+  background-color: #202020;
   color: white;
   transition: transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02);
 }
