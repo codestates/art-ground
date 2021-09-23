@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import ArtDetail from '../../components/artDetail/ArtDetail';
 import styles from './GalleryDetail.module.css';
 
-const GalleryDetail = ({gallerySelected, viewArtDetail}) => {
+const GalleryDetail = ({ gallerySelected }) => {
 
   //gallerySelected--> 전시회 정보
 
   const [btnSlider, setBtnSlider] = useState(1);
+  const [artDetail, setArtDetail] = useState(null);
 
   const tags = ['#현대미술', '#일러스트레이션', '#회화']
   const sliderNum = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -36,6 +37,14 @@ const GalleryDetail = ({gallerySelected, viewArtDetail}) => {
     if(btnSlider!==9){
       setBtnSlider(btnSlider+1)
     }
+  }
+
+  const handleModalClose = () => {
+    setArtDetail(null);
+  }
+
+  const handleModalOpen = (el) => {
+    setArtDetail(el); //모달에 띄울 art 전달
   }
 
   return (
@@ -71,7 +80,7 @@ const GalleryDetail = ({gallerySelected, viewArtDetail}) => {
           {dummyImg.map(el =>
               <div className={styles.sliderWrap}>
                 <img className={styles.slider} src='https://images.velog.io/images/devjade/post/1716edd9-798c-4cf2-9fe9-26f8537d8084/image.png' alt='slider' />
-                <img className={styles.sliderPic} src={el} alt='sliderIn' />
+                <img className={styles.sliderPic} src={el} alt='sliderIn' onClick={() => handleModalOpen(el)} />
               </div>
           )}
         </div>
@@ -107,20 +116,27 @@ const GalleryDetail = ({gallerySelected, viewArtDetail}) => {
       <ul className={styles.workBox}>
         {dummyImg.map(el =>
           <li>
-            <Link to='/artdetail'>
-              <img className={styles.work} src={el} alt='art' onClick={() => viewArtDetail(el)}/>
-            </Link>
+            <img className={styles.work} src={el} alt='art' onClick={() => handleModalOpen(el)}/>
             <div className={styles.workTitleMeta}>
               <span className={styles.workTitle}>호크니1</span>
               <i className="fas fa-ellipsis-h"></i>
             </div>
             <span className={styles.workContent}>제작연도 : 2021, 재료 : Digital drawing, 크기 : 59.4x42.0cm</span>
-          </li>)}
+          </li>
+        )}
 
       </ul>
       <div className={styles.space} />
+
+      {artDetail !== null ?
+      <ArtDetail 
+      handleClose={handleModalClose}
+      art={artDetail}
+      /> : null}
+
     </section>
   );
+  
 };
 
 export default GalleryDetail;

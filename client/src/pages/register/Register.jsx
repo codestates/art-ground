@@ -242,7 +242,7 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
           <span className={styles.modalSubContent}>작가 회원으로 로그인 해주세요.</span>
           <div className={styles.ok}>
             <Link to="/signin">
-              <button className={styles.okBtn}>로그인 <br></br>하러가기</button>
+              <button className={styles.okBtn}>로그인<br></br>하러가기</button>
             </Link>
             <button className={styles.okBtn} onClick={goBack}>닫기</button>
             
