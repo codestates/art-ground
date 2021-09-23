@@ -4,7 +4,7 @@ require("dotenv").config();
 module.exports = {
   getMyInfo: (req, res) => {
     const userInfo = isAuthorized(req);
-    console.log(userInfo);
+
     if (userInfo) {
       res.status(200).json({
         data: userInfo,

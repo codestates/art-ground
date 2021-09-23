@@ -56,6 +56,7 @@ module.exports.register = async (req, res) => {
           });
         });
         res.status(201).json({ message: "exhibition created" });
+      } else {
       }
     } else {
       res.status(422).json({ message: "insufficient parameters supplied" });
