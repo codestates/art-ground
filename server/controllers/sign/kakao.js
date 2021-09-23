@@ -1,6 +1,14 @@
 "use strict";
 require("dotenv").config();
 const axios = require("axios");
+const { users } = require("../../models");
+const {
+  generateAccessToken,
+  sendAccessToken,
+} = require("../../utils/tokenFunction");
+const CryptoJS = require("crypto-js");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 
 module.exports = {
   // 받은 authorization code로 access token 받기
@@ -38,10 +46,37 @@ module.exports = {
     })
       .then((data) => {
         console.log("userInfo:", data);
-        res.send(data.data);
+        let password = data.data.id + data.data.properties.nickname;
+        console.log("password:", password);
+        const salt = bcrypt.genSalt(saltRounds);
+        console.log("salt:", salt);
+        password = bcrypt.hash(password, salt);
+
+        users.findOrCreate({
+          where: {
+            user_id: data.data.kakao_account.email,
+          },
+          default: {
+            password: password,
+            nickname: userName,
+            user_type: 1,
+            // refresh_token:
+            // LoginType: kakao,
+          },
+        });
       })
-      .catch((error) => {
-        console.log(error);
+      .then(([result, created]) => {
+        if (!created) {
+          console.log("result:", result);
+          delete result.dataValues.password;
+          const accessToken = generateAccessToken(result.dataValues);
+          sendAccessToken(res, accessToken);
+        }
+        const data = result.dataValues;
+        return res.status(201).json({ message: "ok" });
+      })
+      .catch((err) => {
+        console.log(err);
       });
   },
 };
