@@ -7,9 +7,9 @@ module.exports = {
   getToken: (req, res) => {
     const code = req.body.authorizationCode;
     console.log("authcode-----:", code);
-    const client_id = process.env.KAKAO_CLIENT_ID;
-    const redirect_uri = process.env.KAKAO_REDIRECT_URI;
-    const grant_type = process.env.GRANT_TYPE;
+    const client_id = process.env.ART_GROUND_KAKAO_CLIENT_ID;
+    const redirect_uri = process.env.ART_GROUND_KAKAO_REDIRECT_URI;
+    const grant_type = process.env.ART_GROUND_GRANT_TYPE;
 
     axios({
       method: "post",
