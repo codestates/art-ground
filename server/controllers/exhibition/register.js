@@ -40,7 +40,7 @@ module.exports.register = async (req, res) => {
 
       if (result) {
         const exhibition_id = result.dataValues.id;
-        images.forEach((el) => {
+        JSON.parse(images).forEach((el) => {
           const {
             title,
             imageUrl: image_urls,
@@ -56,6 +56,7 @@ module.exports.register = async (req, res) => {
           });
         });
         res.status(201).json({ message: "exhibition created" });
+      } else {
       }
     } else {
       res.status(422).json({ message: "insufficient parameters supplied" });
