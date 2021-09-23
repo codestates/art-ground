@@ -6,7 +6,6 @@ const {
   generateAccessToken,
   sendAccessToken,
 } = require("../../utils/tokenFunction");
-const CryptoJS = require("crypto-js");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
@@ -15,9 +14,9 @@ module.exports = {
   getToken: (req, res) => {
     const code = req.body.authorizationCode;
     console.log("authcode-----:", code);
-    const client_id = process.env.KAKAO_CLIENT_ID;
-    const redirect_uri = process.env.KAKAO_REDIRECT_URI;
-    const grant_type = process.env.GRANT_TYPE;
+    const client_id = process.env.ART_GROUND_KAKAO_CLIENT_ID;
+    const redirect_uri = process.env.ART_GROUND_KAKAO_REDIRECT_URI;
+    const grant_type = process.env.ART_GROUND_GRANT_TYPE;
 
     axios({
       method: "post",
@@ -52,6 +51,7 @@ module.exports = {
         console.log("salt:", salt);
         password = bcrypt.hash(password, salt);
 
+        // 최초 로그인 시 회원가입 진행
         users.findOrCreate({
           where: {
             user_id: data.data.kakao_account.email,
@@ -66,13 +66,15 @@ module.exports = {
         });
       })
       .then(([result, created]) => {
+        // 이미 회원가입이 되어 있다면 accessToken 만들어서 보내고 로그인
         if (!created) {
           console.log("result:", result);
           delete result.dataValues.password;
           const accessToken = generateAccessToken(result.dataValues);
           sendAccessToken(res, accessToken);
         }
-        const data = result.dataValues;
+        const userData = result.dataValues;
+        console.log("userData:", userData);
         return res.status(201).json({ message: "ok" });
       })
       .catch((err) => {
