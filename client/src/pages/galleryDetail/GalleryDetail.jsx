@@ -110,7 +110,10 @@ const GalleryDetail = ({gallerySelected, viewArtDetail}) => {
             <Link to='/artdetail'>
               <img className={styles.work} src={el} alt='art' onClick={() => viewArtDetail(el)}/>
             </Link>
-            <span className={styles.workTitle}>호크니1</span>
+            <div className={styles.workTitleMeta}>
+              <span className={styles.workTitle}>호크니1</span>
+              <i className="fas fa-ellipsis-h"></i>
+            </div>
             <span className={styles.workContent}>제작연도 : 2021, 재료 : Digital drawing, 크기 : 59.4x42.0cm</span>
           </li>)}
 
