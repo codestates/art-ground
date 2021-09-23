@@ -1,28 +1,37 @@
-import styles from './Admin.module.css'
+import styles from "./Admin.module.css";
 
-import React, { useState } from 'react'
-import AdminEx from '../../components/adminEx/AdminEx'
-import AdminReview from '../../components/adminReview/AdminReview'
+import React, { useEffect, useState } from "react";
+import AdminEx from "../../components/adminEx/AdminEx";
+import AdminReview from "../../components/adminReview/AdminReview";
 
-const Admin = () => {
+const Admin = ({ isAdmin, setisAdmin }) => {
   // 대분류
-  const [exhibition, setExhibition] = useState(true)
-  const [review, setReview] = useState(false)
+  const [exhibition, setExhibition] = useState(true);
+  const [review, setReview] = useState(false);
   // 소분류
-  const [updateEx, setUpdateEx] = useState(true)
-  const [deleteEx, setDeleteEx] = useState(false)
+  const [updateEx, setUpdateEx] = useState(true);
+  const [deleteEx, setDeleteEx] = useState(false);
+  const [adminModal, setAdminModal] = useState(true);
+  const [adExRender, setAdExRender] = useState(false);
 
-  const clickExColor = !exhibition ? styles.libox : styles.liboxClick
-  const clickRevColor = !review ? styles.libox : styles.liboxClick
+  useEffect(() => {
+    //로딩창 띄워야함
+    setTimeout(() => {
+      setAdExRender(true);
+    }, 2000);
+  });
+
+  const clickExColor = !exhibition ? styles.libox : styles.liboxClick;
+  const clickRevColor = !review ? styles.libox : styles.liboxClick;
 
   const clickEx = () => {
-    setExhibition(true)
-    setReview(false)
-  }
+    setExhibition(true);
+    setReview(false);
+  };
   const clickReview = () => {
-    setExhibition(false)
-    setReview(true)
-  }
+    setExhibition(false);
+    setReview(true);
+  };
 
   return (
     <section className={styles.container}>
@@ -49,15 +58,22 @@ const Admin = () => {
           </div>
         </div>
       </div>
+
       <div className={styles.content}>
         {exhibition ? (
           <div className={styles.exhibit}>
-            <AdminEx
-              setUpdateEx={setUpdateEx}
-              setDeleteEx={setDeleteEx}
-              updateEx={updateEx}
-              deleteEx={deleteEx}
-            />
+            {adExRender ? (
+              <AdminEx
+                setUpdateEx={setUpdateEx}
+                setDeleteEx={setDeleteEx}
+                updateEx={updateEx}
+                deleteEx={deleteEx}
+                isAdmin={isAdmin}
+                setisAdmin={setisAdmin}
+              />
+            ) : (
+              "로딩페이지!!"
+            )}
           </div>
         ) : (
           <div className={styles.review}>
@@ -66,7 +82,7 @@ const Admin = () => {
         )}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Admin
+export default Admin;

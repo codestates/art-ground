@@ -6,6 +6,7 @@ span {
 }
 .container {
   max-width: 100%;
+  position: relative;
 }
 .top {
   max-width: 100%;
@@ -54,6 +55,7 @@ span {
 }
 .libox {
   width: 10%;
+  height: 40px;
   line-height: 40px;
   text-align: center;
 }
@@ -63,6 +65,7 @@ span {
 }
 .liboxClick {
   width: 10%;
+  height: 40px;
   line-height: 40px;
   text-align: center;
   color: black;

@@ -11,26 +11,35 @@ const ScrollTab = () => {
     });
     setPosition(0);
   };
-  const gotoWatch = () => {
+
+  const gotoBrand = () => {
     window.scrollTo({
-      top: 1966,
+      top: 900,
       behavior: "smooth",
     });
-    setPosition(1966);
+    setPosition(900);
+  };
+
+  const gotoWatch = () => {
+    window.scrollTo({
+      top: 1880,
+      behavior: "smooth",
+    });
+    setPosition(1880);
   };
   const gotoReview = () => {
     window.scrollTo({
-      top: 2940,
+      top: 2800,
       behavior: "smooth",
     });
-    setPosition(2940);
+    setPosition(2800);
   };
   const gotoRegister = () => {
     window.scrollTo({
-      top: 3913,
+      top: 3720,
       behavior: "smooth",
     });
-    setPosition(3913);
+    setPosition(3720);
   };
 
   return (
@@ -38,6 +47,9 @@ const ScrollTab = () => {
       <ul className={styles.tapBorder}>
         <li className={styles.list} onClick={gotoTop}>
           최상단
+        </li>
+        <li className={styles.list} onClick={gotoBrand}>
+          브랜드
         </li>
         <li className={styles.list} onClick={gotoWatch}>
           관람

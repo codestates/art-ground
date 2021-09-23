@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styles from './Register.module.css';
 import AWS from "aws-sdk";
-import { Link } from 'react-router-dom';
+import { Link, useHistory, withRouter } from 'react-router-dom';
 import { createExhibition } from '../../api/galleryApi';
 
-const Register = ({isAuthorLogin, isAudienceLogin}) => {
+const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
 
   const artCount = [];
   for(let i=0; i<9; i++){
@@ -18,6 +18,7 @@ const Register = ({isAuthorLogin, isAudienceLogin}) => {
   const [endDate, setEndDate] = useState(''); //전시마감일
   const [type, setType] = useState('') //전시타입
   const [isClicked, setClicked] = useState([]); //전시장르
+  const [content, setContent] = useState(''); //전시 설명
   const [arts, setArts] = useState([{}, {}, {}, {}, {}, {}, {}, {}, {}]) //9개 작품 배열
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -31,6 +32,9 @@ const Register = ({isAuthorLogin, isAudienceLogin}) => {
   const handleEndDate = (event) => {
     setEndDate(event.target.value);
   }
+  const handleContent = (event) => {
+    setContent(event.target.value);
+  }
 
   const tagHandle = (tag) => {
     if (isClicked.includes(tag)) {
@@ -41,7 +45,7 @@ const Register = ({isAuthorLogin, isAudienceLogin}) => {
   };
 
   const handleType = (event) => {
-    setType(event.target.value)
+    setType(Number(event.target.value))
   }
   
   const handleArtTitle = (el, e) => {
@@ -101,10 +105,15 @@ const Register = ({isAuthorLogin, isAudienceLogin}) => {
 
   const createGallery = () => {
     setModalOpen(true);
-    createExhibition(title, startDate, endDate, type, isClicked, arts);
+    createExhibition(title, startDate, endDate, type, content, isClicked, arts);
   }
 
-  //if(isAuthorLogin){
+  const history = useHistory();
+  const goBack = () => {
+    history.goBack();
+  }
+
+  if(isAuthorLogin){
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>전시 신청</h2>
@@ -141,6 +150,11 @@ const Register = ({isAuthorLogin, isAudienceLogin}) => {
             </>
         )}
       </div>
+
+      <div className={styles.categoryName}>전시 설명</div>
+      <input className={styles.contentInput} 
+      type="textarea" placeholder="어떤 전시회인지 간단히 소개해주세요." 
+      onChange={handleContent}/>
 
       {artCount.map(el => 
       <>
@@ -191,9 +205,11 @@ const Register = ({isAuthorLogin, isAudienceLogin}) => {
         <div className={styles.modalWrap}>
           <span className={styles.modalContent}>전시 신청이 완료되었습니다!</span>
           <p className={styles.modalSubContent}>영업일 기준 7일 이내<br></br>관리자의 승인이 이루어질 예정입니다.</p>
-          <div className={styles.submit}>
+          <div className={styles.ok}>
           <Link to="/gallery">
-            <button className={styles.submitBtn} onClick={()=>setModalOpen(false)}>확인</button>
+            <button className={styles.okBtn} 
+            onClick={()=>setModalOpen(false)}
+            >확인</button>
           </Link>
           </div>
         </div>
@@ -203,42 +219,39 @@ const Register = ({isAuthorLogin, isAudienceLogin}) => {
     </section>
 
   )
-  // } else if(isAudienceLogin){ // 관람객 로그인 시
+  } else if(isAudienceLogin){ // 관람객 로그인 시
     
-  //   return (
-  //     <section className={styles.modalContainer}>
-  //       <div className={styles.modalWrap}>
-  //         <p className={styles.modalContent}>관람객 회원은<br></br>전시 신청이 불가합니다!</p>
-  //         <span className={styles.modalSubContent}>작가 회원으로 로그인 해주세요.</span>
-  //         <div className={styles.oK}>
-  //           <Link to="/gallery">
-  //             <button className={styles.oKBtn}>닫기</button>
-  //           </Link>
-  //         </div>
-  //       </div>
-  //     </section>
-  //   )
+    return (
+      <section className={styles.modalContainer}>
+        <div className={styles.modalWrap}>
+          <p className={styles.modalContent}>관람객 회원은<br></br>전시 신청이 불가합니다!</p>
+          <span className={styles.modalSubContent}>작가 회원으로 로그인 해주세요.</span>
+          <div className={styles.ok}>
+            <button className={styles.okBtn} onClick={goBack}>닫기</button>
+          </div>
+        </div>
+      </section>
+    )
 
-  // } else{ //비로그인 시
+  } else{ //비로그인 시
     
-  //   return (
-  //     <section className={styles.modalContainer}>
-  //       <div className={styles.modalWrap}>
-  //         <p className={styles.modalContent}>전시 신청 서비스는<br></br>로그인이 필요합니다!</p>
-  //         <span className={styles.modalSubContent}>작가 회원으로 로그인 해주세요.</span>
-  //         <div className={styles.oK}>
-  //           <Link to="/signin">
-  //             <button className={styles.oKBtn}>로그인 <br></br>하러가기</button>
-  //           </Link>
-  //           <Link to="/gallery">
-  //             <button className={styles.oKBtn}>닫기</button>
-  //           </Link>
-  //         </div>
-  //       </div>
-  //     </section>
-  //   )
+    return (
+      <section className={styles.modalContainer}>
+        <div className={styles.modalWrap}>
+          <p className={styles.modalContent}>전시 신청 서비스는<br></br>로그인이 필요합니다!</p>
+          <span className={styles.modalSubContent}>작가 회원으로 로그인 해주세요.</span>
+          <div className={styles.ok}>
+            <Link to="/signin">
+              <button className={styles.okBtn}>로그인 <br></br>하러가기</button>
+            </Link>
+            <button className={styles.okBtn} onClick={goBack}>닫기</button>
+            
+          </div>
+        </div>
+      </section>
+    )
      
-  // }
+  }
 }
 
-export default Register;
+export default withRouter(Register);

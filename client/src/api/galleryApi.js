@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export function createExhibition(title, startDate, endDate, type, isClicked, arts) {
-  
+export function createExhibition(title, startDate, endDate, type, content, isClicked, arts) {
+
   return axios.post(
     "https://localhost:5000/exhibition/register",
     {
@@ -10,27 +10,37 @@ export function createExhibition(title, startDate, endDate, type, isClicked, art
       endDate: endDate,
       exhibitType: type,
       genreHashtags: JSON.stringify(isClicked), //배열이니까 JSON 처리
-      exibitInfo: arts[0].img, //전시회 content
+      exhibitInfo: content,
       images: JSON.stringify(arts) //배열이니까 JSON 처리
     });
 }
 
-export function getStandardGallery(){
+export function getUnauthorizedEx(){ //승인 대기중인 전시회만(1status = 0)
 
-  return axios.get(
-    "https://localhost:5000/exhibition"
-    )
-    .then((res)=> {
-      //여기서 type으로 필터링 한번 하기
-    })
+  // return axios.get(
+  //   "https://localhost:5000/exhibition" 
+  //   )
+  //   .then((res)=> {
+      
+  //   })
+}
+
+export function getStandardGallery(){
+  console.log('standard')
+  // return axios.get(
+  //   "https://localhost:5000/exhibition" //파라미터 요청 & 승인이 된 것만 
+  //   )
+  //   .then((res)=> {
+      
+  //   })
 }
 
 export function getPremiumGallery(){
-
-  return axios.get(
-    "https://localhost:5000/exhibition"
-    )
-    .then((res)=> {
-      //여기서 type으로 필터링 한번 하기
-    })
+  console.log('premium')
+  // return axios.get(
+  //   "https://localhost:5000/exhibition" //파라미터 요청 & 승인이 된 것만
+  //   )
+  //   .then((res)=> {
+      
+  //   })
 }

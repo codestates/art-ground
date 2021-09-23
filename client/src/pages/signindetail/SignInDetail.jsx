@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 const CryptoJS = require("crypto-js");
 require("dotenv").config();
 
-
 axios.defaults.withCredentials = true;
 
 const SignInDetail = ({
@@ -67,10 +66,9 @@ const SignInDetail = ({
     setErrorMessage("");
     axios.post("https://art-ground.link/sign-in", userData).then((result) => {
       console.log(result, "-----관람객로그인요청");
-      // if(result.data==="AccessToken ready"){
-
-      // }
-      handleResponseSuccess();
+      if (result.data.message === "AccessToken ready") {
+        handleResponseSuccess();
+      }
     });
   };
   const clickAuthLogin = () => {
@@ -96,15 +94,21 @@ const SignInDetail = ({
     setErrorMessage("");
     axios.post("https://art-ground.link/sign-in", userData).then((result) => {
       console.log(result, "-----작가로그인요청");
-      // if(result.data==="AccessToken ready"){
-
-      // }
-      handleResponseSuccess();
+      if (result.data.message === "AccessToken ready") {
+        handleResponseSuccess();
+      }
     });
   };
 
-  const onKeyPress = (e) => {
+  const audonKeyPress = (e) => {
     if (e.key === "Enter") {
+      clickAudLogin();
+    }
+  };
+
+  const authonKeyPress = (e) => {
+    if (e.key === "Enter") {
+      clickAuthLogin();
     }
   };
 
@@ -114,9 +118,11 @@ const SignInDetail = ({
   };
 
   const clickKakao = () => {
+
     window.location.href = 
-      `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.KAKAO_CLIENT_ID}&redirect_uri=${process.env.KAKAO_REDIRECT_URI}&response_type=code`;
+      `https://kauth.kakao.com/oauth/authorize?client_id=a3d0f7feebf7fca1ad114ff7da1dddc5&redirect_uri=https://localhost:3000/signin/kakao&response_type=code`;
   }
+
   return (
     <section className={styles.container}>
       <div>
@@ -191,11 +197,19 @@ const SignInDetail = ({
             </li>
             <li className={styles.btnBox}>
               {isAudienceLogin ? (
-                <button className={styles.joinBtn} onClick={clickAudLogin}>
+                <button
+                  className={styles.joinBtn}
+                  onClick={clickAudLogin}
+                  onKeyPress={audonKeyPress}
+                >
                   관람객 로그인
                 </button>
               ) : (
-                <button className={styles.joinBtn} onClick={clickAuthLogin}>
+                <button
+                  className={styles.joinBtn}
+                  onClick={clickAuthLogin}
+                  onKeyPress={authonKeyPress}
+                >
                   작가 로그인
                 </button>
               )}
