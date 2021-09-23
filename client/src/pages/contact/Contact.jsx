@@ -6,7 +6,7 @@ const Contact = () => {
   useEffect(() => {
     const container = document.getElementById('map')
     const options = {
-      center: new kakao.maps.LatLng(37.496633, 127.024779),
+            center: new kakao.maps.LatLng(37.496633, 127.024779),
       level: 3
     }
     const map = new kakao.maps.Map(container, options)

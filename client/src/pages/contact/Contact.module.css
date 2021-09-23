@@ -1,16 +1,17 @@
 @value Black, White from '../../common/colors.css';
 @value Container from '../../common/size.css';
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
 
 .container {
   max-width: Container;
   margin: 0 auto;
-  padding: 3rem;
-  animation: fadein 2s;
-  -moz-animation: fadein 2s;
+  padding: 14rem 3rem 3rem 3rem;
+  animation: fadein 1s;
+  -moz-animation: fadein 1s;
   /* Firefox */
-  -webkit-animation: fadein 2s;
+  -webkit-animation: fadein 1s;
   /* Safari and Chrome */
-  -o-animation: fadein 2s;
+  -o-animation: fadein 1s;
   /* Opera */
 }
 .contactBox {
@@ -25,6 +26,8 @@
   height: 50px;
   line-height: 50px;
   font-size: 1.4rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
 }
 
 .mapBox {
@@ -45,7 +48,6 @@
 }
 .textBox {
   flex: 0.8;
-
   padding: 1.2rem;
   margin-left: 15px;
   display: flex;
@@ -61,6 +63,8 @@
   padding: 0.5rem;
   cursor: pointer;
   font-size: 0.7rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
 }
 /*info*/
 .infoBox {
@@ -72,10 +76,14 @@
   height: 50px;
   line-height: 50px;
   font-size: 1.3rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
 }
 .infoText {
   height: 30px;
   line-height: 30px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
   font-size: 0.8rem;
   font-weight: bold;
   color: grey;
@@ -106,16 +114,25 @@
 .liBox {
   width: 100%;
 }
-
+input {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+}
 .name {
   width: 250px;
   height: 30px;
   font-size: 0.8rem;
+  outline: none;
+  text-indent: 0.2rem;
+  border: 1px solid gainsboro;
 }
 .mail {
   width: 300px;
   height: 30px;
+  text-indent: 0.2rem;
   font-size: 0.8rem;
+  outline: none;
+  border: 1px solid gainsboro;
 }
 .content {
   width: 100%;
@@ -125,7 +142,7 @@
   outline: none;
   overflow-y: scroll;
   resize: none;
-  border-color: gainsboro;
+  border: 1px solid gainsboro;
 }
 
 .btnBox {
@@ -138,6 +155,8 @@
   height: 40px;
   background-color: white;
   border: 1px solid gainsboro;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
   outline: none;
   cursor: pointer;
   transition: all 0.5s;
@@ -193,30 +212,48 @@
 }
 
 @media screen and (max-width: 768px) {
+  .container {
+    padding: 7.5rem 3rem 3rem 3rem;
+  }
   .contactBox {
-    padding: 0.2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border: 1px solid gainsboro;
     margin-bottom: 1rem;
   }
-  .mapBox {
-    flex: 1.2;
-    height: 350px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
 
   .textBox {
     flex: 0.8;
-    padding: 1.2rem;
+    padding: 2rem;
     margin-left: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  }
+
+  @media screen and (max-width: 580px) {
+    .name {
+      width: 100%;
+      height: 30px;
+      font-size: 0.8rem;
+      outline: none;
+    }
+    .mail {
+      width: 100%;
+      height: 30px;
+      font-size: 0.8rem;
+      outline: none;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .name {
+      width: 100%;
+      height: 30px;
+      font-size: 0.8rem;
+    }
+    .mail {
+      width: 100%;
+      height: 30px;
+      font-size: 0.8rem;
+    }
   }
 }

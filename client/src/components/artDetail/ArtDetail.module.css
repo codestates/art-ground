@@ -1,3 +1,17 @@
+/* body {
+  padding-top: 0;
+} */
+
+.container {
+  animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s;
+  /* Firefox */
+  -webkit-animation: fadein 1.5s;
+  /* Safari and Chrome */
+  -o-animation: fadein 1.5s;
+  /* Opera */
+}
+
 .background {
   width: 100vw;
   height: 100vh;
@@ -5,14 +19,42 @@
   position: relative;
 }
 
+.artMetaData {
+  position: absolute;
+  bottom: 12rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: rgb(209, 209, 209);
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  column-gap: 0.5rem;
+}
+
+.title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.content {
+  font-size: 0.9rem;
+  margin-bottom: 0.7rem;
+  font-style: italic;
+}
+.subContent {
+  font-size: 1rem;
+}
 .img {
   position: absolute;
-  width: auto;
-  height: 90vh;
-  top: 50%;
+  width: 100%;
+  max-width: 768px;
+  height: auto;
+  max-height: 90vh;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
+  object-fit: cover;
 }
 
 .closeBtn {
@@ -26,4 +68,46 @@
 
 .closeBtn:hover {
   color: whitesmoke;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

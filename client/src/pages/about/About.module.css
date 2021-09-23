@@ -1,0 +1,278 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
+
+.container {
+  width: 100%;
+  margin: 0;
+  padding-top: 11rem;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+}
+.secBorder {
+  width: 1024px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.mainback {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.main1 {
+  background-color: #f1f1f1;
+  width: 100%;
+  height: 82vh;
+}
+.main1img {
+  width: 100%;
+  height: 100%;
+
+  animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s;
+  /* Firefox */
+  -webkit-animation: fadein 1.5s;
+  /* Safari and Chrome */
+  -o-animation: fadein 1.5s;
+  /* Opera */
+}
+.brandTitle {
+  left: 40rem;
+  top: 15rem;
+  background: #202020;
+  width: 40rem;
+  height: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 5rem;
+}
+.main2 {
+  background-color: none;
+}
+.brand {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.logo {
+  width: 80%;
+  height: 50%;
+}
+.brand p {
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.main3 {
+  background-color: #f1f1f1;
+}
+
+.main4 {
+  background-color: none;
+}
+.main5 {
+  background-color: #f1f1f1;
+}
+
+.border {
+  width: 100%;
+  height: 50vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 2rem;
+}
+.border h3 {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
+}
+.border img {
+  height: 50vh;
+}
+.border > div {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: "Poppins", sans-serif;
+}
+.btn {
+  display: inline-block;
+  border: none;
+  background: black;
+  color: white;
+  padding: 0.8rem 1.8rem;
+  margin-top: 2rem;
+  cursor: pointer;
+  width: 10rem;
+  font-family: "Poppins", sans-serif;
+}
+.btn:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+  .main1 {
+    height: 50vh;
+  }
+  .secBorder {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 5rem;
+  }
+  .brand p {
+    font-size: 1.5rem;
+  }
+  .border {
+    display: block;
+    text-align: center;
+  }
+
+  .border > div {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo {
+    width: 70%;
+    height: 45%;
+  }
+}
+@media screen and (max-width: 580px) {
+  .main1 {
+    height: 50vh;
+  }
+  .secBorder {
+    width: 100%;
+    height: 100%;
+  }
+  .brand p {
+    font-size: 1.5rem;
+  }
+  .border {
+    display: block;
+    text-align: center;
+  }
+
+  .border > div {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .secBorder {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 6rem;
+  }
+  .logo {
+    width: 60%;
+    height: 35%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .main1 {
+    height: 40vh;
+  }
+  .secBorder {
+    width: 100%;
+    height: 100%;
+  }
+  .brand p {
+    font-size: 1.5rem;
+  }
+  .border {
+    display: block;
+    text-align: center;
+  }
+  .border > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .secBorder {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 7rem;
+  }
+  .logo {
+    width: 50%;
+    height: 35%;
+  }
+}
+
+/*스크롤버틍*/
+.scrollBtn {
+  list-style: none;
+  position: absolute;
+  border: 3px solid red;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding-top: 4.5rem;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

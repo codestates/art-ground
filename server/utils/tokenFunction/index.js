@@ -40,8 +40,11 @@ module.exports = {
   checkRefeshToken: (refreshToken) => {
     try {
       return verify(refreshToken, process.env.ART_GROUND_REFRESH_SECRET);
+
     } catch (err) {
       return null;
     }
   },
 };
+
+
