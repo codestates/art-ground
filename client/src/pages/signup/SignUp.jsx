@@ -15,14 +15,7 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
     password2: "",
     userType: "",
   });
-  console.log(audInfo);
-  // const [authInfo, setAuthInfo] = useState({
-  //   authorEmail: "",
-  //   name: "",
-  //   password: "",
-  //   password2: "",
-  //   userType: "",
-  // });
+
   const [passOpen, setPassOpen] = useState(false);
   const [passOpen2, setPassOpen2] = useState(false);
 
