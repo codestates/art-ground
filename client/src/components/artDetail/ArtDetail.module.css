@@ -73,6 +73,7 @@
   cursor: pointer;
   color: rgb(155, 155, 155);
   font-size: 1.5rem;
+  opacity: 0.8;
 }
 
 .closeBtn:hover {

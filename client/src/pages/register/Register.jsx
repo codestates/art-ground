@@ -238,13 +238,13 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
     return (
       <section className={styles.modalContainer}>
         <div className={styles.modalWrap}>
-          <p className={styles.modalContent}>전시 신청 서비스는<br></br>로그인이 필요합니다!</p>
-          <span className={styles.modalSubContent}>작가 회원으로 로그인 해주세요.</span>
+          <p className={styles.modalContent}>전시를 신청하려면<br></br>로그인이 필요합니다!</p>
+          <span className={styles.modalSubContent}>로그인 페이지로 이동하시겠어요?</span>
           <div className={styles.ok}>
             <Link to="/signin">
-              <button className={styles.okBtn}>로그인<br></br>하러가기</button>
+              <button className={styles.okBtn}>네</button>
             </Link>
-            <button className={styles.okBtn} onClick={goBack}>닫기</button>
+            <button className={styles.okBtn} onClick={goBack}>아니요</button>
             
           </div>
         </div>

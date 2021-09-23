@@ -194,6 +194,7 @@ function App() {
           />
           <Gallery
             isLogin={isLogin}
+            userinfo
             gallerySelect={(el) => setGallerySelected(el)} 
           />
           <ScrollButton />
@@ -233,7 +234,8 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
           />
-          <ReviewDetail 
+          <ReviewDetail
+            isLogin={isLogin} 
             reviewSelected={reviewSelected}
           />
           <ScrollButton />

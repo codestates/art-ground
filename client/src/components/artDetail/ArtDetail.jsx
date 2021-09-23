@@ -7,7 +7,7 @@ const ArtDetail = ({ art, handleClose }) => {
       <div className={styles.background}>
         <img className={styles.img} src={art} alt="detail"/>
         <div className={styles.artMetaData}>
-          <h2 className={styles.title}>호크니2</h2>
+          <span className={styles.title}>호크니2</span>
           <span className={styles.content}>제작연도 : 2021, 재료 : Digital drawing, 크기 : 59.4x42.0cm</span>
           <p className={styles.subContent}>Artspace 15.8의 개관기념전, 퍼블릭갤러리의 아트마켓 참여 이후 서울 옥션 전시를 함께한 아티스트죠. 
             그의 붓끝에서 태어난 인물들은 정면 대신 자신이 보고 싶은 곳을 바라봅니다. 
