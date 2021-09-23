@@ -3,7 +3,7 @@ const { sign, verify } = require("jsonwebtoken");
 
 module.exports = {
   generateAccessToken: (data) => {
-    return sign(data, process.env.ACCESS_SECRET);
+    return sign(data, process.env.ART_GROUND_ACCESS_SECRET);
   },
   isAuthorized: (req) => {
     const authorization = req.headers.cookie;
@@ -12,7 +12,7 @@ module.exports = {
     }
     const token = authorization.split(";")[0].split("=")[1];
     try {
-      return verify(token, process.env.ACCESS_SECRET);
+      return verify(token, process.env.ART_GROUND_ACCESS_SECRET);
     } catch (err) {
       return null;
     }
@@ -39,7 +39,7 @@ module.exports = {
   },
   checkRefeshToken: (refreshToken) => {
     try {
-      return verify(refreshToken, process.env.REFRESH_SECRET);
+      return verify(refreshToken, process.env.ART_GROUND_REFRESH_SECRET);
     } catch (err) {
       return null;
     }
