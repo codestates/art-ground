@@ -88,7 +88,7 @@ const ReviewDetail = ({ reviewSelected, isLogin }) => {
       {loginModal? (
         <section className={styles.modalContainer}>
           <div className={styles.modalWrap}>
-          <span className={styles.modalContent}>리뷰를 등록하려면<br></br>로그인이 필요합니다!</span>
+          <span className={styles.modalContent}>리뷰를 작성하려면<br></br>로그인이 필요합니다!</span>
             <p className={styles.modalSubContent}>로그인 페이지로 이동하시겠어요?</p>
             <div className={styles.ok}>
               <Link to="/signin">

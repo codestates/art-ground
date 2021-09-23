@@ -12,7 +12,7 @@ const GalleryDetail = ({ gallerySelected }) => {
   const tags = ['#현대미술', '#일러스트레이션', '#회화']
   const sliderNum = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const dummyImg = [
-    'https://t1.daumcdn.net/cfile/tistory/9995E34F5D5C9FB134',
+    'https://storage.oneslist.com/assets/2021/07/02110802/DAVID_HOCKNEY_1-768x1024.jpeg',
     'https://images.velog.io/images/devjade/post/4f3086dd-2f8a-4f34-b0aa-cb5d7e8772d2/image.png',
     'https://www.jnilbo.com/photos/2021/08/01/2021080113162205012_l.jpg',
     'https://t1.daumcdn.net/cfile/tistory/99EFE6375A65DFEA33',
@@ -79,7 +79,7 @@ const GalleryDetail = ({ gallerySelected }) => {
 
           {dummyImg.map(el =>
               <div className={styles.sliderWrap}>
-                <img className={styles.slider} src='https://images.velog.io/images/devjade/post/1716edd9-798c-4cf2-9fe9-26f8537d8084/image.png' alt='slider' />
+                <img className={styles.slider} src="../../../images/sliderBackground.png" alt='slider' />
                 <img className={styles.sliderPic} src={el} alt='sliderIn' onClick={() => handleModalOpen(el)} />
               </div>
           )}

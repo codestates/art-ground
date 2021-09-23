@@ -25,7 +25,7 @@ const GalleryContent = ({ isLogin, userinfo, exhibition, gallerySelect, handleMo
       // } else{
       //   setLiked(false); //유저가 해당 gallerycontent컴포넌트를 좋아요 한 게 아닐 때
       // }
-      console.log('하트 클릭 시 호출되는 useEffect')
+      console.log('썸네일 컴포넌트 랜더링 useEffect')
     }
   }) //의존성 배열 두면 안 됨.
 
