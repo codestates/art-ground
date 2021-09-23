@@ -43,6 +43,7 @@ router.get("/mypage", getMyInfo);
 // exhibition
 router.post("/exhibition/register", register);
 router.get("/exhibition/:type", getExhibition);
+router.get("/exhibition", getExhibition);
 router.post("/exhibition/like", exhibitionLike);
 router.delete("/exhibition/like", withdrawalLike);
 
