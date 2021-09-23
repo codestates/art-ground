@@ -1,13 +1,13 @@
 
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getPremiumGallery, getStandardGallery } from '../../api/galleryApi';
+import { filterByTag, getPremiumGallery, getStandardGallery, sort } from '../../api/galleryApi';
 import GalleryContent from '../../components/galleryContent/GalleryContent';
 import SubNavBar from '../../components/subNavBar/SubNavBar';
 import styles from './Gallery.module.css';
 
 
-const Gallery = ({ isLogin, gallerySelect }) => {
+const Gallery = ({ isLogin, gallerySelect, userinfo }) => {
 
   const [galleryList, setGalleryList] = useState([]);
   
@@ -34,11 +34,14 @@ const Gallery = ({ isLogin, gallerySelect }) => {
 
   const handleTagFilter = (el) => { //해시태그 필터
     setTagClicked(el);
+    filterByTag(el, sortValue, isStandard)
     //getStandardGallery or getPremiumGallery 요청 받은 거에서 필터링...!
+    
   }
 
   const handleSort = (event) => { //정렬(api요청 따로 없어도 됌)
     setSortValue(event.target.value);
+    sort(galleryList, event.target.value, isStandard);
   }
 
 
@@ -55,24 +58,25 @@ const Gallery = ({ isLogin, gallerySelect }) => {
       <ul className={styles.objectList}>
         <GalleryContent 
           isLogin={isLogin}
-          handleLikeLogin={()=> setModalOpen(true)} 
+          handleModal={()=> setModalOpen(true)} 
         />
         <GalleryContent 
           isLogin={isLogin}
-          handleLikeLogin={()=> setModalOpen(true)} 
+          handleModal={()=> setModalOpen(true)} 
         />
         <GalleryContent 
           isLogin={isLogin}
-          handleLikeLogin={()=> setModalOpen(true)} 
+          handleModal={()=> setModalOpen(true)} 
         />
         <GalleryContent 
           isLogin={isLogin}
-          handleLikeLogin={()=> setModalOpen(true)} 
+          handleModal={()=> setModalOpen(true)} 
         />        
         {/* {galleryList.map((el) => (
           <GalleryContent
           gallerySelect={gallerySelect} 
-          exhibition={el} 
+          exhibition={el}
+          userinfo={userinfo} 
           isLogin={isLogin} />
         ))} */}
       </ul>
