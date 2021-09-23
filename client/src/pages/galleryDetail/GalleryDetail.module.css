@@ -246,6 +246,17 @@
   height: auto;
 }
 
+.workTitleMeta {
+  display: flex;
+  justify-content: space-between;
+}
+.workTitleMeta i {
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+  margin-right: 0.3rem;
+  position: relative;
+}
 .workTitle {
   font-size: 0.8rem;
 }

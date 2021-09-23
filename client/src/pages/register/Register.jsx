@@ -17,7 +17,7 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
   const [startDate, setStartDate] = useState(''); //전시시작일
   const [endDate, setEndDate] = useState(''); //전시마감일
   const [type, setType] = useState('') //전시타입
-  const [isClicked, setClicked] = useState([]); //전시장르
+  const [isClicked, setClicked] = useState([]); //전시장르(해시태그)
   const [content, setContent] = useState(''); //전시 설명
   const [arts, setArts] = useState([{}, {}, {}, {}, {}, {}, {}, {}, {}]) //9개 작품 배열
 

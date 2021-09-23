@@ -170,7 +170,7 @@ input[type="checkbox"] {
   background-color: white;
   color: rgb(66, 66, 66);
 }
-
+/* 모달 section(아래) */
 .modalContainer {
   position: fixed;
   background: rgba(0, 0, 0, 0.5);
@@ -232,7 +232,15 @@ input[type="checkbox"] {
   transition: 0.3s;
   font-size: 0.75rem;
   color: white;
+  white-space: nowrap;
 }
+.okBtn:hover {
+  border: 1px solid rgb(210, 210, 210);
+  background-color: white;
+  color: rgb(66, 66, 66);
+}
+
+/* 모달 section(위) */
 
 @media screen and (max-width: 768px) {
   .container {
@@ -251,11 +259,22 @@ input[type="checkbox"] {
     padding: 7.5rem 1rem 3rem 1rem;
   }
 }
+
+/* 모달 section(아래) */
 @media screen and (max-width: 480px) {
   .modalWrap {
     width: 75%;
   }
 }
+@media screen and (max-width: 420px) {
+  .okBtn {
+    margin: 0 0.2rem;
+    width: 4rem;
+    font-size: 0.5rem;
+  }
+}
+/* 모달 section(위) */
+
 @keyframes fadein {
   from {
     opacity: 0;
