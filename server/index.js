@@ -43,7 +43,7 @@ if (fs.existsSync("./key.pem") && fs.existsSync("./cert.pem")) {
   server = https.createServer(credentials, app);
   server.listen(PORT, () => console.log("Express listening on port", PORT));
 } else {
-  server = app.listen(port, () => {
+  server = app.listen(PORT, () => {
     console.log("Express listening on port", PORT);
   });
 }
