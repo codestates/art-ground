@@ -39,6 +39,7 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [userinfo, setUserinfo] = useState(null);
   const [isAdmin, setisAdmin] = useState(false);
+
   const [modifyRender, setModifyRender] = useState(false);
   useEffect(() => {
     //로딩창 띄워야함
@@ -205,10 +206,8 @@ function App() {
           />
           <Gallery
             isLogin={isLogin}
-
             userinfo
-            gallerySelect={(el) => setGallerySelected(el)} 
-
+            gallerySelect={(el) => setGallerySelected(el)}
           />
           <ScrollButton />
         </Route>
@@ -220,8 +219,8 @@ function App() {
             isAdmin={isAdmin}
           />
 
-          <GalleryDetail 
-            //viewArtDetail={(el) => setArtDetail(el)} 
+          <GalleryDetail
+            //viewArtDetail={(el) => setArtDetail(el)}
 
             gallerySelected={gallerySelected}
           />
@@ -253,10 +252,7 @@ function App() {
             isAdmin={isAdmin}
           />
 
-          <ReviewDetail
-            isLogin={isLogin} 
-            reviewSelected={reviewSelected}
-          />
+          <ReviewDetail isLogin={isLogin} reviewSelected={reviewSelected} />
 
           <ScrollButton />
         </Route>
