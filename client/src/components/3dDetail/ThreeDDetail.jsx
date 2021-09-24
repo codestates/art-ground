@@ -14,20 +14,27 @@ const Model = () => {
   return <primitive object={gltf.scene} scale={1} />;
 };
 
-const ThreeDDetail = (props) => {
+const ThreeDDetail = ({ modal }) => {
 
-  const [showContent, setContent] = useState(true);
+  const [showContent, setContent] = useState(true); 
 
   useEffect(()=> {
+    if(modal){
+
+    } else{
+    setContent(true);
     setTimeout(()=> {
       setContent(false);
-    }, 2000);
-  }, []);
+    }, 2000)
+    }
+  }, [modal]);
 
   return (
     <>
-    <div className={showContent? styles.topContent : styles.topContentClose}>전시관을 나가려면 esc키를 입력하세요</div>
-    <div className={styles.container}>
+    {modal? null :
+    <div className={showContent? styles.topContent : styles.topContentClose}>전시관을 나가려면 esc키를 입력하세요</div>}
+
+    <section className={styles.container}>
       <Canvas camera={{ position: [4, 0.3, 3.9]}}>
         <Suspense fallback={<Loader />}>
 
@@ -44,7 +51,8 @@ const ThreeDDetail = (props) => {
 
         </Suspense>
       </Canvas>
-    </div>
+    </section>
+
     </>
   );
 
