@@ -9,9 +9,9 @@ const ConfirmModal = ({ el, setConfirmModal, modalTxt }) => {
   const clickConfirmModal = () => {
     //승인하기
     console.log(el.id, "승인모달 ok버튼");
-    // axios.post("https://art-ground.link/admin/exhibition", {
-    //   postId: el.id, //전시회 pid
-    // });
+    axios.post("https://localhost:5000/admin/exhibition", {
+      postId: el.id, //전시회 pid
+    });
     setConfirmModal(false);
   };
 
