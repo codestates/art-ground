@@ -14,7 +14,11 @@ export function createExhibition(title, startDate, endDate, type, content, isCli
       images: JSON.stringify(arts) //작품 9개
       // arts = [{title: , content: , subContent: ,img: }, {}, ... , {}]
       // arts[0].img
-    });
+    })
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => console.log(err))
 }
 
 export function getUnauthorizedEx(){ //승인 대기중인 전시회만(1status = 0)

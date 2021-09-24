@@ -11,8 +11,10 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
     artCount.push(String(i+1));
   } // artCount = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
-  const tags = ['#회화', '#순수미술', '#응용미술', '#일러스트', '#판화', '#개인전', '#사진전', '#추상화', '#팝아트', '#인물화', '#풍경화', '#정물화'] //더미카테고리
-  
+  const tags1 = ['#개인전', '#회화', '#순수미술', '#응용미술']
+  const tags2 = ['#일러스트', '#판화', '#사진전', "팝아트"] 
+  const tags3 = ['#추상화', '#인물화', '#풍경화', '#정물화']
+
   const [title, setTitle] = useState(''); //전시명
   const [startDate, setStartDate] = useState(''); //전시시작일
   const [endDate, setEndDate] = useState(''); //전시마감일
@@ -143,13 +145,31 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
       </div>
 
       <div className={styles.categoryName}>전시 장르<span class={styles.subGenre}>(복수선택가능)</span></div>
-      <div className={styles.tags}>
-        {tags.map((el) => 
-            <>
-              <input type="checkbox" name={el} value={el} />
-              <label className={isClicked.includes(el) ? styles.hashtagClicked : styles.hashtag} onClick={() => tagHandle(el)}>{el}</label>
-            </>
-        )}
+      <div className={styles.tagsWrap}> 
+        <div className={styles.tags}>
+          {tags1.map((el) => 
+              <>
+                <input type="checkbox" name={el} value={el} />
+                <label className={isClicked.includes(el) ? styles.hashtagClicked : styles.hashtag} onClick={() => tagHandle(el)}>{el}</label>
+              </>
+          )}
+        </div>
+        <div className={styles.tags}>
+          {tags2.map((el) => 
+              <>
+                <input type="checkbox" name={el} value={el} />
+                <label className={isClicked.includes(el) ? styles.hashtagClicked : styles.hashtag} onClick={() => tagHandle(el)}>{el}</label>
+              </>
+          )}
+        </div>
+        <div className={styles.tags}>
+          {tags3.map((el) => 
+              <>
+                <input type="checkbox" name={el} value={el} />
+                <label className={isClicked.includes(el) ? styles.hashtagClicked : styles.hashtag} onClick={() => tagHandle(el)}>{el}</label>
+              </>
+          )}
+        </div>
       </div>
 
       <div className={styles.categoryName}>전시 설명</div>

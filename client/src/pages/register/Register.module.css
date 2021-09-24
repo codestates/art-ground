@@ -108,11 +108,15 @@ input[type="checkbox"] {
   display: none;
 }
 
+.tagsWrap {
+  margin-bottom: 1.5rem;
+}
+
 .tags {
   height: 2rem;
   display: flex;
   align-items: center;
-  margin-bottom: 1.5rem;
+  /* margin-bottom: 1.5rem; */
 }
 
 .hashtag {
