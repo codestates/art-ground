@@ -84,6 +84,9 @@
   width: 100%;
   margin-bottom: 1.5rem;
   border: 1px solid rgb(210, 210, 210);
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  padding: 0.5rem 0;
 }
 
 .artImg {

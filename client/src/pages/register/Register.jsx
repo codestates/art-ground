@@ -123,17 +123,17 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
 
       <div className={styles.categoryName}>전시명</div>
       <input className={styles.textInput} 
-      type="text" onChange={handleTitle}/>
+      type="text" value={title} onChange={handleTitle}/>
 
       <div className={styles.categoryName}>전시 시작일</div>
       <input className={styles.textInput} 
       type="text" placeholder="전시 시작일은 신청일로부터 7일 이후 날짜로 설정 가능합니다." 
-      onChange={handleStartDate}/>
+      value={startDate} onChange={handleStartDate}/>
 
       <div className={styles.categoryName}>전시 마감일</div>
       <input className={styles.textInput} 
       type="text" placeholder="최대 전시 가능한 기간은 90일입니다." 
-      onChange={handleEndDate}/>
+      value={endDate} onChange={handleEndDate}/>
 
       <div className={styles.categoryName}>전시 타입</div>
       <div className={styles.types}>
@@ -173,8 +173,9 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
       </div>
 
       <div className={styles.categoryName}>전시 설명</div>
-      <input className={styles.contentInput} 
-      type="textarea" placeholder="어떤 전시회인지 간단히 소개해주세요." 
+      <textarea className={styles.contentInput} 
+      value={content}
+      placeholder="어떤 전시회인지 간단히 소개해주세요." 
       onChange={handleContent}/>
 
       {artCount.map(el => 
@@ -185,16 +186,19 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
             <input className={styles.artTextInput} 
             type="text" 
             placeholder="작품명" 
+            value={arts[Number(el-1)].title}
             onChange={e => handleArtTitle(el, e)}
             />
             <input className={styles.artTextInput} 
             type="text" 
             placeholder="제작연도/재료/크기" 
+            value={arts[Number(el-1)].content}
             onChange={e => handleArtContent(el, e)}
             />
-            <input className={styles.contentInput} 
+            <textarea className={styles.contentInput} 
             type="textarea" 
             placeholder="작품설명" 
+            value={arts[Number(el-1)].subContent}
             onChange={e => handleArtSubContent(el, e)}
             />
           </div>
