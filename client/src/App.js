@@ -14,7 +14,6 @@ import Kakao from "./pages/kakao/Kakao";
 import Gallery from "./pages/gallery/Gallery";
 import GalleryDetail from "./pages/galleryDetail/GalleryDetail";
 import axios from "axios";
-import ArtDetail from "./components/artDetail/ArtDetail";
 import ReviewList from "./pages/reviewList/ReviewList";
 import ReviewDetail from "./pages/reviewDetail/ReviewDetail";
 import Landing from "./pages/landing/Landing";
@@ -100,13 +99,9 @@ function App() {
   // window.localStorage.setItem("userinfo", JSON.stringify(userinfo));
 
   // 개별작품상세
-  const [artDetail, setArtDetail] = useState("");
+  //const [artDetail, setArtDetail] = useState("");
   const [gallerySelected, setGallerySelected] = useState(null);
   const [reviewSelected, setReviewSelected] = useState(null);
-
-  // const viewArtDetail = (el) => {
-  //   setArtDetail(el);
-  // };
 
   return (
     <ScrollTop>
@@ -211,7 +206,10 @@ function App() {
           />
           <Gallery
             isLogin={isLogin}
-            gallerySelect={(el) => setGallerySelected(el)}
+
+            userinfo
+            gallerySelect={(el) => setGallerySelected(el)} 
+
           />
           <ScrollButton />
         </Route>
@@ -222,17 +220,19 @@ function App() {
             handleLogout={handleLogout}
             isAdmin={isAdmin}
           />
-          <GalleryDetail
-            viewArtDetail={(el) => setArtDetail(el)}
+
+          <GalleryDetail 
+            //viewArtDetail={(el) => setArtDetail(el)} 
+
             gallerySelected={gallerySelected}
           />
           <ScrollButton />
         </Route>
-        {artDetail ? (
+        {/* {artDetail ? (
           <Route path="/artdetail">
             <ArtDetail art={artDetail} />
           </Route>
-        ) : null}
+        ) : null} */}
         <Route path="/reviewlist">
           <Navbar
             isLogin={isLogin}
@@ -253,7 +253,12 @@ function App() {
             handleLogout={handleLogout}
             isAdmin={isAdmin}
           />
-          <ReviewDetail reviewSelected={reviewSelected} />
+
+          <ReviewDetail
+            isLogin={isLogin} 
+            reviewSelected={reviewSelected}
+          />
+
           <ScrollButton />
         </Route>
         <Route path="/register">
