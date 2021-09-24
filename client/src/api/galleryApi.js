@@ -1,25 +1,25 @@
 import axios from "axios";
 
-export function createExhibition(
-  title,
-  startDate,
-  endDate,
-  type,
-  content,
-  isClicked,
-  arts
-) {
-  return axios.post("https://art-ground.link/exhibition/register", {
-    title: title,
-    startDate: startDate,
-    endDate: endDate,
-    exhibitType: type,
-    genreHashtags: JSON.stringify(isClicked), //해시태그 카테고리(배열)
-    exhibitInfo: content,
-    images: JSON.stringify(arts), //작품 9개
-    // arts = [{title: , content: , subContent: ,img: }, {}, ... , {}]
-    // arts[0].img
-  });
+export function createExhibition(title, startDate, endDate, type, content, isClicked, arts) {
+
+  return axios.post(
+    "https://localhost:5000/exhibition/register",
+    {
+      title: title,
+      startDate: startDate,
+      endDate: endDate,
+      exhibitType: type,
+      genreHashtags: JSON.stringify(isClicked), //해시태그 카테고리(배열)
+      exhibitInfo: content,
+      images: JSON.stringify(arts) //작품 9개
+      // arts = [{title: , content: , subContent: ,img: }, {}, ... , {}]
+      // arts[0].img
+    })
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => console.log(err))
+
 }
 
 export function getUnauthorizedEx() {

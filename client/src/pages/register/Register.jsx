@@ -11,8 +11,10 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
     artCount.push(String(i+1));
   } // artCount = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
-  const tags = ['#회화', '#순수미술', '#응용미술', '#일러스트', '#판화', '#개인전', '#사진전', '#추상화', '#팝아트', '#인물화', '#풍경화', '#정물화'] //더미카테고리
-  
+  const tags1 = ['#개인전', '#회화', '#순수미술', '#응용미술']
+  const tags2 = ['#일러스트', '#판화', '#사진전', "팝아트"] 
+  const tags3 = ['#추상화', '#인물화', '#풍경화', '#정물화']
+
   const [title, setTitle] = useState(''); //전시명
   const [startDate, setStartDate] = useState(''); //전시시작일
   const [endDate, setEndDate] = useState(''); //전시마감일
@@ -121,17 +123,17 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
 
       <div className={styles.categoryName}>전시명</div>
       <input className={styles.textInput} 
-      type="text" onChange={handleTitle}/>
+      type="text" value={title} onChange={handleTitle}/>
 
       <div className={styles.categoryName}>전시 시작일</div>
       <input className={styles.textInput} 
       type="text" placeholder="전시 시작일은 신청일로부터 7일 이후 날짜로 설정 가능합니다." 
-      onChange={handleStartDate}/>
+      value={startDate} onChange={handleStartDate}/>
 
       <div className={styles.categoryName}>전시 마감일</div>
       <input className={styles.textInput} 
       type="text" placeholder="최대 전시 가능한 기간은 90일입니다." 
-      onChange={handleEndDate}/>
+      value={endDate} onChange={handleEndDate}/>
 
       <div className={styles.categoryName}>전시 타입</div>
       <div className={styles.types}>
@@ -143,18 +145,37 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
       </div>
 
       <div className={styles.categoryName}>전시 장르<span class={styles.subGenre}>(복수선택가능)</span></div>
-      <div className={styles.tags}>
-        {tags.map((el) => 
-            <>
-              <input type="checkbox" name={el} value={el} />
-              <label className={isClicked.includes(el) ? styles.hashtagClicked : styles.hashtag} onClick={() => tagHandle(el)}>{el}</label>
-            </>
-        )}
+      <div className={styles.tagsWrap}> 
+        <div className={styles.tags}>
+          {tags1.map((el) => 
+              <>
+                <input type="checkbox" name={el} value={el} />
+                <label className={isClicked.includes(el) ? styles.hashtagClicked : styles.hashtag} onClick={() => tagHandle(el)}>{el}</label>
+              </>
+          )}
+        </div>
+        <div className={styles.tags}>
+          {tags2.map((el) => 
+              <>
+                <input type="checkbox" name={el} value={el} />
+                <label className={isClicked.includes(el) ? styles.hashtagClicked : styles.hashtag} onClick={() => tagHandle(el)}>{el}</label>
+              </>
+          )}
+        </div>
+        <div className={styles.tags}>
+          {tags3.map((el) => 
+              <>
+                <input type="checkbox" name={el} value={el} />
+                <label className={isClicked.includes(el) ? styles.hashtagClicked : styles.hashtag} onClick={() => tagHandle(el)}>{el}</label>
+              </>
+          )}
+        </div>
       </div>
 
       <div className={styles.categoryName}>전시 설명</div>
-      <input className={styles.contentInput} 
-      type="textarea" placeholder="어떤 전시회인지 간단히 소개해주세요." 
+      <textarea className={styles.contentInput} 
+      value={content}
+      placeholder="어떤 전시회인지 간단히 소개해주세요." 
       onChange={handleContent}/>
 
       {artCount.map(el => 
@@ -165,16 +186,19 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
             <input className={styles.artTextInput} 
             type="text" 
             placeholder="작품명" 
+            value={arts[Number(el-1)].title}
             onChange={e => handleArtTitle(el, e)}
             />
             <input className={styles.artTextInput} 
             type="text" 
             placeholder="제작연도/재료/크기" 
+            value={arts[Number(el-1)].content}
             onChange={e => handleArtContent(el, e)}
             />
-            <input className={styles.contentInput} 
+            <textarea className={styles.contentInput} 
             type="textarea" 
             placeholder="작품설명" 
+            value={arts[Number(el-1)].subContent}
             onChange={e => handleArtSubContent(el, e)}
             />
           </div>
