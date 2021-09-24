@@ -4,6 +4,7 @@ const router = Router();
 const signCtrl = require("./sign/sign.ctrl");
 const kakaoCtrl = require("./sign/kakao");
 const googleCtrl = require("./sign/google");
+const adminCtrl = require("./admin/admin.ctrl");
 const { getMyInfo } = require("./mypage");
 const { register } = require("./exhibition/register");
 const { getExhibition } = require("./exhibition");
@@ -46,5 +47,9 @@ router.get("/exhibition/:type", getExhibition);
 router.get("/exhibition", getExhibition);
 router.post("/exhibition/like", exhibitionLike);
 router.delete("/exhibition/like", withdrawalLike);
+
+// admin
+// 전시 승인
+router.post("/admin/exhibition", adminCtrl.approveExhibition);
 
 module.exports = router;

@@ -82,3 +82,20 @@ span {
 .review {
   width: 100%;
 }
+.btnbox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 70px;
+  padding: 0.2rem;
+}
+.btn {
+  width: 80px;
+  height: 70%;
+  border: 1px solid red;
+  background-color: #e7e7e7;
+  border-radius: 10%;
+  outline: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
