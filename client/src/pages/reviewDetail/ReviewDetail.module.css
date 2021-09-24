@@ -166,7 +166,7 @@
 }
 
 .modalContent {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   text-align: center;
   font-size: 1.2rem;
   color: rgb(90, 90, 90);
@@ -245,11 +245,22 @@
 /* 모달 section(아래) */
 @media screen and (max-width: 480px) {
   .modalWrap {
-    width: 75%;
+    width: 80%;
+    padding: 4.5rem 1.5rem;
+    height: 20rem;
+  }
+  .ok {
+    margin: 3.5rem 0;
   }
   .okBtn {
     margin: 0 0.5rem;
     width: 5rem;
+  }
+  .modalContent {
+    font-size: 1rem;
+  }
+  .modalSubContent {
+    font-size: 0.75rem;
   }
 }
 

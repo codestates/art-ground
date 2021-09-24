@@ -96,7 +96,6 @@ function App() {
   // window.localStorage.setItem("userinfo", JSON.stringify(userinfo));
 
   // 개별작품상세
-  //const [artDetail, setArtDetail] = useState("");
   const [gallerySelected, setGallerySelected] = useState(null);
   const [reviewSelected, setReviewSelected] = useState(null);
 
