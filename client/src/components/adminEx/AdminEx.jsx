@@ -2,22 +2,30 @@ import styles from "./AdminEx.module.css";
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import ConfirmModal from "../modals/ConfirmModal";
 
 const AdminEx = ({ el, updateEx, deleteEx, doneEx }) => {
+  const [modalTxt, setModalTxt] = useState({
+    confirm: "승인",
+    delete: "마감",
+  });
+  const [confirmModal, setConfirmModal] = useState(false);
+
   const clickConfirm = () => {
-    //승인하기
-    console.log(el.id);
-    // axios.post("https://art-ground.link/admin/exhibition", {
-    //   postId: el.id, //전시회 pid
-    // });
+    setConfirmModal(true);
   };
 
   const clickDelete = () => {
-    //마감하기
+    setConfirmModal(true);
   };
+  console.log(el);
 
-  //console.log(el.images[0].image_urls);
-  //console.log(el);
+  const imgurl =
+    el.images.length > 0
+      ? el.images[0].image_urls
+      : "https://images.velog.io/images/beablessing/post/54131e26-0389-412e-b88d-a8b6a97600a8/noimg.png";
+  const imgurlAlt = el.images.length > 0 ? el.images[0].title : null;
+
   return (
     <section className={styles.container}>
       <div className={styles.box}>
@@ -27,7 +35,11 @@ const AdminEx = ({ el, updateEx, deleteEx, doneEx }) => {
               <div className={styles.upDateBox}>
                 <div className={styles.exBox}>
                   <div className={styles.thumBox}>
-                    <img src={"el.images"} alt="" className={styles.eximg} />
+                    <img
+                      src={imgurl}
+                      alt={imgurlAlt}
+                      className={styles.eximg}
+                    />
                   </div>
                   <div className={styles.infoBox}>
                     <div className={styles.title}>{el.title}</div>
@@ -45,6 +57,13 @@ const AdminEx = ({ el, updateEx, deleteEx, doneEx }) => {
                     </button>
                   </div>
                 </div>
+                {confirmModal ? (
+                  <ConfirmModal
+                    el={el}
+                    setConfirmModal={setConfirmModal}
+                    modalTxt={modalTxt.confirm}
+                  />
+                ) : null}
               </div>
             ) : null}
           </>
@@ -55,7 +74,11 @@ const AdminEx = ({ el, updateEx, deleteEx, doneEx }) => {
               <div className={styles.upDateBox}>
                 <div className={styles.exBox}>
                   <div className={styles.thumBox}>
-                    <img src={"el.images"} alt="" className={styles.eximg} />
+                    <img
+                      src={imgurl}
+                      alt={imgurlAlt}
+                      className={styles.eximg}
+                    />
                   </div>
                   <div className={styles.infoBox}>
                     <div className={styles.title}>{el.title}</div>
@@ -73,6 +96,13 @@ const AdminEx = ({ el, updateEx, deleteEx, doneEx }) => {
                     </button>
                   </div>
                 </div>
+                {confirmModal ? (
+                  <ConfirmModal
+                    el={el}
+                    setConfirmModal={setConfirmModal}
+                    modalTxt={modalTxt.delete}
+                  />
+                ) : null}
               </div>
             ) : null}
           </>
@@ -83,7 +113,11 @@ const AdminEx = ({ el, updateEx, deleteEx, doneEx }) => {
               <div className={styles.upDateBox}>
                 <div className={styles.exBox}>
                   <div className={styles.thumBox}>
-                    <img src={"el.images"} alt="" className={styles.eximg} />
+                    <img
+                      src={imgurl}
+                      alt={imgurlAlt}
+                      className={styles.eximg}
+                    />
                   </div>
                   <div className={styles.infoBox}>
                     <div className={styles.title}>{el.title}</div>

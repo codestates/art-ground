@@ -1,65 +1,66 @@
 import axios from "axios";
 
-export function createExhibition(title, startDate, endDate, type, content, isClicked, arts) {
-
-  return axios.post(
-    "https://localhost:5000/exhibition/register",
-    {
-      title: title,
-      startDate: startDate,
-      endDate: endDate,
-      exhibitType: type,
-      genreHashtags: JSON.stringify(isClicked), //해시태그 카테고리(배열)
-      exhibitInfo: content,
-      images: JSON.stringify(arts) //작품 9개
-      // arts = [{title: , content: , subContent: ,img: }, {}, ... , {}]
-      // arts[0].img
-    });
+export function createExhibition(
+  title,
+  startDate,
+  endDate,
+  type,
+  content,
+  isClicked,
+  arts
+) {
+  return axios.post("https://art-ground.link/exhibition/register", {
+    title: title,
+    startDate: startDate,
+    endDate: endDate,
+    exhibitType: type,
+    genreHashtags: JSON.stringify(isClicked), //해시태그 카테고리(배열)
+    exhibitInfo: content,
+    images: JSON.stringify(arts), //작품 9개
+    // arts = [{title: , content: , subContent: ,img: }, {}, ... , {}]
+    // arts[0].img
+  });
 }
 
-export function getUnauthorizedEx(){ //승인 대기중인 전시회만(1status = 0)
-
+export function getUnauthorizedEx() {
+  //승인 대기중인 전시회만(1status = 0)
   // return axios.get(
-  //   "https://localhost:5000/exhibition" 
+  //   "https://localhost:5000/exhibition"
   //   )
   //   .then((res)=> {
-      
   //   })
 }
 
-export function getStandardGallery(){
-  console.log('standard gallery')
-  // return axios.get(
-  //   "https://localhost:5000/exhibition" //파라미터 요청 & 승인이 된 것만 
-  //   )
-  //   .then((res)=> {
-      
-  //   })
-}
-
-export function getPremiumGallery(){
-  console.log('premium gallery')
+export function getStandardGallery() {
+  console.log("standard gallery");
   // return axios.get(
   //   "https://localhost:5000/exhibition" //파라미터 요청 & 승인이 된 것만
   //   )
   //   .then((res)=> {
-      
+
   //   })
 }
 
-export function createLike(){
-  console.log('createLike')
+export function getPremiumGallery() {
+  console.log("premium gallery");
+  // return axios.get(
+  //   "https://localhost:5000/exhibition" //파라미터 요청 & 승인이 된 것만
+  //   )
+  //   .then((res)=> {
+
+  //   })
 }
 
-
-export function deleteLike(){
-  console.log('deleteLike')
+export function createLike() {
+  console.log("createLike");
 }
 
+export function deleteLike() {
+  console.log("deleteLike");
+}
 
-
-export function sort(galleryList, sortValue, isStandard){
-  console.log('정렬 테스트중', galleryList, sortValue, isStandard)
+export function sort(galleryList, sortValue, isStandard) {
+  console.log("정렬 테스트중", galleryList, sortValue, isStandard);
   // if(value==='최신순'){
   //   let result = galleryList.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
   //   result = result.map((el) => {
@@ -84,9 +85,9 @@ export function sort(galleryList, sortValue, isStandard){
   // }
 }
 
-export function filterByTag(tag, sortValue, isStandard){
-  console.log('태그 필터링 테스트중', tag, sortValue, isStandard)
-  
+export function filterByTag(tag, sortValue, isStandard) {
+  console.log("태그 필터링 테스트중", tag, sortValue, isStandard);
+
   // if (tag === "전체") {
   //   axios
   //     .get(
