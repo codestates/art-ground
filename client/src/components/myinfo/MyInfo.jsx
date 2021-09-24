@@ -2,6 +2,7 @@ import styles from "./MyInfo.module.css";
 
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router";
+import Loading from "../loading/Loading";
 
 const MyInfo = ({ userinfo }) => {
   const history = useHistory();
@@ -82,7 +83,7 @@ const MyInfo = ({ userinfo }) => {
           </div>
         </>
       ) : (
-        "로딩페이지!!"
+        <Loading />
       )}
     </section>
   );

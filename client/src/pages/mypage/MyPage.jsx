@@ -1,5 +1,5 @@
 import styles from "./MyPage.module.css";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import MyInfo from "../../components/myinfo/MyInfo";
 import MyPick from "../../components/mypick/MyPick";
 import axios from "axios";

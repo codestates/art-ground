@@ -1,5 +1,5 @@
 import "./App.css";
-import { Switch, Route, Redirect, useHistory } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Join from "./pages/join/Join";
 import { useEffect, useState } from "react";
@@ -7,8 +7,7 @@ import SignUp from "./pages/signup/SignUp";
 import SignIn from "./pages/signin/SignIn";
 import SignInDetail from "./pages/signindetail/SignInDetail";
 import MyPage from "./pages/mypage/MyPage";
-import SideBar from "./components/sidebar/SideBar";
-import MyInfo from "./components/myinfo/MyInfo";
+
 import Modify from "./pages/modify/Modify";
 import Google from "./pages/google/Google";
 import Kakao from "./pages/kakao/Kakao";
@@ -27,6 +26,7 @@ import About from "./pages/about/About";
 import ScrollTab from "./components/scrollTab/ScrollTab";
 import ScrollTop from "./components/scrollTop/ScrollTop";
 import ThreeDGallery from "./pages/3dGallery/ThreeDGallery";
+import Loading from "./components/loading/Loading";
 
 function App() {
   const history = useHistory();
@@ -46,7 +46,7 @@ function App() {
     setTimeout(() => {
       setModifyRender(true);
     }, 1000);
-  });
+  }, []);
 
   const isAuthenticated = () => {
     // 내정보 불러오기 axios요청
@@ -58,17 +58,19 @@ function App() {
     setIsLogin(true);
     setUserinfo({
       userEmail: "kim@gmail.com",
-      nickname: "photographer kim2",
-      profileImg: "../images/author.webp",
+      nickname: "photographer kim222",
+      profileImg: "https://t1.daumcdn.net/cfile/tistory/9995E34F5D5C9FB134",
       authorDesc:
         "무용가들의 우아한 동작과 섬세한 표정을 고스란히 담아내는 무용 사진가입니다. 무용가를 전문적으로 촬영한다는 점도 무척 신기한데, 마치 무대 위에서 함께 연기를 하기라도 한 듯 실감나게 표현한다는 점은 더욱 놀랍습니다. 그리고, 김윤식 작가가 체코국립발레단 소속의 현역 발레리노라는 사실까지 알게 되면 그에 대한 호기심은 더욱 커집니다.",
-      userType: '2'
+      userType: "3",
     });
+    setisAdmin(true);
   };
 
   const handleResponseSuccess = () => {
     isAuthenticated();
     history.push("/about");
+    console.log("dd");
   };
 
   const handleLogout = () => {
@@ -85,12 +87,13 @@ function App() {
     setIsLogin(true);
     setUserinfo({
       userEmail: "kim@gmail.com",
-      nickname: "photographer kim2",
+      nickname: "photographer kim222",
       profileImg: "https://t1.daumcdn.net/cfile/tistory/9995E34F5D5C9FB134",
       authorDesc:
         "무용가들의 우아한 동작과 섬세한 표정을 고스란히 담아내는 무용 사진가입니다. 무용가를 전문적으로 촬영한다는 점도 무척 신기한데, 마치 무대 위에서 함께 연기를 하기라도 한 듯 실감나게 표현한다는 점은 더욱 놀랍습니다. 그리고, 김윤식 작가가 체코국립발레단 소속의 현역 발레리노라는 사실까지 알게 되면 그에 대한 호기심은 더욱 커집니다.",
-      userType: '2'
+      userType: "3",
     });
+    setisAdmin(true);
     return () => {};
   }, []);
 
@@ -116,6 +119,7 @@ function App() {
             isLogin={isLogin}
             userinfo={userinfo}
             handleLogout={handleLogout}
+            isAdmin={isAdmin}
           />
           <SignIn
             setIsAuthorLogin={setIsAuthorLogin}
@@ -127,6 +131,7 @@ function App() {
             isLogin={isLogin}
             userinfo={userinfo}
             handleLogout={handleLogout}
+            isAdmin={isAdmin}
           />
           <SignInDetail
             isAuthorLogin={isAuthorLogin}
@@ -140,6 +145,7 @@ function App() {
             isLogin={isLogin}
             userinfo={userinfo}
             handleLogout={handleLogout}
+            isAdmin={isAdmin}
           />
           <Google />
         </Route>
@@ -148,6 +154,7 @@ function App() {
             isLogin={isLogin}
             userinfo={userinfo}
             handleLogout={handleLogout}
+            isAdmin={isAdmin}
           />
           <Kakao />
         </Route>
@@ -156,6 +163,7 @@ function App() {
             isLogin={isLogin}
             userinfo={userinfo}
             handleLogout={handleLogout}
+            isAdmin={isAdmin}
           />
           <Join
             setIsAuthorJoined={setIsAuthorJoined}
@@ -167,6 +175,7 @@ function App() {
             isLogin={isLogin}
             userinfo={userinfo}
             handleLogout={handleLogout}
+            isAdmin={isAdmin}
           />
           <SignUp
             isAuthorJoined={isAuthorJoined}
@@ -178,6 +187,7 @@ function App() {
             isLogin={isLogin}
             userinfo={userinfo}
             handleLogout={handleLogout}
+            isAdmin={isAdmin}
           />
           <MyPage userinfo={userinfo} setUserinfo={setUserinfo} />
           {/* {isLogin ? <MyPage userinfo={userinfo} /> : <SideBar />} */}
@@ -187,6 +197,7 @@ function App() {
             isLogin={isLogin}
             userinfo={userinfo}
             handleLogout={handleLogout}
+            isAdmin={isAdmin}
           />
           <About />
           <ScrollTab />
@@ -196,10 +207,11 @@ function App() {
             isLogin={isLogin}
             userinfo={userinfo}
             handleLogout={handleLogout}
+            isAdmin={isAdmin}
           />
           <Gallery
             isLogin={isLogin}
-            gallerySelect={(el) => setGallerySelected(el)} 
+            gallerySelect={(el) => setGallerySelected(el)}
           />
           <ScrollButton />
         </Route>
@@ -208,9 +220,10 @@ function App() {
             isLogin={isLogin}
             userinfo={userinfo}
             handleLogout={handleLogout}
+            isAdmin={isAdmin}
           />
-          <GalleryDetail 
-            viewArtDetail={(el) => setArtDetail(el)} 
+          <GalleryDetail
+            viewArtDetail={(el) => setArtDetail(el)}
             gallerySelected={gallerySelected}
           />
           <ScrollButton />
@@ -225,11 +238,12 @@ function App() {
             isLogin={isLogin}
             userinfo={userinfo}
             handleLogout={handleLogout}
+            isAdmin={isAdmin}
           />
-          <ReviewList 
+          <ReviewList
             isLogin={isLogin}
-            reviewSelect={(el) => setReviewSelected(el)} 
-            />
+            reviewSelect={(el) => setReviewSelected(el)}
+          />
           <ScrollButton />
         </Route>
         <Route path="/reviewdetail">
@@ -237,10 +251,9 @@ function App() {
             isLogin={isLogin}
             userinfo={userinfo}
             handleLogout={handleLogout}
+            isAdmin={isAdmin}
           />
-          <ReviewDetail 
-            reviewSelected={reviewSelected}
-          />
+          <ReviewDetail reviewSelected={reviewSelected} />
           <ScrollButton />
         </Route>
         <Route path="/register">
@@ -248,6 +261,7 @@ function App() {
             isLogin={isLogin}
             userinfo={userinfo}
             handleLogout={handleLogout}
+            isAdmin={isAdmin}
           />
           <Register
             userinfo={userinfo}
@@ -264,14 +278,16 @@ function App() {
             isLogin={isLogin}
             userinfo={userinfo}
             handleLogout={handleLogout}
+            isAdmin={isAdmin}
           />
-          {modifyRender ? <Modify userinfo={userinfo} /> : "로딩페이ㅣ지!!"}
+          {modifyRender ? <Modify userinfo={userinfo} /> : <Loading />}
         </Route>
         <Route exact path="/contact">
           <Navbar
             isLogin={isLogin}
             userinfo={userinfo}
             handleLogout={handleLogout}
+            isAdmin={isAdmin}
           />
           <Contact />
         </Route>
