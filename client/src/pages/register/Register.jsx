@@ -21,6 +21,7 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
   const [content, setContent] = useState(''); //전시 설명
   const [arts, setArts] = useState([{}, {}, {}, {}, {}, {}, {}, {}, {}]) //9개 작품 배열
 
+  const [errorMessage, setErrorMessage] = useState(null); //모든 필드값 안 채워졌을 때 띄우는 에러메세지
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleTitle = (event) => {
