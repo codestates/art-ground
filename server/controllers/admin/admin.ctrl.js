@@ -6,7 +6,7 @@ module.exports = {
     const userInfo = isAuthorized(req);
     const { postId } = req.body;
     console.log("userInfo:", userInfo, postId);
-
+    console.log("req:", req.headers.cookie);
     if (userInfo.dataValues.user_type === 3) {
       exhibition
         .findOne({
