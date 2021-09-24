@@ -1,0 +1,52 @@
+.thumbnail {
+  width: 100%;
+  height: 16rem;
+  margin: 0;
+  object-fit: cover;
+}
+
+.layer {
+  position: relative;
+  width: 100%;
+  height: 16rem;
+  opacity: 0;
+  background-color: white;
+  margin-bottom: -16rem;
+  transition: 0.3s;
+}
+
+.layer:hover {
+  position: relative;
+  width: 100%;
+  height: 16rem;
+  opacity: 0.4;
+  background-color: rgb(37, 37, 37);
+  margin-bottom: -16rem;
+}
+
+.titleAndLike {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title {
+  font-size: 0.9rem;
+  color: rgb(44, 44, 44);
+}
+.notlike {
+  padding-right: 0.2rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: rgb(97, 97, 97);
+}
+.like {
+  padding-right: 0.2rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: rgb(241, 112, 112);
+}
+
+.period {
+  font-size: 0.8rem;
+  color: rgb(156, 156, 156);
+}
