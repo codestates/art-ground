@@ -1,10 +1,12 @@
 import styles from "./MyPage.module.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MyInfo from "../../components/myinfo/MyInfo";
 import MyPick from "../../components/mypick/MyPick";
 import axios from "axios";
 import MyExhibit from "../../components/myexhibition/MyExhibit";
 import SideBar from "../../components/sidebar/SideBar";
+import Loading from "../../components/loading/Loading";
+import { useEdgeSplit } from "@react-three/drei";
 
 axios.defaults.withCredentials = true;
 
@@ -44,6 +46,13 @@ const MyPage = ({ userinfo, handleResponseSuccess }) => {
     setIsMyExhibit(false);
     setIsMyAction(true);
   };
+  const [infoRender, setInfoRender] = useState(false);
+  useEffect(() => {
+    //로딩창 띄워야함
+    setTimeout(() => {
+      setInfoRender(true);
+    }, 1000);
+  });
 
   return (
     <section className={styles.container}>
@@ -64,7 +73,9 @@ const MyPage = ({ userinfo, handleResponseSuccess }) => {
         </div>
       </div>
       <div className={styles.content}>
-        {isInfoClicked ? <MyInfo userinfo={userinfo} /> : null}
+        {isInfoClicked ? (
+          <>{infoRender ? <MyInfo userinfo={userinfo} /> : <Loading />}</>
+        ) : null}
         {isPickClicked ? <MyPick /> : null}
         {isMyExhibit ? <MyExhibit /> : null}
         {isMyAuction ? <SideBar /> : null}

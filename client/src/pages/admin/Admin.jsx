@@ -29,6 +29,10 @@ const Admin = ({ isAdmin, setisAdmin }) => {
   const clickExColor = !exhibition ? styles.libox : styles.liboxClick;
   const clickRevColor = !review ? styles.libox : styles.liboxClick;
 
+  const clickSmenu1 = !updateEx ? styles.btn : styles.btnClick;
+  const clickSmenu2 = !deleteEx ? styles.btn : styles.btnClick;
+  const clickSmenu3 = !doneEx ? styles.btn : styles.btnClick;
+
   const clickEx = () => {
     setExhibition(true);
     setReview(false);
@@ -45,9 +49,15 @@ const Admin = ({ isAdmin, setisAdmin }) => {
       axios.get("https://art-ground.link/exhibition").then((result) => {
         //console.log(result.data.data);
         setExhibitData(result.data.data);
+        console.log(result.data.data, "받아온 데이터--------------");
       });
     }
+    return () => {
+      setExhibitData(null);
+    };
   }, []);
+
+  console.log(exhibition, "전시info상태로 들어ㄱ간값=============");
 
   const clickUpdate = () => {
     setUpdateEx(true);
@@ -97,13 +107,13 @@ const Admin = ({ isAdmin, setisAdmin }) => {
             {adExRender ? (
               <>
                 <div className={styles.btnbox}>
-                  <button className={styles.btn} onClick={clickUpdate}>
+                  <button className={clickSmenu1} onClick={clickUpdate}>
                     승인대기
                   </button>
-                  <button className={styles.btn} onClick={clickDelete}>
+                  <button className={clickSmenu2} onClick={clickDelete}>
                     마감대기
                   </button>
-                  <button className={styles.btn} onClick={clickDoneEx}>
+                  <button className={clickSmenu3} onClick={clickDoneEx}>
                     마감된 전시회
                   </button>
                 </div>
