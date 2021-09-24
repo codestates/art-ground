@@ -10,11 +10,12 @@ module.exports.getReviewPage = async (req, res) => {
         as: "user",
       },
     ],
-    where: exhibition_id,
+    where: { exhibition_id: parseInt(exhibition_id) },
   });
 
   if (result) {
-    const data = result.dataValues;
+    const data = result.map((el) => el.dataValues);
+    console.log(data);
     res.status(200).json({ data });
   } else {
     res.status(404).json({ message: "failed" });

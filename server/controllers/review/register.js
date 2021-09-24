@@ -1,10 +1,11 @@
 const { comments: commentsModel } = require("../../models");
 const { isAuthorized } = require("../../utils/tokenFunction");
-module.exports.getReviewPage = async (req, res) => {
+module.exports.postReview = async (req, res) => {
   const userInfo = isAuthorized(req);
+
   const { postId: exhibition_id, comments } = req.body;
   if (userInfo) {
-    const { user_id } = userInfo;
+    const { id: user_id } = userInfo;
     const result = commentsModel.create({
       user_id,
       exhibition_id,

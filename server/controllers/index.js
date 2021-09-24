@@ -10,7 +10,9 @@ const { register } = require("./exhibition/register");
 const { getExhibition } = require("./exhibition");
 const { exhibitionLike } = require("./exhibition/likes");
 const { withdrawalLike } = require("./exhibition/withdrawalLike");
-const { getReviewPage } = require("./review");
+const { getReviewPage } = require("./review/index");
+const { deleteReview } = require("./review/deleteReview");
+const { postReview } = require("./review/register");
 // sign
 
 // router.use("/sign-up", sign);
@@ -49,8 +51,9 @@ router.post("/exhibition/like", exhibitionLike);
 router.delete("/exhibition/like", withdrawalLike);
 
 //review
-router.get("review/:postId", getReviewPage);
-
+router.get("/review/:postId", getReviewPage);
+router.post("/review", postReview);
+router.delete("/review", deleteReview);
 // admin
 // 전시 승인
 router.post("/admin/exhibition", adminCtrl.approveExhibition);
