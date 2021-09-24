@@ -6,8 +6,8 @@ module.exports = {
     const userInfo = isAuthorized(req);
     const { postId } = req.body;
     console.log("userInfo:", userInfo, postId);
-    console.log("req:", req.headers.cookie);
-    if (userInfo.dataValues.user_type === 3) {
+
+    if (userInfo.user_type === 1 /*관리자는 원래 3*/) {
       exhibition
         .findOne({
           where: {
@@ -23,7 +23,7 @@ module.exports = {
           } else {
             exhibition.update(
               {
-                status: 3,
+                status: 1,
               },
               {
                 where: {
