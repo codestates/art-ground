@@ -1,15 +1,22 @@
 "use strict";
 require("dotenv").config();
 const axios = require("axios");
+const { users } = require("../../models");
+const {
+  generateAccessToken,
+  sendAccessToken,
+} = require("../../utils/tokenFunction");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 
 module.exports = {
   // 받은 authorization code로 access token 받기
   getToken: (req, res) => {
     const code = req.body.authorizationCode;
     console.log("authcode-----:", code);
-    const client_id = process.env.KAKAO_CLIENT_ID;
-    const redirect_uri = process.env.KAKAO_REDIRECT_URI;
-    const grant_type = process.env.GRANT_TYPE;
+    const client_id = process.env.ART_GROUND_KAKAO_CLIENT_ID;
+    const redirect_uri = process.env.ART_GROUND_KAKAO_REDIRECT_URI;
+    const grant_type = process.env.ART_GROUND_GRANT_TYPE;
 
     axios({
       method: "post",
@@ -38,10 +45,40 @@ module.exports = {
     })
       .then((data) => {
         console.log("userInfo:", data);
-        res.send(data.data);
+        let password = data.data.id + data.data.properties.nickname;
+        console.log("password:", password);
+        const salt = bcrypt.genSalt(saltRounds);
+        console.log("salt:", salt);
+        password = bcrypt.hash(password, salt);
+
+        // 최초 로그인 시 회원가입 진행
+        users.findOrCreate({
+          where: {
+            user_id: data.data.kakao_account.email,
+          },
+          default: {
+            password: password,
+            nickname: userName,
+            user_type: 1,
+            // refresh_token:
+            // LoginType: kakao,
+          },
+        });
       })
-      .catch((error) => {
-        console.log(error);
+      .then(([result, created]) => {
+        // 이미 회원가입이 되어 있다면 accessToken 만들어서 보내고 로그인
+        if (!created) {
+          console.log("result:", result);
+          delete result.dataValues.password;
+          const accessToken = generateAccessToken(result.dataValues);
+          sendAccessToken(res, accessToken);
+        }
+        const userData = result.dataValues;
+        console.log("userData:", userData);
+        return res.status(201).json({ message: "ok" });
+      })
+      .catch((err) => {
+        console.log(err);
       });
   },
 };

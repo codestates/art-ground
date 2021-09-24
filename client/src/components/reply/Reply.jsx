@@ -1,7 +1,11 @@
 import React from 'react';
 import styles from './Reply.module.css';
 
-const Reply = (props) => {
+const Reply = ({deleteReply}) => {
+
+  // 로그인 안 했으면 deleteBtn 노출 X
+  // 로그인 했으면 내가 쓴 리뷰에만 deleteBtn 표시되도록...!
+
   return (
     <li className={styles.reply}>
       <div className={styles.imgBox}>
@@ -18,7 +22,7 @@ const Reply = (props) => {
           생존하는 작가이기도 끊임없이 다양한 매체의 시도로 멈춰있지 않고 미래를 향해 끊임없이 전진하고 있는 작가라는 느낌을 받았습니다. 
           주말에는 사람들의 줄이 어마어마하니 여유를 가지고 보실 분들은 평일에 가보신 것을 추천합니다.(왕진지)</div>
       </div>
-      <span className={styles.deleteBtn}><i class="fas fa-times"></i></span>
+      <span className={styles.deleteBtn} onClick={deleteReply}><i class="fas fa-times"></i></span>
     </li>
   )
 }

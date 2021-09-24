@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import ArtDetail from '../../components/artDetail/ArtDetail';
 import styles from './GalleryDetail.module.css';
 
-const GalleryDetail = ({gallerySelected, viewArtDetail}) => {
+const GalleryDetail = ({ gallerySelected }) => {
 
   //gallerySelected--> 전시회 정보
-
+  const sliderNum = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const [btnSlider, setBtnSlider] = useState(1);
+  const [artDetail, setArtDetail] = useState(null); //모달창에 올라가는 확대시킬 이미지 src
 
   const tags = ['#현대미술', '#일러스트레이션', '#회화']
-  const sliderNum = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const dummyImg = [
-    'https://t1.daumcdn.net/cfile/tistory/9995E34F5D5C9FB134',
+    'https://storage.oneslist.com/assets/2021/07/02110802/DAVID_HOCKNEY_1-768x1024.jpeg',
     'https://images.velog.io/images/devjade/post/4f3086dd-2f8a-4f34-b0aa-cb5d7e8772d2/image.png',
     'https://www.jnilbo.com/photos/2021/08/01/2021080113162205012_l.jpg',
     'https://t1.daumcdn.net/cfile/tistory/99EFE6375A65DFEA33',
@@ -22,6 +23,16 @@ const GalleryDetail = ({gallerySelected, viewArtDetail}) => {
     'https://images.velog.io/images/devjade/post/794f3b2c-f679-4d69-9bd8-b845efd96993/image.png'
   ];
 
+  const [showMoreOpt, setMoreOpt] = useState(null);
+  const [purchaseModal, setpurchaseModal] = useState(false);
+
+  const handleMoreOpt = (el) =>{
+    if(showMoreOpt === null || el !== showMoreOpt){
+      setMoreOpt(el);
+    } else{
+      setMoreOpt(null);
+    }
+  }
 
   const slider = (el) => {
     setBtnSlider(el);
@@ -36,6 +47,10 @@ const GalleryDetail = ({gallerySelected, viewArtDetail}) => {
     if(btnSlider!==9){
       setBtnSlider(btnSlider+1)
     }
+  }
+
+  const handleModalOpen = (el) => {
+    setArtDetail(el); //모달에 띄울 art 전달
   }
 
   return (
@@ -70,8 +85,8 @@ const GalleryDetail = ({gallerySelected, viewArtDetail}) => {
 
           {dummyImg.map(el =>
               <div className={styles.sliderWrap}>
-                <img className={styles.slider} src='https://images.velog.io/images/devjade/post/1716edd9-798c-4cf2-9fe9-26f8537d8084/image.png' alt='slider' />
-                <img className={styles.sliderPic} src={el} alt='sliderIn' />
+                <img className={styles.slider} src="../../../images/sliderBackground.png" alt='slider' />
+                <img className={styles.sliderPic} src={el} alt='sliderIn' onClick={() => handleModalOpen(el)} />
               </div>
           )}
         </div>
@@ -107,20 +122,47 @@ const GalleryDetail = ({gallerySelected, viewArtDetail}) => {
       <ul className={styles.workBox}>
         {dummyImg.map(el =>
           <li>
-            <Link to='/artdetail'>
-              <img className={styles.work} src={el} alt='art' onClick={() => viewArtDetail(el)}/>
-            </Link>
+            <img className={styles.work} src={el} alt='art' onClick={() => handleModalOpen(el)}/>
             <div className={styles.workTitleMeta}>
               <span className={styles.workTitle}>호크니1</span>
-              <i className="fas fa-ellipsis-h"></i>
+              <i className="fas fa-ellipsis-h" onClick={()=> handleMoreOpt(el)}>
+                {el === showMoreOpt?
+                <ul className={styles.more} onClick={()=>setpurchaseModal(true)}>
+                    <li className={styles.moreOpt}>구매정보</li>
+                </ul> : null}
+              </i>
             </div>
             <span className={styles.workContent}>제작연도 : 2021, 재료 : Digital drawing, 크기 : 59.4x42.0cm</span>
-          </li>)}
+          </li>
+        )}
 
       </ul>
       <div className={styles.space} />
+
+      {artDetail !== null ?
+      <ArtDetail 
+      handleClose={()=> setArtDetail(null)}
+      art={artDetail}
+      /> : null}
+
+      {purchaseModal? 
+      <section className={styles.modalContainer}>
+        <div className={styles.modalWrap}>
+          <span className={styles.modalContent}>작품의 구매정보는<br></br>운영자에게 문의 부탁드립니다.</span>
+          <p className={styles.modalSubContent}>CONTACT 페이지로<br></br>이동하시겠어요?</p>
+          <div className={styles.ok}>
+            <Link to="/contact">
+              <button className={styles.okBtn} onClick={()=>setpurchaseModal(false)}>네</button>
+            </Link>
+            <button className={styles.okBtn} onClick={()=>setpurchaseModal(false)}>아니요</button>
+          </div>
+        </div>
+      </section>
+      : null}
+
     </section>
   );
+  
 };
 
 export default GalleryDetail;
