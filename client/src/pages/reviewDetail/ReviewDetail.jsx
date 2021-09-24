@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Reply from '../../components/reply/Reply';
 import styles from './ReviewDetail.module.css';
 import { Link } from 'react-router-dom';
-import { deleteReview, postReview } from '../../api/reviewApi';
+import { deleteReview, getReplyList, postReview } from '../../api/reviewApi';
 
 const ReviewDetail = ({ reviewSelected, isLogin }) => {
 
@@ -11,6 +11,13 @@ const ReviewDetail = ({ reviewSelected, isLogin }) => {
   const tags = ['#현대미술', '#일러스트레이션', '#회화']
   const [reply, setReply] = useState('');
   const [loginModal, setLoginModal] = useState(false);
+  const [replyList, setReplyList] = useState([]);
+  
+
+  useEffect(()=> {
+    getReplyList();
+    //(+setReplyList에다가 넣기)
+  })
 
   const handleReply = (event) => {
     setReply(event.target.value)
