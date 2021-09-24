@@ -2,7 +2,6 @@ import styles from "./MyInfo.module.css";
 
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router";
-import Loading from "../loading/Loading";
 
 const MyInfo = ({ userinfo }) => {
   const history = useHistory();
