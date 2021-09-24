@@ -1,6 +1,6 @@
 import styles from "./Modify.module.css";
 import { useHistory } from "react-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import AWS from "aws-sdk";
 import axios from "axios";
 import { Link } from "react-router-dom";

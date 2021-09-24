@@ -64,6 +64,11 @@ span {
   font-size: 1rem;
   font-weight: bold;
 }
+.author {
+  text-indent: 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
 .date {
   height: 1.5rem;
   display: flex;

@@ -1,7 +1,6 @@
 import styles from "./SignIn.module.css";
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import Google from "../google/Google";
 
 const SignIn = ({ setIsAuthorLogin, setIsAudienceLogin }) => {
   const history = useHistory();
