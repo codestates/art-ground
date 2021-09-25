@@ -14,13 +14,13 @@ dotenv.config();
  */
 module.exports = {
   getToken: async (req, res) => {
-    const URL = process.env.OAUTH_URL;
+    const URL = process.env.ART_GROUND_OAUTH_URL;
 
     const code = req.body.authorizationCode;
-    const client_id = process.env.CLIENT_ID;
-    const client_secret = process.env.CLIENT_SECRET;
-    const redirect_uri = process.env.REDIRECT_URI;
-    const grant_type = process.env.GRANT_TYPE;
+    const client_id = process.env.ART_GROUND_CLIENT_ID;
+    const client_secret = process.env.ART_GROUND_CLIENT_SECRET;
+    const redirect_uri = process.env.ART_GROUND_REDIRECT_URI;
+    const grant_type = process.env.ART_GROUND_GRANT_TYPE;
 
     let data = {
       code,
@@ -43,7 +43,7 @@ module.exports = {
       });
   },
   getUserInfo: async (req, res) => {
-    const googleInfoURL = process.env.GOOGLEINFO_URL;
+    const googleInfoURL = process.env.ART_GROUND_GOOGLEINFO_URL;
 
     const accessToken = req.query.accessToken;
     await axios

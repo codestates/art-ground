@@ -1,8 +1,7 @@
 import styles from "./SignInDetail.module.css";
 import React, { useState } from "react";
 import axios from "axios";
-import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
+
 const CryptoJS = require("crypto-js");
 require("dotenv").config();
 
@@ -13,8 +12,6 @@ const SignInDetail = ({
   isAudienceLogin,
   handleResponseSuccess,
 }) => {
-  const history = useHistory();
-
   const [loginInfo, setLoginInfo] = useState({
     userEmail: "",
     password: "",
@@ -63,10 +60,10 @@ const SignInDetail = ({
       password: encryptedPassword,
       userType: 1,
     };
-    setErrorMessage("");
-    axios.post("https://art-ground.link/sign-in", userData).then((result) => {
+    setErrorMessage(""); //art-ground.link
+    axios.post("https://art-ground.io/sign-in", userData).then((result) => {
       console.log(result, "-----관람객로그인요청");
-      if (result.data.message === "AccessToken ready") {
+      if (result.data === "AccessToken ready") {
         handleResponseSuccess();
       }
     });
@@ -94,7 +91,7 @@ const SignInDetail = ({
     setErrorMessage("");
     axios.post("https://art-ground.link/sign-in", userData).then((result) => {
       console.log(result, "-----작가로그인요청");
-      if (result.data.message === "AccessToken ready") {
+      if (result.data === "AccessToken ready") {
         handleResponseSuccess();
       }
     });
@@ -118,10 +115,8 @@ const SignInDetail = ({
   };
 
   const clickKakao = () => {
-
-    window.location.href = 
-      `https://kauth.kakao.com/oauth/authorize?client_id=a3d0f7feebf7fca1ad114ff7da1dddc5&redirect_uri=https://localhost:3000/signin/kakao&response_type=code`;
-  }
+    window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=a3d0f7feebf7fca1ad114ff7da1dddc5&redirect_uri=https://localhost:3000/signin/kakao&response_type=code`;
+  };
 
   return (
     <section className={styles.container}>

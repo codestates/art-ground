@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { getAllGallery } from '../../api/reviewApi';
 import Review from '../../components/review/Review';
 import styles from './ReviewList.module.css';
 
@@ -9,7 +10,8 @@ const ReviewList = ({ isLogin, reviewSelect }) => {
   const [searchWord, setSearchWord] = useState('')
 
   useEffect(()=> {
-    //standard, premium gallery 모두 모아서 setGalleryList에 넣기.
+    //standard, premium gallery, 마감된 전시 모두 모아서 setGalleryList에 넣기.
+    getAllGallery();
   }, [])
 
   const handleChange = (e) => {
@@ -41,6 +43,7 @@ const ReviewList = ({ isLogin, reviewSelect }) => {
         <input className={styles.search} 
         placeholder="전시회 검색" 
         type="text" 
+        value={searchWord}
         onChange={handleChange}
         onKeyPress={handleKeyPress}
         />
