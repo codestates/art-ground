@@ -5,15 +5,7 @@ import { useState } from 'react';
 import { createLike, deleteLike } from '../../api/galleryApi';
 
 
-const GalleryContent = ({ isLogin, userinfo, exhibition, gallerySelect, handleModal }) => {
-
-  // 랜더링 해야할 데이터: 썸네일, 타이틀, 전시시작일, 전시마감일, (로그인 했다면) 전시회를 좋아요 했는지 안 했는지, 좋아요 개수
-  // exhibition.images[0].img
-  // exhibition.title
-  // exhibition.start_date
-  // exhibition.end_date
-  // exhibition.likes (배열)
-  // exhibition.likes.length(좋아요 개수)
+const GalleryContent = ({ isLogin, userinfo, exhibition, selectGallery, handleModal }) => {
   
   const [isLiked, setLiked] = useState(false);
   
@@ -25,16 +17,16 @@ const GalleryContent = ({ isLogin, userinfo, exhibition, gallerySelect, handleMo
       // } else{
       //   setLiked(false); //유저가 해당 gallerycontent컴포넌트를 좋아요 한 게 아닐 때
       // }
-      console.log('썸네일 컴포넌트 랜더링 useEffect')
+      //console.log('단일 컴포넌트 useEffect', exhibition)
     }
   }) //의존성 배열 두면 안 됨.
 
   const handleLike = () => { //로그인 한 사람들에게만 작동. 
     if(isLiked){// 좋아요 해제
-      deleteLike();
+      deleteLike(exhibition.id);
       setLiked(false);
     } else{ //좋아요
-      createLike();
+      createLike(exhibition.id);
       setLiked(true);
     }
   }
@@ -46,20 +38,23 @@ const GalleryContent = ({ isLogin, userinfo, exhibition, gallerySelect, handleMo
 
           <Link to='/gallerydetail'>
             <div className={styles.layer}
-            //onClick={()=>gallerySelect(exhibition)}
+            onClick={()=>selectGallery(exhibition)}
             ></div>
-            <img className={styles.thumbnail} src='http://www.news-paper.co.kr/news/photo/201903/39919_25361_5530.jpg' alt='thumbnail' />
+            <img className={styles.thumbnail} src={exhibition.images[0]? 
+              exhibition.images[0].image_urls ? 
+              exhibition.images[0].image_urls : 
+              'https://images.velog.io/images/devjade/post/4d263fb5-8ccc-452d-ab79-004184adf025/image.png' : 
+              'https://t1.daumcdn.net/cfile/tistory/99EFE6375A65DFEA33'} alt='thumbnail' />
           </Link>
 
-          <span className={styles.title}>데이비드 호크니展</span>
-          <div className={styles.period}>전시 기간: 2021-09-13 ~ 2021-12-31</div>
+          <span className={styles.title}>{exhibition.title}</span>
+          <div className={styles.period}>전시 기간: {exhibition.start_date} ~ {exhibition.end_date}</div>
           
           <div className={styles.likesMeta} onClick={handleLike}>
             {isLiked ? 
             <span className={styles.like}><i class="fas fa-heart"></i></span> : 
             <span className={styles.notlike}><i class="far fa-heart"></i></span>}
-            {/*  */}
-            <span className={styles.likesCount}>N</span>
+            <span className={styles.likesCount}>{exhibition.likes.length}</span>
           </div>
 
         </li>
@@ -70,7 +65,7 @@ const GalleryContent = ({ isLogin, userinfo, exhibition, gallerySelect, handleMo
       <li className={styles.object}>
         <Link to='/gallerydetail'>
           <div className={styles.layer}
-          //onClick={()=>gallerySelect(exhibition)}
+          //onClick={()=>selectGallery(exhibition)}
           ></div>
           <img className={styles.thumbnail} src='http://www.news-paper.co.kr/news/photo/201903/39919_25361_5530.jpg' alt='thumbnail' />
         </Link>

@@ -3,7 +3,7 @@ import axios from "axios";
 export function createExhibition(title, startDate, endDate, type, content, isClicked, arts) {
 
   return axios.post(
-    "https://localhost:5000/exhibition/register",
+    "https://art-ground.link/exhibition/register",
     {
       title: title,
       startDate: startDate,
@@ -18,46 +18,59 @@ export function createExhibition(title, startDate, endDate, type, content, isCli
     .then(res => {
       console.log(res);
     })
+    .catch(err => console.log(err.message))
+
+}
+
+export async function getStandardGallery() {
+  try {
+    const res = await axios.get(
+      "https://art-ground.link/exhibition/1" //파라미터 요청(standard) & 승인이 된 것만(status=1)
+    );
+    return res.data.data;
+  } catch (err) {
+    return console.log(err.message);
+  }
+}
+
+export async function getPremiumGallery() {
+  try {
+    const res = await axios.get(
+      "https://art-ground.link/exhibition/2" //파라미터 요청(premium) & 승인이 된 것만(status=1)
+    );
+    return res.data.data;
+  } catch (err) {
+    return console.log(err.message);
+  }
+}
+
+
+export function createLike(el) {
+  //console.log("클릭한 전시회 아이디:", el);
+  return axios.post(
+    "https://localhost:5000/exhibition/like",
+    {
+      postId: el
+    })
+    .then(res => {
+      console.log(res);
+    })
     .catch(err => console.log(err))
-
 }
 
-export function getUnauthorizedEx() {
-  //승인 대기중인 전시회만(1status = 0)
-  // return axios.get(
-  //   "https://localhost:5000/exhibition"
-  //   )
-  //   .then((res)=> {
-  //   })
+export function deleteLike(el) {
+  //console.log("클릭한 전시회 아이디:", el);
+  return axios.delete(
+    "https://localhost:5000/exhibition/like",
+    {
+      postId: el
+    })
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => console.log(err))
 }
 
-export function getStandardGallery() {
-  console.log("standard gallery");
-  // return axios.get(
-  //   "https://localhost:5000/exhibition" //파라미터 요청 & 승인이 된 것만
-  //   )
-  //   .then((res)=> {
-
-  //   })
-}
-
-export function getPremiumGallery() {
-  console.log("premium gallery");
-  // return axios.get(
-  //   "https://localhost:5000/exhibition" //파라미터 요청 & 승인이 된 것만
-  //   )
-  //   .then((res)=> {
-
-  //   })
-}
-
-export function createLike() {
-  console.log("createLike");
-}
-
-export function deleteLike() {
-  console.log("deleteLike");
-}
 
 export function sort(galleryList, sortValue, isStandard) {
   console.log("정렬 테스트중", galleryList, sortValue, isStandard);

@@ -7,7 +7,7 @@ import SubNavBar from '../../components/subNavBar/SubNavBar';
 import styles from './Gallery.module.css';
 
 
-const Gallery = ({ isLogin, gallerySelect, userinfo }) => {
+const Gallery = ({ isLogin, selectGallery, userinfo }) => {
 
   const [galleryList, setGalleryList] = useState([]);
   
@@ -19,13 +19,15 @@ const Gallery = ({ isLogin, gallerySelect, userinfo }) => {
 
 
   useEffect(() => {
-    if(isStandard){ 
-      getStandardGallery();
-      //(+ setGellaryList)
-    } else{
-      getPremiumGallery();
-      //(+ setGellaryList)
+    async function getAxiosData(){
+      if(isStandard){ 
+        setGalleryList(await getStandardGallery());
+        //console.log(await getStandardGallery());
+      } else{
+        setGalleryList(await getPremiumGallery());
+      }
     }
+    getAxiosData();
   }, [isStandard]); 
 
   const handleStandard = () => { //STANDARD, PREMIUM 필터
@@ -56,29 +58,14 @@ const Gallery = ({ isLogin, gallerySelect, userinfo }) => {
         gallerySort={handleSort}
       />
       <ul className={styles.objectList}>
-        <GalleryContent 
-          isLogin={isLogin}
-          handleModal={()=> setModalOpen(true)} 
-        />
-        <GalleryContent 
-          isLogin={isLogin}
-          handleModal={()=> setModalOpen(true)} 
-        />
-        <GalleryContent 
-          isLogin={isLogin}
-          handleModal={()=> setModalOpen(true)} 
-        />
-        <GalleryContent 
-          isLogin={isLogin}
-          handleModal={()=> setModalOpen(true)} 
-        />        
-        {/* {galleryList.map((el) => (
+        {galleryList.map((el) => (
           <GalleryContent
-          gallerySelect={gallerySelect} 
+          selectGallery={selectGallery} 
           exhibition={el}
-          userinfo={userinfo} 
+          userinfo={userinfo}
+          handleModal={()=> setModalOpen(true)} 
           isLogin={isLogin} />
-        ))} */}
+        ))}
       </ul>
 
       {modalOpen ? //모달창

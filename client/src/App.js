@@ -206,8 +206,8 @@ function App() {
           />
           <Gallery
             isLogin={isLogin}
-            userinfo
-            gallerySelect={(el) => setGallerySelected(el)}
+            userinfo={userinfo}
+            selectGallery={(el) => setGallerySelected(el)}
           />
           <ScrollButton />
         </Route>
@@ -218,19 +218,11 @@ function App() {
             handleLogout={handleLogout}
             isAdmin={isAdmin}
           />
-
           <GalleryDetail
-            //viewArtDetail={(el) => setArtDetail(el)}
-
             gallerySelected={gallerySelected}
           />
           <ScrollButton />
         </Route>
-        {/* {artDetail ? (
-          <Route path="/artdetail">
-            <ArtDetail art={artDetail} />
-          </Route>
-        ) : null} */}
         <Route path="/reviewlist">
           <Navbar
             isLogin={isLogin}
@@ -240,7 +232,7 @@ function App() {
           />
           <ReviewList
             isLogin={isLogin}
-            reviewSelect={(el) => setReviewSelected(el)}
+            selectReview={(el) => setReviewSelected(el)}
           />
           <ScrollButton />
         </Route>
@@ -251,9 +243,11 @@ function App() {
             handleLogout={handleLogout}
             isAdmin={isAdmin}
           />
-
-          <ReviewDetail isLogin={isLogin} reviewSelected={reviewSelected} />
-
+          <ReviewDetail
+          userinfo={userinfo} 
+          isLogin={isLogin} 
+          reviewSelected={reviewSelected} 
+          />
           <ScrollButton />
         </Route>
         <Route path="/register">
