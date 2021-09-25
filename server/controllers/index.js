@@ -58,6 +58,8 @@ router.delete("/review", deleteReview);
 router.get("/review", getExhibitionReview);
 // admin
 // 전시 승인
-router.post("/admin/exhibition", adminCtrl.approveExhibition);
+router.post("/admin/exhibition", adminCtrl.approveExhibitions);
+router.delete("/admin/exhibition", adminCtrl.closeExhibitions);
+router.delete("/admin/review", adminCtrl.deleteReviews);
 
 module.exports = router;
