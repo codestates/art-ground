@@ -51,7 +51,7 @@
   position: relative;
 }
 
-.sliderOuter {
+.sliderOuter1 {
   width: 900%;
   max-width: 9216px;
   transition: transform 2s;

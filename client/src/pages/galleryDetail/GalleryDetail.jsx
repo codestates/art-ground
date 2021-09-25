@@ -64,7 +64,7 @@ const GalleryDetail = ({ gallerySelected }) => {
       <div className={styles.outer}>
         <div className={
           btnSlider === 1
-            ? styles.sliderOuter
+            ? styles.sliderOuter1
             : btnSlider === 2
               ? styles.sliderOuter2
               : btnSlider === 3
