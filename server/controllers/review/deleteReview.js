@@ -6,7 +6,7 @@ module.exports.deleteReview = async (req, res) => {
   const { commentsId: id } = req.body;
   if (userInfo) {
     const { id: user_id } = userInfo;
-    const result = commentsModel.destroy({
+    const result = await commentsModel.destroy({
       where: {
         id,
         user_id,
