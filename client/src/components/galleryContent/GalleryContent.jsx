@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { createLike, deleteLike } from '../../api/galleryApi';
 
 
-const GalleryContent = ({ isLogin, userinfo, exhibition, selectGallery, handleModal }) => {
+const GalleryContent = ({ isLogin, userinfo, exhibition, selectGallery, handleModal, render }) => {
   
   const [isLiked, setLiked] = useState(false);
   
@@ -25,9 +25,11 @@ const GalleryContent = ({ isLogin, userinfo, exhibition, selectGallery, handleMo
     if(isLiked){// 좋아요 해제
       deleteLike(exhibition.id);
       setLiked(false);
+      render();
     } else{ //좋아요
       createLike(exhibition.id);
       setLiked(true);
+      render();
     }
   }
   

@@ -14,23 +14,23 @@ export async function getAllGallery(){ //standard, premium 모든 전시. 승인
 }
 
 
-export function getReplyList(postId){
+export async function getReplyList(postId){
 
-  console.log('댓글 생성/삭제 시 계속 호출 postId:', postId)
-  // try {
-  //   const res = await axios.get(
-  //     `https://art-ground.link/review/${postId}` 
-  //   );
-  //   return res.data.data;
-  // } catch (err) {
-  //   return console.log(err);
-  // }  
+  //console.log('댓글 생성/삭제 시 계속 호출 postId:', postId)
+  try {
+    const res = await axios.get(
+      `https://art-ground.link/review/${postId}` 
+    );
+    return res.data.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+  } catch (err) {
+    return console.log(err);
+  }  
 }
 
 
 export async function postReview(reply, postId){ 
 
-  console.log('REVIEW 등록', reply, postId)
+  //console.log('REVIEW 등록', reply, postId)
   try {
     const res = await axios.post(
       "https://art-ground.link/review",

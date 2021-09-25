@@ -47,10 +47,10 @@ export async function getPremiumGallery() {
 
 
 export async function createLike(el) {
-  //console.log("클릭한 전시회 아이디:", el);
+  console.log("클릭한 전시회 아이디:", el);
   try {
     const res = await axios.post(
-      "https://localhost:5000/exhibition/like",
+      "https://art-ground.link/exhibition/like",
       {
         postId: el
       });
@@ -61,10 +61,10 @@ export async function createLike(el) {
 }
 
 export async function deleteLike(el) {
-  //console.log("클릭한 전시회 아이디:", el);
+  console.log("클릭한 전시회 아이디:", el);
   try {
     const res = await axios.delete(
-      "https://localhost:5000/exhibition/like",
+      "https://art-ground.link/exhibition/like",
       {
         postId: el
       });

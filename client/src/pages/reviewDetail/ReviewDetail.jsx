@@ -9,32 +9,32 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
   //reviewSelected--> 전시회 정보
 
   const [reply, setReply] = useState('');
-  const [rerender, setRerender] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
   const [replyList, setReplyList] = useState([]);
 
+  const [rerender, setRerender] = useState(false);
+
 
   useEffect(() => { //해당 전시회의 댓글(배열) GET요청
-    //async function getAxiosData(){
-      //setReplyList(await getReplyList(reviewSelected.id));
-      //console.log(await getReplyList(reviewSelected.id))
-    //}
-    //getAxiosData();
-    getReplyList(reviewSelected.id);
+    async function getAxiosData(){
+      setReplyList(await getReplyList(reviewSelected.id));
+    }
+    setTimeout(()=> {
+      getAxiosData();
+    }, 300)
   }, [rerender])
 
-  const handleReply = (event) => {
-    setReply(event.target.value)
-  }
   const createReply = () => {
     if(isLogin){
       //로그인 했으면 리뷰등록 가능
       postReview(reply, reviewSelected.id);
-      setRerender(!rerender); //컴포넌트 다시 랜더링 시키기 위한 용도
+      setRerender(!rerender); //댓글 컴포넌트 다시 랜더링 시키기 위한 용도
+      setReply(''); //댓글 초기화
     } else{
       setLoginModal(true); //로그인 안 했으면 모달 띄우기
     }
   }
+
   const handleKeyPress = (e) => {
     if (e.type === 'keypress' && e.code === 'Enter') {
       createReply();
@@ -90,7 +90,7 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
           placeholder="로그인하셔야 리뷰를 작성할 수 있습니다" 
           type="text" 
           value={reply}
-          onChange={handleReply}
+          onChange={(e)=> setReply(e.target.value)}
           onKeyPress={handleKeyPress}
           />
           <button className={styles.replyIcon}

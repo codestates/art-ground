@@ -16,19 +16,21 @@ const Gallery = ({ isLogin, selectGallery, userinfo }) => {
   const [sortValue, setSortValue] = useState('최신순'); //최신순, 전시마감일순 정렬 상태값
 
   const [modalOpen, setModalOpen] = useState(false); //찜하기 클릭시 나타나는 모달창
+  const [rerender, setRerender] = useState(false);
 
 
   useEffect(() => {
     async function getAxiosData(){
       if(isStandard){ 
         setGalleryList(await getStandardGallery());
-        //console.log(await getStandardGallery());
       } else{
         setGalleryList(await getPremiumGallery());
       }
     }
-    getAxiosData();
-  }, [isStandard]); 
+    setTimeout(()=> {
+      getAxiosData();
+    }, 300)
+  }, [isStandard, rerender]); 
 
   const handleStandard = () => { //STANDARD, PREMIUM 필터
     setStandard(!isStandard)
@@ -41,9 +43,9 @@ const Gallery = ({ isLogin, selectGallery, userinfo }) => {
     
   }
 
-  const handleSort = (event) => { //정렬(api요청 따로 없어도 됌)
-    setSortValue(event.target.value);
-    sort(galleryList, event.target.value, isStandard);
+  const handleSort = (e) => { //정렬(api요청 따로 없어도 됌)
+    setSortValue(e.target.value);
+    sort(galleryList, e.target.value, isStandard);
   }
 
 
@@ -60,6 +62,7 @@ const Gallery = ({ isLogin, selectGallery, userinfo }) => {
       <ul className={styles.objectList}>
         {galleryList.map((el) => (
           <GalleryContent
+          render={()=> setRerender(!rerender)}
           selectGallery={selectGallery} 
           exhibition={el}
           userinfo={userinfo}
