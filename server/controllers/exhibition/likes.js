@@ -1,8 +1,9 @@
 const { isAuthorized } = require("../../utils/tokenFunction");
 const { likes } = require("../../models");
 module.exports.exhibitionLike = async (req, res) => {
-  //const userInfo = isAuthorized(req);
-  const userInfo = { id: 3 };
+  const userInfo = isAuthorized(req);
+  //const userInfo = { id: 3 };
+  
   if (userInfo) {
     const { postId: exhibition_id } = req.body;
     const { id: user_id } = userInfo;

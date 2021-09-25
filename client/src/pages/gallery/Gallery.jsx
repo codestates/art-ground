@@ -22,32 +22,27 @@ const Gallery = ({ isLogin, selectGallery, userinfo }) => {
   useEffect(() => {
     async function getAxiosData(){
       if(isStandard){ 
-        setGalleryList(await getStandardGallery());
+        setGalleryList(await getStandardGallery(tagClicked, sortValue));
       } else{
-        setGalleryList(await getPremiumGallery());
+        setGalleryList(await getPremiumGallery(tagClicked, sortValue));
       }
     }
     setTimeout(()=> {
       getAxiosData();
-    }, 300)
-  }, [isStandard, rerender]); 
+    }, 200)
+  }, [isStandard, tagClicked, sortValue, rerender]); 
 
   const handleStandard = () => { //STANDARD, PREMIUM 필터
     setStandard(!isStandard)
   }
 
   const handleTagFilter = (el) => { //해시태그 필터
-    setTagClicked(el);
-    filterByTag(el, sortValue, isStandard)
-    //getStandardGallery or getPremiumGallery 요청 받은 거에서 필터링...!
-    
+    setTagClicked(el);   
   }
 
-  const handleSort = (e) => { //정렬(api요청 따로 없어도 됌)
+  const handleSort = (e) => { //정렬
     setSortValue(e.target.value);
-    sort(galleryList, e.target.value, isStandard);
   }
-
 
   return (
     <section className={styles.container}>

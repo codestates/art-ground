@@ -1,8 +1,8 @@
 const { likes } = require("../../models");
 
 module.exports.withdrawalLike = async (req, res) => {
-  //  const userInfo = isAuthorized(req);
-  const userInfo = { id: 3 };
+  const userInfo = isAuthorized(req);
+  //const userInfo = { id: 3 };
   if (userInfo) {
     console.log(userInfo);
     const { postId: exhibition_id } = req.body;
