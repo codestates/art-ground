@@ -48,6 +48,7 @@ module.exports.getExhibition = async (req, res) => {
       ],
       where: {
         exhibit_type,
+        status: 1,
       },
     });
     const data = result.map((el) => el.dataValues);
