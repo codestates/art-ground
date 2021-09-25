@@ -5,7 +5,7 @@ import styles from "./ConfirmModal.module.css";
 const ConfirmModal = ({ el, setConfirmModal, modalTxt }) => {
   const clickConfirmModal = () => {
     axios
-      .post("https:/art-ground.link/admin/exhibition", {
+      .post("https://localhost:5000/admin/exhibition", {
         postId: el.id,
       })
       .then((result) => {

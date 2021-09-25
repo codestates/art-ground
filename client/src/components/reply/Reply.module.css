@@ -44,6 +44,9 @@
 
 .deleteBtn {
   cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
   color: rgb(163, 163, 163);
   transition: 0.3s;
 }
@@ -52,19 +55,13 @@
   color: rgb(46, 46, 46);
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 680px) {
   .reply {
     margin: 1.5rem 0.5rem 0 0.5rem;
   }
   .profile {
     width: 3.5rem;
     height: 3.5rem;
-  }
-
-  .deleteBtn {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
   }
   .contentBox {
     padding: 0 0 0 0.8rem;

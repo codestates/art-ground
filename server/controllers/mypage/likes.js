@@ -15,10 +15,12 @@ module.exports.getMyLikes = async (req, res) => {
   const userInfo = isAuthorized(req);
   const { id: user_id } = userInfo;
 
-  const exhibitionId = await likes.findAll({
+  const result = await likes.findAll({
     attributes: ["exhibition_id"],
     where: {
       user_id,
     },
   });
+
+  const exhibition_ids = result.map((el) => el.dataValues);
 };
