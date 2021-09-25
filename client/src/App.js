@@ -205,10 +205,8 @@ function App() {
           />
           <Gallery
             isLogin={isLogin}
-
             userinfo
-            gallerySelect={(el) => setGallerySelected(el)} 
-
+            gallerySelect={(el) => setGallerySelected(el)}
           />
           <ScrollButton />
         </Route>
@@ -220,8 +218,8 @@ function App() {
             isAdmin={isAdmin}
           />
 
-          <GalleryDetail 
-            //viewArtDetail={(el) => setArtDetail(el)} 
+          <GalleryDetail
+            //viewArtDetail={(el) => setArtDetail(el)}
 
             gallerySelected={gallerySelected}
           />
@@ -253,10 +251,7 @@ function App() {
             isAdmin={isAdmin}
           />
 
-          <ReviewDetail
-            isLogin={isLogin} 
-            reviewSelected={reviewSelected}
-          />
+          <ReviewDetail isLogin={isLogin} reviewSelected={reviewSelected} />
 
           <ScrollButton />
         </Route>

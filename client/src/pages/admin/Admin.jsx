@@ -46,7 +46,7 @@ const Admin = ({ isAdmin, setisAdmin }) => {
 
   useEffect(() => {
     if (exhibition) {
-      axios.get("https://art-ground.link/exhibition").then((result) => {
+      axios.get("https://localhost:5000/exhibition").then((result) => {
         //console.log(result.data.data);
         setExhibitData(result.data.data);
         console.log(result.data.data, "받아온 데이터--------------");

@@ -67,15 +67,19 @@ const AboutSlider = () => {
       onMouseOver={onMouse}
       onMouseOut={outMouse}
     >
-      <button onClick={prevBtn} className={prevbtnStyle}></button>
-      <button onClick={nextBtn} className={nextbtnStyle}></button>
+      <button onClick={prevBtn} className={prevbtnStyle}>
+        {"<"}
+      </button>
+      <button onClick={nextBtn} className={nextbtnStyle}>
+        {">"}
+      </button>
 
       <div className={goSlide}>
         {aboutImg.map((el, idx) => {
           return <img src={el} className={styles.pic}></img>;
         })}
       </div>
-      <span className={styles.active}>sdfsdf</span>
+      {/* <span className={styles.active}>sdfsdf</span> */}
     </section>
   );
 };

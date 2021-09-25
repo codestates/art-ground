@@ -33,12 +33,11 @@
 .main1 {
   background-color: #f1f1f1;
   width: 100%;
-  height: 82vh;
+  height: 100vh;
 }
 .main1img {
   width: 100%;
   height: 100%;
-
   animation: fadein 1.5s;
   -moz-animation: fadein 1.5s;
   /* Firefox */
@@ -48,23 +47,26 @@
   /* Opera */
 }
 .brandTitle {
-  left: 40rem;
-  top: 15rem;
+  margin-top: 3rem;
   background: #202020;
-  width: 40rem;
-  height: 20rem;
+  width: 4.5rem;
+  height: 4.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 }
 .main2 {
   background-color: none;
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .brand {
   width: 100%;
-  height: 100vh;
+  height: 40vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,10 +77,10 @@
 
 .logo {
   width: 80%;
-  height: 50%;
+  height: 80%;
 }
 .brand p {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-family: "Poppins", sans-serif;
 }
 
@@ -92,6 +94,12 @@
 .main5 {
   background-color: #f1f1f1;
 }
+.main6 {
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+}
 
 .border {
   width: 100%;
@@ -99,14 +107,22 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin-bottom: 2rem;
+  overflow: hidden;
 }
 .border h3 {
   margin-bottom: 2rem;
-  font-size: 1.5rem;
+  font-size: 3.5rem;
   font-family: "Poppins", sans-serif;
 }
 .border img {
-  height: 50vh;
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
+  transition: transform 1s;
+}
+.border img:hover {
+  transform: scale(1.1);
+  transition: transform 1s;
 }
 .border > div {
   padding: 2rem;
@@ -118,7 +134,7 @@
 .btn {
   display: inline-block;
   border: none;
-  background: black;
+  background: #202020;
   color: white;
   padding: 0.8rem 1.8rem;
   margin-top: 2rem;
@@ -128,6 +144,30 @@
 }
 .btn:hover {
   opacity: 0.8;
+}
+
+.bottomBtn {
+  display: inline-block;
+  border: none;
+  background: #202020;
+  color: white;
+  padding: 0.8rem 1.8rem;
+  margin-top: 2rem;
+  cursor: pointer;
+  width: 15rem;
+  height: 5rem;
+
+  font-family: "Poppins", sans-serif;
+  animation: motion 0.3s linear 0s infinite alternate;
+  margin-top: 0;
+}
+@keyframes motion {
+  0% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: 10px;
+  }
 }
 
 @media screen and (max-width: 768px) {
