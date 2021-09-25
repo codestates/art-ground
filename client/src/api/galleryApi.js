@@ -1,24 +1,25 @@
 import axios from "axios";
 
-export function createExhibition(title, startDate, endDate, type, content, isClicked, arts) {
+export async function createExhibition(title, startDate, endDate, type, content, isClicked, arts) {
 
-  return axios.post(
-    "https://art-ground.link/exhibition/register",
-    {
-      title: title,
-      startDate: startDate,
-      endDate: endDate,
-      exhibitType: type,
-      genreHashtags: JSON.stringify(isClicked), //해시태그 카테고리(배열)
-      exhibitInfo: content,
-      images: JSON.stringify(arts) //작품 9개
-      // arts = [{title: , content: , subContent: ,img: }, {}, ... , {}]
-      // arts[0].img
-    })
-    .then(res => {
-      console.log(res);
-    })
-    .catch(err => console.log(err.message))
+  try {
+    const res = await axios.post(
+      "https://art-ground.link/exhibition/register",
+      {
+        title: title,
+        startDate: startDate,
+        endDate: endDate,
+        exhibitType: type,
+        genreHashtags: JSON.stringify(isClicked),
+        exhibitInfo: content,
+        images: JSON.stringify(arts) //작품 9개
+        // arts = [{title: , content: , subContent: ,img: }, {}, ... , {}]
+        // arts[0].img
+      });
+    console.log(res);
+  } catch (err) {
+    return console.log(err.message);
+  }
 
 }
 
@@ -45,30 +46,32 @@ export async function getPremiumGallery() {
 }
 
 
-export function createLike(el) {
+export async function createLike(el) {
   //console.log("클릭한 전시회 아이디:", el);
-  return axios.post(
-    "https://localhost:5000/exhibition/like",
-    {
-      postId: el
-    })
-    .then(res => {
-      console.log(res);
-    })
-    .catch(err => console.log(err))
+  try {
+    const res = await axios.post(
+      "https://localhost:5000/exhibition/like",
+      {
+        postId: el
+      });
+    console.log(res);
+  } catch (err) {
+    return console.log(err);
+  }
 }
 
-export function deleteLike(el) {
+export async function deleteLike(el) {
   //console.log("클릭한 전시회 아이디:", el);
-  return axios.delete(
-    "https://localhost:5000/exhibition/like",
-    {
-      postId: el
-    })
-    .then(res => {
-      console.log(res);
-    })
-    .catch(err => console.log(err))
+  try {
+    const res = await axios.delete(
+      "https://localhost:5000/exhibition/like",
+      {
+        postId: el
+      });
+    console.log(res);
+  } catch (err) {
+    return console.log(err);
+  }
 }
 
 
