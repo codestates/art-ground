@@ -13,6 +13,7 @@ const { withdrawalLike } = require("./exhibition/withdrawalLike");
 const { deleteReview } = require("./review/deleteReview");
 const { postReview } = require("./review/register");
 const { getExhibitionReview } = require("./review");
+const { getDetailReview } = require("./review/getDetailReview");
 // sign
 
 // router.use("/sign-up", sign);
@@ -51,7 +52,7 @@ router.post("/exhibition/like", exhibitionLike);
 router.delete("/exhibition/like", withdrawalLike);
 
 //review
-
+router.get("/review/:postId", getDetailReview);
 router.post("/review", postReview);
 router.delete("/review", deleteReview);
 router.get("/review", getExhibitionReview);
