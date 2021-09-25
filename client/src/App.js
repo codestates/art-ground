@@ -39,6 +39,7 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [userinfo, setUserinfo] = useState(null);
   const [isAdmin, setisAdmin] = useState(false);
+
   const [modifyRender, setModifyRender] = useState(false);
   useEffect(() => {
     //로딩창 띄워야함

@@ -1,18 +1,18 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
 
 import styles from "./ConfirmModal.module.css";
 
 const ConfirmModal = ({ el, setConfirmModal, modalTxt }) => {
-  console.log(modalTxt);
-
   const clickConfirmModal = () => {
-    //승인하기
-    console.log(el.id, "승인모달 ok버튼");
-    axios.post("https://localhost:5000/admin/exhibition", {
-      postId: el.id, //전시회 pid
-    });
-    setConfirmModal(false);
+    axios
+      .post("https:/art-ground.link/admin/exhibition", {
+        postId: el.id,
+      })
+      .then((result) => {
+        setConfirmModal(false);
+        window.location.href = "https://art-ground.io/admin";
+      })
+      .catch((err) => console.log(err));
   };
 
   const clickDeleteModal = () => {

@@ -1,7 +1,5 @@
 import styles from "./AdminEx.module.css";
-
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import ConfirmModal from "../modals/ConfirmModal";
 
 const AdminEx = ({ el, updateEx, deleteEx, doneEx }) => {
@@ -18,7 +16,6 @@ const AdminEx = ({ el, updateEx, deleteEx, doneEx }) => {
   const clickDelete = () => {
     setConfirmModal(true);
   };
-  console.log(el);
 
   const imgurl =
     el.images.length > 0

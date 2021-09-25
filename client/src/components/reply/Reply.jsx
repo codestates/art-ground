@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Reply.module.css';
 
-const Reply = ({deleteReply}) => {
+const Reply = ({ deleteReply }) => {
 
   // 로그인 안 했으면 deleteBtn 노출 X
   // 로그인 했으면 내가 쓴 리뷰에만 deleteBtn 표시되도록...!
