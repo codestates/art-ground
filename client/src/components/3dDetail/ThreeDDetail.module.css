@@ -19,7 +19,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgb(94, 94, 94);
+  color: rgb(85, 85, 85);
   background-color: white;
   border-radius: 10px;
   animation: fadein 2s;
@@ -38,7 +38,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgb(94, 94, 94);
+  color: rgb(85, 85, 85);
   background-color: white;
   border-radius: 10px;
   animation: fadeout 2s;
