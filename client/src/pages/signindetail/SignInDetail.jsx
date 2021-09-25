@@ -61,7 +61,7 @@ const SignInDetail = ({
       userType: 1,
     };
     setErrorMessage(""); //art-ground.link
-    axios.post("https://art-ground.io/sign-in", userData).then((result) => {
+    axios.post("https://art-ground.link/sign-in", userData).then((result) => {
       console.log(result, "-----관람객로그인요청");
       if (result.data === "AccessToken ready") {
         handleResponseSuccess();
