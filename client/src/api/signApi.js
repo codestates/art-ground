@@ -3,10 +3,10 @@ import axios from "axios";
 export function getSigninRes(userData, handleResponseSuccess, setisAdmin) {
   //art-ground.link
   return axios
-    .post("https://localhost:5000/sign-in", userData)
+    .post("https://art-ground.link/sign-in", userData)
     .then((result) => {
-      console.log(result.data, "로그인요청 데이터");
       if (result.data === "AccessToken ready") {
+        console.log(result.data, "로그인요청 데이터");
         handleResponseSuccess();
       }
     })
@@ -15,7 +15,7 @@ export function getSigninRes(userData, handleResponseSuccess, setisAdmin) {
 export function getSignOutRes(setUserinfo, setIsLogin, setisAdmin) {
   //art-ground.link
   return axios
-    .post("https://localhost:5000/sign-out")
+    .post("https://art-ground.link/sign-out")
     .then((result) => {
       console.log(result, "로그아웃응답");
       if (result.status === 205) {
@@ -30,7 +30,7 @@ export function getSignOutRes(setUserinfo, setIsLogin, setisAdmin) {
 export function getSingupAudRes(userData, setErrorMessage, history) {
   return (
     axios
-      .post("https://localhost:5000/sign-up/user", userData)
+      .post("https://art-ground.link/sign-up/user", userData)
       //.post("https://art-ground.link/sign-up/user", userData)
       .then((result) => {
         if (result.data.message === "sign-up ok") {
@@ -47,7 +47,7 @@ export function getSingupAudRes(userData, setErrorMessage, history) {
 export function getSingupAuthRes(userData, setErrorMessage, history) {
   return (
     axios
-      .post("https://localhost:5000/sign-up/author", userData)
+      .post("https://art-ground.link/sign-up/author", userData)
       //.post("https://art-ground.link/sign-up/author", userData)
       .then((result) => {
         if (result.data.message === "sign-up ok") {

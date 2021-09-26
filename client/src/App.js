@@ -51,7 +51,7 @@ function App() {
   }, []);
 
   const isAuthenticated = () => {
-    getMyinfo(setIsLogin, setUserinfo, setisAdmin);
+    getMyinfo(setIsLogin, setUserinfo, setisAdmin, isLogin);
   };
 
   const handleResponseSuccess = () => {
@@ -60,7 +60,7 @@ function App() {
   };
 
   const handleLogout = () => {
-    getSignOutRes(setUserinfo, setIsLogin, setisAdmin);
+    getSignOutRes(setUserinfo, setIsLogin, setisAdmin, isLogin);
     history.push("/about");
   };
 
@@ -156,8 +156,13 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
+            setUserinfo={setUserinfo}
           />
-          <MyPage userinfo={userinfo} setUserinfo={setUserinfo} />
+          <MyPage
+            userinfo={userinfo}
+            setUserinfo={setUserinfo}
+            setIsLogin={setIsLogin}
+          />
           {/* {isLogin ? <MyPage userinfo={userinfo} /> : <SideBar />} */}
         </Route>
         <Route path="/about">
@@ -228,10 +233,7 @@ function App() {
             handleLogout={handleLogout}
             isAdmin={isAdmin}
           />
-          <Register
-            userinfo={userinfo}
-            isLogin={isLogin}
-          />
+          <Register userinfo={userinfo} isLogin={isLogin} />
           <ScrollButton />
         </Route>
         <Route path="/3dgallery">
@@ -244,7 +246,11 @@ function App() {
             handleLogout={handleLogout}
             isAdmin={isAdmin}
           />
-          {modifyRender ? <Modify userinfo={userinfo} /> : <Loading />}
+          {modifyRender ? (
+            <Modify userinfo={userinfo} setUserinfo={setUserinfo} />
+          ) : (
+            <Loading />
+          )}
         </Route>
         <Route exact path="/contact">
           <Navbar

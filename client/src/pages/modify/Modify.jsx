@@ -8,7 +8,7 @@ import InfoModify from "../../components/infoModify/InfoModify";
 const CryptoJS = require("crypto-js");
 require("dotenv").config();
 
-const Modify = ({ userinfo }) => {
+const Modify = ({ userinfo, setUserinfo }) => {
   const history = useHistory();
   console.log(userinfo);
 
@@ -37,7 +37,7 @@ const Modify = ({ userinfo }) => {
         <div className={styles.topBox}>
           <div className={styles.contentBorder}>
             <main className={styles.infoEdit}>
-              <div className={styles.infoTitle}>프로필 수정</div>
+              <div className={styles.infoTitle}>art-Ground 프로필</div>
               <div className={styles.infoContent}>
                 <span className={styles.imgBorder}>
                   <img className={styles.ProfileView} src={img} alt="" />
@@ -72,7 +72,11 @@ const Modify = ({ userinfo }) => {
           </div>
         </div>
       ) : (
-        <InfoModify userinfo={userinfo} setInfoEditPage={setInfoEditPage} />
+        <InfoModify
+          userinfo={userinfo}
+          setInfoEditPage={setInfoEditPage}
+          setUserinfo={setUserinfo}
+        />
       )}
     </section>
   );

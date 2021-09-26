@@ -10,7 +10,7 @@ import { useEdgeSplit } from "@react-three/drei";
 
 axios.defaults.withCredentials = true;
 
-const MyPage = ({ userinfo, handleResponseSuccess }) => {
+const MyPage = ({ userinfo, handleResponseSuccess, setUserinfo }) => {
   const [isInfoClicked, setIsInfoClicked] = useState(true);
   const [isPickClicked, setIsPickClicked] = useState(false);
   const [isMyExhibit, setIsMyExhibit] = useState(false);
@@ -54,6 +54,23 @@ const MyPage = ({ userinfo, handleResponseSuccess }) => {
     }, 1000);
   });
 
+  // useEffect(() => {
+  //   axios
+  //     .get("https://localhost:5000/mypage")
+  //     .then((result) => {
+  //       if (result.statusText === "OK") {
+  //         console.log(result.data.data, "dsfsdf");
+  //         const img =
+  //           result.data.data.profile_img === null
+  //             ? "https://images.velog.io/images/beablessing/post/54131e26-0389-412e-b88d-a8b6a97600a8/noimg.png"
+  //             : result.data.data.profile_img;
+
+  //         setUserinfo({ ...result.data.data, profile_img: img });
+  //       }
+  //     })
+  //     .catch((err) => console.log(err));
+  // });
+
   return (
     <section className={styles.container}>
       <div className={styles.side}>
@@ -74,7 +91,13 @@ const MyPage = ({ userinfo, handleResponseSuccess }) => {
       </div>
       <div className={styles.content}>
         {isInfoClicked ? (
-          <>{infoRender ? <MyInfo userinfo={userinfo} /> : <Loading />}</>
+          <>
+            {infoRender ? (
+              <MyInfo userinfo={userinfo} setUserinfo={setUserinfo} />
+            ) : (
+              <Loading />
+            )}
+          </>
         ) : null}
         {isPickClicked ? <MyPick /> : null}
         {isMyExhibit ? <MyExhibit /> : null}

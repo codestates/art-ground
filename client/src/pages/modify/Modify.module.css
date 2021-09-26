@@ -1,5 +1,6 @@
 @value Black, White from '../../common/colors.css';
 @value Container from '../../common/size.css';
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
 
 label,
 span {
@@ -39,11 +40,18 @@ span {
 
 .infoTitle {
   border: 1px solid red;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  text-indent: 2rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
 }
 .infoContent {
   border: 1px solid red;
 }
-
+.imgBorder {
+  border: 3px solid gold;
+}
 .infoBtnBox {
   border: 1px solid red;
 }
