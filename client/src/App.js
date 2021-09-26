@@ -104,6 +104,7 @@ function App() {
             isAuthorLogin={isAuthorLogin}
             isAudienceLogin={isAudienceLogin}
             handleResponseSuccess={handleResponseSuccess}
+            setisAdmin={setisAdmin}
           />
         </Route>
 
@@ -190,9 +191,7 @@ function App() {
             handleLogout={handleLogout}
             isAdmin={isAdmin}
           />
-          <GalleryDetail
-            gallerySelected={gallerySelected}
-          />
+          <GalleryDetail gallerySelected={gallerySelected} />
           <ScrollButton />
         </Route>
         <Route path="/reviewlist">
@@ -216,9 +215,9 @@ function App() {
             isAdmin={isAdmin}
           />
           <ReviewDetail
-          userinfo={userinfo} 
-          isLogin={isLogin} 
-          reviewSelected={reviewSelected} 
+            userinfo={userinfo}
+            isLogin={isLogin}
+            reviewSelected={reviewSelected}
           />
           <ScrollButton />
         </Route>
