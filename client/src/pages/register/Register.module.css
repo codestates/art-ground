@@ -151,7 +151,7 @@ input[type="checkbox"] {
 }
 
 .submit {
-  margin: 5rem 0;
+  margin-top: 5rem;
   text-align: center;
   display: flex;
   align-items: center;
@@ -245,6 +245,12 @@ input[type="checkbox"] {
   border: 1px solid rgb(210, 210, 210);
   background-color: white;
   color: rgb(66, 66, 66);
+}
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
 }
 
 /* 모달 section(위) */
