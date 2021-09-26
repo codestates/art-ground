@@ -13,6 +13,7 @@ const { likes, exhibition } = require("../../models");
 const { isAuthorized } = require("../../utils/tokenFunction");
 module.exports.getMyLikes = async (req, res) => {
   const userInfo = isAuthorized(req);
+
   const { id: user_id } = userInfo;
 
   const result = await likes.findAll({
@@ -22,5 +23,13 @@ module.exports.getMyLikes = async (req, res) => {
     },
   });
 
-  const exhibition_ids = result.map((el) => el.dataValues);
+  const exhibition_ids = result.map((el) => el.dataValues.exhibition_id);
+
+  const myexhibition = await exhibition.findAll({
+    where: {
+      id: exhibition_ids,
+    },
+  });
+  const data = myexhibition.map((el) => el.dataValues);
+  res.status(200).json({ data });
 };

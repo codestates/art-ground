@@ -14,6 +14,9 @@ const { deleteReview } = require("./review/deleteReview");
 const { postReview } = require("./review/register");
 const { getExhibitionReview } = require("./review");
 const { getDetailReview } = require("./review/getDetailReview");
+const { getMyLikes } = require("./mypage/likes");
+const { getMyExhibition } = require("./mypage/exhibition");
+const { modifyMyInfo } = require("./mypage/modify");
 // sign
 
 // router.use("/sign-up", sign);
@@ -43,6 +46,9 @@ router.get("/kakao-login/userinfo?", kakaoCtrl.getUserInfo);
 
 // mypage
 router.get("/mypage", getMyInfo);
+router.get("/mypage/like", getMyLikes);
+router.get("/mypage/exhibition", getMyExhibition);
+router.post("/mypage", modifyMyInfo);
 
 // exhibition
 router.post("/exhibition/register", register);
