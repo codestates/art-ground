@@ -1,13 +1,13 @@
 
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getPremiumGallery, getStandardGallery } from '../../api/galleryApi';
+import { filterByTag, getPremiumGallery, getStandardGallery, sort } from '../../api/galleryApi';
 import GalleryContent from '../../components/galleryContent/GalleryContent';
 import SubNavBar from '../../components/subNavBar/SubNavBar';
 import styles from './Gallery.module.css';
 
 
-const Gallery = ({ isLogin, gallerySelect }) => {
+const Gallery = ({ isLogin, selectGallery, userinfo }) => {
 
   const [galleryList, setGalleryList] = useState([]);
   
@@ -16,31 +16,33 @@ const Gallery = ({ isLogin, gallerySelect }) => {
   const [sortValue, setSortValue] = useState('최신순'); //최신순, 전시마감일순 정렬 상태값
 
   const [modalOpen, setModalOpen] = useState(false); //찜하기 클릭시 나타나는 모달창
+  const [rerender, setRerender] = useState(false); //컴포넌트 재랜더링
 
 
   useEffect(() => {
-    if(isStandard){ 
-      getStandardGallery();
-      //(+ setGellaryList)
-    } else{
-      getPremiumGallery();
-      //(+ setGellaryList)
+    async function getAxiosData(){
+      if(isStandard){ 
+        setGalleryList(await getStandardGallery(tagClicked, sortValue));
+      } else{
+        setGalleryList(await getPremiumGallery(tagClicked, sortValue));
+      }
     }
-  }, [isStandard]); 
+    setTimeout(()=> {
+      getAxiosData();
+    }, 200)
+  }, [isStandard, tagClicked, sortValue, rerender]); 
 
   const handleStandard = () => { //STANDARD, PREMIUM 필터
     setStandard(!isStandard)
   }
 
   const handleTagFilter = (el) => { //해시태그 필터
-    setTagClicked(el);
-    //getStandardGallery or getPremiumGallery 요청 받은 거에서 필터링...!
+    setTagClicked(el);   
   }
 
-  const handleSort = (event) => { //정렬(api요청 따로 없어도 됌)
-    setSortValue(event.target.value);
+  const handleSort = (e) => { //정렬
+    setSortValue(e.target.value);
   }
-
 
   return (
     <section className={styles.container}>
@@ -53,28 +55,15 @@ const Gallery = ({ isLogin, gallerySelect }) => {
         gallerySort={handleSort}
       />
       <ul className={styles.objectList}>
-        <GalleryContent 
-          isLogin={isLogin}
-          handleLikeLogin={()=> setModalOpen(true)} 
-        />
-        <GalleryContent 
-          isLogin={isLogin}
-          handleLikeLogin={()=> setModalOpen(true)} 
-        />
-        <GalleryContent 
-          isLogin={isLogin}
-          handleLikeLogin={()=> setModalOpen(true)} 
-        />
-        <GalleryContent 
-          isLogin={isLogin}
-          handleLikeLogin={()=> setModalOpen(true)} 
-        />        
-        {/* {galleryList.map((el) => (
+        {galleryList.map((el) => (
           <GalleryContent
-          gallerySelect={gallerySelect} 
-          exhibition={el} 
+          render={()=> setRerender(!rerender)}
+          selectGallery={selectGallery} 
+          exhibition={el}
+          userinfo={userinfo}
+          handleModal={()=> setModalOpen(true)} 
           isLogin={isLogin} />
-        ))} */}
+        ))}
       </ul>
 
       {modalOpen ? //모달창

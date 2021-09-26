@@ -1,51 +1,49 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import ThreeDDetail from '../../components/3dDetail/ThreeDDetail';
 import styles from './ThreeDGallery.module.css'
-import { Canvas } from "@react-three/fiber";
-import { useLoader } from "@react-three/fiber";
-import {
-  OrbitControls,
-  Html,
-  useProgress
-} from "@react-three/drei";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { Suspense } from "react";
 
-const Loader = () => {
-  const { progress } = useProgress();
-  return <Html center>{progress}% loaded</Html>;
-}
-
-const Model = () => {
-  const gltf = useLoader(GLTFLoader, "./scene.gltf");
-  return <primitive object={gltf.scene} scale={1} />;
-};
 
 const ThreeDGallery = (props) => {
+
+  const [modalOpen, setModalOpen] = useState(true);
+  
+  const escFunction = useCallback((event) => {
+    if(event.keyCode === 27) {
+      setModalOpen(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("keydown", escFunction, false);
+    return () => {
+      document.removeEventListener("keydown", escFunction, false);
+    };
+  }, []);
+
   return (
-    <div className={styles.container}>
-      <Canvas camera={{ position: [4, 0.3, 3.9]}}>
-        <Suspense fallback={<Loader />}>
-          <ambientLight intensity={0.2} />
-          <directionalLight
-            castShadow
-            position={[0, -10, 0]}
-            intensity={1.5}
-          />
-          <directionalLight
-            castShadow
-            position={[0, 10, 0]}
-            intensity={0.25}
-          />
-          <pointLight position={[0, -10, 0]} intensity={0.1} />
-          <pointLight position={[0, 0, 50]} intensity={0.4} />
-          <pointLight position={[0, 0, -50]} intensity={0.4} />
-          <pointLight position={[50, 0, 0]} intensity={0.4} />
-          <Model />
-          <OrbitControls />
-        </Suspense>
-      </Canvas>
-    </div>
+    <> 
+      <ThreeDDetail modal={modalOpen}/>
+      {modalOpen?
+      <section className={styles.modalContainer}>
+        <div className={styles.modalWrap}>
+          <span className={styles.modalContent}>HOW TO</span>
+          <p className={styles.modalSubContent}>마우스 위로 스크롤: 앞으로 이동<br></br>마우스 아래로 스크롤: 뒤로 이동</p>
+          <p className={styles.modalSubContent}>마우스 드래그: 방향 회전</p>
+          <div className={styles.ok}>
+            <button className={styles.okBtn} 
+            onClick={()=>setModalOpen(false)}
+            >입장하기</button>
+            <Link to="/gallerydetail">
+              <button className={styles.okBtn}>나가기</button>
+            </Link>
+          </div>
+        </div>
+      </section>
+      : null}
+    </>
   );
+
 }
 
 export default ThreeDGallery;

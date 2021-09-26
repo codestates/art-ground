@@ -46,22 +46,26 @@ span {
   border-bottom: 1px solid gainsboro;
 }
 .thumBox {
-  flex: 1;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   overflow: hidden;
 }
 .eximg {
   width: 100%;
   height: 100%;
-  margin-left: 10%;
 }
 .infoBox {
-  flex: 8;
+  flex: 20rem;
   margin-top: 5px;
 }
 .title {
   text-indent: 10px;
   font-size: 1rem;
+  font-weight: bold;
+}
+.author {
+  text-indent: 10px;
+  font-size: 0.9rem;
   font-weight: bold;
 }
 .date {
@@ -72,7 +76,7 @@ span {
   font-size: 0.8rem;
 }
 .btnBox {
-  flex: 1;
+  width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,35 +92,60 @@ span {
   cursor: pointer;
 }
 .btn:hover {
-  background-color: black;
+  background-color: rgb(53, 52, 52);
   color: white;
 }
 
 .btn2 {
-  background-color: black;
+  background-color: rgb(53, 52, 52);
   color: white;
 }
 .btn2:hover {
   background-color: red;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 780px) {
   .thumBox {
-    flex: 2;
-    height: 100px;
-    overflow: hidden;
+    width: 120px;
+    height: 120px;
   }
-  .btnBox {
-    flex: 1.5;
+  .infoBox {
+    flex: 18rem;
+    margin-top: 5px;
+  }
+  .title {
+    font-size: 1.2rem;
+    text-indent: 4px;
+  }
+  .author {
+    font-size: 0.9rem;
+    text-indent: 4px;
+  }
+  .date {
+    font-size: 0.8rem;
+    text-indent: 4px;
   }
 }
+
 @media screen and (max-width: 480px) {
   .thumBox {
-    flex: 2.5;
+    width: 120px;
     height: 100px;
-    overflow: hidden;
   }
-  .btnBox {
-    flex: 1.5;
+  .infoBox {
+    flex: 13rem;
+    margin-top: 5px;
+  }
+  .title {
+    font-size: 1.2rem;
+    text-indent: 4px;
+  }
+  .author {
+    font-size: 0.9rem;
+    text-indent: 4px;
+  }
+  .date {
+    font-size: 0.8rem;
+    text-indent: 4px;
   }
 }

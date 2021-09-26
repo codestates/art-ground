@@ -6,6 +6,7 @@ module.exports = {
   approveExhibitions: (req, res) => {
     const userInfo = isAuthorized(req);
     const { postId } = req.body;
+    console.log('+++++++++++++++', req.headers)
     console.log("userInfo:", userInfo, postId);
 
     if (userInfo.user_type === 3) {

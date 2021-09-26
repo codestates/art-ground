@@ -84,6 +84,9 @@
   width: 100%;
   margin-bottom: 1.5rem;
   border: 1px solid rgb(210, 210, 210);
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  padding: 0.5rem 0;
 }
 
 .artImg {
@@ -108,11 +111,15 @@ input[type="checkbox"] {
   display: none;
 }
 
+.tagsWrap {
+  margin-bottom: 1.5rem;
+}
+
 .tags {
   height: 2rem;
   display: flex;
   align-items: center;
-  margin-bottom: 1.5rem;
+  /* margin-bottom: 1.5rem; */
 }
 
 .hashtag {
@@ -199,7 +206,7 @@ input[type="checkbox"] {
 }
 
 .modalContent {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   text-align: center;
   font-size: 1.2rem;
   color: rgb(90, 90, 90);
@@ -226,11 +233,11 @@ input[type="checkbox"] {
   height: 2.5rem;
   cursor: pointer;
   border: 1px solid rgb(90, 90, 90);
-  padding: 0.2rem 1rem;
+  padding: 0.2rem 0.7rem;
   border-radius: 5px;
   background-color: rgb(90, 90, 90);
   transition: 0.3s;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: white;
   white-space: nowrap;
 }
@@ -263,14 +270,22 @@ input[type="checkbox"] {
 /* 모달 section(아래) */
 @media screen and (max-width: 480px) {
   .modalWrap {
-    width: 75%;
+    width: 80%;
+    padding: 4.5rem 1.5rem;
+    height: 20rem;
   }
-}
-@media screen and (max-width: 420px) {
+  .ok {
+    margin: 3.5rem 0;
+  }
   .okBtn {
-    margin: 0 0.2rem;
-    width: 4rem;
-    font-size: 0.5rem;
+    margin: 0 0.5rem;
+    width: 5rem;
+  }
+  .modalContent {
+    font-size: 1rem;
+  }
+  .modalSubContent {
+    font-size: 0.75rem;
   }
 }
 /* 모달 section(위) */
