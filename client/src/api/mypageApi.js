@@ -8,7 +8,7 @@ export function getMyinfo(setIsLogin, setUserinfo, setisAdmin) {
       if (result.statusText === "OK") {
         setIsLogin(true);
         setUserinfo(result.data.data);
-        if (result.data.data.user_type) {
+        if (result.data.data.user_type === 3) {
           setisAdmin(true);
         }
       }

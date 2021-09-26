@@ -1,12 +1,17 @@
-import React, { useEffect } from 'react';
-import styles from './GalleryContent.module.css';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { createLike, deleteLike } from '../../api/galleryApi';
+import React, { useEffect } from "react";
+import styles from "./GalleryContent.module.css";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { createLike, deleteLike } from "../../api/galleryApi";
 
-
-const GalleryContent = ({ isLogin, userinfo, exhibition, selectGallery, handleModal, render }) => {
-  
+const GalleryContent = ({
+  isLogin,
+  userinfo,
+  exhibition,
+  selectGallery,
+  handleModal,
+  render,
+}) => {
   const [isLiked, setLiked] = useState(false);
   
   useEffect(()=> {
@@ -17,16 +22,20 @@ const GalleryContent = ({ isLogin, userinfo, exhibition, selectGallery, handleMo
       } else{
         setLiked(false); //유저가 해당 gallerycontent컴포넌트를 좋아요 한 게 아닐 때
       }
+
       //console.log('단일 컴포넌트 useEffect', exhibition)
     }
-  }) //의존성 배열 두면 안 됨.
+  }); //의존성 배열 두면 안 됨.
 
-  const handleLike = () => { //로그인 한 사람들에게만 작동. 
-    if(isLiked){// 좋아요 해제
+  const handleLike = () => {
+    //로그인 한 사람들에게만 작동.
+    if (isLiked) {
+      // 좋아요 해제
       deleteLike(exhibition.id);
       setLiked(false);
       render();
-    } else{ //좋아요
+    } else {
+      //좋아요
       createLike(exhibition.id);
       setLiked(true);
       render();
@@ -78,11 +87,11 @@ const GalleryContent = ({ isLogin, userinfo, exhibition, selectGallery, handleMo
         <div className={styles.likesMeta} onClick={handleModal}>
           <span className={styles.notlike}><i class="far fa-heart"></i></span>
           <span className={styles.likesCount}>{exhibition.likes.length}</span>
-        </div>
 
+        </div>
       </li>
-    )
+    );
   }
-}
+};
 
 export default GalleryContent;

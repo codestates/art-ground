@@ -3,7 +3,7 @@ const { isAuthorized } = require("../../utils/tokenFunction");
 module.exports.deleteReview = async (req, res) => {
   const userInfo = isAuthorized(req);
 
-  const { commentsId: id } = req.body;
+  const { commentsId: id } = req.params;
   if (userInfo) {
     const { id: user_id } = userInfo;
     const result = await commentsModel.destroy({
