@@ -17,6 +17,7 @@ const { getDetailReview } = require("./review/getDetailReview");
 const { getMyLikes } = require("./mypage/likes");
 const { getMyExhibition } = require("./mypage/exhibition");
 const { modifyMyInfo } = require("./mypage/modify");
+const { withdrawal } = require("./mypage/withdrawal");
 // sign
 
 // router.use("/sign-up", sign);
@@ -49,6 +50,7 @@ router.get("/mypage", getMyInfo);
 router.get("/mypage/like", getMyLikes);
 router.get("/mypage/exhibition", getMyExhibition);
 router.post("/mypage", modifyMyInfo);
+router.delete("/mapage", withdrawal);
 
 // exhibition
 router.post("/exhibition/register", register);
