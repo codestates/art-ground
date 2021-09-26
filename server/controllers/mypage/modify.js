@@ -9,7 +9,7 @@ module.exports.modifyMyInfo = async (req, res) => {
       profileImg: profile_img,
       authorDesc: author_desc,
       nickName: nickname,
-    } = req.body;
+    } = req.body.userData;
 
     const result = await userModel.update(
       { nickname, profile_img, author_desc },
