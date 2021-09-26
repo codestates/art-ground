@@ -16,7 +16,7 @@ const Gallery = ({ isLogin, selectGallery, userinfo }) => {
   const [sortValue, setSortValue] = useState('최신순'); //최신순, 전시마감일순 정렬 상태값
 
   const [modalOpen, setModalOpen] = useState(false); //찜하기 클릭시 나타나는 모달창
-  const [rerender, setRerender] = useState(false);
+  const [rerender, setRerender] = useState(false); //컴포넌트 재랜더링
 
 
   useEffect(() => {
