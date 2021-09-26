@@ -6,6 +6,7 @@ const kakaoCtrl = require("./sign/kakao");
 const googleCtrl = require("./sign/google");
 const adminCtrl = require("./admin/admin.ctrl");
 const { getMyInfo } = require("./mypage");
+const { updatePassword } = require("./mypage");
 const { register } = require("./exhibition/register");
 const { getExhibition } = require("./exhibition");
 const { exhibitionLike } = require("./exhibition/likes");
@@ -43,6 +44,7 @@ router.get("/kakao-login/userinfo?", kakaoCtrl.getUserInfo);
 
 // mypage
 router.get("/mypage", getMyInfo);
+router.patch("/mypage/password", updatePassword);
 
 // exhibition
 router.post("/exhibition/register", register);
