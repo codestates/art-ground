@@ -50,6 +50,7 @@ module.exports = {
     }
   },
   closeExhibitions: (req, res) => {
+    console.log(req, "----");
     const userInfo = isAuthorized(req);
     const { postId } = req.body;
     console.log("userInfo:", userInfo, postId);
