@@ -40,11 +40,7 @@ const Modify = ({ userinfo, setUserinfo }) => {
               <div className={styles.infoTitle}>art-Ground 프로필</div>
               <div className={styles.infoContent}>
                 <span className={styles.imgBorder}>
-                  <img
-                    className={styles.ProfileView}
-                    src={userinfo.profile_img}
-                    alt=""
-                  />
+                  <img className={styles.ProfileView} src={img} alt="" />
                 </span>
                 <span className={styles.nickName}>
                   <span>닉네임:</span>
