@@ -50,7 +50,7 @@ router.get("/mypage", getMyInfo);
 router.get("/mypage/like", getMyLikes);
 router.get("/mypage/exhibition", getMyExhibition);
 router.post("/mypage", modifyMyInfo);
-router.delete("/mapage", withdrawal);
+router.delete("/mypage", withdrawal);
 
 // exhibition
 router.post("/exhibition/register", register);
