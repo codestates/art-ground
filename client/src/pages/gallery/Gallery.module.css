@@ -33,6 +33,12 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 0.5rem;
   grid-row-gap: 2.5rem;
+  animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s;
+  /* Firefox */
+  -webkit-animation: fadein 1.5s;
+  /* Safari and Chrome */
+  -o-animation: fadein 1.5s;
 }
 
 .modalContainer {

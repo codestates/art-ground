@@ -1,7 +1,7 @@
 import styles from "./SignInDetail.module.css";
 import React, { useState } from "react";
 import axios from "axios";
-
+import { getSigninRes } from "../../api/signApi";
 const CryptoJS = require("crypto-js");
 require("dotenv").config();
 
@@ -60,13 +60,10 @@ const SignInDetail = ({
       password: encryptedPassword,
       userType: 1,
     };
-    setErrorMessage(""); //art-ground.link
-    axios.post("https://art-ground.link/sign-in", userData).then((result) => {
-      console.log(result, "-----관람객로그인요청");
-      if (result.data === "AccessToken ready") {
-        handleResponseSuccess();
-      }
-    });
+
+    setErrorMessage("");
+    getSigninRes(userData, handleResponseSuccess);
+
   };
   const clickAuthLogin = () => {
     if (!userEmail || !password) {
@@ -89,12 +86,7 @@ const SignInDetail = ({
       userType: 2,
     };
     setErrorMessage("");
-    axios.post("https://art-ground.link/sign-in", userData).then((result) => {
-      console.log(result, "-----작가로그인요청");
-      if (result.data === "AccessToken ready") {
-        handleResponseSuccess();
-      }
-    });
+    getSigninRes(userData, handleResponseSuccess);
   };
 
   const audonKeyPress = (e) => {

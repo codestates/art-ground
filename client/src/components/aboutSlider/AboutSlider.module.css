@@ -1,5 +1,5 @@
 .container {
-  width: 80%;
+  width: 100%;
   height: 100%;
   margin: 0 auto;
   overflow: hidden;
@@ -45,14 +45,18 @@
 }
 .btnhover {
   position: absolute;
-  width: 60px;
-  height: 100%;
+  width: 3%;
+  height: 8%;
+  top: 45%;
+
   background-color: black;
   opacity: 35%;
   border: none;
   cursor: pointer;
   outline: none;
   z-index: 2;
+  color: white;
+  font-size: 4rem;
 }
 .btn {
   position: absolute;
