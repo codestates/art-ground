@@ -49,12 +49,12 @@ router.post("/exhibition/register", register);
 router.get("/exhibition/:type", getExhibition);
 router.get("/exhibition", getExhibition);
 router.post("/exhibition/like", exhibitionLike);
-router.delete("/exhibition/like", withdrawalLike);
+router.delete("/exhibition/like/:postId", withdrawalLike);
 
 //review
 router.get("/review/:postId", getDetailReview);
 router.post("/review", postReview);
-router.delete("/review", deleteReview);
+router.delete("/review/:commentsId", deleteReview);
 router.get("/review", getExhibitionReview);
 // admin
 // 전시 승인
