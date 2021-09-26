@@ -4,7 +4,7 @@ import AWS from "aws-sdk";
 import { Link, useHistory, withRouter } from 'react-router-dom';
 import { createExhibition } from '../../api/galleryApi';
 
-const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
+const Register = ({ userinfo, isLogin }) => {
 
   const artCount = [];
   for(let i=0; i<9; i++){
@@ -116,7 +116,7 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
     history.goBack();
   }
 
-  if(isAuthorLogin){
+  if(userinfo && userinfo.user_type === 2){
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>전시 신청</h2>
@@ -244,7 +244,7 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
     </section>
 
   )
-  } else if(isAudienceLogin){ // 관람객 로그인 시
+  } else if(userinfo && userinfo.user_type === 1){ // 관람객 로그인 시
     
     return (
       <section className={styles.modalContainer}>
@@ -258,7 +258,7 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
       </section>
     )
 
-  } else{ //비로그인 시
+  } else if(!userinfo && !isLogin){ //비로그인 시
     
     return (
       <section className={styles.modalContainer}>

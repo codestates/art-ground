@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { filterByTag, getPremiumGallery, getStandardGallery, sort } from '../../api/galleryApi';
+import { getPremiumGallery, getStandardGallery } from '../../api/galleryApi';
 import GalleryContent from '../../components/galleryContent/GalleryContent';
 import SubNavBar from '../../components/subNavBar/SubNavBar';
 import styles from './Gallery.module.css';
@@ -23,6 +23,7 @@ const Gallery = ({ isLogin, selectGallery, userinfo }) => {
     async function getAxiosData(){
       if(isStandard){ 
         setGalleryList(await getStandardGallery(tagClicked, sortValue));
+        console.log(await getStandardGallery(tagClicked, sortValue))
       } else{
         setGalleryList(await getPremiumGallery(tagClicked, sortValue));
       }
