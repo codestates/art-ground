@@ -8,7 +8,7 @@ module.exports = {
     const { postId } = req.body;
     console.log("userInfo:", userInfo, postId);
 
-    if (userInfo.user_type === 1 /*관리자는 원래 3*/) {
+    if (userInfo.user_type === 3) {
       exhibition
         .findOne({
           where: {
@@ -54,7 +54,7 @@ module.exports = {
     const { postId } = req.body;
     console.log("userInfo:", userInfo, postId);
 
-    if (userInfo.user_type === 1 /*관리자는 원래 3*/) {
+    if (userInfo.user_type === 3) {
       exhibition
         .findOne({
           where: {
@@ -99,7 +99,7 @@ module.exports = {
     const userInfo = isAuthorized(req);
     const { commentId } = req.body;
 
-    if (userInfo.user_type === 1 /*관리자는 원래 3*/) {
+    if (userInfo.user_type === 3) {
       comments
         .findOne({
           where: {
