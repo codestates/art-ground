@@ -10,7 +10,7 @@ require("dotenv").config();
 
 axios.defaults.withCredentials = true;
 
-const InfoModify = ({ userinfo, setInfoEditPage }) => {
+const InfoModify = ({ userinfo, setInfoEditPage, setUserinfo }) => {
   const history = useHistory();
 
   const [userMail, setUserMail] = useState(userinfo.user_email);
@@ -21,7 +21,7 @@ const InfoModify = ({ userinfo, setInfoEditPage }) => {
   const [password2, setPassword2] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  console.log(userMail);
+
   const secretKey = process.env.CRYPTOJS_SECRETKEY;
 
   AWS.config.update({
@@ -76,46 +76,29 @@ const InfoModify = ({ userinfo, setInfoEditPage }) => {
   };
 
   const clickDone = () => {
-    if (!password) {
-      setErrorMessage("비밀번호를 입력해야 수정이 가능합니다.");
-      return false;
-    } else {
-      setErrorMessage("");
-    }
-    if (password !== password2) {
-      setErrorMessage("동일한 비밀번호를 한번더 입력해주세요");
-      return false;
-    } else {
-      setErrorMessage("");
-    }
     setModalOpen(true);
   };
 
   const clickModify = () => {
-    setModalOpen(false);
+    //   setModalOpen(false);
     //암호화
-    if (password) {
-      const encryptedPassword = CryptoJS.AES.encrypt(
-        JSON.stringify(password),
-        secretKey
-      ).toString();
 
-      const userData = {
-        nickName: nickName,
-        profileImg: img,
-        authorDesc: authDesc,
-      };
-
-      axios
-        .post("https://localhost:5000/mapage", {
-          userData,
-        })
-        .then((result) => {
-          console.log(result, "인포수정 응답!");
-          history.push("./mypage");
-        })
-        .catch((err) => console.log(err));
-    }
+    const userData = {
+      nickName: nickName,
+      profileImg: img,
+      authorDesc: authDesc,
+    };
+    console.log(userData);
+    axios
+      .post("https://art-ground.link/mypage", {
+        userData,
+      })
+      .then((result) => {
+        console.log(result, "인포수정 응답!");
+        history.push("/mypage");
+        //setUserinfo();
+      })
+      .catch((err) => console.log(err));
   };
 
   const cancleClick = () => {

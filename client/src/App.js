@@ -245,7 +245,11 @@ function App() {
             handleLogout={handleLogout}
             isAdmin={isAdmin}
           />
-          {modifyRender ? <Modify userinfo={userinfo} /> : <Loading />}
+          {modifyRender ? (
+            <Modify userinfo={userinfo} setUserinfo={setUserinfo} />
+          ) : (
+            <Loading />
+          )}
         </Route>
         <Route exact path="/contact">
           <Navbar

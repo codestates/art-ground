@@ -51,7 +51,7 @@ const MyPage = ({ userinfo, handleResponseSuccess }) => {
     //로딩창 띄워야함
     setTimeout(() => {
       setInfoRender(true);
-    }, 1000);
+    }, 1500);
   });
 
   return (
