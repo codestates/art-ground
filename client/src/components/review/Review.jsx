@@ -25,8 +25,9 @@ const Review = ({ exhibition, selectReview }) => {
             <span className={styles.reviewCount}>총 {exhibition.comments.length}개의 리뷰가 있어요</span>
             <div className={styles.btnWrap}>
             <Link to='/reviewdetail'>
-              <button className={styles.reviewBtn}>리뷰 쓰러가기</button>
-              </Link>
+              <button className={styles.reviewBtn}
+              onClick={()=> selectReview(exhibition)}>리뷰 쓰러가기</button>
+            </Link>
             </div>
           </div>
         </div>
