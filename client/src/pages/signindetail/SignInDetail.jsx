@@ -60,8 +60,10 @@ const SignInDetail = ({
       password: encryptedPassword,
       userType: 1,
     };
+
     setErrorMessage("");
     getSigninRes(userData, handleResponseSuccess);
+
   };
   const clickAuthLogin = () => {
     if (!userEmail || !password) {

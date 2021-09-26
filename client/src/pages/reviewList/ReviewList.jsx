@@ -3,7 +3,7 @@ import { getAllGallery } from '../../api/reviewApi';
 import Review from '../../components/review/Review';
 import styles from './ReviewList.module.css';
 
-const ReviewList = ({ isLogin, reviewSelect }) => {
+const ReviewList = ({ isLogin, selectReview }) => {
 
   const [galleryList, setGalleryList] = useState([]);
   const [filter, setFilter] = useState('');
@@ -11,7 +11,12 @@ const ReviewList = ({ isLogin, reviewSelect }) => {
 
   useEffect(()=> {
     //standard, premium gallery, 마감된 전시 모두 모아서 setGalleryList에 넣기.
-    getAllGallery();
+    async function getAxiosData(){
+      setGalleryList(await getAllGallery());
+      //console.log(await getAllGallery())
+    }
+    getAxiosData();
+    //getAllGallery();
   }, [])
 
   const handleChange = (e) => {
@@ -54,16 +59,10 @@ const ReviewList = ({ isLogin, reviewSelect }) => {
         </button>
       </div>
       <ul className={styles.reviews}>
-        <Review />
-        <Review />
-        <Review />
-        <Review />
-        <Review />
-        <Review />
         {galleryList
         .map((el) => (
           <Review
-          reviewSelect={reviewSelect} 
+          selectReview={selectReview} 
           exhibition={el}
           />
         ))}

@@ -27,13 +27,6 @@ const Navbar = ({ isLogin, handleLogout, isAdmin }) => {
   const [ScrollY, setScrollY] = useState(0);
   const [navStatus, setNavStatus] = useState(false);
 
-  //   const [navFixed, setNavFixed] = useState(false);
-
-  //   const handleFollow = () => {
-  //     setScrollY(window.pageYOffset);
-  //     setNavFixed(true);
-  //     if (ScrollY > 400) {
-
   const handleFollow = () => {
     setScrollY(window.pageYOffset);
     if (ScrollY > 50) {
