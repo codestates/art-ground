@@ -53,12 +53,21 @@ module.exports = function (sequelize, DataTypes) {
     }
   );
   users.associate = function (models) {
-    users.hasMany(models.comments, { as: "comments", foreignKey: "user_id" });
+    users.hasMany(models.comments, {
+      as: "comments",
+      foreignKey: "user_id",
+      onDelete: "cascade",
+    });
     users.hasMany(models.exhibition, {
       as: "exhibitions",
       foreignKey: "author_id",
+      onDelete: "cascade",
     });
-    users.hasMany(models.likes, { as: "likes", foreignKey: "user_id" });
+    users.hasMany(models.likes, {
+      as: "likes",
+      foreignKey: "user_id",
+      onDelete: "cascade",
+    });
   };
   return users;
 };

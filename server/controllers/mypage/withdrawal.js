@@ -6,6 +6,7 @@ module.exports.withdrawal = async (req, res) => {
 
   if (userInfo) {
     const { id } = userInfo;
+
     const result = await userModel.destroy({
       where: {
         id,
