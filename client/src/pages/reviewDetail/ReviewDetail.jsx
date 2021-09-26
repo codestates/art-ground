@@ -18,6 +18,7 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
   useEffect(() => { //해당 전시회의 댓글(배열) GET요청
     async function getAxiosData(){
       setReplyList(await getReplyList(reviewSelected.id));
+      console.log(await getReplyList(reviewSelected.id))
     }
     setTimeout(()=> {
       getAxiosData();
@@ -101,7 +102,8 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
         <div className={styles.replyCount}>
           총 {replyList.length}개</div>
         {replyList.map(el => 
-        <Reply 
+        <Reply
+        isLogin={isLogin} 
         reply={el} 
         deleteReply={deleteReply}
         userinfo={userinfo}
