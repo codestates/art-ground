@@ -55,7 +55,7 @@
   color: rgb(46, 46, 46);
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 768px) {
   .reply {
     margin: 1.5rem 0.5rem 0 0.5rem;
     padding: 1rem 0.5rem;
