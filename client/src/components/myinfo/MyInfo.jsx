@@ -2,6 +2,7 @@ import styles from "./MyInfo.module.css";
 
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router";
+import axios from "axios";
 
 const MyInfo = ({ userinfo }) => {
   const history = useHistory();
@@ -10,7 +11,13 @@ const MyInfo = ({ userinfo }) => {
     history.push("/modify");
   };
   const deleteAccount = () => {
-    // 탈퇴요청보내기
+    axios
+      .delete("https://localhost:5000/mapage")
+      .then((result) => {
+        console.log(result, "탈퇴!");
+        history.push("./about");
+      })
+      .catch((err) => console.log(err));
   };
 
   return (

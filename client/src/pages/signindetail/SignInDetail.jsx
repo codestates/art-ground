@@ -11,6 +11,7 @@ const SignInDetail = ({
   isAuthorLogin,
   isAudienceLogin,
   handleResponseSuccess,
+  setisAdmin,
 }) => {
   const [loginInfo, setLoginInfo] = useState({
     userEmail: "",
@@ -62,8 +63,7 @@ const SignInDetail = ({
     };
 
     setErrorMessage("");
-    getSigninRes(userData, handleResponseSuccess);
-
+    getSigninRes(userData, handleResponseSuccess, setisAdmin);
   };
   const clickAuthLogin = () => {
     if (!userEmail || !password) {
