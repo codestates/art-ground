@@ -15,12 +15,15 @@ const Reply = ({ deleteReply, reply, isLogin, userinfo }) => {
       <div className={styles.contentBox}>
         <div className={styles.userAndDate}>
           <span className={styles.user}>{reply.user.nickname}</span>
-          <span className={styles.date}>{reply.createdAt.substring(0,10)} {reply.createdAt. substring(11, 16)}</span> 
+          <span className={styles.date}>
+            {reply.createdAt}
+            {/* {reply.createdAt.substring(0,10)} {reply.createdAt. substring(11, 16)} */}
+          </span> 
         </div>
         <div className={styles.content}>{reply.comments}</div>
       </div>
       {isLogin && userinfo.nickname === reply.user.nickname?
-      <span className={styles.deleteBtn} onClick={()=> deleteReply(reply)}><i class="fas fa-times"></i></span>
+      <span className={styles.deleteBtn} onClick={()=> deleteReply(reply.id)}><i class="fas fa-times"></i></span>
       : null}
     </li>
   )

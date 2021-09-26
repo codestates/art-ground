@@ -12,9 +12,10 @@ const GalleryContent = ({
   handleModal,
   render,
 }) => {
+  
   const [isLiked, setLiked] = useState(false);
   
-  useEffect(()=> {
+  useEffect(()=> { //좋아요 했는지 안 했는지 초기 세팅
     if(isLogin){
       const likeArr = exhibition.likes.filter(el => userinfo.id === el.user_id) 
       if(likeArr.length !==0){ //유저가 해당 gallerycontent컴포넌트를 좋아요 한 것일 때
@@ -22,8 +23,6 @@ const GalleryContent = ({
       } else{
         setLiked(false); //유저가 해당 gallerycontent컴포넌트를 좋아요 한 게 아닐 때
       }
-
-      //console.log('단일 컴포넌트 useEffect', exhibition)
     }
   }); //의존성 배열 두면 안 됨.
 
@@ -32,12 +31,11 @@ const GalleryContent = ({
     if (isLiked) {
       // 좋아요 해제
       deleteLike(exhibition.id);
-      setLiked(false);
+      console.log(exhibition.id, 'delete 요청 보냄')
       render();
     } else {
       //좋아요
       createLike(exhibition.id);
-      setLiked(true);
       render();
     }
   }

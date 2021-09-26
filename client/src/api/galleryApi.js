@@ -136,10 +136,7 @@ export async function deleteLike(postId) {
   console.log("클릭한 전시회 아이디:", postId);
   try {
     const res = await axios.delete(
-      `https://art-ground.link/exhibition/like/${postId}`,
-      {
-        //postId: postId
-      });
+      `https://art-ground.link/exhibition/like/${postId}`)
 
     console.log(res);
   } catch (err) {
