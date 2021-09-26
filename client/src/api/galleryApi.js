@@ -82,13 +82,13 @@ export async function getPremiumGallery(tagClicked, sortValue) {
 }
 
 
-export async function createLike(el) {
-  console.log("클릭한 전시회 아이디:", el);
+export async function createLike(postId) {
+  console.log("클릭한 전시회 아이디:", postId);
   try {
     const res = await axios.post(
       "https://art-ground.link/exhibition/like",
       {
-        postId: el
+        postId: postId
       });
     console.log(res);
   } catch (err) {
@@ -96,13 +96,13 @@ export async function createLike(el) {
   }
 }
 
-export async function deleteLike(el) {
-  console.log("클릭한 전시회 아이디:", el);
+export async function deleteLike(postId) {
+  console.log("클릭한 전시회 아이디:", postId);
   try {
     const res = await axios.delete(
-      "https://art-ground.link/exhibition/like",
+      `https://art-ground.link/exhibition/like/${postId}`,
       {
-        postId: el
+        //postId: postId
       });
     console.log(res);
   } catch (err) {

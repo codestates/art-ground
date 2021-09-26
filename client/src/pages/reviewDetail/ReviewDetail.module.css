@@ -218,13 +218,11 @@
 @media screen and (max-width: 680px) {
   .artDetail {
     flex-direction: column;
-    /* align-items: center; */
   }
   .imgBox {
-    width: 45%;
+    width: 100%;
     padding: 0 1.2rem;
     margin-left: 0;
-    /* align-items: center; */
   }
 
   .metaData {
@@ -240,6 +238,11 @@
   .replyCount {
     margin: 0 1rem;
     padding: 0;
+  }
+  .thumbnail {
+    width: 100%;
+    height: auto;
+    margin: 0;
   }
 }
 /* 모달 section(아래) */

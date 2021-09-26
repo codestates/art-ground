@@ -33,7 +33,7 @@ const GalleryContent = ({ isLogin, userinfo, exhibition, selectGallery, handleMo
     }
   }
   
-  if(isLogin){ // 로그인했다면? 좋아요를 했는지 안했는지에 따라서 하트 다르게 랜더링. 좋아요 클릭시 좋아요/좋아요 해제 가능
+  //if(isLogin){ // 로그인했다면? 좋아요를 했는지 안했는지에 따라서 하트 다르게 랜더링. 좋아요 클릭시 좋아요/좋아요 해제 가능
     return(
       <>
         <li className={styles.object}>
@@ -42,11 +42,10 @@ const GalleryContent = ({ isLogin, userinfo, exhibition, selectGallery, handleMo
             <div className={styles.layer}
             onClick={()=>selectGallery(exhibition)}
             ></div>
-            <img className={styles.thumbnail} src={exhibition.images[0]? 
-              exhibition.images[0].image_urls ? 
-              exhibition.images[0].image_urls : 
-              'https://images.velog.io/images/devjade/post/4d263fb5-8ccc-452d-ab79-004184adf025/image.png' : 
-              'https://t1.daumcdn.net/cfile/tistory/99EFE6375A65DFEA33'} alt='thumbnail' />
+            <img className={styles.thumbnail} 
+            onClick={()=>selectGallery(exhibition)}
+            src={exhibition.images[0].image_urls} 
+            alt='thumbnail' />
           </Link>
 
           <span className={styles.title}>{exhibition.title}</span>
@@ -62,26 +61,26 @@ const GalleryContent = ({ isLogin, userinfo, exhibition, selectGallery, handleMo
         </li>
       </>
     )
-  } else{ // 로그인 안 했다면? 좋아요 default 회색하트 랜더링. 클릭 시 로그인해주세요 모달창 띄우기
-    return (
-      <li className={styles.object}>
-        <Link to='/gallerydetail'>
-          <div className={styles.layer}
-          //onClick={()=>selectGallery(exhibition)}
-          ></div>
-          <img className={styles.thumbnail} src='http://www.news-paper.co.kr/news/photo/201903/39919_25361_5530.jpg' alt='thumbnail' />
-        </Link>
-        <span className={styles.title}>데이비드 호크니展</span>
-        <div className={styles.period}>전시 기간: 2021-09-13 ~ 2021-12-31</div>
+  // } else{ // 로그인 안 했다면? 좋아요 default 회색하트 랜더링. 클릭 시 로그인해주세요 모달창 띄우기
+  //   return (
+  //     <li className={styles.object}>
+  //       <Link to='/gallerydetail'>
+  //         <div className={styles.layer}
+  //         //onClick={()=>selectGallery(exhibition)}
+  //         ></div>
+  //         <img className={styles.thumbnail} src='http://www.news-paper.co.kr/news/photo/201903/39919_25361_5530.jpg' alt='thumbnail' />
+  //       </Link>
+  //       <span className={styles.title}>데이비드 호크니展</span>
+  //       <div className={styles.period}>전시 기간: 2021-09-13 ~ 2021-12-31</div>
         
-        <div className={styles.likesMeta} onClick={handleModal}>
-          <span className={styles.notlike}><i class="far fa-heart"></i></span>
-          <span className={styles.likesCount}>N</span>
-        </div>
+  //       <div className={styles.likesMeta} onClick={handleModal}>
+  //         <span className={styles.notlike}><i class="far fa-heart"></i></span>
+  //         <span className={styles.likesCount}>N</span>
+  //       </div>
 
-      </li>
-    )
-  }
+  //     </li>
+  //   )
+  // }
 }
 
 export default GalleryContent;

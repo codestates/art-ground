@@ -61,14 +61,14 @@ export async function postReview(reply, postId){
 
 
 
-export async function deleteReview(replyId){
+export async function deleteReview(commentsId){
 
   console.log('REVIEW 삭제')
   try {
     const res = await axios.delete(
-      "https://art-ground.link/review",
+      `https://art-ground.link/review/${commentsId}`,
       {
-        commentsId: replyId
+        //commentsId: replyId
       });
     console.log(res);
   } catch (err) {
