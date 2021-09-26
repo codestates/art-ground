@@ -6,10 +6,9 @@ module.exports = {
   approveExhibitions: (req, res) => {
     const userInfo = isAuthorized(req);
     const { postId } = req.body;
-    const userInfo = isAuthorized(req);
     console.log("userInfo:", userInfo, postId);
 
-    if (userInfo.user_type === 1 /*관리자는 원래 3*/) {
+    if (userInfo.user_type === 3) {
       exhibition
         .findOne({
           where: {
@@ -52,10 +51,10 @@ module.exports = {
   },
   closeExhibitions: (req, res) => {
     const userInfo = isAuthorized(req);
-    const { postId } = req.body;
+    const { postId } = req.params;
     console.log("userInfo:", userInfo, postId);
 
-    if (userInfo.user_type === 1 /*관리자는 원래 3*/) {
+    if (userInfo.user_type === 3) {
       exhibition
         .findOne({
           where: {
@@ -98,9 +97,10 @@ module.exports = {
   },
   deleteReviews: (req, res) => {
     const userInfo = isAuthorized(req);
-    const { commentId } = req.body;
+    const { commentId } = req.params;
+    console.log("userInfo:", userInfo, commentId);
 
-    if (userInfo.user_type === 1 /*관리자는 원래 3*/) {
+    if (userInfo.user_type === 3) {
       comments
         .findOne({
           where: {

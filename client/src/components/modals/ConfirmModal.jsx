@@ -18,10 +18,14 @@ const ConfirmModal = ({ el, setConfirmModal, modalTxt }) => {
   const clickDeleteModal = () => {
     //마감하기
     console.log(el.id, "마감모달 ok버튼");
-    // axios.post("https://art-ground.link/admin/exhibition", {
-    //   postId: el.id, //전시회 pid
-    // });
-    setConfirmModal(false);
+    axios
+      .delete(`https://localhost:5000/admin/exhibition/${el.id}`)
+      .then((result) => {
+        console.log(result, ":삭제 데이터 ????");
+        setConfirmModal(false);
+        window.location.href = "https://localhost:3000/admin";
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
