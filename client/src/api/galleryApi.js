@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 export async function createExhibition(title, startDate, endDate, type, content, isClicked, arts) {
 
   try {
@@ -20,6 +21,7 @@ export async function createExhibition(title, startDate, endDate, type, content,
   } catch (err) {
     return console.log(err.message);
   }
+
 
 }
 

@@ -21,7 +21,7 @@ const MyInfo = ({ userinfo }) => {
             <div className={styles.imgborder}>
               <img
                 className={styles.ProfileView}
-                src={userinfo.profileImg}
+                src={userinfo.profile_img}
                 alt="profileImg"
               />
             </div>
@@ -33,7 +33,7 @@ const MyInfo = ({ userinfo }) => {
                 <input
                   type="text"
                   className={styles.inputbox}
-                  defaultValue={userinfo.userEmail}
+                  defaultValue={userinfo.user_email}
                   readOnly
                 />
               </li>
@@ -59,7 +59,7 @@ const MyInfo = ({ userinfo }) => {
               id="textarea"
               className={styles.authorText}
               placeholder="작가님을 소개해주세요"
-              defaultValue={userinfo.authorDesc}
+              defaultValue={userinfo.author_desc}
               readOnly
             />
           </div>
