@@ -1,8 +1,7 @@
 import styles from "./SignInDetail.module.css";
 import React, { useState } from "react";
 import axios from "axios";
-import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
+
 const CryptoJS = require("crypto-js");
 require("dotenv").config();
 
@@ -13,8 +12,6 @@ const SignInDetail = ({
   isAudienceLogin,
   handleResponseSuccess,
 }) => {
-  const history = useHistory();
-
   const [loginInfo, setLoginInfo] = useState({
     userEmail: "",
     password: "",
@@ -64,7 +61,7 @@ const SignInDetail = ({
       userType: 1,
     };
     setErrorMessage(""); //art-ground.link
-    axios.post("https://localhost:5000/sign-in", userData).then((result) => {
+    axios.post("https://art-ground.link/sign-in", userData).then((result) => {
       console.log(result, "-----관람객로그인요청");
       if (result.data === "AccessToken ready") {
         handleResponseSuccess();

@@ -39,6 +39,7 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [userinfo, setUserinfo] = useState(null);
   const [isAdmin, setisAdmin] = useState(false);
+
   const [modifyRender, setModifyRender] = useState(false);
   useEffect(() => {
     //로딩창 띄워야함
@@ -205,10 +206,8 @@ function App() {
           />
           <Gallery
             isLogin={isLogin}
-
-            userinfo
-            gallerySelect={(el) => setGallerySelected(el)} 
-
+            userinfo={userinfo}
+            selectGallery={(el) => setGallerySelected(el)}
           />
           <ScrollButton />
         </Route>
@@ -219,19 +218,11 @@ function App() {
             handleLogout={handleLogout}
             isAdmin={isAdmin}
           />
-
-          <GalleryDetail 
-            //viewArtDetail={(el) => setArtDetail(el)} 
-
+          <GalleryDetail
             gallerySelected={gallerySelected}
           />
           <ScrollButton />
         </Route>
-        {/* {artDetail ? (
-          <Route path="/artdetail">
-            <ArtDetail art={artDetail} />
-          </Route>
-        ) : null} */}
         <Route path="/reviewlist">
           <Navbar
             isLogin={isLogin}
@@ -241,7 +232,7 @@ function App() {
           />
           <ReviewList
             isLogin={isLogin}
-            reviewSelect={(el) => setReviewSelected(el)}
+            selectReview={(el) => setReviewSelected(el)}
           />
           <ScrollButton />
         </Route>
@@ -252,12 +243,11 @@ function App() {
             handleLogout={handleLogout}
             isAdmin={isAdmin}
           />
-
           <ReviewDetail
-            isLogin={isLogin} 
-            reviewSelected={reviewSelected}
+          userinfo={userinfo} 
+          isLogin={isLogin} 
+          reviewSelected={reviewSelected} 
           />
-
           <ScrollButton />
         </Route>
         <Route path="/register">

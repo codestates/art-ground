@@ -48,7 +48,7 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
   const clickAudJoin = () => {
     // 관람객회원가입버튼클릭시
     // 유효성검사
-    const { userEmail, nickname, password, password2, userType } = audInfo;
+    const { userEmail, nickname, password, password2 } = audInfo;
     if (!userEmail || !nickname || !password || !password2) {
       setErrorMessage("모든 항목을 입력해주세요");
       return false;
@@ -102,7 +102,7 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
   const clickAuthJoin = () => {
     // 작가회원가입버튼클릭시
     // 유효성검사
-    const { userEmail, nickname, password, password2, userType } = audInfo;
+    const { userEmail, nickname, password, password2 } = audInfo;
     if (!userEmail || !nickname || !password || !password2) {
       setErrorMessage("모든 항목을 입력해주세요");
       return false;

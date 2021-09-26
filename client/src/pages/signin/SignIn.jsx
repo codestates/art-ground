@@ -1,10 +1,8 @@
 import styles from "./SignIn.module.css";
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const SignIn = ({ setIsAuthorLogin, setIsAudienceLogin }) => {
-  const history = useHistory();
-
   const audienceClicked = () => {
     setIsAuthorLogin(false);
     setIsAudienceLogin(true);

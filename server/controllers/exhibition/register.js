@@ -40,14 +40,16 @@ module.exports.register = async (req, res) => {
 
       if (result) {
         const exhibition_id = result.dataValues.id;
-        JSON.parse(images).forEach((el) => {
+        const parsingImages = JSON.parse(images);
+        parsingImages.forEach(async (el) => {
           const {
             title,
-            imageUrl: image_urls,
-            imageDesc: image_desc,
-            imageAddDesc: image_add_desc,
+            img: image_urls,
+            content: image_desc,
+            subContent: image_add_desc,
           } = el;
-          imagesModel.create({
+          console.log(el);
+          await imagesModel.create({
             exhibition_id,
             title,
             image_urls,
@@ -55,7 +57,9 @@ module.exports.register = async (req, res) => {
             image_add_desc,
           });
         });
-        res.status(201).json({ message: "exhibition created" });
+        res
+          .status(201)
+          .json({ message: "exhibition created", data: JSON.parse(images) });
       } else {
       }
     } else {
