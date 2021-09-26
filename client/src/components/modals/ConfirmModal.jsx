@@ -5,12 +5,12 @@ import styles from "./ConfirmModal.module.css";
 const ConfirmModal = ({ el, setConfirmModal, modalTxt }) => {
   const clickConfirmModal = () => {
     axios
-      .post("https:/art-ground.link/admin/exhibition", {
+      .post("https://localhost:5000/admin/exhibition", {
         postId: el.id,
       })
       .then((result) => {
         setConfirmModal(false);
-        window.location.href = "https://art-ground.io/admin";
+        window.location.href = "https://localhost:3000/admin";
       })
       .catch((err) => console.log(err));
   };
@@ -18,10 +18,16 @@ const ConfirmModal = ({ el, setConfirmModal, modalTxt }) => {
   const clickDeleteModal = () => {
     //마감하기
     console.log(el.id, "마감모달 ok버튼");
-    // axios.post("https://art-ground.link/admin/exhibition", {
-    //   postId: el.id, //전시회 pid
-    // });
-    setConfirmModal(false);
+    axios
+      .post("https://localhost:5000/admin/exhibition", {
+        postId: el.id, //전시회 pid
+      })
+      .then((result) => {
+        console.log(result, ":삭제 데이터");
+        setConfirmModal(false);
+        window.location.href = "https://localhost:3000/admin";
+      })
+      .catch((err) => console.log(err));
   };
 
   return (

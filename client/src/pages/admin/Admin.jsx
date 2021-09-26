@@ -1,5 +1,5 @@
 import styles from "./Admin.module.css";
-
+import ScrollButton from "../../components/scrollButton/ScrollButton";
 import React, { useEffect, useState } from "react";
 import AdminEx from "../../components/adminEx/AdminEx";
 import AdminReview from "../../components/adminReview/AdminReview";
@@ -72,6 +72,7 @@ const Admin = () => {
 
   return (
     <section className={styles.container}>
+      <ScrollButton />
       <div className={styles.nav}>
         <div className={styles.top}>
           <div className={styles.navBox}>

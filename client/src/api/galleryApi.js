@@ -10,7 +10,7 @@ export function createExhibition(
   arts
 ) {
   return axios
-    .post("https://localhost:5000/exhibition/register", {
+    .post("https://art-ground.link/exhibition/register", {
       title: title,
       startDate: startDate,
       endDate: endDate,
