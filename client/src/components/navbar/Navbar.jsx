@@ -12,15 +12,19 @@ const Navbar = ({ isLogin, handleLogout, isAdmin }) => {
 
   const handleNavClose = () => {
     setNavOpen(false);
+  };
+  const handleNavOpen = () => {
+    setNavOpen(true);
+  };
+
+  const handleClickMypage = () => {
+    setNavOpen(false);
     if (isLogin) {
       history.push("./mypage");
     } else {
       alert("로그인한 유저만 사용할 수 있습니다");
-      history.push("./about");
+      history.push("./signin");
     }
-  };
-  const handleNavOpen = () => {
-    setNavOpen(true);
   };
 
   const [navOpen, setNavOpen] = useState(false); //모바일 시 navbar 사이드로 숨겨짐
@@ -84,7 +88,7 @@ const Navbar = ({ isLogin, handleLogout, isAdmin }) => {
               </li>
             </Link>
 
-            <li className={styles.btn} onClick={handleNavClose}>
+            <li className={styles.btn} onClick={handleClickMypage}>
               마이페이지
             </li>
           </ul>

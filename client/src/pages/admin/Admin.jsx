@@ -43,6 +43,7 @@ const Admin = () => {
       axios.get("https://localhost:5000/exhibition").then((result) => {
         //console.log(result.data.data);
         setExhibitData(result.data.data);
+        console.log(result.data.data);
       });
     }
     return () => {};
