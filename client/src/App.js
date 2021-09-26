@@ -230,8 +230,7 @@ function App() {
           />
           <Register
             userinfo={userinfo}
-            isAuthorLogin={isAuthorLogin}
-            isAudienceLogin={isAudienceLogin}
+            isLogin={isLogin}
           />
           <ScrollButton />
         </Route>

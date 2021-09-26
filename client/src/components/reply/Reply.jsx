@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Reply.module.css';
 
-const Reply = ({ deleteReply, reply, userinfo }) => {
+const Reply = ({ deleteReply, reply, isLogin, userinfo }) => {
 
   // 로그인 안 했으면 deleteBtn 노출 X
   // 로그인 했으면 내가 쓴 리뷰에만 deleteBtn 표시되도록...!
@@ -19,9 +19,9 @@ const Reply = ({ deleteReply, reply, userinfo }) => {
         </div>
         <div className={styles.content}>{reply.comments}</div>
       </div>
-      {/* {userinfo.nickname === reply.nickname? */}
+      {isLogin && userinfo.nickname === reply.user.nickname?
       <span className={styles.deleteBtn} onClick={()=> deleteReply(reply)}><i class="fas fa-times"></i></span>
-      {/* : null} */}
+      : null}
     </li>
   )
 }

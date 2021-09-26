@@ -6,33 +6,23 @@ import styles from './ReviewList.module.css';
 const ReviewList = ({ isLogin, selectReview }) => {
 
   const [galleryList, setGalleryList] = useState([]);
-  const [filter, setFilter] = useState('');
-  const [searchWord, setSearchWord] = useState('')
+  const [search, setSearch] = useState('');
+  const [searchWord, setSearchWord] = useState('');
+  const [sortValue, setSortValue] = useState('최신순');
 
   useEffect(()=> {
     //standard, premium gallery, 마감된 전시 모두 모아서 setGalleryList에 넣기.
     async function getAxiosData(){
-      setGalleryList(await getAllGallery());
-      //console.log(await getAllGallery())
+      setGalleryList(await getAllGallery(sortValue, search));
+      console.log(await getAllGallery())
     }
-    getAxiosData();
-    //getAllGallery();
-  }, [])
+    setTimeout(()=> {
+      getAxiosData();
+    }, 200)
+  }, [search, sortValue])
 
   const handleChange = (e) => {
-    setSearchWord(e.target.value)
-  }
-  
-  const handleSearchButton = () => {
-    setFilter(searchWord);
-    
-    //여기서 필터해서 galleryList를 setState?
-
-    // galleryList.filter((el) => {
-    //   return el.title.toLowerCase().includes(filter.toLowerCase());
-    // })
-
-    //그리고 아래 랜더링 시 galleryList.length === 0 이면 검색결과가 없습니다 컴포넌트 띄우기
+    setSearchWord(e.target.value) //실시간으로 바뀌는 검색어
   }
 
   const handleKeyPress = (e) => {
@@ -40,13 +30,21 @@ const ReviewList = ({ isLogin, selectReview }) => {
       handleSearchButton()
     }
   }
+  const handleSearchButton = () => {
+    setSearch(searchWord); //엔터나 클릭 시 검색어 전달
+    setSearchWord(''); //검색완료 시 검색어창은 비워주기 
+  }
+
+  const handleSort = (e) => { //정렬
+    setSortValue(e.target.value);
+  }
 
 
   return (
     <section className={styles.container}>
       <div className={styles.searchBox}>
         <input className={styles.search} 
-        placeholder="전시회 검색" 
+        placeholder="전시회 제목으로 검색" 
         type="text" 
         value={searchWord}
         onChange={handleChange}
@@ -58,14 +56,24 @@ const ReviewList = ({ isLogin, selectReview }) => {
           <i class="fas fa-search"></i>
         </button>
       </div>
+
+      <div className={styles.sortWrap}>
+        <select className={styles.sort} value={sortValue} onChange={handleSort}>
+          <option value="최신순">최신순</option>
+          <option value="인기순">인기순</option>
+        </select>
+      </div>
+
       <ul className={styles.reviews}>
-        {galleryList
+        {galleryList.length === 0 ?
+        <div className={styles.resultNone}>검색결과가 없습니다!</div>:
+        galleryList
         .map((el) => (
           <Review
           selectReview={selectReview} 
           exhibition={el}
           />
-        ))}
+        )) }
       </ul>
     </section>
   )
