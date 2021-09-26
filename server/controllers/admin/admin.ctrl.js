@@ -51,7 +51,7 @@ module.exports = {
   },
   closeExhibitions: (req, res) => {
     const userInfo = isAuthorized(req);
-    const { postId } = req.body;
+    const { postId } = req.params;
     console.log("userInfo:", userInfo, postId);
 
     if (userInfo.user_type === 3) {
@@ -97,7 +97,8 @@ module.exports = {
   },
   deleteReviews: (req, res) => {
     const userInfo = isAuthorized(req);
-    const { commentId } = req.body;
+    const { commentId } = req.params;
+    console.log("userInfo:", userInfo, commentId);
 
     if (userInfo.user_type === 3) {
       comments

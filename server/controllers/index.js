@@ -51,8 +51,8 @@ router.delete("/exhibition/like", withdrawalLike);
 // 전시 승인
 router.post("/admin/exhibition", adminCtrl.approveExhibitions);
 // 전시 종료
-router.delete("/admin/exhibition", adminCtrl.closeExhibitions);
+router.delete("/admin/exhibition/:postId", adminCtrl.closeExhibitions);
 // 리뷰 삭제
-router.delete("/admin/review", adminCtrl.deleteReviews);
+router.delete("/admin/review/:commentId", adminCtrl.deleteReviews);
 
 module.exports = router;
