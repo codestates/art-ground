@@ -4,7 +4,7 @@ export function getMyinfo(setIsLogin, setUserinfo, setisAdmin, isLogin) {
   //art-ground.link
 
   return axios
-    .get("https://localhost:5000/mypage")
+    .get("https://art-ground.link/mypage")
     .then((result) => {
       if (result.status === 200) {
         const img =
