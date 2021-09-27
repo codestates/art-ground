@@ -1,31 +1,16 @@
 import axios from "axios";
+import { format } from "crypto-js";
 
 import styles from "./ConfirmModal.module.css";
+import { confirmExhibition, deleteExhibition } from "../../api/adminApi";
 
 const ConfirmModal = ({ el, setConfirmModal, modalTxt }) => {
   const clickConfirmModal = () => {
-    axios
-      .post("https://art-ground.link/admin/exhibition", {
-        postId: el.id,
-      })
-      .then((result) => {
-        setConfirmModal(false);
-        window.location.href = "https://localhost:3000/admin";
-      })
-      .catch((err) => console.log(err));
+    confirmExhibition(setConfirmModal, el);
   };
 
   const clickDeleteModal = () => {
-    //마감하기
-    console.log(el.id, "마감모달 ok버튼");
-    axios
-      .delete(`https://art-ground.link/admin/exhibition/${el.id}`)
-      .then((result) => {
-        console.log(result, ":삭제 데이터 ????");
-        setConfirmModal(false);
-        window.location.href = "https://art-ground.io/admin";
-      })
-      .catch((err) => console.log(err));
+    deleteExhibition(setConfirmModal, el);
   };
 
   return (

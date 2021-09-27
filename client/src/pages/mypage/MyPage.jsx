@@ -63,7 +63,7 @@ const MyPage = ({
 
   useEffect(() => {
     if (isMyExhibit) {
-      axios.get("https://localhost:5000/mypage/exhibition").then((result) => {
+      axios.get("https://art-ground.link/mypage/exhibition").then((result) => {
         //console.log(result.data.data, "myex");
         setMyEx(result.data.data);
       });
@@ -73,7 +73,7 @@ const MyPage = ({
 
   useEffect(() => {
     if (isPickClicked) {
-      axios.get("https://localhost:5000/mypage/like").then((result) => {
+      axios.get("https://art-ground.link/mypage/like").then((result) => {
         //console.log(result.data.data, "like");
         setMyPick(result.data.data);
       });
