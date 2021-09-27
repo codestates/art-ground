@@ -27,8 +27,14 @@ module.exports = {
     */
     try {
       const { currentPassword, newPassword } = req.body;
-      const userInfo = isAuthorized(req);
-      console.log("userInfo:", userInfo, currentPassword, newPassword);
+      const data = isAuthorized(req);
+      console.log("data:", data, currentPassword, newPassword);
+
+      const userInfo = await users.findOne({
+        where: {
+          user_email: data.user_email,
+        },
+      });
 
       // current password decode
       let byte = CryptoJS.AES.decrypt(
