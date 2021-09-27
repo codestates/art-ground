@@ -32,8 +32,9 @@ export async function getReplyList(postId){
 
   try {
     const res = await axios.get(
-      `https://art-ground.link/review/${postId}` 
+    `https://art-ground.link/review/${postId}`
     );
+    //console.log(res)
     return res.data.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
   } catch (err) {
     return console.log(err);
@@ -50,7 +51,7 @@ export async function postReview(reply, postId){
         postId: postId,
         comments: reply
       });
-    console.log(res);
+    //console.log(res);
   } catch (err) {
     return console.log(err.message);
   }
@@ -63,7 +64,7 @@ export async function deleteReview(commentsId){
   try {
     const res = await axios.delete(
       `https://art-ground.link/review/${commentsId}`);
-    console.log(res);
+    //console.log(res);
   } catch (err) {
     return console.log(err.message);
   }

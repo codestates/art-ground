@@ -2,7 +2,7 @@
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
-  padding: 11rem 0 5rem 0;
+  padding: 11rem 0 0 0;
   animation: fadein 1.5s;
   -moz-animation: fadein 1.5s;
   /* Firefox */
@@ -90,7 +90,7 @@
 }
 .replies {
   margin: 0rem 1rem;
-  padding: 1.5rem 0.5rem 6rem 0.5rem;
+  padding: 1.5rem 0.5rem 1.5rem 0.5rem;
   border: 1px solid rgb(226, 226, 226);
   display: flex;
   flex-direction: column;
@@ -211,7 +211,7 @@
 
 @media screen and (max-width: 768px) {
   .container {
-    padding: 4.5rem 0 5rem 0;
+    padding: 4.5rem 0 0 0;
   }
   .artDetail {
     flex-direction: column;

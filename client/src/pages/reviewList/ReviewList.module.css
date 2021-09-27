@@ -12,7 +12,7 @@
 }
 
 .searchBox {
-  margin: 3rem 2rem 2rem 2rem;
+  margin: 3rem 2rem 1rem 2rem;
   border-bottom: 1px solid rgb(179, 179, 179);
   display: flex;
   justify-content: space-between;
@@ -41,7 +41,7 @@
 }
 .reviews {
   list-style: none;
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
   animation: fadein 1.5s;
   -moz-animation: fadein 1.5s;
   /* Firefox */

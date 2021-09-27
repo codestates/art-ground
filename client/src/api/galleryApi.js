@@ -26,7 +26,7 @@ export async function createExhibition(
       }
     );
 
-    console.log(res);
+    //console.log(res);
   } catch (err) {
     return console.log(err.message);
   }
@@ -207,7 +207,7 @@ export async function sort(sortValue, galleryList) {
 }
 
 export async function createLike(postId) {
-  console.log("클릭한 전시회 아이디:", postId);
+  //console.log("클릭한 전시회 아이디:", postId);
   try {
     const res = await axios.post(
       "https://art-ground.link/exhibition/like",
@@ -215,19 +215,19 @@ export async function createLike(postId) {
         postId: postId
       });
 
-    console.log(res);
+    //console.log(res);
   } catch (err) {
     return console.log(err);
   }
 }
 
 export async function deleteLike(postId) {
-  console.log("클릭한 전시회 아이디:", postId);
+  //console.log("클릭한 전시회 아이디:", postId);
   try {
     const res = await axios.delete(
       `https://art-ground.link/exhibition/like/${postId}`)
 
-    console.log(res);
+    //console.log(res);
   } catch (err) {
     return console.log(err);
   }
