@@ -3,6 +3,21 @@ const { comments } = require("../../models");
 const { isAuthorized } = require("../../utils/tokenFunction");
 
 module.exports = {
+  getAllReviews: (req, res) => {
+    const userInfo = isAuthorized(req);
+    console.log("userInfo:", userInfo);
+
+    if (userInfo.user_type === 3) {
+      comments.findAll().then((data) => {
+        console.log("data:", data);
+        res.status(200).json({ data: data });
+      });
+    } else {
+      res.status(401).json({
+        message: "invalid access token",
+      });
+    }
+  },
   approveExhibitions: (req, res) => {
     const userInfo = isAuthorized(req);
     const { postId } = req.body;
