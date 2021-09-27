@@ -9,7 +9,7 @@ module.exports.modifyMyInfo = async (req, res) => {
       profileImg: profile_img,
       authorDesc: author_desc,
       nickName: nickname,
-    } = req.body;
+    } = req.body.userData;
 
     const result = await userModel.update(
       { nickname, profile_img, author_desc },
@@ -17,8 +17,7 @@ module.exports.modifyMyInfo = async (req, res) => {
     );
 
     if (result) {
-      const data = result.dataValues;
-      res.status(200).json({ data, message: "profile changed" });
+      res.status(200).json({ message: "profile changed" });
     }
   } else {
     res.status(401).json({
