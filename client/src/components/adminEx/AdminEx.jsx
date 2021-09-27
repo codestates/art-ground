@@ -1,120 +1,139 @@
-import styles from './AdminEx.module.css'
+import styles from "./AdminEx.module.css";
+import React, { useState } from "react";
+import ConfirmModal from "../modals/ConfirmModal";
 
-import React from 'react'
+const AdminEx = ({ el, updateEx, deleteEx, doneEx }) => {
+  const [modalTxt, setModalTxt] = useState({
+    confirm: "승인",
+    delete: "마감",
+  });
+  const [confirmModal, setConfirmModal] = useState(false);
 
-const AdminEx = ({ updateEx, deleteEx, setUpdateEx, setDeleteEx }) => {
-  const clickUpdate = () => {
-    setUpdateEx(true)
-    setDeleteEx(false)
-  }
+  const clickConfirm = () => {
+    setConfirmModal(true);
+  };
+
   const clickDelete = () => {
-    setUpdateEx(false)
-    setDeleteEx(true)
-  }
+    setConfirmModal(true);
+  };
+
+  const imgurl =
+    el.images.length > 0
+      ? el.images[0].image_urls
+      : "https://images.velog.io/images/beablessing/post/54131e26-0389-412e-b88d-a8b6a97600a8/noimg.png";
+  const imgurlAlt = el.images.length > 0 ? el.images[0].title : null;
+
   return (
     <section className={styles.container}>
       <div className={styles.box}>
-        <div className={styles.filterBox}>
-          <span className={styles.filterBtn} onClick={clickUpdate}>
-            승인대기
-          </span>
-          <span className={styles.filterBtn} onClick={clickDelete}>
-            마감대기
-          </span>
-        </div>
         {updateEx ? (
-          <div className={styles.upDateBox}>
-            <div className={styles.exBox}>
-              <div className={styles.thumBox}>
-                <img
-                  src='../../../images/exhibit2.webp'
-                  alt=''
-                  className={styles.eximg}
-                />
+          <>
+            {el.status === 0 ? (
+              <div className={styles.upDateBox}>
+                <div className={styles.exBox}>
+                  <div className={styles.thumBox}>
+                    <img
+                      src={imgurl}
+                      alt={imgurlAlt}
+                      className={styles.eximg}
+                    />
+                  </div>
+                  <div className={styles.infoBox}>
+                    <div className={styles.title}>{el.title}</div>
+                    <div className={styles.author}>{el.author.nickname}</div>
+                    <div className={styles.date}>
+                      <span>전시기간:</span>
+                      <span>{el.start_date}</span>
+                      <span>~</span>
+                      <span>{el.end_date}</span>
+                    </div>
+                  </div>
+                  <div className={styles.btnBox}>
+                    <button className={styles.btn} onClick={clickConfirm}>
+                      승인하기
+                    </button>
+                  </div>
+                </div>
+                {confirmModal ? (
+                  <ConfirmModal
+                    el={el}
+                    setConfirmModal={setConfirmModal}
+                    modalTxt={modalTxt.confirm}
+                  />
+                ) : null}
               </div>
-              <div className={styles.infoBox}>
-                <div className={styles.title}>팰리스 드 도쿄 사진전</div>
-                <div className={styles.date}>전시기간:10/16~12/30</div>
+            ) : null}
+          </>
+        ) : null}
+        {deleteEx ? (
+          <>
+            {el.status === 1 ? (
+              <div className={styles.upDateBox}>
+                <div className={styles.exBox}>
+                  <div className={styles.thumBox}>
+                    <img
+                      src={imgurl}
+                      alt={imgurlAlt}
+                      className={styles.eximg}
+                    />
+                  </div>
+                  <div className={styles.infoBox}>
+                    <div className={styles.title}>{el.title}</div>
+                    <div className={styles.author}>{el.author.nickname}</div>
+                    <div className={styles.date}>
+                      <span>전시기간:</span>
+                      <span>{el.start_date}</span>
+                      <span>~</span>
+                      <span>{el.end_date}</span>
+                    </div>
+                  </div>
+                  <div className={styles.btnBox}>
+                    <button className={styles.btn} onClick={clickDelete}>
+                      마감하기
+                    </button>
+                  </div>
+                </div>
+                {confirmModal ? (
+                  <ConfirmModal
+                    el={el}
+                    setConfirmModal={setConfirmModal}
+                    modalTxt={modalTxt.delete}
+                  />
+                ) : null}
               </div>
-              <div className={styles.btnBox}>
-                <button className={styles.btn}>승인하기</button>
+            ) : null}
+          </>
+        ) : null}
+        {doneEx ? (
+          <>
+            {el.status === 2 ? (
+              <div className={styles.upDateBox}>
+                <div className={styles.exBox}>
+                  <div className={styles.thumBox}>
+                    <img
+                      src={imgurl}
+                      alt={imgurlAlt}
+                      className={styles.eximg}
+                    />
+                  </div>
+                  <div className={styles.infoBox}>
+                    <div className={styles.title}>{el.title}</div>
+                    <div className={styles.author}>{el.author.nickname}</div>
+                    <div className={styles.date}>
+                      <span>전시기간:</span>
+                      <span>{el.start_date}</span>
+                      <span>~</span>
+                      <span>{el.end_date}</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-
-            <div className={styles.exBox}>
-              <div className={styles.thumBox}>
-                <img
-                  src='../../../images/exhibit2.webp'
-                  alt=''
-                  className={styles.eximg}
-                />
-              </div>
-              <div className={styles.infoBox}>
-                <div className={styles.title}>팰리스 드 도쿄 사진전</div>
-                <div className={styles.date}>전시기간:10/16~12/30</div>
-              </div>
-              <div className={styles.btnBox}>
-                <button className={styles.btn}>승인하기</button>
-              </div>
-            </div>
-
-            <div className={styles.exBox}>
-              <div className={styles.thumBox}>
-                <img
-                  src='../../../images/exhibit2.webp'
-                  alt=''
-                  className={styles.eximg}
-                />
-              </div>
-              <div className={styles.infoBox}>
-                <div className={styles.title}>팰리스 드 도쿄 사진전</div>
-                <div className={styles.date}>전시기간:10/16~12/30</div>
-              </div>
-              <div className={styles.btnBox}>
-                <button className={styles.btn}>승인하기</button>
-              </div>
-            </div>
-          </div>
-        ) : (
-          <div className={styles.DeleteBox}>
-            <div className={styles.exBox}>
-              <div className={styles.thumBox}>
-                <img
-                  src='https://t1.daumcdn.net/cfile/tistory/9995E34F5D5C9FB134'
-                  alt=''
-                  className={styles.eximg}
-                />
-              </div>
-              <div className={styles.infoBox}>
-                <div className={styles.title}>데이비드 호크니展</div>
-                <div className={styles.date}>전시기간:10/16~12/30</div>
-              </div>
-              <div className={styles.btnBox}>
-                <button className={styles.btn2}>마감하기</button>
-              </div>
-            </div>
-
-            <div className={styles.exBox}>
-              <div className={styles.thumBox}>
-                <img
-                  src='https://t1.daumcdn.net/cfile/tistory/9995E34F5D5C9FB134'
-                  alt=''
-                  className={styles.eximg}
-                />
-              </div>
-              <div className={styles.infoBox}>
-                <div className={styles.title}>데이비드 호크니展</div>
-                <div className={styles.date}>전시기간:10/16~12/30</div>
-              </div>
-              <div className={styles.btnBox}>
-                <button className={styles.btn2}>마감하기</button>
-              </div>
-            </div>
-          </div>
-        )}
+            ) : null}
+          </>
+        ) : null}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default AdminEx
+export default AdminEx;

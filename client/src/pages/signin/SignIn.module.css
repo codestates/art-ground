@@ -1,12 +1,10 @@
 @value Black, White from '../../common/colors.css';
 @value Container from '../../common/size.css';
 
-span {
-  display: block;
-}
 .container {
   max-width: Container;
   margin: 0 auto;
+  padding: 11rem;
 }
 .joinbox {
   width: 100%;
@@ -18,18 +16,16 @@ span {
   align-items: center;
 }
 .btn {
-  width: 250px;
+  width: 300px;
   height: 50px;
   background-color: White;
-  border: 1px solid grey;
+  border: 2px solid gainsboro;
   outline: none;
   cursor: pointer;
-  transition: all 0.5s;
 }
 .btn:hover {
-  background-color: black;
+  background-color: rgb(49, 45, 45);
   color: white;
-  transition: transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02);
 }
 .btn.second {
   margin-top: 3rem;
@@ -41,41 +37,38 @@ span {
 }
 
 .inputbox {
-  /*ul*/
   list-style: none;
 }
 
-.oauthBox {
-  margin-top: 3rem;
-  width: 250px;
-  height: 80px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-.oauthBtn2 {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  overflow: hidden;
-  cursor: pointer;
-  border: none;
-}
-.oauthBtn1 {
-  width: 70px;
-  height: 70px;
-  border: 1px solid rgb(197, 196, 196);
-  border-radius: 50%;
-  overflow: hidden;
+.backToLogin {
+  margin-top: 4rem;
+  color: rgb(82, 79, 79);
   cursor: pointer;
 }
-.google {
-  width: 100%;
-  height: 100%;
-  margin-left: 1px;
+.bold {
+  font-weight: bold;
+  color: black;
 }
-.kakao {
-  width: 100%;
-  height: 100%;
-  margin-left: 1px;
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding-top: 4.5rem;
+  }
+  .joinbox {
+    width: 100%;
+  }
+  .btn {
+    width: 200px;
+  }
+}
+@media screen and (max-width: 580px) {
+  .joinbox {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .joinbox {
+    width: 100%;
+  }
 }

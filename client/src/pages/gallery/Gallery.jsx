@@ -1,64 +1,102 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Object from '../../components/object/Object'
-import SubNavBar from '../../components/subNavBar/SubNavBar'
-import styles from './Gallery.module.css'
 
-const Gallery = (props) => {
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getPremiumGallery, getStandardGallery } from '../../api/galleryApi';
+import GalleryContent from '../../components/galleryContent/GalleryContent';
+import SubNavBar from '../../components/subNavBar/SubNavBar';
+import styles from './Gallery.module.css';
+
+
+const Gallery = ({ isLogin, selectGallery, userinfo }) => {
+
+  const [galleryList, setGalleryList] = useState([]);
+  
+  const [isStandard, setStandard] = useState(true); //STANDARD, PREMIUM 카테고리 상태값
+  const [tagClicked, setTagClicked] = useState('전체'); //해시태그 카테고리 상태값
+  const [sortValue, setSortValue] = useState('최신순'); //최신순, 전시마감일순 정렬 상태값
+
+  const [modalOpen, setModalOpen] = useState(false); //찜하기 클릭시 나타나는 모달창
+  const [premiumBlocked, setPremiumBlocked] = useState(false); //premium 클릭 시 나타나는 모달창
+  const [rerender, setRerender] = useState(false); //컴포넌트 재랜더링
+
+
+  useEffect(() => {
+    async function getAxiosData(){
+      if(isStandard){ 
+        setGalleryList(await getStandardGallery(tagClicked, sortValue));
+        console.log(await getStandardGallery(tagClicked, sortValue))
+      } else{
+        setGalleryList(await getPremiumGallery(tagClicked, sortValue));
+      }
+    }
+    setTimeout(()=> {
+      getAxiosData();
+    }, 200)
+  }, [isStandard, tagClicked, sortValue, rerender]); 
+
+  const handleStandard = () => { //STANDARD, PREMIUM 필터
+    if(isLogin){
+      setStandard(!isStandard)
+    } else{
+      setModalOpen(true);
+      setPremiumBlocked(true);
+    }
+  }
+
+  const handleTagFilter = (el) => { //해시태그 필터
+    setTagClicked(el);   
+  }
+
+  const handleSort = (e) => { //정렬
+    setSortValue(e.target.value);
+  }
+
+  const closeModal = () => {
+    setModalOpen(false)
+    setPremiumBlocked(false);
+  }
+
   return (
     <section className={styles.container}>
-      {/* <div className={styles.subNavBar}>
-        <span className={styles.subMenu}>STANDARD</span>
-        <span className={styles.subMenu}>PREMIUM</span>
-      </div> */}
-      <SubNavBar />
+      <SubNavBar 
+        isStandard={isStandard} 
+        tagClicked={tagClicked}
+        handleTagFilter={handleTagFilter}
+        handleStandard={handleStandard}
+        sortValue={sortValue}
+        gallerySort={handleSort}
+      />
       <ul className={styles.objectList}>
-        <li className={styles.object}>
-          <Link to='/gallerydetail'>
-            <img className={styles.thumbnail} src='http://www.news-paper.co.kr/news/photo/201903/39919_25361_5530.jpg' alt='thumbnail' />
-          </Link>
-          <div className={styles.titleAndLike}>
-            <span className={styles.title}>데이비드 호크니展</span>
-            <span className={styles.like}><i class='far fa-heart' /></span>
-          </div>
-          <div className={styles.period}>전시 기간: 2021-09-13 ~ 2021-12-31</div>
-        </li>
-        <li className={styles.object}>
-          <Link to='/gallerydetail'>
-            <img className={styles.thumbnail} src='http://www.news-paper.co.kr/news/photo/201903/39919_25361_5530.jpg' alt='thumbnail' />
-          </Link>
-          <div className={styles.titleAndLike}>
-            <span className={styles.title}>데이비드 호크니展</span>
-            <span className={styles.like}><i class='far fa-heart' /></span>
-          </div>
-          <div className={styles.period}>전시 기간: 2021-09-13 ~ 2021-12-31</div>
-        </li>
-        <li className={styles.object}>
-          <Link to='/gallerydetail'>
-            <img className={styles.thumbnail} src='http://www.news-paper.co.kr/news/photo/201903/39919_25361_5530.jpg' alt='thumbnail' />
-          </Link>
-          <div className={styles.titleAndLike}>
-            <span className={styles.title}>데이비드 호크니展</span>
-            <span className={styles.like}><i class='far fa-heart' /></span>
-          </div>
-          <div className={styles.period}>전시 기간: 2021-09-13 ~ 2021-12-31</div>
-        </li>
-        <li className={styles.object}>
-          <Link to='/gallerydetail'>
-            <img className={styles.thumbnail} src='http://www.news-paper.co.kr/news/photo/201903/39919_25361_5530.jpg' alt='thumbnail' />
-          </Link>
-          <div className={styles.titleAndLike}>
-            <span className={styles.title}>데이비드 호크니展</span>
-            <span className={styles.like}><i class='far fa-heart' /></span>
-          </div>
-          <div className={styles.period}>전시 기간: 2021-09-13 ~ 2021-12-31</div>
-        </li>
-        {/* <Object /> */}
+        {galleryList.map((el) => (
+          <GalleryContent
+          render={()=> setRerender(!rerender)}
+          selectGallery={selectGallery} 
+          exhibition={el}
+          userinfo={userinfo}
+          handleModal={()=> setModalOpen(true)} 
+          isLogin={isLogin} />
+        ))}
       </ul>
 
+      {modalOpen ? //모달창
+      <section className={styles.modalContainer}>
+        <div className={styles.modalWrap}>
+          { premiumBlocked ? 
+          <span className={styles.modalContent}>Premium 전시를 관람하려면<br></br>로그인이 필요합니다!</span> : 
+          <span className={styles.modalContent}>전시회를 찜하려면<br></br>로그인이 필요합니다!</span>}
+          <p className={styles.modalSubContent}>로그인 페이지로 이동하시겠어요?</p>
+          <div className={styles.ok}>
+            <Link to="/signin">
+              <button className={styles.okBtn}>네</button>
+            </Link>
+            <button className={styles.okBtn} onClick={closeModal}>아니요</button>
+          </div>
+        </div>
+      </section>
+      : null}
+
     </section>
+  );
+};
 
-  )
-}
-
-export default Gallery
+export default Gallery;

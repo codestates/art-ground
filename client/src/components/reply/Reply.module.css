@@ -1,9 +1,10 @@
 .reply {
-  margin: 2rem 2rem 0 2rem;
+  margin: 1.5rem 2rem 0 2rem;
   padding: 1rem;
   border: 1px solid rgb(226, 226, 226);
   border-radius: 5px;
   display: flex;
+  position: relative;
 }
 
 .contentBox {
@@ -43,9 +44,31 @@
 
 .deleteBtn {
   cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
   color: rgb(163, 163, 163);
+  transition: 0.3s;
 }
 
 .deleteBtn:hover {
   color: rgb(46, 46, 46);
+}
+
+@media screen and (max-width: 768px) {
+  .reply {
+    margin: 1.5rem 0.5rem 0 0.5rem;
+    padding: 1rem 0.5rem;
+  }
+  .profile {
+    width: 3rem;
+    height: 3rem;
+  }
+  .contentBox {
+    padding: 0.2rem 0 0 0.3rem;
+  }
+  .deleteBtn {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
 }

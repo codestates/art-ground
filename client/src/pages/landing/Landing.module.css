@@ -1,0 +1,71 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  /* Firefox */
+  -webkit-animation: fadein 2s;
+  /* Safari and Chrome */
+  -o-animation: fadein 2s;
+  /* Opera */
+}
+
+.landingVideo {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.content {
+  cursor: pointer;
+  position: fixed;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 3rem;
+  opacity: 0.8;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

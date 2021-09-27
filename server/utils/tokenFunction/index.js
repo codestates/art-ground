@@ -12,7 +12,7 @@ module.exports = {
     if (!authorization) {
       return null;
     }
-    const token = authorization.split(";")[0].split("=")[1];
+    const token = authorization.split("accessToken=")[1]; //.split(";")[0].split("=")[1];
     try {
       return verify(token, process.env.ART_GROUND_ACCESS_SECRET);
     } catch (err) {
