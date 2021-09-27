@@ -249,6 +249,7 @@
 }
 
 .workTitleMeta {
+  margin-top: 0.3rem;
   display: flex;
   justify-content: space-between;
 }
@@ -289,11 +290,12 @@
 }
 
 .workTitle {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
 }
 
 .workContent {
-  font-size: 0.7rem;
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
   color: rgb(156, 156, 156);
 }
 

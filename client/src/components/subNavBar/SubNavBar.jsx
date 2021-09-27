@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import styles from './SubNavBar.module.css';
 
-const SubNavBar = ({ isStandard, tagClicked, handleTagFilter, handleStandard, sortValue, gallerySort }) => {
+const SubNavBar = ({ isStandard, tagClicked, handleTagFilter, handleStandard, sortValue, handleSort }) => {
 
   const tags=['전체', '#회화', '#순수미술', '#응용미술', '#일러스트', '#판화', '#개인전', '#사진전', '#추상화', '#팝아트', '#인물화', '#풍경화', '#정물화'];
 
@@ -72,7 +72,7 @@ const SubNavBar = ({ isStandard, tagClicked, handleTagFilter, handleStandard, so
       </div>
 
       <div className={styles.sortWrap}>
-        <select className={styles.sort} value={sortValue} onChange={gallerySort}>
+        <select className={styles.sort} value={sortValue} onChange={handleSort}>
           <option value="최신순">최신순</option>
           <option value="전시마감일순">전시마감일순</option>
         </select>

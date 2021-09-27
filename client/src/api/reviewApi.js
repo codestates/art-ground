@@ -2,7 +2,6 @@ import axios from "axios";
 
 export async function getAllGallery(sortValue, search){ //standard, premium 모든 전시. 승인완료 & 전시마감 모두!
 
-  console.log('REVIEW 내 전시회 목록')
   try {
     const res = await axios.get(
       "https://art-ground.link/review" 
@@ -31,7 +30,6 @@ export async function getAllGallery(sortValue, search){ //standard, premium 모�
 
 export async function getReplyList(postId){
 
-  //console.log('댓글 생성/삭제 시 계속 호출 postId:', postId)
   try {
     const res = await axios.get(
       `https://art-ground.link/review/${postId}` 
@@ -45,7 +43,6 @@ export async function getReplyList(postId){
 
 export async function postReview(reply, postId){ 
 
-  //console.log('REVIEW 등록', reply, postId)
   try {
     const res = await axios.post(
       "https://art-ground.link/review",
@@ -61,15 +58,11 @@ export async function postReview(reply, postId){
 
 
 
-export async function deleteReview(replyId){
+export async function deleteReview(commentsId){
 
-  console.log('REVIEW 삭제')
   try {
     const res = await axios.delete(
-      "https://art-ground.link/review",
-      {
-        commentsId: replyId
-      });
+      `https://art-ground.link/review/${commentsId}`);
     console.log(res);
   } catch (err) {
     return console.log(err.message);

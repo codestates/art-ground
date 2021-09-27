@@ -6,6 +6,7 @@ const kakaoCtrl = require("./sign/kakao");
 const googleCtrl = require("./sign/google");
 const adminCtrl = require("./admin/admin.ctrl");
 const { getMyInfo } = require("./mypage");
+const { updatePassword } = require("./mypage");
 const { register } = require("./exhibition/register");
 const { getExhibition } = require("./exhibition");
 const { exhibitionLike } = require("./exhibition/likes");
@@ -47,10 +48,14 @@ router.get("/kakao-login/userinfo?", kakaoCtrl.getUserInfo);
 
 // mypage
 router.get("/mypage", getMyInfo);
+
 router.get("/mypage/like", getMyLikes);
 router.get("/mypage/exhibition", getMyExhibition);
 router.post("/mypage", modifyMyInfo);
 router.delete("/mypage", withdrawal);
+
+router.patch("/mypage/password", updatePassword);
+
 
 // exhibition
 router.post("/exhibition/register", register);
@@ -68,8 +73,8 @@ router.get("/review", getExhibitionReview);
 // 전시 승인
 router.post("/admin/exhibition", adminCtrl.approveExhibitions);
 // 전시 종료
-router.delete("/admin/exhibition", adminCtrl.closeExhibitions);
+router.delete("/admin/exhibition/:postId", adminCtrl.closeExhibitions);
 // 리뷰 삭제
-router.delete("/admin/review", adminCtrl.deleteReviews);
+router.delete("/admin/review/:commentId", adminCtrl.deleteReviews);
 
 module.exports = router;

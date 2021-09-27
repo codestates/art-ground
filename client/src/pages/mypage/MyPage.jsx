@@ -10,7 +10,7 @@ import { useEdgeSplit } from "@react-three/drei";
 
 axios.defaults.withCredentials = true;
 
-const MyPage = ({ userinfo, handleResponseSuccess }) => {
+const MyPage = ({ userinfo, handleResponseSuccess, setUserinfo }) => {
   const [isInfoClicked, setIsInfoClicked] = useState(true);
   const [isPickClicked, setIsPickClicked] = useState(false);
   const [isMyExhibit, setIsMyExhibit] = useState(false);
@@ -54,6 +54,15 @@ const MyPage = ({ userinfo, handleResponseSuccess }) => {
     }, 1000);
   });
 
+  useEffect(() => {
+    if (isPickClicked) {
+      axios.get("https://localhost:5000/mypage/exhibition").then((result) => {
+        console.log(result.data.data);
+      });
+    }
+    return () => {};
+  }, [isPickClicked]);
+
   return (
     <section className={styles.container}>
       <div className={styles.side}>
@@ -74,7 +83,13 @@ const MyPage = ({ userinfo, handleResponseSuccess }) => {
       </div>
       <div className={styles.content}>
         {isInfoClicked ? (
-          <>{infoRender ? <MyInfo userinfo={userinfo} /> : <Loading />}</>
+          <>
+            {infoRender ? (
+              <MyInfo userinfo={userinfo} setUserinfo={setUserinfo} />
+            ) : (
+              <Loading />
+            )}
+          </>
         ) : null}
         {isPickClicked ? <MyPick /> : null}
         {isMyExhibit ? <MyExhibit /> : null}

@@ -7,13 +7,11 @@ import SignUp from "./pages/signup/SignUp";
 import SignIn from "./pages/signin/SignIn";
 import SignInDetail from "./pages/signindetail/SignInDetail";
 import MyPage from "./pages/mypage/MyPage";
-
 import Modify from "./pages/modify/Modify";
 import Google from "./pages/google/Google";
 import Kakao from "./pages/kakao/Kakao";
 import Gallery from "./pages/gallery/Gallery";
 import GalleryDetail from "./pages/galleryDetail/GalleryDetail";
-import axios from "axios";
 import ReviewList from "./pages/reviewList/ReviewList";
 import ReviewDetail from "./pages/reviewDetail/ReviewDetail";
 import Landing from "./pages/landing/Landing";
@@ -23,11 +21,11 @@ import Register from "./pages/register/Register";
 import ScrollButton from "./components/scrollButton/ScrollButton";
 import About from "./pages/about/About";
 import ScrollTab from "./components/scrollTab/ScrollTab";
-import ScrollTop from "./components/scrollTop/ScrollTop";
 import ThreeDGallery from "./pages/3dGallery/ThreeDGallery";
 import Loading from "./components/loading/Loading";
 import { getSignOutRes } from "./api/signApi";
 import { getMyinfo } from "./api/mypageApi";
+import ScrollTop from "./components/scrollTop/ScrollTop";
 
 function App() {
   const history = useHistory();
@@ -50,28 +48,28 @@ function App() {
     }, 1000);
   }, []);
 
-  const isAuthenticated = () => {
-    getMyinfo(setIsLogin, setUserinfo, setisAdmin);
+  const isAuthenticated = (info) => {
+    getMyinfo(setIsLogin, setUserinfo, setisAdmin, isLogin);
+    //console.log(document.cookie, "ddd===========");
   };
 
-  const handleResponseSuccess = () => {
-    isAuthenticated();
-    history.push("/about");
-  };
-
-  const handleLogout = () => {
-    getSignOutRes(setUserinfo, setIsLogin, setisAdmin);
+  const handleResponseSuccess = (info) => {
+    isAuthenticated(info);
     history.push("/about");
   };
 
   useEffect(() => {
-    getMyinfo(setIsLogin, setUserinfo, setisAdmin);
-    return () => {};
+    isAuthenticated();
   }, []);
+
+  const handleLogout = () => {
+    getSignOutRes(setUserinfo, setIsLogin, setisAdmin, isLogin);
+    history.push("/about");
+  };
 
   // window.localStorage.setItem("userinfo", JSON.stringify(userinfo));
 
-  // 개별작품상세
+  
   const [gallerySelected, setGallerySelected] = useState(null);
   const [reviewSelected, setReviewSelected] = useState(null);
 
@@ -104,6 +102,7 @@ function App() {
             isAuthorLogin={isAuthorLogin}
             isAudienceLogin={isAudienceLogin}
             handleResponseSuccess={handleResponseSuccess}
+            setisAdmin={setisAdmin}
           />
         </Route>
 
@@ -155,8 +154,13 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
+            setUserinfo={setUserinfo}
           />
-          <MyPage userinfo={userinfo} setUserinfo={setUserinfo} />
+          <MyPage
+            userinfo={userinfo}
+            setUserinfo={setUserinfo}
+            setIsLogin={setIsLogin}
+          />
           {/* {isLogin ? <MyPage userinfo={userinfo} /> : <SideBar />} */}
         </Route>
         <Route path="/about">
@@ -190,9 +194,7 @@ function App() {
             handleLogout={handleLogout}
             isAdmin={isAdmin}
           />
-          <GalleryDetail
-            gallerySelected={gallerySelected}
-          />
+          <GalleryDetail gallerySelected={gallerySelected} />
           <ScrollButton />
         </Route>
         <Route path="/reviewlist">
@@ -216,9 +218,9 @@ function App() {
             isAdmin={isAdmin}
           />
           <ReviewDetail
-          userinfo={userinfo} 
-          isLogin={isLogin} 
-          reviewSelected={reviewSelected} 
+            userinfo={userinfo}
+            isLogin={isLogin}
+            reviewSelected={reviewSelected}
           />
           <ScrollButton />
         </Route>
@@ -229,11 +231,7 @@ function App() {
             handleLogout={handleLogout}
             isAdmin={isAdmin}
           />
-          <Register
-            userinfo={userinfo}
-            isAuthorLogin={isAuthorLogin}
-            isAudienceLogin={isAudienceLogin}
-          />
+          <Register userinfo={userinfo} isLogin={isLogin} />
           <ScrollButton />
         </Route>
         <Route path="/3dgallery">
@@ -246,8 +244,13 @@ function App() {
             handleLogout={handleLogout}
             isAdmin={isAdmin}
           />
-          {modifyRender ? <Modify userinfo={userinfo} /> : <Loading />}
+          {modifyRender ? (
+            <Modify userinfo={userinfo} setUserinfo={setUserinfo} />
+          ) : (
+            <Loading />
+          )}
         </Route>
+
         <Route exact path="/contact">
           <Navbar
             isLogin={isLogin}

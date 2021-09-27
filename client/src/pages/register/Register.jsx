@@ -4,7 +4,7 @@ import AWS from "aws-sdk";
 import { Link, useHistory, withRouter } from 'react-router-dom';
 import { createExhibition } from '../../api/galleryApi';
 
-const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
+const Register = ({ userinfo, isLogin }) => {
 
   const artCount = [];
   for(let i=0; i<9; i++){
@@ -12,7 +12,7 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
   } // artCount = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
   const tags1 = ['#개인전', '#회화', '#순수미술', '#응용미술']
-  const tags2 = ['#일러스트', '#판화', '#사진전', "팝아트"] 
+  const tags2 = ['#일러스트', '#판화', '#사진전', "#팝아트"] 
   const tags3 = ['#추상화', '#인물화', '#풍경화', '#정물화']
 
   const [title, setTitle] = useState(''); //전시명
@@ -24,7 +24,7 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
   const [arts, setArts] = useState([{}, {}, {}, {}, {}, {}, {}, {}, {}]) //9개 작품 배열
 
   const [errorMessage, setErrorMessage] = useState(null); //모든 필드값 안 채워졌을 때 띄우는 에러메세지
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false); //전시 신청 완료 모달창
 
   const handleTitle = (event) => {
     setTitle(event.target.value);
@@ -107,8 +107,21 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
   }
 
   const createGallery = () => {
-    setModalOpen(true);
-    createExhibition(title, startDate, endDate, type, content, isClicked, arts);
+    if( 
+      title === '' ||
+      startDate === '' ||
+      endDate === '' ||
+      type === '' ||
+      isClicked.length === 0 ||
+      content === '' ||
+      arts.length === 0
+    ){
+      setErrorMessage("항목을 모두 입력하세요!🙏");
+    } else{
+      setModalOpen(true);
+      setErrorMessage(''); //에러메세지 다시 초기화
+      createExhibition(title, startDate, endDate, type, content, isClicked, arts);
+    }
   }
 
   const history = useHistory();
@@ -116,7 +129,7 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
     history.goBack();
   }
 
-  if(isAuthorLogin){
+  if(userinfo && userinfo.user_type === 2 || userinfo && userinfo.user_type === 3){
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>전시 신청</h2>
@@ -224,6 +237,7 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
           <button className={styles.submitBtn}>취소</button>
         </Link>
       </div>
+      <div className={styles.error}>{errorMessage}</div>
 
       {modalOpen ? //모달창
       <section className={styles.modalContainer}>
@@ -233,8 +247,7 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
           <div className={styles.ok}>
           <Link to="/gallery">
             <button className={styles.okBtn} 
-            onClick={()=>setModalOpen(false)}
-            >확인</button>
+            onClick={()=>setModalOpen(false)}>확인</button>
           </Link>
           </div>
         </div>
@@ -244,7 +257,7 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
     </section>
 
   )
-  } else if(isAudienceLogin){ // 관람객 로그인 시
+  } else if(userinfo && userinfo.user_type === 1){ // 관람객 로그인 시
     
     return (
       <section className={styles.modalContainer}>
@@ -258,7 +271,7 @@ const Register = ({ userinfo, isAuthorLogin, isAudienceLogin }) => {
       </section>
     )
 
-  } else{ //비로그인 시
+  } else if(!userinfo && !isLogin){ //비로그인 시
     
     return (
       <section className={styles.modalContainer}>

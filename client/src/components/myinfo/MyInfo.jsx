@@ -2,28 +2,47 @@ import styles from "./MyInfo.module.css";
 
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router";
+import axios from "axios";
+import { getMyinfo } from "../../api/mypageApi";
 
-const MyInfo = ({ userinfo }) => {
+const MyInfo = ({ userinfo, setUserinfo, setIsLogin }) => {
   const history = useHistory();
 
   const modifyCLick = () => {
     history.push("/modify");
   };
   const deleteAccount = () => {
-    // 탈퇴요청보내기
+    axios
+      .delete("https://art-ground.link/mypage")
+      .then((result) => {
+        console.log(result, "탈퇴!");
+        setUserinfo(null);
+        setIsLogin(false);
+        history.push("./about");
+      })
+      .catch((err) => console.log(err));
   };
 
+  const img = !userinfo.profile_img
+    ? "https://images.velog.io/images/beablessing/post/54131e26-0389-412e-b88d-a8b6a97600a8/noimg.png"
+    : userinfo.profile_img;
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     axios.get("https://localhost:5000/mypage").then((result) => {
+  //       console.log(result);
+  //     });
+  //   }, 1000);
+
+  //   return () => {};
+  // }, []);
   return (
     <section className={styles.container}>
       <>
         <div className={styles.infobox1}>
           <div className={styles.imgbox}>
             <div className={styles.imgborder}>
-              <img
-                className={styles.ProfileView}
-                src={userinfo.profile_img}
-                alt="profileImg"
-              />
+              <img className={styles.ProfileView} src={img} alt="profileImg" />
             </div>
           </div>
           <div className={styles.textbox}>
