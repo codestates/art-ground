@@ -36,18 +36,29 @@ const Admin = () => {
 
   // 데이터 상태값
   const [exhibitData, setExhibitData] = useState([]);
-  const [reviewData, setReviewData] = useState(null);
+  const [reviewData, setReviewData] = useState([]);
 
   useEffect(() => {
     if (exhibition) {
       axios.get("https://localhost:5000/exhibition").then((result) => {
         //console.log(result.data.data);
         setExhibitData(result.data.data);
-        console.log(result.data.data);
+        //console.log(result.data.data);
       });
     }
     return () => {};
   }, [exhibition]);
+
+  useEffect(() => {
+    if (review) {
+      axios.get("https://localhost:5000/review").then((result) => {
+        //console.log(result.data.data);
+        setReviewData(result.data.data);
+        //console.log(result.data.data, "ssssssssss");
+      });
+    }
+    return () => {};
+  }, [review]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -139,7 +150,7 @@ const Admin = () => {
                   <button className={clickEXSmenu1}>전체보기(최신순)</button>
                   <button className={clickEXSmenu2}>전시회별 정렬</button>
                 </div>
-                {exhibitData.map((el, idx) => {
+                {reviewData.map((el, idx) => {
                   return <AdminReview key={idx} el={el} />;
                 })}
               </>

@@ -63,6 +63,7 @@ function App() {
     isAuthenticated();
   }, []);
 
+  
   const handleLogout = () => {
     getSignOutRes(setUserinfo, setIsLogin, setisAdmin, isLogin);
     history.push("/about");
