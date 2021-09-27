@@ -3,11 +3,10 @@ import axios from "axios";
 export function getSigninRes(userData, handleResponseSuccess, setisAdmin) {
   //art-ground.link
   return axios
-    .post("https://art-ground.link/sign-in", userData)
+    .post("https://localhost:5000/sign-in", userData)
     .then((result) => {
       if (result.data === "AccessToken ready") {
-        console.log(result.data, "로그인요청 데이터");
-        handleResponseSuccess();
+        handleResponseSuccess(result);
       }
     })
     .catch((err) => console.log(err));
@@ -17,7 +16,6 @@ export function getSignOutRes(setUserinfo, setIsLogin, setisAdmin) {
   return axios
     .post("https://art-ground.link/sign-out")
     .then((result) => {
-      console.log(result, "로그아웃응답");
       if (result.status === 205) {
         setUserinfo(null);
         setIsLogin(false);

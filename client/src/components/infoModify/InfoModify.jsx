@@ -10,17 +10,20 @@ require("dotenv").config();
 
 axios.defaults.withCredentials = true;
 
-const InfoModify = ({ userinfo, setInfoEditPage, setUserinfo }) => {
+const InfoModify = ({
+  userinfo,
+  setInfoEditPage,
+  setUserinfo,
+  setEditFront,
+}) => {
   const history = useHistory();
 
   const [userMail, setUserMail] = useState(userinfo.user_email);
   const [nickName, setNickName] = useState(userinfo.nickname);
   const [img, setImg] = useState(userinfo.profile_img);
   const [authDesc, setAuthDesc] = useState(userinfo.authorDesc);
-  const [password, setPassword] = useState("");
-  const [password2, setPassword2] = useState("");
+
   const [modalOpen, setModalOpen] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
 
   const secretKey = process.env.CRYPTOJS_SECRETKEY;
 
@@ -65,12 +68,7 @@ const InfoModify = ({ userinfo, setInfoEditPage, setUserinfo }) => {
   const nickNameHandle = (event) => {
     setNickName(event.target.value);
   };
-  const passHandle = (event) => {
-    setPassword(event.target.value);
-  };
-  const passHandle2 = (event) => {
-    setPassword2(event.target.value);
-  };
+
   const authDescHandle = (event) => {
     setAuthDesc(event.target.value);
   };
@@ -90,19 +88,20 @@ const InfoModify = ({ userinfo, setInfoEditPage, setUserinfo }) => {
     };
     console.log(userData);
     axios
-      .post("https://art-ground.link/mypage", {
+      .post("https://localhost:5000/mypage", {
         userData,
       })
       .then((result) => {
-        console.log(result, "인포수정 응답!");
+        // console.log(result, "인포수정 응답!");
+
         history.push("/mypage");
-        //setUserinfo();
       })
       .catch((err) => console.log(err));
   };
 
   const cancleClick = () => {
     setInfoEditPage(false);
+    setEditFront(true);
   };
 
   return (

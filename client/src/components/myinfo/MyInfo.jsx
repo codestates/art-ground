@@ -3,6 +3,7 @@ import styles from "./MyInfo.module.css";
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
+import { getMyinfo } from "../../api/mypageApi";
 
 const MyInfo = ({ userinfo, setUserinfo, setIsLogin }) => {
   const history = useHistory();
@@ -26,6 +27,15 @@ const MyInfo = ({ userinfo, setUserinfo, setIsLogin }) => {
     ? "https://images.velog.io/images/beablessing/post/54131e26-0389-412e-b88d-a8b6a97600a8/noimg.png"
     : userinfo.profile_img;
 
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     axios.get("https://localhost:5000/mypage").then((result) => {
+  //       console.log(result);
+  //     });
+  //   }, 1000);
+
+  //   return () => {};
+  // }, []);
   return (
     <section className={styles.container}>
       <>
