@@ -6,7 +6,7 @@ module.exports.getMyExhibition = async (req, res) => {
 
   if (userInfo) {
     const { id: user_id } = userInfo;
-    const result = exhibition.findAll({
+    const result = await exhibition.findAll({
       where: {
         user_id,
       },
