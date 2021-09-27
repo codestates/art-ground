@@ -3,7 +3,9 @@ const { sign, verify } = require("jsonwebtoken");
 
 module.exports = {
   generateAccessToken: (data) => {
-    return sign(data, process.env.ART_GROUND_ACCESS_SECRET);
+    return sign(data, process.env.ART_GROUND_ACCESS_SECRET, {
+      expiresIn: "10s",
+    });
   },
   isAuthorized: (req) => {
     const authorization = req.headers.cookie;
@@ -23,6 +25,7 @@ module.exports = {
         httpOnly: true,
         secure: true,
         sameSite: "none",
+        // domain: "localhost:5000",
       })
       .status(200)
       .send("AccessToken ready");
