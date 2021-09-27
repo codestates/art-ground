@@ -54,6 +54,15 @@ const MyPage = ({ userinfo, handleResponseSuccess, setUserinfo }) => {
     }, 1000);
   });
 
+  useEffect(() => {
+    if (isPickClicked) {
+      axios.get("https://localhost:5000/mypage/exhibition").then((result) => {
+        console.log(result.data.data);
+      });
+    }
+    return () => {};
+  }, [isPickClicked]);
+
   return (
     <section className={styles.container}>
       <div className={styles.side}>
