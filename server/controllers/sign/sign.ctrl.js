@@ -21,7 +21,6 @@ module.exports = {
       if (!userInfo) {
         return res.status(401).json({ message: "invalid user" }); //404로 바꿔야 하나?
       }
-
       let byte = CryptoJS.AES.decrypt(
         password,
         process.env.ART_GROUND_CRYPTOJS_SECRETKEY

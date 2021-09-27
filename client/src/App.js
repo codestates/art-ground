@@ -7,7 +7,6 @@ import SignUp from "./pages/signup/SignUp";
 import SignIn from "./pages/signin/SignIn";
 import SignInDetail from "./pages/signindetail/SignInDetail";
 import MyPage from "./pages/mypage/MyPage";
-
 import Modify from "./pages/modify/Modify";
 import Google from "./pages/google/Google";
 import Kakao from "./pages/kakao/Kakao";
@@ -26,6 +25,8 @@ import ScrollTab from "./components/scrollTab/ScrollTab";
 import ScrollTop from "./components/scrollTop/ScrollTop";
 import ThreeDGallery from "./pages/3dGallery/ThreeDGallery";
 import Loading from "./components/loading/Loading";
+import { getSignOutRes } from "./api/signApi";
+import { getMyinfo } from "./api/mypageApi";
 
 function App() {
   const history = useHistory();
@@ -48,54 +49,24 @@ function App() {
     }, 1000);
   }, []);
 
-  const isAuthenticated = () => {
-    // 내정보 불러오기 axios요청
-    //axios.get("https://art-ground.link/mypage")
-    // axios.get("https://localhost:5000/mypage").then((result) => {
-    //   setIsLogin(true);
-    //   setUserinfo(result.data.data.userInfo);
-    // });
-    setIsLogin(true);
-    setUserinfo({
-      userEmail: "kim@gmail.com",
-      nickname: "photographer kim222",
-      profileImg: "https://t1.daumcdn.net/cfile/tistory/9995E34F5D5C9FB134",
-      authorDesc:
-        "무용가들의 우아한 동작과 섬세한 표정을 고스란히 담아내는 무용 사진가입니다. 무용가를 전문적으로 촬영한다는 점도 무척 신기한데, 마치 무대 위에서 함께 연기를 하기라도 한 듯 실감나게 표현한다는 점은 더욱 놀랍습니다. 그리고, 김윤식 작가가 체코국립발레단 소속의 현역 발레리노라는 사실까지 알게 되면 그에 대한 호기심은 더욱 커집니다.",
-      userType: "3",
-    });
-    setisAdmin(true);
+  const isAuthenticated = (info) => {
+    getMyinfo(setIsLogin, setUserinfo, setisAdmin, isLogin);
+    //console.log(document.cookie, "ddd===========");
   };
 
-  const handleResponseSuccess = () => {
-    isAuthenticated();
+  const handleResponseSuccess = (info) => {
+    isAuthenticated(info);
     history.push("/about");
-    console.log("dd");
   };
+
+  useEffect(() => {
+    isAuthenticated();
+  }, []);
 
   const handleLogout = () => {
-    axios.post("https://art-ground.link/sign-out").then((result) => {
-      if (result.data.message === "successfully signed out!") {
-        setUserinfo(null);
-        setIsLogin(false);
-      }
-    });
+    getSignOutRes(setUserinfo, setIsLogin, setisAdmin, isLogin);
+    history.push("/about");
   };
-
-  //로그인될때까지 임시
-  useEffect(() => {
-    setIsLogin(true);
-    setUserinfo({
-      userEmail: "kim@gmail.com",
-      nickname: "photographer kim222",
-      profileImg: "https://t1.daumcdn.net/cfile/tistory/9995E34F5D5C9FB134",
-      authorDesc:
-        "무용가들의 우아한 동작과 섬세한 표정을 고스란히 담아내는 무용 사진가입니다. 무용가를 전문적으로 촬영한다는 점도 무척 신기한데, 마치 무대 위에서 함께 연기를 하기라도 한 듯 실감나게 표현한다는 점은 더욱 놀랍습니다. 그리고, 김윤식 작가가 체코국립발레단 소속의 현역 발레리노라는 사실까지 알게 되면 그에 대한 호기심은 더욱 커집니다.",
-      userType: "3",
-    });
-    setisAdmin(true);
-    return () => {};
-  }, []);
 
   // window.localStorage.setItem("userinfo", JSON.stringify(userinfo));
 
@@ -132,6 +103,7 @@ function App() {
             isAuthorLogin={isAuthorLogin}
             isAudienceLogin={isAudienceLogin}
             handleResponseSuccess={handleResponseSuccess}
+            setisAdmin={setisAdmin}
           />
         </Route>
 
@@ -183,8 +155,13 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
+            setUserinfo={setUserinfo}
           />
-          <MyPage userinfo={userinfo} setUserinfo={setUserinfo} />
+          <MyPage
+            userinfo={userinfo}
+            setUserinfo={setUserinfo}
+            setIsLogin={setIsLogin}
+          />
           {/* {isLogin ? <MyPage userinfo={userinfo} /> : <SideBar />} */}
         </Route>
         <Route path="/about">
@@ -218,9 +195,7 @@ function App() {
             handleLogout={handleLogout}
             isAdmin={isAdmin}
           />
-          <GalleryDetail
-            gallerySelected={gallerySelected}
-          />
+          <GalleryDetail gallerySelected={gallerySelected} />
           <ScrollButton />
         </Route>
         <Route path="/reviewlist">
@@ -244,9 +219,9 @@ function App() {
             isAdmin={isAdmin}
           />
           <ReviewDetail
-          userinfo={userinfo} 
-          isLogin={isLogin} 
-          reviewSelected={reviewSelected} 
+            userinfo={userinfo}
+            isLogin={isLogin}
+            reviewSelected={reviewSelected}
           />
           <ScrollButton />
         </Route>
@@ -257,11 +232,7 @@ function App() {
             handleLogout={handleLogout}
             isAdmin={isAdmin}
           />
-          <Register
-            userinfo={userinfo}
-            isAuthorLogin={isAuthorLogin}
-            isAudienceLogin={isAudienceLogin}
-          />
+          <Register userinfo={userinfo} isLogin={isLogin} />
           <ScrollButton />
         </Route>
         <Route path="/3dgallery">
@@ -274,8 +245,13 @@ function App() {
             handleLogout={handleLogout}
             isAdmin={isAdmin}
           />
-          {modifyRender ? <Modify userinfo={userinfo} /> : <Loading />}
+          {modifyRender ? (
+            <Modify userinfo={userinfo} setUserinfo={setUserinfo} />
+          ) : (
+            <Loading />
+          )}
         </Route>
+
         <Route exact path="/contact">
           <Navbar
             isLogin={isLogin}

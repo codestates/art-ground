@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import styles from "./Navbar.module.css";
@@ -14,6 +15,16 @@ const Navbar = ({ isLogin, handleLogout, isAdmin }) => {
   };
   const handleNavOpen = () => {
     setNavOpen(true);
+  };
+
+  const handleClickMypage = () => {
+    setNavOpen(false);
+    if (isLogin) {
+      history.push("./mypage");
+    } else {
+      alert("로그인한 유저만 사용할 수 있습니다");
+      history.push("./signin");
+    }
   };
 
   const [navOpen, setNavOpen] = useState(false); //모바일 시 navbar 사이드로 숨겨짐
@@ -65,7 +76,7 @@ const Navbar = ({ isLogin, handleLogout, isAdmin }) => {
                 onClick={() => {
                   handleLogout();
                   setNavOpen(false);
-                  history.push("/");
+                  history.push("/about");
                 }}
               >
                 로그아웃
@@ -76,11 +87,10 @@ const Navbar = ({ isLogin, handleLogout, isAdmin }) => {
                 회원가입
               </li>
             </Link>
-            <Link to="/mypage">
-              <li className={styles.btn} onClick={handleNavClose}>
-                마이페이지
-              </li>
-            </Link>
+
+            <li className={styles.btn} onClick={handleClickMypage}>
+              마이페이지
+            </li>
           </ul>
         </div>
         <div className={navStatus ? styles.logoScroll : styles.logo}>

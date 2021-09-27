@@ -43,7 +43,7 @@ const GalleryDetail = ({ gallerySelected }) => {
   return (
     <section className={styles.container}>
       <div className={styles.space}>
-        {JSON.parse(gallerySelected.genre_hashtags).map(el=> <span className={styles.tag}>{el}</span>)}
+        {gallerySelected.genre_hashtags.map(el=> <span className={styles.tag}>{el}</span>)}
       </div>
       <div className={styles.title}>{gallerySelected.title}</div>
       <div className={styles.date}>{gallerySelected.start_date} ~ {gallerySelected.end_date}</div>
@@ -115,7 +115,7 @@ const GalleryDetail = ({ gallerySelected }) => {
                 </ul> : null}
               </i>
             </div>
-            <span className={styles.workContent}>{el.desc}</span>
+            <span className={styles.workContent}>{el.image_desc}</span>
           </li>
         )}
 

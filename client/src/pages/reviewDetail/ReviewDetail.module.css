@@ -54,7 +54,7 @@
 
 .tagList {
   display: flex;
-  padding: 0.7rem 0 0.25rem 0;
+  padding: 0.7rem 0 0.45rem 0;
   border-bottom: 1px solid rgb(231, 231, 231);
   font-size: 0.75rem;
 }
@@ -67,7 +67,7 @@
 
 .title {
   color: rgb(66, 66, 66);
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
   font-size: 1.2rem;
 }
 
@@ -213,18 +213,13 @@
   .container {
     padding: 4.5rem 0 5rem 0;
   }
-}
-
-@media screen and (max-width: 680px) {
   .artDetail {
     flex-direction: column;
-    /* align-items: center; */
   }
   .imgBox {
-    width: 45%;
+    width: 100%;
     padding: 0 1.2rem;
     margin-left: 0;
-    /* align-items: center; */
   }
 
   .metaData {
@@ -240,6 +235,18 @@
   .replyCount {
     margin: 0 1rem;
     padding: 0;
+  }
+  .thumbnail {
+    width: auto;
+    height: 15rem;
+    margin: 0;
+  }
+  .tagList {
+    font-size: 0.7rem;
+    padding: 0.8rem 0 0.4rem 0;
+  }
+  .tag {
+    margin-right: 0.2rem;
   }
 }
 /* 모달 section(아래) */
@@ -261,6 +268,12 @@
   }
   .modalSubContent {
     font-size: 0.75rem;
+  }
+}
+@media screen and (max-width: 422px) {
+  .thumbnail {
+    width: 100%;
+    height: auto;
   }
 }
 

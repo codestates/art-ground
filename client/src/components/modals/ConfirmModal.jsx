@@ -10,7 +10,7 @@ const ConfirmModal = ({ el, setConfirmModal, modalTxt }) => {
       })
       .then((result) => {
         setConfirmModal(false);
-        window.location.href = "https://art-ground.io/admin";
+        window.location.href = "https://localhost:3000/admin";
       })
       .catch((err) => console.log(err));
   };

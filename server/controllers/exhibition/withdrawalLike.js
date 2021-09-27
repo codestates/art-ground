@@ -3,7 +3,7 @@ const { likes } = require("../../models");
 module.exports.withdrawalLike = async (req, res) => {
   const userInfo = isAuthorized(req);
   if (userInfo) {
-    const { postId: exhibition_id } = req.body;
+    const { postId: exhibition_id } = req.params;
     const { id: user_id } = userInfo;
 
     const result = await likes.destroy({ where: { exhibition_id, user_id } });
