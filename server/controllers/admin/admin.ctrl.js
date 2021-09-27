@@ -21,6 +21,7 @@ module.exports = {
   approveExhibitions: (req, res) => {
     const userInfo = isAuthorized(req);
     const { postId } = req.body;
+    
     console.log('+++++++++++++++', req.headers)
     console.log("userInfo:", userInfo, postId);
 
@@ -66,7 +67,6 @@ module.exports = {
     }
   },
   closeExhibitions: (req, res) => {
-    console.log(req, "----");
     const userInfo = isAuthorized(req);
     const { postId } = req.params;
     console.log("userInfo:", userInfo, postId);
