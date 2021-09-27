@@ -129,7 +129,7 @@ const Register = ({ userinfo, isLogin }) => {
     history.goBack();
   }
 
-  if(userinfo && userinfo.user_type === 2 || userinfo && userinfo.user_type === 3){
+  if((userinfo && userinfo.user_type === 2) || (userinfo && userinfo.user_type === 3)){
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>전시 신청</h2>

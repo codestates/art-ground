@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Reply.module.css';
 
 const Reply = ({ deleteReply, reply, isLogin, userinfo }) => {

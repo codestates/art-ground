@@ -22,8 +22,9 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
     }
     setTimeout(()=> {
       getAxiosData();
-    }, 300)
+    }, 100)
   }, [rerender])
+
 
   const createReply = () => {
     if(isLogin){
@@ -47,7 +48,6 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
     setRerender(!rerender); //컴포넌트 다시 랜더링 시키기 위한 용도
   }
   
-
   return (
     <section className={styles.container}>
       <div className={styles.artDetail}>
@@ -98,17 +98,18 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
           onClick={createReply}
           >등록</button>
         </div>
-
+        
         <div className={styles.replyCount}>
           총 {replyList.length}개</div>
         {replyList.map(el => 
         <Reply
-        isLogin={isLogin} 
-        reply={el} 
-        deleteReply={deleteReply}
-        userinfo={userinfo}
+          isLogin={isLogin} 
+          reply={el} 
+          deleteReply={deleteReply}
+          userinfo={userinfo}
         />
         )}
+      
 
       </ul>
 
