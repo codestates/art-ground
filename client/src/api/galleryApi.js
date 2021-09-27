@@ -91,13 +91,11 @@ export async function getPremiumGallery(tagClicked, sortValue) {
       } else {
         //전시마감일순
         return result.sort(
-
           (a, b) => new Date(a.end_date) - new Date(b.end_date)
         );
       }
     } else {
       //태그 필터링
-
       result = result.filter((el) => el.genre_hashtags.includes(tagClicked));
       if (sortValue === "최신순") {
         return result.sort(
@@ -116,6 +114,97 @@ export async function getPremiumGallery(tagClicked, sortValue) {
   }
 }
 
+export async function filter(isStandard, tagClicked, sortValue) {
+  try {
+    if (isStandard) { //standard
+      let res = await axios.get(
+        "https://art-ground.link/exhibition/1" 
+      );
+      let result = res.data.data.map((el) => {
+        return { ...el, genre_hashtags: JSON.parse(el.genre_hashtags) };
+      }); // 배열 파싱하고
+      if(tagClicked === '전체'){
+        if (sortValue === "최신순") {
+          return result.sort(
+            (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+          );
+        } else {
+          //전시마감일순
+          return result.sort(
+            (a, b) => new Date(a.end_date) - new Date(b.end_date)
+          );
+        }
+      } else{
+        result = result.filter((el) => el.genre_hashtags.includes(tagClicked));
+        if (sortValue === "최신순") {
+          return result.sort(
+            (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+          );
+  
+        } else {
+          //전시마감일순
+          return result.sort(
+            (a, b) => new Date(a.end_date) - new Date(b.end_date)
+          );
+        }
+      }
+    } else { //premium
+      let res = await axios.get(
+        "https://art-ground.link/exhibition/2" 
+      );
+      let result = res.data.data.map((el) => {
+        return { ...el, genre_hashtags: JSON.parse(el.genre_hashtags) };
+      }); // 배열 파싱하고
+      if(tagClicked === '전체'){
+        if (sortValue === "최신순") {
+          return result.sort(
+            (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+          );
+        } else {
+          //전시마감일순
+          return result.sort(
+            (a, b) => new Date(a.end_date) - new Date(b.end_date)
+          );
+        }
+      } else{
+        result = result.filter((el) => el.genre_hashtags.includes(tagClicked));
+        if (sortValue === "최신순") {
+          return result.sort(
+            (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+          );
+  
+        } else {
+          //전시마감일순
+          return result.sort(
+            (a, b) => new Date(a.end_date) - new Date(b.end_date)
+          );
+        }
+      }
+    }
+    
+  } catch (err) {
+    return console.log(err);
+  }
+}
+
+export async function sort(sortValue, galleryList) {
+  try {
+    if (sortValue === "최신순") {
+      let result = galleryList.sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      );
+      return [...result]
+    } else { //전시마감일순
+      let result = galleryList.sort(
+        (a, b) => new Date(a.end_date) - new Date(b.end_date)
+      );
+      return [...result]
+    }
+    
+  } catch (err) {
+    return console.log(err);
+  }
+}
 
 export async function createLike(postId) {
   console.log("클릭한 전시회 아이디:", postId);

@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import styles from "./Navbar.module.css";
@@ -44,7 +43,12 @@ const Navbar = ({ isLogin, handleLogout, isAdmin }) => {
     const watch = () => {
       window.addEventListener("scroll", handleFollow);
     };
-    watch();
+    setTimeout(()=> {
+      watch();
+      if(ScrollY === 0){
+        setNavStatus(false);
+      }
+    }, 10)
     return () => {
       window.removeEventListener("scroll", handleFollow);
     };
