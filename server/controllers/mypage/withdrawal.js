@@ -14,7 +14,7 @@ module.exports.withdrawal = async (req, res) => {
     });
 
     if (result) {
-      res.status(200).json({
+      res.status(200).clearCookie("accessToken").json({
         message: "successfully deleted",
       });
     }
