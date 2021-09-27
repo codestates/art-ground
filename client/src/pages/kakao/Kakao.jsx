@@ -18,16 +18,14 @@ const Kakao = (props) => {
     }
     return () => {};
   }, []);
-
-  console.log("accesstoken:", accessToken)
   
   useEffect(() => {
-    console.log("useEffect2...")
-    setTimeout(()=> {
-      getUserInfo(accessToken);
-    }, 2000)
+    console.log("useEffect2...", accessToken)
+    getUserInfo(accessToken);
     return () => {};
   }, [accessToken]);
+
+  console.log("accesstoken:", accessToken)
   
   const getAccessToken = (authorizationCode) => {
     axios({
