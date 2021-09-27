@@ -86,15 +86,21 @@ const InfoModify = ({
       profileImg: img,
       authorDesc: authDesc,
     };
-    console.log(userData);
+
     axios
-      .post("https://localhost:5000/mypage", {
+      .post("https://art-ground.link/mypage", {
         userData,
       })
       .then((result) => {
-        // console.log(result, "인포수정 응답!");
+        console.log(result, "인포수정 응답!");
+        if (result.data.message === "profile changed") {
+          axios.get("https://art-ground.link/mypage").then((result) => {
+            console.log(result);
+            setUserinfo(result.data.data);
+          });
 
-        history.push("/mypage");
+          history.push("/mypage");
+        }
       })
       .catch((err) => console.log(err));
   };

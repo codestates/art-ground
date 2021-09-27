@@ -14,7 +14,7 @@ export function getSigninRes(userData, handleResponseSuccess, setisAdmin) {
 export function getSignOutRes(setUserinfo, setIsLogin, setisAdmin) {
   //art-ground.link
   return axios
-    .post("https://art-ground.link/sign-out")
+    .post("https://localhost:5000/sign-out")
     .then((result) => {
       if (result.status === 205) {
         setUserinfo(null);
