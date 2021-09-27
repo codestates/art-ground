@@ -7,7 +7,6 @@ import SignUp from "./pages/signup/SignUp";
 import SignIn from "./pages/signin/SignIn";
 import SignInDetail from "./pages/signindetail/SignInDetail";
 import MyPage from "./pages/mypage/MyPage";
-
 import Modify from "./pages/modify/Modify";
 import Google from "./pages/google/Google";
 import Kakao from "./pages/kakao/Kakao";
@@ -50,24 +49,24 @@ function App() {
     }, 1000);
   }, []);
 
-  const isAuthenticated = () => {
+  const isAuthenticated = (info) => {
     getMyinfo(setIsLogin, setUserinfo, setisAdmin, isLogin);
+    //console.log(document.cookie, "ddd===========");
   };
 
-  const handleResponseSuccess = () => {
-    isAuthenticated();
+  const handleResponseSuccess = (info) => {
+    isAuthenticated(info);
     history.push("/about");
   };
+
+  useEffect(() => {
+    isAuthenticated();
+  }, []);
 
   const handleLogout = () => {
     getSignOutRes(setUserinfo, setIsLogin, setisAdmin, isLogin);
     history.push("/about");
   };
-
-  useEffect(() => {
-    getMyinfo(setIsLogin, setUserinfo, setisAdmin);
-    return () => {};
-  }, []);
 
   // window.localStorage.setItem("userinfo", JSON.stringify(userinfo));
 
@@ -252,6 +251,7 @@ function App() {
             <Loading />
           )}
         </Route>
+
         <Route exact path="/contact">
           <Navbar
             isLogin={isLogin}
