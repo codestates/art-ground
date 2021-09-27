@@ -2,6 +2,7 @@ import styles from "./SignUp.module.css";
 import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
+import { getSingupAudRes, getSingupAuthRes } from "../../api/signApi";
 const CryptoJS = require("crypto-js");
 
 axios.defaults.withCredentials = true;
@@ -15,14 +16,7 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
     password2: "",
     userType: "",
   });
-  console.log(audInfo);
-  // const [authInfo, setAuthInfo] = useState({
-  //   authorEmail: "",
-  //   name: "",
-  //   password: "",
-  //   password2: "",
-  //   userType: "",
-  // });
+
   const [passOpen, setPassOpen] = useState(false);
   const [passOpen2, setPassOpen2] = useState(false);
 
@@ -53,9 +47,7 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
 
   const secretKey = "Klassiker";
   const clickAudJoin = () => {
-    // 관람객회원가입버튼클릭시
-    // 유효성검사
-    const { userEmail, nickname, password, password2, userType } = audInfo;
+    const { userEmail, nickname, password, password2 } = audInfo;
     if (!userEmail || !nickname || !password || !password2) {
       setErrorMessage("모든 항목을 입력해주세요");
       return false;
@@ -73,16 +65,12 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
       return false;
     }
 
-    // 임시
-    // alert("가입이 완료되었습니다");
-    // history.push("/");
-
     const encryptedPassword = CryptoJS.AES.encrypt(
       JSON.stringify(password),
+
       secretKey
     ).toString();
 
-    // axios 요청하기
     const userData = {
       userEmail,
       nickname,
@@ -90,25 +78,11 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
       userType: 1,
     };
 
-    axios
-      // .post("https://localhost:5000/sign-up/user", userData)
-      // .post("https://art-ground.link/sign-up/user", userData)
-      .post("https://localhost:5000/sign-up/user", userData)
-      .then((result) => {
-        if (result.data.message === "sign-up ok") {
-          console.log(result, "-----관람객요청");
-          history.push("/about");
-        }
-      })
-      .cathch((err) => {
-        setErrorMessage("이미 존재하는 사용자입니다.");
-      });
+    getSingupAudRes(userData, setErrorMessage, history);
   };
 
   const clickAuthJoin = () => {
-    // 작가회원가입버튼클릭시
-    // 유효성검사
-    const { userEmail, nickname, password, password2, userType } = audInfo;
+    const { userEmail, nickname, password, password2 } = audInfo;
     if (!userEmail || !nickname || !password || !password2) {
       setErrorMessage("모든 항목을 입력해주세요");
       return false;
@@ -131,19 +105,13 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
       secretKey
     ).toString();
 
-    // axios 요청하기
     const userData = {
       authorEmail: userEmail,
       name: nickname,
       password: encryptedPassword,
       userType: 2,
     };
-    axios
-      .post("https://localhost:5000/sign-up/author", userData)
-      .then((result) => {
-        console.log(result, "-----작가요청");
-        //history.push("/about");
-      });
+    getSingupAuthRes(userData, setErrorMessage, history);
   };
 
   const handleInputValue = (key) => (e) => {
@@ -232,7 +200,6 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
 
                 <span className={styles.eyeBorder}>
                   <img
-
                     src={visibility}
                     alt=""
                     className={styles.eyeimg}

@@ -1,51 +1,67 @@
-import styles from './MyPage.module.css'
-import React, { useEffect, useState } from 'react'
-import MyInfo from '../../components/myinfo/MyInfo'
-import MyPick from '../../components/mypick/MyPick'
-import axios from 'axios'
-import MyExhibit from '../../components/myexhibition/MyExhibit'
-import SideBar from '../../components/sidebar/SideBar'
+import styles from "./MyPage.module.css";
+import React, { useEffect, useState } from "react";
+import MyInfo from "../../components/myinfo/MyInfo";
+import MyPick from "../../components/mypick/MyPick";
+import axios from "axios";
+import MyExhibit from "../../components/myexhibition/MyExhibit";
+import SideBar from "../../components/sidebar/SideBar";
+import Loading from "../../components/loading/Loading";
+import { useEdgeSplit } from "@react-three/drei";
 
-axios.defaults.withCredentials = true
+axios.defaults.withCredentials = true;
 
-const MyPage = ({ userinfo, handleResponseSuccess }) => {
-  const [isInfoClicked, setIsInfoClicked] = useState(true)
-  const [isPickClicked, setIsPickClicked] = useState(false)
-  const [isMyExhibit, setIsMyExhibit] = useState(false)
-  const [isMyAuction, setIsMyAction] = useState(false)
+const MyPage = ({ userinfo, handleResponseSuccess, setUserinfo }) => {
+  const [isInfoClicked, setIsInfoClicked] = useState(true);
+  const [isPickClicked, setIsPickClicked] = useState(false);
+  const [isMyExhibit, setIsMyExhibit] = useState(false);
+  const [isMyAuction, setIsMyAction] = useState(false);
 
-  const colorChange = !isInfoClicked ? styles.category : styles.clickCate
-  const colorChange2 = !isPickClicked ? styles.category : styles.clickCate
-  const colorChange3 = !isMyExhibit ? styles.category : styles.clickCate
-  const colorChange4 = !isMyAuction ? styles.category : styles.clickCate
+  const colorChange = !isInfoClicked ? styles.category : styles.clickCate;
+  const colorChange2 = !isPickClicked ? styles.category : styles.clickCate;
+  const colorChange3 = !isMyExhibit ? styles.category : styles.clickCate;
+  const colorChange4 = !isMyAuction ? styles.category : styles.clickCate;
 
   const clickInfo = () => {
-    setIsInfoClicked(true)
-    setIsPickClicked(false)
-    setIsMyExhibit(false)
-    setIsMyAction(false)
-  }
+    setIsInfoClicked(true);
+    setIsPickClicked(false);
+    setIsMyExhibit(false);
+    setIsMyAction(false);
+  };
 
   const clickMyPick = () => {
-    setIsInfoClicked(false)
-    setIsPickClicked(true)
-    setIsMyExhibit(false)
-    setIsMyAction(false)
-  }
+    setIsInfoClicked(false);
+    setIsPickClicked(true);
+    setIsMyExhibit(false);
+    setIsMyAction(false);
+  };
   const clickMyExhibit = () => {
-    setIsInfoClicked(false)
-    setIsPickClicked(false)
-    setIsMyExhibit(true)
-    setIsMyAction(false)
-  }
+    setIsInfoClicked(false);
+    setIsPickClicked(false);
+    setIsMyExhibit(true);
+    setIsMyAction(false);
+  };
   const clickMyauction = () => {
-    setIsInfoClicked(false)
-    setIsPickClicked(false)
-    setIsMyExhibit(false)
-    setIsMyAction(true)
-  }
+    setIsInfoClicked(false);
+    setIsPickClicked(false);
+    setIsMyExhibit(false);
+    setIsMyAction(true);
+  };
+  const [infoRender, setInfoRender] = useState(false);
+  useEffect(() => {
+    //로딩창 띄워야함
+    setTimeout(() => {
+      setInfoRender(true);
+    }, 1000);
+  });
 
-  useEffect(() => {}, [])
+  useEffect(() => {
+    if (isPickClicked) {
+      axios.get("https://localhost:5000/mypage/exhibition").then((result) => {
+        console.log(result.data.data);
+      });
+    }
+    return () => {};
+  }, [isPickClicked]);
 
   return (
     <section className={styles.container}>
@@ -61,18 +77,26 @@ const MyPage = ({ userinfo, handleResponseSuccess }) => {
             내 전시회
           </div>
           <div className={`${colorChange4}`} onClick={clickMyauction}>
-            내가 참여한 경매
+            내경매
           </div>
         </div>
       </div>
       <div className={styles.content}>
-        {isInfoClicked ? <MyInfo userinfo={userinfo} /> : null}
+        {isInfoClicked ? (
+          <>
+            {infoRender ? (
+              <MyInfo userinfo={userinfo} setUserinfo={setUserinfo} />
+            ) : (
+              <Loading />
+            )}
+          </>
+        ) : null}
         {isPickClicked ? <MyPick /> : null}
         {isMyExhibit ? <MyExhibit /> : null}
         {isMyAuction ? <SideBar /> : null}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default MyPage
+export default MyPage;

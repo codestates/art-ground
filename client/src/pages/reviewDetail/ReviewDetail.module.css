@@ -2,7 +2,7 @@
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
-  padding: 12rem 0 5rem 0;
+  padding: 11rem 0 5rem 0;
   animation: fadein 1.5s;
   -moz-animation: fadein 1.5s;
   /* Firefox */
@@ -13,7 +13,7 @@
 }
 
 .artDetail {
-  margin: 3rem 1rem;
+  margin: 3.5rem 1rem;
   padding: 1.5rem 0.5rem;
   border: 1px solid rgb(226, 226, 226);
   display: flex;
@@ -54,7 +54,7 @@
 
 .tagList {
   display: flex;
-  padding: 0.7rem 0 0.25rem 0;
+  padding: 0.7rem 0 0.4rem 0;
   border-bottom: 1px solid rgb(231, 231, 231);
   font-size: 0.75rem;
 }
@@ -67,7 +67,7 @@
 
 .title {
   color: rgb(66, 66, 66);
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
   font-size: 1.2rem;
 }
 
@@ -136,22 +136,90 @@
   color: rgb(82, 82, 82);
   font-size: 0.9rem;
 }
-@media screen and (max-width: 768px) {
-  .container {
-    padding: 6rem 0 5rem 0;
-  }
+
+/* 모달 section(아래) */
+.modalContainer {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  animation: fadein 1s;
+  -moz-animation: fadein 1s;
+  -webkit-animation: fadein 1s;
+  -o-animation: fadein 1s;
 }
 
-@media screen and (max-width: 680px) {
+.modalWrap {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 6.5rem 1.5rem;
+  width: 20rem;
+  height: 25rem;
+  z-index: 30;
+  border-radius: 10px;
+}
+
+.modalContent {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.2rem;
+  color: rgb(90, 90, 90);
+  line-height: 1.8rem;
+}
+.modalSubContent {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgb(148, 148, 148);
+  line-height: 1.2rem;
+}
+.ok {
+  margin: 4rem 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.okBtn {
+  margin: 0 1rem;
+  width: 6rem;
+  height: 2.5rem;
+  cursor: pointer;
+  border: 1px solid rgb(90, 90, 90);
+  padding: 0.2rem 0.7rem;
+  border-radius: 5px;
+  background-color: rgb(90, 90, 90);
+  transition: 0.3s;
+  font-size: 0.8rem;
+  color: white;
+  white-space: nowrap;
+}
+.okBtn:hover {
+  border: 1px solid rgb(210, 210, 210);
+  background-color: white;
+  color: rgb(66, 66, 66);
+}
+
+/* 모달 section(위) */
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 4.5rem 0 5rem 0;
+  }
   .artDetail {
     flex-direction: column;
-    /* align-items: center; */
   }
   .imgBox {
-    width: 45%;
+    width: 100%;
     padding: 0 1.2rem;
     margin-left: 0;
-    /* align-items: center; */
   }
 
   .metaData {
@@ -168,8 +236,48 @@
     margin: 0 1rem;
     padding: 0;
   }
+  .thumbnail {
+    width: auto;
+    height: 15rem;
+    margin: 0;
+  }
+  .tagList {
+    font-size: 0.7rem;
+    padding: 0.8rem 0 0.4rem 0;
+  }
+  .tag {
+    margin-right: 0.2rem;
+  }
+}
+/* 모달 section(아래) */
+@media screen and (max-width: 480px) {
+  .modalWrap {
+    width: 80%;
+    padding: 4.5rem 1.5rem;
+    height: 20rem;
+  }
+  .ok {
+    margin: 3.5rem 0;
+  }
+  .okBtn {
+    margin: 0 0.5rem;
+    width: 5rem;
+  }
+  .modalContent {
+    font-size: 1rem;
+  }
+  .modalSubContent {
+    font-size: 0.75rem;
+  }
+}
+@media screen and (max-width: 422px) {
+  .thumbnail {
+    width: 100%;
+    height: auto;
+  }
 }
 
+/* 모달 section(위) */
 @keyframes fadein {
   from {
     opacity: 0;

@@ -1,20 +1,9 @@
 import React, { useState, useRef } from 'react';
 import styles from './SubNavBar.module.css';
 
-const SubNavBar = (props) => {
+const SubNavBar = ({ isStandard, tagClicked, handleTagFilter, handleStandard, sortValue, handleSort }) => {
 
-  const tags=['전체', '#회화', '#일러스트', '#순수미술', '#응용미술', '#판화', '#개인전', '#사진전', '#추상화', '#팝아트', '#인물화', '#풍경화', '#정물화'];
-  const [tagClicked, setTagClicked] = useState('전체');
-  const [isStandard, setIsStandard] = useState(true);
-  const [isPremium, setIsPremium] = useState(false);
-  
-  const tagHandle = (el) => {
-    setTagClicked(el);
-  }
-  const standardHandle = () => {
-    setIsStandard(!isStandard);
-    setIsPremium(!isPremium)
-  }
+  const tags=['전체', '#회화', '#순수미술', '#응용미술', '#일러스트', '#판화', '#개인전', '#사진전', '#추상화', '#팝아트', '#인물화', '#풍경화', '#정물화'];
 
   ///////////마우스 드래그로 좌우 스크롤 구현/////////////////////////////////////////////////////////////////////////////////////////////////
   const scrollRef = useRef(null);
@@ -60,24 +49,32 @@ const SubNavBar = (props) => {
   const delay = 100;
   const onThrottleDragMove = throttle(onDragMove, delay);
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  
   return(
     <section className={styles.container}>
+
       <div className={styles.subNavBar}>
-        <span className={isStandard? styles.subMenuClicked : styles.subMenu} onClick={standardHandle}>STANDARD</span>
-        <span className={isPremium? styles.subMenuClicked : styles.subMenu} onClick={standardHandle}>PREMIUM</span>
+        <span className={isStandard? styles.subMenuClicked : styles.subMenu} 
+        onClick={handleStandard}>STANDARD</span>
+        <span className={(!isStandard)? styles.subMenuClicked : styles.subMenu} 
+        onClick={handleStandard}>PREMIUM</span>
       </div>
+
       <div className={styles.categories}
       onMouseDown={onDragStart}
       onMouseMove={isDrag ? onThrottleDragMove : null}
       onMouseUp={onDragEnd}
       onMouseLeave={onDragEnd}
       ref={scrollRef}>
-        {tags.map(el => <span className={el===tagClicked? styles.hashtagClicked :styles.hashtag} onClick={()=>tagHandle(el)}>{el}</span>)}
+        {tags.map(el => 
+        <span className={el===tagClicked? styles.hashtagClicked :styles.hashtag} 
+        onClick={()=>handleTagFilter(el)}>{el}</span>)}
       </div>
+
       <div className={styles.sortWrap}>
-        <select className={styles.sort} >
+        <select className={styles.sort} value={sortValue} onChange={handleSort}>
           <option value="최신순">최신순</option>
-          <option value="인기순">전시마감일순</option>
+          <option value="전시마감일순">전시마감일순</option>
         </select>
       </div>
 

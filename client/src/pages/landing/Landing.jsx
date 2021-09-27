@@ -9,7 +9,10 @@ const Landing = () => {
   }
   return (
     <section className={styles.container} onClick={goAbout}>
-      랜딩페이지 클릭하세요(헤더없애기실험)
+      <video muted autoPlay loop className={styles.landingVideo} src="../images/landingVideo.mp4"></video>
+      <div className={styles.content}>
+        Click to start
+      </div>
     </section>
   )
 }

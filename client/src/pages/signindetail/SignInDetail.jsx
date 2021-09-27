@@ -1,8 +1,7 @@
 import styles from "./SignInDetail.module.css";
 import React, { useState } from "react";
 import axios from "axios";
-import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
+import { getSigninRes } from "../../api/signApi";
 const CryptoJS = require("crypto-js");
 require("dotenv").config();
 
@@ -12,12 +11,12 @@ const SignInDetail = ({
   isAuthorLogin,
   isAudienceLogin,
   handleResponseSuccess,
+  setisAdmin,
 }) => {
-  const history = useHistory();
-
   const [loginInfo, setLoginInfo] = useState({
     userEmail: "",
     password: "",
+    userType: "",
   });
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -40,7 +39,6 @@ const SignInDetail = ({
     return regExp.test(asValue);
   };
 
-
   const { userEmail, password } = loginInfo;
   const secretKey = "Klassiker";
   const clickAudLogin = () => {
@@ -61,29 +59,45 @@ const SignInDetail = ({
     const userData = {
       userEmail,
       password: encryptedPassword,
+      userType: 1,
     };
+
     setErrorMessage("");
-    axios.post("https://localhost:5000/sign-in", userData).then((result) => {
-      console.log(result, "-----관람객로그인요청");
-    });
-    //handleResponseSuccess();
-    // history.push("/landing");
+    getSigninRes(userData, handleResponseSuccess, setisAdmin);
   };
   const clickAuthLogin = () => {
     if (!userEmail || !password) {
       setErrorMessage("아이디와 비밀번호를 모두 입력해주세요");
-    } else {
-      setErrorMessage("");
-      // axios
-      //   .post("http://www.art-ground.net/sign-in", loginInfo)
-      //   .then((result) => {});
-      handleResponseSuccess();
-      // history.push("/");
+    }
+
+    if (!checkEmail(userEmail)) {
+      setErrorMessage("이메일 형식을 맞춰주세요");
+      return false;
+    }
+
+    const encryptedPassword = CryptoJS.AES.encrypt(
+      JSON.stringify(password),
+      secretKey
+    ).toString();
+
+    const userData = {
+      userEmail,
+      password: encryptedPassword,
+      userType: 2,
+    };
+    setErrorMessage("");
+    getSigninRes(userData, handleResponseSuccess);
+  };
+
+  const audonKeyPress = (e) => {
+    if (e.key === "Enter") {
+      clickAudLogin();
     }
   };
 
-  const onKeyPress = (e) => {
+  const authonKeyPress = (e) => {
     if (e.key === "Enter") {
+      clickAuthLogin();
     }
   };
 
@@ -93,9 +107,9 @@ const SignInDetail = ({
   };
 
   const clickKakao = () => {
-    window.location.href = 
-      `https://kauth.kakao.com/oauth/authorize?client_id=a3d0f7feebf7fca1ad114ff7da1dddc5&redirect_uri=https://localhost:3000/signin/kakao&response_type=code`;
-  }
+    window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=a3d0f7feebf7fca1ad114ff7da1dddc5&redirect_uri=https://localhost:3000/signin/kakao&response_type=code`;
+  };
+
   return (
     <section className={styles.container}>
       <div>
@@ -170,11 +184,19 @@ const SignInDetail = ({
             </li>
             <li className={styles.btnBox}>
               {isAudienceLogin ? (
-                <button className={styles.joinBtn} onClick={clickAudLogin}>
+                <button
+                  className={styles.joinBtn}
+                  onClick={clickAudLogin}
+                  onKeyPress={audonKeyPress}
+                >
                   관람객 로그인
                 </button>
               ) : (
-                <button className={styles.joinBtn} onClick={clickAuthLogin}>
+                <button
+                  className={styles.joinBtn}
+                  onClick={clickAuthLogin}
+                  onKeyPress={authonKeyPress}
+                >
                   작가 로그인
                 </button>
               )}
