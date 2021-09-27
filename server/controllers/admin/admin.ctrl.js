@@ -3,10 +3,26 @@ const { comments } = require("../../models");
 const { isAuthorized } = require("../../utils/tokenFunction");
 
 module.exports = {
+  getAllReviews: (req, res) => {
+    const userInfo = isAuthorized(req);
+    console.log("userInfo:", userInfo);
+
+    if (userInfo.user_type === 3) {
+      comments.findAll().then((data) => {
+        console.log("data:", data);
+        res.status(200).json({ data: data });
+      });
+    } else {
+      res.status(401).json({
+        message: "invalid access token",
+      });
+    }
+  },
   approveExhibitions: (req, res) => {
     const userInfo = isAuthorized(req);
     const { postId } = req.body;
-    console.log('+++++++++++++++', req.headers)
+
+    console.log("+++++++++++++++", req.headers);
     console.log("userInfo:", userInfo, postId);
 
     if (userInfo.user_type === 3) {
@@ -51,7 +67,6 @@ module.exports = {
     }
   },
   closeExhibitions: (req, res) => {
-    console.log(req, "----");
     const userInfo = isAuthorized(req);
     const { postId } = req.params;
     console.log("userInfo:", userInfo, postId);
@@ -110,13 +125,13 @@ module.exports = {
           },
         })
         .then((data) => {
-          console.log("data:".data);
+          console.log("data:", data);
           if (!data) {
             res.status(404).json({
               message: "comment not exist",
             });
           } else {
-            exhibition.destroy({
+            comments.destroy({
               where: {
                 id: commentId,
               },
@@ -124,7 +139,6 @@ module.exports = {
           }
         })
         .then((result) => {
-          console.log("result:", result);
           res.status(200).json({
             message: "successfully delete comments",
           });

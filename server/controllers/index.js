@@ -74,6 +74,8 @@ router.get("/review", getExhibitionReview);
 router.post("/admin/exhibition", adminCtrl.approveExhibitions);
 // 전시 종료
 router.delete("/admin/exhibition/:postId", adminCtrl.closeExhibitions);
+// 리뷰 불러오기
+router.get("/admin/review", adminCtrl.getAllReviews);
 // 리뷰 삭제
 router.delete("/admin/review/:commentId", adminCtrl.deleteReviews);
 
