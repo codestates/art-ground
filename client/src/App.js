@@ -62,7 +62,6 @@ function App() {
     isAuthenticated();
   }, []);
 
-  
   const handleLogout = () => {
     getSignOutRes(setUserinfo, setIsLogin, setisAdmin, isLogin);
     history.push("/about");
@@ -70,7 +69,6 @@ function App() {
 
   // window.localStorage.setItem("userinfo", JSON.stringify(userinfo));
 
-  
   const [gallerySelected, setGallerySelected] = useState(null);
   const [reviewSelected, setReviewSelected] = useState(null);
 

@@ -68,12 +68,17 @@ span {
   font-size: 0.9rem;
   font-weight: bold;
 }
-.date {
+.author {
   height: 1.5rem;
   display: flex;
   align-items: center;
   text-indent: 10px;
   font-size: 0.8rem;
+}
+.comments {
+  text-indent: 10px;
+  padding: 0.3rem 0;
+  font-weight: bold;
 }
 .btnBox {
   width: 100px;
