@@ -23,7 +23,7 @@
 
   padding: 0.1rem;
   margin-top: 20px;
-  cursor: pointer;
+
   display: flex;
   flex-direction: row;
   padding: 0.5rem;
@@ -45,6 +45,7 @@
   text-indent: 10px;
   font-size: 1rem;
   font-weight: bold;
+  cursor: pointer;
 }
 .date {
   text-indent: 10px;

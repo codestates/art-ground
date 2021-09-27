@@ -10,7 +10,11 @@ import { useEdgeSplit } from "@react-three/drei";
 
 axios.defaults.withCredentials = true;
 
-const MyPage = ({ userinfo, handleResponseSuccess, setUserinfo }) => {
+const MyPage = ({
+  userinfo,
+
+  setUserinfo,
+}) => {
   const [isInfoClicked, setIsInfoClicked] = useState(true);
   const [isPickClicked, setIsPickClicked] = useState(false);
   const [isMyExhibit, setIsMyExhibit] = useState(false);
@@ -54,10 +58,24 @@ const MyPage = ({ userinfo, handleResponseSuccess, setUserinfo }) => {
     }, 1000);
   });
 
+  const [myEx, setMyEx] = useState([]);
+  const [myPick, setMyPick] = useState([]);
+
+  useEffect(() => {
+    if (isMyExhibit) {
+      axios.get("https://localhost:5000/mypage/exhibition").then((result) => {
+        //console.log(result.data.data, "myex");
+        setMyEx(result.data.data);
+      });
+    }
+    return () => {};
+  }, [isMyExhibit]);
+
   useEffect(() => {
     if (isPickClicked) {
-      axios.get("https://localhost:5000/mypage/exhibition").then((result) => {
-        console.log(result.data.data);
+      axios.get("https://localhost:5000/mypage/like").then((result) => {
+        //console.log(result.data.data, "like");
+        setMyPick(result.data.data);
       });
     }
     return () => {};
@@ -76,9 +94,6 @@ const MyPage = ({ userinfo, handleResponseSuccess, setUserinfo }) => {
           <div className={`${colorChange3}`} onClick={clickMyExhibit}>
             내 전시회
           </div>
-          <div className={`${colorChange4}`} onClick={clickMyauction}>
-            내경매
-          </div>
         </div>
       </div>
       <div className={styles.content}>
@@ -91,9 +106,21 @@ const MyPage = ({ userinfo, handleResponseSuccess, setUserinfo }) => {
             )}
           </>
         ) : null}
-        {isPickClicked ? <MyPick /> : null}
-        {isMyExhibit ? <MyExhibit /> : null}
-        {isMyAuction ? <SideBar /> : null}
+        {isPickClicked ? (
+          <>
+            {myPick.map((el, idx) => {
+              return <MyPick key={idx} el={el} />;
+            })}
+          </>
+        ) : null}
+
+        {isMyExhibit ? (
+          <>
+            {myEx.map((el, idx) => {
+              return <MyExhibit key={idx} el={el} />;
+            })}
+          </>
+        ) : null}
       </div>
     </section>
   );
