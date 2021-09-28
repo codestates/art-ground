@@ -21,8 +21,8 @@ module.exports = {
   approveExhibitions: (req, res) => {
     const userInfo = isAuthorized(req);
     const { postId } = req.body;
-    
-    console.log('+++++++++++++++', req.headers)
+
+    console.log("+++++++++++++++", req.headers);
     console.log("userInfo:", userInfo, postId);
 
     if (userInfo.user_type === 3) {
@@ -125,13 +125,13 @@ module.exports = {
           },
         })
         .then((data) => {
-          console.log("data:".data);
+          console.log("data:", data);
           if (!data) {
             res.status(404).json({
               message: "comment not exist",
             });
           } else {
-            exhibition.destroy({
+            comments.destroy({
               where: {
                 id: commentId,
               },
@@ -139,7 +139,6 @@ module.exports = {
           }
         })
         .then((result) => {
-          console.log("result:", result);
           res.status(200).json({
             message: "successfully delete comments",
           });

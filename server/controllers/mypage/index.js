@@ -35,7 +35,6 @@ module.exports = {
           user_email: data.user_email,
         },
       });
-
       // current password decode
       let byte = CryptoJS.AES.decrypt(
         currentPassword,

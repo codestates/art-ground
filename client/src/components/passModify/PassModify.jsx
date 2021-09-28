@@ -76,8 +76,8 @@ const PassModify = ({
         newPassword: encryptedNewPass,
       };
       console.log(passData);
-      axios
-        .patch("https://art-ground.link/mypage/password", passData)
+      axios //art-ground.link
+        .patch("https://localhost:5000/mypage/password", passData)
         .then((result) => {
           console.log(result, "비밀번호 수정 데이터 ");
           setModalOpen(false);

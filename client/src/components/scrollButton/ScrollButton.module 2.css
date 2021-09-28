@@ -1,0 +1,26 @@
+.topBtn {
+  cursor: pointer;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  color: rgb(87, 87, 87);
+  background-color: white;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border: 1.5px solid rgb(231, 231, 231);
+  border-radius: 50%;
+  display: flex;
+  opacity: 0.8;
+  box-shadow: 1px 1px 1px 1px #cfcfcf;
+  transition: opacity 0.5s ease-in;
+}
+
+.topBtnActive {
+  display: none;
+}
+
+.topBtn:hover,
+.topBtn:focus,
+.topBtn:active {
+  outline: 0 none;
+}
