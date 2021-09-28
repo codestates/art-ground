@@ -4,30 +4,35 @@
 
 .container {
   max-width: Container;
+  height: 100vh;
   margin: 0 auto;
-  padding-top: 11rem;
+  padding: 20rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .joinbox {
-  width: 100%;
-  height: 43rem;
-  padding: 0.8rem;
+  width: 28rem;
+  height: 33rem;
+  padding: 5rem 0.8rem;
+  margin: 0 auto;
+  margin-top: 12rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 1px solid gainsboro;
 }
 .btn {
-  width: 300px;
-  height: 50px;
+  width: 18rem;
+  height: 3.3rem;
   background-color: White;
-  border: 2px solid gainsboro;
-  font-family: "Poppins", sans-serif;
-  font-weight: 200;
+  border: 1px solid gainsboro;
   outline: none;
   cursor: pointer;
 }
 .btn:hover {
-  background-color: rgb(49, 45, 45);
+  background-color: rgb(53, 52, 52);
   color: white;
 }
 .btn.second {
@@ -39,10 +44,6 @@
   padding: 0.8rem;
 }
 
-.inputbox {
-  list-style: none;
-}
-
 .backToLogin {
   margin-top: 4rem;
   font-family: "Poppins", sans-serif;
@@ -52,7 +53,6 @@
 }
 .bold {
   font-family: "Poppins", sans-serif;
-  font-weight: 200;
   font-weight: bold;
   color: black;
 }
@@ -62,20 +62,56 @@
     padding-top: 4.5rem;
   }
   .joinbox {
-    width: 100%;
-  }
-  .btn {
-    width: 200px;
+    margin-top: 17rem;
   }
 }
 @media screen and (max-width: 580px) {
+  .container {
+    padding-top: 4.5rem;
+  }
   .joinbox {
-    width: 100%;
+    margin-top: 17rem;
   }
 }
 
 @media screen and (max-width: 480px) {
+  .container {
+    padding-top: 4.5rem;
+  }
   .joinbox {
-    width: 100%;
+    margin-top: 17rem;
+    height: 28rem;
+  }
+  .btn {
+    width: 80%;
+    height: 3.3rem;
+    background-color: White;
+    border: 1px solid gainsboro;
+    outline: none;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .container {
+    padding-top: 4.5rem;
+  }
+  .joinbox {
+    margin-top: 20rem;
+    height: 25rem;
+  }
+  .btn {
+    width: 85%;
+    height: 3.3rem;
+    background-color: White;
+    border: 1px solid gainsboro;
+    outline: none;
+    cursor: pointer;
+  }
+  .bold {
+    font-size: 0.8rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    color: black;
   }
 }

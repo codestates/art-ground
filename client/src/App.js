@@ -41,6 +41,7 @@ function App() {
   const [isAdmin, setisAdmin] = useState(false);
 
   const [modifyRender, setModifyRender] = useState(false);
+
   useEffect(() => {
     //로딩창 띄워야함
     setTimeout(() => {
@@ -50,7 +51,6 @@ function App() {
 
   const isAuthenticated = (info) => {
     getMyinfo(setIsLogin, setUserinfo, setisAdmin, isLogin);
-    //console.log(document.cookie, "ddd===========");
   };
 
   const handleResponseSuccess = (info) => {
@@ -66,8 +66,6 @@ function App() {
     getSignOutRes(setUserinfo, setIsLogin, setisAdmin, isLogin);
     history.push("/about");
   };
-
-  // window.localStorage.setItem("userinfo", JSON.stringify(userinfo));
 
   const [gallerySelected, setGallerySelected] = useState(null);
   const [reviewSelected, setReviewSelected] = useState(null);
@@ -155,11 +153,17 @@ function App() {
             isAdmin={isAdmin}
             setUserinfo={setUserinfo}
           />
-          <MyPage
-            userinfo={userinfo}
-            setUserinfo={setUserinfo}
-            setIsLogin={setIsLogin}
-          />
+          {modifyRender ? (
+            <MyPage
+              userinfo={userinfo}
+              setUserinfo={setUserinfo}
+              setIsLogin={setIsLogin}
+              gallerySelected={gallerySelected}
+              selectGallery={(el) => setGallerySelected(el)}
+            />
+          ) : (
+            <Loading />
+          )}
           {/* {isLogin ? <MyPage userinfo={userinfo} /> : <SideBar />} */}
         </Route>
         <Route path="/about">

@@ -62,7 +62,7 @@ const SignInDetail = ({
       userType: 1,
     };
     setErrorMessage("");
-    getSigninRes(userData, handleResponseSuccess, setisAdmin);
+    getSigninRes(userData, handleResponseSuccess, setisAdmin, setErrorMessage);
   };
   const clickAuthLogin = () => {
     if (!userEmail || !password) {
@@ -85,7 +85,7 @@ const SignInDetail = ({
       userType: 2,
     };
     setErrorMessage("");
-    getSigninRes(userData, handleResponseSuccess);
+    getSigninRes(userData, handleResponseSuccess, setisAdmin, setErrorMessage);
   };
 
   const audonKeyPress = (e) => {
