@@ -1,11 +1,13 @@
 "use strict";
-const { Router } = require("express");
-const router = Router();
-
-const dotenv = require("dotenv");
+require("dotenv").config();
 const axios = require("axios");
-
-dotenv.config();
+const { users } = require("../../models");
+const {
+  generateAccessToken,
+  sendAccessToken,
+} = require("../../utils/tokenFunction");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 
 /**
  *
