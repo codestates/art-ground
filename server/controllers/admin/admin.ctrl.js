@@ -46,7 +46,7 @@ module.exports = {
           data.title = findData.title;
           data.author_id = findData.author_id;
           data.start_date = findData.start_date;
-          data.start_date = findData.end_date;
+          data.end_date = findData.end_date;
 
           let findImg = await images.findOne({
             where: {
