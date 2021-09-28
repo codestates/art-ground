@@ -29,7 +29,9 @@ const Gallery = ({
         setGalleryList(await getPremiumGallery(tagClicked, sortValue));
       }
     }
-    getAxiosData();
+    setTimeout(()=> {
+      getAxiosData();
+    }, 100)
   }, [rerender]); 
 
   const handleStandard = async () => { //STANDARD, PREMIUM 필터

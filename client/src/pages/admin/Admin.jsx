@@ -1,10 +1,11 @@
 import styles from "./Admin.module.css";
 import ScrollButton from "../../components/scrollButton/ScrollButton";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import AdminEx from "../../components/adminEx/AdminEx";
 import AdminReview from "../../components/adminReview/AdminReview";
 import axios from "axios";
 import Loading from "../../components/loading/Loading";
+import { getAllExhibition, getinfiniteData } from "../../api/adminApi";
 
 const Admin = () => {
   // 대분류 페이지
@@ -40,25 +41,17 @@ const Admin = () => {
 
   useEffect(() => {
     if (exhibition) {
-      axios.get("https://localhost:5000/exhibition").then((result) => {
-        //console.log(result.data.data);
-        setExhibitData(result.data.data);
-        //console.log(result.data.data);
-      });
+      getAllExhibition(setExhibitData);
     }
     return () => {};
   }, [exhibition]);
 
-  useEffect(() => {
-    if (review) {
-      axios.get("https://localhost:5000/admin/review").then((result) => {
-        //console.log(result.data.data);
-        setReviewData(result.data.data);
-        //console.log(result.data.data, "ssssssssss");
-      });
-    }
-    return () => {};
-  }, [review]);
+  // useEffect(() => {
+  //   if (review) {
+  //     getAllReviews(setReviewData);
+  //   }
+  //   return () => {};
+  // }, [review]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -80,6 +73,33 @@ const Admin = () => {
     setUpdateEx(false);
     setDeleteEx(false);
     setDoneEx(true);
+  };
+
+  const [productList, setProductList] = useState([]);
+  const [items, setItems] = useState(10);
+  const [preItems, setPreItems] = useState(0);
+
+  useEffect(() => {
+    getinfiniteData(setProductList, preItems, items, productList);
+
+    window.addEventListener("scroll", infiniteScroll, true);
+  }, [items]);
+
+  const infiniteScroll = () => {
+    let scrollHeight = Math.max(
+      document.documentElement.scrollHeight,
+      document.body.scrollHeight
+    );
+    let scrollTop = Math.max(
+      document.documentElement.scrollTop,
+      document.body.scrollTop
+    );
+    let clientHeight = document.documentElement.clientHeight;
+
+    if (scrollTop + clientHeight >= scrollHeight) {
+      setPreItems(items);
+      setItems(items + 10);
+    }
   };
 
   return (
@@ -147,10 +167,10 @@ const Admin = () => {
             {adExRender ? (
               <>
                 <div className={styles.btnbox}>
-                  <button className={clickEXSmenu1}>전체보기(최신순)</button>
-                  <button className={clickEXSmenu2}>전시회별 정렬</button>
+                  <button className={clickEXSmenu3}>전체보기(최신순)</button>
+                  <button className={clickEXSmenu3}>전시회별 정렬</button>
                 </div>
-                {reviewData.map((el, idx) => {
+                {productList.map((el, idx) => {
                   return <AdminReview key={idx} el={el} />;
                 })}
               </>

@@ -18,20 +18,21 @@ const AdminReview = ({ el }) => {
 
   return (
     <section className={styles.container}>
-    <div className={styles.box}>
-      <div className={styles.upDateBox}>
-        <div className={styles.exBox}>
-          <div className={styles.thumBox}>
-            <img src={"imgurl"} alt={"imgurlAlt"} className={styles.eximg} />
-          </div>
+      <div className={styles.box}>
+        <div className={styles.upDateBox}>
+          <div className={styles.exBox}>
+            <div className={styles.thumBox}>
+              <img
+                src={"이미지받아올예정"}
+                alt={"이미지받아올예정"}
+                className={styles.eximg}
+              />
+            </div>
 
-          <div className={styles.infoBox}>
-            <div className={styles.title}>{"el.title"}</div>
-            <div className={styles.date}>
-              <span>전시기간:</span>
-              <span>{"el.start_date"}</span>
-              <span>~</span>
-              <span>{"el.end_date"}</span>
+            <div className={styles.infoBox}>
+              <div className={styles.title}>{"전시타이틀자리"}</div>
+              <div className={styles.author}>{"작가이름자리"}</div>
+              <div className={styles.comments}>{el.comments}</div>
             </div>
           </div>
 
@@ -45,7 +46,6 @@ const AdminReview = ({ el }) => {
           ) : null}
         </div>
       </div>
-    </div>
   </section>
   );
 };

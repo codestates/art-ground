@@ -31,7 +31,7 @@ const GalleryContent = ({
     if (isLiked) {
       // 좋아요 해제
       deleteLike(exhibition.id);
-      console.log(exhibition.id, 'delete 요청 보냄')
+      //console.log(exhibition.id, 'delete 요청 보냄')
       render();
     } else {
       //좋아요
