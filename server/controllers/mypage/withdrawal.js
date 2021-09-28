@@ -14,9 +14,18 @@ module.exports.withdrawal = async (req, res) => {
     });
 
     if (result) {
-      res.status(200).clearCookie("accessToken").json({
-        message: "successfully deleted",
-      });
+      res
+        .clearCookie("accessToken", {
+          httpOnly: true,
+          sameSite: "none",
+          secure: true,
+          path: "/",
+          domain: "art-ground.link",
+        })
+        .status(200)
+        .json({
+          message: "successfully deleted",
+        });
     }
   } else {
     res.status(401).json({

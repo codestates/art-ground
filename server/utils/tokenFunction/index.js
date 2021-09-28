@@ -23,9 +23,12 @@ module.exports = {
     res
       .cookie("accessToken", accessToken, {
         httpOnly: true,
-        secure: true,
         sameSite: "none",
-        // domain: "localhost:5000",
+        secure: true,
+        maxAge: 60 * 60 * 24 * 1000,
+        domain: "art-ground.link",
+        path: "/",
+        ovewrite: true,
       })
       .status(200)
       .send("AccessToken ready");
