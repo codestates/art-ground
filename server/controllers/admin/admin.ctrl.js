@@ -11,10 +11,9 @@ module.exports = {
     console.log("userInfo:", userInfo);
     try {
       if (userInfo.user_type === 3) {
-        await comments.findAll().then((data) => {
-          console.log("data:", data);
-          res.status(200).json({ data: data });
-        });
+        const data = await comments.findAll();
+        console.log("data:", data);
+        res.status(200).json({ data: data });
       } else {
         res.status(401).json({
           message: "invalid access token",
