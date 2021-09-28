@@ -25,7 +25,7 @@ module.exports = {
         httpOnly: true,
         sameSite: "none",
         secure: true,
-        maxAge: 5 * 60,
+        maxAge: 60 * 60 * 24 * 1000,
         domain: "art-ground.link",
         path: "/",
         ovewrite: true,
