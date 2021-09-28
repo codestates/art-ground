@@ -30,7 +30,7 @@ const Kakao = (props) => {
   const getAccessToken = (authorizationCode) => {
     axios({
       method: "post",
-      url: `https://localhost:5000/kakao-login/token`,
+      url: `https://art-ground.link/kakao-login/token`,
       data: {
         authorizationCode
       }
@@ -50,7 +50,7 @@ const Kakao = (props) => {
   const getUserInfo = (accessToken) => {
     axios({
       method: "get",
-      url: `https://localhost:5000/kakao-login/userinfo?accessToken=${accessToken}`
+      url: `https://art-ground.link/kakao-login/userinfo?accessToken=${accessToken}`
     })
       .then((res) => {
         console.log(res.data);
