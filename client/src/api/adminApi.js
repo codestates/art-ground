@@ -21,7 +21,7 @@ export function confirmExhibition(setConfirmModal, el) {
     })
     .then((result) => {
       setConfirmModal(false);
-      window.location.href = "https://localhost:3000/admin";
+      window.location.href = "https://art-ground.link/admin";
     })
     .catch((err) => console.log(err));
 }
