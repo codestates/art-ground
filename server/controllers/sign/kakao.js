@@ -61,7 +61,7 @@ module.exports = {
 
       const result = await users.findOne({
         where: {
-          user_email: nickname,
+          user_email: userInfo.data.kakao_account.email || nickname, // 이메일 동의하지 않은 유저는 닉네임으로 저장
         },
       });
       // 이미 회원가입이 되어 있다면 accessToken 만들어서 보내고 로그인
@@ -69,15 +69,26 @@ module.exports = {
         console.log("result:", result.dataValues);
         delete result.dataValues.password;
         const accessToken = generateAccessToken(result.dataValues);
-        sendAccessToken(res, accessToken);
+        res
+          .cookie("accessToken", accessToken, {
+            httpOnly: true,
+            sameSite: "none",
+            secure: true,
+            maxAge: 60 * 60 * 24 * 1000,
+            domain: "art-ground.link",
+            path: "/",
+            ovewrite: true,
+          })
+          .status(200)
+          .json({ data: result.dataValues, message: "AccessToken ready" });
       } else {
         // 최초 로그인 시 회원가입 진행
         const generatedInfo = await users.create({
-          user_email: nickname, //userInfo.data.kakao_account.email
+          user_email: userInfo.data.kakao_account.email || nickname,
           password: password,
           nickname: nickname,
           user_type: 1,
-          //login_type: "kakao",
+          login_type: "kakao",
         });
         console.log("generatedInfo:", generatedInfo);
         delete generatedInfo.dataValues.password;
@@ -85,11 +96,15 @@ module.exports = {
         return res
           .cookie("accessToken", accessToken, {
             httpOnly: true,
-            secure: true,
             sameSite: "none",
+            secure: true,
+            maxAge: 60 * 60 * 24 * 1000,
+            domain: "art-ground.link",
+            path: "/",
+            ovewrite: true,
           })
           .status(201)
-          .json({ message: "created ok" });
+          .json({ data: generatedInfo.dataValues, message: "created ok" });
       }
     } catch (error) {
       console.log(error);
