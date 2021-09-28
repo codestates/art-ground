@@ -2,10 +2,7 @@
 require("dotenv").config();
 const axios = require("axios");
 const { users } = require("../../models");
-const {
-  generateAccessToken,
-  sendAccessToken,
-} = require("../../utils/tokenFunction");
+const { generateAccessToken } = require("../../utils/tokenFunction");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
