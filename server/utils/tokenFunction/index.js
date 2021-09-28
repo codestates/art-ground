@@ -4,7 +4,7 @@ const { sign, verify } = require("jsonwebtoken");
 module.exports = {
   generateAccessToken: (data) => {
     return sign(data, process.env.ART_GROUND_ACCESS_SECRET, {
-      expiresIn: "1d",
+      expiresIn: "30s",
     });
   },
   isAuthorized: (req) => {
@@ -23,8 +23,11 @@ module.exports = {
     res
       .cookie("accessToken", accessToken, {
         httpOnly: true,
-        sameSite: "lax",
+        sameSite: "none",
+        secure: true,
+        maxAge: 5 * 60,
         domain: "art-ground.link",
+        path: "/",
         ovewrite: true,
       })
       .status(200)
