@@ -14,6 +14,7 @@ const About = () => {
   const [Text, setText] = useState("");
   const [Count, setCount] = useState(0);
   const [position, setPosition] = useState(0);
+
   function onScroll() {
     setPosition(window.scrollY);
   }
@@ -34,6 +35,8 @@ const About = () => {
       window.removeEventListener("scroll", onScroll);
     };
   });
+
+  //console.log(position);
 
   return (
     <div className={styles.container}>
