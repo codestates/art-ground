@@ -1,15 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styles from './ArtDetail.module.css';
 
-const ArtDetail = ({ art }) => {
+const ArtDetail = ({ art, handleClose }) => {
   return (
     <section className={styles.container}>
-      <div className={styles.background}></div>
-      <Link to='/gallerydetail'>
-        <span className={styles.closeBtn}><i class="fas fa-times"></i></span>
-      </Link>
-      <img className={styles.img} src={art} alt="detail"/>
+      <div className={styles.background}>
+        <img className={styles.img} src={art.image_urls} alt="detail"/>
+        <div className={styles.artMetaData}>
+          <span className={styles.title}>{art.title}</span>
+          <span className={styles.content}>{art.image_desc}</span>
+          <p className={styles.subContent}>{art.image_add_desc}</p>
+        </div>
+      </div>
+      <span className={styles.closeBtn} onClick={handleClose}><i class="fas fa-times"></i></span>
     </section>
     
   )

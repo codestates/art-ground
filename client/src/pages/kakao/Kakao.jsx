@@ -1,9 +1,9 @@
-import styles from './Kakao.module.css'
-import React, { useState, useEffect } from 'react'
-import axios from 'axios';
+import styles from "./Kakao.module.css";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 require("dotenv").config();
 
-const Kakao = (props) => {
+const Kakao = () => {
   const [accessToken, setAccessToken] = useState();
   const [userInfo, setUserInfo] = useState();
   const [refreshToken, setRefreshToken] = useState();
@@ -18,29 +18,29 @@ const Kakao = (props) => {
     }
     return () => {};
   }, []);
-  
+
   useEffect(() => {
-    console.log("useEffect2...", accessToken)
+    console.log("useEffect2...", accessToken);
     getUserInfo(accessToken);
     return () => {};
   }, [accessToken]);
 
-  console.log("accesstoken:", accessToken)
-  
+  console.log("accesstoken:", accessToken);
+
   const getAccessToken = (authorizationCode) => {
     axios({
       method: "post",
       url: `https://art-ground.link/kakao-login/token`,
       data: {
-        authorizationCode
-      }
+        authorizationCode,
+      },
     })
       .then((res) => {
         console.log(res.data);
         if (!refreshToken) {
           setRefreshToken(res.data.refresh_token);
         }
-        setAccessToken(res.data.access_token)
+        setAccessToken(res.data.access_token);
       })
       .catch((error) => {
         console.log(error);
@@ -60,12 +60,12 @@ const Kakao = (props) => {
         console.log(error);
       });
   };
-  console.log("userinfo:", userInfo)
+  console.log("userinfo:", userInfo);
   return (
     <section className={styles.container}>
       <div>카카오</div>
     </section>
-  )
-}
+  );
+};
 
-export default Kakao
+export default Kakao;

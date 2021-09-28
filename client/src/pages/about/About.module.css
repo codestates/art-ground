@@ -1,9 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
+
 .container {
   width: 100%;
   margin: 0;
-  padding-top: 12rem;
+  padding-top: 11rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  /* Firefox */
+  -webkit-animation: fadein 2s;
+  /* Safari and Chrome */
+  -o-animation: fadein 2s;
+  /* Opera */
+}
+.secBorder {
+  width: 1024px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.mainback {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+.main1 {
+  background-color: #f1f1f1;
+  width: 100%;
+  height: 100vh;
+}
+.main1img {
+  width: 100%;
+  height: 100%;
   animation: fadein 1.5s;
   -moz-animation: fadein 1.5s;
   /* Firefox */
@@ -12,24 +46,270 @@
   -o-animation: fadein 1.5s;
   /* Opera */
 }
-
-.text {
-  text-align: center;
-  height: 2rem;
+.brandTitle {
+  margin-top: 3rem;
+  background: #202020;
+  width: 4.5rem;
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
-.imgBox {
+.main2 {
+  height: 100vh;
+  background-color: none;
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.brand {
+  width: 100%;
+  height: 40vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
 }
 
-.img {
+.logo {
+  width: 80%;
+  height: 80%;
+}
+.brand p {
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.main3 {
+  height: 100vh;
+  background-color: #f1f1f1;
+}
+
+.main4 {
+  height: 100vh;
+  background-color: none;
+}
+
+.main6 {
   width: 100%;
-  height: auto;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  background-color: #f1f1f1;
+}
+/*화살표섹션*/
+.main7 {
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f1f1;
+}
+
+.border {
+  width: 100%;
+  height: 50vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+.border h3 {
+  margin-bottom: 2rem;
+  font-size: 3.5rem;
+  font-family: "Poppins", sans-serif;
+}
+.border img {
+  width: 100%;
+  height: 100%;
+}
+
+.border > div {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: "Poppins", sans-serif;
+}
+.btn {
+  display: inline-block;
+  border: none;
+  background: #202020;
+  color: white;
+  padding: 0.8rem 1.8rem;
+  margin-top: 2rem;
+  cursor: pointer;
+  width: 10rem;
+  font-family: "Poppins", sans-serif;
+}
+.btn:hover {
+  opacity: 0.8;
+}
+/*시작하기*/
+.bottomBtn {
+  display: inline-block;
+  border: none;
+  background: #202020;
+  color: white;
+  padding: 0.8rem 1.8rem;
+  margin-top: 2rem;
+  cursor: pointer;
+  width: 15rem;
+  height: 5rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  animation: motion 0.8s linear 0s infinite alternate;
+  margin-top: 0;
+}
+@keyframes motion {
+  0% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: 20px;
+  }
+}
+/*슬라이더 및 화살표*/
+.arrowDown span {
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  border-bottom: 1px solid #202020;
+  border-right: 1px solid #202020;
+  transform: rotate(45deg);
+  margin: -8px;
+  animation: animate-arrows 2s infinite;
+}
+
+@keyframes animate-arrows {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-1.5em, -1.5em);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(1.5em, 1.5em);
+  }
+}
+
+/*반응형*/
+@media screen and (max-width: 768px) {
+  .main1 {
+    height: 50vh;
+  }
+  .secBorder {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 5rem;
+  }
+  .brand p {
+    font-size: 1.5rem;
+  }
+  .border {
+    display: block;
+    text-align: center;
+  }
+
+  .border > div {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo {
+    width: 70%;
+    height: 45%;
+  }
+}
+@media screen and (max-width: 580px) {
+  .main1 {
+    height: 50vh;
+  }
+  .secBorder {
+    width: 100%;
+    height: 100%;
+  }
+  .brand p {
+    font-size: 1.5rem;
+  }
+  .border {
+    display: block;
+    text-align: center;
+  }
+
+  .border > div {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .secBorder {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 6rem;
+  }
+  .logo {
+    width: 60%;
+    height: 35%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .main1 {
+    height: 40vh;
+  }
+  .secBorder {
+    width: 100%;
+    height: 100%;
+  }
+  .brand p {
+    font-size: 1.5rem;
+  }
+  .border {
+    display: block;
+    text-align: center;
+  }
+  .border > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .secBorder {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 7rem;
+  }
+  .logo {
+    width: 50%;
+    height: 35%;
+  }
+}
+
+/*스크롤버틍*/
+.scrollBtn {
+  list-style: none;
+  position: absolute;
+  border: 3px solid red;
 }
 
 @media screen and (max-width: 768px) {
   .container {
-    padding-top: 6rem;
+    padding-top: 4.5rem;
   }
 }
 
