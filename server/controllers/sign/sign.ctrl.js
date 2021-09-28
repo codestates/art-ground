@@ -51,7 +51,7 @@ module.exports = {
   signOut: (req, res) => {
     try {
       res
-        .clearCookie("accessToken")
+        .clearCookie("accessToken", { path: "/", domain: "art-ground.io" })
         .status(205)
         .json({ message: "successfully signed out!" });
     } catch {

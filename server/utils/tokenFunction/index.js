@@ -25,6 +25,7 @@ module.exports = {
         httpOnly: true,
         secure: true,
         sameSite: "none",
+        domain: "art-ground.io",
       })
       .status(200)
       .send("AccessToken ready");
