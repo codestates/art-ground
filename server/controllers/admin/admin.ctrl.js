@@ -19,7 +19,9 @@ module.exports = {
           message: "invalid access token",
         });
       }
-    } catch {}
+    } catch (error) {
+      console.log(error);
+    }
   },
   getExhibitionInfo: async (req, res) => {
     const userInfo = isAuthorized(req);
