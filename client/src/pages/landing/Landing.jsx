@@ -15,7 +15,7 @@ const Landing = () => {
       duration: 3,
       top: "-100%",
       ease: "power3.inOut",
-      delay: 3.6
+      delay: 5.5
     });
   
     var tl = gsap.timeline();
@@ -31,7 +31,7 @@ const Landing = () => {
   
     tl.to(loaderRef.current, {
         duration: 2,
-        height: 50,
+        height: 35,
         scaleY: 0,
         ease: "power3.inOut",
         transformOrigin:"0% -100%"
@@ -65,8 +65,9 @@ const Landing = () => {
           </div>
         </div>
         <div class={styles.title} onClick={goAbout}>
-          <h1 class={styles.content1}>모두가 예술가가 될 수 있는 공간,</h1>
-          <h2 class={styles.content2}>아트 그라운드</h2>
+          <h1 class={styles.content1}>누구나 예술가가 될 수 있는 공간,</h1>
+          <h2 class={styles.content2}>아트그라운드</h2>
+          <button class={styles.button}>시작하기</button>
         </div>
       </div>
     </section>
