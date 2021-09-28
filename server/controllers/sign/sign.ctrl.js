@@ -53,7 +53,10 @@ module.exports = {
     try {
       res
         .clearCookie("accessToken", {
-          sameSite: "lax",
+          httpOnly: true,
+          sameSite: "none",
+          secure: true,
+          maxAge: 5 * 60,
           path: "/",
           domain: "art-ground.link",
         })
