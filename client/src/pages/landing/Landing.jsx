@@ -21,7 +21,7 @@ const Landing = () => {
       duration: 3,
       top: "-100%",
       ease: "power3.inOut",
-      delay: 5.3
+      delay: 3.5
     });
   
     var tl = gsap.timeline();
@@ -35,12 +35,12 @@ const Landing = () => {
         transformOrigin:"50% 100%"
     });
     tl.to(loaderRef.current, {
-      duration: 1.2,
+      duration: 1,
       height: 40,
       scaleY: 0,
       ease: "power3.inOut",
       transformOrigin:"0% -100%", 
-      delay: 0.5
+      delay: 0.4
   });
     tl.from(loaderRef2.current, {
       duration: 0.8,
@@ -57,14 +57,14 @@ const Landing = () => {
       scaleY: 0,
       ease: "power3.inOut",
       transformOrigin:"0% -100%", 
-      delay: 3
+      delay: 1.8
   });
     tl.from(contentRef.current, {
       duration: 2,
       scaleY: 0,
       y: 80,
       ease: "power3.inOut",
-      delay: 1,
+      delay: 0.2,
       transformOrigin:"50% 100%"
     });
   
@@ -72,22 +72,20 @@ const Landing = () => {
       duration: 2,
       y: "-100%",
       ease: "power3.inOut",
-      delay: 10,
+      delay: 8,
     });
 
   }, [])
  
   useEffect(() => {
-    //setTimeout(()=> {
-      const interval = setInterval(() => {
-        setText(Text + txt[Count]); // 이전 set한 문자 + 다음 문자
-        setCount(Count + 1); // 개수 만큼 체크 
-      }, 200);
-      if(Count === txt.length)  {  // Count를 따로 두지 않고 Text.length 체크도 가능
-          clearInterval(interval); // 문자열 체크를 통해 setInterval을 해제합니다
-      } 
-      return () => clearInterval(interval); // 언마운트시 setInterval을 해제합니다
-    //}, 2000)
+    const interval = setInterval(() => {
+      setText(Text + txt[Count]); // 이전 set한 문자 + 다음 문자
+      setCount(Count + 1); // 개수 만큼 체크 
+    }, 170);
+    if(Count === txt.length)  {  // Count를 따로 두지 않고 Text.length 체크도 가능
+        clearInterval(interval); // 문자열 체크를 통해 setInterval을 해제합니다
+    } 
+    return () => clearInterval(interval); // 언마운트시 setInterval을 해제합니다
   })
 
   const history = useHistory();
