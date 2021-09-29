@@ -77,7 +77,7 @@ const Landing = () => {
         <div ref={contentRef} class={styles.title}>
           <h1 class={styles.content1}>누구나 예술가가 될 수 있는 공간,</h1>
           <h2 class={styles.content2}>아트그라운드</h2>
-          <button class={styles.button} onClick={goAbout}>시작하기</button>
+          <span class={styles.button} onClick={goAbout}>시작하기</span>
         </div>
         {/* <div ref={boxRef2} class={styles.box}></div> */}
       </div>
