@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
-const Navbar = ({ isLogin, handleLogout, isAdmin }) => {
+const Navbar = ({ isLogin, handleLogout, isAdmin, setModalOpen }) => {
   const history = useHistory();
 
   const clickLogo = () => {
@@ -21,8 +21,7 @@ const Navbar = ({ isLogin, handleLogout, isAdmin }) => {
     if (isLogin) {
       history.push("/mypage");
     } else {
-      alert("로그인한 유저만 사용할 수 있습니다");
-      history.push("/signin");
+      setModalOpen(true);
     }
   };
 

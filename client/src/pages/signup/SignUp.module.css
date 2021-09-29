@@ -10,20 +10,24 @@ label {
 .container {
   max-width: Container;
   margin: 0 auto;
-  padding-top: 11rem;
+  margin-top: 15rem;
+  padding: 1rem;
 }
 .signupBox {
-  width: 100%;
-  height: auto;
+  margin: 0 auto;
+  border: 1px solid gainsboro;
+  width: 30rem;
+  height: 38rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 6rem 2rem;
+  padding: 0.2rem;
 }
 .ulBox {
   list-style: none;
-  padding: 1rem;
-  width: 80%;
+  padding: 0.2rem;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,44 +37,42 @@ li {
   margin-bottom: 10px;
 }
 .titleBox {
+  width: 100%;
+  height: 6rem;
+  line-height: 6rem;
   text-align: center;
   font-family: "Poppins", sans-serif;
-  font-weight: 200;
   font-size: 1.7rem;
   color: rgb(66, 66, 66);
 }
 .columnBox {
-  width: 90%;
+  width: 70%;
   display: flex;
   flex-direction: row;
   font-family: "Poppins", sans-serif;
   font-weight: 200;
   font-size: 0.9rem;
-  margin-bottom: -1px;
+  margin-top: 5px;
 }
-.imgBorder {
-  width: 2%;
-}
-.icon {
-  width: 90%;
-  height: 50%;
-  margin-left: 1px;
-}
+
 .columnText {
-  width: 95%;
+  width: 100%;
+  height: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
 }
 .inputBox {
   width: 90%;
-  height: 3.5rem;
+  height: 5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.2rem;
 }
 .mailBox {
-  width: 70%;
-  height: 3.2rem;
-  line-height: 3rem;
+  width: 75%;
+  height: 4rem;
+  line-height: 4rem;
   text-indent: 0.6rem;
   border: 1px solid gainsboro;
 }
@@ -79,11 +81,12 @@ li {
   border: none;
   height: 92%;
   outline: none;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  font-family: "Poppins", sans-serif;
 }
 .confirm {
   width: 20%;
-  height: 3.2rem;
+  height: 4rem;
   border: 1px solid gainsboro;
   background-color: white;
   outline: none;
@@ -96,17 +99,17 @@ li {
   transition: transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02);
 }
 .nickBox {
-  width: 100%;
-  height: 3rem;
-  line-height: 3rem;
+  width: 75%;
+  height: 4rem;
+  line-height: 4rem;
   text-indent: 0.6rem;
   border: 1px solid gainsboro;
 }
 .passBox {
   width: 100%;
-  height: 3.2rem;
+  height: 4rem;
   text-indent: 0.6rem;
-  line-height: 3rem;
+  line-height: 4rem;
   border: 1px solid gainsboro;
   display: flex;
   flex-direction: row;
@@ -118,18 +121,20 @@ li {
   outline: none;
   font-size: 0.9rem;
   margin-left: 0.8rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
 }
 .eyeBorder {
-  width: 30px;
+  width: 45px;
   position: relative;
 }
 .eyeimg {
   width: 80%;
-  height: 80%;
+  height: 50%;
   cursor: pointer;
   position: absolute;
-  left: 2px;
-  top: 3px;
+  left: 4px;
+  top: 15px;
 }
 .btnBox {
   width: 100%;
@@ -137,16 +142,16 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 .joinBtn {
-  width: 30%;
-  height: 3rem;
-  padding: 0.2rem;
+  width: 18rem;
+  height: 3.3rem;
+  background-color: gainsboro;
   border: 1px solid gainsboro;
-  background-color: white;
   outline: none;
   cursor: pointer;
+  padding: 0.2rem;
   font-size: 0.8rem;
   transition: all 0.5s;
 }
@@ -157,80 +162,121 @@ li {
 }
 @media screen and (max-width: 768px) {
   .container {
-    padding-top: 4.5rem;
+    margin-top: 8rem;
+    padding: 1rem;
   }
   .signupBox {
-    width: 100%;
+    width: 30rem;
+    height: 38rem;
   }
   .ulBox {
-    width: 80%;
-  }
-  .imgBorder {
-    width: 5%;
+    width: 100%;
+    padding: 0.4rem;
   }
   .eyeBorder {
-    width: 30px;
+    width: 45px;
+    position: relative;
   }
   .eyeimg {
-    width: 70%;
-    height: 70%;
-    left: 3px;
-    top: 7px;
+    width: 80%;
+    height: 50%;
+    cursor: pointer;
+    position: absolute;
+    left: 4px;
+    top: 15px;
   }
 }
 @media screen and (max-width: 580px) {
+  .container {
+    margin-top: 5rem;
+    padding: 1rem;
+  }
   .signupBox {
     width: 100%;
+    padding: 3rem 1rem;
   }
   .ulBox {
     width: 100%;
+    padding: 0.4rem;
   }
-  .confirm {
-    width: 22%;
+
+  .inputBox {
+    display: flex;
+    justify-content: space-between;
   }
-  .imgBorder {
-    width: 5%;
-  }
+
   .eyeBorder {
-    width: 30px;
+    width: 45px;
+    position: relative;
   }
   .eyeimg {
-    width: 70%;
-    height: 70%;
-    left: 3px;
-    top: 7px;
-  }
-  .joinBtn {
-    width: 40%;
-    padding: 0.1rem;
+    width: 80%;
+    height: 50%;
+    cursor: pointer;
+    position: absolute;
+    left: 4px;
+    top: 15px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .signupBox {
     width: 100%;
+    height: 100%;
+    padding: 1rem 1rem;
   }
   .ulBox {
     width: 100%;
+    height: 100%;
+    padding: 0.1rem;
   }
-  .imgBorder {
-    width: 5%;
+
+  .titleBox {
+    width: 100%;
+    height: 3rem;
+    line-height: 3rem;
+  }
+
+  .inputBox {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  .confirm {
+    width: 22%;
+    height: 4rem;
+    font-size: 0.75rem;
+    padding: 0.2rem;
+  }
+  .eyeBorder {
+    width: 30px;
+    position: relative;
   }
   .eyeimg {
-    width: 70%;
-    height: 70%;
-    left: 3px;
-    top: 7px;
+    width: 90%;
+    height: 50%;
+    cursor: pointer;
+    position: absolute;
+    left: -1px;
+    top: 15px;
   }
-  .joinBtn {
-    width: 40%;
-    padding: 0.1rem;
-  }
-  .joinBtn {
-    width: 40%;
-    padding: 0.1rem;
+
+  .text {
+    font-size: 0.75rem;
+    width: 90%;
   }
   .passText {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
+  }
+  .columnBox {
+    width: 70%;
+    height: 1.5rem;
+  }
+  .columnText {
+    font-size: 0.64rem;
+  }
+  .btnBox {
+    margin-top: 2px;
   }
 }

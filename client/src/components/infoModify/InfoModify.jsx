@@ -5,6 +5,7 @@ import { useHistory } from "react-router";
 import { useState } from "react";
 import AWS from "aws-sdk";
 import axios from "axios";
+import { infoModify } from "../../api/mypageApi";
 const CryptoJS = require("crypto-js");
 require("dotenv").config();
 
@@ -77,31 +78,24 @@ const InfoModify = ({
   };
 
   const clickModify = () => {
-    //   setModalOpen(false);
-    //암호화
-
     const userData = {
       nickName: nickName,
       profileImg: img,
       authorDesc: authDesc,
     };
 
-    axios
-      .post("https://art-ground.link/mypage", {
-        userData,
-      })
-      .then((result) => {
-        console.log(result, "인포수정 응답!");
-        if (result.data.message === "profile changed") {
-          // axios.get("https://localhost:5000//mypage").then((result) => {
-          //   console.log(result);
-          //   setUserinfo(result.data.data);
-          // });
-
-          history.push("/mypage");
-        }
-      })
-      .catch((err) => console.log(err));
+    infoModify(userData, history);
+    // axios
+    //   .post("https://art-ground.link/mypage", {
+    //     userData,
+    //   })
+    //   .then((result) => {
+    //     console.log(result, "인포수정 응답!");
+    //     if (result.data.message === "profile changed") {
+    //       history.push("/mypage");
+    //     }
+    //   })
+    //   .catch((err) => console.log(err));
   };
 
   const cancleClick = () => {

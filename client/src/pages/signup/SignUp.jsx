@@ -127,16 +127,6 @@ const SignUp = ({ isAudienceJoined }) => {
         <form onSubmit={(e) => e.preventDefault()} className={styles.signupBox}>
           <ul className={styles.ulBox}>
             <li className={styles.titleBox}>회원가입</li>
-            <li className={styles.columnBox}>
-              <span className={styles.imgBorder}>
-                <img
-                  src="../../../images/required.png"
-                  alt=""
-                  className={styles.icon}
-                />
-              </span>
-              <label className={styles.columnText}>이메일</label>
-            </li>
 
             <li className={styles.inputBox}>
               <div className={styles.mailBox}>
@@ -150,50 +140,31 @@ const SignUp = ({ isAudienceJoined }) => {
               <button className={styles.confirm}>인증하기</button>
             </li>
 
-            <li className={styles.columnBox}>
-              <span className={styles.imgBorder}>
-                <img
-                  src="../../../images/required.png"
-                  alt=""
-                  className={styles.icon}
-                />
-              </span>
-              <label className={styles.columnText}>닉네임</label>
-            </li>
             <li className={styles.inputBox}>
               <div className={styles.nickBox}>
                 <input
                   type="text"
                   className={styles.text}
-                  placeholder="닉네임을 입력해주세요"
+                  placeholder="닉네임을 입력해주세요."
                   onChange={handleInputValue("nickname")}
                 ></input>
               </div>
             </li>
-            <li className={styles.columnBox}>
-              <span className={styles.imgBorder}>
-                <img
-                  src="../../../images/required.png"
-                  alt=""
-                  className={styles.icon}
-                />
-              </span>
-              <label className={styles.columnText}>비밀번호</label>
-            </li>
+
             <li className={styles.inputBox}>
               <div className={styles.passBox}>
                 {!passOpen ? (
                   <input
                     type="password"
                     className={styles.passText}
-                    placeholder="비밀번호는 4-12자리의 숫자,영문입니다."
+                    placeholder="비밀번호를 입력해주세요."
                     onChange={handleInputValue("password")}
                   ></input>
                 ) : (
                   <input
                     type="text"
                     className={styles.passText}
-                    placeholder="비밀번호는 4-12자리의 숫자,영문입니다."
+                    placeholder="비밀번호를 입력해주세요."
                     onChange={handleInputValue("password")}
                   ></input>
                 )}
@@ -209,15 +180,11 @@ const SignUp = ({ isAudienceJoined }) => {
               </div>
             </li>
             <li className={styles.columnBox}>
-              <span className={styles.imgBorder}>
-                <img
-                  src="../../../images/required.png"
-                  alt=""
-                  className={styles.icon}
-                />
-              </span>
-              <label className={styles.columnText}>비밀번호 확인</label>
+              <label className={styles.columnText}>
+                비밀번호는 4-12자리의 숫자,영문입니다.
+              </label>
             </li>
+
             <li className={styles.inputBox}>
               <div className={styles.passBox}>
                 {!passOpen2 ? (
