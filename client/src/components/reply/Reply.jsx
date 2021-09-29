@@ -16,8 +16,7 @@ const Reply = ({ deleteReply, reply, isLogin, userinfo }) => {
         <div className={styles.userAndDate}>
           <span className={styles.user}>{reply.user.nickname}</span>
           <span className={styles.date}>
-            {reply.createdAt}
-            {/* {reply.createdAt.substring(0,10)} {reply.createdAt. substring(11, 16)} */}
+            {reply.createdAt.substring(0,10)} {reply.createdAt. substring(11, 16)}
           </span> 
         </div>
         <div className={styles.content}>{reply.comments}</div>

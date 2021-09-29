@@ -79,6 +79,7 @@ span {
   margin: 0;
   height: 65%;
   transition: 0.2s;
+  cursor: pointer;
 }
 .logoScroll {
   margin-top: -1.5rem;
@@ -93,6 +94,7 @@ span {
   margin: 0;
   height: 90%;
   transition: 0.2s;
+  cursor: pointer;
 }
 
 .categoryBox {

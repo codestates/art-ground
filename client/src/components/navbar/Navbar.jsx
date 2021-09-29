@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
-const Navbar = ({ isLogin, handleLogout, isAdmin }) => {
+const Navbar = ({ isLogin, handleLogout, isAdmin, setModalOpen }) => {
   const history = useHistory();
 
   const clickLogo = () => {
@@ -19,10 +19,9 @@ const Navbar = ({ isLogin, handleLogout, isAdmin }) => {
   const handleClickMypage = () => {
     setNavOpen(false);
     if (isLogin) {
-      history.push("./mypage");
+      history.push("/mypage");
     } else {
-      alert("로그인한 유저만 사용할 수 있습니다");
-      history.push("./signin");
+      setModalOpen(true);
     }
   };
 
@@ -43,12 +42,12 @@ const Navbar = ({ isLogin, handleLogout, isAdmin }) => {
     const watch = () => {
       window.addEventListener("scroll", handleFollow);
     };
-    setTimeout(()=> {
+    setTimeout(() => {
       watch();
-      if(ScrollY === 0){
+      if (ScrollY === 0) {
         setNavStatus(false);
       }
-    }, 10)
+    }, 10);
     return () => {
       window.removeEventListener("scroll", handleFollow);
     };

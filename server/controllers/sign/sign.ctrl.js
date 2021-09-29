@@ -60,7 +60,8 @@ module.exports = {
         })
         .status(205)
         .json({ message: "successfully signed out!" });
-    } catch {
+    } catch (error) {
+      console.log(error);
       res.status(500).json({ message: "server error" });
     }
   },

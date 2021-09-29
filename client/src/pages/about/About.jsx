@@ -14,6 +14,7 @@ const About = () => {
   const [Text, setText] = useState("");
   const [Count, setCount] = useState(0);
   const [position, setPosition] = useState(0);
+
   function onScroll() {
     setPosition(window.scrollY);
   }
@@ -35,6 +36,8 @@ const About = () => {
     };
   });
 
+  //console.log(position);
+
   return (
     <div className={styles.container}>
       <main className={` ${styles.main2}`}>
@@ -46,7 +49,7 @@ const About = () => {
               data-aos-duration="2000"
             >
               <img
-                src="../../../aGfavicon.png"
+                src="../../../favicon.png"
                 alt=""
                 className={styles.logo}
               />
