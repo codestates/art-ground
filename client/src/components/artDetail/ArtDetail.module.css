@@ -89,7 +89,7 @@
   }
   .artMetaData {
     width: 80%;
-    padding-left: 2rem;
+    padding: 0.5rem;
   }
 }
 @media screen and (max-width: 568px) {
