@@ -11,12 +11,13 @@ const Landing = () => {
   const boxRef = useRef(null);
   const contentRef = useRef(null);
   
+  
   useEffect(()=> {
     gsap.to(wrapperRef.current, {
       duration: 3,
       top: "-100%",
       ease: "power3.inOut",
-      delay: 5
+      delay: 4
     });
   
     var tl = gsap.timeline();
@@ -32,7 +33,7 @@ const Landing = () => {
   
     tl.to(loaderRef.current, {
         duration: 2,
-        height: 35,
+        height: 40,
         scaleY: 0,
         ease: "power3.inOut",
         transformOrigin:"0% -100%"
@@ -54,16 +55,17 @@ const Landing = () => {
     });
   }, [])
  
-  const history = useHistory()
+  const history = useHistory();
+
   const goAbout = () => {
-    history.push('/about')
+    history.push('/about')  
   }
 
   return (
 
     <section>
       <div ref={wrapperRef} className={styles.wrapper}>
-        <div ref={loaderRef} class={styles.loader}>Anyone can be an artist.</div>
+        <div ref={loaderRef} class={styles.loader}>Anyone can be an „authience“</div>
       </div>
       <div>
         <div class={styles.container}>
@@ -77,6 +79,7 @@ const Landing = () => {
           <h2 class={styles.content2}>아트그라운드</h2>
           <button class={styles.button} onClick={goAbout}>시작하기</button>
         </div>
+        {/* <div ref={boxRef2} class={styles.box}></div> */}
       </div>
     </section>
   )

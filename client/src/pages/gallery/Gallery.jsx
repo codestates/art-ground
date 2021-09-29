@@ -21,6 +21,8 @@ const Gallery = ({
   const [premiumBlocked, setPremiumBlocked] = useState(false); //premium 클릭 시 나타나는 모달창
   const [rerender, setRerender] = useState(false); //좋아요&좋아요해제 시 컴포넌트 재랜더링
 
+  const [isLoading, setLoading] = useState(true);
+
   useEffect(() => {
     async function getAxiosData(){
       if(isStandard){
@@ -28,26 +30,32 @@ const Gallery = ({
         console.log(await getStandardGallery(tagClicked, sortValue))
       } else {
         setGalleryList(await getPremiumGallery(tagClicked, sortValue));
+        console.log(await getPremiumGallery(tagClicked, sortValue))
       }
     }
     setTimeout(()=> {
       getAxiosData();
     }, 100)
+    setTimeout(()=> {
+      setLoading(false);
+    }, 700)
   }, [rerender]); 
 
   const handleStandard = async () => { //STANDARD, PREMIUM 필터
-    if(isLogin){
+    //if(isLogin){
       if(isStandard){
         setStandard(false);
         setGalleryList(await getPremiumGallery(tagClicked, sortValue));
+        console.log(await getPremiumGallery(tagClicked, sortValue))
       } else{
         setStandard(true);
         setGalleryList(await getStandardGallery(tagClicked, sortValue));
       }
-    } else{ //로그인 안 한 상태에서 premium 클릭 시 로그인 요구 모달창 오픈
-      setModalOpen(true);
-      setPremiumBlocked(true);
-    }
+  }
+
+  const handleModalPremium = () => {
+    setModalOpen(true);
+    setPremiumBlocked(true);
   }
 
   const handleTagFilter = async (el) => { //해시태그 필터
@@ -65,6 +73,15 @@ const Gallery = ({
     setPremiumBlocked(false);
   }
 
+  if(isLoading){
+    return (
+      <section className={styles.container}>
+        <div className={styles.loading}>
+          <img className={styles.loadingImg} src="../../../images/loading.gif" alt="loading"/>
+        </div>
+      </section>
+    )
+  }else{
   return (
     <section className={styles.container}>
       <SubNavBar 
@@ -83,6 +100,7 @@ const Gallery = ({
           exhibition={el}
           userinfo={userinfo}
           handleModal={()=> setModalOpen(true)} 
+          handleModalPremium={handleModalPremium}
           isLogin={isLogin} />
         ))}
       </ul>
@@ -105,7 +123,8 @@ const Gallery = ({
       : null}
 
     </section>
-  );
+  )
+  };
 };
 
 export default Gallery;

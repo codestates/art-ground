@@ -105,8 +105,12 @@
   color: white;
   border-radius: 5px;
   cursor: pointer;
+  transition: 0.3s;
 }
-
+.button:hover {
+  background: rgb(50, 50, 50);
+  border: 0.1rem solid rgb(50, 50, 50);
+}
 @media screen and (max-width: 1024px) {
   /* .title {
     top: 70%;

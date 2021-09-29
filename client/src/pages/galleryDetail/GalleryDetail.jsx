@@ -90,6 +90,12 @@ const GalleryDetail = ({ gallerySelected }) => {
 
       <p className={styles.content}>{gallerySelected.exhibit_desc}</p>
 
+      {gallerySelected.exhibit_type ===2 ?
+      <Link to="/3dgallery"> 
+        <div className={styles.threeDBtn}>3D 전시관 둘러보기</div>
+      </Link>
+      : null}
+
       <div className={styles.intro}>작가</div>
       <div className={styles.artist}>
         <div className={styles.imgBox}>
