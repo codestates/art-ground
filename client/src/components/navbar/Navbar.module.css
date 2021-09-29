@@ -94,6 +94,7 @@ span {
   margin: 0;
   height: 90%;
   transition: 0.2s;
+  cursor: pointer;
 }
 
 .categoryBox {

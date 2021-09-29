@@ -12,7 +12,7 @@ const Landing = () => {
   const boxRef = useRef(null);
   const contentRef = useRef(null);
  
-  const txt = 'an "author + audience = authience"';
+  const txt = 'an author + audience = "authience"';
   const [Text, setText] = useState('');
   const [Count, setCount] = useState(0);
   
@@ -31,12 +31,12 @@ const Landing = () => {
         scaleY: 0,
         y: 80,
         ease: "power3.inOut",
-        delay: 1,
+        delay: 0.5,
         transformOrigin:"50% 100%"
     });
     tl.to(loaderRef.current, {
       duration: 1,
-      height: 40,
+      height: 30,
       scaleY: 0,
       ease: "power3.inOut",
       transformOrigin:"0% -100%", 
@@ -47,24 +47,24 @@ const Landing = () => {
       scaleY: 0,
       y: 80,
       ease: "power3.inOut",
-      delay: 0.5,
+      delay: 0.3,
       transformOrigin:"50% 100%"
   });
 
     tl.to(loaderRef2.current, {
       duration: 2,
-      height: 40,
+      height: 30,
       scaleY: 0,
       ease: "power3.inOut",
       transformOrigin:"0% -100%", 
-      delay: 1.8
+      delay: 2.2
   });
     tl.from(contentRef.current, {
       duration: 2,
       scaleY: 0,
       y: 80,
       ease: "power3.inOut",
-      delay: 0.2,
+      delay: 0.7,
       transformOrigin:"50% 100%"
     });
   
@@ -72,16 +72,17 @@ const Landing = () => {
       duration: 2,
       y: "-100%",
       ease: "power3.inOut",
-      delay: 8,
+      delay: 8.5,
     });
 
   }, [])
  
+  //타이핑 효과 function
   useEffect(() => {
     const interval = setInterval(() => {
       setText(Text + txt[Count]); // 이전 set한 문자 + 다음 문자
       setCount(Count + 1); // 개수 만큼 체크 
-    }, 170);
+    }, 145);
     if(Count === txt.length)  {  // Count를 따로 두지 않고 Text.length 체크도 가능
         clearInterval(interval); // 문자열 체크를 통해 setInterval을 해제합니다
     } 
