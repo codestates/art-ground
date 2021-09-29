@@ -36,7 +36,6 @@
   top: 70%;
   left: 30%;
   transform: translate(-50%, -50%);
-  cursor: pointer;
 }
 
 .content1 {
@@ -98,13 +97,14 @@
 
 .button {
   font-family: "Poppins", sans-serif;
-  margin: 3rem;
+  margin: 2rem;
   padding: 1rem 2rem;
   font-size: 1.2rem;
   background: transparent;
   border: 0.1rem solid white;
   color: white;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1024px) {
