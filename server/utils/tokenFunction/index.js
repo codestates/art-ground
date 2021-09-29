@@ -4,7 +4,7 @@ const { sign, verify } = require("jsonwebtoken");
 module.exports = {
   generateAccessToken: (data) => {
     return sign(data, process.env.ART_GROUND_ACCESS_SECRET, {
-      expiresIn: "30s",
+      expiresIn: "1d",
     });
   },
   isAuthorized: (req) => {

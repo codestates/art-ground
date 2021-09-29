@@ -34,19 +34,19 @@ const AdminReview = ({ el }) => {
               <div className={styles.author}>{"작가이름자리"}</div>
               <div className={styles.comments}>{el.comments}</div>
             </div>
-
-            <div className={styles.btnBox}>
-              <button className={styles.btn} onClick={clickDelete}>
-                삭제하기
-              </button>
-            </div>
-            {deleteModal ? (
-              <ReviewDelModal el={el} setDeleteModal={setDeleteModal} />
-            ) : null}
           </div>
+
+          <div className={styles.btnBox}>
+            <button className={styles.btn} onClick={clickDelete}>
+              삭제하기
+            </button>
+          </div>
+          {deleteModal ? (
+            <ReviewDelModal el={el} setDeleteModal={setDeleteModal} />
+          ) : null}
         </div>
       </div>
-    </section>
+  </section>
   );
 };
 

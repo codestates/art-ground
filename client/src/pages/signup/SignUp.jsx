@@ -6,7 +6,7 @@ import { getSingupAudRes, getSingupAuthRes } from "../../api/signApi";
 const CryptoJS = require("crypto-js");
 
 axios.defaults.withCredentials = true;
-const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
+const SignUp = ({ isAudienceJoined }) => {
   const history = useHistory();
 
   const [audInfo, setAudInfo] = useState({
@@ -19,6 +19,7 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
 
   const [passOpen, setPassOpen] = useState(false);
   const [passOpen2, setPassOpen2] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const visibility = !passOpen
     ? "https://user-images.githubusercontent.com/80307779/133570708-c6628e88-1f9c-41f8-8f96-1338e9d79a53.png"
@@ -34,7 +35,6 @@ const SignUp = ({ isAudienceJoined, isAuthorJoined }) => {
     setPassOpen2(!passOpen2);
   };
 
-  const [errorMessage, setErrorMessage] = useState("");
   const checkPass = (asValue) => {
     const regExp = /^[a-zA-z0-9]{4,12}$/;
     return regExp.test(asValue);

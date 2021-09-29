@@ -21,7 +21,7 @@ export function confirmExhibition(setConfirmModal, el) {
     })
     .then((result) => {
       setConfirmModal(false);
-      window.location.href = "https://art-ground.link/admin";
+      window.location.href = "https://art-ground.io/admin";
     })
     .catch((err) => console.log(err));
 }
@@ -70,7 +70,7 @@ export function deleteReviews(setDeleteModal, el) {
     .then((result) => {
       if (result.data.message === "successfully delete comments") {
         setDeleteModal(false);
-        window.location.href = "https://localhost:3000/admin";
+        window.location.href = "https://art-ground.io/admin";
       }
     })
     .catch((err) => console.log(err));

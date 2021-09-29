@@ -1,14 +1,6 @@
 import styles from "./MyPick.module.css";
 
-import React from "react";
-
 const MyPick = ({ el }) => {
-  // const imgurl =
-  //   el.images.length > 0
-  //     ? el.images[0].image_urls
-  //     : "https://images.velog.io/images/beablessing/post/54131e26-0389-412e-b88d-a8b6a97600a8/noimg.png";
-  // const imgurlAlt = el.images.length > 0 ? el.images[0].title : null;
-
   return (
     <section className={styles.container}>
       <div className={styles.exBox}>
@@ -31,6 +23,7 @@ const MyPick = ({ el }) => {
           </div>
         </div>
       </div>
+      {/* {goDetail ? <GalleryDetail gallerySelected={gallerySelected} /> : null} */}
     </section>
   );
 };

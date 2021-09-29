@@ -1,20 +1,25 @@
 import axios from "axios";
 
-export function getSigninRes(userData, handleResponseSuccess, setisAdmin) {
+export function getSigninRes(
+  userData,
+  handleResponseSuccess,
+  setisAdmin,
+  setErrorMessage
+) {
   //art-ground.link
   return axios
-    .post("https://art-ground.link/sign-in", userData)
+    .post("https://localhost:5000/sign-in", userData)
     .then((result) => {
       if (result.data === "AccessToken ready") {
         handleResponseSuccess(result);
       }
     })
-    .catch((err) => console.log(err));
+    .catch((err) => setErrorMessage("가입하지 않은 유저입니다."));
 }
 export function getSignOutRes(setUserinfo, setIsLogin, setisAdmin) {
   //art-ground.link
   return axios
-    .post("https://art-ground.link/sign-out")
+    .post("https://localhost:5000/sign-out")
     .then((result) => {
       if (result.status === 205) {
         setUserinfo(null);
@@ -22,7 +27,7 @@ export function getSignOutRes(setUserinfo, setIsLogin, setisAdmin) {
         setisAdmin(false);
       }
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.log(err.status));
 }
 
 export function getSingupAudRes(userData, setErrorMessage, history) {

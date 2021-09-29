@@ -17,11 +17,10 @@ const InfoModify = ({
   setEditFront,
 }) => {
   const history = useHistory();
-
   const [userMail, setUserMail] = useState(userinfo.user_email);
   const [nickName, setNickName] = useState(userinfo.nickname);
   const [img, setImg] = useState(userinfo.profile_img);
-  const [authDesc, setAuthDesc] = useState(userinfo.authorDesc);
+  const [authDesc, setAuthDesc] = useState(userinfo.author_desc);
 
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -94,10 +93,10 @@ const InfoModify = ({
       .then((result) => {
         console.log(result, "인포수정 응답!");
         if (result.data.message === "profile changed") {
-          axios.get("https://art-ground.link/mypage").then((result) => {
-            console.log(result);
-            setUserinfo(result.data.data);
-          });
+          // axios.get("https://localhost:5000//mypage").then((result) => {
+          //   console.log(result);
+          //   setUserinfo(result.data.data);
+          // });
 
           history.push("/mypage");
         }

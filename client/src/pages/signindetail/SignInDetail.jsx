@@ -61,9 +61,8 @@ const SignInDetail = ({
       password: encryptedPassword,
       userType: 1,
     };
-
     setErrorMessage("");
-    getSigninRes(userData, handleResponseSuccess, setisAdmin);
+    getSigninRes(userData, handleResponseSuccess, setisAdmin, setErrorMessage);
   };
   const clickAuthLogin = () => {
     if (!userEmail || !password) {
@@ -86,7 +85,7 @@ const SignInDetail = ({
       userType: 2,
     };
     setErrorMessage("");
-    getSigninRes(userData, handleResponseSuccess);
+    getSigninRes(userData, handleResponseSuccess, setisAdmin, setErrorMessage);
   };
 
   const audonKeyPress = (e) => {
@@ -107,9 +106,9 @@ const SignInDetail = ({
   };
 
   const clickKakao = () => {
-    window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=a3d0f7feebf7fca1ad114ff7da1dddc5&redirect_uri=https://localhost:3000/signin/kakao&response_type=code`;
-  };
-
+    window.location.href = 
+      `https://kauth.kakao.com/oauth/authorize?client_id=a3d0f7feebf7fca1ad114ff7da1dddc5&redirect_uri=https://art-ground.io/signin/kakao&response_type=code`;
+  }
   return (
     <section className={styles.container}>
       <div>
