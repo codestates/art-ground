@@ -24,9 +24,7 @@ const Google = (props) => {
 
   const getUserInfo = async (accessToken) => {
     axios
-      .get(
-        `https://art-ground.link/receive/userinfo?accessToken=${accessToken}`
-      )
+      .get(`https://localhost:5000/receive/userinfo?accessToken=${accessToken}`)
       .then((res) => {
         console.log(res.data);
         setUserInfo(res.data);
@@ -36,7 +34,7 @@ const Google = (props) => {
   const getAccessToken = async (authorizationCode) => {
     console.log(authorizationCode);
     axios
-      .post(`https://art-ground.link/receive/token`, { authorizationCode })
+      .post(`https://localhost:5000/receive/token`, { authorizationCode })
       .then((res) => {
         console.log(res.data);
         if (!refreshToken) {
