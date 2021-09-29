@@ -5,7 +5,11 @@ import AdminEx from "../../components/adminEx/AdminEx";
 import AdminReview from "../../components/adminReview/AdminReview";
 import axios from "axios";
 import Loading from "../../components/loading/Loading";
-import { getAllExhibition, getinfiniteData } from "../../api/adminApi";
+import {
+  getAllExhibition,
+  getAllReviews,
+  getinfiniteData,
+} from "../../api/adminApi";
 
 const Admin = () => {
   // 대분류 페이지
@@ -48,11 +52,20 @@ const Admin = () => {
 
   // useEffect(() => {
   //   if (review) {
-  //     getAllReviews(setReviewData);
+  //     //getAllReviews(setReviewData);
+  //     axios
+  //       .get("https://localhost:5000/admin/review")
+  //       .then((result) => {
+  //         console.log(result);
+  //         //console.log(result.data.data);
+  //         setReviewData(result.data.data);
+  //         //console.log(result.data.data, "ssssssssss");
+  //       })
+  //       .catch((err) => console.log(err));
   //   }
   //   return () => {};
   // }, [review]);
-
+  // .get("https://localhost:5000/admin/review-exhibition-info?")
   useEffect(() => {
     setTimeout(() => {
       setAdExRender(true);
@@ -75,32 +88,32 @@ const Admin = () => {
     setDoneEx(true);
   };
 
-  const [productList, setProductList] = useState([]);
-  const [items, setItems] = useState(10);
-  const [preItems, setPreItems] = useState(0);
+  // const [productList, setProductList] = useState([]);
+  // const [items, setItems] = useState(10);
+  // const [preItems, setPreItems] = useState(0);
 
-  useEffect(() => {
-    getinfiniteData(setProductList, preItems, items, productList);
+  // useEffect(() => {
+  //   getinfiniteData(setProductList, preItems, items, productList);
 
-    window.addEventListener("scroll", infiniteScroll, true);
-  }, [items]);
+  //   window.addEventListener("scroll", infiniteScroll, true);
+  // }, [items]);
 
-  const infiniteScroll = () => {
-    let scrollHeight = Math.max(
-      document.documentElement.scrollHeight,
-      document.body.scrollHeight
-    );
-    let scrollTop = Math.max(
-      document.documentElement.scrollTop,
-      document.body.scrollTop
-    );
-    let clientHeight = document.documentElement.clientHeight;
+  // const infiniteScroll = () => {
+  //   let scrollHeight = Math.max(
+  //     document.documentElement.scrollHeight,
+  //     document.body.scrollHeight
+  //   );
+  //   let scrollTop = Math.max(
+  //     document.documentElement.scrollTop,
+  //     document.body.scrollTop
+  //   );
+  //   let clientHeight = document.documentElement.clientHeight;
 
-    if (scrollTop + clientHeight >= scrollHeight) {
-      setPreItems(items);
-      setItems(items + 10);
-    }
-  };
+  //   if (scrollTop + clientHeight >= scrollHeight) {
+  //     setPreItems(items);
+  //     setItems(items + 10);
+  //   }
+  // };
 
   return (
     <section className={styles.container}>
@@ -170,7 +183,7 @@ const Admin = () => {
                   <button className={clickEXSmenu3}>전체보기(최신순)</button>
                   <button className={clickEXSmenu3}>전시회별 정렬</button>
                 </div>
-                {productList.map((el, idx) => {
+                {reviewData.map((el, idx) => {
                   return <AdminReview key={idx} el={el} />;
                 })}
               </>
