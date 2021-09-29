@@ -2,18 +2,17 @@ import React, { useEffect, useState } from "react";
 import styles from "./About.module.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import AboutSlider from "../../components/aboutSlider/AboutSlider";
+
 import { Link, useHistory } from "react-router-dom";
+import AboutSlider from "../../components/aboutSlider/AboutSlider";
 
 AOS.init();
 
 const About = () => {
   const history = useHistory();
-
-  const txt = `아트그라운드는 누구나 전시가 가능하고, 어디에서나 관람이 가능한 -를 추구합니다 `;
-  const [Text, setText] = useState("");
-  const [Count, setCount] = useState(0);
   const [position, setPosition] = useState(0);
+  const [Count1, setCount1] = useState(0);
+  const [Count2, setCount2] = useState(0);
 
   function onScroll() {
     setPosition(window.scrollY);
@@ -21,15 +20,26 @@ const About = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
-    if (position > 0) {
-      const interval = setInterval(() => {
-        setText(Text + txt[Count]);
-        setCount(Count + 1);
-      }, 70);
-      if (Count === txt.length) {
-        clearInterval(interval);
+    if (position > 4876) {
+      const interval1 = setInterval(() => {
+        setCount1(Count1 + 1);
+      }, 3);
+
+      const interval2 = setInterval(() => {
+        setCount2(Count2 + 1);
+      }, 1);
+
+      if (Count1 === 198) {
+        clearInterval(interval1);
       }
-      return () => clearInterval(interval);
+      if (Count2 === 1026) {
+        clearInterval(interval2);
+      }
+
+      return () => {
+        clearInterval(interval1);
+        clearInterval(interval2);
+      };
     }
     return () => {
       window.removeEventListener("scroll", onScroll);
@@ -48,11 +58,7 @@ const About = () => {
               data-aos="fade-down"
               data-aos-duration="2000"
             >
-              <img
-                src="../../../favicon.png"
-                alt=""
-                className={styles.logo}
-              />
+              <img src="../../../favicon.png" alt="" className={styles.logo} />
             </span>
             <p data-aos="fade-down" data-aos-duration="2000">
               아트그라운드는 온라인 갤러리를 통해 <br></br>
@@ -106,8 +112,45 @@ const About = () => {
         </section>
       </main>
       <main className={`${styles.mainback} ${styles.main4}`}>
-        <section className={styles.secBorder}>관람 종류 들어가기</section>
+        <section
+          className={styles.exSecBorder}
+          data-aos="fade-up"
+          data-aos-duration="3000"
+        >
+          <div className={styles.exContentTitle}>
+            art-ground는<br></br>두가지의 형태의 전시회 경험을 제공합니다.
+          </div>
+          <div className={styles.exContentBox}>
+            <div className={styles.exContent}>
+              <img src="https://images.velog.io/images/beablessing/post/53ea20bd-2447-4f9c-acb5-c0aec45c1e6a/outline_view_in_ar_black_24dp.png"></img>
+
+              <span>standard gallery</span>
+            </div>
+            <div className={styles.exContent}>
+              <img src="https://images.velog.io/images/beablessing/post/53ea20bd-2447-4f9c-acb5-c0aec45c1e6a/outline_view_in_ar_black_24dp.png"></img>
+
+              <span>3d gallery </span>
+            </div>
+          </div>
+        </section>
       </main>
+      {/* <main className={`${styles.mainback} ${styles.main8}`}>
+        <section
+          className={styles.fullSecBorder}
+          data-aos="zoom-in-up"
+          data-aos-duration="2000"
+        >
+          <div>
+            <img src="https://images.velog.io/images/beablessing/post/2daa22f3-9dd7-4641-8fc3-e666a61f6a0d/IM048962-int_press.jpg"></img>
+          </div>
+          <div>
+            <img src="https://images.velog.io/images/beablessing/post/dcae9e8a-10ea-4569-bcf7-819eb5d4f186/%E1%84%87%E1%85%A1%E1%86%A8%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%A7%E1%86%BC4-1.jpeg"></img>
+          </div>
+          <div>
+            <img src="https://images.velog.io/images/beablessing/post/aff59d5f-d744-493c-9202-ce9963f5f387/%E1%84%87%E1%85%A1%E1%86%A8%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%A7%E1%86%BC1-8.jpeg"></img>
+          </div>
+        </section>
+      </main> */}
       <main className={`${styles.mainback} ${styles.main3}`}>
         <section className={styles.secBorder}>
           <div
@@ -139,7 +182,52 @@ const About = () => {
           </div>
         </section>
       </main>
+
       <main className={`${styles.mainback} ${styles.main4}`}>
+        <section
+          className={styles.revSecBorder}
+          data-aos="fade-up"
+          data-aos-duration="3000"
+        >
+          <div className={styles.reviewTitle}>
+            art-ground에서<br></br>수백개의 관람 후기를 만나보세요.
+          </div>
+          <div className={styles.revContentBox}>
+            <div className={styles.revContent}>
+              <img src="https://images.velog.io/images/beablessing/post/6cee083a-f884-4a87-9217-02005bec687e/Screenshot%20from%202021-09-30%2005-11-44.png"></img>
+              <div className={styles.revTxtBox}>
+                <span className={styles.revTxt}>내가클래시커팀장이다! 님</span>
+                <span className={styles.revTxt}>전시명: 자아성찰</span>
+                <span className={styles.revTxt}>
+                  작가의 자아성찰이 잘 그려졌던 작품이었다.
+                </span>
+              </div>
+            </div>
+            <div className={styles.revContent}>
+              <img src="https://images.velog.io/images/beablessing/post/25809c97-d973-4a68-b8ca-0f834128d3ed/Screenshot%20from%202021-09-30%2005-11-38.png"></img>
+              <div className={styles.revTxtBox}>
+                <span className={styles.revTxt}>내가클래시커팀장이다! 님</span>
+                <span className={styles.revTxt}>작품: 자아성찰</span>
+                <span className={styles.revTxt}>
+                  작가의 자아성찰이 잘 그려졌던 작품이었다.
+                </span>
+              </div>
+            </div>
+            <div className={styles.revContent}>
+              <img src="https://images.velog.io/images/beablessing/post/cbb9a9be-2030-4a9f-ade0-74cf3677b9ca/Screenshot%20from%202021-09-30%2005-11-48.png"></img>
+              <div className={styles.revTxtBox}>
+                <span className={styles.revTxt}>내가클래시커팀장이다! 님</span>
+                <span className={styles.revTxt}>작품: 자아성찰</span>
+                <span className={styles.revTxt}>
+                  작가의 자아성찰이 잘 그려졌던 작품이었다.
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <main className={`${styles.mainback} ${styles.main3}`}>
         <section className={styles.secBorder}>
           <div
             className={styles.border}
@@ -166,6 +254,24 @@ const About = () => {
               >
                 대관하러가기
               </button>
+            </div>
+          </div>
+        </section>
+      </main>
+      <main className={`${styles.mainback} ${styles.main9}`}>
+        <section className={styles.countBorder}>
+          <div className={styles.conterBox}>
+            <img src="https://images.velog.io/images/beablessing/post/2daa22f3-9dd7-4641-8fc3-e666a61f6a0d/IM048962-int_press.jpg"></img>
+            <div>
+              <span>{Count1}</span>
+              <span>Author</span>
+            </div>
+          </div>
+          <div className={styles.conterBox}>
+            <img src="https://images.velog.io/images/beablessing/post/2daa22f3-9dd7-4641-8fc3-e666a61f6a0d/IM048962-int_press.jpg"></img>
+            <div>
+              <span>{Count2}+</span>
+              <span>Piece of Art</span>
             </div>
           </div>
         </section>

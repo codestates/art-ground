@@ -9,6 +9,16 @@ a {
   text-decoration: none;
 }
 
+textarea:focus {
+  outline: none;
+}
+button:focus {
+  outline: none;
+}
+input:focus {
+  outline: none;
+}
+
 #root {
   animation: fadein 2s;
   -moz-animation: fadein 2s;

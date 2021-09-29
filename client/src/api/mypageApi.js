@@ -5,7 +5,7 @@ export function getMyinfo(setIsLogin, setUserinfo, setisAdmin, isLogin) {
   return axios
     .get("https://art-ground.link/mypage")
     .then((result) => {
-      console.log(result, "마이인포 리쥴트 값!!");
+      //console.log(result, "마이인포 리쥴트 값!!");
       if (result.status === 200) {
         const img =
           result.data.data.profile_img === null

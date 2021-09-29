@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
 
+span,
+label {
+  display: block;
+}
 .container {
   width: 100%;
   margin: 0;
@@ -24,13 +28,14 @@
   align-items: center;
   overflow: hidden;
 }
+
 .mainback {
   width: 100%;
-
   display: flex;
   justify-content: center;
 }
 .main1 {
+  /*슬라이더메인*/
   background-color: #f1f1f1;
   width: 100%;
   height: 100vh;
@@ -57,6 +62,7 @@
   margin-bottom: 2rem;
 }
 .main2 {
+  /*브랜드메인*/
   height: 100vh;
   background-color: none;
   width: 100%;
@@ -64,6 +70,49 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.main3 {
+  /*회색바탕메인*/
+  height: 100vh;
+  background-color: #f1f1f1;
+}
+.main4 {
+  /*하얀바탕메인*/
+  width: 100%;
+  height: 100vh;
+  background-color: none;
+}
+.main6 {
+  /*바텀 갤러리 둘러보러가기 메인*/
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+
+.main7 {
+  /*화살표섹션 메인*/
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f1f1;
+}
+.main8 {
+  /*이미지 섹션*/
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: tan;
+}
+.main9 {
+  width: 100%;
+  height: 50vh;
+  background-color: black;
 }
 .brand {
   width: 100%;
@@ -84,34 +133,130 @@
   font-size: 1rem;
   font-family: "Poppins", sans-serif;
 }
-
-.main3 {
-  height: 100vh;
-  background-color: #f1f1f1;
-}
-
-.main4 {
-  height: 100vh;
-  background-color: none;
-}
-
-.main6 {
-  width: 100%;
-  height: 30vh;
+/*관람상세*/
+.exSecBorder {
+  width: 1024px;
+  height: 90%;
   display: flex;
-  justify-content: center;
-  background-color: #f1f1f1;
-}
-/*화살표섹션*/
-.main7 {
-  width: 100%;
-  height: 15vh;
-  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f1f1f1;
+  overflow: hidden;
+  padding-top: 2rem;
+}
+.exContentTitle {
+  width: 100%;
+  height: 10rem;
+  line-height: 5rem;
+  text-align: center;
+  font-size: 2rem;
+}
+.exContentBox {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.exContent {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.exContent img {
+  border: 1px solid gainsboro;
+  width: 30%;
+}
+.exContent span {
+  border: 1px solid gainsboro;
+  width: 100%;
+  height: 13rem;
+  line-height: 13rem;
+  text-align: center;
 }
 
+/*관람상세 끝*/
+
+/*리뷰상세*/
+.revSecBorder {
+  width: 1024px;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 2rem;
+}
+.reviewTitle {
+  width: 100%;
+  height: 25%;
+  line-height: 2rem;
+  text-align: center;
+  font-size: 2rem;
+  padding: 1.5rem 2rem;
+}
+.revContentBox {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.revContent {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid gainsboro;
+}
+.revContent img {
+  border: 1px solid gainsboro;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+.revTxtBox {
+  width: 100%;
+  height: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.revTxt {
+  height: 3rem;
+  text-align: center;
+}
+/*리뷰상세 끝*/
+
+.fullSecBorder {
+  /*메인 > 풀섹션보더*/
+  width: 100%;
+  height: 100%;
+  padding: 3rem 20rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.fullSecBorder div {
+  width: 20rem;
+  height: 20rem;
+  margin-left: -10px;
+}
+.fullSecBorder div img {
+  width: 100%;
+  height: 100%;
+}
 .border {
   width: 100%;
   height: 50vh;
@@ -137,6 +282,53 @@
   justify-content: space-around;
   font-family: "Poppins", sans-serif;
 }
+
+/*카운터*/
+.countBorder {
+  width: 1024px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.conterBox {
+  width: 33.3%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.conterBox img {
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
+}
+.conterBox div {
+  margin-top: 5rem;
+  width: 100%;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.conterBox span {
+  width: 50%;
+  height: 3rem;
+  line-height: 3rem;
+  margin-top: 1rem;
+  color: white;
+  text-align: center;
+}
+.conterBox span:nth-child(1) {
+  font-size: 2.5rem;
+}
+.conterBox span:nth-child(2) {
+  font-size: 1.5rem;
+}
+
 .btn {
   display: inline-block;
   border: none;
