@@ -49,7 +49,7 @@ const About = () => {
               data-aos-duration="2000"
             >
               <img
-                src="../../../aGfavicon.png"
+                src="../../../favicon.png"
                 alt=""
                 className={styles.logo}
               />

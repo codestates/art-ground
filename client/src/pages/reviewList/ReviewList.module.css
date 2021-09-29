@@ -35,7 +35,16 @@
   color: rgb(112, 112, 112);
   transition: 0.3s;
 }
-
+.deleteIcon {
+  cursor: pointer;
+  font-size: 1.4rem;
+  height: 100%;
+  padding: 0.3rem;
+  border: none;
+  background-color: white;
+  color: rgb(181, 181, 181);
+  transition: 0.3s;
+}
 .searchIcon:hover {
   color: black;
 }
@@ -55,6 +64,7 @@
   display: flex;
   justify-content: flex-end;
 }
+
 .sort {
   cursor: pointer;
   width: 6.5rem;
@@ -72,10 +82,26 @@
   -moz-appearance: none;
   appearance: none;
 }
+.result {
+  text-align: center;
+  color: rgb(103, 103, 103);
+  padding: 2rem 0;
+}
+
 .resultNone {
   text-align: center;
   color: rgb(103, 103, 103);
   padding: 2rem 0;
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10rem 0;
+}
+
+.loadingImg {
+  width: 3rem;
 }
 @media screen and (max-width: 768px) {
   .container {
