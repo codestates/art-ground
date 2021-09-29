@@ -36,10 +36,10 @@ const ScrollTab = () => {
   };
   const gotoRegister = () => {
     window.scrollTo({
-      top: 4515,
+      top: 5469,
       behavior: "smooth",
     });
-    setPosition(4515);
+    setPosition(5469);
   };
 
   return (
