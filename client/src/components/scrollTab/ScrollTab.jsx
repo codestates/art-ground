@@ -22,17 +22,17 @@ const ScrollTab = () => {
 
   const gotoWatch = () => {
     window.scrollTo({
-      top: 1627,
+      top: 1680,
       behavior: "smooth",
     });
-    setPosition(1627);
+    setPosition(1680);
   };
   const gotoReview = () => {
     window.scrollTo({
-      top: 3535,
+      top: 3588,
       behavior: "smooth",
     });
-    setPosition(3535);
+    setPosition(3588);
   };
   const gotoRegister = () => {
     window.scrollTo({
