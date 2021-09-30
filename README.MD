@@ -1,4 +1,4 @@
-## 🏡art-Ground🏡 
+## 🏡 art-Ground 🏡 
 <img src="https://images.velog.io/images/devjade/post/4ed79e72-e02d-4d65-96d0-0a2b7f838058/Original.png" width="40%">
 
 ### < 누구나 예술가가 될 수 있는 공간, art-Ground > <br />
