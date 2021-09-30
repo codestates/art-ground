@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ArtDetail from '../../components/artDetail/ArtDetail';
+import GallerySlider from '../../components/gallerySlider/GallerySlider';
 import styles from './GalleryDetail.module.css';
 
 const GalleryDetail = ({ gallerySelected }) => {
@@ -48,40 +49,12 @@ const GalleryDetail = ({ gallerySelected }) => {
       <div className={styles.title}>{gallerySelected.title}</div>
       <div className={styles.date}>{gallerySelected.start_date} ~ {gallerySelected.end_date}</div>
 
-      {gallerySelected.images.length !== 0 ?
-      <div className={styles.outer}>
-        <div className={
-          btnSlider === 1
-            ? styles.sliderOuter1
-            : btnSlider === 2
-              ? styles.sliderOuter2
-              : btnSlider === 3
-                ? styles.sliderOuter3
-                : btnSlider === 4
-                  ? styles.sliderOuter4
-                  : btnSlider === 5
-                    ? styles.sliderOuter5
-                    : btnSlider === 6
-                      ? styles.sliderOuter6
-                      : btnSlider === 7
-                        ? styles.sliderOuter7
-                        : btnSlider === 8
-                          ? styles.sliderOuter8
-                          : styles.sliderOuter9
-          }
-        >
-
-          {gallerySelected.images.map(el =>
-              <div className={styles.sliderWrap}>
-                <img className={styles.slider} src="../../../images/sliderBackground.png" alt='slider' />
-                <img className={styles.sliderPic} src={el.image_urls} alt='sliderIn' onClick={() => handleModalOpen(el)} />
-              </div>
-          )}
-        </div>
-        <span className={styles.leftArrow} onClick={sliderDown}><i class="fas fa-chevron-left"></i></span>
-        <span className={styles.rightArrow} onClick={sliderUp}><i class="fas fa-chevron-right"></i></span>
-      </div>
-      : null}
+      <GallerySlider
+      btnSlider={btnSlider} 
+      gallerySelected={gallerySelected}
+      sliderUp={sliderUp}
+      sliderDown={sliderDown}
+      handleModalOpen={handleModalOpen}/>  
       
       <div className={styles.btnWrap}>
         {sliderNum.map(el => <button className={el===btnSlider? styles.btnClicked : styles.btn} onClick={() => slider(el)}> </button>)}
