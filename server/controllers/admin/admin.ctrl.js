@@ -1,5 +1,4 @@
-const { exhibition } = require("../../models");
-const { comments } = require("../../models");
+const { exhibition, comments } = require("../../models");
 const { isAuthorized } = require("../../utils/tokenFunction");
 
 module.exports = {
