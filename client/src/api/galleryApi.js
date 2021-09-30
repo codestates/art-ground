@@ -114,6 +114,33 @@ export async function getPremiumGallery(tagClicked, sortValue) {
   }
 }
 
+export async function createLike(postId) {
+  //console.log("클릭한 전시회 아이디:", postId);
+  try {
+    await axios.post(
+      "https://localhost:5000/exhibition/like",
+      {
+        postId: postId
+      });
+
+    //console.log(res);
+  } catch (err) {
+    return console.log(err);
+  }
+}
+
+export async function deleteLike(postId) {
+  //console.log("클릭한 전시회 아이디:", postId);
+  try {
+    await axios.delete(
+      `https://localhost:5000/exhibition/like/${postId}`)
+
+    //console.log(res);
+  } catch (err) {
+    return console.log(err);
+  }
+}
+
 // export async function filter(isStandard, tagClicked, sortValue) {
 //   try {
 //     if (isStandard) { //standard
@@ -205,30 +232,3 @@ export async function getPremiumGallery(tagClicked, sortValue) {
 //     return console.log(err);
 //   }
 // }
-
-export async function createLike(postId) {
-  //console.log("클릭한 전시회 아이디:", postId);
-  try {
-    await axios.post(
-      "https://localhost:5000/exhibition/like",
-      {
-        postId: postId
-      });
-
-    //console.log(res);
-  } catch (err) {
-    return console.log(err);
-  }
-}
-
-export async function deleteLike(postId) {
-  //console.log("클릭한 전시회 아이디:", postId);
-  try {
-    await axios.delete(
-      `https://localhost:5000/exhibition/like/${postId}`)
-
-    //console.log(res);
-  } catch (err) {
-    return console.log(err);
-  }
-}

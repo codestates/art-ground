@@ -6,6 +6,9 @@ import { createExhibition } from '../../api/galleryApi';
 import AuthorLogin from '../../components/modals/AuthorLogin';
 import RegisterLogin from '../../components/modals/RegisterLogin';
 import ConfirmRegister from '../../components/modals/ConfirmRegister';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css"
+import { ko } from 'date-fns/esm/locale'
 
 const Register = ({ userinfo, isLogin }) => {
 
@@ -19,6 +22,8 @@ const Register = ({ userinfo, isLogin }) => {
   const tags3 = ['#추상화', '#인물화', '#풍경화', '#정물화']
 
   const [title, setTitle] = useState(''); //전시명
+  const [strStartDate, setStrStartDate] = useState('')
+  const [strEndDate, setStrEndDate] = useState('')
   const [startDate, setStartDate] = useState(''); //전시시작일
   const [endDate, setEndDate] = useState(''); //전시마감일
   const [type, setType] = useState('') //전시타입
@@ -32,12 +37,29 @@ const Register = ({ userinfo, isLogin }) => {
   const handleTitle = (event) => {
     setTitle(event.target.value);
   }
-  const handleStartDate = (event) => {
-    setStartDate(event.target.value);
+
+  const getStringDate = (date) => {
+    let sYear = date.getFullYear();
+    let sMonth = date.getMonth() + 1;
+    let sDate = date.getDate();
+    if(sMonth < 9){
+      sMonth = "0" + sMonth
+    }
+    if(sDate < 9){
+      sDate = "0" + sDate
+    } 
+    return `${sYear}-${sMonth}-${sDate}`;
   }
-  const handleEndDate = (event) => {
-    setEndDate(event.target.value);
+
+  const handleStartDate = (el) => {
+    setStartDate(el);
+    setStrStartDate(getStringDate(el));
   }
+  const handleEndDate = (el) => {
+    setEndDate(el);
+    setStrEndDate(getStringDate(el));
+  }
+
   const handleContent = (event) => {
     setContent(event.target.value);
   }
@@ -112,8 +134,8 @@ const Register = ({ userinfo, isLogin }) => {
   const createGallery = () => {
     if( 
       title === '' ||
-      startDate === '' ||
-      endDate === '' ||
+      strStartDate === '' ||
+      strEndDate === '' ||
       type === '' ||
       isClicked.length === 0 ||
       content === '' ||
@@ -123,7 +145,7 @@ const Register = ({ userinfo, isLogin }) => {
     } else{
       setModalOpen(true);
       setErrorMessage(''); //에러메세지 다시 초기화
-      createExhibition(title, startDate, endDate, type, content, isClicked, arts);
+      createExhibition(title, strStartDate, strEndDate, type, content, isClicked, arts);
     }
   }
 
@@ -146,14 +168,35 @@ const Register = ({ userinfo, isLogin }) => {
       type="text" value={title} onChange={handleTitle}/>
 
       <div className={styles.categoryName}>전시 시작일</div>
-      <input className={styles.textInput} 
+      {/* <input className={styles.textInput} 
       type="text" placeholder="전시 시작일은 신청일로부터 7일 이후 날짜로 설정 가능합니다." 
-      value={startDate} onChange={handleStartDate}/>
+      value={startDate} onChange={handleStartDate}/> */}
+      <DatePicker 
+      selected={startDate} 
+      onChange={el => handleStartDate(el)} 
+      selectsStart
+      startDate={startDate}
+      endDate={endDate}
+      locale={ko}
+      dateFormat="yyyy-MM-dd"
+      className={styles.textInput} 
+      />
 
       <div className={styles.categoryName}>전시 마감일</div>
-      <input className={styles.textInput} 
+      {/* <input className={styles.textInput} 
       type="text" placeholder="최대 전시 가능한 기간은 90일입니다." 
-      value={endDate} onChange={handleEndDate}/>
+      value={endDate} onChange={handleEndDate}/> */}
+      <DatePicker 
+      selected={endDate} 
+      onChange={el => handleEndDate(el)} 
+      selectsEnd
+      startDate={startDate}
+      endDate={endDate}
+      minDate={startDate}
+      locale={ko}
+      dateFormat="yyyy-MM-dd"
+      className={styles.textInput} 
+      />
 
       <div className={styles.categoryName}>전시 타입</div>
       <div className={styles.types}>
