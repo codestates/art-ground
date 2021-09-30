@@ -41,75 +41,16 @@
   -o-animation: fadein 1.5s;
 }
 
-.modalContainer {
-  position: fixed;
-  background: rgba(0, 0, 0, 0.5);
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  z-index: 20;
-  animation: fadein 1s;
-  -moz-animation: fadein 1s;
-  -webkit-animation: fadein 1s;
-  -o-animation: fadein 1s;
-}
-
-.modalWrap {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 6.5rem 1.5rem;
-  width: 20rem;
-  height: 25rem;
-  z-index: 30;
-  border-radius: 10px;
-}
-
-.modalContent {
-  margin-bottom: 1.5rem;
-  text-align: center;
-  font-size: 1.2rem;
-  color: rgb(90, 90, 90);
-  line-height: 1.8rem;
-}
-.modalSubContent {
-  margin-top: 0.5rem;
-  text-align: center;
-  font-size: 0.85rem;
-  color: rgb(148, 148, 148);
-  line-height: 1.2rem;
-}
-.ok {
-  margin: 4rem 0;
-  text-align: center;
+.loading {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  padding: 10rem 0;
 }
 
-.okBtn {
-  margin: 0 1rem;
-  width: 6rem;
-  height: 2.5rem;
-  cursor: pointer;
-  border: 1px solid rgb(90, 90, 90);
-  padding: 0.2rem 0.7rem;
-  border-radius: 5px;
-  background-color: rgb(90, 90, 90);
-  transition: 0.3s;
-  font-size: 0.8rem;
-  color: white;
-  white-space: nowrap;
+.loadingImg {
+  width: 3rem;
 }
-.okBtn:hover {
-  border: 1px solid rgb(210, 210, 210);
-  background-color: white;
-  color: rgb(66, 66, 66);
-}
-
 @media screen and (max-width: 768px) {
   .container {
     padding: 3.5rem 0.5rem 5rem 0.5rem;
@@ -122,24 +63,6 @@
 @media screen and (max-width: 480px) {
   .objectList {
     grid-template-columns: 1fr;
-  }
-  .modalWrap {
-    width: 80%;
-    padding: 4.5rem 1.5rem;
-    height: 20rem;
-  }
-  .ok {
-    margin: 3.5rem 0;
-  }
-  .okBtn {
-    margin: 0 0.5rem;
-    width: 5rem;
-  }
-  .modalContent {
-    font-size: 1rem;
-  }
-  .modalSubContent {
-    font-size: 0.75rem;
   }
 }
 

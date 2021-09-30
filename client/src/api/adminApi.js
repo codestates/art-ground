@@ -3,7 +3,7 @@ import axios from "axios";
 export function getAllExhibition(setExhibitData) {
   //art-ground.link
   return axios
-    .get("https://art-ground.link/exhibition")
+    .get("https://localhost:5000/exhibition")
     .then((result) => {
       //console.log(result.data.data);
       setExhibitData(result.data.data);
@@ -16,12 +16,12 @@ export function getAllExhibition(setExhibitData) {
 export function confirmExhibition(setConfirmModal, el) {
   //art-ground.link
   return axios
-    .post("https://art-ground.link/admin/exhibition", {
+    .post("https://localhost:5000/admin/exhibition", {
       postId: el.id,
     })
     .then((result) => {
       setConfirmModal(false);
-      window.location.href = "https://art-ground.link/admin";
+      window.location.href = "https://art-ground.io/admin";
     })
     .catch((err) => console.log(err));
 }
@@ -29,7 +29,7 @@ export function confirmExhibition(setConfirmModal, el) {
 export function deleteExhibition(setConfirmModal, el) {
   //art-ground.link
   return axios
-    .delete(`https://art-ground.link/admin/exhibition/${el.id}`)
+    .delete(`https://localhost:5000/admin/exhibition/${el.id}`)
     .then((result) => {
       console.log(result, ":삭제 데이터 ????");
       setConfirmModal(false);
@@ -41,7 +41,7 @@ export function deleteExhibition(setConfirmModal, el) {
 export function getAllReviews(setReviewData) {
   //art-ground.link
   return axios
-    .get("https://art-ground.link/admin/review")
+    .get("https://localhost:5000/admin/review")
     .then((result) => {
       //console.log(result.data.data);
       setReviewData(result.data.data);
@@ -54,7 +54,7 @@ export function getAllReviews(setReviewData) {
 export function getinfiniteData(setProductList, preItems, items, productList) {
   //art-ground.link
   return axios
-    .get("https://art-ground.link/admin/review")
+    .get("https://localhost:5000/admin/review")
     .then((res) => {
       let result = res.data.data.slice(preItems, items);
       setProductList([...productList, ...result]);
@@ -66,11 +66,11 @@ export function getinfiniteData(setProductList, preItems, items, productList) {
 export function deleteReviews(setDeleteModal, el) {
   //art-ground.link
   return axios
-    .delete(`https://art-ground.link/admin/review/${el.id}`)
+    .delete(`https://localhost:5000/admin/review/${el.id}`)
     .then((result) => {
       if (result.data.message === "successfully delete comments") {
         setDeleteModal(false);
-        window.location.href = "https://localhost:3000/admin";
+        window.location.href = "https://art-ground.io/admin";
       }
     })
     .catch((err) => console.log(err));

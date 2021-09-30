@@ -11,8 +11,8 @@ export async function createExhibition(
 ) {
   try {
 
-    const res = await axios.post(
-      "https://art-ground.link/exhibition/register",
+    await axios.post(
+      "https://localhost:5000/exhibition/register",
       {
         title: title,
         startDate: startDate,
@@ -35,7 +35,7 @@ export async function createExhibition(
 export async function getStandardGallery(tagClicked, sortValue) {
   try {
     let res = await axios.get(
-      "https://art-ground.link/exhibition/1" //파라미터 요청(standard) & 승인이 된 것만(status=1)
+      "https://localhost:5000/exhibition/1" //파라미터 요청(standard) & 승인이 된 것만(status=1)
     );
 
     let result = res.data.data.map((el) => {
@@ -77,7 +77,7 @@ export async function getStandardGallery(tagClicked, sortValue) {
 export async function getPremiumGallery(tagClicked, sortValue) {
   try {
     let res = await axios.get(
-      "https://art-ground.link/exhibition/2" //파라미터 요청(standard) & 승인이 된 것만(status=1)
+      "https://localhost:5000/exhibition/2" //파라미터 요청(standard) & 승인이 된 것만(status=1)
     );
 
     let result = res.data.data.map((el) => {
@@ -118,7 +118,7 @@ export async function filter(isStandard, tagClicked, sortValue) {
   try {
     if (isStandard) { //standard
       let res = await axios.get(
-        "https://art-ground.link/exhibition/1" 
+        "https://localhost:5000/exhibition/1" 
       );
       let result = res.data.data.map((el) => {
         return { ...el, genre_hashtags: JSON.parse(el.genre_hashtags) };
@@ -150,7 +150,7 @@ export async function filter(isStandard, tagClicked, sortValue) {
       }
     } else { //premium
       let res = await axios.get(
-        "https://art-ground.link/exhibition/2" 
+        "https://localhost:5000/exhibition/2" 
       );
       let result = res.data.data.map((el) => {
         return { ...el, genre_hashtags: JSON.parse(el.genre_hashtags) };
@@ -209,8 +209,8 @@ export async function sort(sortValue, galleryList) {
 export async function createLike(postId) {
   //console.log("클릭한 전시회 아이디:", postId);
   try {
-    const res = await axios.post(
-      "https://art-ground.link/exhibition/like",
+    await axios.post(
+      "https://localhost:5000/exhibition/like",
       {
         postId: postId
       });
@@ -224,8 +224,8 @@ export async function createLike(postId) {
 export async function deleteLike(postId) {
   //console.log("클릭한 전시회 아이디:", postId);
   try {
-    const res = await axios.delete(
-      `https://art-ground.link/exhibition/like/${postId}`)
+    await axios.delete(
+      `https://localhost:5000/exhibition/like/${postId}`)
 
     //console.log(res);
   } catch (err) {

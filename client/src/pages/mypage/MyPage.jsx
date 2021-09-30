@@ -6,79 +6,62 @@ import axios from "axios";
 import MyExhibit from "../../components/myexhibition/MyExhibit";
 import SideBar from "../../components/sidebar/SideBar";
 import Loading from "../../components/loading/Loading";
-import { useEdgeSplit } from "@react-three/drei";
+import { getMyExhibition, getMyPickExhibiton } from "../../api/mypageApi";
 
 axios.defaults.withCredentials = true;
-
-const MyPage = ({
-  userinfo,
-
-  setUserinfo,
-}) => {
+const MyPage = ({ userinfo, setUserinfo }) => {
   const [isInfoClicked, setIsInfoClicked] = useState(true);
   const [isPickClicked, setIsPickClicked] = useState(false);
   const [isMyExhibit, setIsMyExhibit] = useState(false);
-  const [isMyAuction, setIsMyAction] = useState(false);
+
+  const [myEx, setMyEx] = useState(null);
+  const [myPick, setMyPick] = useState(null);
 
   const colorChange = !isInfoClicked ? styles.category : styles.clickCate;
   const colorChange2 = !isPickClicked ? styles.category : styles.clickCate;
   const colorChange3 = !isMyExhibit ? styles.category : styles.clickCate;
-  const colorChange4 = !isMyAuction ? styles.category : styles.clickCate;
 
   const clickInfo = () => {
     setIsInfoClicked(true);
     setIsPickClicked(false);
     setIsMyExhibit(false);
-    setIsMyAction(false);
   };
 
   const clickMyPick = () => {
     setIsInfoClicked(false);
     setIsPickClicked(true);
     setIsMyExhibit(false);
-    setIsMyAction(false);
   };
+
   const clickMyExhibit = () => {
     setIsInfoClicked(false);
     setIsPickClicked(false);
     setIsMyExhibit(true);
-    setIsMyAction(false);
   };
-  const clickMyauction = () => {
-    setIsInfoClicked(false);
-    setIsPickClicked(false);
-    setIsMyExhibit(false);
-    setIsMyAction(true);
-  };
+
   const [infoRender, setInfoRender] = useState(false);
   useEffect(() => {
-    //로딩창 띄워야함
     setTimeout(() => {
       setInfoRender(true);
     }, 1000);
   });
 
-  const [myEx, setMyEx] = useState([]);
-  const [myPick, setMyPick] = useState([]);
-
   useEffect(() => {
     if (isMyExhibit) {
-      axios.get("https://art-ground.link/mypage/exhibition").then((result) => {
-        //console.log(result.data.data, "myex");
-        setMyEx(result.data.data);
-      });
+      getMyExhibition(setMyEx);
     }
-    return () => {};
+    return () => {
+      getMyExhibition(setMyEx);
+    };
   }, [isMyExhibit]);
 
   useEffect(() => {
     if (isPickClicked) {
-      axios.get("https://art-ground.link/mypage/like").then((result) => {
-        //console.log(result.data.data, "like");
-        setMyPick(result.data.data);
-      });
+      getMyPickExhibiton(setMyPick);
     }
-    return () => {};
+    return () => {
+      getMyPickExhibiton(setMyPick);
+    };
   }, [isPickClicked]);
 
   return (
@@ -91,9 +74,11 @@ const MyPage = ({
           <div className={`${colorChange2}`} onClick={clickMyPick}>
             찜한 전시회
           </div>
-          <div className={`${colorChange3}`} onClick={clickMyExhibit}>
-            내 전시회
-          </div>
+          {userinfo.user_type === 2 ? (
+            <div className={`${colorChange3}`} onClick={clickMyExhibit}>
+              내 전시회
+            </div>
+          ) : null}
         </div>
       </div>
       <div className={styles.content}>
@@ -106,19 +91,35 @@ const MyPage = ({
             )}
           </>
         ) : null}
+
         {isPickClicked ? (
           <>
-            {myPick.map((el, idx) => {
-              return <MyPick key={idx} el={el} />;
-            })}
+            {infoRender ? (
+              <>
+                {myPick ? (
+                  <>
+                    {myPick.map((el, idx) => {
+                      return <MyPick key={idx} el={el} />;
+                    })}
+                  </>
+                ) : (
+                  <SideBar />
+                )}
+              </>
+            ) : null}
           </>
         ) : null}
-
         {isMyExhibit ? (
           <>
-            {myEx.map((el, idx) => {
-              return <MyExhibit key={idx} el={el} />;
-            })}
+            {myEx ? (
+              <>
+                {myEx.map((el, idx) => {
+                  return <MyExhibit key={idx} el={el} />;
+                })}
+              </>
+            ) : (
+              <SideBar />
+            )}
           </>
         ) : null}
       </div>

@@ -3,6 +3,9 @@ import styles from './Register.module.css';
 import AWS from "aws-sdk";
 import { Link, useHistory, withRouter } from 'react-router-dom';
 import { createExhibition } from '../../api/galleryApi';
+import AuthorLogin from '../../components/modals/AuthorLogin';
+import RegisterLogin from '../../components/modals/RegisterLogin';
+import ConfirmRegister from '../../components/modals/ConfirmRegister';
 
 const Register = ({ userinfo, isLogin }) => {
 
@@ -129,6 +132,10 @@ const Register = ({ userinfo, isLogin }) => {
     history.goBack();
   }
 
+  const closeModal = () => {
+    setModalOpen(false);
+  }
+
   if((userinfo && userinfo.user_type === 2) || (userinfo && userinfo.user_type === 3)){
   return (
     <section className={styles.container}>
@@ -163,7 +170,8 @@ const Register = ({ userinfo, isLogin }) => {
           {tags1.map((el) => 
               <>
                 <input type="checkbox" name={el} value={el} />
-                <label className={isClicked.includes(el) ? styles.hashtagClicked : styles.hashtag} onClick={() => tagHandle(el)}>{el}</label>
+                <label className={isClicked.includes(el) ? styles.hashtagClicked : styles.hashtag} 
+                onClick={() => tagHandle(el)}>{el}</label>
               </>
           )}
         </div>
@@ -171,7 +179,8 @@ const Register = ({ userinfo, isLogin }) => {
           {tags2.map((el) => 
               <>
                 <input type="checkbox" name={el} value={el} />
-                <label className={isClicked.includes(el) ? styles.hashtagClicked : styles.hashtag} onClick={() => tagHandle(el)}>{el}</label>
+                <label className={isClicked.includes(el) ? styles.hashtagClicked : styles.hashtag} 
+                onClick={() => tagHandle(el)}>{el}</label>
               </>
           )}
         </div>
@@ -179,7 +188,8 @@ const Register = ({ userinfo, isLogin }) => {
           {tags3.map((el) => 
               <>
                 <input type="checkbox" name={el} value={el} />
-                <label className={isClicked.includes(el) ? styles.hashtagClicked : styles.hashtag} onClick={() => tagHandle(el)}>{el}</label>
+                <label className={isClicked.includes(el) ? styles.hashtagClicked : styles.hashtag} 
+                onClick={() => tagHandle(el)}>{el}</label>
               </>
           )}
         </div>
@@ -222,11 +232,9 @@ const Register = ({ userinfo, isLogin }) => {
             onChange={e => handleArtImg(el, e)}
             ></input>
             <img className={styles.artImg} src={
-            arts[Number(el-1)].img ? 
-            arts[Number(el-1)].img : 
-            "../../../images/Black on White.png"
+            arts[Number(el-1)].img || "../../../images/Black on White.png"
             }
-            alt="작품이미지"/>
+            alt="art_img"/>
           </div>
         </div>
       </> 
@@ -239,56 +247,16 @@ const Register = ({ userinfo, isLogin }) => {
       </div>
       <div className={styles.error}>{errorMessage}</div>
 
-      {modalOpen ? //모달창
-      <section className={styles.modalContainer}>
-        <div className={styles.modalWrap}>
-          <span className={styles.modalContent}>전시 신청이 완료되었습니다!</span>
-          <p className={styles.modalSubContent}>영업일 기준 7일 이내<br></br>관리자의 승인이 이루어질 예정입니다.</p>
-          <div className={styles.ok}>
-          <Link to="/gallery">
-            <button className={styles.okBtn} 
-            onClick={()=>setModalOpen(false)}>확인</button>
-          </Link>
-          </div>
-        </div>
-      </section>
+      {modalOpen ? //전시 신청 완료되었음을 알리는 모달창
+      <ConfirmRegister closeModal={closeModal} />
       : null}
 
     </section>
-
   )
-  } else if(userinfo && userinfo.user_type === 1){ // 관람객 로그인 시
-    
-    return (
-      <section className={styles.modalContainer}>
-        <div className={styles.modalWrap}>
-          <p className={styles.modalContent}>관람객 회원은<br></br>전시 신청이 불가합니다!</p>
-          <span className={styles.modalSubContent}>작가 회원으로 로그인 해주세요.</span>
-          <div className={styles.ok}>
-            <button className={styles.okBtn} onClick={goBack}>닫기</button>
-          </div>
-        </div>
-      </section>
-    )
-
-  } else if(!userinfo && !isLogin){ //비로그인 시
-    
-    return (
-      <section className={styles.modalContainer}>
-        <div className={styles.modalWrap}>
-          <p className={styles.modalContent}>전시를 신청하려면<br></br>로그인이 필요합니다!</p>
-          <span className={styles.modalSubContent}>로그인 페이지로 이동하시겠어요?</span>
-          <div className={styles.ok}>
-            <Link to="/signin">
-              <button className={styles.okBtn}>네</button>
-            </Link>
-            <button className={styles.okBtn} onClick={goBack}>아니요</button>
-            
-          </div>
-        </div>
-      </section>
-    )
-     
+  } else if(userinfo && userinfo.user_type === 1){ // 관람객 로그인 시 모달창
+    return <AuthorLogin goBack={goBack}/>
+  } else if(!userinfo && !isLogin){ //비로그인 시 모달창
+    return <RegisterLogin goBack={goBack} />
   }
 }
 

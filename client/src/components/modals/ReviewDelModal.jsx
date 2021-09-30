@@ -1,22 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
 import styles from "./ReviewDelModal.module.css";
 import { deleteReviews } from "../../api/adminApi";
 
 const ReviewDelModal = ({ el, setDeleteModal }) => {
   const clickReviewDelete = () => {
-<<<<<<< HEAD
-    axios // art-ground.link
-      .delete(`https://localhost:5000/admin/review/${el.id}`)
-      .then((result) => {
-        console.log(result, ":리뷰삭제 데이터 ????");
-        setDeleteModal(false);
-        // window.location.href = "https://localhost:3000/admin";
-      })
-      .catch((err) => console.log(err));
-=======
     deleteReviews(setDeleteModal, el);
->>>>>>> 75a014d74450e3db5dcef63b932a112fd333f15b
   };
 
   const clickCancel = () => {

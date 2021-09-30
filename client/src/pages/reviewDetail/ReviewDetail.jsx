@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Reply from '../../components/reply/Reply';
 import styles from './ReviewDetail.module.css';
-import { Link } from 'react-router-dom';
 import { deleteReview, getReplyList, postReview } from '../../api/reviewApi';
+import ReviewLogin from '../../components/modals/ReviewLogin';
 
 const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
 
@@ -47,17 +47,16 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
     deleteReview(el);
     setRerender(!rerender); //컴포넌트 다시 랜더링 시키기 위한 용도
   }
+  const closeModal = () => {
+    setLoginModal(false);
+  }
   
   return (
     <section className={styles.container}>
       <div className={styles.artDetail}>
         
         <div className={styles.imgBox}>
-          <img className={styles.thumbnail} src={reviewSelected.images[0]? 
-            reviewSelected.images[0].image_urls ? 
-            reviewSelected.images[0].image_urls : 
-            'https://images.velog.io/images/devjade/post/4d263fb5-8ccc-452d-ab79-004184adf025/image.png' : 
-            'https://t1.daumcdn.net/cfile/tistory/99EFE6375A65DFEA33'} alt="thumbnail"/>
+          <img className={styles.thumbnail} src={reviewSelected.images[0].image_urls} alt="thumbnail"/>
         </div>
 
         <div className={styles.metaData}>
@@ -114,21 +113,7 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
       </ul>
 
       {loginModal? (
-        <section className={styles.modalContainer}>
-          <div className={styles.modalWrap}>
-          <span className={styles.modalContent}>리뷰를 작성하려면<br></br>로그인이 필요합니다!</span>
-            <p className={styles.modalSubContent}>로그인 페이지로 이동하시겠어요?</p>
-            <div className={styles.ok}>
-              <Link to="/signin">
-                <button className={styles.okBtn}>네</button>
-              </Link>
-              <button className={styles.okBtn} 
-              onClick={()=> setLoginModal(false)}
-              >아니오</button>
-              
-            </div>
-          </div>
-        </section>
+        <ReviewLogin closeModal={closeModal} />
       ): null}  
 
     </section> 

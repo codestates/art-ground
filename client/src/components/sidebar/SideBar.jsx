@@ -5,7 +5,7 @@ import React from "react";
 const SideBar = () => {
   return (
     <section className={styles.container}>
-      준비중입니다 페이지로 바뀔예정..
+      <div>전시를 등록해주세요..!</div>{" "}
     </section>
   );
 };

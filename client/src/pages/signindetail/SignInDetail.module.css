@@ -10,20 +10,24 @@ label {
 .container {
   max-width: Container;
   margin: 0 auto;
-  padding-top: 11rem;
+  margin-top: 15rem;
+  padding: 1rem;
 }
 .signupBox {
-  width: 100%;
-  height: auto;
+  margin: 0 auto;
+  border: 1px solid gainsboro;
+  width: 30rem;
+  height: 38rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 6rem 2rem;
+  padding: 0.2rem;
 }
 .ulBox {
   list-style: none;
-  padding: 1rem;
-  width: 80%;
+  padding: 0.2rem;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,9 +37,11 @@ li {
   margin-bottom: 10px;
 }
 .titleBox {
+  width: 100%;
+  height: 6rem;
+  line-height: 6rem;
   text-align: center;
   font-family: "Poppins", sans-serif;
-  font-weight: 200;
   font-size: 1.7rem;
   color: rgb(66, 66, 66);
 }
@@ -48,20 +54,21 @@ li {
   font-size: 0.9rem;
   margin-top: 5px;
 }
-.imgBorder {
-  width: 2%;
-}
+
 .icon {
   width: 90%;
   height: 50%;
   margin-left: 1px;
 }
 .columnText {
-  width: 95%;
+  width: 100%;
+  height: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
 }
 .inputBox {
-  width: 70%;
-  height: 3.5rem;
+  width: 90%;
+  height: 5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -69,7 +76,7 @@ li {
 }
 .mailBox {
   width: 100%;
-  height: 3.2rem;
+  height: 4rem;
   line-height: 3rem;
   text-indent: 0.6rem;
   border: 1px solid gainsboro;
@@ -79,16 +86,15 @@ li {
   border: none;
   height: 92%;
   outline: none;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-family: "Poppins", sans-serif;
-  font-weight: 200;
 }
 
 .passBox {
   width: 100%;
-  height: 3.2rem;
+  height: 4rem;
   text-indent: 0.6rem;
-  line-height: 3rem;
+  line-height: 4rem;
   border: 1px solid gainsboro;
   display: flex;
   flex-direction: row;
@@ -104,16 +110,16 @@ li {
   font-weight: 200;
 }
 .eyeBorder {
-  width: 30px;
+  width: 45px;
   position: relative;
 }
 .eyeimg {
   width: 80%;
-  height: 80%;
+  height: 50%;
   cursor: pointer;
   position: absolute;
-  left: 2px;
-  top: 3px;
+  left: 4px;
+  top: 15px;
 }
 .btnBox {
   width: 100%;
@@ -121,16 +127,16 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 .joinBtn {
-  width: 30%;
-  height: 3rem;
-  padding: 0.2rem;
+  width: 18rem;
+  height: 3.3rem;
+  background-color: gainsboro;
   border: 1px solid gainsboro;
-  background-color: white;
   outline: none;
   cursor: pointer;
+  padding: 0.2rem;
   font-size: 0.8rem;
   transition: all 0.5s;
 }
@@ -139,94 +145,151 @@ li {
   color: white;
   transition: transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02);
 }
-
+.oauthBtnBox {
+  width: 18rem;
+  height: 8rem;
+  background-color: White;
+  outline: none;
+  cursor: pointer;
+  padding: 0.2rem;
+  font-size: 0.8rem;
+  transition: all 0.5s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .ouathBtn {
-  width: 30%;
-  height: 3rem;
+  height: 3.3rem;
   padding: 0.2rem;
   background-color: white;
   border: 1px solid black;
   cursor: pointer;
+  border: 1px solid gainsboro;
 }
 
 @media screen and (max-width: 768px) {
   .container {
-    padding-top: 4.5rem;
+    margin-top: 8rem;
+    padding: 1rem;
   }
   .signupBox {
-    width: 100%;
+    width: 30rem;
+    height: 38rem;
   }
   .ulBox {
     width: 100%;
     padding: 0.4rem;
   }
-  .imgBorder {
-    width: 3%;
-  }
   .eyeBorder {
-    width: 30px;
+    width: 45px;
+    position: relative;
   }
   .eyeimg {
-    width: 70%;
-    height: 70%;
-    left: 3px;
-    top: 7px;
+    width: 80%;
+    height: 50%;
+    cursor: pointer;
+    position: absolute;
+    left: 4px;
+    top: 15px;
   }
 }
 @media screen and (max-width: 580px) {
+  .container {
+    margin-top: 5rem;
+    padding: 1rem;
+  }
   .signupBox {
     width: 100%;
-    padding: 6rem 1rem;
+    padding: 3rem 1rem;
   }
   .ulBox {
     width: 100%;
     padding: 0.4rem;
   }
-  .confirm {
-    width: 22%;
-  }
-  .imgBorder {
-    width: 3%;
+
+  .inputBox {
+    display: flex;
+    justify-content: space-between;
   }
 
   .eyeBorder {
-    width: 30px;
+    width: 45px;
+    position: relative;
   }
   .eyeimg {
-    width: 70%;
-    height: 70%;
-    left: 3px;
-    top: 7px;
+    width: 80%;
+    height: 50%;
+    cursor: pointer;
+    position: absolute;
+    left: 4px;
+    top: 15px;
   }
-  .joinBtn {
-    width: 40%;
-    padding: 0.1rem;
+  .oauthBtnBox {
+    width: 18rem;
+    height: 8rem;
+    padding: 0.2rem;
+    display: flex;
+    justify-content: space-between;
   }
 }
 
 @media screen and (max-width: 480px) {
   .signupBox {
     width: 100%;
-    padding: 6rem 1rem;
+    height: 100%;
+    padding: 2rem 1rem;
   }
   .ulBox {
     width: 100%;
-    padding: 0.4rem;
+    height: 100%;
+    padding: 0.1rem;
   }
-  .imgBorder {
-    width: 2%;
+
+  .titleBox {
+    width: 100%;
+    height: 4rem;
+    line-height: 4rem;
+  }
+
+  .inputBox {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
   }
   .eyeBorder {
     width: 30px;
+    position: relative;
   }
   .eyeimg {
-    width: 70%;
-    height: 70%;
-    left: 3px;
-    top: 7px;
+    width: 90%;
+    height: 50%;
+    cursor: pointer;
+    position: absolute;
+    left: -1px;
+    top: 15px;
   }
-  .joinBtn {
-    width: 40%;
-    padding: 0.1rem;
+  .oauthBtnBox {
+    width: 16rem;
+    height: 8rem;
+    padding: 0.2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  .text {
+    font-size: 0.75rem;
+  }
+  .passText {
+    font-size: 0.75rem;
+  }
+  .columnBox {
+    width: 70%;
+    height: 1.5rem;
+  }
+  .columnText {
+    font-size: 0.64rem;
+  }
+  .btnBox {
+    margin-top: 2px;
   }
 }

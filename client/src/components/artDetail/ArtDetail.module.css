@@ -25,12 +25,8 @@
 }
 
 .artMetaData {
-  /* position: fixed;
-  top: 50%;
-  right: 2rem;
-  transform: translate(0, -50%); */
   color: rgb(218, 218, 218);
-  width: 20rem;
+  width: 30%;
   display: flex;
   flex-direction: column;
   column-gap: 0.5rem;
@@ -52,18 +48,9 @@
   font-size: 0.8rem;
 }
 .img {
-  /* position: fixed; */
-  width: 100%;
-  max-width: 768px;
-  height: auto;
-  max-height: 90vh;
   padding: 2rem;
   padding-right: 1rem;
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
   margin: 0;
-  object-fit: cover;
 }
 
 .closeBtn {
@@ -80,39 +67,70 @@
   color: whitesmoke;
 }
 
+@media (orientation: portrait) {
+  /* Portrait 모드(세로)일 때 적용할 CSS */
+  .img {
+    width: 80%;
+    height: auto;
+  }
+}
+
+@media (orientation: landscape) {
+  /* Landscape 모드(가로)일 때 적용할 CSS */
+  .img {
+    /* max-width: 80vw; */
+    width: auto;
+    height: 75%;
+  }
+}
+
 @media screen and (max-width: 1024px) {
+  @media (orientation: portrait) {
+    /* Portrait 모드(세로)일 때 적용할 CSS */
+    .img {
+      width: 77%;
+      height: auto;
+    }
+  }
+
+  @media (orientation: landscape) {
+    /* Landscape 모드(가로)일 때 적용할 CSS */
+    .img {
+      width: auto;
+      height: 75%;
+    }
+  }
   .background {
     flex-direction: column;
   }
   .img {
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
   }
   .artMetaData {
-    width: 80%;
-    padding-left: 2rem;
+    width: 21rem;
+    height: 20%;
+    padding: 0.5rem;
+    align-items: center;
   }
 }
-@media screen and (max-width: 568px) {
+
+@media screen and (max-width: 668px) {
   .title {
-    font-size: 1rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
   }
 
   .content {
     font-size: 0.6rem;
+    margin-bottom: 0.1rem;
   }
   .subContent {
     font-size: 0.7rem;
   }
-}
-
-/* @media screen and (min-height: 968px) {
-  .img {
-    padding-top: 7rem;
-  }
   .artMetaData {
-    padding-bottom: 7rem;
+    width: 18rem;
   }
-} */
+}
 
 @keyframes fadein {
   from {
