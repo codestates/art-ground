@@ -95,8 +95,8 @@ const About = () => {
               <h3>Exhibition Everywhere</h3>
               <p>
                 어디에서든지 갤러리를 관람하세요! <br></br>
-                아트갤러리는 '공간'이라는 바운더리를 허물어 <br></br>
-                언제 어디서나 작품을 감상 할 수 있는 공간을 제공합니다.
+                아트갤러리는 물리적·시간적 장벽을 허물어 <br></br>
+                누구나 작품을 보고 느낄 수 있는 공간을 제공합니다.
               </p>
 
               <button
@@ -112,45 +112,47 @@ const About = () => {
         </section>
       </main>
       <main className={`${styles.mainback} ${styles.main4}`}>
-        <section
-          className={styles.exSecBorder}
-          data-aos="fade-up"
-          data-aos-duration="3000"
-        >
-          <div className={styles.exContentTitle}>
-            art-ground는<br></br>두가지의 형태의 전시회 경험을 제공합니다.
+        <section className={styles.exSecBorder}>
+          <div
+            className={styles.exContentTitle}
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            아트그라운드는 온라인에서 <br></br>
+            두가지의 형태의 전시회 경험을 제공합니다. (움짤로 넣기)
           </div>
-          <div className={styles.exContentBox}>
+          <div
+            className={styles.exContentBox}
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
             <div className={styles.exContent}>
-              <img src="https://images.velog.io/images/beablessing/post/53ea20bd-2447-4f9c-acb5-c0aec45c1e6a/outline_view_in_ar_black_24dp.png"></img>
-
-              <span>standard gallery</span>
+              <img src="https://images.velog.io/images/beablessing/post/f3334850-3411-4bd4-92ab-2f971ef1692b/Screenshot%20from%202021-09-30%2012-34-17.png"></img>
+              <div className={styles.exTxt}>
+                <span>standard gallery</span>
+                <span>
+                  standard 전시회에서는 간단한 마우스 컨트롤로 마치 실제
+                  <br></br>
+                  전시회장을 방문한 듯한 사실감과 느낌을 전달받을 수 있습니다.
+                </span>
+              </div>
             </div>
             <div className={styles.exContent}>
-              <img src="https://images.velog.io/images/beablessing/post/53ea20bd-2447-4f9c-acb5-c0aec45c1e6a/outline_view_in_ar_black_24dp.png"></img>
+              <img src="https://images.velog.io/images/beablessing/post/8fa8d63a-3f93-4811-bca3-b29023c18089/Screenshot%20from%202021-09-30%2012-37-52.png"></img>
 
-              <span>3d gallery </span>
+              <div className={styles.exTxt}>
+                <span>3D gallery</span>
+                <span>
+                  standard premium전시회에서는 간단한 마우스 컨트롤로 마치 실제
+                  <br></br>
+                  전시회장을 방문한 듯한 사실감과 느낌을 전달받을 수 있습니다.
+                </span>
+              </div>
             </div>
           </div>
         </section>
       </main>
-      {/* <main className={`${styles.mainback} ${styles.main8}`}>
-        <section
-          className={styles.fullSecBorder}
-          data-aos="zoom-in-up"
-          data-aos-duration="2000"
-        >
-          <div>
-            <img src="https://images.velog.io/images/beablessing/post/2daa22f3-9dd7-4641-8fc3-e666a61f6a0d/IM048962-int_press.jpg"></img>
-          </div>
-          <div>
-            <img src="https://images.velog.io/images/beablessing/post/dcae9e8a-10ea-4569-bcf7-819eb5d4f186/%E1%84%87%E1%85%A1%E1%86%A8%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%A7%E1%86%BC4-1.jpeg"></img>
-          </div>
-          <div>
-            <img src="https://images.velog.io/images/beablessing/post/aff59d5f-d744-493c-9202-ce9963f5f387/%E1%84%87%E1%85%A1%E1%86%A8%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%A7%E1%86%BC1-8.jpeg"></img>
-          </div>
-        </section>
-      </main> */}
+
       <main className={`${styles.mainback} ${styles.main3}`}>
         <section className={styles.secBorder}>
           <div
@@ -164,6 +166,10 @@ const About = () => {
                 갤러리 관람 후, 작품에 대한 나의 생각을 공유하세요!
                 <br></br>
                 아트그라운드는 감상후기를 공유할 수 있는 소통의 장을 제공합니다.
+                <br></br>
+                작품을 감상 후에는 , 해당 전시회에 대한 감상평을 남기고
+                <br></br>
+                다른 관람자의 감상평을 보며 소통할 수 있습니다.
               </p>
 
               <button
@@ -184,42 +190,52 @@ const About = () => {
       </main>
 
       <main className={`${styles.mainback} ${styles.main4}`}>
-        <section
-          className={styles.revSecBorder}
-          data-aos="fade-up"
-          data-aos-duration="3000"
-        >
-          <div className={styles.reviewTitle}>
-            art-ground에서<br></br>수백개의 관람 후기를 만나보세요.
+        <section className={styles.revSecBorder}>
+          <div
+            className={styles.reviewTitle}
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            아트그라운드에서<br></br>수백개의 관람 후기를 만나보세요. (슬라이더)
           </div>
-          <div className={styles.revContentBox}>
+          <div
+            className={styles.revContentBox}
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
             <div className={styles.revContent}>
               <img src="https://images.velog.io/images/beablessing/post/6cee083a-f884-4a87-9217-02005bec687e/Screenshot%20from%202021-09-30%2005-11-44.png"></img>
               <div className={styles.revTxtBox}>
-                <span className={styles.revTxt}>내가클래시커팀장이다! 님</span>
+                <span className={styles.revTxt}>elma 님</span>
                 <span className={styles.revTxt}>전시명: 자아성찰</span>
                 <span className={styles.revTxt}>
-                  작가의 자아성찰이 잘 그려졌던 작품이었다.
+                  작가의 자아성찰이 잘 그려졌던 작품이었다. 이런점은 이러했고,
+                  어떤점은 조금 어려운 난해하게 느껴졌던 부분도 있었다. 하지만
+                  전반적으로 어쩌구저쩌구 그래서 매우 만족스러운 전시회였다.
                 </span>
               </div>
             </div>
             <div className={styles.revContent}>
               <img src="https://images.velog.io/images/beablessing/post/25809c97-d973-4a68-b8ca-0f834128d3ed/Screenshot%20from%202021-09-30%2005-11-38.png"></img>
               <div className={styles.revTxtBox}>
-                <span className={styles.revTxt}>내가클래시커팀장이다! 님</span>
+                <span className={styles.revTxt}>Klassiker 님</span>
                 <span className={styles.revTxt}>작품: 자아성찰</span>
                 <span className={styles.revTxt}>
-                  작가의 자아성찰이 잘 그려졌던 작품이었다.
+                  작가의 자아성찰이 잘 그려졌던 작품이었다. 이런점은 이러했고,
+                  어떤점은 조금 어려운 난해하게 느껴졌던 부분도 있었다. 하지만
+                  전반적으로 어쩌구저쩌구 그래서 매우 만족스러운 전시회였다.
                 </span>
               </div>
             </div>
             <div className={styles.revContent}>
               <img src="https://images.velog.io/images/beablessing/post/cbb9a9be-2030-4a9f-ade0-74cf3677b9ca/Screenshot%20from%202021-09-30%2005-11-48.png"></img>
               <div className={styles.revTxtBox}>
-                <span className={styles.revTxt}>내가클래시커팀장이다! 님</span>
+                <span className={styles.revTxt}>artground 님</span>
                 <span className={styles.revTxt}>작품: 자아성찰</span>
                 <span className={styles.revTxt}>
-                  작가의 자아성찰이 잘 그려졌던 작품이었다.
+                  작가의 자아성찰이 잘 그려졌던 작품이었다. 이런점은 이러했고,
+                  어떤점은 조금 어려운 난해하게 느껴졌던 부분도 있었다. 하지만
+                  전반적으로 어쩌구저쩌구 그래서 매우 만족스러운 전시회였다.
                 </span>
               </div>
             </div>
