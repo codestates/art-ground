@@ -47,32 +47,74 @@ const Admin = () => {
     return () => {};
   }, [exhibition]);
 
+  //**********************************************************리뷰수정중 */
+  const [aa, setaa] = useState(null); //첫번째 요소들
+  const [bb, setbb] = useState(null); //두번째 요소들
+  const [cc, setcc] = useState(null); //합친거
   useEffect(() => {
     if (review) {
       //getAllReviews(setReviewData);
       axios
-        .get("https://localhost:5000/admin/review")
+        .get("https://art-ground.link/admin/review")
         .then((res1) => {
           let firstData = res1.data.data;
+          console.log(firstData, "첫번째");
           setReviewData(firstData);
-          const revData = res1.data.data.map((el) => {
-            return JSON.parse(el.exhibition_id);
-          });
-          axios
-            .get(
-              `https://localhost:5000/admin/review-exhibition-info?exhibitionPk=${JSON.stringify(
-                revData
-              )}`
-            )
-            .then((res2) => {
-              const secondData = res2.data.data;
-              setRevExData(secondData);
-            });
+          //setReviewData(firstData);
+
+          //setReviewData(firstData);
+          //console.log(firstData, "첫번째 데이터-----------");
+          // firstData.map((el, idx) => {
+          //   const firstEl = firstData[idx];
+          //   //console.log(firstEl, "첫번째 elel");
+          //   setaa(firstEl);
+          // });
+
+          // const revData = res1.data.data.map((el) => {
+          //   return JSON.parse(el.exhibition_id);
+          // });
+          // axios
+          //   .get(
+          //     `https://localhost:5000/admin/review-exhibition-info?exhibitionPk=${JSON.stringify(
+          //       revData
+          //     )}`
+          //   )
+          //   .then((res2) => {
+          //     const secondData = res2.data.data;
+          //     //setRevExData(secondData);
+          //     //console.log(secondData, "두번쨰 데이터-----------");
+          //     secondData.map((el, idx) => {
+          //       const secondEl = secondData[idx];
+          //       //console.log(secondEl, "두번째 elel");
+          //       setbb(secondEl);
+          //     });
+          //   });
         })
         .catch((err) => console.log(err));
     }
     return () => {};
   }, [review]);
+
+  //console.log(aa.exhibition_id, bb, "값을 가져오긴 하네?");
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     if (aa.exhibition_id === bb.id) {
+  //       const add = [
+  //         {
+  //           ...aa,
+  //           img: bb.image_urls,
+  //           start: bb.start_date,
+  //           end: bb.end_date,
+  //           title: bb.title,
+  //         },
+  //       ];
+  //       console.log(add, "Add");
+  //     }
+  //   }, 1000);
+  // }, []);
+
+  ////////////////************리뷰수정중 끝************************************** */
 
   useEffect(() => {
     setTimeout(() => {

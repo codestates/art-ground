@@ -3,7 +3,7 @@ import axios from "axios";
 export function getMyinfo(setIsLogin, setUserinfo, setisAdmin, isLogin) {
   //art-ground.link
   return axios
-    .get("https://local:5000/mypage")
+    .get("https://art-ground.link/mypage")
     .then((result) => {
       //console.log(result, "마이인포 리쥴트 값!!");
       if (result.status === 200) {
