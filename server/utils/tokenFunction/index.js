@@ -26,7 +26,7 @@ module.exports = {
         sameSite: "none",
         secure: true,
         maxAge: 60 * 60 * 24 * 1000,
-        //domain: "art-ground.link",
+        domain: "art-ground.link",
         path: "/",
         ovewrite: true,
       })
