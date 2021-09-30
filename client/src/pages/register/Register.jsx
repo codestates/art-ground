@@ -241,7 +241,7 @@ const Register = ({ userinfo, isLogin }) => {
       <div className={styles.categoryName}>전시 설명</div>
       <textarea className={styles.contentInput} 
       value={content}
-      placeholder="어떤 전시회인지 간단히 소개해주세요." 
+      placeholder="어떤 전시회인지 간단히 소개해주세요(100자 내외)" 
       onChange={handleContent}/>
 
       {artCount.map(el => 
