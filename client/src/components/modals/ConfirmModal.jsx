@@ -1,6 +1,3 @@
-import axios from "axios";
-import { format } from "crypto-js";
-
 import styles from "./ConfirmModal.module.css";
 import { confirmExhibition, deleteExhibition } from "../../api/adminApi";
 

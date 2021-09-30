@@ -1,33 +1,32 @@
 import styles from "./Join.module.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Join = ({ setIsAuthorJoined, setIsAudienceJoined }) => {
+  const history = useHistory();
   const clickAudience = () => {
     setIsAudienceJoined(true);
     setIsAuthorJoined(false);
+    history.push("/join/signup");
   };
 
   const clickAuthor = () => {
     setIsAuthorJoined(true);
     setIsAudienceJoined(false);
+    history.push("/join/signup");
   };
 
   return (
     <section className={styles.container}>
       <div className={styles.joinbox}>
-        <Link to="/join/signup">
-          <button className={styles.btn} onClick={clickAudience}>
-            관람객 회원가입
-          </button>
-        </Link>
-        <Link to="/join/signup">
-          <button
-            className={`${styles.btn} ${styles.second}`}
-            onClick={clickAuthor}
-          >
-            작가 회원가입
-          </button>
-        </Link>
+        <button className={styles.btn} onClick={clickAudience}>
+          관람객 회원가입
+        </button>
+        <button
+          className={`${styles.btn} ${styles.second}`}
+          onClick={clickAuthor}
+        >
+          작가 회원가입
+        </button>
         <div className={styles.backToLogin}>
           이미 가입하셨다면{" "}
           <Link to="/signin" className={styles.bold}>

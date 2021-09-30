@@ -10,7 +10,7 @@ const Loader = () => {
 }
 
 const Model = () => {
-  const gltf = useLoader(GLTFLoader, "./scene.gltf");
+  const gltf = useLoader(GLTFLoader, "./scene1/scene.gltf");
   return <primitive object={gltf.scene} scale={1} />;
 };
 

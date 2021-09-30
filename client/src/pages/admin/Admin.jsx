@@ -1,11 +1,11 @@
 import styles from "./Admin.module.css";
 import ScrollButton from "../../components/scrollButton/ScrollButton";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import AdminEx from "../../components/adminEx/AdminEx";
 import AdminReview from "../../components/adminReview/AdminReview";
 import axios from "axios";
 import Loading from "../../components/loading/Loading";
-import { getAllExhibition, getinfiniteData } from "../../api/adminApi";
+import { getAllExhibition } from "../../api/adminApi";
 
 const Admin = () => {
   // 대분류 페이지
@@ -38,6 +38,7 @@ const Admin = () => {
   // 데이터 상태값
   const [exhibitData, setExhibitData] = useState([]);
   const [reviewData, setReviewData] = useState([]);
+  const [revExData, setRevExData] = useState([]);
 
   useEffect(() => {
     if (exhibition) {
@@ -46,12 +47,74 @@ const Admin = () => {
     return () => {};
   }, [exhibition]);
 
+  //**********************************************************리뷰수정중 */
+  const [aa, setaa] = useState(null); //첫번째 요소들
+  const [bb, setbb] = useState(null); //두번째 요소들
+  const [cc, setcc] = useState(null); //합친거
+  useEffect(() => {
+    if (review) {
+      //getAllReviews(setReviewData);
+      axios
+        .get("https://art-ground.link/admin/review")
+        .then((res1) => {
+          let firstData = res1.data.data;
+          console.log(firstData, "첫번째");
+          setReviewData(firstData);
+          //setReviewData(firstData);
+
+          //setReviewData(firstData);
+          //console.log(firstData, "첫번째 데이터-----------");
+          // firstData.map((el, idx) => {
+          //   const firstEl = firstData[idx];
+          //   //console.log(firstEl, "첫번째 elel");
+          //   setaa(firstEl);
+          // });
+
+          // const revData = res1.data.data.map((el) => {
+          //   return JSON.parse(el.exhibition_id);
+          // });
+          // axios
+          //   .get(
+          //     `https://localhost:5000/admin/review-exhibition-info?exhibitionPk=${JSON.stringify(
+          //       revData
+          //     )}`
+          //   )
+          //   .then((res2) => {
+          //     const secondData = res2.data.data;
+          //     //setRevExData(secondData);
+          //     //console.log(secondData, "두번쨰 데이터-----------");
+          //     secondData.map((el, idx) => {
+          //       const secondEl = secondData[idx];
+          //       //console.log(secondEl, "두번째 elel");
+          //       setbb(secondEl);
+          //     });
+          //   });
+        })
+        .catch((err) => console.log(err));
+    }
+    return () => {};
+  }, [review]);
+
+  //console.log(aa.exhibition_id, bb, "값을 가져오긴 하네?");
+
   // useEffect(() => {
-  //   if (review) {
-  //     getAllReviews(setReviewData);
-  //   }
-  //   return () => {};
-  // }, [review]);
+  //   setTimeout(() => {
+  //     if (aa.exhibition_id === bb.id) {
+  //       const add = [
+  //         {
+  //           ...aa,
+  //           img: bb.image_urls,
+  //           start: bb.start_date,
+  //           end: bb.end_date,
+  //           title: bb.title,
+  //         },
+  //       ];
+  //       console.log(add, "Add");
+  //     }
+  //   }, 1000);
+  // }, []);
+
+  ////////////////************리뷰수정중 끝************************************** */
 
   useEffect(() => {
     setTimeout(() => {
@@ -74,33 +137,33 @@ const Admin = () => {
     setDeleteEx(false);
     setDoneEx(true);
   };
+  //***********무한 스크롤*********** */
+  // const [productList, setProductList] = useState([]);
+  // const [items, setItems] = useState(10);
+  // const [preItems, setPreItems] = useState(0);
 
-  const [productList, setProductList] = useState([]);
-  const [items, setItems] = useState(10);
-  const [preItems, setPreItems] = useState(0);
+  // useEffect(() => {
+  //   getinfiniteData(setProductList, preItems, items, productList);
 
-  useEffect(() => {
-    getinfiniteData(setProductList, preItems, items, productList);
+  //   window.addEventListener("scroll", infiniteScroll, true);
+  // }, [items]);
 
-    window.addEventListener("scroll", infiniteScroll, true);
-  }, [items]);
+  // const infiniteScroll = () => {
+  //   let scrollHeight = Math.max(
+  //     document.documentElement.scrollHeight,
+  //     document.body.scrollHeight
+  //   );
+  //   let scrollTop = Math.max(
+  //     document.documentElement.scrollTop,
+  //     document.body.scrollTop
+  //   );
+  //   let clientHeight = document.documentElement.clientHeight;
 
-  const infiniteScroll = () => {
-    let scrollHeight = Math.max(
-      document.documentElement.scrollHeight,
-      document.body.scrollHeight
-    );
-    let scrollTop = Math.max(
-      document.documentElement.scrollTop,
-      document.body.scrollTop
-    );
-    let clientHeight = document.documentElement.clientHeight;
-
-    if (scrollTop + clientHeight >= scrollHeight) {
-      setPreItems(items);
-      setItems(items + 10);
-    }
-  };
+  //   if (scrollTop + clientHeight >= scrollHeight) {
+  //     setPreItems(items);
+  //     setItems(items + 10);
+  //   }
+  // };
 
   return (
     <section className={styles.container}>
@@ -167,10 +230,9 @@ const Admin = () => {
             {adExRender ? (
               <>
                 <div className={styles.btnbox}>
-                  <button className={clickEXSmenu3}>전체보기(최신순)</button>
-                  <button className={clickEXSmenu3}>전시회별 정렬</button>
+                  <button className={clickEXSmenu3}>전체보기</button>
                 </div>
-                {productList.map((el, idx) => {
+                {reviewData.map((el, idx) => {
                   return <AdminReview key={idx} el={el} />;
                 })}
               </>

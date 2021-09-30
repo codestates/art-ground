@@ -75,6 +75,7 @@
   color: rgb(90, 90, 90);
   line-height: 1.8rem;
 }
+
 .modalSubContent {
   margin-top: 0.5rem;
   text-align: center;
@@ -110,6 +111,16 @@
   color: rgb(66, 66, 66);
 }
 
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10rem 0;
+}
+
+.loadingImg {
+  width: 3rem;
+}
 @media screen and (max-width: 768px) {
   .container {
     padding: 3.5rem 0.5rem 5rem 0.5rem;

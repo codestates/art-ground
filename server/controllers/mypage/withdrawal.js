@@ -20,7 +20,7 @@ module.exports.withdrawal = async (req, res) => {
           sameSite: "none",
           secure: true,
           path: "/",
-          domain: "art-ground.link",
+          domain: "art-ground.link", // 쿠키 옵션 추가
         })
         .status(200)
         .json({
