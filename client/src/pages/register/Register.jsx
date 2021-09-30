@@ -252,20 +252,11 @@ const Register = ({ userinfo, isLogin }) => {
       : null}
 
     </section>
-
   )
   } else if(userinfo && userinfo.user_type === 1){ // 관람객 로그인 시 모달창
-    
-    return (
-      <AuthorLogin goBack={goBack}/>
-    )
-
+    return <AuthorLogin goBack={goBack}/>
   } else if(!userinfo && !isLogin){ //비로그인 시 모달창
-    
-    return (
-      <RegisterLogin goBack={goBack} />
-    )
-     
+    return <RegisterLogin goBack={goBack} />
   }
 }
 
