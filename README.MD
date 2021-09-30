@@ -55,11 +55,16 @@ https://art-ground.io/
 ---
 
 <details>
-  <summary> 랜딩 페이지 </summary>
+  <summary> 랜딩 및 About 페이지(앱 소개) </summary>
   
   <details>
   <summary> 텍스트 타이핑 및 화면전환 애니메이션 </summary>
     <img width="727" src="https://images.velog.io/images/devjade/post/9b289852-1d23-4564-b0a7-5c7e64ddbd9a/landingAni.gif"/>
+  </details>
+  
+  <details>
+  <summary> 이미지 슬라이드 </summary>
+    <img width="727" src=""/>
   </details>
   
 </details>
@@ -154,7 +159,7 @@ https://art-ground.io/
 
 ---
 <details>
- <summary>Premium 갤러리 내 3D 전시 체험하기</summary>
+ <summary>전시 상세 페이지</summary>
   
   <details>
    <summary>3D 전시관</summary>
