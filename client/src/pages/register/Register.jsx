@@ -234,7 +234,7 @@ const Register = ({ userinfo, isLogin }) => {
             <img className={styles.artImg} src={
             arts[Number(el-1)].img || "../../../images/Black on White.png"
             }
-            alt="작품이미지"/>
+            alt="art_img"/>
           </div>
         </div>
       </> 
