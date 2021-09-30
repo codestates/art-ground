@@ -2,21 +2,6 @@ const { exhibition, comments, images } = require("../../models");
 const { isAuthorized } = require("../../utils/tokenFunction");
 
 module.exports = {
-  // exhibition: title, author_id(users.id), start_date, end_date
-  // images: image_urls(exhibition_id:exhibition.id)
-  /*{
-    comments: "쿠키 삭제 테스트중"
-    createdAt: "2021-09-27T07:57:13.000Z"
-    exhibition_id: 33
-    id: 56
-    updatedAt: "2021-09-27T07:57:13.000Z"
-    user_id: 29,
-    author_id: 26
-    end_date: "2021-12-31"
-    image_urls: "https://pickmeupimagestorage.s3.ap-northeast-2.amazonaws.com/%E1%84%87%E1%85%A1%E1%86%A8%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%A7%E1%86%BC1-1.jpeg"
-    start_date: "2021-09-27"
-    title: "박지영 정물화 개인전"
-  }*/
   getAllReviews: async (req, res) => {
     const userInfo = isAuthorized(req);
     console.log("userInfo:", userInfo);
@@ -24,28 +9,46 @@ module.exports = {
       if (userInfo.user_type === 3) {
         // comments 정보
         let data = await comments.findAll();
-        console.log("data:", data);
         let exhibition_ids = data.map((el) => el.dataValues.exhibition_id);
+        exhibition_ids = exhibition_ids.sort((a, b) => a - b);
         exhibition_ids = [...new Set(exhibition_ids)];
-        // 중복되는 id 제거
+        console.log("exhibition_ids", exhibition_ids);
+
         for (let i = 0; i < data.length; i++) {
-          // let data = {};
-          let exhibitionData = await exhibition.findByPk(exhibition_ids);
-          let imgData = await images.findByPk(exhibition_ids);
+          let exhibitionData = await exhibition.findAll({
+            where: {
+              id: exhibition_ids,
+            },
+          });
+
+          let imgData = await images.findAll({
+            where: {
+              exhibition_id: exhibition_ids,
+            },
+          });
+
           // exhibition id
           for (let j = 0; j < exhibitionData.length; j++) {
-            if (data[i].exhibition_id === exhibitionData[j].id) {
-              data[i].exhibition_id = exhibitionData[j].id;
-              data[i].title = exhibitionData[j].title;
-              data[i].author_id = exhibitionData[j].author_id;
-              data[i].start_date = exhibitionData[j].start_date;
-              data[i].end_date = exhibitionData[j].end_date;
+            if (data[i].exhibition_id === exhibitionData[j].dataValues.id) {
+              data[i].dataValues.exhibition_id =
+                exhibitionData[j].dataValues.id;
+              data[i].dataValues.title = exhibitionData[j].dataValues.title;
+              data[i].dataValues.author_id =
+                exhibitionData[j].dataValues.author_id;
+              data[i].dataValues.start_date =
+                exhibitionData[j].dataValues.start_date;
+              data[i].dataValues.end_date =
+                exhibitionData[j].dataValues.end_date;
+              data[i].dataValues.status = exhibitionData[j].dataValues.status;
             }
           }
           // image
           for (let k = 0; k < imgData.length; k++) {
-            if (data[i].exhibition_id === imgData[k].exhibition_id) {
-              data[i].image_urls = imgData[k].image_urls;
+            if (
+              data[i].dataValues.exhibition_id ===
+              imgData[k].dataValues.exhibition_id
+            ) {
+              data[i].dataValues.image_urls = imgData[k].dataValues.image_urls;
             }
           }
         }
@@ -59,49 +62,6 @@ module.exports = {
       console.log(error);
     }
   },
-  // getExhibitionInfo: async (req, res) => {
-  //   const userInfo = isAuthorized(req);
-  //   console.log("userInfo:", userInfo);
-
-  //   const test = await exhibition.findByPk(32);
-  //   console.log("test:", test);
-  //   /*
-  //     1. params로 json.stringify한 exhibition pk들 받아서 json.parse
-  //     2. 파싱 시킨 json에서 받은 pk에 해당하는 exhibition title, author_id(users.id), start_date, end_date 찾아서 data 변수에 담아두기
-  //     3. 파싱 시킨 json에서 받은 pk에 해당하는 images.image_urls 찾아서 data 변수에 합치고 return
-  //   */
-  //   try {
-  //     if (userInfo.user_type === 3) {
-  //       const { exhibitionPk } = req.query;
-  //       const parsedData = JSON.parse(exhibitionPk);
-  //       let dataArr = [];
-  //       for (let i = 0; i < parsedData.length; i++) {
-  //         let data = {};
-  //         let findData = await exhibition.findByPk(parsedData[i]);
-  //         data.id = parsedData[i];
-  //         data.title = findData.title;
-  //         data.author_id = findData.author_id;
-  //         data.start_date = findData.start_date;
-  //         data.end_date = findData.end_date;
-
-  //         let findImg = await images.findOne({
-  //           where: {
-  //             exhibition_id: parsedData[i],
-  //           },
-  //         });
-  //         data.image_urls = findImg.image_urls;
-  //         dataArr.push(data);
-  //       }
-  //       res.status(200).json({ data: dataArr, message: "ok" });
-  //     } else {
-  //       res.status(401).json({
-  //         message: "invalid access token",
-  //       });
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // },
   approveExhibitions: (req, res) => {
     const userInfo = isAuthorized(req);
     const { postId } = req.body;
