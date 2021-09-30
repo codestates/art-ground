@@ -1,7 +1,7 @@
 ## 🏡  art-Ground  🏡 
 <img src="https://images.velog.io/images/devjade/post/4ed79e72-e02d-4d65-96d0-0a2b7f838058/Original.png" width="40%">
 
-### < 누구나 예술가가 될 수 있는 공간, art-Ground > <br />
+### 누구나 예술가가 될 수 있는 공간, art-Ground
 
 - 소중한 나의 작품들로 전시회를 열 수 있어요.
 - 다양한 유저들이 올려놓은 전시회도, 장르별로 필터링하여 감상할 수 있어요.
