@@ -1,4 +1,4 @@
-## 🏡 art-Ground 🏡 
+## 🏡  art-Ground  🏡 
 <img src="https://images.velog.io/images/devjade/post/4ed79e72-e02d-4d65-96d0-0a2b7f838058/Original.png" width="40%">
 
 ### < 누구나 예술가가 될 수 있는 공간, art-Ground > <br />
@@ -28,7 +28,7 @@ https://art-ground.io/
 ### Server-Side flow chart
 <img width="727" alt="서버플로우차트_art-Ground" src="">
 
-## 📱주요기능별 시연 GIF
+## 📱 주요기능별 시연 GIF
 
 <작성중>
 
