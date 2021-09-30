@@ -27,7 +27,7 @@ import { getSignOutRes } from "./api/signApi";
 import { getMyinfo } from "./api/mypageApi";
 import ScrollTop from "./components/scrollTop/ScrollTop";
 import GoLoginModal from "./components/modals/GoLoginModal";
-import axios from "axios";
+
 
 function App() {
   const history = useHistory();

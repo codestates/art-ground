@@ -78,6 +78,7 @@
 @media (orientation: landscape) {
   /* Landscape 모드(가로)일 때 적용할 CSS */
   .img {
+    /* max-width: 80vw; */
     width: auto;
     height: 75%;
   }
@@ -87,7 +88,7 @@
   @media (orientation: portrait) {
     /* Portrait 모드(세로)일 때 적용할 CSS */
     .img {
-      width: 90%;
+      width: 77%;
       height: auto;
     }
   }

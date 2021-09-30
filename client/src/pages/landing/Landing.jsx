@@ -106,7 +106,7 @@ const Landing = () => {
         <div class={styles.container}>
           <div ref={boxRef} class={styles.box}></div>
           <div class={styles.imgWrapper}>
-            <img class={styles.img} src="../images/video.gif"/>
+            <img class={styles.img} src="../images/video.gif" alt="landing video"/>
           </div>
         </div>
         <div ref={contentRef} class={styles.title}>
