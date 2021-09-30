@@ -56,7 +56,7 @@ module.exports = {
           sameSite: "none",
           secure: true,
           path: "/",
-          domain: "art-ground.link",
+          // domain: "art-ground.link",
         })
         .status(205)
         .json({ message: "successfully signed out!" });

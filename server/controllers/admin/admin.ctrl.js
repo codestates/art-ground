@@ -1,4 +1,5 @@
 const { exhibition, comments, images } = require("../../models");
+
 const { isAuthorized } = require("../../utils/tokenFunction");
 
 module.exports = {
