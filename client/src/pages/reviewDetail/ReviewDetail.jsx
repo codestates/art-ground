@@ -53,11 +53,7 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
       <div className={styles.artDetail}>
         
         <div className={styles.imgBox}>
-          <img className={styles.thumbnail} src={reviewSelected.images[0]? 
-            reviewSelected.images[0].image_urls ? 
-            reviewSelected.images[0].image_urls : 
-            'https://images.velog.io/images/devjade/post/4d263fb5-8ccc-452d-ab79-004184adf025/image.png' : 
-            'https://t1.daumcdn.net/cfile/tistory/99EFE6375A65DFEA33'} alt="thumbnail"/>
+          <img className={styles.thumbnail} src={reviewSelected.images[0].image_urls} alt="thumbnail"/>
         </div>
 
         <div className={styles.metaData}>

@@ -99,7 +99,7 @@ const GalleryDetail = ({ gallerySelected }) => {
       <div className={styles.intro}>작가</div>
       <div className={styles.artist}>
         <div className={styles.imgBox}>
-          <img className={styles.profilePic} src={gallerySelected.author.profile_img} alt='authorImg' />
+          <img className={styles.profilePic} src={gallerySelected.author.profile_img || "../../../images/profile.jpeg"} alt='authorImg' />
         </div>
         <div className={styles.contentBox}>
           <span className={styles.artistName}>{gallerySelected.author.nickname}</span>
