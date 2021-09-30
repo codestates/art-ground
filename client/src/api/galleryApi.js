@@ -11,7 +11,7 @@ export async function createExhibition(
 ) {
   try {
 
-    const res = await axios.post(
+    await axios.post(
       "https://localhost:5000/exhibition/register",
       {
         title: title,
@@ -209,7 +209,7 @@ export async function sort(sortValue, galleryList) {
 export async function createLike(postId) {
   //console.log("클릭한 전시회 아이디:", postId);
   try {
-    const res = await axios.post(
+    await axios.post(
       "https://localhost:5000/exhibition/like",
       {
         postId: postId
@@ -224,7 +224,7 @@ export async function createLike(postId) {
 export async function deleteLike(postId) {
   //console.log("클릭한 전시회 아이디:", postId);
   try {
-    const res = await axios.delete(
+    await axios.delete(
       `https://localhost:5000/exhibition/like/${postId}`)
 
     //console.log(res);

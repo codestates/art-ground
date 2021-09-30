@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ArtDetail from '../../components/artDetail/ArtDetail';
 import GallerySlider from '../../components/gallerySlider/GallerySlider';
+import PurchaseModal from '../../components/modals/PurchaseModal';
 import styles from './GalleryDetail.module.css';
 
 const GalleryDetail = ({ gallerySelected }) => {
@@ -39,6 +40,10 @@ const GalleryDetail = ({ gallerySelected }) => {
 
   const handleModalOpen = (el) => {
     setArtDetail(el); //모달에 띄울 art 전달
+  }
+
+  const closeModal = () => {
+    setpurchaseModal(false);
   }
 
   return (
@@ -108,19 +113,9 @@ const GalleryDetail = ({ gallerySelected }) => {
       art={artDetail}
       /> : null}
 
+      {/* 모달창 섹션 */}
       {purchaseModal? 
-      <section className={styles.modalContainer}>
-        <div className={styles.modalWrap}>
-          <span className={styles.modalContent}>작품의 구매정보는<br></br>운영자에게 문의 부탁드립니다.</span>
-          <p className={styles.modalSubContent}>CONTACT 페이지로<br></br>이동하시겠어요?</p>
-          <div className={styles.ok}>
-            <Link to="/contact">
-              <button className={styles.okBtn} onClick={()=>setpurchaseModal(false)}>네</button>
-            </Link>
-            <button className={styles.okBtn} onClick={()=>setpurchaseModal(false)}>아니요</button>
-          </div>
-        </div>
-      </section>
+      <PurchaseModal closeModal={closeModal}/>
       : null}
 
     </section>

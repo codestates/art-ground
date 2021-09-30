@@ -45,7 +45,7 @@ export async function getReplyList(postId){
 export async function postReview(reply, postId){ 
 
   try {
-    const res = await axios.post(
+    await axios.post(
       "https://localhost:5000/review",
       {
         postId: postId,
@@ -61,7 +61,7 @@ export async function postReview(reply, postId){
 export async function deleteReview(commentsId){
 
   try {
-    const res = await axios.delete(
+    await axios.delete(
       `https://localhost:5000/review/${commentsId}`);
     //console.log(res);
   } catch (err) {
