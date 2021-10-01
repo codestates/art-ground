@@ -158,7 +158,7 @@ const Register = ({ userinfo, isLogin }) => {
     setModalOpen(false);
   }
 
-  if((userinfo && userinfo.user_type === 2) || (userinfo && userinfo.user_type === 3)){
+  if((userinfo && userinfo.user_type === 2) || (userinfo && userinfo.user_type === 3)){ //유효한 회원일 경우만.
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>전시 신청</h2>
@@ -174,9 +174,7 @@ const Register = ({ userinfo, isLogin }) => {
       <DatePicker 
       selected={startDate} 
       onChange={el => handleStartDate(el)} 
-      selectsStart
       startDate={startDate}
-      endDate={endDate}
       locale={ko}
       dateFormat="yyyy-MM-dd"
       className={styles.textInput} 
@@ -189,10 +187,7 @@ const Register = ({ userinfo, isLogin }) => {
       <DatePicker 
       selected={endDate} 
       onChange={el => handleEndDate(el)} 
-      selectsEnd
-      startDate={startDate}
       endDate={endDate}
-      minDate={startDate}
       locale={ko}
       dateFormat="yyyy-MM-dd"
       className={styles.textInput} 
@@ -209,33 +204,17 @@ const Register = ({ userinfo, isLogin }) => {
 
       <div className={styles.categoryName}>전시 장르<span class={styles.subGenre}>(복수선택가능)</span></div>
       <div className={styles.tagsWrap}> 
-        <div className={styles.tags}>
-          {tags1.map((el) => 
+        {[tags1, tags2, tags3].map((el) => 
+          <div className={styles.tags}>
+            {el.map((el) => 
               <>
                 <input type="checkbox" name={el} value={el} />
                 <label className={isClicked.includes(el) ? styles.hashtagClicked : styles.hashtag} 
                 onClick={() => tagHandle(el)}>{el}</label>
               </>
-          )}
-        </div>
-        <div className={styles.tags}>
-          {tags2.map((el) => 
-              <>
-                <input type="checkbox" name={el} value={el} />
-                <label className={isClicked.includes(el) ? styles.hashtagClicked : styles.hashtag} 
-                onClick={() => tagHandle(el)}>{el}</label>
-              </>
-          )}
-        </div>
-        <div className={styles.tags}>
-          {tags3.map((el) => 
-              <>
-                <input type="checkbox" name={el} value={el} />
-                <label className={isClicked.includes(el) ? styles.hashtagClicked : styles.hashtag} 
-                onClick={() => tagHandle(el)}>{el}</label>
-              </>
-          )}
-        </div>
+            )}
+          </div>
+        )}
       </div>
 
       <div className={styles.categoryName}>전시 설명</div>
@@ -275,7 +254,7 @@ const Register = ({ userinfo, isLogin }) => {
             onChange={e => handleArtImg(el, e)}
             ></input>
             <img className={styles.artImg} src={
-            arts[Number(el-1)].img || "../../../images/Black on White.png"
+            arts[Number(el-1)].img || "https://husmen.xyz/portfolio/scope-timer/featured.png"
             }
             alt="art_img"/>
           </div>
