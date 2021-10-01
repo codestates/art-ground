@@ -7,6 +7,7 @@ export function getAllExhibition(setExhibitData) {
     .then((result) => {
       //console.log(result.data.data);
       setExhibitData(result.data.data);
+      console.log(result, "result");
       //console.log(result.data.data);
     })
     .catch((err) => console.log(err));

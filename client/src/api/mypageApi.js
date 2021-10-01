@@ -40,7 +40,7 @@ export function getMyPickExhibiton(setMyPick) {
   return axios
     .get("https://localhost:5000/mypage/like")
     .then((result) => {
-      console.log(result.data.data, "라이크데이터값");
+      //console.log(result.data.data, "라이크데이터값");
       setMyPick(result.data.data);
     })
     .catch((err) => console.log(err));
