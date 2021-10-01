@@ -14,7 +14,7 @@
  * likes: likes,
  */
 
-const { likes, exhibition, images, users } = require("../../models");
+const { exhibition, images, users, likes } = require("../../models");
 const { isAuthorized } = require("../../utils/tokenFunction");
 module.exports.getMyLikes = async (req, res) => {
   const userInfo = isAuthorized(req);
@@ -37,6 +37,14 @@ module.exports.getMyLikes = async (req, res) => {
 
       // exhibition
       const myExhibition = await exhibition.findAll({
+        attributes: [
+          "id",
+          "author_id",
+          "title",
+          "start_date",
+          "end_date",
+          "status",
+        ],
         where: {
           id: exhibition_ids,
         },
@@ -46,24 +54,22 @@ module.exports.getMyLikes = async (req, res) => {
       author_ids = author_ids.sort((a, b) => a - b);
 
       // author
-      const authors = [];
-      for (let h = 0; h < author_ids.length; h++) {
-        const userData = await users.findOne({
-          where: {
-            id: author_ids[h],
-          },
-        });
-        authors.push(userData);
-      }
+      const authors = await users.findAll({
+        attributes: ["id", "nickname", "user_email"],
+        where: {
+          id: author_ids,
+        },
+      });
 
       // images
       const myExhibitionImgs = await images.findAll({
+        attributes: ["exhibition_id", "image_urls"],
         where: {
           exhibition_id: exhibition_ids,
         },
       });
 
-      // exhibition x users
+      // exhibition x author
       for (let l = 0; l < myExhibition.length; l++) {
         for (let m = 0; m < authors.length; m++) {
           const myExhibitEl = myExhibition[l].dataValues;
@@ -77,7 +83,6 @@ module.exports.getMyLikes = async (req, res) => {
       // likes x exhibition
       for (let i = 0; i < likesData.length; i++) {
         let likesEl = likesData[i].dataValues;
-
         for (let j = 0; j < myExhibition.length; j++) {
           if (likesEl.exhibition_id === myExhibition[j].dataValues.id) {
             const {
@@ -105,9 +110,13 @@ module.exports.getMyLikes = async (req, res) => {
         // likes x images
         for (let k = 0; k < myExhibitionImgs.length; k++) {
           if (
-            likesEl.exhibit_id === myExhibitionImgs[k].dataValues.exhibit_id
+            likesEl.exhibition_id ===
+            myExhibitionImgs[k].dataValues.exhibition_id
           ) {
             likesEl.image_urls = myExhibitionImgs[k].dataValues.image_urls;
+            break;
+          } else {
+            continue;
           }
         }
       }
