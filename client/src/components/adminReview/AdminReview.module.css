@@ -1,6 +1,9 @@
 @value Black, White from '../../common/colors.css';
 @value Container from '../../common/size.css';
 
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+/*font-family: 'Do Hyeon', sans-serif;*/
+
 span {
   display: block;
 }
@@ -12,34 +15,18 @@ span {
   width: 100%;
   height: 100%;
 }
-.filterBox {
-  height: 4rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
+
 .upDateBox {
   border: 1px solid gainsboro;
+  display: flex;
 }
 .DeleteBox {
   border: 1px solid gainsboro;
 }
-/*필터*/
-.filterBtn {
-  width: 80px;
-  height: 40px;
-  border: none;
-  background-color: rgb(95, 95, 95);
-  color: white;
-  border-radius: 5%;
-  outline: none;
-  cursor: pointer;
-  margin-left: 10px;
-  text-align: center;
-  line-height: 40px;
-}
+
 /*작품 개별*/
 .exBox {
+  width: 95%;
   display: flex;
   flex-direction: row;
   margin-top: 2px;
@@ -53,32 +40,23 @@ span {
 .eximg {
   width: 100%;
   height: 100%;
+  border-right: 1px solid gainsboro;
 }
 .infoBox {
   flex: 20rem;
   margin-top: 5px;
 }
 .title {
+  font-family: "Do Hyeon", sans-serif;
+
   text-indent: 10px;
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 1.5rem;
 }
-.author {
-  text-indent: 10px;
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-.author {
-  height: 1.5rem;
-  display: flex;
-  align-items: center;
-  text-indent: 10px;
-  font-size: 0.8rem;
-}
+
 .comments {
+  font-family: "Do Hyeon", sans-serif;
   text-indent: 10px;
   padding: 0.3rem 0;
-  font-weight: bold;
 }
 .btnBox {
   width: 100px;

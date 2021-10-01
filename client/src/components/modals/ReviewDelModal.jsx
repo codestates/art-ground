@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import styles from "./ReviewDelModal.module.css";
 import { deleteReviews } from "../../api/adminApi";

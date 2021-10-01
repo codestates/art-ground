@@ -1,17 +1,13 @@
 import styles from "./Modify.module.css";
 import { useHistory } from "react-router";
 import { useState } from "react";
-import AWS from "aws-sdk";
-import axios from "axios";
-import { Link } from "react-router-dom";
+
 import InfoModify from "../../components/infoModify/InfoModify";
 import PassModify from "../../components/passModify/PassModify";
-const CryptoJS = require("crypto-js");
+
 require("dotenv").config();
 
 const Modify = ({ userinfo, setUserinfo }) => {
-  const history = useHistory();
-  //console.log(userinfo);
   const [editFront, setEditFront] = useState(true);
   const [infoEditPage, setInfoEditPage] = useState(false);
   const [passEditPage, setPassEditPage] = useState(false);

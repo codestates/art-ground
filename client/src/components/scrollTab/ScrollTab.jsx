@@ -14,32 +14,32 @@ const ScrollTab = () => {
 
   const gotoBrand = () => {
     window.scrollTo({
-      top: 900,
+      top: 0,
       behavior: "smooth",
     });
-    setPosition(900);
+    setPosition(0);
   };
 
   const gotoWatch = () => {
     window.scrollTo({
-      top: 1880,
+      top: 1680,
       behavior: "smooth",
     });
-    setPosition(1880);
+    setPosition(1680);
   };
   const gotoReview = () => {
     window.scrollTo({
-      top: 2800,
+      top: 3588,
       behavior: "smooth",
     });
-    setPosition(2800);
+    setPosition(3588);
   };
   const gotoRegister = () => {
     window.scrollTo({
-      top: 3720,
+      top: 5469,
       behavior: "smooth",
     });
-    setPosition(3720);
+    setPosition(5469);
   };
 
   return (

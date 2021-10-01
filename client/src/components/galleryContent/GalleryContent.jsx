@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styles from "./GalleryContent.module.css";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { createLike, deleteLike } from "../../api/galleryApi";
 
@@ -10,10 +10,21 @@ const GalleryContent = ({
   exhibition,
   selectGallery,
   handleModal,
+  handleModalPremium,
   render,
 }) => {
   
   const [isLiked, setLiked] = useState(false);
+
+  const history = useHistory();
+  const goDetailPage = () => { 
+    if(!isLogin && exhibition.exhibit_type === 2){
+      handleModalPremium();
+    } else{
+      selectGallery(exhibition);
+      history.push('/gallerydetail');
+    } 
+  }
   
   useEffect(()=> { //좋아요 했는지 안 했는지 초기 세팅
     if(isLogin){
@@ -44,15 +55,13 @@ const GalleryContent = ({
     return(
       <li className={styles.object}>
 
-        <Link to='/gallerydetail'>
-          <div className={styles.layer}
-          onClick={()=>selectGallery(exhibition)}
-          ></div>
-          <img className={styles.thumbnail} 
-          onClick={()=>selectGallery(exhibition)}
-          src={exhibition.images[0].image_urls} 
-          alt='thumbnail' />
-        </Link>
+        <div className={styles.layer}
+        onClick={goDetailPage}
+        ></div>
+        <img className={styles.thumbnail} 
+        onClick={goDetailPage}
+        src={exhibition.images[0].image_urls} 
+        alt='thumbnail' />
 
         <span className={styles.title}>{exhibition.title}</span>
         <div className={styles.period}>전시 기간: {exhibition.start_date} ~ {exhibition.end_date}</div>
@@ -69,15 +78,13 @@ const GalleryContent = ({
   } else{ // 로그인 안 했다면? 좋아요 default 회색하트 랜더링. 클릭 시 로그인해주세요 모달창 띄우기
     return (
       <li className={styles.object}>
-        <Link to='/gallerydetail'>
-          <div className={styles.layer}
-          onClick={()=>selectGallery(exhibition)}
-          ></div>
-          <img className={styles.thumbnail} 
-          onClick={()=>selectGallery(exhibition)}
-          src={exhibition.images[0].image_urls} 
-          alt='thumbnail' />
-        </Link>
+        <div className={styles.layer}
+        onClick={goDetailPage}
+        ></div>
+        <img className={styles.thumbnail} 
+        onClick={()=>selectGallery(exhibition)}
+        src={exhibition.images[0].image_urls} 
+        alt='thumbnail' />
 
         <span className={styles.title}>{exhibition.title}</span>
         <div className={styles.period}>전시 기간: {exhibition.start_date} ~ {exhibition.end_date}</div>

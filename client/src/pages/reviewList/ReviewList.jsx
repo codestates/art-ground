@@ -3,22 +3,27 @@ import { getAllGallery } from '../../api/reviewApi';
 import Review from '../../components/review/Review';
 import styles from './ReviewList.module.css';
 
-const ReviewList = ({ isLogin, selectReview }) => {
+const ReviewList = ({ selectReview }) => {
 
   const [galleryList, setGalleryList] = useState([]);
   const [search, setSearch] = useState('');
   const [searchWord, setSearchWord] = useState('');
   const [sortValue, setSortValue] = useState('최신순');
 
+  const [isLoading, setLoading] = useState(true);
+
+
   useEffect(()=> {
     //standard, premium gallery, 마감된 전시 모두 모아서 setGalleryList에 넣기.
     async function getAxiosData(){
       setGalleryList(await getAllGallery(sortValue, search));
-      console.log(await getAllGallery())
     }
     setTimeout(()=> {
       getAxiosData();
-    }, 200)
+    }, 100)
+    setTimeout(()=> {
+      setLoading(false);
+    }, 700)
   }, [search, sortValue])
 
   const handleChange = (e) => {
@@ -32,14 +37,25 @@ const ReviewList = ({ isLogin, selectReview }) => {
   }
   const handleSearchButton = () => {
     setSearch(searchWord); //엔터나 클릭 시 검색어 전달
-    setSearchWord(''); //검색완료 시 검색어창은 비워주기 
   }
 
   const handleSort = (e) => { //정렬
     setSortValue(e.target.value);
   }
+  const handleDeleteButton = () => {
+    setSearchWord('');
+    setSearch('');
+  }
 
-
+  if(isLoading){
+    return (
+      <section className={styles.container}>
+        <div className={styles.loading}>
+          <img className={styles.loadingImg} src="../../../images/loading.gif" alt="loading"/>
+        </div>
+      </section>
+    )
+  }else{
   return (
     <section className={styles.container}>
       <div className={styles.searchBox}>
@@ -50,6 +66,11 @@ const ReviewList = ({ isLogin, selectReview }) => {
         onChange={handleChange}
         onKeyPress={handleKeyPress}
         />
+        {search !== ''? <button className={styles.deleteIcon}
+        onClick={handleDeleteButton}
+        >
+          <i class="far fa-times-circle"></i>
+        </button> : null}
         <button className={styles.searchIcon}
         onClick={handleSearchButton}
         >
@@ -65,8 +86,11 @@ const ReviewList = ({ isLogin, selectReview }) => {
       </div>
 
       <ul className={styles.reviews}>
-        {galleryList.length === 0 ?
-        <div className={styles.resultNone}>검색결과가 없습니다!</div>:
+        {search !=='' && galleryList.length!==0 ? 
+        <div className={styles.result}>총 {galleryList.length}개의 전시회가 검색되었습니다.</div>
+        :null}
+        {search !== '' && galleryList.length === 0 ?
+        <div className={styles.result}>검색결과가 없습니다!</div>:
         galleryList
         .map((el) => (
           <Review
@@ -77,5 +101,6 @@ const ReviewList = ({ isLogin, selectReview }) => {
       </ul>
     </section>
   )
+  }
 }
 export default ReviewList;

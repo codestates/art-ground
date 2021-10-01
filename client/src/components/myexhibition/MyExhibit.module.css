@@ -4,7 +4,7 @@
 .container {
   max-width: Container;
   margin: 0 auto;
-
+  margin-top: 5rem;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -20,16 +20,13 @@
 }
 .exBox {
   border-bottom: 1px solid gainsboro;
-  padding: 0.1rem;
-  margin-top: 20px;
-  cursor: pointer;
   display: flex;
   flex-direction: row;
-  padding: 0.5rem;
+  padding: 0.7rem;
 }
 .thumBox {
   flex: 3.5;
-  height: 200px;
+  height: 230px;
   overflow: hidden;
 }
 .eximg {
@@ -42,12 +39,19 @@
 }
 .title {
   text-indent: 10px;
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-family: "Do Hyeon", sans-serif;
+}
+.title:nth-child(2) {
+  font-size: 0.9rem;
 }
 .date {
+  height: 2rem;
+  line-height: 2rem;
   text-indent: 10px;
   font-size: 0.8rem;
+  display: flex;
 }
 
 @media screen and (max-width: 768px) {
@@ -70,10 +74,19 @@
   .infoBox {
     margin: 2rem 0;
   }
+  .title {
+    text-align: center;
+  }
 }
 @media screen and (max-width: 580px) {
   .container {
+    margin-top: 2rem;
     padding: 0.2rem;
+    height: 35rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .exBox {
     width: 90%;
@@ -81,7 +94,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 1rem 0.2rem;
+    padding: 0.3rem 0.2rem;
   }
   .thumBox {
     flex: 3;
@@ -106,7 +119,7 @@
   }
   .thumBox {
     width: 100%;
-    flex: 3;
+    height: 17rem;
     overflow: hidden;
   }
   .infoBox {

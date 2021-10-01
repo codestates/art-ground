@@ -3,6 +3,12 @@ import styles from './Register.module.css';
 import AWS from "aws-sdk";
 import { Link, useHistory, withRouter } from 'react-router-dom';
 import { createExhibition } from '../../api/galleryApi';
+import AuthorLogin from '../../components/modals/AuthorLogin';
+import RegisterLogin from '../../components/modals/RegisterLogin';
+import ConfirmRegister from '../../components/modals/ConfirmRegister';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css"
+import { ko } from 'date-fns/esm/locale'
 
 const Register = ({ userinfo, isLogin }) => {
 
@@ -16,6 +22,8 @@ const Register = ({ userinfo, isLogin }) => {
   const tags3 = ['#추상화', '#인물화', '#풍경화', '#정물화']
 
   const [title, setTitle] = useState(''); //전시명
+  const [strStartDate, setStrStartDate] = useState('')
+  const [strEndDate, setStrEndDate] = useState('')
   const [startDate, setStartDate] = useState(''); //전시시작일
   const [endDate, setEndDate] = useState(''); //전시마감일
   const [type, setType] = useState('') //전시타입
@@ -29,12 +37,29 @@ const Register = ({ userinfo, isLogin }) => {
   const handleTitle = (event) => {
     setTitle(event.target.value);
   }
-  const handleStartDate = (event) => {
-    setStartDate(event.target.value);
+
+  const getStringDate = (date) => {
+    let sYear = date.getFullYear();
+    let sMonth = date.getMonth() + 1;
+    let sDate = date.getDate();
+    if(sMonth < 9){
+      sMonth = "0" + sMonth
+    }
+    if(sDate < 9){
+      sDate = "0" + sDate
+    } 
+    return `${sYear}-${sMonth}-${sDate}`;
   }
-  const handleEndDate = (event) => {
-    setEndDate(event.target.value);
+
+  const handleStartDate = (el) => {
+    setStartDate(el);
+    setStrStartDate(getStringDate(el));
   }
+  const handleEndDate = (el) => {
+    setEndDate(el);
+    setStrEndDate(getStringDate(el));
+  }
+
   const handleContent = (event) => {
     setContent(event.target.value);
   }
@@ -109,8 +134,8 @@ const Register = ({ userinfo, isLogin }) => {
   const createGallery = () => {
     if( 
       title === '' ||
-      startDate === '' ||
-      endDate === '' ||
+      strStartDate === '' ||
+      strEndDate === '' ||
       type === '' ||
       isClicked.length === 0 ||
       content === '' ||
@@ -120,7 +145,7 @@ const Register = ({ userinfo, isLogin }) => {
     } else{
       setModalOpen(true);
       setErrorMessage(''); //에러메세지 다시 초기화
-      createExhibition(title, startDate, endDate, type, content, isClicked, arts);
+      createExhibition(title, strStartDate, strEndDate, type, content, isClicked, arts);
     }
   }
 
@@ -129,7 +154,11 @@ const Register = ({ userinfo, isLogin }) => {
     history.goBack();
   }
 
-  if((userinfo && userinfo.user_type === 2) || (userinfo && userinfo.user_type === 3)){
+  const closeModal = () => {
+    setModalOpen(false);
+  }
+
+  if((userinfo && userinfo.user_type === 2) || (userinfo && userinfo.user_type === 3)){ //유효한 회원일 경우만.
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>전시 신청</h2>
@@ -139,14 +168,24 @@ const Register = ({ userinfo, isLogin }) => {
       type="text" value={title} onChange={handleTitle}/>
 
       <div className={styles.categoryName}>전시 시작일</div>
-      <input className={styles.textInput} 
-      type="text" placeholder="전시 시작일은 신청일로부터 7일 이후 날짜로 설정 가능합니다." 
-      value={startDate} onChange={handleStartDate}/>
+      <DatePicker 
+      selected={startDate} 
+      onChange={el => handleStartDate(el)} 
+      startDate={startDate}
+      locale={ko}
+      dateFormat="yyyy-MM-dd"
+      className={styles.textInput} 
+      />
 
       <div className={styles.categoryName}>전시 마감일</div>
-      <input className={styles.textInput} 
-      type="text" placeholder="최대 전시 가능한 기간은 90일입니다." 
-      value={endDate} onChange={handleEndDate}/>
+      <DatePicker 
+      selected={endDate} 
+      onChange={el => handleEndDate(el)} 
+      endDate={endDate}
+      locale={ko}
+      dateFormat="yyyy-MM-dd"
+      className={styles.textInput} 
+      />
 
       <div className={styles.categoryName}>전시 타입</div>
       <div className={styles.types}>
@@ -159,36 +198,23 @@ const Register = ({ userinfo, isLogin }) => {
 
       <div className={styles.categoryName}>전시 장르<span class={styles.subGenre}>(복수선택가능)</span></div>
       <div className={styles.tagsWrap}> 
-        <div className={styles.tags}>
-          {tags1.map((el) => 
+        {[tags1, tags2, tags3].map((el) => 
+          <div className={styles.tags}>
+            {el.map((el) => 
               <>
                 <input type="checkbox" name={el} value={el} />
-                <label className={isClicked.includes(el) ? styles.hashtagClicked : styles.hashtag} onClick={() => tagHandle(el)}>{el}</label>
+                <label className={isClicked.includes(el) ? styles.hashtagClicked : styles.hashtag} 
+                onClick={() => tagHandle(el)}>{el}</label>
               </>
-          )}
-        </div>
-        <div className={styles.tags}>
-          {tags2.map((el) => 
-              <>
-                <input type="checkbox" name={el} value={el} />
-                <label className={isClicked.includes(el) ? styles.hashtagClicked : styles.hashtag} onClick={() => tagHandle(el)}>{el}</label>
-              </>
-          )}
-        </div>
-        <div className={styles.tags}>
-          {tags3.map((el) => 
-              <>
-                <input type="checkbox" name={el} value={el} />
-                <label className={isClicked.includes(el) ? styles.hashtagClicked : styles.hashtag} onClick={() => tagHandle(el)}>{el}</label>
-              </>
-          )}
-        </div>
+            )}
+          </div>
+        )}
       </div>
 
       <div className={styles.categoryName}>전시 설명</div>
       <textarea className={styles.contentInput} 
       value={content}
-      placeholder="어떤 전시회인지 간단히 소개해주세요." 
+      placeholder="어떤 전시회인지 간단히 소개해주세요(100자 내외)" 
       onChange={handleContent}/>
 
       {artCount.map(el => 
@@ -222,11 +248,9 @@ const Register = ({ userinfo, isLogin }) => {
             onChange={e => handleArtImg(el, e)}
             ></input>
             <img className={styles.artImg} src={
-            arts[Number(el-1)].img ? 
-            arts[Number(el-1)].img : 
-            "../../../images/Black on White.png"
+            arts[Number(el-1)].img || "../../../images/noImage.png"
             }
-            alt="작품이미지"/>
+            alt="art_img"/>
           </div>
         </div>
       </> 
@@ -239,56 +263,16 @@ const Register = ({ userinfo, isLogin }) => {
       </div>
       <div className={styles.error}>{errorMessage}</div>
 
-      {modalOpen ? //모달창
-      <section className={styles.modalContainer}>
-        <div className={styles.modalWrap}>
-          <span className={styles.modalContent}>전시 신청이 완료되었습니다!</span>
-          <p className={styles.modalSubContent}>영업일 기준 7일 이내<br></br>관리자의 승인이 이루어질 예정입니다.</p>
-          <div className={styles.ok}>
-          <Link to="/gallery">
-            <button className={styles.okBtn} 
-            onClick={()=>setModalOpen(false)}>확인</button>
-          </Link>
-          </div>
-        </div>
-      </section>
+      {modalOpen ? //전시 신청 완료되었음을 알리는 모달창
+      <ConfirmRegister closeModal={closeModal} />
       : null}
 
     </section>
-
   )
-  } else if(userinfo && userinfo.user_type === 1){ // 관람객 로그인 시
-    
-    return (
-      <section className={styles.modalContainer}>
-        <div className={styles.modalWrap}>
-          <p className={styles.modalContent}>관람객 회원은<br></br>전시 신청이 불가합니다!</p>
-          <span className={styles.modalSubContent}>작가 회원으로 로그인 해주세요.</span>
-          <div className={styles.ok}>
-            <button className={styles.okBtn} onClick={goBack}>닫기</button>
-          </div>
-        </div>
-      </section>
-    )
-
-  } else if(!userinfo && !isLogin){ //비로그인 시
-    
-    return (
-      <section className={styles.modalContainer}>
-        <div className={styles.modalWrap}>
-          <p className={styles.modalContent}>전시를 신청하려면<br></br>로그인이 필요합니다!</p>
-          <span className={styles.modalSubContent}>로그인 페이지로 이동하시겠어요?</span>
-          <div className={styles.ok}>
-            <Link to="/signin">
-              <button className={styles.okBtn}>네</button>
-            </Link>
-            <button className={styles.okBtn} onClick={goBack}>아니요</button>
-            
-          </div>
-        </div>
-      </section>
-    )
-     
+  } else if(userinfo && userinfo.user_type === 1){ // 관람객 로그인 시 모달창
+    return <AuthorLogin goBack={goBack}/>
+  } else if(!userinfo && !isLogin){ //비로그인 시 모달창
+    return <RegisterLogin goBack={goBack} />
   }
 }
 

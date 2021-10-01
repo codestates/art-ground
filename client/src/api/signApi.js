@@ -1,6 +1,11 @@
 import axios from "axios";
 
-export function getSigninRes(userData, handleResponseSuccess, setisAdmin) {
+export function getSigninRes(
+  userData,
+  handleResponseSuccess,
+  setisAdmin,
+  setErrorMessage
+) {
   //art-ground.link
   return axios
     .post("https://localhost:5000/sign-in", userData)
@@ -9,7 +14,7 @@ export function getSigninRes(userData, handleResponseSuccess, setisAdmin) {
         handleResponseSuccess(result);
       }
     })
-    .catch((err) => console.log(err));
+    .catch((err) => setErrorMessage("가입하지 않은 유저입니다."));
 }
 export function getSignOutRes(setUserinfo, setIsLogin, setisAdmin) {
   //art-ground.link
@@ -22,13 +27,13 @@ export function getSignOutRes(setUserinfo, setIsLogin, setisAdmin) {
         setisAdmin(false);
       }
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.log(err.status));
 }
 
 export function getSingupAudRes(userData, setErrorMessage, history) {
   return (
     axios
-      .post("https://art-ground.link/sign-up/user", userData)
+      .post("https://localhost:5000/sign-up/user", userData)
       //.post("https://art-ground.link/sign-up/user", userData)
       .then((result) => {
         if (result.data.message === "sign-up ok") {
@@ -45,7 +50,7 @@ export function getSingupAudRes(userData, setErrorMessage, history) {
 export function getSingupAuthRes(userData, setErrorMessage, history) {
   return (
     axios
-      .post("https://art-ground.link/sign-up/author", userData)
+      .post("https://localhost:5000/sign-up/author", userData)
       //.post("https://art-ground.link/sign-up/author", userData)
       .then((result) => {
         if (result.data.message === "sign-up ok") {

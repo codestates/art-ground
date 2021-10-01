@@ -62,7 +62,7 @@ const SignInDetail = ({
       userType: 1,
     };
     setErrorMessage("");
-    getSigninRes(userData, handleResponseSuccess, setisAdmin);
+    getSigninRes(userData, handleResponseSuccess, setisAdmin, setErrorMessage);
   };
   const clickAuthLogin = () => {
     if (!userEmail || !password) {
@@ -85,7 +85,7 @@ const SignInDetail = ({
       userType: 2,
     };
     setErrorMessage("");
-    getSigninRes(userData, handleResponseSuccess);
+    getSigninRes(userData, handleResponseSuccess, setisAdmin, setErrorMessage);
   };
 
   const audonKeyPress = (e) => {
@@ -106,9 +106,8 @@ const SignInDetail = ({
   };
 
   const clickKakao = () => {
-    window.location.href = 
-      `https://kauth.kakao.com/oauth/authorize?client_id=a3d0f7feebf7fca1ad114ff7da1dddc5&redirect_uri=https://art-ground.io/signin/kakao&response_type=code`;
-  }
+    window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=a3d0f7feebf7fca1ad114ff7da1dddc5&redirect_uri=https://art-ground.io/signin/kakao&response_type=code`;
+  };
   return (
     <section className={styles.container}>
       <div>
@@ -116,16 +115,6 @@ const SignInDetail = ({
           <ul className={styles.ulBox}>
             <li className={styles.titleBox}>로그인</li>
 
-            <li className={styles.columnBox}>
-              <span className={styles.imgBorder}>
-                <img
-                  src="../../../images/required.png"
-                  alt=""
-                  className={styles.icon}
-                />
-              </span>
-              <label className={styles.columnText}>이메일</label>
-            </li>
             <li className={styles.inputBox}>
               <div className={styles.mailBox}>
                 <input
@@ -135,16 +124,6 @@ const SignInDetail = ({
                   onChange={handleInputValue("userEmail")}
                 ></input>
               </div>
-            </li>
-            <li className={styles.columnBox}>
-              <span className={styles.imgBorder}>
-                <img
-                  src="../../../images/required.png"
-                  alt=""
-                  className={styles.icon}
-                />
-              </span>
-              <label className={styles.columnText}>비밀번호</label>
             </li>
             <li className={styles.inputBox}>
               <div className={styles.passBox}>
@@ -174,6 +153,12 @@ const SignInDetail = ({
               </div>
             </li>
 
+            <li className={styles.columnBox}>
+              <label className={styles.columnText}>
+                비밀번호는 4-12자리의 숫자,영문입니다.
+              </label>
+            </li>
+
             <li>
               {errorMessage ? (
                 <li className={styles.errmsg} style={{ color: "red" }}>
@@ -201,7 +186,7 @@ const SignInDetail = ({
               )}
             </li>
             {isAudienceLogin ? (
-              <li className={styles.btnBox}>
+              <li className={styles.oauthBtnBox}>
                 <button className={styles.ouathBtn} onClick={clickGoole}>
                   구글 로그인
                 </button>

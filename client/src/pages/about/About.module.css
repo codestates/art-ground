@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+/*font-family: 'Do Hyeon', sans-serif;*/
+span,
+label {
+  display: block;
+}
 .container {
   width: 100%;
   margin: 0;
@@ -24,13 +29,14 @@
   align-items: center;
   overflow: hidden;
 }
+
 .mainback {
   width: 100%;
-
   display: flex;
   justify-content: center;
 }
 .main1 {
+  /*슬라이더메인*/
   background-color: #f1f1f1;
   width: 100%;
   height: 100vh;
@@ -57,6 +63,7 @@
   margin-bottom: 2rem;
 }
 .main2 {
+  /*브랜드메인*/
   height: 100vh;
   background-color: none;
   width: 100%;
@@ -64,6 +71,49 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.main3 {
+  /*회색바탕메인*/
+  height: 100vh;
+  background-color: #f1f1f1;
+}
+.main4 {
+  /*하얀바탕메인*/
+  width: 100%;
+  height: 100vh;
+  background-color: none;
+}
+.main6 {
+  /*바텀 갤러리 둘러보러가기 메인*/
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+
+.main7 {
+  /*화살표섹션 메인*/
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f1f1;
+}
+.main8 {
+  /*이미지 섹션*/
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: tan;
+}
+.main9 {
+  width: 100%;
+  height: 50vh;
+  background-color: black;
 }
 .brand {
   width: 100%;
@@ -81,37 +131,152 @@
   height: 80%;
 }
 .brand p {
-  font-size: 1rem;
+  font-size: 1.5rem;
+  font-family: "Do Hyeon", sans-serif;
+}
+/*관람상세*/
+.exSecBorder {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 0.2rem;
+}
+.exContentTitle {
+  width: 100%;
+  height: 20%;
+  line-height: 5rem;
+  text-align: center;
+  font-size: 2rem;
+  font-family: "Do Hyeon", sans-serif;
+  margin-top: 10rem;
+  /* border: 1px solid teal; */
+}
+.exContentBox {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 4rem;
+}
+.exContent {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  /* box-shadow: 5px 5px 10px black, 0 0 15px black, 0 0 10px rgb(190, 165, 23); */
+}
+.exContent img {
+  border: 1px solid gainsboro;
+  width: 70%;
+  height: 70%;
+  box-shadow: 5px 5px 10px black, 0 0 15px black, 0 0 10px rgb(190, 165, 23);
+}
+.exTxt {
+  width: 100%;
+  height: 40%;
+  /* line-height: 2rem; */
+  text-align: center;
   font-family: "Poppins", sans-serif;
 }
-
-.main3 {
-  height: 100vh;
-  background-color: #f1f1f1;
+.exTxt span:nth-child(1) {
+  margin-top: 2rem;
+  font-size: 2rem;
 }
-
-.main4 {
-  height: 100vh;
-  background-color: none;
+.exTxt span:nth-child(2) {
+  margin-top: 2rem;
+  font-size: 1rem;
 }
+/*관람상세 끝*/
 
-.main6 {
-  width: 100%;
-  height: 30vh;
+/*리뷰상세*/
+.revSecBorder {
+  width: 1024px;
+  height: 90%;
   display: flex;
-  justify-content: center;
-  background-color: #f1f1f1;
-}
-/*화살표섹션*/
-.main7 {
-  width: 100%;
-  height: 15vh;
-  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f1f1f1;
+  overflow: hidden;
+  padding-top: 2rem;
 }
+.reviewTitle {
+  font-family: "Do Hyeon", sans-serif;
+  width: 100%;
+  height: 25%;
+  line-height: 3rem;
+  text-align: center;
+  font-size: 2rem;
+  padding: 1.5rem 2rem;
+}
+.revContentBox {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.revContent {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid gainsboro;
+  box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 1);
+}
+.revContent img {
+  border: 1px solid gainsboro;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+.revTxtBox {
+  width: 100%;
+  height: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.revTxt {
+  height: 3rem;
+  text-align: center;
+  font-family: "Do Hyeon", sans-serif;
+}
+.revTxt:nth-child(1) {
+  font-size: 1.5rem;
+}
+/*리뷰상세 끝*/
 
+.fullSecBorder {
+  /*메인 > 풀섹션보더*/
+  width: 100%;
+  height: 100%;
+  padding: 3rem 20rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.fullSecBorder div {
+  width: 20rem;
+  height: 20rem;
+  margin-left: -10px;
+}
+.fullSecBorder div img {
+  width: 100%;
+  height: 100%;
+}
 .border {
   width: 100%;
   height: 50vh;
@@ -137,6 +302,53 @@
   justify-content: space-around;
   font-family: "Poppins", sans-serif;
 }
+
+/*카운터*/
+.countBorder {
+  width: 1024px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.conterBox {
+  width: 33.3%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.conterBox img {
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
+}
+.conterBox div {
+  margin-top: 5rem;
+  width: 100%;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.conterBox span {
+  width: 50%;
+  height: 3rem;
+  line-height: 3rem;
+  margin-top: 1rem;
+  color: white;
+  text-align: center;
+}
+.conterBox span:nth-child(1) {
+  font-size: 2.5rem;
+}
+.conterBox span:nth-child(2) {
+  font-size: 1.5rem;
+}
+
 .btn {
   display: inline-block;
   border: none;
@@ -188,6 +400,54 @@
   animation: animate-arrows 2s infinite;
 }
 
+/*스크롤버틍*/
+.scrollBtn {
+  list-style: none;
+  position: absolute;
+  border: 3px solid red;
+}
+
+/*반응형*/
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding-top: 4rem;
+  }
+  .secBorder {
+    border: 1px solid tan;
+    width: 1024px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mainback {
+    border: 2px solid red;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .main1{
+    
+  }
+}
+@media screen and (max-width: 580px) {
+}
+@media screen and (max-width: 480px) {
+}
+
+/*화면전환*/
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes animate-arrows {
   0% {
     opacity: 0;
@@ -201,128 +461,6 @@
     transform: rotate(45deg) translate(1.5em, 1.5em);
   }
 }
-
-/*반응형*/
-@media screen and (max-width: 768px) {
-  .main1 {
-    height: 50vh;
-  }
-  .secBorder {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-top: 5rem;
-  }
-  .brand p {
-    font-size: 1.5rem;
-  }
-  .border {
-    display: block;
-    text-align: center;
-  }
-
-  .border > div {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .logo {
-    width: 70%;
-    height: 45%;
-  }
-}
-@media screen and (max-width: 580px) {
-  .main1 {
-    height: 50vh;
-  }
-  .secBorder {
-    width: 100%;
-    height: 100%;
-  }
-  .brand p {
-    font-size: 1.5rem;
-  }
-  .border {
-    display: block;
-    text-align: center;
-  }
-
-  .border > div {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .secBorder {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-top: 6rem;
-  }
-  .logo {
-    width: 60%;
-    height: 35%;
-  }
-}
-@media screen and (max-width: 480px) {
-  .main1 {
-    height: 40vh;
-  }
-  .secBorder {
-    width: 100%;
-    height: 100%;
-  }
-  .brand p {
-    font-size: 1.5rem;
-  }
-  .border {
-    display: block;
-    text-align: center;
-  }
-  .border > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .secBorder {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-top: 7rem;
-  }
-  .logo {
-    width: 50%;
-    height: 35%;
-  }
-}
-
-/*스크롤버틍*/
-.scrollBtn {
-  list-style: none;
-  position: absolute;
-  border: 3px solid red;
-}
-
-@media screen and (max-width: 768px) {
-  .container {
-    padding-top: 4.5rem;
-  }
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 @-moz-keyframes fadein {
   /* Firefox */
   from {
