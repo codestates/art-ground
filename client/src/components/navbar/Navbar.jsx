@@ -2,17 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
-const throttle = function (callback, waitTime) {
-  let timerId = null;
-  return (e) => {
-      if (timerId) return;
-      timerId = setTimeout(() => {
-          callback.call(this, e);
-          timerId = null;
-      }, waitTime);
-  };
-};
-
 const Navbar = ({ isLogin, handleLogout, isAdmin, setModalOpen }) => {
   const history = useHistory();
 
@@ -36,26 +25,11 @@ const Navbar = ({ isLogin, handleLogout, isAdmin, setModalOpen }) => {
     }
   };
 
-  const [navOpen, setNavOpen] = useState(false); //모바일 시 navbar 사이드로 숨겨짐
-  const [ScrollY, setScrollY] = useState(0);
-  const [navStatus, setNavStatus] = useState(false);
+  const [navOpen, setNavOpen] = useState(false); //모바일 사이즈: navbar 사이드로 숨겨짐
+  
+  const [hide, setHide] = useState(false); //스크롤 아래로 하면 false, 위로하면 true
+  const [pageY, setPageY] = useState(0); //스크롤 위치(0일 때 페이지 상단)
 
-  const handleFollow = () => {
-    setScrollY(window.pageYOffset);
-  };
-
-  useEffect(() => {
-    const watch = () => {
-      window.addEventListener("scroll", handleFollow);
-    };
-    watch();
-    return () => {
-      window.removeEventListener("scroll", handleFollow);
-    };
-  });
-
-  const [hide, setHide] = useState(false);
-  const [pageY, setPageY] = useState(0);
   const documentRef = useRef(document);
 
   const handleScroll = () => {
@@ -65,6 +39,17 @@ const Navbar = ({ isLogin, handleLogout, isAdmin, setModalOpen }) => {
     setHide(hide);
     setPageY(pageYOffset);
   };
+  
+  const throttle = function (callback, waitTime) {
+    let timerId = null;
+    return (e) => {
+      if (timerId) return;
+      timerId = setTimeout(() => {
+        callback.call(this, e);
+        timerId = null;
+      }, waitTime);
+    };
+  };
 
   const throttleScroll = throttle(handleScroll, 50);
 
@@ -73,15 +58,16 @@ const Navbar = ({ isLogin, handleLogout, isAdmin, setModalOpen }) => {
     return () => documentRef.current.removeEventListener('scroll', throttleScroll);
   }, [pageY]);
 
+
   return (
     <section className={hide?
       styles.containerHide :
-      ScrollY>50 ? styles.containerScroll :
+      pageY>50 ? styles.containerScroll :
       styles.container}>
       <div className={styles.navBox}>
         <div className={navOpen ? styles.topNav : styles.topNavClose}>
           <ul className={
-            ScrollY>50 ? styles.btnsScroll : 
+            pageY>50 ? styles.btnsScroll : 
             styles.btns}>
             {isAdmin ? (
               <Link to="/admin">
@@ -122,18 +108,18 @@ const Navbar = ({ isLogin, handleLogout, isAdmin, setModalOpen }) => {
           </ul>
         </div>
         <div className={
-          ScrollY>50 ? styles.logoScroll : 
+          pageY>50 ? styles.logoScroll : 
           styles.logo}>
           <span
             className={
-              ScrollY>50 ? styles.moreOptScroll : 
+              pageY>50 ? styles.moreOptScroll : 
               styles.moreOpt}
             onClick={handleNavOpen}
           >
             <i class="fas fa-bars"></i>
           </span>
           {
-          ScrollY>50 ? (
+          pageY>50 ? (
             <img
               className={styles.logoImgScroll}
               src="../../../images/Monochrome on Transparent.png"
@@ -154,7 +140,7 @@ const Navbar = ({ isLogin, handleLogout, isAdmin, setModalOpen }) => {
             <Link to="/about">
               <li
                 className={
-                  ScrollY>50 ? styles.titleScroll : 
+                  pageY>50 ? styles.titleScroll : 
                   styles.title}
                 onClick={handleNavClose}
               >
@@ -164,7 +150,7 @@ const Navbar = ({ isLogin, handleLogout, isAdmin, setModalOpen }) => {
             <Link to="/gallery">
               <li
                 className={
-                  ScrollY>50 ? styles.titleScroll : 
+                  pageY>50 ? styles.titleScroll : 
                   styles.title}
                 onClick={handleNavClose}
               >
@@ -174,7 +160,7 @@ const Navbar = ({ isLogin, handleLogout, isAdmin, setModalOpen }) => {
             <Link to="/reviewlist">
               <li
                 className={
-                  ScrollY>50 ? styles.titleScroll : 
+                  pageY>50 ? styles.titleScroll : 
                   styles.title}
                 onClick={handleNavClose}
               >
@@ -184,7 +170,7 @@ const Navbar = ({ isLogin, handleLogout, isAdmin, setModalOpen }) => {
             <Link to="/register">
               <li
                 className={
-                  ScrollY>50 ? styles.titleScroll : 
+                  pageY>50 ? styles.titleScroll : 
                   styles.title}
                 onClick={handleNavClose}
               >
@@ -194,7 +180,7 @@ const Navbar = ({ isLogin, handleLogout, isAdmin, setModalOpen }) => {
             <Link to="/contact">
               <li
                 className={
-                  ScrollY>50 ? styles.titleScroll : 
+                  pageY>50 ? styles.titleScroll : 
                   styles.title}
                 onClick={handleNavClose}
               >
