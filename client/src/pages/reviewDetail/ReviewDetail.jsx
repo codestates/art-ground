@@ -20,7 +20,6 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
 
   const fetchMoreData = async () => {
     if(hiddenReplyList.length !== 0){ //안보여준 댓글이 남아있을 때만
-      console.log('데이터 fetch')
       setIsLoading(true);
       setTimeout(()=> {
         setReplyList(replyList.concat(hiddenReplyList.slice(0, 3)));
@@ -36,18 +35,18 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
     let clientHeight = document.documentElement.clientHeight;
     scrollHeight -= 100;
     if(scrollTop+clientHeight >= scrollHeight && isLoading === false){
-      console.log('스크롤 작동')
       fetchMoreData();
     }
   }, [isLoading])
 
 
   const getFetchData = async() => {
+    setIsLoading(true);
     let result = await getReplyList(reviewSelected.id);
     setReplyCount(await getReplyList(reviewSelected.id));//전체 댓글 개수 랜더링
     setReplyList(result.slice(0, 3)); //최초에 3개만 보여주고
-    result = result.slice(3);
-    setHiddenReplyList(result); //최초 3개 보여줬으니 안 보여준 나머지만 저장.
+    result = result.slice(3); //보여준 3개 제외한 나머지만 추려서
+    setHiddenReplyList(result); //상태값에 저장
     setIsLoading(false);
   } 
 
