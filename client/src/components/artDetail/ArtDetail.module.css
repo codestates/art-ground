@@ -56,11 +56,11 @@
 
 .closeBtn {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 1.5rem;
+  right: 2rem;
   cursor: pointer;
   color: rgb(155, 155, 155);
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   opacity: 0.8;
 }
 
@@ -146,6 +146,11 @@
   }
   .artMetaData {
     width: 18rem;
+  }
+  .closeBtn {
+    top: 1rem;
+    right: 1.3rem;
+    font-size: 1.4rem;
   }
 }
 

@@ -4,7 +4,7 @@ import styles from './ArtDetail.module.css';
 const ArtDetail = ({ art, handleClose }) => {
   return (
     <section className={styles.container}>
-      <div className={styles.background}>
+      <div className={styles.background} onClick={handleClose}>
         <img className={styles.img} src={art.image_urls} alt="detail"/>
         <div className={styles.artMetaData}>
           <span className={styles.title}>{art.title}</span>
