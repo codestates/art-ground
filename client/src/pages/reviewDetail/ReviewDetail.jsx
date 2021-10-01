@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Reply from '../../components/reply/Reply';
 import styles from './ReviewDetail.module.css';
 import { deleteReview, getReplyList, postReview } from '../../api/reviewApi';
 import ReviewLogin from '../../components/modals/ReviewLogin';
+import ReviewArtInfo from '../../components/reviewArtInfo/ReviewArtInfo';
 
 const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
 
@@ -10,20 +11,56 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
 
   const [reply, setReply] = useState('');
   const [loginModal, setLoginModal] = useState(false);
-  const [replyList, setReplyList] = useState([]);
+
+  const [replyList, setReplyList] = useState([]); //랜더링할 데이터(스크롤할 때마다 +)
+  const [hiddenReplyList, setHiddenReplyList] = useState([]); //랜더링하기 전 숨겨놓는 데이터(스크롤 할 때마다 -)
+  const [replyCount, setReplyCount] = useState([]); //리뷰 개수 랜더링용(스크롤에 상관없이 고정)
+  const [isLoading, setIsLoading] = useState(true);
 
   const [rerender, setRerender] = useState(false);
 
-
-  useEffect(() => { //해당 전시회의 댓글(배열) GET요청
-    async function getAxiosData(){
-      setReplyList(await getReplyList(reviewSelected.id));
-      console.log(await getReplyList(reviewSelected.id))
+  const fetchMoreData = async () => { //댓글 더 추가로 받아오는 함수
+    if(hiddenReplyList.length !== 0){ //안보여준 댓글이 남아있을 때만
+      setIsLoading(true);
+      setTimeout(()=> {
+        setReplyList(replyList.concat(hiddenReplyList.slice(0, 3)));
+        setHiddenReplyList(hiddenReplyList.slice(3));
+        setIsLoading(false);
+      }, 700)
     }
+  }
+
+  const _infiniteScroll = useCallback(()=> { //스크롤 높이 및 정도 감지하여, 조건 만족하면 fetchMoreData함수 호출
+    let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+    let scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+    let clientHeight = document.documentElement.clientHeight;
+    scrollHeight -= 100;
+    if(scrollTop+clientHeight >= scrollHeight && isLoading === false){
+      fetchMoreData();
+    }
+  }, [isLoading])
+
+
+  const getFetchData = async() => { //해당 전시회의 댓글(배열) GET요청. 페이지최초랜더링(+댓글 등록/삭제)때에만 작동
+    setIsLoading(true);
+    let result = await getReplyList(reviewSelected.id);
+    setReplyCount(await getReplyList(reviewSelected.id));//전체 댓글 개수 랜더링
+    setReplyList(result.slice(0, 3)); //최초에 3개만 보여주고
+    result = result.slice(3); //보여준 3개 제외한 나머지만 추려서
+    setHiddenReplyList(result); //상태값에 저장
+    setIsLoading(false);
+  } 
+
+  useEffect(() => { //해당 전시회의 댓글(배열) GET요청. 페이지최초랜더링(+댓글 등록/삭제)때에만 작동
     setTimeout(()=> {
-      getAxiosData();
+      getFetchData();
     }, 100)
   }, [rerender])
+
+  useEffect(()=> {
+    window.addEventListener('scroll', _infiniteScroll, true);
+    return () => window.removeEventListener('scroll', _infiniteScroll, true); 
+  }, [_infiniteScroll])
 
 
   const createReply = () => {
@@ -53,38 +90,13 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
   
   return (
     <section className={styles.container}>
-      <div className={styles.artDetail}>
-        
-        <div className={styles.imgBox}>
-          <img className={styles.thumbnail} src={reviewSelected.images[0].image_urls} alt="thumbnail"/>
-        </div>
+      <ReviewArtInfo 
+      reviewSelected={reviewSelected}
+      />
 
-        <div className={styles.metaData}>
-          <h2 className={styles.title}>{reviewSelected.title}</h2>
-          <div className={styles.metaContent}>
-            
-            <div className={styles.list}>
-              <span className={styles.listDetail}>작가:</span>
-              <span className={styles.listDetail}>전시기간:</span>
-              <span className={styles.listDetail}>카테고리:</span>
-            </div>
-            
-            <div className={styles.content}>
-              <span className={styles.listDetail}>{reviewSelected.author.nickname}</span>
-              <span className={styles.listDetail}>{reviewSelected.start_date} ~ {reviewSelected.end_date}</span>
-              <div className={styles.tagList}> 
-                {JSON.parse(reviewSelected.genre_hashtags).map(el=> <span className={styles.tag}>{el}</span>)}
-              </div>
-            </div>  
-
-          </div>
-        </div>
-      </div>
-      
       <span className={styles.review}>리뷰</span>
       
       <ul className={styles.replies}>
-        
         <div className={styles.replyBox}>
           <input className={styles.reply} 
           placeholder="로그인하셔야 리뷰를 작성할 수 있습니다" 
@@ -99,7 +111,7 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
         </div>
         
         <div className={styles.replyCount}>
-          총 {replyList.length}개</div>
+          총 {replyCount.length}개</div>
         {replyList.map(el => 
         <Reply
           isLogin={isLogin} 
@@ -108,8 +120,11 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
           userinfo={userinfo}
         />
         )}
-      
-
+        {isLoading ?
+        <div className={styles.loading}>
+          <img className={styles.loadingImg} src="../../../images/loading.gif" alt="loading"/>
+        </div>
+        : null}
       </ul>
 
       {loginModal? (

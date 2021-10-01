@@ -9,12 +9,12 @@ const Loader = () => {
   return <Html center>{progress}% loaded</Html>;
 }
 
-const Model = () => {
-  const gltf = useLoader(GLTFLoader, "./scene1/scene.gltf");
+const Model = ({ threeDSelected} ) => {
+  const gltf = useLoader(GLTFLoader, `./scene${threeDSelected}/scene.gltf`);
   return <primitive object={gltf.scene} scale={1} />;
 };
 
-const ThreeDDetail = ({ modal }) => {
+const ThreeDDetail = ({ modal, threeDSelected }) => {
 
   const [showContent, setContent] = useState(true); 
 
@@ -22,9 +22,9 @@ const ThreeDDetail = ({ modal }) => {
     if(modal){
 
     } else{
-    setContent(true);
+    setContent(true); //'esc입력하세요'메세지 fadein
     setTimeout(()=> {
-      setContent(false);
+      setContent(false); //'esc입력하세요'메세지 fadeout
     }, 2000)
     }
   }, [modal]);
@@ -46,7 +46,7 @@ const ThreeDDetail = ({ modal }) => {
           <pointLight position={[0, 0, -50]} intensity={0.4} />
           <pointLight position={[50, 0, 0]} intensity={0.4} />
 
-          <Model />
+          <Model threeDSelected={threeDSelected}/>
           <OrbitControls />
 
         </Suspense>

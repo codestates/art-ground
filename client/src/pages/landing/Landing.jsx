@@ -57,7 +57,7 @@ const Landing = () => {
       scaleY: 0,
       ease: "power3.inOut",
       transformOrigin:"0% -100%", 
-      delay: 2.4
+      delay: 2
   });
     tl.from(contentRef.current, {
       duration: 2,
@@ -72,7 +72,7 @@ const Landing = () => {
       duration: 2,
       y: "-100%",
       ease: "power3.inOut",
-      delay: 8.5,
+      delay: 8,
     });
 
   }, [])
