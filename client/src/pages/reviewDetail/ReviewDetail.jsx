@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Reply from '../../components/reply/Reply';
 import styles from './ReviewDetail.module.css';
 import { deleteReview, getReplyList, postReview } from '../../api/reviewApi';
@@ -10,20 +10,57 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
 
   const [reply, setReply] = useState('');
   const [loginModal, setLoginModal] = useState(false);
-  const [replyList, setReplyList] = useState([]);
+
+  const [replyList, setReplyList] = useState([]); //랜더링할 데이터(스크롤할 때마다 +)
+  const [hiddenReplyList, setHiddenReplyList] = useState([]); //랜더링하기 전 숨겨놓는 데이터(스크롤 할 때마다 -)
+  const [replyCount, setReplyCount] = useState([]); //리뷰 개수 랜더링용(스크롤에 상관없이 고정)
+  const [isLoading, setIsLoading] = useState(true);
 
   const [rerender, setRerender] = useState(false);
 
-
-  useEffect(() => { //해당 전시회의 댓글(배열) GET요청
-    async function getAxiosData(){
-      setReplyList(await getReplyList(reviewSelected.id));
-      console.log(await getReplyList(reviewSelected.id))
+  const fetchMoreData = async () => {
+    if(hiddenReplyList.length !== 0){ //안보여준 댓글이 남아있을 때만
+      console.log('데이터 fetch')
+      setIsLoading(true);
+      setTimeout(()=> {
+        setReplyList(replyList.concat(hiddenReplyList.slice(0, 3)));
+        setHiddenReplyList(hiddenReplyList.slice(3));
+        setIsLoading(false);
+      }, 700)
     }
+  }
+
+  const _infiniteScroll = useCallback(()=> {
+    let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+    let scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+    let clientHeight = document.documentElement.clientHeight;
+    scrollHeight -= 100;
+    if(scrollTop+clientHeight >= scrollHeight && isLoading === false){
+      console.log('스크롤 작동')
+      fetchMoreData();
+    }
+  }, [isLoading])
+
+
+  const getFetchData = async() => {
+    let result = await getReplyList(reviewSelected.id);
+    setReplyCount(await getReplyList(reviewSelected.id));//전체 댓글 개수 랜더링
+    setReplyList(result.slice(0, 3)); //최초에 3개만 보여주고
+    result = result.slice(3);
+    setHiddenReplyList(result); //최초 3개 보여줬으니 안 보여준 나머지만 저장.
+    setIsLoading(false);
+  } 
+
+  useEffect(() => { //해당 전시회의 댓글(배열) GET요청. 페이지최초랜더링(+댓글 등록/삭제)때에만 작동
     setTimeout(()=> {
-      getAxiosData();
+      getFetchData();
     }, 100)
   }, [rerender])
+
+  useEffect(()=> {
+    window.addEventListener('scroll', _infiniteScroll, true);
+    return () => window.removeEventListener('scroll', _infiniteScroll, true); 
+  }, [_infiniteScroll])
 
 
   const createReply = () => {
@@ -99,7 +136,7 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
         </div>
         
         <div className={styles.replyCount}>
-          총 {replyList.length}개</div>
+          총 {replyCount.length}개</div>
         {replyList.map(el => 
         <Reply
           isLogin={isLogin} 
@@ -108,6 +145,11 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
           userinfo={userinfo}
         />
         )}
+        {isLoading ?
+        <div className={styles.loading}>
+          <img className={styles.loadingImg} src="../../../images/loading.gif" alt="loading"/>
+        </div>
+        : null}
       
 
       </ul>

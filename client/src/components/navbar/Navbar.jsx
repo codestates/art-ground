@@ -31,7 +31,7 @@ const Navbar = ({ isLogin, handleLogout, isAdmin, setModalOpen }) => {
 
   const handleFollow = () => {
     setScrollY(window.pageYOffset);
-    if (ScrollY > 50) {
+    if (ScrollY > 0) {
       setNavStatus(true);
     } else {
       setNavStatus(false);
