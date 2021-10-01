@@ -70,6 +70,7 @@ function App() {
 
   const [gallerySelected, setGallerySelected] = useState(null);
   const [reviewSelected, setReviewSelected] = useState(null);
+  const [threeDSelected, setThreeDSelected] = useState(null);
 
   return (
     <ScrollTop>
@@ -209,7 +210,9 @@ function App() {
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
           />
-          <GalleryDetail gallerySelected={gallerySelected} />
+          <GalleryDetail 
+          gallerySelected={gallerySelected} 
+          handle3dExhibition={(el) => setThreeDSelected(el)}/>
           <ScrollButton />
         </Route>
         <Route path="/reviewlist">
@@ -249,11 +252,15 @@ function App() {
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
           />
-          <Register userinfo={userinfo} isLogin={isLogin} />
+          <Register 
+          userinfo={userinfo} 
+          isLogin={isLogin} />
           <ScrollButton />
         </Route>
         <Route path="/3dgallery">
-          <ThreeDGallery />
+          <ThreeDGallery 
+          threeDSelected={threeDSelected}
+          />
         </Route>
         <Route exact path="/modify">
           <Navbar
@@ -264,7 +271,10 @@ function App() {
             setModalOpen={setModalOpen}
           />
           {modifyRender ? (
-            <Modify userinfo={userinfo} setUserinfo={setUserinfo} />
+            <Modify 
+            userinfo={userinfo} 
+            setUserinfo={setUserinfo} 
+            />
           ) : (
             <Loading />
           )}
@@ -281,7 +291,10 @@ function App() {
           <Contact />
         </Route>
         <Route exact path="/admin">
-          <Admin isAdmin={isAdmin} setisAdmin={setisAdmin} />
+          <Admin 
+          isAdmin={isAdmin} 
+          setisAdmin={setisAdmin} 
+          />
         </Route>
       </Switch>
     </ScrollTop>

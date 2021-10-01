@@ -5,7 +5,7 @@ import GallerySlider from '../../components/gallerySlider/GallerySlider';
 import PurchaseModal from '../../components/modals/PurchaseModal';
 import styles from './GalleryDetail.module.css';
 
-const GalleryDetail = ({ gallerySelected }) => {
+const GalleryDetail = ({ gallerySelected, handle3dExhibition }) => {
 
   //gallerySelected--> 전시회 정보
   const sliderNum = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -70,7 +70,9 @@ const GalleryDetail = ({ gallerySelected }) => {
 
       {gallerySelected.exhibit_type ===2 ?
       <Link to="/3dgallery"> 
-        <div className={styles.threeDBtn}>3D 전시관 둘러보기</div>
+        <div className={styles.threeDBtn} 
+        onClick={()=> handle3dExhibition(gallerySelected.id)}
+        >3D 전시관 둘러보기</div>
       </Link>
       : null}
 

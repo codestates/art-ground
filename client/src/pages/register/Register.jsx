@@ -168,9 +168,6 @@ const Register = ({ userinfo, isLogin }) => {
       type="text" value={title} onChange={handleTitle}/>
 
       <div className={styles.categoryName}>전시 시작일</div>
-      {/* <input className={styles.textInput} 
-      type="text" placeholder="전시 시작일은 신청일로부터 7일 이후 날짜로 설정 가능합니다." 
-      value={startDate} onChange={handleStartDate}/> */}
       <DatePicker 
       selected={startDate} 
       onChange={el => handleStartDate(el)} 
@@ -181,9 +178,6 @@ const Register = ({ userinfo, isLogin }) => {
       />
 
       <div className={styles.categoryName}>전시 마감일</div>
-      {/* <input className={styles.textInput} 
-      type="text" placeholder="최대 전시 가능한 기간은 90일입니다." 
-      value={endDate} onChange={handleEndDate}/> */}
       <DatePicker 
       selected={endDate} 
       onChange={el => handleEndDate(el)} 
@@ -254,7 +248,7 @@ const Register = ({ userinfo, isLogin }) => {
             onChange={e => handleArtImg(el, e)}
             ></input>
             <img className={styles.artImg} src={
-            arts[Number(el-1)].img || "https://husmen.xyz/portfolio/scope-timer/featured.png"
+            arts[Number(el-1)].img || "../../../images/noImage.png"
             }
             alt="art_img"/>
           </div>

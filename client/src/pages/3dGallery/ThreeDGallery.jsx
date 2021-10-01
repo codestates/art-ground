@@ -3,7 +3,7 @@ import ThreeDDetail from '../../components/3dDetail/ThreeDDetail';
 import ThreeDModal from '../../components/modals/ThreeDModal';
 
 
-const ThreeDGallery = (props) => {
+const ThreeDGallery = ({threeDSelected}) => {
 
   const [modalOpen, setModalOpen] = useState(true);
   
@@ -26,7 +26,10 @@ const ThreeDGallery = (props) => {
 
   return (
     <> 
-      <ThreeDDetail modal={modalOpen}/>
+      <ThreeDDetail 
+      threeDSelected={threeDSelected} 
+      modal={modalOpen}
+      />
       {modalOpen?
       <ThreeDModal closeModal={closeModal}/>
       : null}
