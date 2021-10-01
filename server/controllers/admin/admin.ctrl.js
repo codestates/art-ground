@@ -1,4 +1,9 @@
-const { exhibition, comments, images, users } = require("../../models");
+const {
+  exhibition,
+  comments,
+  images,
+  users: userModel,
+} = require("../../models");
 const { isAuthorized } = require("../../utils/tokenFunction");
 
 module.exports = {
@@ -7,19 +12,15 @@ module.exports = {
     console.log("userInfo:", userInfo);
     try {
       if (userInfo.user_type === 3) {
-        // comments
-        let commentsData = await comments.findAll();
-        let user_ids = commentsData.map((el) => el.dataValues.user_id);
-        user_ids = user_ids.sort((a, b) => a - b);
-        user_ids = [...new Set(user_ids)];
-        console.log("user_ids", user_ids);
-
-        // users(리뷰 작성자)
-        let userData = await users.findAll({
-          attributes: ["id", "user_email", "nickname"],
-          where: {
-            id: user_ids,
-          },
+        // comments x users
+        let commentsData = await comments.findAll({
+          include: [
+            {
+              attributes: ["id", "user_email", "nickname"],
+              model: userModel,
+              as: "user",
+            },
+          ],
         });
 
         let exhibition_ids = commentsData.map(
@@ -27,7 +28,7 @@ module.exports = {
         );
         exhibition_ids = exhibition_ids.sort((a, b) => a - b);
         exhibition_ids = [...new Set(exhibition_ids)];
-        console.log("exhibition_ids", exhibition_ids);
+        // console.log("exhibition_ids", exhibition_ids);
 
         // exhibition
         let exhibitionData = await exhibition.findAll({
@@ -47,10 +48,10 @@ module.exports = {
         let author_ids = exhibitionData.map((el) => el.dataValues.author_id);
         author_ids = author_ids.sort((a, b) => a - b);
         author_ids = [...new Set(author_ids)];
-        console.log("author_ids", author_ids);
+        // console.log("author_ids", author_ids);
 
         // author
-        let authorData = await users.findAll({
+        const authorData = await userModel.findAll({
           attributes: ["id", "nickname"],
           where: {
             id: author_ids,
@@ -58,25 +59,13 @@ module.exports = {
         });
 
         // image
-        let imgData = await images.findAll({
+        const imgData = await images.findAll({
           attributes: ["exhibition_id", "image_urls"],
           where: {
             exhibition_id: exhibition_ids,
           },
         });
-        console.log("img-------", imgData);
 
-        // comments x users
-        for (let e = 0; e < commentsData.length; e++) {
-          for (let f = 0; f < userData.lengh; f++) {
-            const commentsEl = commentsData[e].dataValues;
-            if ((commentsEl.user_id = userData[f].dataValues.id)) {
-              const { user_email, nickname } = userData[f].dataValues;
-              commentsEl.user_email = user_email;
-              commentsEl.user_nickname = nickname;
-            }
-          }
-        }
         // exhibition x authors
         for (let g = 0; g < exhibitionData.length; g++) {
           for (let h = 0; h < authorData.length; h++) {
@@ -120,6 +109,8 @@ module.exports = {
             }
           }
         }
+        commentsData = commentsData.map((el) => el.dataValues);
+        console.log("data------", commentsData[2]);
         res.status(200).json({ data: commentsData });
       } else {
         res.status(401).json({
