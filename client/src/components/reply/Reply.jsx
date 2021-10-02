@@ -9,7 +9,9 @@ const Reply = ({ deleteReply, reply, isLogin, userinfo }) => {
   return (
     <li className={styles.reply}>
       <div className={styles.imgBox}>
-        <img className={styles.profile}src={reply.user.profile_img || "../../../images/profile.jpeg"} alt="profilePic"/>
+        <img className={styles.profile} 
+        src={reply.user.profile_img || "../../../images/profile.jpeg"} 
+        alt="profilePic"/>
       </div>
       <div className={styles.contentBox}>
         <div className={styles.userAndDate}>

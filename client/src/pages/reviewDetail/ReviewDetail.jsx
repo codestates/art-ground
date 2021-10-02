@@ -15,7 +15,7 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
   const [replyList, setReplyList] = useState([]); //랜더링할 데이터(스크롤할 때마다 +)
   const [hiddenReplyList, setHiddenReplyList] = useState([]); //랜더링하기 전 숨겨놓는 데이터(스크롤 할 때마다 -)
   const [replyCount, setReplyCount] = useState([]); //리뷰 개수 랜더링용(스크롤에 상관없이 고정)
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true); //무한스크롤 시 댓글 로딩
 
   const [rerender, setRerender] = useState(false);
 
