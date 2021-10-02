@@ -92,7 +92,7 @@ const About = () => {
               alt="관람관련 이미지 혹은 아이콘"
             ></img>
             <div>
-              <h3>Exhibition Everywhere</h3>
+              <h3>방구석 관람</h3>
               <p>
                 어디에서든지 갤러리를 관람하세요! <br></br>
                 아트갤러리는 물리적·시간적 장벽을 허물어 <br></br>
@@ -161,7 +161,7 @@ const About = () => {
             data-aos-duration="2000"
           >
             <div>
-              <h3>Sharing review with People</h3>
+              <h3>리뷰 쉐어링</h3>
               <p>
                 갤러리 관람 후, 작품에 대한 나의 생각을 공유하세요!
                 <br></br>
@@ -209,7 +209,7 @@ const About = () => {
                 <span className={styles.revTxt}>elma 님</span>
                 <span className={styles.revTxt}>전시명: 자아성찰</span>
                 <span className={styles.revTxt}>
-                  작가의 자아성찰이 잘 그려졌던 작품이었다. 이런점은 이러했고,
+                  작가의 자아성찰이 잘 그려졌던 작품이었다.이런점은 이러했고,
                   어떤점은 조금 어려운 난해하게 느껴졌던 부분도 있었다. 하지만
                   전반적으로 어쩌구저쩌구 그래서 매우 만족스러운 전시회였다.
                 </span>
@@ -255,9 +255,9 @@ const About = () => {
               alt="대관관련 이미지 혹은 아이콘"
             ></img>
             <div>
-              <h3>Run Your Own Exhibition</h3>
+              <h3>나만의 전시 오픈</h3>
               <p>
-                나만의 오픈갤러리를 열어 귀하의 작품을 전시하세요!<br></br>
+                나만의 오픈갤러리를 열어 아티스트가 되어보세요!<br></br>
                 아트그라운드는 아티스트가 직접 작품을 선보일 수 있는 <br></br>
                 갤러리 공간을 제공합니다.<br></br>
               </p>
