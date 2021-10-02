@@ -3,4 +3,4 @@ module.exports = {
   exhibitionLike: require("./likes").exhibitionLike,
   register: require("./register").register,
   withdrawalLike: require("./withdrawalLike").withdrawalLike,
-};
+}; //

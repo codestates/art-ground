@@ -3,4 +3,4 @@ module.exports = {
   approveExhibitions: require("./approveExhibitions").approveExhibitions,
   closeExhibitions: require("./closeExhibitions").closeExhibitions,
   deleteReviews: require("./deleteReviews").deleteReviews,
-};
+}; //

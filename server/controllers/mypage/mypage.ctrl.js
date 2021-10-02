@@ -5,4 +5,4 @@ module.exports = {
   modifyMyInfo: require("./modify").modifyMyInfo,
   updatePassword: require("./updatePassword").updatePassword,
   withdrawal: require("./withdrawal").withdrawal,
-};
+}; //
