@@ -10,7 +10,6 @@ const CryptoJS = require("crypto-js");
 require("dotenv").config();
 
 axios.defaults.withCredentials = true;
-
 const InfoModify = ({
   userinfo,
   setInfoEditPage,
@@ -83,19 +82,7 @@ const InfoModify = ({
       profileImg: img,
       authorDesc: authDesc,
     };
-
-    infoModify(userData, history);
-    // axios
-    //   .post("https://art-ground.link/mypage", {
-    //     userData,
-    //   })
-    //   .then((result) => {
-    //     console.log(result, "인포수정 응답!");
-    //     if (result.data.message === "profile changed") {
-    //       history.push("/mypage");
-    //     }
-    //   })
-    //   .catch((err) => console.log(err));
+    infoModify(userData, history, setUserinfo);
   };
 
   const cancleClick = () => {
@@ -153,18 +140,20 @@ const InfoModify = ({
             </ul>
           </div>
           {/* 3번박스 */}
-          <div className={styles.authModiBox}>
-            <div className={styles.authTitle}>작가소개</div>
-            <textarea
-              name="textarea"
-              cols="75"
-              rows="15"
-              id="textarea"
-              className={styles.authorText}
-              defaultValue={authDesc}
-              onChange={authDescHandle}
-            />
-          </div>
+          {userinfo.user_type === 2 ? (
+            <div className={styles.authModiBox}>
+              <div className={styles.authTitle}>작가소개</div>
+              <textarea
+                name="textarea"
+                cols="75"
+                rows="15"
+                id="textarea"
+                className={styles.authorText}
+                defaultValue={authDesc}
+                onChange={authDescHandle}
+              />
+            </div>
+          ) : null}
           {/* 4번박스 */}
           <div className={styles.btnModiBox}>
             <button className={styles.btn1} onClick={cancleClick}>
