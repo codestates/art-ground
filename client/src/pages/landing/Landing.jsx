@@ -12,7 +12,7 @@ const Landing = () => {
   const boxRef = useRef(null);
   const contentRef = useRef(null);
  
-  const txt = 'an author + audience = "authience"';
+  const txt = 'an artist + audience = "artience"';
   const [Text, setText] = useState('');
   const [Count, setCount] = useState(0);
   
