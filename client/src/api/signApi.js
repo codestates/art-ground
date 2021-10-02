@@ -25,6 +25,7 @@ export function getSignOutRes(setUserinfo, setIsLogin, setisAdmin) {
         setUserinfo(null);
         setIsLogin(false);
         setisAdmin(false);
+        localStorage.removeItem("isLogin");
       }
     })
     .catch((err) => console.log(err.status));

@@ -28,8 +28,6 @@ import { getMyinfo } from "./api/mypageApi";
 import ScrollTop from "./components/scrollTop/ScrollTop";
 import GoLoginModal from "./components/modals/GoLoginModal";
 
-
-
 function App() {
   const history = useHistory();
   // 가입,로그인(page)
@@ -46,23 +44,30 @@ function App() {
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
+    if (localStorage.getItem("isLogin")) {
+      setIsLogin(true);
+    } else {
+      window.localStorage.setItem("isLogin", false);
+    }
     setTimeout(() => {
       setModifyRender(true);
     }, 500);
   }, []);
 
-  const isAuthenticated = (info) => {
-    getMyinfo(setIsLogin, setUserinfo, setisAdmin, isLogin);
+  const isAuthenticated = () => {
+    getMyinfo(setUserinfo, setisAdmin);
   };
 
-  const handleResponseSuccess = (info) => {
-    isAuthenticated(info);
+  const handleResponseSuccess = () => {
+    isAuthenticated();
+    setIsLogin(true);
+    window.localStorage.setItem("isLogin", "true");
     history.push("/about");
   };
 
   useEffect(() => {
     isAuthenticated();
-  }, []);
+  }, [isLogin]);
 
   const handleLogout = () => {
     getSignOutRes(setUserinfo, setIsLogin, setisAdmin, isLogin);
@@ -211,9 +216,10 @@ function App() {
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
           />
-          <GalleryDetail 
-          gallerySelected={gallerySelected} 
-          handle3dExhibition={(el) => setThreeDSelected(el)}/>
+          <GalleryDetail
+            gallerySelected={gallerySelected}
+            handle3dExhibition={(el) => setThreeDSelected(el)}
+          />
           <ScrollButton />
         </Route>
         <Route path="/reviewlist">
@@ -253,15 +259,11 @@ function App() {
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
           />
-          <Register 
-          userinfo={userinfo} 
-          isLogin={isLogin} />
+          <Register userinfo={userinfo} isLogin={isLogin} />
           <ScrollButton />
         </Route>
         <Route path="/3dgallery">
-          <ThreeDGallery 
-          threeDSelected={threeDSelected}
-          />
+          <ThreeDGallery threeDSelected={threeDSelected} />
         </Route>
         <Route exact path="/modify">
           <Navbar
@@ -272,10 +274,7 @@ function App() {
             setModalOpen={setModalOpen}
           />
           {modifyRender ? (
-            <Modify 
-            userinfo={userinfo} 
-            setUserinfo={setUserinfo} 
-            />
+            <Modify userinfo={userinfo} setUserinfo={setUserinfo} />
           ) : (
             <Loading />
           )}
@@ -292,10 +291,7 @@ function App() {
           <Contact />
         </Route>
         <Route exact path="/admin">
-          <Admin 
-          isAdmin={isAdmin} 
-          setisAdmin={setisAdmin} 
-          />
+          <Admin isAdmin={isAdmin} setisAdmin={setisAdmin} />
         </Route>
       </Switch>
     </ScrollTop>

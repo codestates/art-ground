@@ -1,9 +1,10 @@
 import styles from "./Modify.module.css";
 import { useHistory } from "react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import InfoModify from "../../components/infoModify/InfoModify";
 import PassModify from "../../components/passModify/PassModify";
+import axios from "axios";
 
 require("dotenv").config();
 
