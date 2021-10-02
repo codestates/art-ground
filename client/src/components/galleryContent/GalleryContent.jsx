@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styles from "./GalleryContent.module.css";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { createLike, deleteLike } from "../../api/galleryApi";
 
