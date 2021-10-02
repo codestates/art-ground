@@ -1,6 +1,3 @@
-import React from "react";
-import styles from "./ArtDetail.module.css";
-
 const ArtDetail = ({ art, handleClose }) => {
   return (
     <section className={styles.container}>

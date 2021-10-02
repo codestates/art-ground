@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export async function createExhibition(
   title,
   startDate,
