@@ -19,6 +19,12 @@ module.exports.register = async (req, res) => {
       images,
     } = req.body;
 
+    const redisKey =
+      exhibit_type === undefined
+        ? "allExhibition"
+        : exhibit_type === 1
+        ? "standard"
+        : "premium";
     if (
       title &&
       genre_hashtags &&

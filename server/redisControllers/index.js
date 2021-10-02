@@ -56,13 +56,12 @@ router.delete("/mypage", withdrawal);
 
 router.patch("/mypage/password", updatePassword);
 
-
 // exhibition
 router.post("/exhibition/register", register);
 router.get("/exhibition/:type", getExhibition);
 router.get("/exhibition", getExhibition);
 router.post("/exhibition/like", exhibitionLike);
-router.delete("/exhibition/like/:postId", withdrawalLike);
+router.delete("/exhibition/like/:postId/:type", withdrawalLike);
 
 //review
 router.get("/review/:postId", getDetailReview);

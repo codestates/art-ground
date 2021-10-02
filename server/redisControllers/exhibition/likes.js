@@ -15,24 +15,24 @@ module.exports.exhibitionLike = async (req, res) => {
     const redisKey =
       exhibit_type === undefined
         ? "allExhibition"
-        : exhibit_type === "1"
+        : exhibit_type === 1
         ? "standard"
         : "premium";
     //exhibit_type 도 추가로 받아야 한다.
     //getCache
-    //캐싱 데이터에서 id = exhibition_id 인 데이터 찾아서
+    //캐싱 데이터에서
     //data[n].likes.push({data})
     //setCache
     const reply = await getCached(redisKey);
 
     if (reply) {
-      const data = reply.map((el) => {
-        return el.id === exhibition_id
-          ? el.likes.push({ exhibition_id, user_id })
-          : true;
+      reply.some((el) => {
+        if (el.id === exhibition_id) {
+          el.likes.push({ exhibition_id, user_id });
+        }
       });
 
-      caching(redisKey, data);
+      caching(redisKey, reply);
       res.status(201).json({
         message: "successfully add like",
       });

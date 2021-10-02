@@ -20,10 +20,12 @@ module.exports.getExhibition = async (req, res) => {
 
   //캐시 확인 과정
   const reply = await getCached(redisKey);
-  console.log(reply);
+
   if (reply) {
     //캐시가 존재한다.
     const data = reply;
+    console.log(typeof data);
+
     res.status(200).json({ data });
   } else {
     //캐시가 존재하지 않음
@@ -52,7 +54,7 @@ module.exports.getExhibition = async (req, res) => {
         ],
       });
       const data = result.map((el) => el.dataValues);
-      caching(redisKey, JSON.stringify(data));
+      caching(redisKey, data);
       res.status(200).json({ data });
     } else {
       const result = await exhibitionModel.findAll({
@@ -84,7 +86,7 @@ module.exports.getExhibition = async (req, res) => {
       });
 
       const data = result.map((el) => el.dataValues);
-      caching(redisKey, JSON.stringify(data));
+      caching(redisKey, data);
       res.status(200).json({ data });
     }
   }
