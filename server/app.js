@@ -22,8 +22,6 @@ class App {
 
   setMiddleWare() {
     // 미들웨어 셋팅
-    // https redirecting
-
     this.app.use(logger("dev"));
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: false }));
