@@ -86,18 +86,20 @@ const ReviewList = ({ selectReview }) => {
       </div>
 
       <ul className={styles.reviews}>
-        {search !=='' && galleryList.length!==0 ? 
-        <div className={styles.result}>총 {galleryList.length}개의 전시회가 검색되었습니다.</div>
-        :null}
         {search !== '' && galleryList.length === 0 ?
-        <div className={styles.result}>검색결과가 없습니다!</div>:
+        <div className={styles.result}>검색결과가 없습니다!</div>
+        : search !=='' && galleryList.length !== 0 ?
+        <div className={styles.result}>총 {galleryList.length}개의 전시회가 검색되었습니다.</div>
+        : null}
+        {galleryList.length !==0 ? 
         galleryList
         .map((el) => (
           <Review
           selectReview={selectReview} 
           exhibition={el}
           />
-        )) }
+        ))
+        : null}
       </ul>
     </section>
   )
