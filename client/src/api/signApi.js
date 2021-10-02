@@ -8,7 +8,7 @@ export function getSigninRes(
 ) {
   //art-ground.link
   return axios
-    .post("https://localhost:5000/sign-in", userData)
+    .post("https://art-ground.link/sign-in", userData)
     .then((result) => {
       if (result.data === "AccessToken ready") {
         handleResponseSuccess(result);
@@ -19,7 +19,7 @@ export function getSigninRes(
 export function getSignOutRes(setUserinfo, setIsLogin, setisAdmin) {
   //art-ground.link
   return axios
-    .post("https://localhost:5000/sign-out")
+    .post("https://art-ground.link/sign-out")
     .then((result) => {
       if (result.status === 205) {
         setUserinfo(null);
@@ -33,7 +33,7 @@ export function getSignOutRes(setUserinfo, setIsLogin, setisAdmin) {
 export function getSingupAudRes(userData, setErrorMessage, history) {
   return (
     axios
-      .post("https://localhost:5000/sign-up/user", userData)
+      .post("https://art-ground.link/sign-up/user", userData)
       //.post("https://art-ground.link/sign-up/user", userData)
       .then((result) => {
         if (result.data.message === "sign-up ok") {
@@ -50,7 +50,7 @@ export function getSingupAudRes(userData, setErrorMessage, history) {
 export function getSingupAuthRes(userData, setErrorMessage, history) {
   return (
     axios
-      .post("https://localhost:5000/sign-up/author", userData)
+      .post("https://art-ground.link/sign-up/author", userData)
       //.post("https://art-ground.link/sign-up/author", userData)
       .then((result) => {
         if (result.data.message === "sign-up ok") {
