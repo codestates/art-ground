@@ -52,7 +52,7 @@ export function deleteAccount(setUserinfo, setIsLogin, history) {
       console.log(result, "탈퇴!");
       setUserinfo(null);
       setIsLogin(false);
-      history.push("./about");
+      history.push("/about");
     })
     .catch((err) => console.log(err));
 }
