@@ -4,7 +4,7 @@ export async function getAllGallery(sortValue, search){ //standard, premium 모�
 
   try {
     const res = await axios.get(
-      "https://art-ground.link/review" 
+      "https://localhost:5000/review" 
     );
     if(search === ''){ //검색 안 할 때
       if(sortValue === '최신순'){
@@ -32,7 +32,7 @@ export async function getReplyList(postId){
 
   try {
     const res = await axios.get(
-    `https://art-ground.link/review/${postId}`
+    `https://localhost:5000/review/${postId}`
     );
     //console.log(res)
     return res.data.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
@@ -45,8 +45,8 @@ export async function getReplyList(postId){
 export async function postReview(reply, postId){ 
 
   try {
-    const res = await axios.post(
-      "https://art-ground.link/review",
+    await axios.post(
+      "https://localhost:5000/review",
       {
         postId: postId,
         comments: reply
@@ -58,12 +58,11 @@ export async function postReview(reply, postId){
 }
 
 
-
 export async function deleteReview(commentsId){
 
   try {
-    const res = await axios.delete(
-      `https://art-ground.link/review/${commentsId}`);
+    await axios.delete(
+      `https://localhost:5000/review/${commentsId}`);
     //console.log(res);
   } catch (err) {
     return console.log(err.message);

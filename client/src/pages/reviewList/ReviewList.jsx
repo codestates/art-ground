@@ -17,7 +17,6 @@ const ReviewList = ({ selectReview }) => {
     //standard, premium gallery, 마감된 전시 모두 모아서 setGalleryList에 넣기.
     async function getAxiosData(){
       setGalleryList(await getAllGallery(sortValue, search));
-      console.log(await getAllGallery())
     }
     setTimeout(()=> {
       getAxiosData();
@@ -38,7 +37,6 @@ const ReviewList = ({ selectReview }) => {
   }
   const handleSearchButton = () => {
     setSearch(searchWord); //엔터나 클릭 시 검색어 전달
-    // setSearchWord()); //검색완료 시 검색어창은 비워주기 
   }
 
   const handleSort = (e) => { //정렬

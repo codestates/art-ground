@@ -1,62 +1,117 @@
-const { exhibition } = require("../../models");
-const { comments } = require("../../models");
-const { images } = require("../../models");
+const {
+  exhibition,
+  comments,
+  images,
+  users: userModel,
+} = require("../../models");
 const { isAuthorized } = require("../../utils/tokenFunction");
 
 module.exports = {
-  // exhibition: title, author_id(users.id), start_date, end_date
-  // images: image_urls(exhibition_id:exhibition.id)
   getAllReviews: async (req, res) => {
     const userInfo = isAuthorized(req);
     console.log("userInfo:", userInfo);
     try {
       if (userInfo.user_type === 3) {
-        const data = await comments.findAll();
-        console.log("data:", data);
-        res.status(200).json({ data: data });
-      } else {
-        res.status(401).json({
-          message: "invalid access token",
-        });
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  },
-  getExhibitionInfo: async (req, res) => {
-    const userInfo = isAuthorized(req);
-    console.log("userInfo:", userInfo);
-
-    const test = await exhibition.findByPk(32);
-    console.log("test:", test);
-    /*
-      1. params로 json.stringify한 exhibition pk들 받아서 json.parse
-      2. 파싱 시킨 json에서 받은 pk에 해당하는 exhibition title, author_id(users.id), start_date, end_date 찾아서 data 변수에 담아두기
-      3. 파싱 시킨 json에서 받은 pk에 해당하는 images.image_urls 찾아서 data 변수에 합치고 return
-    */
-    try {
-      if (userInfo.user_type === 3) {
-        const { exhibitionPk } = req.query;
-        const parsedData = JSON.parse(exhibitionPk);
-        let dataArr = [];
-        for (let i = 0; i < parsedData.length; i++) {
-          let data = {};
-          let findData = await exhibition.findByPk(parsedData[i]);
-          data.id = parsedData[i];
-          data.title = findData.title;
-          data.author_id = findData.author_id;
-          data.start_date = findData.start_date;
-          data.end_date = findData.end_date;
-
-          let findImg = await images.findOne({
-            where: {
-              exhibition_id: parsedData[i],
+        // comments x users
+        let commentsData = await comments.findAll({
+          include: [
+            {
+              attributes: ["id", "user_email", "nickname"],
+              model: userModel,
+              as: "user",
             },
-          });
-          data.image_urls = findImg.image_urls;
-          dataArr.push(data);
+          ],
+        });
+
+        let exhibition_ids = commentsData.map(
+          (el) => el.dataValues.exhibition_id
+        );
+        exhibition_ids = exhibition_ids.sort((a, b) => a - b);
+        exhibition_ids = [...new Set(exhibition_ids)];
+        // console.log("exhibition_ids", exhibition_ids);
+
+        // exhibition
+        let exhibitionData = await exhibition.findAll({
+          attributes: [
+            "id",
+            "author_id",
+            "title",
+            "start_date",
+            "end_date",
+            "status",
+          ],
+          where: {
+            id: exhibition_ids,
+          },
+        });
+
+        let author_ids = exhibitionData.map((el) => el.dataValues.author_id);
+        author_ids = author_ids.sort((a, b) => a - b);
+        author_ids = [...new Set(author_ids)];
+        // console.log("author_ids", author_ids);
+
+        // author
+        const authorData = await userModel.findAll({
+          attributes: ["id", "nickname"],
+          where: {
+            id: author_ids,
+          },
+        });
+
+        // image
+        const imgData = await images.findAll({
+          attributes: ["exhibition_id", "image_urls"],
+          where: {
+            exhibition_id: exhibition_ids,
+          },
+        });
+
+        // exhibition x authors
+        for (let g = 0; g < exhibitionData.length; g++) {
+          for (let h = 0; h < authorData.length; h++) {
+            const exhibitEl = exhibitionData[g].dataValues;
+            if (exhibitEl.author_id === authorData[h].dataValues.id) {
+              exhibitEl.author_name = authorData[h].dataValues.nickname;
+            }
+          }
         }
-        res.status(200).json({ data: dataArr, message: "ok" });
+        // comments x exhibition
+        for (let i = 0; i < commentsData.length; i++) {
+          for (let j = 0; j < exhibitionData.length; j++) {
+            const commentsEl = commentsData[i].dataValues;
+            if (commentsEl.exhibition_id === exhibitionData[j].dataValues.id) {
+              const {
+                title,
+                author_id,
+                start_date,
+                end_date,
+                status,
+                author_name,
+              } = exhibitionData[j].dataValues;
+              commentsEl.title = title;
+              commentsEl.author_id = author_id;
+              commentsEl.start_date = start_date;
+              commentsEl.end_date = end_date;
+              commentsEl.status = status;
+              commentsEl.author_name = author_name;
+            }
+          }
+          // comments x image
+          for (let k = 0; k < imgData.length; k++) {
+            const commentsEl = commentsData[i].dataValues;
+            if (
+              commentsEl.exhibition_id === imgData[k].dataValues.exhibition_id
+            ) {
+              commentsEl.image_urls = imgData[k].dataValues.image_urls;
+              break;
+            } else {
+              continue;
+            }
+          }
+        }
+        commentsData = commentsData.map((el) => el.dataValues);
+        console.log("data------", commentsData[2]);
+        res.status(200).json({ data: commentsData });
       } else {
         res.status(401).json({
           message: "invalid access token",

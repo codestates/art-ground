@@ -1,6 +1,9 @@
 @value Black, White from '../../common/colors.css';
 @value Container from '../../common/size.css';
 
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+/*font-family: 'Do Hyeon', sans-serif;*/
+
 span {
   display: block;
 }
@@ -44,27 +47,16 @@ span {
   margin-top: 5px;
 }
 .title {
+  font-family: "Do Hyeon", sans-serif;
+
   text-indent: 10px;
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 1.5rem;
 }
-.author {
-  text-indent: 10px;
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-.author {
-  height: 1.5rem;
-  display: flex;
-  align-items: center;
-  text-indent: 10px;
-  font-size: 0.8rem;
-}
+
 .comments {
-  line-height: 120px;
+  font-family: "Do Hyeon", sans-serif;
   text-indent: 10px;
   padding: 0.3rem 0;
-  font-weight: bold;
 }
 .btnBox {
   width: 100px;

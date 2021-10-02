@@ -6,15 +6,15 @@
   top: 0;
   left: 0;
   z-index: 20;
-  animation: fadein 0.5s;
-  -moz-animation: fadein 0.5s;
-  -webkit-animation: fadein 0.5s;
-  -o-animation: fadein 0.5s;
+  animation: fadein 1s;
+  -moz-animation: fadein 1s;
+  -webkit-animation: fadein 1s;
+  -o-animation: fadein 1s;
 }
 
 .modalWrap {
   position: fixed;
-  top: 45%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
@@ -70,7 +70,7 @@
 @media screen and (max-width: 480px) {
   .modalWrap {
     width: 80%;
-    padding: 4.5rem 1.5rem;
+    padding: 4rem 1.5rem;
     height: 20rem;
   }
   .ok {
@@ -87,6 +87,7 @@
     font-size: 0.75rem;
   }
 }
+/* 모달 section(위) */
 
 @keyframes fadein {
   from {

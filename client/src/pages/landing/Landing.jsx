@@ -57,7 +57,7 @@ const Landing = () => {
       scaleY: 0,
       ease: "power3.inOut",
       transformOrigin:"0% -100%", 
-      delay: 2.4
+      delay: 2
   });
     tl.from(contentRef.current, {
       duration: 2,
@@ -72,7 +72,7 @@ const Landing = () => {
       duration: 2,
       y: "-100%",
       ease: "power3.inOut",
-      delay: 8.5,
+      delay: 8,
     });
 
   }, [])
@@ -106,7 +106,7 @@ const Landing = () => {
         <div class={styles.container}>
           <div ref={boxRef} class={styles.box}></div>
           <div class={styles.imgWrapper}>
-            <img class={styles.img} src="../images/video.gif"/>
+            <img class={styles.img} src="../images/video.gif" alt="landing video"/>
           </div>
         </div>
         <div ref={contentRef} class={styles.title}>

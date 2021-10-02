@@ -37,10 +37,11 @@
 .title {
   font-size: 1.2rem;
   margin-bottom: 1rem;
+  font-weight: bold;
 }
 
 .content {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   margin-bottom: 0.7rem;
   font-style: italic;
 }
@@ -55,11 +56,11 @@
 
 .closeBtn {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 1.5rem;
+  right: 2rem;
   cursor: pointer;
   color: rgb(155, 155, 155);
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   opacity: 0.8;
 }
 
@@ -78,6 +79,7 @@
 @media (orientation: landscape) {
   /* Landscape 모드(가로)일 때 적용할 CSS */
   .img {
+    /* max-width: 80vw; */
     width: auto;
     height: 75%;
   }
@@ -87,16 +89,14 @@
   @media (orientation: portrait) {
     /* Portrait 모드(세로)일 때 적용할 CSS */
     .img {
-      width: 90%;
-      height: auto;
+      width: 80%;
     }
   }
 
   @media (orientation: landscape) {
     /* Landscape 모드(가로)일 때 적용할 CSS */
     .img {
-      width: auto;
-      height: 75%;
+      height: 78%;
     }
   }
   .background {
@@ -107,27 +107,50 @@
   }
   .artMetaData {
     width: 21rem;
-    height: 20%;
+    height: 22%;
     padding: 0.5rem;
-    align-items: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  @media (orientation: portrait) {
+    /* Portrait 모드(세로)일 때 적용할 CSS */
+    .img {
+      width: 95%;
+    }
+  }
+
+  @media (orientation: landscape) {
+    /* Landscape 모드(가로)일 때 적용할 CSS */
+    .img {
+      height: 70%;
+    }
+  }
+  .artMetaData {
+    height: 30%;
   }
 }
 
 @media screen and (max-width: 668px) {
   .title {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     margin-bottom: 0.2rem;
   }
 
   .content {
-    font-size: 0.6rem;
+    font-size: 0.5rem;
     margin-bottom: 0.1rem;
   }
   .subContent {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
   .artMetaData {
     width: 18rem;
+  }
+  .closeBtn {
+    top: 1rem;
+    right: 1.3rem;
+    font-size: 1.4rem;
   }
 }
 

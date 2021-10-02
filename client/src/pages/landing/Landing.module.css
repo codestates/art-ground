@@ -34,14 +34,14 @@
 .title {
   font-family: "IBM Plex Sans KR", sans-serif;
   position: absolute;
-  top: 70%;
-  left: 30%;
+  top: 65%;
+  left: 23%;
   transform: translate(-50%, -50%);
 }
 
 .content1 {
   letter-spacing: -2px;
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 200;
   color: white;
   /* text-align: center; */
@@ -49,7 +49,7 @@
   mix-blend-mode: overlay;
 }
 .content2 {
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   color: white;
   font-weight: 300;
   margin: 0;
@@ -98,7 +98,7 @@
 
 .button {
   font-family: "Poppins", sans-serif;
-  margin: 0 1rem;
+  margin: 0;
   padding: 1rem 2rem;
   font-size: 1.2rem;
   background: transparent;
@@ -128,14 +128,13 @@
 
 @media screen and (max-width: 1024px) {
   .content1 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
   .content2 {
-    font-size: 2.3rem;
+    font-size: 2rem;
     margin-bottom: 1.5rem;
   }
   .button {
-    margin: 0 0.5rem;
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
     width: 9rem;
@@ -147,15 +146,14 @@
     font-size: 1.2rem;
   }
   .title {
-    top: 70%;
-    left: 33%;
+    left: 23%;
   }
 
   .content1 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   .content2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 }
 
@@ -166,7 +164,6 @@
   }
   .title {
     width: 80%;
-    top: 70%;
     left: 50%;
     display: flex;
     flex-direction: column;
@@ -189,5 +186,26 @@
     padding: 0.7rem 1.2rem;
     font-size: 0.9rem;
     width: 7rem;
+  }
+}
+
+@media screen and (max-height: 420px) {
+  .title {
+    left: 22%;
+  }
+
+  .content1 {
+    letter-spacing: -1px;
+    font-size: 0.8rem;
+  }
+  .content2 {
+    letter-spacing: -1px;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  .button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.7rem;
+    width: 5rem;
   }
 }
