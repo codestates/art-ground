@@ -21,3 +21,7 @@ export ART_GROUND_KAKAO_REDIRECT_URI=$(aws ssm get-parameters --region ap-northe
 
 
 authbind --deep pm2 start index.js
+
+cd /home/ubuntu/redis-6.2.5/src
+
+sudo ./redis-server
