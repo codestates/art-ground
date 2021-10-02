@@ -116,7 +116,7 @@ const Navbar = ({ isLogin, handleLogout, isAdmin, setModalOpen }) => {
               styles.moreOpt}
             onClick={handleNavOpen}
           >
-            <i class="fas fa-bars"></i>
+            <i className="fas fa-bars"></i>
           </span>
           {
           pageY>50 ? (
@@ -189,7 +189,7 @@ const Navbar = ({ isLogin, handleLogout, isAdmin, setModalOpen }) => {
             </Link>
           </ul>
           <span className={styles.closeBtn} onClick={handleNavClose}>
-            <i class="fas fa-times"></i>
+            <i className="fas fa-times"></i>
           </span>
         </div>
       </div>

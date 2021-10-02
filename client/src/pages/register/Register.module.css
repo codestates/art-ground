@@ -5,7 +5,7 @@
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
-  padding: 15rem 7rem 5rem 7rem;
+  padding: 15rem 5.5rem 5rem 5.5rem;
   display: flex;
   flex-direction: column;
   color: rgb(66, 66, 66);
@@ -111,28 +111,31 @@ input[type="checkbox"] {
   display: none;
 }
 
-.tagsWrap {
-  margin-bottom: 1.5rem;
-}
-
 .tags {
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  /* margin-bottom: 1.5rem; */
+  margin-bottom: 1.5rem;
+  /* display: flex;
+  align-items: center; */
+}
+.tags span {
+  display: inline;
 }
 
 .hashtag {
+  display: inline;
+  line-height: 2rem;
   cursor: pointer;
   border: 1px solid rgb(210, 210, 210);
   border-radius: 20px;
   padding: 0.3rem 0.8rem;
   font-size: 0.75rem;
   margin-right: 0.3rem;
+  margin-bottom: 1rem;
   white-space: nowrap;
 }
 
 .hashtagClicked {
+  display: inline;
+  line-height: 2rem;
   cursor: pointer;
   border-radius: 20px;
   padding: 0.3rem 0.8rem;

@@ -23,7 +23,7 @@ const ReviewArtInfo = ({reviewSelected}) => {
             <span className={styles.listDetail}>{reviewSelected.author.nickname}</span>
             <span className={styles.listDetail}>{reviewSelected.start_date} ~ {reviewSelected.end_date}</span>
             <div className={styles.tagList}> 
-              {JSON.parse(reviewSelected.genre_hashtags).map(el=> <span className={styles.tag}>{el}</span>)}
+              {JSON.parse(reviewSelected.genre_hashtags).map(el=> <span key={el} className={styles.tag}>{el}</span>)}
             </div>
           </div>  
 

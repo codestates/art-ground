@@ -69,12 +69,12 @@ const ReviewList = ({ selectReview }) => {
         {search !== ''? <button className={styles.deleteIcon}
         onClick={handleDeleteButton}
         >
-          <i class="far fa-times-circle"></i>
+          <i className="far fa-times-circle"></i>
         </button> : null}
         <button className={styles.searchIcon}
         onClick={handleSearchButton}
         >
-          <i class="fas fa-search"></i>
+          <i className="fas fa-search"></i>
         </button>
       </div>
 
@@ -86,18 +86,21 @@ const ReviewList = ({ selectReview }) => {
       </div>
 
       <ul className={styles.reviews}>
-        {search !=='' && galleryList.length!==0 ? 
-        <div className={styles.result}>총 {galleryList.length}개의 전시회가 검색되었습니다.</div>
-        :null}
         {search !== '' && galleryList.length === 0 ?
-        <div className={styles.result}>검색결과가 없습니다!</div>:
+        <div className={styles.result}>검색결과가 없습니다!</div>
+        : search !=='' && galleryList.length !== 0 ?
+        <div className={styles.result}>총 {galleryList.length}개의 전시회가 검색되었습니다.</div>
+        : null}
+        {galleryList.length !==0 ? 
         galleryList
         .map((el) => (
           <Review
+          key={el.id}
           selectReview={selectReview} 
           exhibition={el}
           />
-        )) }
+        ))
+        : null}
       </ul>
     </section>
   )

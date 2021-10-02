@@ -2,11 +2,8 @@
   position: relative;
   animation: fadein 1.5s;
   -moz-animation: fadein 1.5s;
-  /* Firefox */
   -webkit-animation: fadein 1.5s;
-  /* Safari and Chrome */
   -o-animation: fadein 1.5s;
-  /* Opera */
 }
 
 .thumbnail {
@@ -35,11 +32,6 @@
   margin-bottom: -16rem;
 }
 
-/* .titleAndLike {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-} */
 .title {
   margin-top: 0.3rem;
   font-size: 1rem;
