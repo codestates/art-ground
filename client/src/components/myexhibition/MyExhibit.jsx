@@ -16,7 +16,10 @@ const MyExhibit = ({ el }) => {
           <img src={imgurl} alt={imgurlAlt} className={styles.eximg} />
         </div>
         <div className={styles.infoBox}>
-          <div className={styles.title}>전시명 :{el.title}</div>
+          {el.status === 0 ? (
+            <div className={styles.status}>승인 대기중</div>
+          ) : null}
+          <div className={styles.title}>{el.title}</div>
           <div className={styles.title}>{el.author.nickname}</div>
           <div className={styles.date}>
             <span>전시기간:</span>

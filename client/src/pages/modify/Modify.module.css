@@ -58,7 +58,7 @@ span {
 .ProfileView {
   border: 1px solid gainsboro;
   width: 50%;
-  height: 70%;
+  height: 82%;
   border-radius: 50%;
 }
 
@@ -130,6 +130,10 @@ span {
   }
   .passEdit {
     width: 18rem;
+  }
+  .ProfileView {
+    width: 70%;
+    height: 80%;
   }
 }
 

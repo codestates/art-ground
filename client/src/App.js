@@ -27,8 +27,7 @@ import { getSignOutRes } from "./api/signApi";
 import { getMyinfo } from "./api/mypageApi";
 import ScrollTop from "./components/scrollTop/ScrollTop";
 import GoLoginModal from "./components/modals/GoLoginModal";
-
-
+import axios from "axios";
 
 function App() {
   const history = useHistory();
@@ -45,10 +44,25 @@ function App() {
   const [modifyRender, setModifyRender] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
+  //************마이페이지 랜더 작업**************/
+  // console.log(userinfo, "기존 값");
+  // const [editedInfo, setEditedInfo] = useState(null);
+  // const [editedRender, setEditedRender] = useState(false); //인포 받아온 경우 다시 렌더링읠 위함
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     axios.get("https://localhost:5000/mypage").then((result) => {
+  //       console.log(result.data.data.author_desc, "바뀐값이어야함..=========");
+  //       // setEditedInfo(result.data.data);
+  //     });
+  //   }, 1000);
+  // }, [editedRender]);
+  // console.log(editedRender, "렌더값 바뀌나"); //ok잘바뀜
+
+  //****************마이페에지 렌더 끝******************* */
   useEffect(() => {
     setTimeout(() => {
       setModifyRender(true);
-    }, 500);
+    }, 1000);
   }, []);
 
   const isAuthenticated = (info) => {
@@ -170,6 +184,9 @@ function App() {
               setIsLogin={setIsLogin}
               gallerySelected={gallerySelected}
               selectGallery={(el) => setGallerySelected(el)}
+              // editedInfo={editedInfo}
+              // setEditedRender={setEditedRender}
+              // setEditedInfo={setEditedInfo}
             />
           ) : (
             <Loading />
@@ -265,7 +282,14 @@ function App() {
             setModalOpen={setModalOpen}
           />
           {modifyRender ? (
-            <Modify userinfo={userinfo} setUserinfo={setUserinfo} />
+            <Modify
+              userinfo={userinfo}
+              setUserinfo={setUserinfo}
+              // editedInfo={editedInfo}
+              // setEditedRender={setEditedRender}
+              // setEditedInfo={setEditedInfo}
+              // editedRender={editedRender}
+            />
           ) : (
             <Loading />
           )}

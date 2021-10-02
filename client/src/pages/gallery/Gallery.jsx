@@ -37,6 +37,9 @@ const Gallery = ({ isLogin, selectGallery, userinfo }) => {
     }, 700)
   }, [isStandard, tagClicked, sortValue, rerender]); 
 
+
+  
+
   const handleStandard = async () => { //STANDARD, PREMIUM 필터
     if(isStandard){
       setStandard(false);

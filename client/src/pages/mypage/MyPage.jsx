@@ -9,7 +9,7 @@ import Loading from "../../components/loading/Loading";
 import { getMyExhibition, getMyPickExhibiton } from "../../api/mypageApi";
 
 axios.defaults.withCredentials = true;
-const MyPage = ({ userinfo, setUserinfo }) => {
+const MyPage = ({ userinfo, setUserinfo, editedInfo, setEditedRender }) => {
   const [isInfoClicked, setIsInfoClicked] = useState(true);
   const [isPickClicked, setIsPickClicked] = useState(false);
   const [isMyExhibit, setIsMyExhibit] = useState(false);
@@ -64,6 +64,20 @@ const MyPage = ({ userinfo, setUserinfo }) => {
     };
   }, [isPickClicked]);
 
+  //************마이페이지 랜더 작업************* */
+  // console.log(userinfo, "기존 값");
+  // const [editedInfo, setEditedInfo] = useState(null);
+  // const [editedRender, setEditedRender] = useState(false); //인포 받아온 경우 다시 렌더링읠 위함
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     axios.get("https://localhost:5000/mypage").then((result) => {
+  //       console.log(result.data.data, "새로 받아온 값????");
+  //     });
+  //   }, 1000);
+  // });
+
+  //****************마이페에지 렌더 끝******************* */
+
   return (
     <section className={styles.container}>
       <div className={styles.side}>
@@ -85,7 +99,12 @@ const MyPage = ({ userinfo, setUserinfo }) => {
         {isInfoClicked ? (
           <>
             {infoRender ? (
-              <MyInfo userinfo={userinfo} setUserinfo={setUserinfo} />
+              <MyInfo
+                userinfo={userinfo}
+                setUserinfo={setUserinfo}
+                editedInfo={editedInfo}
+               
+              />
             ) : (
               <Loading />
             )}

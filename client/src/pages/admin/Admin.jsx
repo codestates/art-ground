@@ -38,7 +38,6 @@ const Admin = () => {
   // 데이터 상태값
   const [exhibitData, setExhibitData] = useState([]);
   const [reviewData, setReviewData] = useState([]);
-  const [revExData, setRevExData] = useState([]);
 
   useEffect(() => {
     if (exhibition) {
@@ -51,7 +50,7 @@ const Admin = () => {
     if (review) {
       //getAllReviews(setReviewData);
       axios
-        .get("https://localhost:5000/admin/review")
+        .get("https://art-ground.link/admin/review")
         .then((res1) => {
           let firstData = res1.data.data;
           console.log(firstData, "첫번째--------------");
@@ -65,7 +64,7 @@ const Admin = () => {
   useEffect(() => {
     setTimeout(() => {
       setAdExRender(true);
-    }, 1000);
+    }, 700);
   }, []);
 
   const clickUpdate = () => {
@@ -83,6 +82,7 @@ const Admin = () => {
     setDeleteEx(false);
     setDoneEx(true);
   };
+
   //***********무한 스크롤*********** */
   // const [productList, setProductList] = useState([]);
   // const [items, setItems] = useState(10);
@@ -162,6 +162,8 @@ const Admin = () => {
                       updateEx={updateEx}
                       deleteEx={deleteEx}
                       doneEx={doneEx}
+                      setDeleteEx={setDeleteEx}
+                      deleteEx={deleteEx}
                     />
                   );
                 })}

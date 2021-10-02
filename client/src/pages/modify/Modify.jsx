@@ -1,5 +1,5 @@
 import styles from "./Modify.module.css";
-import { useHistory } from "react-router";
+
 import { useState } from "react";
 
 import InfoModify from "../../components/infoModify/InfoModify";
@@ -7,7 +7,14 @@ import PassModify from "../../components/passModify/PassModify";
 
 require("dotenv").config();
 
-const Modify = ({ userinfo, setUserinfo }) => {
+const Modify = ({
+  userinfo,
+  setUserinfo,
+  editedInfo,
+  setEditedInfo,
+  setEditedRender,
+  editedRender,
+}) => {
   const [editFront, setEditFront] = useState(true);
   const [infoEditPage, setInfoEditPage] = useState(false);
   const [passEditPage, setPassEditPage] = useState(false);
@@ -67,6 +74,10 @@ const Modify = ({ userinfo, setUserinfo }) => {
           setInfoEditPage={setInfoEditPage}
           setEditFront={setEditFront}
           setUserinfo={setUserinfo}
+          editedInfo={editedInfo}
+          setEditedRender={setEditedRender}
+          setEditedInfo={setEditedInfo}
+          editedRender={editedRender}
         />
       ) : null}
       {passEditPage ? (

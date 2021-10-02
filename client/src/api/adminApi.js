@@ -3,7 +3,7 @@ import axios from "axios";
 export function getAllExhibition(setExhibitData) {
   //art-ground.link
   return axios
-    .get("https://localhost:5000/exhibition")
+    .get("https://art-ground.link/exhibition")
     .then((result) => {
       //console.log(result.data.data);
       setExhibitData(result.data.data);
@@ -17,7 +17,7 @@ export function getAllExhibition(setExhibitData) {
 export function confirmExhibition(setConfirmModal, el) {
   //art-ground.link
   return axios
-    .post("https://localhost:5000/admin/exhibition", {
+    .post("https://art-ground.link/admin/exhibition", {
       postId: el.id,
     })
     .then((result) => {
@@ -30,7 +30,7 @@ export function confirmExhibition(setConfirmModal, el) {
 export function deleteExhibition(setConfirmModal, el) {
   //art-ground.link
   return axios
-    .delete(`https://localhost:5000/admin/exhibition/${el.id}`)
+    .delete(`https://art-ground.link/admin/exhibition/${el.id}`)
     .then((result) => {
       console.log(result, ":삭제 데이터 ????");
       setConfirmModal(false);
@@ -42,7 +42,7 @@ export function deleteExhibition(setConfirmModal, el) {
 export function getAllReviews(setReviewData) {
   //art-ground.link
   return axios
-    .get("https://localhost:5000/admin/review")
+    .get("https://art-ground.link/admin/review")
     .then((result) => {
       //console.log(result.data.data);
       setReviewData(result.data.data);
@@ -55,7 +55,7 @@ export function getAllReviews(setReviewData) {
 export function getinfiniteData(setProductList, preItems, items, productList) {
   //art-ground.link
   return axios
-    .get("https://localhost:5000/admin/review")
+    .get("https://art-ground.link/admin/review")
     .then((res) => {
       let result = res.data.data.slice(preItems, items);
       setProductList([...productList, ...result]);
@@ -67,7 +67,7 @@ export function getinfiniteData(setProductList, preItems, items, productList) {
 export function deleteReviews(setDeleteModal, el) {
   //art-ground.link
   return axios
-    .delete(`https://localhost:5000/admin/review/${el.id}`)
+    .delete(`https://art-ground.link/admin/review/${el.id}`)
     .then((result) => {
       if (result.data.message === "successfully delete comments") {
         setDeleteModal(false);

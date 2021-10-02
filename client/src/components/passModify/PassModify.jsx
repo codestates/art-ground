@@ -100,14 +100,14 @@ const PassModify = ({
               </li>
               <li className={styles.liEdit}>
                 <input
-                  type="text"
+                  type="password"
                   value={currentPass}
                   placeholder={"현재비밀번호"}
                   className={styles.inputedit}
                   onChange={currentPassHandle}
                 />
                 <input
-                  type="text"
+                  type="password"
                   placeholder={"새 비밀번호"}
                   value={newPassword}
                   className={styles.inputedit}
@@ -115,7 +115,7 @@ const PassModify = ({
                 />
 
                 <input
-                  type="text"
+                  type="password"
                   placeholder={"새 비밀번호를 확인합니다"}
                   value={newPassword2}
                   className={styles.inputedit}

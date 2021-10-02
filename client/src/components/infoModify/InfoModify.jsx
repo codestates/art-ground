@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./InfoModify.module.css";
 import { useHistory } from "react-router";
@@ -16,6 +16,10 @@ const InfoModify = ({
   setInfoEditPage,
   setUserinfo,
   setEditFront,
+  editedInfo,
+  setEditedInfo,
+  setEditedRender,
+  editedRender,
 }) => {
   const history = useHistory();
   const [userMail, setUserMail] = useState(userinfo.user_email);
@@ -84,7 +88,7 @@ const InfoModify = ({
       authorDesc: authDesc,
     };
 
-    infoModify(userData, history);
+    infoModify(userData, history, setEditedRender, editedRender);
     // axios
     //   .post("https://art-ground.link/mypage", {
     //     userData,
@@ -96,6 +100,14 @@ const InfoModify = ({
     //     }
     //   })
     //   .catch((err) => console.log(err));
+    // setEditedRender(!editedRender); //나중에 api 통신 성공시로 이동
+    // setUserinfo(null);
+    // console.log(userinfo, "내정보!!");
+
+    // axios.get("https://localhost:5000/mypage").then((result) => {
+    //   console.log(result.data.data.author_desc, "바뀐값이어야함..=========");
+    //   // setEditedInfo(result.data.data);
+    // });
   };
 
   const cancleClick = () => {

@@ -1,8 +1,7 @@
 import styles from "./MyInfo.module.css";
 import { useHistory } from "react-router";
-import axios from "axios";
 
-const MyInfo = ({ userinfo, setUserinfo, setIsLogin }) => {
+const MyInfo = ({ userinfo, setUserinfo, setIsLogin, editedInfo }) => {
   const history = useHistory();
 
   const modifyCLick = () => {
@@ -10,15 +9,6 @@ const MyInfo = ({ userinfo, setUserinfo, setIsLogin }) => {
   };
   const deleteAccount = () => {
     deleteAccount(setUserinfo, setIsLogin, history);
-    // axios
-    //   .delete("https://art-ground.link/mypage")
-    //   .then((result) => {
-    //     console.log(result, "탈퇴!");
-    //     setUserinfo(null);
-    //     setIsLogin(false);
-    //     history.push("./about");
-    //   })
-    //   .catch((err) => console.log(err));
   };
 
   const img = !userinfo.profile_img
