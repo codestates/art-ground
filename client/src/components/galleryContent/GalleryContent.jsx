@@ -17,6 +17,7 @@ const GalleryContent = ({
   const [isLiked, setLiked] = useState(false);
 
   const history = useHistory();
+
   const goDetailPage = () => { 
     if(!isLogin && exhibition.exhibit_type === 2){
       handleModalPremium();
@@ -26,7 +27,7 @@ const GalleryContent = ({
     } 
   }
   
-  useEffect(()=> { //좋아요 했는지 안 했는지 초기 세팅
+  useEffect(()=> { //좋아요 했는지 안 했는지 확인하여 좋아요 상태값 변동시킴.
     if(isLogin){
       const likeArr = exhibition.likes.filter(el => userinfo.id === el.user_id) 
       if(likeArr.length !==0){ //유저가 해당 gallerycontent컴포넌트를 좋아요 한 것일 때
@@ -35,14 +36,14 @@ const GalleryContent = ({
         setLiked(false); //유저가 해당 gallerycontent컴포넌트를 좋아요 한 게 아닐 때
       }
     }
-  }); //의존성 배열 두면 안 됨.
+    console.log('GalleryContent 컴포넌트 내 좋아요 상태값 확인중')
+  }, [exhibition.likes.length]); 
 
   const handleLike = () => {
     //로그인 한 사람들에게만 작동.
     if (isLiked) {
       // 좋아요 해제
       deleteLike(exhibition.id);
-      //console.log(exhibition.id, 'delete 요청 보냄')
       render();
     } else {
       //좋아요
@@ -68,8 +69,8 @@ const GalleryContent = ({
         
         <div className={styles.likesMeta} onClick={handleLike}>
           {isLiked ? 
-          <span className={styles.like}><i class="fas fa-heart"></i></span> : 
-          <span className={styles.notlike}><i class="far fa-heart"></i></span>}
+          <span className={styles.like}><i className="fas fa-heart"></i></span> : 
+          <span className={styles.notlike}><i className="far fa-heart"></i></span>}
           <span className={styles.likesCount}>{exhibition.likes.length}</span>
         </div>
 
@@ -90,7 +91,7 @@ const GalleryContent = ({
         <div className={styles.period}>전시 기간: {exhibition.start_date} ~ {exhibition.end_date}</div>
         
         <div className={styles.likesMeta} onClick={handleModal}>
-          <span className={styles.notlike}><i class="far fa-heart"></i></span>
+          <span className={styles.notlike}><i className="far fa-heart"></i></span>
           <span className={styles.likesCount}>{exhibition.likes.length}</span>
 
         </div>

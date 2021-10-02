@@ -12,7 +12,7 @@ const Landing = () => {
   const boxRef = useRef(null);
   const contentRef = useRef(null);
  
-  const txt = 'an author + audience = "authience"';
+  const txt = 'an artist + audience = "artience"';
   const [Text, setText] = useState('');
   const [Count, setCount] = useState(0);
   
@@ -83,7 +83,7 @@ const Landing = () => {
       setText(Text + txt[Count]); // 이전 set한 문자 + 다음 문자
       setCount(Count + 1); // 개수 만큼 체크 
     }, 145);
-    if(Count === txt.length)  {  // Count를 따로 두지 않고 Text.length 체크도 가능
+    if(Count === txt.length){  // Count를 따로 두지 않고 Text.length 체크도 가능
         clearInterval(interval); // 문자열 체크를 통해 setInterval을 해제합니다
     } 
     return () => clearInterval(interval); // 언마운트시 setInterval을 해제합니다
@@ -99,20 +99,20 @@ const Landing = () => {
 
     <section>
       <div ref={wrapperRef} className={styles.wrapper}>
-        <div ref={loaderRef} class={styles.loader}>Anyone can be</div>
-        <div ref={loaderRef2} class={styles.loader}>{Text}</div>
+        <div ref={loaderRef} className={styles.loader}>Anyone can be</div>
+        <div ref={loaderRef2} className={styles.loader}>{Text}</div>
       </div>
       <div>
-        <div class={styles.container}>
-          <div ref={boxRef} class={styles.box}></div>
-          <div class={styles.imgWrapper}>
-            <img class={styles.img} src="../images/video.gif" alt="landing video"/>
+        <div className={styles.container}>
+          <div ref={boxRef} className={styles.box}></div>
+          <div className={styles.imgWrapper}>
+            <img className={styles.img} src="../images/video.gif" alt="landing video"/>
           </div>
         </div>
-        <div ref={contentRef} class={styles.title}>
-          <h1 class={styles.content1}>누구나 예술가가 될 수 있는 공간,</h1>
-          <h2 class={styles.content2}>아트그라운드</h2>
-          <span class={styles.button} onClick={goAbout}>시작하기</span>
+        <div ref={contentRef} className={styles.title}>
+          <h1 className={styles.content1}>누구나 예술가가 될 수 있는 공간,</h1>
+          <h2 className={styles.content2}>아트그라운드</h2>
+          <span className={styles.button} onClick={goAbout}>시작하기</span>
         </div>
       </div>
     </section>

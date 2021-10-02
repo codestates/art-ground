@@ -22,7 +22,7 @@ span {
   position: fixed;
   top: 0;
   z-index: 10;
-  transition: 0.3s;
+  transition: 0.5s;
   /* transform: translateY(-11.5rem); */
 }
 .containerScroll {
@@ -32,7 +32,7 @@ span {
   position: fixed;
   top: 0;
   z-index: 10;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 .navBox {
@@ -153,7 +153,7 @@ span {
     all: unset;
     cursor: pointer;
     position: absolute;
-    color: white;
+    color: rgb(208, 208, 208);
     top: 1.2rem;
     left: 1.2rem;
     font-size: 1rem;

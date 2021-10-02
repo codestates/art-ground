@@ -15,7 +15,6 @@ span {
   width: 100%;
   height: 100%;
 }
-
 .upDateBox {
   border: 1px solid gainsboro;
   display: flex;
@@ -23,7 +22,6 @@ span {
 .DeleteBox {
   border: 1px solid gainsboro;
 }
-
 /*작품 개별*/
 .exBox {
   width: 95%;
@@ -52,7 +50,11 @@ span {
   text-indent: 10px;
   font-size: 1.5rem;
 }
-
+.author {
+  text-indent: 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
 .comments {
   font-family: "Do Hyeon", sans-serif;
   text-indent: 10px;

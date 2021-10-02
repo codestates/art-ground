@@ -3,7 +3,7 @@ import axios from "axios";
 export function getMyinfo(setIsLogin, setUserinfo, setisAdmin, isLogin) {
   //art-ground.link
   return axios
-    .get("https://localhost:5000/mypage")
+    .get("https://art-ground.link/mypage")
     .then((result) => {
       //console.log(result, "마이인포 리쥴트 값!!");
       if (result.status === 200) {
@@ -27,7 +27,7 @@ export function getMyinfo(setIsLogin, setUserinfo, setisAdmin, isLogin) {
 export function getMyExhibition(setMyEx) {
   //art-ground.link
   return axios
-    .get("https://localhost:5000/mypage/exhibition")
+    .get("https://art-ground.link/mypage/exhibition")
     .then((result) => {
       console.log(result.data.data, "전시데이터값");
       setMyEx(result.data.data);
@@ -38,7 +38,7 @@ export function getMyExhibition(setMyEx) {
 export function getMyPickExhibiton(setMyPick) {
   //art-ground.link
   return axios
-    .get("https://localhost:5000/mypage/like")
+    .get("https://art-ground.link/mypage/like")
     .then((result) => {
       //console.log(result.data.data, "라이크데이터값");
       setMyPick(result.data.data);
@@ -49,7 +49,7 @@ export function getMyPickExhibiton(setMyPick) {
 export function deleteAccount(setUserinfo, setIsLogin, history) {
   //art-ground.link
   return axios
-    .delete("https://localhost:5000/mypage")
+    .delete("https://art-ground.link/mypage")
     .then((result) => {
       console.log(result, "탈퇴!");
       setUserinfo(null);
@@ -63,7 +63,7 @@ export function deleteAccount(setUserinfo, setIsLogin, history) {
 export function infoModify(userData, history) {
   //art-ground.link
   return axios
-    .post("https://localhost:5000/mypage", {
+    .post("https://art-ground.link/mypage", {
       userData,
     })
     .then((result) => {

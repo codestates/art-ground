@@ -21,7 +21,7 @@ const ThreeDDetail = ({ modal, threeDSelected }) => {
   useEffect(()=> {
     if(modal){
 
-    } else{
+    } else{ //입장하기를 클릭하여 모달창이 사라지면(modal === false)
     setContent(true); //'esc입력하세요'메세지 fadein
     setTimeout(()=> {
       setContent(false); //'esc입력하세요'메세지 fadeout
