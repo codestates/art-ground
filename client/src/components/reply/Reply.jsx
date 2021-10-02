@@ -23,7 +23,7 @@ const Reply = ({ deleteReply, reply, isLogin, userinfo }) => {
         <div className={styles.content}>{reply.comments}</div>
       </div>
       {isLogin && userinfo.nickname === reply.user.nickname?
-      <span className={styles.deleteBtn} onClick={()=> deleteReply(reply.id)}><i class="fas fa-times"></i></span>
+      <span className={styles.deleteBtn} onClick={()=> deleteReply(reply.id)}><i className="fas fa-times"></i></span>
       : null}
     </li>
   )

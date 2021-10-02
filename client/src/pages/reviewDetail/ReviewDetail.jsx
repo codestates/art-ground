@@ -114,6 +114,7 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
           총 {replyCount.length}개</div>
         {replyList.map(el => 
         <Reply
+          key={el.id}
           isLogin={isLogin} 
           reply={el} 
           deleteReply={deleteReply}

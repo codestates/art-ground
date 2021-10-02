@@ -12,7 +12,7 @@ const ArtDetail = ({ art, handleClose }) => {
           <p className={styles.subContent}>{art.image_add_desc}</p>
         </div>
       </div>
-      <span className={styles.closeBtn} onClick={handleClose}><i class="fas fa-times"></i></span>
+      <span className={styles.closeBtn} onClick={handleClose}><i className="fas fa-times"></i></span>
     </section>
     
   )

@@ -89,6 +89,7 @@ const Gallery = ({ isLogin, selectGallery, userinfo }) => {
       <ul className={styles.objectList}>
         {galleryList.map((el) => (
           <GalleryContent
+          key={el.id}
           render={()=> setRerender(!rerender)}
           selectGallery={selectGallery} 
           exhibition={el}

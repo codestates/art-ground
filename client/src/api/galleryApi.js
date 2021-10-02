@@ -21,12 +21,8 @@ export async function createExhibition(
         genreHashtags: JSON.stringify(isClicked),
         exhibitInfo: content,
         images: JSON.stringify(arts), //작품 9개
-        // arts = [{title: , content: , subContent: ,img: }, {}, ... , {}]
-        // arts[0].img
       }
     );
-
-    //console.log(res);
   } catch (err) {
     return console.log(err.message);
   }
@@ -115,27 +111,22 @@ export async function getPremiumGallery(tagClicked, sortValue) {
 }
 
 export async function createLike(postId) {
-  //console.log("클릭한 전시회 아이디:", postId);
   try {
     await axios.post(
       "https://localhost:5000/exhibition/like",
       {
         postId: postId
       });
-
-    //console.log(res);
   } catch (err) {
     return console.log(err);
   }
 }
 
 export async function deleteLike(postId) {
-  //console.log("클릭한 전시회 아이디:", postId);
   try {
     await axios.delete(
       `https://localhost:5000/exhibition/like/${postId}`)
 
-    //console.log(res);
   } catch (err) {
     return console.log(err);
   }

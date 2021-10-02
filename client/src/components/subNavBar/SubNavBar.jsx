@@ -67,7 +67,8 @@ const SubNavBar = ({ isStandard, tagClicked, handleTagFilter, handleStandard, so
       onMouseLeave={onDragEnd}
       ref={scrollRef}>
         {tags.map(el => 
-        <span className={el===tagClicked? styles.hashtagClicked :styles.hashtag} 
+        <span className={el===tagClicked? styles.hashtagClicked :styles.hashtag}
+        key={el} 
         onClick={()=>handleTagFilter(el)}>{el}</span>)}
       </div>
 

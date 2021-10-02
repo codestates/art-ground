@@ -69,12 +69,12 @@ const ReviewList = ({ selectReview }) => {
         {search !== ''? <button className={styles.deleteIcon}
         onClick={handleDeleteButton}
         >
-          <i class="far fa-times-circle"></i>
+          <i className="far fa-times-circle"></i>
         </button> : null}
         <button className={styles.searchIcon}
         onClick={handleSearchButton}
         >
-          <i class="fas fa-search"></i>
+          <i className="fas fa-search"></i>
         </button>
       </div>
 
@@ -95,6 +95,7 @@ const ReviewList = ({ selectReview }) => {
         galleryList
         .map((el) => (
           <Review
+          key={el.id}
           selectReview={selectReview} 
           exhibition={el}
           />

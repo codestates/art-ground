@@ -49,7 +49,7 @@ const GalleryDetail = ({ gallerySelected, handle3dExhibition }) => {
   return (
     <section className={styles.container}>
       <div className={styles.space}>
-        {gallerySelected.genre_hashtags.map(el=> <span className={styles.tag}>{el}</span>)}
+        {gallerySelected.genre_hashtags.map(el=> <span key={el} className={styles.tag}>{el}</span>)}
       </div>
       <div className={styles.title}>{gallerySelected.title}</div>
       <div className={styles.date}>{gallerySelected.start_date} ~ {gallerySelected.end_date}</div>
@@ -62,7 +62,7 @@ const GalleryDetail = ({ gallerySelected, handle3dExhibition }) => {
       handleModalOpen={handleModalOpen}/>  
       
       <div className={styles.btnWrap}>
-        {sliderNum.map(el => <button className={el===btnSlider? styles.btnClicked : styles.btn} onClick={() => slider(el)}> </button>)}
+        {sliderNum.map(el => <button key={el} className={el===btnSlider? styles.btnClicked : styles.btn} onClick={() => slider(el)}> </button>)}
       </div>
       
 
@@ -90,7 +90,7 @@ const GalleryDetail = ({ gallerySelected, handle3dExhibition }) => {
       <div className={styles.workList}>작품</div>
       <ul className={styles.workBox}>
         {gallerySelected.images.map(el =>
-          <li>
+          <li key={el.id}>
             <img className={styles.work} src={el.image_urls} alt='art' onClick={() => handleModalOpen(el)}/>
             <div className={styles.workTitleMeta}>
               <span className={styles.workTitle}>{el.title}</span>
