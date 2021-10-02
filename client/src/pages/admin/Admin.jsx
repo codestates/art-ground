@@ -51,7 +51,7 @@ const Admin = () => {
     if (review) {
       //getAllReviews(setReviewData);
       axios
-        .get("https://localhost:5000/admin/review")
+        .get("https://art-ground.link/admin/review")
         .then((res1) => {
           let firstData = res1.data.data;
           console.log(firstData, "첫번째--------------");
