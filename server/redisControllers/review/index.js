@@ -4,34 +4,53 @@ const {
   users: userModel,
   comments: commentsModel,
 } = require("../../models");
+const {
+  getCached,
+  caching,
+  delCache,
+} = require("../../utils/redis/cache.ctrl");
 //작가 관련 정보 {이름}
 //전시 타입 1, 2
 //스탠다드 프리미엄 둘 다
 module.exports.getExhibitionReview = async (req, res) => {
-  const commentsResult = await commentsModel.find;
-  const result = await exhibitionModel.findAll({
-    include: [
-      {
-        model: imagesModel,
-        as: "images",
-      },
-      {
-        attributes: ["nickname", "profile_img", "author_desc"],
-        model: userModel,
-        as: "author",
-      },
-      {
-        model: commentsModel,
-        as: "comments",
-      },
-    ],
-    where: {
-      status: [1, 2],
-    },
-  });
-  const data = result.map((el) => el.dataValues);
+  const redisKey = "exhibitionReview";
 
-  res.status(200).json({ data });
+  const reply = await getCached(redisKey);
+
+  if (reply) {
+    const data = reply;
+    res.status(200).json({ data });
+  } else {
+    const result = await exhibitionModel.findAll({
+      include: [
+        {
+          model: imagesModel,
+          as: "images",
+        },
+        {
+          attributes: ["nickname", "profile_img", "author_desc"],
+          model: userModel,
+          as: "author",
+        },
+        {
+          model: commentsModel,
+          as: "comments",
+        },
+      ],
+      where: {
+        status: [1, 2],
+      },
+    });
+    const data = result.map((el) => el.dataValues);
+
+    const lastCommentId =
+      data[data.length - 1].comments[data[data.length - 1].comments.length - 1]
+        .id;
+
+    caching(redisKey, data);
+    caching("lastCommentId", lastCommentId);
+    res.status(200).json({ data });
+  }
 };
 
 /**

@@ -1,5 +1,6 @@
-const router = require("./controllers");
-const { redisClient } = require("./utils/redis");
+// const { RedisError } = require("redis");
+// const router = require("./controllers");
+// const { redisClient } = require("./utils/redis");
 
 // router.get("/", (req, res) => {
 //   const { redisKey } = req.headers;
@@ -14,10 +15,3 @@ const { redisClient } = require("./utils/redis");
 //     }
 //   });
 // });
-
-redisClient.set("haha", "23");
-
-redisClient.get("haha", (err, data) => {
-  console.log("data는 :", data);
-  return data;
-});

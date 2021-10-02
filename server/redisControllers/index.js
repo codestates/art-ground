@@ -61,12 +61,12 @@ router.post("/exhibition/register", register);
 router.get("/exhibition/:type", getExhibition);
 router.get("/exhibition", getExhibition);
 router.post("/exhibition/like", exhibitionLike);
-router.delete("/exhibition/like/:postId/:type", withdrawalLike);
+router.delete("/exhibition/like/:postId/:type", withdrawalLike); //변경
 
 //review
 router.get("/review/:postId", getDetailReview);
 router.post("/review", postReview);
-router.delete("/review/:commentsId", deleteReview);
+router.delete("/review/:postId/:commentsId", deleteReview); //변경
 router.get("/review", getExhibitionReview);
 // admin
 // 전시 승인

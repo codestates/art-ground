@@ -27,10 +27,10 @@ module.exports.withdrawalLike = async (req, res) => {
             if (ele.user_id === user_id) {
               el.likes.splice(idx, 1);
             }
-            return false;
+            return true;
           });
 
-          return false;
+          return true;
         }
       });
 

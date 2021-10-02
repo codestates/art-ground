@@ -6,12 +6,20 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
 module.exports = {
-  getMyInfo: (req, res) => {
-    const userInfo = isAuthorized(req);
-
+  getMyInfo: async (req, res) => {
+    //const userInfo = isAuthorized(req);
+    console.log("hah");
+    const userInfo = { id: 30 };
     if (userInfo) {
+      const { id } = userInfo;
+      const result = await users.findOne({
+        where: {
+          id,
+        },
+      });
+      const data = result.dataValues;
       res.status(200).json({
-        data: userInfo,
+        data,
       });
     } else {
       res.status(401).json({

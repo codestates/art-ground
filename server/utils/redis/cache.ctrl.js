@@ -23,4 +23,15 @@ module.exports = {
   delCache: (key) => {
     redisClient.del(key);
   },
+  cacheIncr: (key) => {
+    return new Promise((resolve, reject) => {
+      redisClient.incr(key, (err, data) => {
+        if (data) {
+          resolve(data);
+        } else {
+          resolve(null);
+        }
+      });
+    });
+  },
 };

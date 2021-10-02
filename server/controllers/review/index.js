@@ -8,7 +8,6 @@ const {
 //전시 타입 1, 2
 //스탠다드 프리미엄 둘 다
 module.exports.getExhibitionReview = async (req, res) => {
-  const commentsResult = await commentsModel.find;
   const result = await exhibitionModel.findAll({
     include: [
       {

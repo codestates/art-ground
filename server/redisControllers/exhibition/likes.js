@@ -29,6 +29,7 @@ module.exports.exhibitionLike = async (req, res) => {
       reply.some((el) => {
         if (el.id === exhibition_id) {
           el.likes.push({ exhibition_id, user_id });
+          return true;
         }
       });
 

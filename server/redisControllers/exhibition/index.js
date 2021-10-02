@@ -24,8 +24,6 @@ module.exports.getExhibition = async (req, res) => {
   if (reply) {
     //캐시가 존재한다.
     const data = reply;
-    console.log(typeof data);
-
     res.status(200).json({ data });
   } else {
     //캐시가 존재하지 않음
