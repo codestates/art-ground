@@ -3,6 +3,10 @@
   position: relative;
 }
 
+/* .outer::-webkit-scrollbar {
+  display: none;
+} */
+
 .sliderOuter1 {
   width: 900%;
   max-width: 9216px;
