@@ -18,7 +18,7 @@ module.exports.getDetailReview = async (req, res) => {
     const result = await comments.findAll({
       include: [
         {
-          attributes: ["nickname", "profile_img"],
+          attributes: ["id", "nickname", "profile_img"],
           model: users,
           as: "user",
         },
