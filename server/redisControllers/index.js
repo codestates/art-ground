@@ -66,16 +66,16 @@ router.delete("/exhibition/like/:postId/:type", withdrawalLike); //변경
 //review
 router.get("/review/:postId", getDetailReview);
 router.post("/review", postReview);
-router.delete("/review/:postId/:commentsId", deleteReview); //변경
+router.delete("/review/:postId/:commentId", deleteReview); //변경
 router.get("/review", getExhibitionReview);
 // admin
 // 전시 승인
-router.post("/admin/exhibition", adminCtrl.approveExhibitions);
+router.post("/admin/exhibition", adminCtrl.approveExhibitions); //body 데이터 변경
 // 전시 종료
-router.delete("/admin/exhibition/:postId", adminCtrl.closeExhibitions);
+router.delete("/admin/exhibition/:postId/:type", adminCtrl.closeExhibitions); //변경
 // 리뷰 불러오기
 router.get("/admin/review", adminCtrl.getAllReviews);
 // 리뷰 삭제
-router.delete("/admin/review/:commentId", adminCtrl.deleteReviews);
+router.delete("/admin/review/:postId/:commentId", adminCtrl.deleteReviews); //변경
 
 module.exports = router;

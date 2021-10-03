@@ -7,7 +7,7 @@ const {
 } = require("../../utils/redis/cache.ctrl");
 module.exports.deleteReview = async (req, res) => {
   const userInfo = isAuthorized(req);
-  const { postId: exhibition_id, commentsId: id } = req.params;
+  const { postId: exhibition_id, commentId: id } = req.params;
   if (userInfo) {
     const { id: user_id } = userInfo;
 
@@ -16,7 +16,15 @@ module.exports.deleteReview = async (req, res) => {
     if (reply) {
       const reviewRedisKey = `${exhibition_id}Review`;
       const DetailReview = await getCached(reviewRedisKey);
-
+      reply.some((el) => {
+        if (el.id === exhibition_id) {
+          el.comments.some((ele, idx) => {
+            if (ele.id === id) {
+              ele.splice(idx, 1);
+            }
+          });
+        }
+      });
       DetailReview.some((el, idx) => {
         if (el.id === id) {
           el.splice(idx, 1);
@@ -26,7 +34,7 @@ module.exports.deleteReview = async (req, res) => {
       });
       caching(reviewRedisKey, DetailReview);
       caching(redisKey, reply);
-      res.status(201).json({
+      res.status(200).json({
         message: "successfully delete comments",
       });
       await commentsModel.destroy({

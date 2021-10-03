@@ -3,6 +3,7 @@ const {
   images: imagesModel,
   users: userModel,
   comments: commentsModel,
+  sequelize,
 } = require("../../models");
 const {
   getCached,
@@ -41,14 +42,14 @@ module.exports.getExhibitionReview = async (req, res) => {
         status: [1, 2],
       },
     });
+    const { dataValues: lastCommentId } = await commentsModel.findOne({
+      attributes: ["id"],
+      order: [[sequelize.literal("createdAt"), "desc"]],
+    });
+
     const data = result.map((el) => el.dataValues);
-
-    const lastCommentId =
-      data[data.length - 1].comments[data[data.length - 1].comments.length - 1]
-        .id;
-
     caching(redisKey, data);
-    caching("lastCommentId", lastCommentId);
+    caching("lastCommentId", lastCommentId.id);
     res.status(200).json({ data });
   }
 };
