@@ -18,7 +18,7 @@ module.exports = {
         res.status(200).json({ data });
       } else {
         const result = await comments.findAll();
-        const data = result.dataValues;
+        const data = result.map((el) => el.dataValues);
         caching(redisKey, data);
         res.status(200).json({ data });
       }
@@ -28,48 +28,37 @@ module.exports = {
       });
     }
   },
-  approveExhibitions: (req, res) => {
+  approveExhibitions: async (req, res) => {
     const userInfo = isAuthorized(req);
-    const { postId } = req.body;
-
+    const { postId, type: exhibit_type } = req.body;
+    const redisKey = "allExhibition";
+    const reply = await getCached(redisKey);
     console.log("+++++++++++++++", req.headers);
     console.log("userInfo:", userInfo, postId);
 
     if (userInfo.user_type === 3) {
-      exhibition
-        .findOne({
-          where: {
-            id: postId,
-          },
-        })
-        .then((data) => {
-          console.log("data:".data);
-          if (!data) {
-            res.status(404).json({
-              message: "exhibition not exist",
-            });
-          } else {
-            exhibition.update(
-              {
-                status: 1, // 전시 승인
-              },
-              {
-                where: {
-                  id: postId,
-                },
-              }
-            );
-          }
-        })
-        .then((result) => {
-          console.log("result:", result);
-          res.status(200).json({
-            message: "exhibition successfully approved",
-          });
-        })
-        .catch((error) => {
-          console.log(error);
+      const result = await exhibition.findOne({
+        where: {
+          id: postId,
+        },
+      });
+
+      if (!result) {
+        res.status(404).json({
+          message: "exhibition not exist",
         });
+      } else {
+        const result = await exhibition.update(
+          {
+            status: 1, // 전시 승인
+          },
+          {
+            where: {
+              id: postId,
+            },
+          }
+        );
+      }
     } else {
       res.status(401).json({
         message: "invalid access token",
