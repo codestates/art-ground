@@ -48,6 +48,10 @@
   opacity: 0;
 }
 
+.loader {
+  z-index: -1;
+}
+
 @keyframes fadein {
   from {
     opacity: 0;

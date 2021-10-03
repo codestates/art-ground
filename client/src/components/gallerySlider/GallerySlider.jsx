@@ -11,16 +11,12 @@ const GallerySlider = ({
 
   const [mouseDownClientX, setMouseDownClientX] = useState(0);
   const [mouseUpClientX, setMouseUpClientX] = useState(0);
-  //const [cursorOn, setCursorOn] = useState(false);
 
   const onMouseDown = (e) => {
-    e.preventDefault();
-    setMouseDownClientX(e.pageX); 
-    //setCursorOn(true);
+    setMouseDownClientX(e.changedTouches[0].pageX); 
   };
   const onMouseUp = (e) => {
-    setMouseUpClientX(e.pageX);
-    //setCursorOn(false);
+    setMouseUpClientX(e.changedTouches[0].pageX);
   };
 
   useEffect(() => {
@@ -37,13 +33,13 @@ const GallerySlider = ({
   return(
     <div className='outer'>
       <div 
-      onMouseDown={onMouseDown}
-      onMouseUp={onMouseUp}
-      //cursorOn={cursorOn}
+      onTouchStart={onMouseDown}
+      onTouchEnd={onMouseUp}
       className={`sliderOuter${btnSlider}`}
       >
         {gallerySelected.images.map(el =>
-          <div key={el.id} className='sliderWrap'>
+          <div key={el.id} 
+          className='sliderWrap'>
             <img className='slider' src="../../../images/sliderBackground.png" alt='slider' />
             <img className='sliderPic' src={el.image_urls} alt='sliderIn' onClick={() => handleModalOpen(el)} />
           </div>
