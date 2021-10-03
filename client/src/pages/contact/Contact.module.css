@@ -42,7 +42,7 @@ span {
   height: 60%;
 }
 .titleBox span:nth-child(2) {
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 2rem;
   height: 40%;
 }
@@ -51,22 +51,7 @@ span {
   list-style: none;
   width: 100%;
 }
-.infoTitle {
-  height: 50px;
-  line-height: 50px;
-  font-size: 1.3rem;
-  font-family: "Poppins", sans-serif;
-  font-weight: 200;
-}
-.infoText {
-  height: 30px;
-  line-height: 30px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 200;
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: grey;
-}
+
 .mailBox {
   height: 25rem;
   padding: 1rem;
@@ -107,7 +92,7 @@ input {
   font-size: 0.8rem;
   outline: none;
   text-indent: 0.2rem;
-  background-color: #f3efdb;
+  background-color: #f1efe4;
   border: none;
 }
 .email {
@@ -116,7 +101,7 @@ input {
   text-indent: 0.2rem;
   font-size: 0.8rem;
   outline: none;
-  background-color: #f3efdb;
+  background-color: #f1efe4;
   border: none;
 }
 .phone {
@@ -125,7 +110,7 @@ input {
   text-indent: 0.2rem;
   font-size: 0.8rem;
   outline: none;
-  background-color: #f3efdb;
+  background-color: #f1efe4;
   border: none;
 }
 .btnBox {
@@ -145,7 +130,7 @@ input {
   overflow-y: scroll;
   resize: none;
   border: none;
-  background-color: #f3efdb;
+  background-color: #f1efe4;
 }
 
 .btn {
@@ -163,7 +148,7 @@ input {
 /*map section*/
 .mapBox {
   margin-top: 3rem;
-  height: 450px;
+  height: 470px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -171,7 +156,6 @@ input {
 }
 .mapBorder {
   height: 100%;
-
   border: none;
   background-color: white;
   overflow: hidden;
@@ -184,7 +168,9 @@ input {
   justify-content: center;
   align-items: center;
 }
-
+.addr {
+  /* border: 1px solid red; */
+}
 .finder {
   width: 120px;
   height: 4em;
@@ -195,18 +181,50 @@ input {
   outline: none;
   background-color: white;
   border: none;
-  margin-left: 4rem;
+  margin-top: 1rem;
+  margin-left: 2rem;
   border: 1px solid gainsboro;
   cursor: pointer;
 }
 .introBox {
-  border: 1px solid red;
+  width: 100%;
   margin-top: 3rem;
-  height: 450px;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.introBorder {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.sInfo {
+  width: 20%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+}
+.sInfo span {
+  width: 100%;
+  text-align: center;
+  line-height: 1.5;
+  font-family: "Poppins", sans-serif;
+}
+.sInfo span:nth-child(1) {
+  height: 30%;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.sInfo span:nth-child(2) {
+  height: 30%;
+}
+.sInfo span:nth-child(3) {
+  height: 30%;
+  cursor: pointer;
 }
 @keyframes fadein {
   from {
@@ -253,47 +271,151 @@ input {
 
 @media screen and (max-width: 768px) {
   .container {
-    padding: 7.5rem 3rem 3rem 3rem;
+    padding: 1rem;
+    margin-top: 5rem;
   }
   .contactBox {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid gainsboro;
     margin-bottom: 1rem;
   }
-
   .textBox {
     flex: 0.8;
     padding: 2rem;
     margin-left: 15px;
   }
 
-  @media screen and (max-width: 580px) {
-    .name {
-      width: 100%;
-      height: 30px;
-      font-size: 0.8rem;
-      outline: none;
-    }
-    .mail {
-      width: 100%;
-      height: 30px;
-      font-size: 0.8rem;
-      outline: none;
-    }
+  .mapBorder {
+    width: 100%;
   }
+}
 
-  @media screen and (max-width: 480px) {
-    .name {
-      width: 100%;
-      height: 30px;
-      font-size: 0.8rem;
-    }
-    .mail {
-      width: 100%;
-      height: 30px;
-      font-size: 0.8rem;
-    }
+@media screen and (max-width: 580px) {
+  .infoBox {
+    list-style: none;
+    width: 100%;
   }
+  .ulBox {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 0.4rem;
+  }
+  .ulBox {
+    width: 100%;
+  }
+  .liBox {
+    height: 7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mailBox {
+    padding: 0.2rem;
+    height: 100%;
+  }
+  .name {
+    width: 100%;
+  }
+  .email {
+    width: 100%;
+  }
+  .liBox2 {
+    height: 7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .phone {
+    width: 100%;
+  }
+  .btnBox {
+    width: 100%;
+  }
+  .finder {
+    margin-left: -1rem;
+  }
+  .introBorder {
+    width: 100%;
+    padding: 0.1rem;
+  }
+  .sInfo {
+    width: 25%;
+  }
+  .sInfo span:nth-child(2) {
+    font-size: 0.9rem;
+  }
+  .sInfo span:nth-child(3) {
+    font-size: 0.8rem;
+  }
+}
+
+/*모달*/
+.modalContainer {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  /* Firefox */
+  -webkit-animation: fadein 2s;
+  /* Safari and Chrome */
+  -o-animation: fadein 2s;
+  /* Opera */
+}
+
+.modalBox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  background-color: white;
+  width: 20rem;
+  height: 25rem;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modalText {
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #202020;
+}
+.btnBox {
+  width: 15rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+.modifyBtn {
+  width: 5rem;
+  height: 2.5rem;
+  padding: 0.2rem;
+  border: 1px solid gainsboro;
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.3s;
+}
+.modifyBtn:hover {
+  background-color: #202020;
+  color: white;
+  transition: transform 0.3s cubic-bezier(0.08, 0.35, 0.13, 1.02);
 }
