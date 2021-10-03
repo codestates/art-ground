@@ -7,9 +7,10 @@ const {
   cacheIncr,
 } = require("../../utils/redis/cache.ctrl");
 module.exports.postReview = async (req, res) => {
-  //const userInfo = isAuthorized(req);
+  const userInfo = isAuthorized(req);
+  console.log(userInfo);
   const { postId: exhibition_id, comments } = req.body;
-  const userInfo = { id: 26, nickname: "g", profile_img: "gg" };
+  //const userInfo = { id: 26, nickname: "g", profile_img: "gg" };
   if (userInfo) {
     const redisKey = "exhibitionReview";
     const { id: user_id, nickname, profile_img } = userInfo;
