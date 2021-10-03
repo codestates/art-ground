@@ -27,10 +27,6 @@ const Navbar = ({ isLogin, handleLogout, isAdmin, setModalOpen }) => {
     }
   };
 
-
-  const [navOpen, setNavOpen] = useState(false); //모바일 사이즈: navbar 사이드로 숨겨짐
-
-
   const [hide, setHide] = useState(false); //스크롤 아래로 하면 false, 위로하면 true
   const [pageY, setPageY] = useState(0); //스크롤 위치(0일 때 페이지 상단)
 

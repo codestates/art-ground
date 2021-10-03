@@ -9,7 +9,7 @@ const Landing = () => {
   const wrapperRef = useRef(null);
   const loaderRef = useRef(null);
   const loaderRef2 = useRef(null);
-  const boxRef = useRef(null);
+  //const boxRef = useRef(null);
   const contentRef = useRef(null);
  
   const txt = 'an artist + audience = "artience"';
