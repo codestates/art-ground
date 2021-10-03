@@ -2,8 +2,8 @@ const { isAuthorized } = require("../../utils/tokenFunction");
 const { users } = require("../../models");
 module.exports = {
   getMyInfo: async (req, res) => {
-    //const userInfo = isAuthorized(req);
-    const userInfo = { id: 30 };
+    const userInfo = isAuthorized(req);
+
     if (userInfo) {
       const { id } = userInfo;
       const result = await users.findOne({
