@@ -10,6 +10,9 @@ const ConfirmModal = ({ el, setConfirmModal, modalTxt }) => {
     deleteExhibition(setConfirmModal, el);
   };
 
+  const clickNo = () => {
+    setConfirmModal(false);
+  };
   return (
     <section className={styles.modalContainer}>
       {modalTxt === "승인" ? (
@@ -21,6 +24,9 @@ const ConfirmModal = ({ el, setConfirmModal, modalTxt }) => {
             확인을 누르시면<br></br>해당 전시회가 {modalTxt}됩니다.
           </p>
           <div className={styles.ok}>
+            <button className={styles.okBtn} onClick={clickNo}>
+              아니오
+            </button>
             <button className={styles.okBtn} onClick={clickConfirmModal}>
               확인
             </button>
@@ -36,6 +42,9 @@ const ConfirmModal = ({ el, setConfirmModal, modalTxt }) => {
             확인을 누르시면<br></br>해당 전시회가 {modalTxt}됩니다.
           </p>
           <div className={styles.ok}>
+            <button className={styles.okBtn} onClick={clickNo}>
+              아니오
+            </button>
             <button className={styles.okBtn} onClick={clickDeleteModal}>
               확인
             </button>
