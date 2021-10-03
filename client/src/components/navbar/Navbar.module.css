@@ -12,7 +12,7 @@ span {
   position: fixed;
   top: 0;
   z-index: 10;
-  transition: 0.5s;
+  transition: 0.3s;
   transform: translateY(-11.5rem);
 }
 .container {

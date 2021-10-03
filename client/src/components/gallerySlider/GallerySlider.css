@@ -89,19 +89,29 @@
   cursor: pointer;
   font-size: 2rem;
   position: absolute;
-  top: 46.5%;
+  top: 38%;
   color: whitesmoke;
   transition: 0.3s;
 }
 .leftArrow {
-  left: 0.7rem;
+  left: 0rem;
+  padding: 3rem 3rem 3rem 1rem;
 }
 
 .rightArrow {
-  right: 0.7rem;
+  right: 0rem;
+  padding: 3rem 1rem 3rem 3rem;
 }
 
 .leftArrow:hover,
 .rightArrow:hover {
   color: gray;
+}
+
+@media screen and (max-width: 480px) {
+  .leftArrow,
+  .rightArrow {
+    font-size: 1.5rem;
+    top: 27%;
+  }
 }
