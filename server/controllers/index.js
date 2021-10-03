@@ -1,82 +1,47 @@
-// router.use(endpoint, directory)
 const { Router } = require("express");
 const router = Router();
 const signCtrl = require("./sign/sign.ctrl");
-const kakaoCtrl = require("./sign/kakao");
-const googleCtrl = require("./sign/google");
 const adminCtrl = require("./admin/admin.ctrl");
-const { getMyInfo } = require("./mypage");
-const { updatePassword } = require("./mypage");
-const { register } = require("./exhibition/register");
-const { getExhibition } = require("./exhibition");
-const { exhibitionLike } = require("./exhibition/likes");
-const { withdrawalLike } = require("./exhibition/withdrawalLike");
-const { deleteReview } = require("./review/deleteReview");
-const { postReview } = require("./review/register");
-const { getExhibitionReview } = require("./review");
-const { getDetailReview } = require("./review/getDetailReview");
-const { getMyLikes } = require("./mypage/likes");
-const { getMyExhibition } = require("./mypage/exhibition");
-const { modifyMyInfo } = require("./mypage/modify");
-const { withdrawal } = require("./mypage/withdrawal");
+const mypageCtrl = require("./mypage/mypage.ctrl");
+const exhibitCtrl = require("./exhibition/exhibit.ctrl");
+const reviewCtrl = require("./review/review.ctrl");
+
 // sign
-
-// router.use("/sign-up", sign);
-// router.use("/sign-in", sign);
-// router.use("/sign-out", sign);
-// router.use("/receive", sign);
-
-// 일반 회원가입
 router.post("/sign-up/user", signCtrl.generalSignUp);
-
-// 작가 회원가입
 router.post("/sign-up/author", signCtrl.authorSignUp);
-
-// 로그인
 router.post("/sign-in", signCtrl.signIn);
-
-// 로그아웃
 router.post("/sign-out", signCtrl.signOut);
-
-// Goole
-router.get("/receive/userinfo?", googleCtrl.getUserInfo);
-router.post("/receive/token", googleCtrl.getToken);
-
-// Kakao
-router.post("/kakao-login/token", kakaoCtrl.getToken);
-router.get("/kakao-login/userinfo?", kakaoCtrl.getUserInfo);
+router.get("/receive/userinfo?", signCtrl.google.getUserInfo);
+router.post("/receive/token", signCtrl.google.getToken);
+router.post("/kakao-login/token", signCtrl.kakao.getToken);
+router.get("/kakao-login/userinfo?", signCtrl.kakao.getUserInfo);
 
 // mypage
-router.get("/mypage", getMyInfo);
-
-router.get("/mypage/like", getMyLikes);
-router.get("/mypage/exhibition", getMyExhibition);
-router.post("/mypage", modifyMyInfo);
-router.delete("/mypage", withdrawal);
-
-router.patch("/mypage/password", updatePassword);
-
+router.get("/mypage", mypageCtrl.getMyInfo);
+router.get("/mypage/like", mypageCtrl.getMylikes);
+router.get("/mypage/exhibition", mypageCtrl.getMyExhibition);
+router.post("/mypage", mypageCtrl.modifyMyInfo);
+router.delete("/mypage", mypageCtrl.withdrawal);
+router.patch("/mypage/password", mypageCtrl.updatePassword);
 
 // exhibition
-router.post("/exhibition/register", register);
-router.get("/exhibition/:type", getExhibition);
-router.get("/exhibition", getExhibition);
-router.post("/exhibition/like", exhibitionLike);
-router.delete("/exhibition/like/:postId", withdrawalLike);
+router.post("/exhibition/register", exhibitCtrl.register);
+router.get("/exhibition/:type", exhibitCtrl.getExhibition);
+router.get("/exhibition", exhibitCtrl.getExhibition);
+router.post("/exhibition/like", exhibitCtrl.exhibitionLike);
+router.delete("/exhibition/like/:postId", exhibitCtrl.withdrawalLike);
 
 //review
-router.get("/review/:postId", getDetailReview);
-router.post("/review", postReview);
-router.delete("/review/:commentsId", deleteReview);
-router.get("/review", getExhibitionReview);
+router.get("/review/:postId", reviewCtrl.getDetailReview);
+router.post("/review", reviewCtrl.postReview);
+router.delete("/review/:commentsId", reviewCtrl.deleteReview);
+router.get("/review", reviewCtrl.getExhibitionReviews);
+
 // admin
-// 전시 승인
 router.post("/admin/exhibition", adminCtrl.approveExhibitions);
-// 전시 종료
 router.delete("/admin/exhibition/:postId", adminCtrl.closeExhibitions);
-// 리뷰 불러오기
 router.get("/admin/review", adminCtrl.getAllReviews);
-// 리뷰 삭제
 router.delete("/admin/review/:commentId", adminCtrl.deleteReviews);
 
 module.exports = router;
+//

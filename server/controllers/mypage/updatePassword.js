@@ -6,33 +6,12 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
 module.exports = {
-  getMyInfo: async (req, res) => {
-    const userInfo = isAuthorized(req);
-
-    if (userInfo) {
-      const { id } = userInfo;
-      const result = await users.findOne({
-        where: {
-          id,
-        },
-      });
-      const data = result.dataValues;
-      res.status(200).json({
-        data,
-      });
-    } else {
-      res.status(401).json({
-        message: "invalid access token",
-      });
-    }
-  },
-
   updatePassword: async (req, res) => {
     /*
-    1. 현재 비밀번호, 새로 변경할 비밀번호 req.body로 암호화된 상태로 받기
-    2. 토큰 verify, 현재 비밀번호 해독, compare true값 나오면
-    3. 새로 변경할 비밀번호 cryptojs로 해독 후 원본 데이터를 bcrypt로 재암호화해서 db에 저장
-    */
+        1. 현재 비밀번호, 새로 변경할 비밀번호 req.body로 암호화된 상태로 받기
+        2. 토큰 verify, 현재 비밀번호 해독, compare true값 나오면
+        3. 새로 변경할 비밀번호 cryptojs로 해독 후 원본 데이터를 bcrypt로 재암호화해서 db에 저장
+        */
     try {
       const { currentPassword, newPassword } = req.body;
       const data = isAuthorized(req);
@@ -43,7 +22,6 @@ module.exports = {
           user_email: data.user_email,
         },
       });
-
       // current password decode
       let byte = CryptoJS.AES.decrypt(
         currentPassword,
@@ -103,3 +81,4 @@ module.exports = {
     }
   },
 };
+//
