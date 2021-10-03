@@ -66,8 +66,20 @@
   .contentBox {
     padding: 0.2rem 0 0 0.3rem;
   }
+  .content {
+    font-size: 0.8rem;
+  }
   .deleteBtn {
     top: 0.5rem;
     right: 0.5rem;
+  }
+  .userAndDate {
+    padding-bottom: 0.2rem;
+  }
+  .user {
+    font-size: 0.95rem;
+  }
+  .date {
+    font-size: 0.75rem;
   }
 }
