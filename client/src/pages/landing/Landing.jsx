@@ -18,10 +18,10 @@ const Landing = () => {
   
   useEffect(()=> {
     gsap.to(wrapperRef.current, {
-      duration: 3,
+      duration: 2.5,
       top: "-100%",
       ease: "power3.inOut",
-      delay: 3.5
+      delay: 7.5
     });
   
     var tl = gsap.timeline();
@@ -64,16 +64,16 @@ const Landing = () => {
       scaleY: 0,
       y: 80,
       ease: "power3.inOut",
-      delay: 0.7,
+      delay: 0,
       transformOrigin:"50% 100%"
     });
   
-    gsap.to(boxRef.current, {
-      duration: 2,
-      y: "-100%",
-      ease: "power3.inOut",
-      delay: 8,
-    });
+    // gsap.to(boxRef.current, {
+    //   duration: 2,
+    //   y: "-100%",
+    //   ease: "power3.inOut",
+    //   delay: 8,
+    // });
 
   }, [])
  
@@ -104,7 +104,7 @@ const Landing = () => {
       </div>
       <div>
         <div className={styles.container}>
-          <div ref={boxRef} className={styles.box}></div>
+          {/* <div ref={boxRef} className={styles.box}></div> */}
           <div className={styles.imgWrapper}>
             <img className={styles.img} src="../images/video.gif" alt="landing video"/>
           </div>

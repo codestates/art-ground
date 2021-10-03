@@ -11,25 +11,11 @@
   height: 16rem;
   margin: 0;
   object-fit: cover;
-}
-
-.layer {
-  position: relative;
-  width: 100%;
-  height: 16rem;
-  opacity: 0;
-  background-color: white;
-  margin-bottom: -16rem;
   transition: 0.3s;
+  cursor: pointer;
 }
-
-.layer:hover {
-  position: relative;
-  width: 100%;
-  height: 16rem;
-  opacity: 0.4;
-  background-color: rgb(37, 37, 37);
-  margin-bottom: -16rem;
+.thumbnail:hover {
+  filter: brightness(50%);
 }
 
 .title {

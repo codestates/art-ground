@@ -10,8 +10,6 @@ const Review = ({ exhibition, selectReview }) => {
 
         <Link to='/reviewdetail'>
           <div className={styles.imgBox}>
-            <div className={styles.layer}
-            onClick={()=> selectReview(exhibition)}></div>
             <img className={styles.thumbnail} 
             onClick={()=> selectReview(exhibition)}
             src={exhibition.images[0].image_urls} alt="thumbnail"/>
