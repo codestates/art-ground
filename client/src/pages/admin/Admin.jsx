@@ -182,6 +182,7 @@ const Admin = () => {
           </div>
         ) : null}
       </div>
+      {isLoading ? <Loading /> : null}
     </section>
   );
 };
