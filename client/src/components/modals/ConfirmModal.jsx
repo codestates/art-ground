@@ -4,6 +4,7 @@ import { confirmExhibition, deleteExhibition } from "../../api/adminApi";
 const ConfirmModal = ({ el, setConfirmModal, modalTxt }) => {
   const clickConfirmModal = () => {
     confirmExhibition(setConfirmModal, el);
+    console.log(el, "1003");
   };
 
   const clickDeleteModal = () => {

@@ -46,6 +46,8 @@ function App() {
   useEffect(() => {
     if (localStorage.getItem("isLogin")) {
       setIsLogin(true);
+    } else {
+      setIsLogin(false);
     }
     setTimeout(() => {
       setModifyRender(true);
