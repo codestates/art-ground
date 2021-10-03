@@ -56,9 +56,9 @@ const GalleryContent = ({
     return(
       <li className={styles.object}>
 
-        <div className={styles.layer}
+        {/* <div className={styles.layer}
         onClick={goDetailPage}
-        ></div>
+        ></div> */}
         <img className={styles.thumbnail} 
         onClick={goDetailPage}
         src={exhibition.images[0].image_urls} 
@@ -79,11 +79,11 @@ const GalleryContent = ({
   } else{ // 로그인 안 했다면? 좋아요 default 회색하트 랜더링. 클릭 시 로그인해주세요 모달창 띄우기
     return (
       <li className={styles.object}>
-        <div className={styles.layer}
+        {/* <div className={styles.layer}
         onClick={goDetailPage}
-        ></div>
+        ></div> */}
         <img className={styles.thumbnail} 
-        onClick={()=>selectGallery(exhibition)}
+        onClick={goDetailPage}
         src={exhibition.images[0].image_urls} 
         alt='thumbnail' />
 
