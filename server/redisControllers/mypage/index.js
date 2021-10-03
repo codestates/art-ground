@@ -26,7 +26,6 @@ module.exports = {
       });
     }
   },
-
   updatePassword: async (req, res) => {
     /*
         1. 현재 비밀번호, 새로 변경할 비밀번호 req.body로 암호화된 상태로 받기

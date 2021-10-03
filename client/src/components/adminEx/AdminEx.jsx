@@ -17,7 +17,6 @@ const AdminEx = ({ el, updateEx, deleteEx, doneEx }) => {
   const clickDelete = () => {
     setConfirmModal(true);
   };
-  //여기 시작
 
   const [clickedId, setClickedId] = useState(null);
   const [clickStatus, setClickStatus] = useState(false);
