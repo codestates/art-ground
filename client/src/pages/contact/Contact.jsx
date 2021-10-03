@@ -1,8 +1,10 @@
 /* global kakao */
 import styles from "./Contact.module.css";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const Contact = () => {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
   useEffect(() => {
     const container = document.getElementById("map");
     const options = {
@@ -16,7 +18,7 @@ const Contact = () => {
     });
     marker.setMap(map);
 
-    const iwContent = '<div style="text-align:center">Art-Gallery</div>';
+    const iwContent = '<div style="text-align:center">art-Ground</div>';
     const iwPosition = new kakao.maps.LatLng(37.496633, 127.024779);
 
     // 인포윈도우를 생성
@@ -29,7 +31,7 @@ const Contact = () => {
   }, []);
 
   const clickAsk = () => {
-    alert("문의메일이 전송되었습니다.");
+    setIsOpenModal(true);
   };
   return (
     <section className={styles.container}>
@@ -73,13 +75,14 @@ const Contact = () => {
           </ul>
         </div>
       </div>
-      <div className={styles.introBox}>
+      <div className={styles.mapBox}>
         <div className={styles.mapBorder}>
           <div
             id="map"
             style={{ width: "700px", height: "350px", overflow: "hidden" }}
           />
         </div>
+        <div className={styles.addr}>서울특별시 서초구 서초동 서초대로 396</div>
         <div className={styles.finder}>
           <a
             href="https://map.kakao.com/link/to/코드스테이츠,37.496633, 127.024779"
@@ -89,42 +92,48 @@ const Contact = () => {
           </a>
         </div>
       </div>
-      <div className={styles.mapBox}>
-        <div className={styles.mapBorder}>
-          <div
-            id="map"
-            style={{ width: "700px", height: "350px", overflow: "hidden" }}
-          />
+      {""}
+      <div className={styles.introBox}>
+        <div className={styles.introBorder}>
+          <div className={styles.sInfo}>
+            <span>문순려</span>
+            <span>Back-end</span>
+            <span>github</span>
+          </div>
+          <div className={styles.sInfo}>
+            <span>이동욱</span>
+            <span>Back-end</span>
+            <span>github</span>
+          </div>
+          <div className={styles.sInfo}>
+            <span>유다희</span>
+            <span>Front-end</span>
+            <span>github</span>
+          </div>
+          <div className={styles.sInfo}>
+            <span>박지영</span>
+            <span>Front-end</span>
+            <span>github</span>
+          </div>
         </div>
       </div>
-      {/* <div className={styles.contactBox}>
-        <div className={styles.mapBox}>
-          <div className={styles.mapBorder}>
-            <div id="map" style={{ width: "400px", height: "300px" }} />
+      {isOpenModal ? (
+        <section className={styles.modalContainer}>
+          <div className={styles.modalBox}>
+            <span className={styles.modalText}>문의메일이 전송되었습니다.</span>
+            <div className={styles.btnBox}>
+              <button
+                className={styles.modifyBtn}
+                onClick={() => {
+                  setIsOpenModal(false);
+                }}
+              >
+                확인
+              </button>
+            </div>
           </div>
-
-          <div className={styles.finder}>
-            <a
-              href="https://map.kakao.com/link/to/코드스테이츠,37.496633, 127.024779"
-              target="_blank"
-            >
-              길찾기
-            </a>
-          </div>
-        </div>
-        <div className={styles.textBox}>
-          <ul className={styles.infoBox}>
-            <li className={styles.infoTitle}>E-mail</li>
-            <li className={styles.infoText}>art_gallery1234@gmail.com</li>
-            <li className={styles.infoTitle}>Address</li>
-            <li className={styles.infoText}>
-              서울특별시 서초구 서초동 서초대로 396
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div className={styles.titleBox}>Mail Us(opt)</div> */}
+        </section>
+      ) : null}
     </section>
   );
 };
