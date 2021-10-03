@@ -16,8 +16,6 @@ module.exports = {
   },
 
   caching: async (key, data) => {
-    console.log(key);
-    console.log(data);
     await redisClient.set(key, JSON.stringify(data));
   },
   delCache: (key) => {
