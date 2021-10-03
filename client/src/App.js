@@ -46,8 +46,6 @@ function App() {
   useEffect(() => {
     if (localStorage.getItem("isLogin")) {
       setIsLogin(true);
-    } else {
-      window.localStorage.setItem("isLogin", false);
     }
     setTimeout(() => {
       setModifyRender(true);
@@ -61,7 +59,7 @@ function App() {
   const handleResponseSuccess = () => {
     isAuthenticated();
     setIsLogin(true);
-    window.localStorage.setItem("isLogin", "true");
+    window.localStorage.setItem("isLogin", true);
     history.push("/about");
   };
 

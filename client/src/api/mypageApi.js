@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export function getMyinfo(setIsLogin, setUserinfo, setisAdmin, isLogin) {
+export function getMyinfo(setUserinfo, setisAdmin) {
   //art-ground.link
   return axios
     .get("https://art-ground.link/mypage")
@@ -12,8 +12,6 @@ export function getMyinfo(setIsLogin, setUserinfo, setisAdmin, isLogin) {
             ? "https://images.velog.io/images/beablessing/post/54131e26-0389-412e-b88d-a8b6a97600a8/noimg.png"
             : result.data.data.profile_img;
 
-        //console.log(isLogin, "로그인값 !!!");
-        setIsLogin(true);
         setUserinfo({ ...result.data.data, profile_img: img });
         //console.log(result.data.data);
         if (result.data.data.user_type === 3) {
@@ -36,7 +34,7 @@ export function getMyExhibition(setMyEx) {
 }
 
 export function getMyPickExhibiton(setMyPick) {
-  //art-ground.link
+  //localhost:5000
   return axios
     .get("https://art-ground.link/mypage/like")
     .then((result) => {
@@ -54,22 +52,24 @@ export function deleteAccount(setUserinfo, setIsLogin, history) {
       console.log(result, "탈퇴!");
       setUserinfo(null);
       setIsLogin(false);
-      history.push("./about");
+      history.push("/about");
     })
     .catch((err) => console.log(err));
 }
 
-//infoModify
-export function infoModify(userData, history) {
+//infoModify : path = infoModify
+export function infoModify(userData, history, setUserinfo) {
   //art-ground.link
   return axios
     .post("https://art-ground.link/mypage", {
       userData,
     })
     .then((result) => {
-      console.log(result, "인포수정 응답!");
       if (result.data.message === "profile changed") {
-        history.push("/mypage");
+        axios.get("https://art-ground.link/mypage").then((result) => {
+          setUserinfo(result.data.data);
+          history.push("/mypage");
+        });
       }
     })
     .catch((err) => console.log(err));

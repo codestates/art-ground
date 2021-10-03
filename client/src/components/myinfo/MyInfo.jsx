@@ -10,15 +10,6 @@ const MyInfo = ({ userinfo, setUserinfo, setIsLogin }) => {
   };
   const deleteAccount = () => {
     deleteAccount(setUserinfo, setIsLogin, history);
-    // axios
-    //   .delete("https://art-ground.link/mypage")
-    //   .then((result) => {
-    //     console.log(result, "탈퇴!");
-    //     setUserinfo(null);
-    //     setIsLogin(false);
-    //     history.push("./about");
-    //   })
-    //   .catch((err) => console.log(err));
   };
 
   const img = !userinfo.profile_img

@@ -21,24 +21,11 @@
   height: 14rem;
   margin: 0;
   object-fit: cover;
-}
-.layer {
-  /* position: relative; */
-  width: 100%;
-  height: 14rem;
-  opacity: 0;
-  background-color: white;
-  margin-bottom: -14rem;
   transition: 0.3s;
 }
 
-.layer:hover {
-  /* position: relative; */
-  width: 100%;
-  height: 14rem;
-  opacity: 0.4;
-  background-color: rgb(37, 37, 37);
-  margin-bottom: -14rem;
+.thumbnail:hover {
+  filter: brightness(50%);
 }
 
 .metaData {

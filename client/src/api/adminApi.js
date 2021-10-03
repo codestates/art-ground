@@ -5,10 +5,7 @@ export function getAllExhibition(setExhibitData) {
   return axios
     .get("https://art-ground.link/exhibition")
     .then((result) => {
-      //console.log(result.data.data);
       setExhibitData(result.data.data);
-      console.log(result, "result");
-      //console.log(result.data.data);
     })
     .catch((err) => console.log(err));
 }
@@ -44,9 +41,7 @@ export function getAllReviews(setReviewData) {
   return axios
     .get("https://art-ground.link/admin/review")
     .then((result) => {
-      //console.log(result.data.data);
       setReviewData(result.data.data);
-      //console.log(result.data.data, "ssssssssss");
     })
     .catch((err) => console.log(err));
 }
@@ -76,3 +71,5 @@ export function deleteReviews(setDeleteModal, el) {
     })
     .catch((err) => console.log(err));
 }
+
+//모디파이 펑션
