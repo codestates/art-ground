@@ -1,11 +1,13 @@
 "use strict";
-const { Router } = require("express");
-const router = Router();
-
-const dotenv = require("dotenv");
+require("dotenv").config();
 const axios = require("axios");
-
-dotenv.config();
+const { users } = require("../../models");
+const {
+  generateAccessToken,
+  sendAccessToken,
+} = require("../../utils/tokenFunction");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 
 /**
  *
@@ -43,17 +45,55 @@ module.exports = {
       });
   },
   getUserInfo: async (req, res) => {
-    const googleInfoURL = process.env.ART_GROUND_GOOGLEINFO_URL;
+    try {
+      const googleInfoURL = process.env.ART_GROUND_GOOGLEINFO_URL;
 
-    const accessToken = req.query.accessToken;
-    await axios
-      .get(googleInfoURL, {
+      const accessToken = req.query.accessToken;
+      const userInfo = await axios.get(googleInfoURL, {
         headers: {
           authorization: `Bearer ${accessToken}`,
         },
-      })
-      .then((result) => {
-        res.json(result.data);
       });
+
+      const { name: nickname, email: userEmail } = userInfo.data;
+      let password = userEmail + process.env.CRYPTOJS_SECRETKEY;
+
+      const salt = await bcrypt.genSalt(saltRounds);
+      password = await bcrypt.hash(password, salt);
+
+      const result = await users.findOne({
+        where: {
+          user_email: userEmail,
+          password,
+        },
+      });
+
+      if (result) {
+        delete result.dataValues.password;
+        const accessToken = generateAccessToken(result.dataValues);
+        sendAccessToken(res, accessToken);
+      } else {
+        const generatedInfo = await users.create({
+          user_email: userEmail, //userInfo.data.kakao_account.email
+          password,
+          nickname,
+          user_type: 1,
+          login_type: "google",
+        });
+
+        delete generatedInfo.dataValues.password;
+        const accessToken = generateAccessToken(generatedInfo.dataValues);
+        return res
+          .cookie("accessToken", accessToken, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "none",
+          })
+          .status(201)
+          .json({ message: "created ok" });
+      }
+    } catch (err) {
+      console.log(err);
+    }
   },
 };
