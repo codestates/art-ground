@@ -14,7 +14,7 @@ const Admin = () => {
   const [doneEx, setDoneEx] = useState(false);
   const [adExRender, setAdExRender] = useState(false); //새로고침시 랜더되도록
   const [exhibitData, setExhibitData] = useState([]); //데이터 상태값
-  const [reviewData, setReviewData] = useState([]); //
+  const [reviewData, setReviewData] = useState([]);
   const [restData, setRestData] = useState([]); // 랜더 하고 남은 데이터
   const [isLoading, setIsLoading] = useState(true);
   const clickExColor = !exhibition ? styles.libox : styles.liboxClick; //대메뉴 css
@@ -67,7 +67,7 @@ const Admin = () => {
         setReviewData(reviewData.concat(restData.slice(0, 10)));
         setRestData(restData.slice(10));
         setIsLoading(false);
-      }, 700);
+      }, 500);
     }
   };
 
@@ -86,14 +86,15 @@ const Admin = () => {
       fetchMoreData();
     }
   }, [isLoading]);
+
   const getFetchData = async () => {
     setIsLoading(true);
-    let result = await getinfiniteData();
-    setReviewData(result.slice(0, 10));
-    result = result.slice(10);
-    setRestData(result);
+    let data = await getinfiniteData();
+    setReviewData(data.slice(0, 10));
+    setRestData(data.slice(10));
     setIsLoading(false);
   };
+  
   useEffect(() => {
     setTimeout(() => {
       getFetchData();

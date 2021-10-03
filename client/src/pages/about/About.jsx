@@ -5,6 +5,7 @@ import "aos/dist/aos.css";
 
 import { Link, useHistory } from "react-router-dom";
 import AboutSlider from "../../components/aboutSlider/AboutSlider";
+import AboutRevSlider from "../../components/aboutRevSlider/AboutRevSlider";
 
 AOS.init();
 
@@ -184,58 +185,14 @@ const About = () => {
         </section>
       </main>
 
-      <main className={`${styles.mainback} ${styles.main4}`}>
-        <section className={styles.revSecBorder}>
-          <div
-            className={styles.reviewTitle}
-            data-aos="fade-up"
-            data-aos-duration="2000"
-          >
-            아트그라운드에서<br></br>수백개의 관람 후기를 만나보세요. (슬라이더)
-          </div>
-          <div
-            className={styles.revContentBox}
-            data-aos="fade-up"
-            data-aos-duration="2000"
-          >
-            <div className={styles.revContent}>
-              <img src="https://images.velog.io/images/beablessing/post/6cee083a-f884-4a87-9217-02005bec687e/Screenshot%20from%202021-09-30%2005-11-44.png"></img>
-              <div className={styles.revTxtBox}>
-                <span className={styles.revTxt}>elma 님</span>
-                <span className={styles.revTxt}>전시명: 자아성찰</span>
-                <span className={styles.revTxt}>
-                  작가의 자아성찰이 잘 그려졌던 작품이었다.이런점은 이러했고,
-                  어떤점은 조금 어려운 난해하게 느껴졌던 부분도 있었다. 하지만
-                  전반적으로 어쩌구저쩌구 그래서 매우 만족스러운 전시회였다.
-                </span>
-              </div>
-            </div>
-            <div className={styles.revContent}>
-              <img src="https://images.velog.io/images/beablessing/post/25809c97-d973-4a68-b8ca-0f834128d3ed/Screenshot%20from%202021-09-30%2005-11-38.png"></img>
-              <div className={styles.revTxtBox}>
-                <span className={styles.revTxt}>Klassiker 님</span>
-                <span className={styles.revTxt}>작품: 자아성찰</span>
-                <span className={styles.revTxt}>
-                  작가의 자아성찰이 잘 그려졌던 작품이었다. 이런점은 이러했고,
-                  어떤점은 조금 어려운 난해하게 느껴졌던 부분도 있었다. 하지만
-                  전반적으로 어쩌구저쩌구 그래서 매우 만족스러운 전시회였다.
-                </span>
-              </div>
-            </div>
-            <div className={styles.revContent}>
-              <img src="https://images.velog.io/images/beablessing/post/cbb9a9be-2030-4a9f-ade0-74cf3677b9ca/Screenshot%20from%202021-09-30%2005-11-48.png"></img>
-              <div className={styles.revTxtBox}>
-                <span className={styles.revTxt}>artground 님</span>
-                <span className={styles.revTxt}>작품: 자아성찰</span>
-                <span className={styles.revTxt}>
-                  작가의 자아성찰이 잘 그려졌던 작품이었다. 이런점은 이러했고,
-                  어떤점은 조금 어려운 난해하게 느껴졌던 부분도 있었다. 하지만
-                  전반적으로 어쩌구저쩌구 그래서 매우 만족스러운 전시회였다.
-                </span>
-              </div>
-            </div>
-          </div>
-        </section>
+      <main className={`${styles.main10}`}>
+        <div
+          className={styles.revBorder}
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
+          <AboutRevSlider />
+        </div>
       </main>
 
       <main className={`${styles.mainback} ${styles.main3}`}>
