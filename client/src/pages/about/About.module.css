@@ -117,6 +117,12 @@ label {
   height: 50vh;
   background-color: black;
 }
+/*리뷰디테일*/
+.main10 {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+}
 .brand {
   width: 100%;
   height: 40vh;
@@ -258,6 +264,9 @@ label {
   font-size: 1.5rem;
 }
 /*리뷰상세 끝*/
+/*리뷰 슬라이더*/
+
+/*리뷰 슬라이더*/
 
 .fullSecBorder {
   /*메인 > 풀섹션보더*/
@@ -405,6 +414,20 @@ label {
 }
 
 /*반응형*/
+.revBorder {
+  width: 80%;
+  height: 100%;
+
+  margin: 0 auto;
+}
+@media screen and (max-width: 1206px) {
+  .revBorder {
+    width: 100%;
+    height: 100%;
+
+    margin: 0 auto;
+  }
+}
 
 @media screen and (max-width: 980px) {
   .main1 {
@@ -482,6 +505,12 @@ label {
     font-size: 1rem;
   }
   /*리뷰상세 끝*/
+  .revBorder {
+    width: 80%;
+    height: 100%;
+
+    margin: 0 auto;
+  }
 }
 @media screen and (max-width: 768px) {
   .container {
