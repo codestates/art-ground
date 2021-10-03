@@ -7,8 +7,8 @@ const {
   delCache,
 } = require("../../utils/redis/cache.ctrl");
 module.exports.withdrawalLike = async (req, res) => {
-  //const userInfo = isAuthorized(req);
-  const userInfo = { id: 45 };
+  const userInfo = isAuthorized(req);
+
   if (userInfo) {
     const { postId: exhibition_id, type: exhibit_type } = req.params;
     const { id: user_id } = userInfo;
