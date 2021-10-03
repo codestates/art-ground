@@ -1,4 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Gothic+A1&family=Nanum+Gothic&family=Noto+Sans+KR&display=swap");
+
 * {
+  font-family: "맑은 고딕", "Malgun Gothic", "Noto Sans", sans-serif;
+  /* font-family: "Gothic A1", sans-serif; */
+  /* font-family: "Nanum Gothic", sans-serif; */
   box-sizing: border-box;
   margin: 0;
   padding: 0;
