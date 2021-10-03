@@ -1,17 +1,27 @@
 const { exhibition } = require("../../models");
 const { comments } = require("../../models");
 const { isAuthorized } = require("../../utils/tokenFunction");
-
+const {
+  getCached,
+  caching,
+  delCache,
+} = require("../../utils/redis/cache.ctrl");
 module.exports = {
-  getAllReviews: (req, res) => {
+  getAllReviews: async (req, res) => {
     const userInfo = isAuthorized(req);
-    console.log("userInfo:", userInfo);
+    const redisKey = "allExhibition";
 
     if (userInfo.user_type === 3) {
-      comments.findAll().then((data) => {
-        console.log("data:", data);
-        res.status(200).json({ data: data });
-      });
+      const reply = await getCached(redisKey);
+      if (reply) {
+        const data = reply;
+        res.status(200).json({ data });
+      } else {
+        const result = await comments.findAll();
+        const data = result.dataValues;
+        caching(redisKey, data);
+        res.status(200).json({ data });
+      }
     } else {
       res.status(401).json({
         message: "invalid access token",
@@ -21,8 +31,8 @@ module.exports = {
   approveExhibitions: (req, res) => {
     const userInfo = isAuthorized(req);
     const { postId } = req.body;
-    
-    console.log('+++++++++++++++', req.headers)
+
+    console.log("+++++++++++++++", req.headers);
     console.log("userInfo:", userInfo, postId);
 
     if (userInfo.user_type === 3) {

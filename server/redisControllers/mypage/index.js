@@ -7,9 +7,8 @@ const saltRounds = 10;
 
 module.exports = {
   getMyInfo: async (req, res) => {
-    //const userInfo = isAuthorized(req);
-    console.log("hah");
-    const userInfo = { id: 30 };
+    const userInfo = isAuthorized(req);
+
     if (userInfo) {
       const { id } = userInfo;
       const result = await users.findOne({
