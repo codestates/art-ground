@@ -36,7 +36,9 @@ const Navbar = ({ isLogin, handleLogout, isAdmin, setModalOpen }) => {
   const handleScroll = () => {
     const { pageYOffset } = window; //상단으로부터 스크롤 위치
     const deltaY = pageYOffset - pageY; //스크롤 속도
-    if ((pageYOffset === 0 && deltaY > 0) || (pageYOffset < 0 && deltaY > 0)) {
+
+    if(pageYOffset < 50 && deltaY > 0){
+
       setHide(false);
     } else if (pageYOffset !== 0 && deltaY > 0) {
       setHide(true);
