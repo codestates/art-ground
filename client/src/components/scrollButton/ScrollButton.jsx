@@ -35,13 +35,14 @@ const ScrollButton = (props) => {
       window.removeEventListener("scroll", handleFollow);
     };
   });
+
   return (
     <div className={styles.container}>
       <button
         className={btnStatus ? styles.topBtn : styles.topBtnActive} // 버튼 노출 여부
         onClick={handleTop} // 버튼 클릭시 함수 호출
       >
-        <i class="fas fa-arrow-up"></i>
+        <i className="fas fa-arrow-up"></i>
       </button>
     </div>
   );

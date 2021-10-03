@@ -1,30 +1,40 @@
 import styles from "./Admin.module.css";
 import ScrollButton from "../../components/scrollButton/ScrollButton";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import AdminEx from "../../components/adminEx/AdminEx";
 import AdminReview from "../../components/adminReview/AdminReview";
-import axios from "axios";
 import Loading from "../../components/loading/Loading";
 import { getAllExhibition, getinfiniteData } from "../../api/adminApi";
 
 const Admin = () => {
-  // 대분류 페이지
-  const [exhibition, setExhibition] = useState(true);
+  const [exhibition, setExhibition] = useState(true); //대분류 페이지
   const [review, setReview] = useState(false);
-  // ex소분류 페이지이동
-  const [updateEx, setUpdateEx] = useState(true);
+  const [updateEx, setUpdateEx] = useState(true); //ex소분류 페이지이동
   const [deleteEx, setDeleteEx] = useState(false);
   const [doneEx, setDoneEx] = useState(false);
-
-  const [adExRender, setAdExRender] = useState(false);
-
-  //대메뉴 css
-  const clickExColor = !exhibition ? styles.libox : styles.liboxClick;
+  const [adExRender, setAdExRender] = useState(false); //새로고침시 랜더되도록
+  const [exhibitData, setExhibitData] = useState([]); //데이터 상태값
+  const [reviewData, setReviewData] = useState([]); //
+  const [restData, setRestData] = useState([]); // 랜더 하고 남은 데이터
+  const [isLoading, setIsLoading] = useState(true);
+  const clickExColor = !exhibition ? styles.libox : styles.liboxClick; //대메뉴 css
   const clickRevColor = !review ? styles.libox : styles.liboxClick;
-  //ex소메뉴 css
-  const clickEXSmenu1 = !updateEx ? styles.btn : styles.btnClick;
+  const clickEXSmenu1 = !updateEx ? styles.btn : styles.btnClick; //ex소메뉴 css
   const clickEXSmenu2 = !deleteEx ? styles.btn : styles.btnClick;
   const clickEXSmenu3 = !doneEx ? styles.btn : styles.btnClick;
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAdExRender(true);
+    }, 300);
+  }, []);
+
+  useEffect(() => {
+    if (exhibition) {
+      getAllExhibition(setExhibitData);
+    }
+    return () => {};
+  }, [exhibition]);
 
   const clickEx = () => {
     setExhibition(true);
@@ -34,30 +44,6 @@ const Admin = () => {
     setExhibition(false);
     setReview(true);
   };
-
-  // 데이터 상태값
-  const [exhibitData, setExhibitData] = useState([]);
-  const [reviewData, setReviewData] = useState([]);
-
-  useEffect(() => {
-    if (exhibition) {
-      getAllExhibition(setExhibitData);
-    }
-    return () => {};
-  }, [exhibition]);
-
-  // useEffect(() => {
-  //   if (review) {
-  //     getAllReviews(setReviewData);
-  //   }
-  //   return () => {};
-  // }, [review]);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setAdExRender(true);
-    }, 1000);
-  }, []);
 
   const clickUpdate = () => {
     setUpdateEx(true);
@@ -74,18 +60,18 @@ const Admin = () => {
     setDeleteEx(false);
     setDoneEx(true);
   };
+  const fetchMoreData = async () => {
+    if (restData.length !== 0) {
+      setIsLoading(true);
+      setTimeout(() => {
+        setReviewData(reviewData.concat(restData.slice(0, 10)));
+        setRestData(restData.slice(10));
+        setIsLoading(false);
+      }, 700);
+    }
+  };
 
-  const [productList, setProductList] = useState([]);
-  const [items, setItems] = useState(10);
-  const [preItems, setPreItems] = useState(0);
-
-  useEffect(() => {
-    getinfiniteData(setProductList, preItems, items, productList);
-
-    window.addEventListener("scroll", infiniteScroll, true);
-  }, [items]);
-
-  const infiniteScroll = () => {
+  const _infiniteScroll = useCallback(() => {
     let scrollHeight = Math.max(
       document.documentElement.scrollHeight,
       document.body.scrollHeight
@@ -95,12 +81,29 @@ const Admin = () => {
       document.body.scrollTop
     );
     let clientHeight = document.documentElement.clientHeight;
-
-    if (scrollTop + clientHeight >= scrollHeight) {
-      setPreItems(items);
-      setItems(items + 10);
+    scrollHeight -= 100;
+    if (scrollTop + clientHeight >= scrollHeight && isLoading === false) {
+      fetchMoreData();
     }
+  }, [isLoading]);
+  const getFetchData = async () => {
+    setIsLoading(true);
+    let result = await getinfiniteData();
+    setReviewData(result.slice(0, 10));
+    result = result.slice(10);
+    setRestData(result);
+    setIsLoading(false);
   };
+  useEffect(() => {
+    setTimeout(() => {
+      getFetchData();
+    }, 200);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", _infiniteScroll, true);
+    return () => window.removeEventListener("scroll", _infiniteScroll, true);
+  }, [_infiniteScroll]);
 
   return (
     <section className={styles.container}>
@@ -167,10 +170,9 @@ const Admin = () => {
             {adExRender ? (
               <>
                 <div className={styles.btnbox}>
-                  <button className={clickEXSmenu3}>전체보기(최신순)</button>
-                  <button className={clickEXSmenu3}>전시회별 정렬</button>
+                  <button className={clickEXSmenu3}>전체보기</button>
                 </div>
-                {productList.map((el, idx) => {
+                {reviewData.map((el, idx) => {
                   return <AdminReview key={idx} el={el} />;
                 })}
               </>
@@ -180,6 +182,7 @@ const Admin = () => {
           </div>
         ) : null}
       </div>
+      {isLoading ? <Loading /> : null}
     </section>
   );
 };

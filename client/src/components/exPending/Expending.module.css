@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+/*font-family: 'Do Hyeon', sans-serif;*/
+span {
+  display: block;
+}
+.container {
+  max-width: 1024px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0.3rem;
+  animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s;
+  /* Firefox */
+  -webkit-animation: fadein 1.5s;
+  /* Safari and Chrome */
+  -o-animation: fadein 1.5s;
+  /* Opera */
+}
+.box {
+  list-style: none;
+}
+.liBox {
+  width: 100%;
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+}
+
+.column {
+  background-color: gainsboro;
+  width: 100%;
+  height: 100%;
+  line-height: 3rem;
+  text-align: center;
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-family: "Do Hyeon", sans-serif;
+}
+.contentBox {
+  /*ul*/
+  height: 100%;
+  list-style: none;
+}
+
+.contentBox li {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid gainsboro;
+}
+
+.contentBox2 {
+  /*ul*/
+  height: 100%;
+  list-style: none;
+}
+.contentBox2 li {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid gainsboro;
+}
+.sColumn {
+  width: 20%;
+  line-height: 3rem;
+  text-align: center;
+  font-size: 1.3rem;
+  font-family: "Do Hyeon", sans-serif;
+  border-right: 1px solid gainsboro;
+}
+.sContent {
+  width: 80%;
+  line-height: 3rem;
+  padding: 0.5rem;
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.sContentDate {
+  width: 100%;
+  text-align: center;
+  line-height: 3rem;
+}
+.sContentImg {
+  width: 80%;
+  padding: 1rem;
+  text-indent: 2rem;
+  line-height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.artImg {
+  width: 30%;
+  margin-left: -12rem;
+}
+.sContentTxt {
+  width: 100%;
+  height: 100%;
+}
+.liBtnBox1 {
+  height: 3rem;
+}
+.liBtnBox2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn1 {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  /* border: 1px solid gainsboro; */
+  outline: none;
+  cursor: pointer;
+}
+.btn2 {
+  width: 250px;
+  height: 50px;
+  background-color: white;
+  border: 1px solid gainsboro;
+  outline: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  .contentBox li {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid gainsboro;
+  }
+  .contentBox2 li {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid gainsboro;
+  }
+  .sColumn {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid gainsboro;
+  }
+
+  .sContentImg {
+    width: 80%;
+    padding: 1rem;
+    line-height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .artImg {
+    width: 80%;
+    margin-left: 1rem;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

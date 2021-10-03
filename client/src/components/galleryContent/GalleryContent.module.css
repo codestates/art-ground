@@ -2,11 +2,8 @@
   position: relative;
   animation: fadein 1.5s;
   -moz-animation: fadein 1.5s;
-  /* Firefox */
   -webkit-animation: fadein 1.5s;
-  /* Safari and Chrome */
   -o-animation: fadein 1.5s;
-  /* Opera */
 }
 
 .thumbnail {
@@ -14,32 +11,13 @@
   height: 16rem;
   margin: 0;
   object-fit: cover;
-}
-
-.layer {
-  position: relative;
-  width: 100%;
-  height: 16rem;
-  opacity: 0;
-  background-color: white;
-  margin-bottom: -16rem;
   transition: 0.3s;
+  cursor: pointer;
+}
+.thumbnail:hover {
+  filter: brightness(50%);
 }
 
-.layer:hover {
-  position: relative;
-  width: 100%;
-  height: 16rem;
-  opacity: 0.4;
-  background-color: rgb(37, 37, 37);
-  margin-bottom: -16rem;
-}
-
-/* .titleAndLike {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-} */
 .title {
   margin-top: 0.3rem;
   font-size: 1rem;

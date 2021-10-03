@@ -6,39 +6,26 @@
   border-bottom: 1px solid rgb(219, 219, 219);
   animation: fadein 1.5s;
   -moz-animation: fadein 1.5s;
-  /* Firefox */
   -webkit-animation: fadein 1.5s;
-  /* Safari and Chrome */
   -o-animation: fadein 1.5s;
-  /* Opera */
 }
 
-.imgBox {
+.container > a {
   width: 35%;
+}
+.imgBox {
+  width: 100%;
 }
 .thumbnail {
   width: 100%;
   height: 14rem;
   margin: 0;
   object-fit: cover;
-}
-.layer {
-  /* position: relative; */
-  width: 100%;
-  height: 14rem;
-  opacity: 0;
-  background-color: white;
-  margin-bottom: -14rem;
   transition: 0.3s;
 }
 
-.layer:hover {
-  /* position: relative; */
-  width: 100%;
-  height: 14rem;
-  opacity: 0.4;
-  background-color: rgb(37, 37, 37);
-  margin-bottom: -14rem;
+.thumbnail:hover {
+  filter: brightness(50%);
 }
 
 .metaData {
@@ -95,7 +82,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .imgBox {
+  .container > a {
     width: 45%;
   }
 
@@ -117,12 +104,18 @@
 }
 
 @media screen and (max-width: 568px) {
+  .metaData {
+    padding-left: 0.5rem;
+  }
+
   .title {
-    margin-top: 0.2rem;
+    margin-top: 0.3rem;
+    font-size: 0.9rem;
   }
 
   .period {
     margin-top: 0.1rem;
+    font-size: 0.7rem;
   }
   .reviewCount {
     font-size: 0.75rem;
@@ -132,6 +125,7 @@
     margin-bottom: 0.5rem;
     padding: 0.5rem;
     width: 6rem;
+    font-size: 0.7rem;
   }
   .btnWrap {
     margin-top: 0.2rem;

@@ -5,6 +5,16 @@
 span {
   display: block;
 }
+.containerHide {
+  width: 100%;
+  background-color: #202020;
+  box-shadow: 0 -5px 15px rgb(57, 57, 57);
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  transition: 0.5s;
+  transform: translateY(-11.5rem);
+}
 .container {
   width: 100%;
   background-color: #202020;
@@ -12,7 +22,8 @@ span {
   position: fixed;
   top: 0;
   z-index: 10;
-  transition: 0.2s;
+  transition: 0.3s;
+  /* transform: translateY(-11.5rem); */
 }
 .containerScroll {
   width: 100%;
@@ -21,7 +32,7 @@ span {
   position: fixed;
   top: 0;
   z-index: 10;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 .navBox {
@@ -44,6 +55,7 @@ span {
   justify-content: flex-end;
   margin-right: 1.5rem;
 }
+
 .btnsScroll {
   list-style: none;
   color: rgb(53, 53, 53);
@@ -72,13 +84,14 @@ span {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 .logoImg {
   margin: 0;
   height: 65%;
-  transition: 0.2s;
+  transition: 0.3s;
+  cursor: pointer;
 }
 .logoScroll {
   margin-top: -1.5rem;
@@ -87,12 +100,13 @@ span {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 .logoImgScroll {
   margin: 0;
   height: 90%;
-  transition: 0.2s;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
 .categoryBox {
@@ -139,7 +153,7 @@ span {
     all: unset;
     cursor: pointer;
     position: absolute;
-    color: white;
+    color: rgb(208, 208, 208);
     top: 1.2rem;
     left: 1.2rem;
     font-size: 1rem;

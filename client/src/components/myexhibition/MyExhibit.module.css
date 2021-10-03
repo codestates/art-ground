@@ -3,12 +3,15 @@
 
 .container {
   max-width: Container;
+  height: 30rem;
   margin: 0 auto;
-
+  /* border: 1px solid red; */
   height: 100%;
+  /* margin-top: 5rem; */
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
+
   padding: 0.3rem;
   animation: fadein 2s;
   -moz-animation: fadein 2s;
@@ -18,36 +21,59 @@
   -o-animation: fadein 2s;
   /* Opera */
 }
+/* .exBox:nth-child(1) {
+  margin-top: 5rem;
+} */
 .exBox {
+  width: 100%;
+  height: 20rem;
   border-bottom: 1px solid gainsboro;
-  padding: 0.1rem;
-  margin-top: 20px;
-  cursor: pointer;
   display: flex;
   flex-direction: row;
-  padding: 0.5rem;
+  align-items: center;
+  padding: 0.7rem;
 }
 .thumBox {
   flex: 3.5;
-  height: 200px;
+  height: 230px;
   overflow: hidden;
 }
 .eximg {
+  border: 1px solid gainsboro;
   width: 100%;
   height: 100%;
 }
 .infoBox {
   flex: 6.5;
+  height: 77%;
   margin-top: 5px;
+}
+.status {
+  width: 8rem;
+  height: 2rem;
+  font-size: 1.3rem;
+  font-family: "Do Hyeon", sans-serif;
+  background-color: black;
+  text-align: center;
+  line-height: 2rem;
+  color: white;
+
+  margin: 5px 0 0 8px;
 }
 .title {
   text-indent: 10px;
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 1.1rem;
+  font-family: "Do Hyeon", sans-serif;
+}
+.title:nth-child(3) {
+  font-size: 0.9rem;
 }
 .date {
+  height: 2rem;
+  line-height: 2rem;
   text-indent: 10px;
   font-size: 0.8rem;
+  display: flex;
 }
 
 @media screen and (max-width: 768px) {
@@ -56,6 +82,7 @@
   }
   .exBox {
     width: 90%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -63,20 +90,44 @@
     padding: 1rem 0.2rem;
   }
   .thumBox {
-    width: 20rem;
-    height: 20rem;
+    /* flex: 3.5; */
+    /* width: 10px;
+    height: 30px; */
+    width: 260px;
+    height: 260px;
     overflow: hidden;
   }
   .infoBox {
+    flex: 6.5;
     margin: 2rem 0;
+    width: 100%;
+  }
+  .title {
+    text-align: center;
+  }
+  .status {
+    margin: 0 auto;
+  }
+  .date {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
 }
 @media screen and (max-width: 580px) {
   .container {
+    margin-top: 2rem;
     padding: 0.2rem;
+    height: 35rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .exBox {
     width: 90%;
+    height: 30rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -84,12 +135,20 @@
     padding: 1rem 0.2rem;
   }
   .thumBox {
-    flex: 3;
+    width: 300px;
+    height: 150px;
     overflow: hidden;
   }
   .infoBox {
+    width: 100%;
     flex: 0.5;
     padding: 0.2rem;
+  }
+  .date {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
 }
 @media screen and (max-width: 480px) {
@@ -98,6 +157,7 @@
   }
   .exBox {
     width: 90%;
+    height: 26rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -105,13 +165,20 @@
     padding: 1rem 0.2rem;
   }
   .thumBox {
-    width: 100%;
-    flex: 3;
+    width: 95%;
+
     overflow: hidden;
   }
   .infoBox {
+    width: 100%;
     flex: 0.5;
     padding: 0.2rem;
+  }
+  .date {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
 }
 @keyframes fadein {

@@ -26,6 +26,7 @@ import Loading from "./components/loading/Loading";
 import { getSignOutRes } from "./api/signApi";
 import { getMyinfo } from "./api/mypageApi";
 import ScrollTop from "./components/scrollTop/ScrollTop";
+import GoLoginModal from "./components/modals/GoLoginModal";
 
 function App() {
   const history = useHistory();
@@ -34,46 +35,52 @@ function App() {
   const [isAudienceJoined, setIsAudienceJoined] = useState(false);
   const [isAuthorLogin, setIsAuthorLogin] = useState(false);
   const [isAudienceLogin, setIsAudienceLogin] = useState(false);
-
   // 로그인,유저인포(상태)
   const [isLogin, setIsLogin] = useState(false);
   const [userinfo, setUserinfo] = useState(null);
   const [isAdmin, setisAdmin] = useState(false);
 
   const [modifyRender, setModifyRender] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+
   useEffect(() => {
-    //로딩창 띄워야함
+    if (localStorage.getItem("isLogin")) {
+      setIsLogin(true);
+    } else {
+      setIsLogin(false);
+    }
     setTimeout(() => {
       setModifyRender(true);
-    }, 1000);
+    }, 500);
   }, []);
 
-  const isAuthenticated = (info) => {
-    getMyinfo(setIsLogin, setUserinfo, setisAdmin, isLogin);
-    //console.log(document.cookie, "ddd===========");
+  const isAuthenticated = () => {
+    getMyinfo(setUserinfo, setisAdmin);
   };
 
-  const handleResponseSuccess = (info) => {
-    isAuthenticated(info);
+  const handleResponseSuccess = () => {
+    isAuthenticated();
+    setIsLogin(true);
+    window.localStorage.setItem("isLogin", true);
     history.push("/about");
   };
 
   useEffect(() => {
     isAuthenticated();
-  }, []);
+  }, [isLogin]);
 
   const handleLogout = () => {
     getSignOutRes(setUserinfo, setIsLogin, setisAdmin, isLogin);
     history.push("/about");
   };
 
-  // window.localStorage.setItem("userinfo", JSON.stringify(userinfo));
-
   const [gallerySelected, setGallerySelected] = useState(null);
   const [reviewSelected, setReviewSelected] = useState(null);
+  const [threeDSelected, setThreeDSelected] = useState(null);
 
   return (
     <ScrollTop>
+      {modalOpen ? <GoLoginModal setModalOpen={setModalOpen} /> : null}
       <Switch>
         <Route exact path="/">
           <Landing isLogin={isLogin} userinfo={userinfo} />
@@ -84,6 +91,7 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
+            setModalOpen={setModalOpen}
           />
           <SignIn
             setIsAuthorLogin={setIsAuthorLogin}
@@ -96,6 +104,7 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
+            setModalOpen={setModalOpen}
           />
           <SignInDetail
             isAuthorLogin={isAuthorLogin}
@@ -111,6 +120,7 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
+            setModalOpen={setModalOpen}
           />
           <Google />
         </Route>
@@ -120,6 +130,7 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
+            setModalOpen={setModalOpen}
           />
           <Kakao />
         </Route>
@@ -129,6 +140,7 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
+            setModalOpen={setModalOpen}
           />
           <Join
             setIsAuthorJoined={setIsAuthorJoined}
@@ -141,6 +153,7 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
+            setModalOpen={setModalOpen}
           />
           <SignUp
             isAuthorJoined={isAuthorJoined}
@@ -154,12 +167,19 @@ function App() {
             handleLogout={handleLogout}
             isAdmin={isAdmin}
             setUserinfo={setUserinfo}
+            setModalOpen={setModalOpen}
           />
-          <MyPage
-            userinfo={userinfo}
-            setUserinfo={setUserinfo}
-            setIsLogin={setIsLogin}
-          />
+          {modifyRender ? (
+            <MyPage
+              userinfo={userinfo}
+              setUserinfo={setUserinfo}
+              setIsLogin={setIsLogin}
+              gallerySelected={gallerySelected}
+              selectGallery={(el) => setGallerySelected(el)}
+            />
+          ) : (
+            <Loading />
+          )}
           {/* {isLogin ? <MyPage userinfo={userinfo} /> : <SideBar />} */}
         </Route>
         <Route path="/about">
@@ -168,6 +188,7 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
+            setModalOpen={setModalOpen}
           />
           <About />
           <ScrollTab />
@@ -178,6 +199,7 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
+            setModalOpen={setModalOpen}
           />
           <Gallery
             isLogin={isLogin}
@@ -192,8 +214,12 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
+            setModalOpen={setModalOpen}
           />
-          <GalleryDetail gallerySelected={gallerySelected} />
+          <GalleryDetail
+            gallerySelected={gallerySelected}
+            handle3dExhibition={(el) => setThreeDSelected(el)}
+          />
           <ScrollButton />
         </Route>
         <Route path="/reviewlist">
@@ -202,6 +228,7 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
+            setModalOpen={setModalOpen}
           />
           <ReviewList
             isLogin={isLogin}
@@ -215,6 +242,7 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
+            setModalOpen={setModalOpen}
           />
           <ReviewDetail
             userinfo={userinfo}
@@ -229,12 +257,13 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
+            setModalOpen={setModalOpen}
           />
           <Register userinfo={userinfo} isLogin={isLogin} />
           <ScrollButton />
         </Route>
         <Route path="/3dgallery">
-          <ThreeDGallery />
+          <ThreeDGallery threeDSelected={threeDSelected} />
         </Route>
         <Route exact path="/modify">
           <Navbar
@@ -242,6 +271,7 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
+            setModalOpen={setModalOpen}
           />
           {modifyRender ? (
             <Modify userinfo={userinfo} setUserinfo={setUserinfo} />
@@ -256,6 +286,7 @@ function App() {
             userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
+            setModalOpen={setModalOpen}
           />
           <Contact />
         </Route>

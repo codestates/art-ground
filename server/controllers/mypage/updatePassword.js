@@ -6,6 +6,27 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
 module.exports = {
+  getMyInfo: async (req, res) => {
+    const userInfo = isAuthorized(req);
+
+    if (userInfo) {
+      const { id } = userInfo;
+      const result = await users.findOne({
+        where: {
+          id,
+        },
+      });
+      const data = result.dataValues;
+      res.status(200).json({
+        data,
+      });
+    } else {
+      res.status(401).json({
+        message: "invalid access token",
+      });
+    }
+  },
+
   updatePassword: async (req, res) => {
     /*
         1. 현재 비밀번호, 새로 변경할 비밀번호 req.body로 암호화된 상태로 받기

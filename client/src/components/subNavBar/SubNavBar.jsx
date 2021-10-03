@@ -8,7 +8,7 @@ const SubNavBar = ({ isStandard, tagClicked, handleTagFilter, handleStandard, so
   ///////////마우스 드래그로 좌우 스크롤 구현/////////////////////////////////////////////////////////////////////////////////////////////////
   const scrollRef = useRef(null);
   const [isDrag, setIsDrag] = useState(false);
-  const [startX, setStartX] = useState();
+  const [startX, setStartX] = useState(0);
 
   const onDragStart = (e) => {
     e.preventDefault();
@@ -22,19 +22,22 @@ const SubNavBar = ({ isStandard, tagClicked, handleTagFilter, handleStandard, so
 
   const onDragMove = (e) => {
     if (isDrag) {
-      const { scrollWidth, clientWidth, scrollLeft } = scrollRef.current;
-  
-      scrollRef.current.scrollLeft = startX - e.pageX;
-  
-      if (scrollLeft === 0) {
+      scrollRef.current.scrollLeft = startX - e.pageX; 
+      //scrollLeft 값을 바꿔주어 돔에 컴포넌트를 실시간으로 보여줌
+      
+      let { scrollWidth, clientWidth, scrollLeft } = scrollRef.current;
+      if (scrollLeft === 0) { //왼끝이 보이는데 계속 오른쪽으로 드래그할 때
+        //console.log('1', e.pageX)//계속 증가
         setStartX(e.pageX);
-      } else if (scrollWidth <= clientWidth + scrollLeft) {
+      } else if (scrollWidth <= clientWidth + scrollLeft) { //오른쪽끝이 보이는데 계속 왼쪽으로 드래그할 때
+        //console.log('2', e.pageX + scrollLeft)//계속 감소
         setStartX(e.pageX + scrollLeft);
       }
+
     }
   };
 
-  const throttle = (func, ms) => {
+  const throttle = (func, ms) => {//너무 많은 이벤트가 발생하니 250ms마다 이벤트 감지.
     let throttled = false;
     return (...args) => {
       if (!throttled) {
@@ -65,9 +68,11 @@ const SubNavBar = ({ isStandard, tagClicked, handleTagFilter, handleStandard, so
       onMouseMove={isDrag ? onThrottleDragMove : null}
       onMouseUp={onDragEnd}
       onMouseLeave={onDragEnd}
-      ref={scrollRef}>
+      ref={scrollRef}
+      >
         {tags.map(el => 
-        <span className={el===tagClicked? styles.hashtagClicked :styles.hashtag} 
+        <span className={el===tagClicked? styles.hashtagClicked :styles.hashtag}
+        key={el} 
         onClick={()=>handleTagFilter(el)}>{el}</span>)}
       </div>
 

@@ -2,38 +2,51 @@ import React, { useEffect, useState } from "react";
 import styles from "./About.module.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import AboutSlider from "../../components/aboutSlider/AboutSlider";
+
 import { Link, useHistory } from "react-router-dom";
+import AboutSlider from "../../components/aboutSlider/AboutSlider";
 
 AOS.init();
 
 const About = () => {
   const history = useHistory();
-
-  const txt = `아트그라운드는 누구나 전시가 가능하고, 어디에서나 관람이 가능한 -를 추구합니다 `;
-  const [Text, setText] = useState("");
-  const [Count, setCount] = useState(0);
   const [position, setPosition] = useState(0);
+  const [Count1, setCount1] = useState(0);
+  const [Count2, setCount2] = useState(0);
+
   function onScroll() {
     setPosition(window.scrollY);
   }
 
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
-    if (position > 0) {
-      const interval = setInterval(() => {
-        setText(Text + txt[Count]);
-        setCount(Count + 1);
-      }, 70);
-      if (Count === txt.length) {
-        clearInterval(interval);
+    if (position > 4876) {
+      const interval1 = setInterval(() => {
+        setCount1(Count1 + 1);
+      }, 3);
+
+      const interval2 = setInterval(() => {
+        setCount2(Count2 + 1);
+      }, 1);
+
+      if (Count1 === 198) {
+        clearInterval(interval1);
       }
-      return () => clearInterval(interval);
+      if (Count2 === 1026) {
+        clearInterval(interval2);
+      }
+
+      return () => {
+        clearInterval(interval1);
+        clearInterval(interval2);
+      };
     }
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
   });
+
+  //console.log(position);
 
   return (
     <div className={styles.container}>
@@ -45,11 +58,7 @@ const About = () => {
               data-aos="fade-down"
               data-aos-duration="2000"
             >
-              <img
-                src="../../../aGfavicon.png"
-                alt=""
-                className={styles.logo}
-              />
+              <img src="../../../favicon.png" alt="" className={styles.logo} />
             </span>
             <p data-aos="fade-down" data-aos-duration="2000">
               아트그라운드는 온라인 갤러리를 통해 <br></br>
@@ -83,11 +92,11 @@ const About = () => {
               alt="관람관련 이미지 혹은 아이콘"
             ></img>
             <div>
-              <h3>Exhibition Everywhere</h3>
+              <h3>자유롭게 다양한 전시회를 즐기세요</h3>
               <p>
-                어디에서든지 갤러리를 관람하세요! <br></br>
-                아트갤러리는 '공간'이라는 바운더리를 허물어 <br></br>
-                언제 어디서나 작품을 감상 할 수 있는 공간을 제공합니다.
+                언제, 어디서든 당신이 좋아하는 전시를 관람하세요! 아트
+                그라운드는 시간과 공간의 제약을 받지 않고 다양한 작품을 보고
+                느낄 수 있는 공간을 제공합니다.
               </p>
 
               <button
@@ -103,8 +112,46 @@ const About = () => {
         </section>
       </main>
       <main className={`${styles.mainback} ${styles.main4}`}>
-        <section className={styles.secBorder}>관람 종류 들어가기</section>
+        <section className={styles.exSecBorder}>
+          <div
+            className={styles.exContentTitle}
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            아트 그라운드는 2D와 더불어 3D 환경을 제공함으로써 관람객에게 최상의
+            경험을 선사합니다.
+          </div>
+          <div
+            className={styles.exContentBox}
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            <div className={styles.exContent}>
+              <img src="https://images.velog.io/images/beablessing/post/f3334850-3411-4bd4-92ab-2f971ef1692b/Screenshot%20from%202021-09-30%2012-34-17.png"></img>
+              <div className={styles.exTxt}>
+                <span>standard gallery</span>
+                <span>
+                  standard gallery에서는 간단한 마우스 컨트롤로 마치 실제
+                  갤러리의 작품 앞에 서서 관람하는 듯한 관람 경험을 제공합니다.
+                </span>
+              </div>
+            </div>
+            <div className={styles.exContent}>
+              <img src="https://images.velog.io/images/beablessing/post/8fa8d63a-3f93-4811-bca3-b29023c18089/Screenshot%20from%202021-09-30%2012-37-52.png"></img>
+
+              <div className={styles.exTxt}>
+                <span>3D gallery</span>
+                <span>
+                  premium gallery에서는 간단한 마우스 및 키보드 컨트롤로 마치
+                  실제 갤러리 내부를 둘러보는 듯한 보다 사실적이고 생생한 관람
+                  경험을 제공합니다.
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
+
       <main className={`${styles.mainback} ${styles.main3}`}>
         <section className={styles.secBorder}>
           <div
@@ -113,11 +160,11 @@ const About = () => {
             data-aos-duration="2000"
           >
             <div>
-              <h3>Sharing review with People</h3>
+              <h3>관람한 전시의 생생한 경험을 나누세요</h3>
               <p>
-                갤러리 관람 후, 작품에 대한 나의 생각을 공유하세요!
-                <br></br>
-                아트그라운드는 감상후기를 공유할 수 있는 소통의 장을 제공합니다.
+                아트 그라운드에서의 전시는 어떠셨나요? 생생했던 관람의 경험을
+                다양한 유저들과 나눠보세요. 즐거웠던 놀이터에서의 기억을 더
+                오래도록 간직할 수 있을 거예요!
               </p>
 
               <button
@@ -136,7 +183,62 @@ const About = () => {
           </div>
         </section>
       </main>
+
       <main className={`${styles.mainback} ${styles.main4}`}>
+        <section className={styles.revSecBorder}>
+          <div
+            className={styles.reviewTitle}
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            아트그라운드에서<br></br>수백개의 관람 후기를 만나보세요. (슬라이더)
+          </div>
+          <div
+            className={styles.revContentBox}
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            <div className={styles.revContent}>
+              <img src="https://images.velog.io/images/beablessing/post/6cee083a-f884-4a87-9217-02005bec687e/Screenshot%20from%202021-09-30%2005-11-44.png"></img>
+              <div className={styles.revTxtBox}>
+                <span className={styles.revTxt}>elma 님</span>
+                <span className={styles.revTxt}>전시명: 자아성찰</span>
+                <span className={styles.revTxt}>
+                  작가의 자아성찰이 잘 그려졌던 작품이었다.이런점은 이러했고,
+                  어떤점은 조금 어려운 난해하게 느껴졌던 부분도 있었다. 하지만
+                  전반적으로 어쩌구저쩌구 그래서 매우 만족스러운 전시회였다.
+                </span>
+              </div>
+            </div>
+            <div className={styles.revContent}>
+              <img src="https://images.velog.io/images/beablessing/post/25809c97-d973-4a68-b8ca-0f834128d3ed/Screenshot%20from%202021-09-30%2005-11-38.png"></img>
+              <div className={styles.revTxtBox}>
+                <span className={styles.revTxt}>Klassiker 님</span>
+                <span className={styles.revTxt}>작품: 자아성찰</span>
+                <span className={styles.revTxt}>
+                  작가의 자아성찰이 잘 그려졌던 작품이었다. 이런점은 이러했고,
+                  어떤점은 조금 어려운 난해하게 느껴졌던 부분도 있었다. 하지만
+                  전반적으로 어쩌구저쩌구 그래서 매우 만족스러운 전시회였다.
+                </span>
+              </div>
+            </div>
+            <div className={styles.revContent}>
+              <img src="https://images.velog.io/images/beablessing/post/cbb9a9be-2030-4a9f-ade0-74cf3677b9ca/Screenshot%20from%202021-09-30%2005-11-48.png"></img>
+              <div className={styles.revTxtBox}>
+                <span className={styles.revTxt}>artground 님</span>
+                <span className={styles.revTxt}>작품: 자아성찰</span>
+                <span className={styles.revTxt}>
+                  작가의 자아성찰이 잘 그려졌던 작품이었다. 이런점은 이러했고,
+                  어떤점은 조금 어려운 난해하게 느껴졌던 부분도 있었다. 하지만
+                  전반적으로 어쩌구저쩌구 그래서 매우 만족스러운 전시회였다.
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <main className={`${styles.mainback} ${styles.main3}`}>
         <section className={styles.secBorder}>
           <div
             className={styles.border}
@@ -148,11 +250,10 @@ const About = () => {
               alt="대관관련 이미지 혹은 아이콘"
             ></img>
             <div>
-              <h3>Run Your Own Exhibition</h3>
+              <h3>세상에 단 하나뿐인 나만의 특별한 전시회를 열어보세요</h3>
               <p>
-                나만의 오픈갤러리를 열어 귀하의 작품을 전시하세요!<br></br>
-                아트그라운드는 아티스트가 직접 작품을 선보일 수 있는 <br></br>
-                갤러리 공간을 제공합니다.<br></br>
+                나만 보기 아까운 소중한 나의 작품들, 당신의 예술적 잠재력을 아트
+                그라운드에서 펼쳐보세요
               </p>
 
               <button
@@ -163,6 +264,24 @@ const About = () => {
               >
                 대관하러가기
               </button>
+            </div>
+          </div>
+        </section>
+      </main>
+      <main className={`${styles.mainback} ${styles.main9}`}>
+        <section className={styles.countBorder}>
+          <div className={styles.conterBox}>
+            <img src="https://images.velog.io/images/beablessing/post/2daa22f3-9dd7-4641-8fc3-e666a61f6a0d/IM048962-int_press.jpg"></img>
+            <div>
+              <span>{Count1}</span>
+              <span>Author</span>
+            </div>
+          </div>
+          <div className={styles.conterBox}>
+            <img src="https://images.velog.io/images/beablessing/post/2daa22f3-9dd7-4641-8fc3-e666a61f6a0d/IM048962-int_press.jpg"></img>
+            <div>
+              <span>{Count2}+</span>
+              <span>Piece of Art</span>
             </div>
           </div>
         </section>

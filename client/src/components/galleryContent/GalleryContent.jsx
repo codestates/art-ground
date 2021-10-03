@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styles from "./GalleryContent.module.css";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { createLike, deleteLike } from "../../api/galleryApi";
 
@@ -10,12 +10,24 @@ const GalleryContent = ({
   exhibition,
   selectGallery,
   handleModal,
+  handleModalPremium,
   render,
 }) => {
   
   const [isLiked, setLiked] = useState(false);
+
+  const history = useHistory();
+
+  const goDetailPage = () => { 
+    if(!isLogin && exhibition.exhibit_type === 2){
+      handleModalPremium();
+    } else{
+      selectGallery(exhibition);
+      history.push('/gallerydetail');
+    } 
+  }
   
-  useEffect(()=> { //좋아요 했는지 안 했는지 초기 세팅
+  useEffect(()=> { //좋아요 했는지 안 했는지 확인하여 좋아요 상태값 변동시킴.
     if(isLogin){
       const likeArr = exhibition.likes.filter(el => userinfo.id === el.user_id) 
       if(likeArr.length !==0){ //유저가 해당 gallerycontent컴포넌트를 좋아요 한 것일 때
@@ -24,14 +36,14 @@ const GalleryContent = ({
         setLiked(false); //유저가 해당 gallerycontent컴포넌트를 좋아요 한 게 아닐 때
       }
     }
-  }); //의존성 배열 두면 안 됨.
+    console.log('GalleryContent 컴포넌트 내 좋아요 상태값 확인중')
+  }, [exhibition.likes.length]); 
 
   const handleLike = () => {
     //로그인 한 사람들에게만 작동.
     if (isLiked) {
       // 좋아요 해제
       deleteLike(exhibition.id);
-      //console.log(exhibition.id, 'delete 요청 보냄')
       render();
     } else {
       //좋아요
@@ -44,23 +56,21 @@ const GalleryContent = ({
     return(
       <li className={styles.object}>
 
-        <Link to='/gallerydetail'>
-          <div className={styles.layer}
-          onClick={()=>selectGallery(exhibition)}
-          ></div>
-          <img className={styles.thumbnail} 
-          onClick={()=>selectGallery(exhibition)}
-          src={exhibition.images[0].image_urls} 
-          alt='thumbnail' />
-        </Link>
+        {/* <div className={styles.layer}
+        onClick={goDetailPage}
+        ></div> */}
+        <img className={styles.thumbnail} 
+        onClick={goDetailPage}
+        src={exhibition.images[0].image_urls} 
+        alt='thumbnail' />
 
         <span className={styles.title}>{exhibition.title}</span>
         <div className={styles.period}>전시 기간: {exhibition.start_date} ~ {exhibition.end_date}</div>
         
         <div className={styles.likesMeta} onClick={handleLike}>
           {isLiked ? 
-          <span className={styles.like}><i class="fas fa-heart"></i></span> : 
-          <span className={styles.notlike}><i class="far fa-heart"></i></span>}
+          <span className={styles.like}><i className="fas fa-heart"></i></span> : 
+          <span className={styles.notlike}><i className="far fa-heart"></i></span>}
           <span className={styles.likesCount}>{exhibition.likes.length}</span>
         </div>
 
@@ -69,21 +79,19 @@ const GalleryContent = ({
   } else{ // 로그인 안 했다면? 좋아요 default 회색하트 랜더링. 클릭 시 로그인해주세요 모달창 띄우기
     return (
       <li className={styles.object}>
-        <Link to='/gallerydetail'>
-          <div className={styles.layer}
-          onClick={()=>selectGallery(exhibition)}
-          ></div>
-          <img className={styles.thumbnail} 
-          onClick={()=>selectGallery(exhibition)}
-          src={exhibition.images[0].image_urls} 
-          alt='thumbnail' />
-        </Link>
+        {/* <div className={styles.layer}
+        onClick={goDetailPage}
+        ></div> */}
+        <img className={styles.thumbnail} 
+        onClick={goDetailPage}
+        src={exhibition.images[0].image_urls} 
+        alt='thumbnail' />
 
         <span className={styles.title}>{exhibition.title}</span>
         <div className={styles.period}>전시 기간: {exhibition.start_date} ~ {exhibition.end_date}</div>
         
         <div className={styles.likesMeta} onClick={handleModal}>
-          <span className={styles.notlike}><i class="far fa-heart"></i></span>
+          <span className={styles.notlike}><i className="far fa-heart"></i></span>
           <span className={styles.likesCount}>{exhibition.likes.length}</span>
 
         </div>

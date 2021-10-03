@@ -5,11 +5,11 @@ import { useHistory } from "react-router";
 import { useState } from "react";
 import AWS from "aws-sdk";
 import axios from "axios";
+import { infoModify } from "../../api/mypageApi";
 const CryptoJS = require("crypto-js");
 require("dotenv").config();
 
 axios.defaults.withCredentials = true;
-
 const InfoModify = ({
   userinfo,
   setInfoEditPage,
@@ -17,11 +17,10 @@ const InfoModify = ({
   setEditFront,
 }) => {
   const history = useHistory();
-
   const [userMail, setUserMail] = useState(userinfo.user_email);
   const [nickName, setNickName] = useState(userinfo.nickname);
   const [img, setImg] = useState(userinfo.profile_img);
-  const [authDesc, setAuthDesc] = useState(userinfo.authorDesc);
+  const [authDesc, setAuthDesc] = useState(userinfo.author_desc);
 
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -78,31 +77,12 @@ const InfoModify = ({
   };
 
   const clickModify = () => {
-    //   setModalOpen(false);
-    //암호화
-
     const userData = {
       nickName: nickName,
       profileImg: img,
       authorDesc: authDesc,
     };
-
-    axios
-      .post("https://art-ground.link/mypage", {
-        userData,
-      })
-      .then((result) => {
-        console.log(result, "인포수정 응답!");
-        if (result.data.message === "profile changed") {
-          axios.get("https://art-ground.link/mypage").then((result) => {
-            console.log(result);
-            setUserinfo(result.data.data);
-          });
-
-          history.push("/mypage");
-        }
-      })
-      .catch((err) => console.log(err));
+    infoModify(userData, history, setUserinfo);
   };
 
   const cancleClick = () => {
@@ -160,18 +140,20 @@ const InfoModify = ({
             </ul>
           </div>
           {/* 3번박스 */}
-          <div className={styles.authModiBox}>
-            <div className={styles.authTitle}>작가소개</div>
-            <textarea
-              name="textarea"
-              cols="75"
-              rows="15"
-              id="textarea"
-              className={styles.authorText}
-              defaultValue={authDesc}
-              onChange={authDescHandle}
-            />
-          </div>
+          {userinfo.user_type === 2 ? (
+            <div className={styles.authModiBox}>
+              <div className={styles.authTitle}>작가소개</div>
+              <textarea
+                name="textarea"
+                cols="75"
+                rows="15"
+                id="textarea"
+                className={styles.authorText}
+                defaultValue={authDesc}
+                onChange={authDescHandle}
+              />
+            </div>
+          ) : null}
           {/* 4번박스 */}
           <div className={styles.btnModiBox}>
             <button className={styles.btn1} onClick={cancleClick}>

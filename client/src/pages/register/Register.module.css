@@ -5,7 +5,7 @@
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
-  padding: 15rem 7rem 5rem 7rem;
+  padding: 15rem 5.5rem 5rem 5.5rem;
   display: flex;
   flex-direction: column;
   color: rgb(66, 66, 66);
@@ -111,28 +111,31 @@ input[type="checkbox"] {
   display: none;
 }
 
-.tagsWrap {
-  margin-bottom: 1.5rem;
-}
-
 .tags {
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  /* margin-bottom: 1.5rem; */
+  margin-bottom: 1.5rem;
+  /* display: flex;
+  align-items: center; */
+}
+.tags span {
+  display: inline;
 }
 
 .hashtag {
+  display: inline;
+  line-height: 2rem;
   cursor: pointer;
   border: 1px solid rgb(210, 210, 210);
   border-radius: 20px;
-  padding: 0.3rem 0.8rem;
+  padding: 0.4rem 0.8rem;
   font-size: 0.75rem;
   margin-right: 0.3rem;
+  margin-bottom: 1rem;
   white-space: nowrap;
 }
 
 .hashtagClicked {
+  display: inline;
+  line-height: 2rem;
   cursor: pointer;
   border-radius: 20px;
   padding: 0.3rem 0.8rem;
@@ -177,75 +180,7 @@ input[type="checkbox"] {
   background-color: white;
   color: rgb(66, 66, 66);
 }
-/* 모달 section(아래) */
-.modalContainer {
-  position: fixed;
-  background: rgba(0, 0, 0, 0.5);
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  z-index: 20;
-  animation: fadein 1s;
-  -moz-animation: fadein 1s;
-  -webkit-animation: fadein 1s;
-  -o-animation: fadein 1s;
-}
 
-.modalWrap {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 6.5rem 1.5rem;
-  width: 20rem;
-  height: 25rem;
-  z-index: 30;
-  border-radius: 10px;
-}
-
-.modalContent {
-  margin-bottom: 1.5rem;
-  text-align: center;
-  font-size: 1.2rem;
-  color: rgb(90, 90, 90);
-  line-height: 1.8rem;
-}
-.modalSubContent {
-  margin-top: 0.5rem;
-  text-align: center;
-  font-size: 0.85rem;
-  color: rgb(148, 148, 148);
-  line-height: 1.2rem;
-}
-.ok {
-  margin: 4rem 0;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.okBtn {
-  margin: 0 1rem;
-  width: 6rem;
-  height: 2.5rem;
-  cursor: pointer;
-  border: 1px solid rgb(90, 90, 90);
-  padding: 0.2rem 0.7rem;
-  border-radius: 5px;
-  background-color: rgb(90, 90, 90);
-  transition: 0.3s;
-  font-size: 0.8rem;
-  color: white;
-  white-space: nowrap;
-}
-.okBtn:hover {
-  border: 1px solid rgb(210, 210, 210);
-  background-color: white;
-  color: rgb(66, 66, 66);
-}
 .error {
   color: red;
   text-align: center;
@@ -274,27 +209,6 @@ input[type="checkbox"] {
 }
 
 /* 모달 section(아래) */
-@media screen and (max-width: 480px) {
-  .modalWrap {
-    width: 80%;
-    padding: 4.5rem 1.5rem;
-    height: 20rem;
-  }
-  .ok {
-    margin: 3.5rem 0;
-  }
-  .okBtn {
-    margin: 0 0.5rem;
-    width: 5rem;
-  }
-  .modalContent {
-    font-size: 1rem;
-  }
-  .modalSubContent {
-    font-size: 0.75rem;
-  }
-}
-/* 모달 section(위) */
 
 @keyframes fadein {
   from {

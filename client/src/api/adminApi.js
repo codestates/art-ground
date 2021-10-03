@@ -5,9 +5,7 @@ export function getAllExhibition(setExhibitData) {
   return axios
     .get("https://art-ground.link/exhibition")
     .then((result) => {
-      //console.log(result.data.data);
       setExhibitData(result.data.data);
-      //console.log(result.data.data);
     })
     .catch((err) => console.log(err));
 }
@@ -15,13 +13,16 @@ export function getAllExhibition(setExhibitData) {
 //전시승인 path="modals/confirmModal"
 export function confirmExhibition(setConfirmModal, el) {
   //art-ground.link
+
   return axios
     .post("https://art-ground.link/admin/exhibition", {
-      postId: el.id,
+      //postId: el.id,
+      data: el,
     })
     .then((result) => {
+      console.log(result, "새로 뀐 값 ???");
       setConfirmModal(false);
-      window.location.href = "https://art-ground.link/admin";
+      window.location.href = "https://art-ground.io/admin";
     })
     .catch((err) => console.log(err));
 }
@@ -43,23 +44,18 @@ export function getAllReviews(setReviewData) {
   return axios
     .get("https://art-ground.link/admin/review")
     .then((result) => {
-      //console.log(result.data.data);
       setReviewData(result.data.data);
-      //console.log(result.data.data, "ssssssssss");
     })
     .catch((err) => console.log(err));
 }
 
-//리뷰 무한스크롤(사용할경우)
-export function getinfiniteData(setProductList, preItems, items, productList) {
-  //art-ground.link
-  return axios
-    .get("https://art-ground.link/admin/review")
-    .then((res) => {
-      let result = res.data.data.slice(preItems, items);
-      setProductList([...productList, ...result]);
-    })
-    .catch((err) => console.log(err));
+export async function getinfiniteData() {
+  try {
+    const result = await axios.get("https://art-ground.link/admin/review");
+    return result.data.data;
+  } catch (err) {
+    return console.log(err);
+  }
 }
 
 //리뷰삭제 path="modals/reviewdelModal"
@@ -70,7 +66,7 @@ export function deleteReviews(setDeleteModal, el) {
     .then((result) => {
       if (result.data.message === "successfully delete comments") {
         setDeleteModal(false);
-        window.location.href = "https://localhost:3000/admin";
+        window.location.href = "https://art-ground.io/admin";
       }
     })
     .catch((err) => console.log(err));

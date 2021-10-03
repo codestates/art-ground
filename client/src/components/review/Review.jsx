@@ -7,15 +7,15 @@ const Review = ({ exhibition, selectReview }) => {
   return(
    
       <li className={styles.container}>
-        <div className={styles.imgBox}>
-          <Link to='/reviewdetail'>
-            <div className={styles.layer}
-            onClick={()=> selectReview(exhibition)}></div>
+
+        <Link to='/reviewdetail'>
+          <div className={styles.imgBox}>
             <img className={styles.thumbnail} 
             onClick={()=> selectReview(exhibition)}
             src={exhibition.images[0].image_urls} alt="thumbnail"/>
-          </Link>
-        </div>
+          </div>
+        </Link>
+
         <div className={styles.metaData}>
           <div>
             <span className={styles.title}>{exhibition.title}</span>
@@ -31,6 +31,7 @@ const Review = ({ exhibition, selectReview }) => {
             </div>
           </div>
         </div>
+
       </li>
    
   )

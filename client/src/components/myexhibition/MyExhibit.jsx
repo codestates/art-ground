@@ -3,12 +3,12 @@ import styles from "./MyExhibit.module.css";
 import React from "react";
 
 const MyExhibit = ({ el }) => {
-  console.log(el);
   const imgurl =
     el.images.length > 0
       ? el.images[0].image_urls
       : "https://images.velog.io/images/beablessing/post/54131e26-0389-412e-b88d-a8b6a97600a8/noimg.png";
   const imgurlAlt = el.images.length > 0 ? el.images[0].title : null;
+
   return (
     <section className={styles.container}>
       <div className={styles.exBox}>
@@ -16,6 +16,9 @@ const MyExhibit = ({ el }) => {
           <img src={imgurl} alt={imgurlAlt} className={styles.eximg} />
         </div>
         <div className={styles.infoBox}>
+          {el.status === 0 ? (
+            <div className={styles.status}>승인 대기중</div>
+          ) : null}
           <div className={styles.title}>{el.title}</div>
           <div className={styles.title}>{el.author.nickname}</div>
           <div className={styles.date}>
