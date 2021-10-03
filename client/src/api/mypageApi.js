@@ -5,7 +5,7 @@ export function getMyinfo(setUserinfo, setisAdmin) {
   return axios
     .get("https://art-ground.link/mypage")
     .then((result) => {
-      //console.log(result, "마이인포 리쥴트 값!!");
+      console.log(result, "마이인포 리쥴트 값!!");
       if (result.status === 200) {
         const img =
           result.data.data.profile_img === null
@@ -13,7 +13,7 @@ export function getMyinfo(setUserinfo, setisAdmin) {
             : result.data.data.profile_img;
 
         setUserinfo({ ...result.data.data, profile_img: img });
-        //console.log(result.data.data);
+        console.log(result.data.data.user_type);
         if (result.data.data.user_type === 3) {
           setisAdmin(true);
         }
