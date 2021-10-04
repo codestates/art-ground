@@ -19,6 +19,9 @@ const { getMyLikes } = require("./mypage/likes");
 const { getMyExhibition } = require("./mypage/exhibition");
 const { modifyMyInfo } = require("./mypage/modify");
 const { withdrawal } = require("./mypage/withdrawal");
+const {
+  getDetailExhibition,
+} = require("../redisControllers/exhibition/getDetailExhibition");
 // sign
 
 // router.use("/sign-up", sign);
@@ -57,6 +60,7 @@ router.delete("/mypage", withdrawal);
 router.patch("/mypage/password", updatePassword);
 
 // exhibition
+router.get("/exhibition/:postId", getDetailExhibition);
 router.post("/exhibition/register", register);
 router.get("/exhibition/:type", getExhibition);
 router.get("/exhibition", getExhibition);
