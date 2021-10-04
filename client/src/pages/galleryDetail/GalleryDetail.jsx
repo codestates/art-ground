@@ -6,7 +6,7 @@ import PurchaseModal from '../../components/modals/PurchaseModal';
 import styles from './GalleryDetail.module.css';
 import { getExhibitionInfo } from "../../api/galleryApi";
 
-const GalleryDetail = ({ gallerySelected, handle3dExhibition, location}) => {
+const GalleryDetail = ({ handle3dExhibition, location}) => {
 
   //gallerySelected--> 전시회 정보
   const sliderNum = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -15,14 +15,17 @@ const GalleryDetail = ({ gallerySelected, handle3dExhibition, location}) => {
   const [artDetail, setArtDetail] = useState(null); //모달창에 올라가는 확대시킬 이미지 src
   const [showMoreOpt, setMoreOpt] = useState(null);
   const [purchaseModal, setpurchaseModal] = useState(false);
-
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getAxiosData() {
-      await getExhibitionInfo(Number(location.pathname.substring(15)))
-      //setExhibitionInfo(await getExhibitionInfo(Number(location.pathname.substring(15))))
+      setExhibitionInfo(await getExhibitionInfo(Number(location.pathname.substring(15))))
     }
+    
     getAxiosData();
+    setTimeout(()=> {
+      setLoading(false);
+    }, 700)
   }, []); 
 
 
@@ -58,12 +61,20 @@ const GalleryDetail = ({ gallerySelected, handle3dExhibition, location}) => {
   }
 
   const history = useHistory();
-
   const goThreeDPage = () => { 
-    handle3dExhibition(Number(location.pathname.substring(15)));
-    history.push(`/3dgallery/${Number(location.pathname.substring(15))}`);
+    handle3dExhibition(exhibitionInfo.id);
+    //history.push(`/3dgallery/${Number(location.pathname.substring(15))}`);
   }
-
+  
+  if(isLoading){
+    return (
+      <section className={styles.container}>
+        <div className={styles.loading}>
+          <img className={styles.loadingImg} src="../../../images/loading.gif" alt="loading"/>
+        </div>
+      </section>
+    )
+  }else{
   return ( 
     <section className={styles.container}>
       <div className={styles.space}>
@@ -87,11 +98,11 @@ const GalleryDetail = ({ gallerySelected, handle3dExhibition, location}) => {
       <p className={styles.content}>{exhibitionInfo.exhibit_desc}</p>
 
       {exhibitionInfo.exhibit_type ===2 ?
-      // <Link to="/3dgallery"> 
+      <Link to="/3dgallery"> 
         <div className={styles.threeDBtn} 
         onClick={goThreeDPage}
         >3D 전시관 둘러보기</div>
-      //</Link>
+      </Link>
       : null}
 
       <div className={styles.intro}>작가</div>
@@ -140,7 +151,7 @@ const GalleryDetail = ({ gallerySelected, handle3dExhibition, location}) => {
 
     </section>
   );
-  
+  }
 };
 
 export default withRouter(GalleryDetail);

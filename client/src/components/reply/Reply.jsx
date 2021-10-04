@@ -22,12 +22,13 @@ const Reply = ({ deleteReply, reply, isLogin, userinfo, reviewSelected }) => {
         </div>
         <div className={styles.content}>{reply.comments}</div>
       </div>
-      {isLogin && userinfo.nickname === reply.user.nickname?
+      {isLogin && userinfo.id === reply.user.id?
       <span className={styles.deleteBtn} 
       onClick={()=> deleteReply(reviewSelected.id, reply.id)}>
         <i className="fas fa-times"></i>
       </span>
       : null}
+    
     </li>
   )
 }

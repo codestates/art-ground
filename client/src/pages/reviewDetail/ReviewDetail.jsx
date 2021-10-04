@@ -6,11 +6,12 @@ import ReviewLogin from '../../components/modals/ReviewLogin';
 import ReviewArtInfo from '../../components/reviewArtInfo/ReviewArtInfo';
 import { withRouter } from 'react-router';
 
-const ReviewDetail = ({ reviewSelected, isLogin, userinfo, location }) => {
+const ReviewDetail = ({ isLogin, userinfo, location }) => {
 
   //reviewSelected--> 전시회 정보
 
   const [exhibitionInfo, setExhibitionInfo] = useState(null);
+  const [thumbnail, setThumbnail] = useState('');
   const [reply, setReply] = useState('');
   const [loginModal, setLoginModal] = useState(false);
 
@@ -18,6 +19,7 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo, location }) => {
   const [hiddenReplyList, setHiddenReplyList] = useState([]); //랜더링하기 전 숨겨놓는 데이터(스크롤 할 때마다 -)
   const [replyCount, setReplyCount] = useState([]); //리뷰 개수 랜더링용(스크롤에 상관없이 고정)
   const [isLoading, setIsLoading] = useState(true); //무한스크롤 시 댓글 로딩
+  const [pageLoading, setPageLoading] = useState(true);
 
   const [rerender, setRerender] = useState(false);
 
@@ -65,11 +67,15 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo, location }) => {
   }, [_infiniteScroll])
 
   useEffect(()=> {
-    async function getFetchData() {
-      await getExhibitionInfo(Number(location.pathname.substring(14)))
-      //setExhibitionInfo(await getExhibitionInfo(Number(location.pathname.substring(14))))
+    async function getInfo() {
+      const result = await getExhibitionInfo(Number(location.pathname.substring(14)))
+      setExhibitionInfo(result.exhibitionData)
+      setThumbnail(result.thumbnail)
     }
-    getFetchData();
+    getInfo();
+    setTimeout(()=> {
+      setPageLoading(false);
+    }, 700)
   }, [])
 
 
@@ -98,10 +104,21 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo, location }) => {
     setLoginModal(false);
   }
   
-  return (
+
+  if(pageLoading){
+    return (
+      <section className={styles.container}>
+        <div className={styles.loading}>
+          <img className={styles.loadingImg} src="../../../images/loading.gif" alt="loading"/>
+        </div>
+      </section>
+    )
+  }else{
+  return ( 
     <section className={styles.container}>
       <ReviewArtInfo 
       reviewSelected={exhibitionInfo}
+      thumbnail={thumbnail}
       />
 
       <span className={styles.review}>리뷰</span>
@@ -145,6 +162,7 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo, location }) => {
 
     </section> 
   )
+  }
 }
 
 export default withRouter(ReviewDetail);

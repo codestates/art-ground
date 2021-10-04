@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './ReviewArtInfo.module.css';
 
-const ReviewArtInfo = ({reviewSelected}) => {
+const ReviewArtInfo = ({reviewSelected, thumbnail}) => {
+
   return (
     <div className={styles.artDetail}>
         
       <div className={styles.imgBox}>
-        <img className={styles.thumbnail} src={reviewSelected.images[0].image_urls} alt="thumbnail"/>
+        <img className={styles.thumbnail} src={thumbnail} alt="thumbnail"/>
       </div>
 
       <div className={styles.metaData}>
@@ -23,7 +24,7 @@ const ReviewArtInfo = ({reviewSelected}) => {
             <span className={styles.listDetail}>{reviewSelected.author.nickname}</span>
             <span className={styles.listDetail}>{reviewSelected.start_date} ~ {reviewSelected.end_date}</span>
             <div className={styles.tagList}> 
-              {JSON.parse(reviewSelected.genre_hashtags).map(el=> <span key={el} className={styles.tag}>{el}</span>)}
+              {reviewSelected.genre_hashtags.map(el=> <span key={el} className={styles.tag}>{el}</span>)}
             </div>
           </div>  
 

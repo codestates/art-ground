@@ -217,7 +217,6 @@ function App() {
             setModalOpen={setModalOpen}
           />
           <GalleryDetail
-            gallerySelected={gallerySelected}
             handle3dExhibition={(el) => setThreeDSelected(el)}
           />
           <ScrollButton />
@@ -247,7 +246,6 @@ function App() {
           <ReviewDetail
             userinfo={userinfo}
             isLogin={isLogin}
-            reviewSelected={reviewSelected}
           />
           <ScrollButton />
         </Route>
@@ -265,7 +263,7 @@ function App() {
           />
           <ScrollButton />
         </Route>
-        <Route path="/3dgallery/:id">
+        <Route path="/3dgallery">
           <ThreeDGallery 
           threeDSelected={threeDSelected} 
           />
