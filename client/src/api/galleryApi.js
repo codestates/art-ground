@@ -105,8 +105,8 @@ export async function getPremiumGallery(tagClicked, sortValue) {
 
 export async function getExhibitionInfo(postId) {
   try {
-    //const res = await axios.get(`https://art-ground.link/review/${postId}`);
-    console.log(postId)
+    const res = await axios.get(`https://art-ground.link/exhibition/${postId}`);
+    console.log(res.data.data)
     //return res.data.data
   } catch (err) {
     return console.log(err);

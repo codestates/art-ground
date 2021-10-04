@@ -39,10 +39,21 @@ export async function getAllGallery(sortValue, search) {
 export async function getReplyList(postId) {
   try {
     const res = await axios.get(`https://art-ground.link/review/${postId}`);
-    //console.log(res)
-    return res.data.data.sort(
-      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-    );
+    console.log(res.data.data.commentsData)
+    // return res.data.data.commentsData.sort(
+    //   (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    // );
+  } catch (err) {
+    return console.log(err);
+  }
+}
+export async function getExhibitionInfo(postId) {
+  try {
+    const res = await axios.get(`https://art-ground.link/review/${postId}`);
+    console.log(res.data.data.exhibitionData, res.data.data.thumbnail)
+    // return res.data.data.sort(
+    //   (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    // );
   } catch (err) {
     return console.log(err);
   }
@@ -60,9 +71,9 @@ export async function postReview(reply, postId) {
   }
 }
 
-export async function deleteReview(commentsId) {
+export async function deleteReview(postId, commentsId) {
   try {
-    await axios.delete(`https://art-ground.link/review/${commentsId}`);
+    await axios.delete(`https://art-ground.link/review/${postId}/${commentsId}`);
     //console.log(res);
   } catch (err) {
     return console.log(err.message);
