@@ -39,9 +39,9 @@ export async function getAllGallery(sortValue, search) {
 export async function getReplyList(postId) {
   try {
     const res = await axios.get(`https://art-ground.link/review/${postId}`);
-    console.log(res.data.commentsData.sort(
-      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-    ))
+    // console.log(res.data.commentsData.sort(
+    //   (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    // ))
     return res.data.commentsData.sort(
       (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
     );

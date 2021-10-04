@@ -70,6 +70,7 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
     async function getInfo() {
       const result = await getExhibitionInfo(Number(location.pathname.substring(14)))
       setExhibitionInfo(result.exhibitionData)
+      //console.log(result.exhibitionData)
       setThumbnail(result.thumbnail)
     }
     getInfo();
