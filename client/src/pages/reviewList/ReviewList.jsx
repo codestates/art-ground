@@ -3,7 +3,7 @@ import { getAllGallery } from '../../api/reviewApi';
 import Review from '../../components/review/Review';
 import styles from './ReviewList.module.css';
 
-const ReviewList = ({ selectReview }) => {
+const ReviewList = () => {
 
   const [galleryList, setGalleryList] = useState([]);
   const [search, setSearch] = useState('');
@@ -96,7 +96,6 @@ const ReviewList = ({ selectReview }) => {
         .map((el) => (
           <Review
           key={el.id}
-          selectReview={selectReview} 
           exhibition={el}
           />
         ))

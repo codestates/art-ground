@@ -8,8 +8,6 @@ import { withRouter } from 'react-router';
 
 const ReviewDetail = ({ isLogin, userinfo, location }) => {
 
-  //reviewSelected--> 전시회 정보
-
   const [exhibitionInfo, setExhibitionInfo] = useState(null);
   const [thumbnail, setThumbnail] = useState('');
   const [reply, setReply] = useState('');
@@ -27,8 +25,8 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
     if(hiddenReplyList.length !== 0){ //안보여준 댓글이 남아있을 때만
       setIsLoading(true);
       setTimeout(()=> {
-        setReplyList(replyList.concat(hiddenReplyList.slice(0, 5)));
-        setHiddenReplyList(hiddenReplyList.slice(5));
+        setReplyList(replyList.concat(hiddenReplyList.slice(0, 3)));
+        setHiddenReplyList(hiddenReplyList.slice(3));
         setIsLoading(false);
       }, 700)
     }
@@ -49,8 +47,8 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
     setIsLoading(true);
     let result = await getReplyList(Number(location.pathname.substring(14)));
     setReplyCount(await getReplyList(Number(location.pathname.substring(14))));//전체 댓글 개수 랜더링
-    setReplyList(result.slice(0, 5)); //최초에 3개만 보여주고
-    result = result.slice(5); //보여준 3개 제외한 나머지만 추려서
+    setReplyList(result.slice(0, 5)); //최초에 5개만 보여주고
+    result = result.slice(5); //보여준 5개 제외한 나머지만 추려서
     setHiddenReplyList(result); //상태값에 저장
     setIsLoading(false);
   } 

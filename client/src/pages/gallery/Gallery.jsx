@@ -8,7 +8,7 @@ import GalleryModal from "../../components/modals/GalleryModal";
 import SubNavBar from "../../components/subNavBar/SubNavBar";
 import styles from "./Gallery.module.css";
 
-const Gallery = ({ isLogin, selectGallery, userinfo }) => {
+const Gallery = ({ isLogin, userinfo }) => {
 
   const [galleryList, setGalleryList] = useState([]);
 
@@ -91,7 +91,6 @@ const Gallery = ({ isLogin, selectGallery, userinfo }) => {
           <GalleryContent
           key={el.id}
           render={()=> setRerender(!rerender)}
-          selectGallery={selectGallery} 
           exhibition={el}
           userinfo={userinfo}
           handleModal={()=> setModalOpen(true)} 

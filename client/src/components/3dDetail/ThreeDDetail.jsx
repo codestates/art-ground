@@ -9,14 +9,14 @@ const Loader = () => {
   return <Html center>{progress}% loaded</Html>;
 }
 
-const Model = ({ threeDSelected} ) => {
+const Model = ({ threeDSelected }) => {
   const gltf = useLoader(GLTFLoader, `./scene${threeDSelected}/scene.gltf`);
   return <primitive object={gltf.scene} scale={1} />;
 };
 
 const ThreeDDetail = ({ modal, threeDSelected }) => {
 
-  const [showContent, setContent] = useState(true); 
+  const [showContent, setContent] = useState(true);
 
   useEffect(()=> {
     if(modal){
