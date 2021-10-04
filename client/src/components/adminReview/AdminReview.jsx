@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import ReviewDelModal from "../modals/ReviewDelModal";
 
 const AdminReview = ({ el }) => {
-  //console.log(el, "adminrevdata");
+  console.log(el, "adminrevdata");
   const [deleteModal, setDeleteModal] = useState(false);
 
   const imgurl = el.image_urls

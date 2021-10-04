@@ -87,6 +87,7 @@ const Contact = () => {
           <a
             href="https://map.kakao.com/link/to/코드스테이츠,37.496633, 127.024779"
             target="_blank"
+            rel="noreferrer"
           >
             길찾기
           </a>

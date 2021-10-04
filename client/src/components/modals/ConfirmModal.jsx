@@ -2,6 +2,7 @@ import styles from "./ConfirmModal.module.css";
 import { confirmExhibition, deleteExhibition } from "../../api/adminApi";
 
 const ConfirmModal = ({ el, setConfirmModal, modalTxt }) => {
+  console.log(el, "elelel");
   const clickConfirmModal = () => {
     confirmExhibition(setConfirmModal, el);
   };
