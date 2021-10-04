@@ -60,7 +60,7 @@ router.delete("/mypage", withdrawal);
 router.patch("/mypage/password", updatePassword);
 
 // exhibition
-router.get("/exhibition/:postId", getDetailExhibition);
+router.get("/exhibition/detail/:postId", getDetailExhibition);
 router.post("/exhibition/register", register);
 router.get("/exhibition/:type", getExhibition);
 router.get("/exhibition", getExhibition);
