@@ -1,8 +1,13 @@
 import styles from "./MyExhibit.module.css";
 
 import React from "react";
+import { useHistory } from "react-router";
 
 const MyExhibit = ({ el }) => {
+  const history = useHistory();
+  const goToGallery = () => {
+    history.push(`gallerydetail/${el.id}`);
+  };
   const imgurl =
     el.images.length > 0
       ? el.images[0].image_urls
@@ -13,13 +18,20 @@ const MyExhibit = ({ el }) => {
     <section className={styles.container}>
       <div className={styles.exBox}>
         <div className={styles.thumBox}>
-          <img src={imgurl} alt={imgurlAlt} className={styles.eximg} />
+          <img
+            src={imgurl}
+            alt={imgurlAlt}
+            className={styles.eximg}
+            onClick={goToGallery}
+          />
         </div>
         <div className={styles.infoBox}>
           {el.status === 0 ? (
             <div className={styles.status}>승인 대기중</div>
           ) : null}
-          <div className={styles.title}>{el.title}</div>
+          <div className={styles.title} onClick={goToGallery}>
+            {el.title}
+          </div>
           <div className={styles.title}>{el.author.nickname}</div>
           <div className={styles.date}>
             <span>전시기간:</span>
