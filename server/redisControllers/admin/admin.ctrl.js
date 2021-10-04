@@ -113,49 +113,49 @@ module.exports = {
         ? "standard"
         : "premium";
 
-    if (userInfo.user_type === 3) {
-      const allExhibitionResult = await axios.get(
-        "https://art-ground.link/exhibition"
-      );
-      const typeExhibitionResult = await axios.get(
-        `https://art-ground.link/exhibition/${exhibit_type}`
-      );
+    //if (userInfo.user_type === 3) {
+    const allExhibitionResult = await axios.get(
+      "https://art-ground.link/exhibition"
+    );
+    const typeExhibitionResult = await axios.get(
+      `https://art-ground.link/exhibition/${exhibit_type}`
+    );
 
-      const allExhibitionReply = allExhibitionResult.data.data;
-      const typeExhibitionReply = typeExhibitionResult.data.data;
-      allExhibitionReply.some((el) => {
-        if (el.id === id) {
-          el.status = 2;
-          return true;
-        }
-      });
-      typeExhibitionReply.some((el, idx) => {
-        if (el.id === id) {
-          typeExhibitionReply.splice(idx, 1);
-          return true;
-        }
-      });
+    const allExhibitionReply = allExhibitionResult.data.data;
+    const typeExhibitionReply = typeExhibitionResult.data.data;
+    allExhibitionReply.some((el) => {
+      if (el.id === id) {
+        el.status = 2;
+        return true;
+      }
+    });
+    typeExhibitionReply.some((el, idx) => {
+      if (el.id === id) {
+        typeExhibitionReply.splice(idx, 1);
+        return true;
+      }
+    });
 
-      caching("allExhibition", allExhibitionReply);
-      caching(redisKey, typeExhibitionReply);
-      res.status(200).json({
-        message: "successfully close exhibitions",
-      });
-      await exhibition.update(
-        {
-          status: 2, // 전시 종료
+    caching("allExhibition", allExhibitionReply);
+    caching(redisKey, typeExhibitionReply);
+    res.status(200).json({
+      message: "successfully close exhibitions",
+    });
+    await exhibition.update(
+      {
+        status: 2, // 전시 종료
+      },
+      {
+        where: {
+          id,
         },
-        {
-          where: {
-            id,
-          },
-        }
-      );
-    } else {
-      res.status(401).json({
-        message: "invalid access token",
-      });
-    }
+      }
+    );
+    // } else {
+    //   res.status(401).json({
+    //     message: "invalid access token",
+    //   });
+    // }
   },
   deleteReviews: async (req, res) => {
     const userInfo = isAuthorized(req);
