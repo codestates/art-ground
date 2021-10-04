@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './GallerySlider.css';
 
 const GallerySlider = ({
@@ -9,34 +9,42 @@ const GallerySlider = ({
   handleModalOpen
 }) => {
 
-  const [mouseDownClientX, setMouseDownClientX] = useState(0);
-  const [mouseUpClientX, setMouseUpClientX] = useState(0);
+  const [mouseDownClientX, setMouseDownClientX] = useState(null);
+  const [mouseUpClientX, setMouseUpClientX] = useState(null);
+  const [swiped, setSwiped] = useState(false);
 
   const onMouseDown = (e) => {
-    setMouseDownClientX(e.changedTouches[0].pageX); 
-  };
-  const onMouseUp = (e) => {
-    setMouseUpClientX(e.changedTouches[0].pageX);
+    setMouseDownClientX(e.targetTouches[0].clientX);
+    console.log('1', e.targetTouches[0].clientX) 
   };
 
-  useEffect(() => {
-    const dragSpace = Math.abs(mouseDownClientX - mouseUpClientX); //두 좌표의 차이의 절대값
-    if (mouseDownClientX !== 0) {
-      if (mouseUpClientX < mouseDownClientX && dragSpace > 100) {
+  const onMouseDrag = (e) => {
+    setMouseUpClientX(e.targetTouches[0].clientX)
+    setSwiped(true);
+    console.log('2', e.targetTouches[0].clientX)
+  }
+
+  const onMouseUp = (e) => {
+    if(swiped) {
+      if (mouseDownClientX - mouseUpClientX > 50) {
         sliderUp();
-      } else if (mouseUpClientX > mouseDownClientX && dragSpace > 100) {
+      }
+      if (mouseDownClientX - mouseUpClientX < -50) {
         sliderDown();
       }
     }
-  }, [mouseUpClientX]);
+    console.log('3')
+    setSwiped(false);
+  };
+
 
   return(
-    <div className='outer'>
-      <div 
-      onTouchStart={onMouseDown}
-      onTouchEnd={onMouseUp}
-      className={`sliderOuter${btnSlider}`}
-      >
+    <div 
+    onTouchStart={onMouseDown}
+    onTouchMove={onMouseDrag}
+    onTouchEnd={onMouseUp}
+    className='outer'>
+      <div className={`sliderOuter${btnSlider}`}>
         {gallerySelected.images.map(el =>
           <div key={el.id} 
           className='sliderWrap'>

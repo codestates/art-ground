@@ -60,7 +60,7 @@ export async function getStandardGallery(tagClicked, sortValue) {
       }
     }
   } catch (err) {
-    return console.log(err.message);
+    return console.log(err);
   }
 }
 
@@ -103,19 +103,30 @@ export async function getPremiumGallery(tagClicked, sortValue) {
   }
 }
 
-export async function createLike(postId) {
+export async function getExhibitionInfo(postId) {
+  try {
+    //const res = await axios.get(`https://art-ground.link/review/${postId}`);
+    console.log(postId)
+    //return res.data.data
+  } catch (err) {
+    return console.log(err);
+  }
+}
+
+export async function createLike(postId, exhibitionType) {
   try {
     await axios.post("https://art-ground.link/exhibition/like", {
       postId: postId,
+      type: exhibitionType
     });
   } catch (err) {
     return console.log(err);
   }
 }
 
-export async function deleteLike(postId) {
+export async function deleteLike(postId, exhibitionType) {
   try {
-    await axios.delete(`https://art-ground.link/exhibition/like/${postId}`);
+    await axios.delete(`https://art-ground.link/exhibition/like/${postId}/${exhibitionType}`);
   } catch (err) {
     return console.log(err);
   }

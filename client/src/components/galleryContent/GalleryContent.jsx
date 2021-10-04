@@ -43,11 +43,11 @@ const GalleryContent = ({
     //로그인 한 사람들에게만 작동.
     if (isLiked) {
       // 좋아요 해제
-      deleteLike(exhibition.id);
+      deleteLike(exhibition.id, exhibition.exhibit_type);
       render();
     } else {
       //좋아요
-      createLike(exhibition.id);
+      createLike(exhibition.id, exhibition.exhibit_type);
       render();
     }
   }
