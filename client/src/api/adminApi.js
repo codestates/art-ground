@@ -28,9 +28,11 @@ export function confirmExhibition(setConfirmModal, el) {
 }
 //전시마감 path="modals/confirmModal"
 export function deleteExhibition(setConfirmModal, el) {
-  //art-ground.link
+  //art-ground.link/admin/exhibition/:postId/:type
   return axios
-    .delete(`https://art-ground.link/admin/exhibition/${el.id}`)
+    .delete(
+      `https://art-ground.link/admin/exhibition/${el.id}/${el.exhibit_type}`
+    )
     .then((result) => {
       console.log(result, ":삭제 데이터 ????");
       setConfirmModal(false);
@@ -60,10 +62,11 @@ export async function getinfiniteData() {
 
 //리뷰삭제 path="modals/reviewdelModal"
 export function deleteReviews(setDeleteModal, el) {
-  //art-ground.link
+  //art-ground.link/admin/review/:postId/:commentId
   return axios
-    .delete(`https://art-ground.link/admin/review/${el.id}`)
+    .delete(`https://art-ground.link/admin/review/${el.exhibition_id}/${el.id}`)
     .then((result) => {
+      //postid??
       if (result.data.message === "successfully delete comments") {
         setDeleteModal(false);
         window.location.href = "https://art-ground.io/admin";

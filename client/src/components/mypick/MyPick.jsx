@@ -15,7 +15,7 @@ const MyPick = ({ el }) => {
             <span>전시기간:</span>
             <span>{el.start_date}</span>
             <span>~</span>
-            <span>{el.end_date}</span>
+            <span>{el.end_data}</span>
           </div>
         </div>
       </div>

@@ -1,8 +1,6 @@
 import "./AboutRevSlider.css";
 import React, { useState } from "react";
 import Carousel, { consts } from "react-elastic-carousel";
-import Flex from "react-elastic-carousel";
-import Square from "react-elastic-carousel";
 
 const AboutRevSlider = (props) => {
   const breakPoints = [

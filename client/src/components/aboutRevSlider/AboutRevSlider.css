@@ -84,6 +84,14 @@
 .rec.rec-arrow:disabled {
   visibility: hidden;
 }
+/*시도하기*/
+.jJKuoL {
+  box-shadow: 0 0 1px 3px red;
+}
+.jJKuoL:hover {
+  cursor: pointer;
+  box-shadow: 0 0 1px 3px red;
+}
 
 @media screen and (max-width: 1500px) {
   .seperator {

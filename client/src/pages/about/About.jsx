@@ -50,15 +50,20 @@ const About = () => {
 
   return (
     <div className={styles.container}>
-      <main className={` ${styles.main2}`}>
-        <section className={styles.secBorder}>
+      <main className={styles.mainBrand}>
+        <section className={styles.brandSection}>
           <div className={styles.brand}>
             <span
-              className={styles.brandTitle}
+              className={styles.logoBorder}
               data-aos="fade-down"
               data-aos-duration="2000"
             >
-              <img src="../../../favicon.png" alt="" className={styles.logo} />
+              <img
+                src="../../../favicon.png"
+                alt=""
+                className={styles.logoImg}
+                alt="logoimg"
+              />
             </span>
             <p data-aos="fade-down" data-aos-duration="2000">
               아트그라운드는 온라인 갤러리를 통해 <br></br>
@@ -67,11 +72,13 @@ const About = () => {
           </div>
         </section>
       </main>
-      <main className={` ${styles.main1}`}>
+
+      <main className={styles.mainSlider}>
         <AboutSlider />
       </main>
-      <main className={` ${styles.main7}`}>
-        <section className={styles.secBorder}>
+
+      <main className={styles.downArr}>
+        <section className={styles.arrSection}>
           <div className={styles.arrowDown}>
             <span></span>
             <span></span>
@@ -79,10 +86,11 @@ const About = () => {
           </div>
         </section>
       </main>
-      <main className={`${styles.mainback} ${styles.main3}`}>
-        <section className={styles.secBorder}>
+
+      <main className={styles.mainExplain}>
+        <section className={styles.ExplainSection}>
           <div
-            className={styles.border}
+            className={styles.explainBorder}
             data-aos="fade-right"
             data-aos-duration="2000"
           >
@@ -92,11 +100,13 @@ const About = () => {
               alt="관람관련 이미지 혹은 아이콘"
             ></img>
             <div>
-              <h3>자유롭게 다양한 전시회를 즐기세요</h3>
+              <h3>
+                자유롭게 다양한 <br></br>전시회를 즐기세요
+              </h3>
               <p>
-                언제, 어디서든 당신이 좋아하는 전시를 관람하세요! 아트
-                그라운드는 시간과 공간의 제약을 받지 않고 다양한 작품을 보고
-                느낄 수 있는 공간을 제공합니다.
+                언제, 어디서든 당신이 좋아하는 전시를 관람하세요! <br></br>
+                아트그라운드는 시간과 공간의 제약을 받지 않고 다양한 작품을{" "}
+                <br></br>보고 느낄 수 있는 공간을 제공합니다.
               </p>
 
               <button
@@ -158,15 +168,17 @@ const About = () => {
         </section>
       </main>
 
-      <main className={`${styles.mainback} ${styles.main3}`}>
-        <section className={styles.secBorder}>
+      <main className={styles.mainExplain}>
+        <section className={styles.ExplainSection}>
           <div
-            className={styles.border}
+            className={styles.explainBorder}
             data-aos="fade-left"
             data-aos-duration="2000"
           >
             <div>
-              <h3>관람한 전시의 생생한 경험을 나누세요</h3>
+              <h3>
+                관람한 전시의 <br></br>생생한 경험을 <br></br>나누세요
+              </h3>
               <p>
                 아트 그라운드에서의 전시는 어떠셨나요? 생생했던 관람의 경험을
                 다양한 유저들과 나눠보세요. 즐거웠던 놀이터에서의 기억을 더
@@ -200,10 +212,10 @@ const About = () => {
         </div>
       </main>
 
-      <main className={`${styles.mainback} ${styles.main3}`}>
-        <section className={styles.secBorder}>
+      <main className={styles.mainExplain}>
+        <section className={styles.ExplainSection}>
           <div
-            className={styles.border}
+            className={styles.explainBorder}
             data-aos="fade-right"
             data-aos-duration="2000"
           >
@@ -212,9 +224,11 @@ const About = () => {
               alt="대관관련 이미지 혹은 아이콘"
             ></img>
             <div>
-              <h3>세상에 단 하나뿐인 나만의 특별한 전시회를 열어보세요</h3>
+              <h3>
+                단 하나뿐인 <br></br>나만의 전시회를 <br></br>열어보세요
+              </h3>
               <p>
-                나만 보기 아까운 소중한 나의 작품들, 당신의 예술적 잠재력을 아트
+                나만 보기 아까운 소중한 나의 작품들,  <br></br>당신의 예술적 잠재력을 아트
                 그라운드에서 펼쳐보세요
               </p>
 

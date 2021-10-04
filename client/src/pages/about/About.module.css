@@ -8,7 +8,8 @@ label {
 .container {
   width: 100%;
   margin: 0;
-  padding-top: 11rem;
+  margin-top: 11rem;
+  padding: 0.1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,29 +30,31 @@ label {
   align-items: center;
   overflow: hidden;
 }
-.mainback {
+/* .mainback {
   width: 100%;
   display: flex;
   justify-content: center;
-}
-.main1 {
-  /*슬라이더메인*/
-  background-color: #f1f1f1;
-  width: 100%;
+} */
+
+/*섹션1: 브랜드*/
+.mainBrand {
   height: 100vh;
-}
-.main1img {
+  background-color: none;
   width: 100%;
-  height: 100%;
-  animation: fadein 1.5s;
-  -moz-animation: fadein 1.5s;
-  /* Firefox */
-  -webkit-animation: fadein 1.5s;
-  /* Safari and Chrome */
-  -o-animation: fadein 1.5s;
-  /* Opera */
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.brandTitle {
+.brandSection {
+  width: 1024px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.logoBorder {
   margin-top: 3rem;
   background: #202020;
   width: 4.5rem;
@@ -61,24 +64,97 @@ label {
   justify-content: center;
   margin-bottom: 2rem;
 }
-.main2 {
-  /*브랜드메인*/
-  height: 100vh;
-  background-color: none;
+.logoImg {
+  width: 80%;
+  height: 80%;
+}
+.brand {
   width: 100%;
-  height: 50vh;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+.brand p {
+  font-size: 1.5rem;
+  font-family: "Do Hyeon", sans-serif;
+}
+
+/*섹션2: 슬라이더*/
+.mainSlider {
+  background-color: #f1f1f1;
+  width: 100%;
+  height: 100vh;
+}
+
+/* 움직이는 화살표 */
+.downArr {
+  width: 100%;
+  height: 15vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #f1f1f1;
 }
-.main3 {
-  /*회색바탕메인*/
+.arrSection {
+  width: 1024px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/*섹션3: 관람(회색)*/
+.mainExplain {
   width: 100%;
   display: flex;
   justify-content: center;
   height: 100vh;
   background-color: #f1f1f1;
+  border: 3px solid red;
 }
+.ExplainSection {
+  width: 1024px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 3px solid purple;
+}
+.explainBorder {
+  width: 100%;
+  height: 50%;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  padding: 0 0.2rem;
+}
+
+.explainBorder h3 {
+  margin-bottom: 2rem;
+  font-size: 3.5rem;
+  font-family: "Poppins", sans-serif;
+}
+.explainBorder img {
+  width: 50%;
+  height: 100%;
+}
+.explainBorder > div {
+  padding: 2rem;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: "Poppins", sans-serif;
+}
+
+
 .main4 {
   /*하얀바탕메인*/
   width: 100%;
@@ -94,15 +170,6 @@ label {
   background-color: white;
 }
 
-.main7 {
-  /*화살표섹션 메인*/
-  width: 100%;
-  height: 15vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f1f1f1;
-}
 .main8 {
   /*이미지 섹션*/
   width: 100%;
@@ -121,27 +188,9 @@ label {
 .main10 {
   width: 100%;
   height: 100vh;
-  background-color: black;
-}
-.brand {
-  width: 100%;
-  height: 40vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
+  /* background-color: black; */
 }
 
-.logo {
-  width: 80%;
-  height: 80%;
-}
-.brand p {
-  font-size: 1.5rem;
-  font-family: "Do Hyeon", sans-serif;
-}
 /*관람상세*/
 .exSecBorder {
   width: 100%;

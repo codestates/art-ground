@@ -76,7 +76,7 @@ const AboutSlider = () => {
 
       <div className={goSlide}>
         {aboutImg.map((el, idx) => {
-          return <img src={el} className={styles.pic}></img>;
+          return <img key={idx} src={el} className={styles.pic}></img>;
         })}
       </div>
       {/* <span className={styles.active}>sdfsdf</span> */}
