@@ -22,6 +22,7 @@ module.exports.exhibitionLike = async (req, res) => {
     //캐싱 데이터에서
     //data[n].likes.push({data})
     //setCache
+
     const reply = await getCached(redisKey);
 
     if (reply) {
