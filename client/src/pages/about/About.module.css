@@ -115,7 +115,6 @@ label {
   justify-content: center;
   height: 100vh;
   background-color: #f1f1f1;
-  border: 3px solid red;
 }
 .ExplainSection {
   width: 1024px;
@@ -124,7 +123,6 @@ label {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border: 3px solid purple;
 }
 .explainBorder {
   width: 100%;
@@ -154,72 +152,95 @@ label {
   font-family: "Poppins", sans-serif;
 }
 
+/*섹션4: 관람디테일 타이틀(하얀색):*/
 
-.main4 {
-  /*하얀바탕메인*/
+.mainWatchDetail1 {
   width: 100%;
-  height: 100vh;
+  height: 30vh;
   background-color: none;
 }
-.main6 {
-  /*바텀 갤러리 둘러보러가기 메인*/
-  width: 100%;
-  height: 50vh;
-  display: flex;
-  justify-content: center;
-  background-color: white;
+.exDetailTitle {
+  width: 1024px;
+  height: 100%;
+  margin: 0 auto;
+  line-height: 18rem;
+  text-align: center;
+  font-size: 1.8rem;
+  font-family: "Do Hyeon", sans-serif;
 }
 
-.main8 {
-  /*이미지 섹션*/
-  width: 100%;
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: tan;
-}
-.main9 {
-  width: 100%;
-  height: 50vh;
-  background-color: black;
-}
-/*리뷰디테일*/
-.main10 {
+/*섹션5,6: 관람디테일 컨텐츠(검정색)*/
+.mainWatchDetail2 {
   width: 100%;
   height: 100vh;
-  /* background-color: black; */
+  background-color: black;
 }
-
-/*관람상세*/
-.exSecBorder {
-  width: 100%;
-  height: 80%;
+.exDetailBoard {
+  width: 1024px;
+  height: 100%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding-top: 0.2rem;
 }
-.exContentTitle {
+.exDetailImg {
   width: 100%;
-  height: 20%;
-  line-height: 5rem;
-  text-align: center;
-  font-size: 2rem;
-  font-family: "Do Hyeon", sans-serif;
-  margin-top: 10rem;
-  /* border: 1px solid teal; */
-}
-.exContentBox {
-  width: 100%;
-  height: 80%;
+  height: 70%;
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  margin-top: 4rem;
 }
+.exDetailImg img {
+  width: 65%;
+  height: 90%;
+}
+.exDetailTxt {
+  width: 100%;
+  height: 30%;
+  color: white;
+}
+.exDetailTxt span {
+  text-align: center;
+}
+.exDetailTxt span:nth-child(1) {
+  height: 40%;
+  font-size: 3rem;
+  line-height: 6rem;
+}
+.exDetailTxt span:nth-child(2) {
+  height: 60%;
+  font-size: 1.2rem;
+  line-height: 5rem;
+}
+
+/*섹션7 리뷰디테일 컨텐츠(하얀색)*/
+.mainReviewDetail {
+  width: 100%;
+  height: 100vh;
+}
+.ReviewSection {
+  width: 1024px;
+  height: 100%;
+  margin: 0 auto;
+}
+/*섹션8 리뷰디테일 컨텐츠(하얀색)*/
+.mainCount {
+  width: 100%;
+  height: 50vh;
+  background-color: black;
+}
+.countSection {
+  width: 1024px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+}
+/*위에 작업중*/
+
 .exContent {
   width: 40%;
   height: 100%;
@@ -250,6 +271,37 @@ label {
   margin-top: 2rem;
   font-size: 1rem;
 }
+
+.main6 {
+  /*바텀 갤러리 둘러보러가기 메인*/
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+
+.main8 {
+  /*이미지 섹션*/
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: tan;
+}
+.main9 {
+  width: 100%;
+  height: 50vh;
+  background-color: black;
+}
+/*리뷰디테일*/
+.main10 {
+  width: 100%;
+  height: 100vh;
+  /* background-color: black; */
+}
+
 /*관람상세 끝*/
 
 /*리뷰상세*/

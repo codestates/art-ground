@@ -44,7 +44,7 @@ const About = () => {
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
-  });
+  }, []);
 
   //console.log(position);
 
@@ -121,49 +121,57 @@ const About = () => {
           </div>
         </section>
       </main>
-      <main className={`${styles.mainback} ${styles.main4}`}>
-        <section className={styles.exSecBorder}>
-          <div
-            className={styles.exContentTitle}
-            data-aos="fade-up"
-            data-aos-duration="2000"
-          >
-            아트 그라운드는 2D와 더불어 3D 환경을 제공함으로써 관람객에게 최상의
-            경험을 선사합니다.
-          </div>
-          <div
-            className={styles.exContentBox}
-            data-aos="fade-up"
-            data-aos-duration="2000"
-          >
-            <div className={styles.exContent}>
-              <img
-                alt="관람"
-                src="https://images.velog.io/images/beablessing/post/f3334850-3411-4bd4-92ab-2f971ef1692b/Screenshot%20from%202021-09-30%2012-34-17.png"
-              ></img>
-              <div className={styles.exTxt}>
-                <span>standard gallery</span>
-                <span>
-                  standard gallery에서는 간단한 마우스 컨트롤로 마치 실제
-                  갤러리의 작품 앞에 서서 관람하는 듯한 관람 경험을 제공합니다.
-                </span>
-              </div>
-            </div>
-            <div className={styles.exContent}>
-              <img
-                alt="관람디테일"
-                src="https://images.velog.io/images/beablessing/post/8fa8d63a-3f93-4811-bca3-b29023c18089/Screenshot%20from%202021-09-30%2012-37-52.png"
-              ></img>
 
-              <div className={styles.exTxt}>
-                <span>3D gallery</span>
-                <span>
-                  premium gallery에서는 간단한 마우스 및 키보드 컨트롤로 마치
-                  실제 갤러리 내부를 둘러보는 듯한 보다 사실적이고 생생한 관람
-                  경험을 제공합니다.
-                </span>
-              </div>
-            </div>
+      <main className={styles.mainWatchDetail1}>
+        <div
+          className={styles.exDetailTitle}
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
+          아트 그라운드는 2D와 더불어 3D 환경을 제공함으로써 관람객에게 최상의
+          경험을 선사합니다.
+        </div>
+      </main>
+      <main className={styles.mainWatchDetail2}>
+        <section
+          className={styles.exDetailBoard}
+          data-aos="fade-left"
+          data-aos-duration="2000"
+        >
+          <div className={styles.exDetailImg}>
+            <img
+              alt="관람"
+              src="https://images.velog.io/images/beablessing/post/f3334850-3411-4bd4-92ab-2f971ef1692b/Screenshot%20from%202021-09-30%2012-34-17.png"
+            ></img>
+          </div>
+          <div className={styles.exDetailTxt}>
+            <span>Standard Gallery(2D)</span>
+            <span>
+              standard gallery에서는 간단한 마우스 컨트롤로 <br></br>마치 실제
+              갤러리의 작품 앞에 서서 관람하는 듯한 관람 경험을 제공합니다.
+            </span>
+          </div>
+        </section>
+      </main>
+      <main className={styles.mainWatchDetail2}>
+        <section
+          className={styles.exDetailBoard}
+          data-aos="fade-right"
+          data-aos-duration="2000"
+        >
+          <div className={styles.exDetailImg}>
+            <img
+              alt="관람"
+              src="https://images.velog.io/images/beablessing/post/8fa8d63a-3f93-4811-bca3-b29023c18089/Screenshot%20from%202021-09-30%2012-37-52.png"
+            ></img>
+          </div>
+          <div className={styles.exDetailTxt}>
+            <span>Premium Gallery(3D)</span>
+            <span>
+              premium gallery에서는 간단한 마우스 및 키보드 컨트롤로 <br></br>
+              마치 실제 갤러리 내부를 둘러보는 듯한 보다 사실적이고 생생한 관람
+              경험을 제공합니다.
+            </span>
           </div>
         </section>
       </main>
@@ -202,14 +210,15 @@ const About = () => {
         </section>
       </main>
 
-      <main className={`${styles.main10}`}>
-        <div
-          className={styles.revBorder}
+      <main className={styles.mainReviewDetail}>
+        <section
+          className={styles.ReviewSection}
           data-aos="fade-up"
           data-aos-duration="2000"
         >
+          {" "}
           <AboutRevSlider />
-        </div>
+        </section>
       </main>
 
       <main className={styles.mainExplain}>
@@ -228,8 +237,8 @@ const About = () => {
                 단 하나뿐인 <br></br>나만의 전시회를 <br></br>열어보세요
               </h3>
               <p>
-                나만 보기 아까운 소중한 나의 작품들,  <br></br>당신의 예술적 잠재력을 아트
-                그라운드에서 펼쳐보세요
+                나만 보기 아까운 소중한 나의 작품들, <br></br>당신의 예술적
+                잠재력을 아트 그라운드에서 펼쳐보세요
               </p>
 
               <button
@@ -244,29 +253,28 @@ const About = () => {
           </div>
         </section>
       </main>
-      <main className={`${styles.mainback} ${styles.main9}`}>
-        <section className={styles.countBorder}>
-          <div className={styles.conterBox}>
-            <img
-              alt="대관"
-              src="https://images.velog.io/images/beablessing/post/2daa22f3-9dd7-4641-8fc3-e666a61f6a0d/IM048962-int_press.jpg"
-            ></img>
+
+      <main className={styles.mainCount}>
+        <section className={styles.countSection}>
+          <div></div>
+          <div></div>
+          {/* <div className={styles.conterBox}>
             <div>
-              <span>{Count1}</span>
               <span>Author</span>
+              <span>{Count1}</span>
             </div>
           </div>
           <div className={styles.conterBox}>
-            <img src="https://images.velog.io/images/beablessing/post/2daa22f3-9dd7-4641-8fc3-e666a61f6a0d/IM048962-int_press.jpg"></img>
             <div>
-              <span>{Count2}+</span>
               <span>Piece of Art</span>
+              <span>{Count2}+</span>
             </div>
-          </div>
+          </div> */}
         </section>
       </main>
       <main className={`${styles.main6}`}>
         <section className={styles.secBorder}>
+          <div>지금 바로 artience가 되어보세요</div>
           <Link to="/gallery">
             <button className={styles.bottomBtn}>갤러리 둘러보러가기</button>
           </Link>

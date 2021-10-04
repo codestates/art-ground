@@ -94,7 +94,7 @@ const Admin = () => {
     setRestData(data.slice(10));
     setIsLoading(false);
   };
-  
+
   useEffect(() => {
     setTimeout(() => {
       getFetchData();
@@ -183,7 +183,6 @@ const Admin = () => {
           </div>
         ) : null}
       </div>
-      {isLoading ? <Loading /> : null}
     </section>
   );
 };
