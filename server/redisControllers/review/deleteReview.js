@@ -6,8 +6,8 @@ const {
   delCache,
 } = require("../../utils/redis/cache.ctrl");
 module.exports.deleteReview = async (req, res) => {
-  // const userInfo = isAuthorized(req);
-  const userInfo = { id: 45 };
+  const userInfo = isAuthorized(req);
+
   const { postId: exhibition_id, commentId: id } = req.params;
   if (userInfo) {
     const { id: user_id } = userInfo;
