@@ -8,10 +8,11 @@ const {
 module.exports.deleteReview = async (req, res) => {
   const userInfo = isAuthorized(req);
 
-  const { postId: exhibition_id, commentId: id } = req.params;
+  const { postId, commentId } = req.params;
   if (userInfo) {
     const { id: user_id } = userInfo;
-
+    const exhibition_id = parseInt(exhibition_id);
+    const id = parseInt(commentId);
     const redisKey = "exhibitionReview";
     const reply = await getCached(redisKey);
     if (reply) {
@@ -27,7 +28,7 @@ module.exports.deleteReview = async (req, res) => {
           });
         }
       });
-      DetailReview.some((el, idx) => {
+      DetailReview.exhibitionData.some((el, idx) => {
         if (el.id === id) {
           DetailReview.splice(idx, 1);
 
