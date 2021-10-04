@@ -8,7 +8,6 @@ const GalleryContent = ({
   isLogin,
   userinfo,
   exhibition,
-  selectGallery,
   handleModal,
   handleModalPremium,
   render,
@@ -22,7 +21,7 @@ const GalleryContent = ({
     if(!isLogin && exhibition.exhibit_type === 2){
       handleModalPremium();
     } else{
-      selectGallery(exhibition);
+      //selectGallery(exhibition);
       history.push(`/gallerydetail/${exhibition.id}`);
     } 
   }
@@ -36,7 +35,7 @@ const GalleryContent = ({
         setLiked(false); //유저가 해당 gallerycontent컴포넌트를 좋아요 한 게 아닐 때
       }
     }
-    console.log('GalleryContent 컴포넌트 내 좋아요 상태값 확인중')
+    //console.log('GalleryContent 컴포넌트 내 좋아요 상태값 확인중')
   }, [exhibition.likes.length]); 
 
   const handleLike = () => {

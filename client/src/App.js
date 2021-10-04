@@ -204,7 +204,6 @@ function App() {
           <Gallery
             isLogin={isLogin}
             userinfo={userinfo}
-            selectGallery={(el) => setGallerySelected(el)}
           />
           <ScrollButton />
         </Route>
@@ -231,7 +230,6 @@ function App() {
           />
           <ReviewList
             isLogin={isLogin}
-            selectReview={(el) => setReviewSelected(el)}
           />
           <ScrollButton />
         </Route>
