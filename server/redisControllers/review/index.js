@@ -48,6 +48,7 @@ module.exports.getExhibitionReview = async (req, res) => {
     });
 
     const data = result.map((el) => el.dataValues);
+
     caching(redisKey, data);
     caching("lastCommentId", lastCommentId.id);
     res.status(200).json({ data });
