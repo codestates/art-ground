@@ -39,7 +39,7 @@ const Gallery = ({ isLogin, selectGallery, userinfo }) => {
     }, 700)
   }, [isStandard, tagClicked, sortValue, rerender]); 
 
-  const handleStandard = async () => { //STANDARD, PREMIUM 필터
+  const handleStandard = () => { //STANDARD, PREMIUM 필터
     if(isStandard){
       setStandard(false);
     } else{
@@ -76,7 +76,7 @@ const Gallery = ({ isLogin, selectGallery, userinfo }) => {
       </section>
     )
   }else{
-  return (
+  return ( 
     <section className={styles.container}>
       <SubNavBar
         isStandard={isStandard}

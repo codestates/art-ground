@@ -1,19 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ArtDetail from '../../components/artDetail/ArtDetail';
 import GallerySlider from '../../components/gallerySlider/GallerySlider';
 import PurchaseModal from '../../components/modals/PurchaseModal';
 import styles from './GalleryDetail.module.css';
+import { getExhibitionInfo } from "../../api/galleryApi";
 
 const GalleryDetail = ({ gallerySelected, handle3dExhibition }) => {
 
   //gallerySelected--> 전시회 정보
   const sliderNum = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  //const [gallerySelected, setGallerySelected] = useState(null);
   const [btnSlider, setBtnSlider] = useState(1);
   const [artDetail, setArtDetail] = useState(null); //모달창에 올라가는 확대시킬 이미지 src
-
   const [showMoreOpt, setMoreOpt] = useState(null);
   const [purchaseModal, setpurchaseModal] = useState(false);
+
+
+  useEffect(() => {
+    async function getAxiosData() {
+      await getExhibitionInfo(gallerySelected.id)
+      //console.log(await getExhibitionInfo(gallerySelected.id));
+    }
+    //setTimeout(() => {
+      getAxiosData();
+    //}, 100)
+    // setTimeout(()=> {
+    //   setLoading(false);
+    // }, 700)
+  }, []); 
+
 
   const handleMoreOpt = (el) =>{
     if(showMoreOpt === null || el !== showMoreOpt){

@@ -19,7 +19,7 @@ const Landing = () => {
   useEffect(()=> {
     gsap.to(wrapperRef.current, {
       duration: 2.5,
-      top: "-100%",
+      height: 0,
       ease: "power3.inOut",
       delay: 7.5
     });
