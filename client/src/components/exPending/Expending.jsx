@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Expending.module.css";
 
 const ExPending = ({ clickedId, deleteEx, doneEx, setClickStatus }) => {
@@ -87,6 +87,7 @@ const ExPending = ({ clickedId, deleteEx, doneEx, setClickStatus }) => {
                           src={
                             "https://images.velog.io/images/beablessing/post/54131e26-0389-412e-b88d-a8b6a97600a8/noimg.png"
                           }
+                          alt="작품이미지"
                         ></img>
                       ) : (
                         <img

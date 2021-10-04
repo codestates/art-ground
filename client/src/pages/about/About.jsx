@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import styles from "./About.module.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
 import { Link, useHistory } from "react-router-dom";
 import AboutSlider from "../../components/aboutSlider/AboutSlider";
 import AboutRevSlider from "../../components/aboutRevSlider/AboutRevSlider";
@@ -128,7 +127,10 @@ const About = () => {
             data-aos-duration="2000"
           >
             <div className={styles.exContent}>
-              <img src="https://images.velog.io/images/beablessing/post/f3334850-3411-4bd4-92ab-2f971ef1692b/Screenshot%20from%202021-09-30%2012-34-17.png"></img>
+              <img
+                alt="관람"
+                src="https://images.velog.io/images/beablessing/post/f3334850-3411-4bd4-92ab-2f971ef1692b/Screenshot%20from%202021-09-30%2012-34-17.png"
+              ></img>
               <div className={styles.exTxt}>
                 <span>standard gallery</span>
                 <span>
@@ -138,7 +140,10 @@ const About = () => {
               </div>
             </div>
             <div className={styles.exContent}>
-              <img src="https://images.velog.io/images/beablessing/post/8fa8d63a-3f93-4811-bca3-b29023c18089/Screenshot%20from%202021-09-30%2012-37-52.png"></img>
+              <img
+                alt="관람디테일"
+                src="https://images.velog.io/images/beablessing/post/8fa8d63a-3f93-4811-bca3-b29023c18089/Screenshot%20from%202021-09-30%2012-37-52.png"
+              ></img>
 
               <div className={styles.exTxt}>
                 <span>3D gallery</span>
@@ -228,7 +233,10 @@ const About = () => {
       <main className={`${styles.mainback} ${styles.main9}`}>
         <section className={styles.countBorder}>
           <div className={styles.conterBox}>
-            <img src="https://images.velog.io/images/beablessing/post/2daa22f3-9dd7-4641-8fc3-e666a61f6a0d/IM048962-int_press.jpg"></img>
+            <img
+              alt="대관"
+              src="https://images.velog.io/images/beablessing/post/2daa22f3-9dd7-4641-8fc3-e666a61f6a0d/IM048962-int_press.jpg"
+            ></img>
             <div>
               <span>{Count1}</span>
               <span>Author</span>

@@ -1,5 +1,5 @@
 import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
+
 import styles from "./GoLoginModal.module.css";
 
 const GoLoginModal = ({ setModalOpen }) => {
