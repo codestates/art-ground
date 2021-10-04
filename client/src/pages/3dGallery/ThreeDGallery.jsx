@@ -1,9 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { withRouter } from 'react-router';
 import ThreeDDetail from '../../components/3dDetail/ThreeDDetail';
 import ThreeDModal from '../../components/modals/ThreeDModal';
 
 
-const ThreeDGallery = ({threeDSelected}) => {
+const ThreeDGallery = ({threeDSelected, location}) => {
 
   const [modalOpen, setModalOpen] = useState(true);
   
@@ -18,6 +19,7 @@ const ThreeDGallery = ({threeDSelected}) => {
     return () => {
       document.removeEventListener("keydown", escFunction, false);
     };
+    console.log(Number(location.pathname.substring(11)))
   }, []);
 
   const closeModal = () => {
@@ -27,7 +29,7 @@ const ThreeDGallery = ({threeDSelected}) => {
   return (
     <> 
       <ThreeDDetail 
-      threeDSelected={threeDSelected} 
+      threeDSelected={Number(location.pathname.substring(11))} 
       modal={modalOpen}
       />
       {modalOpen?
@@ -38,4 +40,4 @@ const ThreeDGallery = ({threeDSelected}) => {
 
 }
 
-export default ThreeDGallery;
+export default withRouter(ThreeDGallery);

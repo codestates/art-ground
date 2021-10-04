@@ -208,7 +208,7 @@ function App() {
           />
           <ScrollButton />
         </Route>
-        <Route path="/gallerydetail">
+        <Route path="/gallerydetail/:id">
           <Navbar
             isLogin={isLogin}
             userinfo={userinfo}
@@ -236,7 +236,7 @@ function App() {
           />
           <ScrollButton />
         </Route>
-        <Route path="/reviewdetail">
+        <Route path="/reviewdetail/:id">
           <Navbar
             isLogin={isLogin}
             userinfo={userinfo}
@@ -259,11 +259,16 @@ function App() {
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
           />
-          <Register userinfo={userinfo} isLogin={isLogin} />
+          <Register 
+          userinfo={userinfo} 
+          isLogin={isLogin} 
+          />
           <ScrollButton />
         </Route>
-        <Route path="/3dgallery">
-          <ThreeDGallery threeDSelected={threeDSelected} />
+        <Route path="/3dgallery/:id">
+          <ThreeDGallery 
+          threeDSelected={threeDSelected} 
+          />
         </Route>
         <Route exact path="/modify">
           <Navbar

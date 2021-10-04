@@ -1,14 +1,16 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Reply from '../../components/reply/Reply';
 import styles from './ReviewDetail.module.css';
-import { deleteReview, getReplyList, postReview } from '../../api/reviewApi';
+import { deleteReview, getExhibitionInfo, getReplyList, postReview } from '../../api/reviewApi';
 import ReviewLogin from '../../components/modals/ReviewLogin';
 import ReviewArtInfo from '../../components/reviewArtInfo/ReviewArtInfo';
+import { withRouter } from 'react-router';
 
-const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
+const ReviewDetail = ({ reviewSelected, isLogin, userinfo, location }) => {
 
   //reviewSelected--> 전시회 정보
 
+  const [exhibitionInfo, setExhibitionInfo] = useState(null);
   const [reply, setReply] = useState('');
   const [loginModal, setLoginModal] = useState(false);
 
@@ -23,8 +25,8 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
     if(hiddenReplyList.length !== 0){ //안보여준 댓글이 남아있을 때만
       setIsLoading(true);
       setTimeout(()=> {
-        setReplyList(replyList.concat(hiddenReplyList.slice(0, 3)));
-        setHiddenReplyList(hiddenReplyList.slice(3));
+        setReplyList(replyList.concat(hiddenReplyList.slice(0, 5)));
+        setHiddenReplyList(hiddenReplyList.slice(5));
         setIsLoading(false);
       }, 700)
     }
@@ -43,10 +45,10 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
 
   const getFetchData = async() => { //해당 전시회의 댓글(배열) GET요청. 페이지최초랜더링(+댓글 등록/삭제)때에만 작동
     setIsLoading(true);
-    let result = await getReplyList(reviewSelected.id);
-    setReplyCount(await getReplyList(reviewSelected.id));//전체 댓글 개수 랜더링
-    setReplyList(result.slice(0, 3)); //최초에 3개만 보여주고
-    result = result.slice(3); //보여준 3개 제외한 나머지만 추려서
+    let result = await getReplyList(Number(location.pathname.substring(14)));
+    setReplyCount(await getReplyList(Number(location.pathname.substring(14))));//전체 댓글 개수 랜더링
+    setReplyList(result.slice(0, 5)); //최초에 3개만 보여주고
+    result = result.slice(5); //보여준 3개 제외한 나머지만 추려서
     setHiddenReplyList(result); //상태값에 저장
     setIsLoading(false);
   } 
@@ -62,11 +64,19 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
     return () => window.removeEventListener('scroll', _infiniteScroll, true); 
   }, [_infiniteScroll])
 
+  useEffect(()=> {
+    async function getFetchData() {
+      await getExhibitionInfo(Number(location.pathname.substring(14)))
+      //setExhibitionInfo(await getExhibitionInfo(Number(location.pathname.substring(14))))
+    }
+    getFetchData();
+  }, [])
+
 
   const createReply = () => {
     if(isLogin){
       //로그인 했으면 리뷰등록 가능
-      postReview(reply, reviewSelected.id);
+      postReview(reply, Number(location.pathname.substring(14)));
       setRerender(!rerender); //댓글 컴포넌트 다시 랜더링 시키기 위한 용도
       setReply(''); //댓글 초기화
     } else{
@@ -91,7 +101,7 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
   return (
     <section className={styles.container}>
       <ReviewArtInfo 
-      reviewSelected={reviewSelected}
+      reviewSelected={exhibitionInfo}
       />
 
       <span className={styles.review}>리뷰</span>
@@ -118,6 +128,7 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
           isLogin={isLogin} 
           reply={el} 
           deleteReply={deleteReply}
+          reviewSelected={exhibitionInfo}
           userinfo={userinfo}
         />
         )}
@@ -136,4 +147,4 @@ const ReviewDetail = ({ reviewSelected, isLogin, userinfo }) => {
   )
 }
 
-export default ReviewDetail;
+export default withRouter(ReviewDetail);

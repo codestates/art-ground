@@ -10,11 +10,8 @@
   -o-animation: fadein 1.5s;
 }
 
-.container > a {
-  width: 35%;
-}
 .imgBox {
-  width: 100%;
+  width: 35%;
 }
 .thumbnail {
   width: 100%;
@@ -82,7 +79,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .container > a {
+  .imgBox {
     width: 45%;
   }
 

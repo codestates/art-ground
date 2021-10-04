@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, withRouter } from 'react-router-dom';
 import ArtDetail from '../../components/artDetail/ArtDetail';
 import GallerySlider from '../../components/gallerySlider/GallerySlider';
 import PurchaseModal from '../../components/modals/PurchaseModal';
 import styles from './GalleryDetail.module.css';
 import { getExhibitionInfo } from "../../api/galleryApi";
 
-const GalleryDetail = ({ gallerySelected, handle3dExhibition }) => {
+const GalleryDetail = ({ gallerySelected, handle3dExhibition, location}) => {
 
   //gallerySelected--> 전시회 정보
   const sliderNum = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  //const [gallerySelected, setGallerySelected] = useState(null);
+  const [exhibitionInfo, setExhibitionInfo] = useState(null);
   const [btnSlider, setBtnSlider] = useState(1);
   const [artDetail, setArtDetail] = useState(null); //모달창에 올라가는 확대시킬 이미지 src
   const [showMoreOpt, setMoreOpt] = useState(null);
@@ -19,15 +19,10 @@ const GalleryDetail = ({ gallerySelected, handle3dExhibition }) => {
 
   useEffect(() => {
     async function getAxiosData() {
-      await getExhibitionInfo(gallerySelected.id)
-      //console.log(await getExhibitionInfo(gallerySelected.id));
+      await getExhibitionInfo(Number(location.pathname.substring(15)))
+      //setExhibitionInfo(await getExhibitionInfo(Number(location.pathname.substring(15))))
     }
-    //setTimeout(() => {
-      getAxiosData();
-    //}, 100)
-    // setTimeout(()=> {
-    //   setLoading(false);
-    // }, 700)
+    getAxiosData();
   }, []); 
 
 
@@ -62,17 +57,24 @@ const GalleryDetail = ({ gallerySelected, handle3dExhibition }) => {
     setpurchaseModal(false);
   }
 
-  return (
+  const history = useHistory();
+
+  const goThreeDPage = () => { 
+    handle3dExhibition(Number(location.pathname.substring(15)));
+    history.push(`/3dgallery/${Number(location.pathname.substring(15))}`);
+  }
+
+  return ( 
     <section className={styles.container}>
       <div className={styles.space}>
-        {gallerySelected.genre_hashtags.map(el=> <span key={el} className={styles.tag}>{el}</span>)}
+        {exhibitionInfo.genre_hashtags.map(el=> <span key={el} className={styles.tag}>{el}</span>)}
       </div>
-      <div className={styles.title}>{gallerySelected.title}</div>
-      <div className={styles.date}>{gallerySelected.start_date} ~ {gallerySelected.end_date}</div>
+      <div className={styles.title}>{exhibitionInfo.title}</div>
+      <div className={styles.date}>{exhibitionInfo.start_date} ~ {exhibitionInfo.end_date}</div>
 
       <GallerySlider
       btnSlider={btnSlider} 
-      gallerySelected={gallerySelected}
+      gallerySelected={exhibitionInfo}
       sliderUp={sliderUp}
       sliderDown={sliderDown}
       handleModalOpen={handleModalOpen}/>  
@@ -82,30 +84,30 @@ const GalleryDetail = ({ gallerySelected, handle3dExhibition }) => {
       </div>
       
 
-      <p className={styles.content}>{gallerySelected.exhibit_desc}</p>
+      <p className={styles.content}>{exhibitionInfo.exhibit_desc}</p>
 
-      {gallerySelected.exhibit_type ===2 ?
-      <Link to="/3dgallery"> 
+      {exhibitionInfo.exhibit_type ===2 ?
+      // <Link to="/3dgallery"> 
         <div className={styles.threeDBtn} 
-        onClick={()=> handle3dExhibition(gallerySelected.id)}
+        onClick={goThreeDPage}
         >3D 전시관 둘러보기</div>
-      </Link>
+      //</Link>
       : null}
 
       <div className={styles.intro}>작가</div>
       <div className={styles.artist}>
         <div className={styles.imgBox}>
-          <img className={styles.profilePic} src={gallerySelected.author.profile_img || "../../../images/profile.jpeg"} alt='authorImg' />
+          <img className={styles.profilePic} src={exhibitionInfo.author.profile_img || "../../../images/profile.jpeg"} alt='authorImg' />
         </div>
         <div className={styles.contentBox}>
-          <span className={styles.artistName}>{gallerySelected.author.nickname}</span>
-          <p className={styles.artistContent}>{gallerySelected.author.author_desc}</p>
+          <span className={styles.artistName}>{exhibitionInfo.author.nickname}</span>
+          <p className={styles.artistContent}>{exhibitionInfo.author.author_desc}</p>
         </div>
       </div>
 
       <div className={styles.workList}>작품</div>
       <ul className={styles.workBox}>
-        {gallerySelected.images.map(el =>
+        {exhibitionInfo.images.map(el =>
           <li key={el.id}>
             <img className={styles.work} src={el.image_urls} alt='art' onClick={() => handleModalOpen(el)}/>
             <div className={styles.workTitleMeta}>
@@ -141,4 +143,4 @@ const GalleryDetail = ({ gallerySelected, handle3dExhibition }) => {
   
 };
 
-export default GalleryDetail;
+export default withRouter(GalleryDetail);
