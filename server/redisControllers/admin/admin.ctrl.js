@@ -27,6 +27,7 @@ module.exports = {
     //type 별 전시 정보에는 추가해야한다.
 
     const userInfo = isAuthorized(req);
+
     const { id, exhibit_type } = req.body.data;
     const redisKey =
       exhibit_type === undefined
@@ -74,7 +75,7 @@ module.exports = {
           },
           {
             where: {
-              id: postId,
+              id,
             },
           }
         );
@@ -87,8 +88,8 @@ module.exports = {
   },
   closeExhibitions: async (req, res) => {
     const userInfo = isAuthorized(req);
+
     const { postId: id, type: exhibit_type } = req.params;
-    console.log("userInfo:", userInfo, postId);
 
     //전체 전시 정보에서는 status 수정 하고
     //type 별 전시 정보에는 삭제해야한다.
@@ -117,7 +118,7 @@ module.exports = {
       });
       typeExhibitionReply.some((el, idx) => {
         if (el.id === id) {
-          el.splice(idx, 1);
+          typeExhibitionReply.splice(idx, 1);
           return true;
         }
       });
@@ -133,7 +134,7 @@ module.exports = {
         },
         {
           where: {
-            id: postId,
+            id,
           },
         }
       );
@@ -159,14 +160,14 @@ module.exports = {
           if (el.id === exhibition_id) {
             el.comments.some((ele, idx) => {
               if (ele.id === id) {
-                ele.splice(idx, 1);
+                el.comments.splice(idx, 1);
               }
             });
           }
         });
         DetailReview.some((el, idx) => {
           if (el.id === id) {
-            el.splice(idx, 1);
+            DetailReview.splice(idx, 1);
 
             return true;
           }
