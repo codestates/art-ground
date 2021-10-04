@@ -8,21 +8,24 @@ const {
 } = require("../../utils/redis/cache.ctrl");
 module.exports.postReview = async (req, res) => {
   const userInfo = isAuthorized(req);
+  console.log(userInfo);
   const { postId: exhibition_id, comments } = req.body;
-
+  //const userInfo = { id: 26, nickname: "g", profile_img: "gg" };
   if (userInfo) {
     const redisKey = "exhibitionReview";
     const { id: user_id, nickname, profile_img } = userInfo;
     const reply = await getCached(redisKey);
-    const lastCommentId = await cacheIncr(lastCommentId);
+    const lastCommentId = await cacheIncr("lastCommentId");
+    console.log(reply);
     /**
      * reply[n].comments.push({user_id,exhibition_id,comments})
      */
 
     if (reply) {
       const reviewRedisKey = `${exhibition_id}Review`;
+      console.log(reviewRedisKey);
       const DetailReview = await getCached(reviewRedisKey);
-
+      console.log(!!DetailReview);
       DetailReview.push({
         id: lastCommentId,
         user_id,

@@ -5,8 +5,6 @@ module.exports = {
     return new Promise((resolve, reject) => {
       redisClient.get(key, (err, reply) => {
         if (reply) {
-          console.log(`Success Read ${key}`);
-          console.log(typeof JSON.parse(reply));
           resolve(JSON.parse(reply));
         } else {
           resolve(null);
@@ -16,8 +14,6 @@ module.exports = {
   },
 
   caching: async (key, data) => {
-    console.log(key);
-    console.log(data);
     await redisClient.set(key, JSON.stringify(data));
   },
   delCache: (key) => {

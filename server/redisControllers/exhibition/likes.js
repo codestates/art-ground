@@ -6,9 +6,8 @@ const {
   delCache,
 } = require("../../utils/redis/cache.ctrl");
 module.exports.exhibitionLike = async (req, res) => {
-  //const userInfo = isAuthorized(req);
+  const userInfo = isAuthorized(req);
 
-  const userInfo = { id: 45 };
   if (userInfo) {
     const { postId: exhibition_id, type: exhibit_type } = req.body;
     const { id: user_id } = userInfo;
@@ -23,6 +22,7 @@ module.exports.exhibitionLike = async (req, res) => {
     //캐싱 데이터에서
     //data[n].likes.push({data})
     //setCache
+
     const reply = await getCached(redisKey);
 
     if (reply) {

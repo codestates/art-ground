@@ -1,10 +1,6 @@
-
-
 import styles from "./Google.module.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
-
 
 const Google = (props) => {
   const [accessToken, setAccessToken] = useState();
@@ -28,7 +24,7 @@ const Google = (props) => {
 
   const getUserInfo = async (accessToken) => {
     axios
-      .get(`http://localhost:5000/receive/userinfo?accessToken=${accessToken}`)
+      .get(`https://localhost:5000/receive/userinfo?accessToken=${accessToken}`)
       .then((res) => {
         console.log(res.data);
         setUserInfo(res.data);
@@ -36,8 +32,9 @@ const Google = (props) => {
   };
 
   const getAccessToken = async (authorizationCode) => {
+    console.log(authorizationCode);
     axios
-      .post(`http://localhost:5000/receive/token`, { authorizationCode })
+      .post(`https://localhost:5000/receive/token`, { authorizationCode })
       .then((res) => {
         console.log(res.data);
         if (!refreshToken) {
@@ -52,11 +49,9 @@ const Google = (props) => {
   };
   return (
     <section className={styles.container}>
-
       <div></div>
-
     </section>
-  )
-}
+  );
+};
 
-export default Google
+export default Google;

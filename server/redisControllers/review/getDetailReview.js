@@ -1,4 +1,5 @@
-const { comments, users } = require("../../models");
+const e = require("express");
+const { comments, users, exhibition, images } = require("../../models");
 const {
   getCached,
   caching,
@@ -13,12 +14,12 @@ module.exports.getDetailReview = async (req, res) => {
 
   if (reply) {
     const data = reply;
-    res.status(200).json({ data });
+    res.status(200).json({ ...data });
   } else {
-    const result = await comments.findAll({
+    const commentsResult = await comments.findAll({
       include: [
         {
-          attributes: ["nickname", "profile_img"],
+          attributes: ["id", "nickname", "profile_img"],
           model: users,
           as: "user",
         },
@@ -27,8 +28,35 @@ module.exports.getDetailReview = async (req, res) => {
         exhibition_id,
       },
     });
-    const data = result.map((el) => el.dataValues);
-    caching(redisKey, data);
-    res.status(200).json({ data });
+
+    const exhibitResult = await exhibition.findOne({
+      include: [
+        {
+          attributes: ["nickname"],
+          model: users,
+          as: "author",
+        },
+      ],
+      attributes: ["id", "title", "start_date", "end_date", "genre_hashtags"],
+
+      where: {
+        id: exhibition_id,
+      },
+    });
+
+    // select * from images where exhibition_id =47  order by id asc \G;
+    const imagesResult = await images.findAll({
+      limit: 1,
+      attributes: ["image_urls"],
+      where: {
+        exhibition_id,
+      },
+      order: [["id", "ASC"]],
+    });
+    const commentsData = commentsResult.map((el) => el.dataValues);
+    const exhibitionData = exhibitResult.dataValues;
+    const thumbnail = imagesResult.map((el) => el.dataValues);
+    caching(redisKey, { commentsData, exhibitionData, thumbnail });
+    res.status(200).json({ commentsData, exhibitionData, thumbnail });
   }
 };
