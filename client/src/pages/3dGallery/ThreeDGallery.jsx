@@ -31,7 +31,9 @@ const ThreeDGallery = ({threeDSelected}) => {
       modal={modalOpen}
       />
       {modalOpen?
-      <ThreeDModal closeModal={closeModal}/>
+      <ThreeDModal 
+      threeDSelected={threeDSelected}
+      closeModal={closeModal}/>
       : null}
     </>
   );

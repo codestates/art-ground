@@ -70,7 +70,6 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
     async function getInfo() {
       const result = await getExhibitionInfo(Number(location.pathname.substring(14)))
       setExhibitionInfo(result.exhibitionData)
-      //console.log(result.exhibitionData)
       setThumbnail(result.thumbnail)
     }
     getInfo();
@@ -83,7 +82,7 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
   const createReply = () => {
     if(isLogin){
       //로그인 했으면 리뷰등록 가능
-      postReview(reply, Number(location.pathname.substring(14)));
+      postReview(reply, Number(location.pathname.substring(14))); 
       setRerender(!rerender); //댓글 컴포넌트 다시 랜더링 시키기 위한 용도
       setReply(''); //댓글 초기화
     } else{
@@ -97,10 +96,11 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
     }
   }
 
-  const deleteReply = (el) => {
-    deleteReview(el);
+  const deleteReply = (postId, commentsId) => {
+    deleteReview(postId, commentsId);
     setRerender(!rerender); //컴포넌트 다시 랜더링 시키기 위한 용도
   }
+
   const closeModal = () => {
     setLoginModal(false);
   }
