@@ -24,6 +24,7 @@ https://art-ground.io/
 ## 🛠 사용한 기술 스택
 
 <img width="727" alt="기술스택_art-Ground" src="">
+<img width="869" alt="스크린샷 2021-10-04 오후 3 07 36" src="https://user-images.githubusercontent.com/79203932/135801923-afe7aebf-724f-4ffe-ac5b-5127cb1701e4.png">
 
 ## 🏛 Architecture
 
