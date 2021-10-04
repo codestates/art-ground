@@ -12,7 +12,15 @@ module.exports = {
     const userInfo = isAuthorized(req);
 
     if (userInfo.user_type === 3) {
-      const result = await comments.findAll();
+      const result = await comments.findAll({
+        include: [
+          {
+            attributes: ["id", "nickname", "profile_img"],
+            model: users,
+            as: "user",
+          },
+        ],
+      });
       const data = result.map((el) => el.dataValues);
 
       res.status(200).json({ data });
