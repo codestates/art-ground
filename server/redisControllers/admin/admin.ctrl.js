@@ -19,6 +19,11 @@ module.exports = {
             model: users,
             as: "user",
           },
+          {
+            attributes: ["title"],
+            model: exhibition,
+            as: "exhibition",
+          },
         ],
       });
       const data = result.map((el) => el.dataValues);
