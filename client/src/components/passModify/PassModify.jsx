@@ -1,21 +1,13 @@
 import styles from "./PassModify.module.css";
-import { useHistory } from "react-router";
 import { useState } from "react";
-
+import { passModify } from "../../api/mypageApi";
 import axios from "axios";
 import { Link } from "react-router-dom";
 const CryptoJS = require("crypto-js");
 require("dotenv").config();
 
 axios.defaults.withCredentials = true;
-const PassModify = ({
-  userinfo,
-  setPassEditPage,
-  setEditFront,
-  setUserinfo,
-}) => {
-  const history = useHistory();
-
+const PassModify = ({ setPassEditPage, setEditFront }) => {
   const [currentPass, setCurrentPass] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [newPassword2, setNewPassword2] = useState("");
@@ -75,13 +67,13 @@ const PassModify = ({
         currentPassword: encryptedcurPass,
         newPassword: encryptedNewPass,
       };
-      console.log(passData);
-      axios //art-ground.link
-        .patch("https://localhost:5000/mypage/password", passData)
-        .then((result) => {
-          console.log(result, "비밀번호 수정 데이터 ");
-          setModalOpen(false);
-        });
+      passModify(passData, setModalOpen);
+      // axios //art-ground.link
+      //   .patch("https://art-ground.link/mypage/password", passData)
+      //   .then((result) => {
+      //     console.log(result, "비밀번호 수정 데이터 ");
+      //     setModalOpen(false);
+      //   });
     }
   };
 

@@ -1,6 +1,5 @@
 import styles from "./MyInfo.module.css";
 import { useHistory } from "react-router";
-import axios from "axios";
 
 const MyInfo = ({ userinfo, setUserinfo, setIsLogin }) => {
   const history = useHistory();

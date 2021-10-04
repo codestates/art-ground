@@ -1,65 +1,67 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./ScrollTab.module.css";
 
 const ScrollTab = () => {
-  const [position, setPosition] = useState(0);
+  const listNum = [1, 2, 3, 4, 5, 6, 7];
+  const [listClicked, setListClicked] = useState(1);
 
-  const gotoTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-    setPosition(0);
-  };
+  const slider = (el) => {
+    setListClicked(el);
 
-  const gotoBrand = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-    setPosition(0);
-  };
-
-  const gotoWatch = () => {
-    window.scrollTo({
-      top: 1680,
-      behavior: "smooth",
-    });
-    setPosition(1680);
-  };
-  const gotoReview = () => {
-    window.scrollTo({
-      top: 3588,
-      behavior: "smooth",
-    });
-    setPosition(3588);
-  };
-  const gotoRegister = () => {
-    window.scrollTo({
-      top: 5469,
-      behavior: "smooth",
-    });
-    setPosition(5469);
+    if (el === 1) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+    if (el === 2) {
+      window.scrollTo({
+        top: 650,
+        behavior: "smooth",
+      });
+    }
+    if (el === 3) {
+      window.scrollTo({
+        top: 1700,
+        behavior: "smooth",
+      });
+    }
+    if (el === 4) {
+      window.scrollTo({
+        top: 2690,
+        behavior: "smooth",
+      });
+    }
+    if (el === 5) {
+      window.scrollTo({
+        top: 3639,
+        behavior: "smooth",
+      });
+    }
+    if (el === 6) {
+      window.scrollTo({
+        top: 4590,
+        behavior: "smooth",
+      });
+    }
+    if (el === 7) {
+      window.scrollTo({
+        top: 5540,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
     <div className={styles.container}>
       <ul className={styles.tapBorder}>
-        <li className={styles.list} onClick={gotoTop}>
-          최상단
-        </li>
-        <li className={styles.list} onClick={gotoBrand}>
-          브랜드
-        </li>
-        <li className={styles.list} onClick={gotoWatch}>
-          관람
-        </li>
-        <li className={styles.list} onClick={gotoReview}>
-          리뷰
-        </li>
-        <li className={styles.list} onClick={gotoRegister}>
-          대관
-        </li>
+        {listNum.map((el, idx) => (
+          <li
+            key={idx}
+            className={el === listClicked ? styles.listClicked : styles.list}
+            onClick={() => slider(el)}
+          ></li>
+        ))}
       </ul>
     </div>
   );

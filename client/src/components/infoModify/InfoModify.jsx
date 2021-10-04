@@ -6,7 +6,7 @@ import { useState } from "react";
 import AWS from "aws-sdk";
 import axios from "axios";
 import { infoModify } from "../../api/mypageApi";
-const CryptoJS = require("crypto-js");
+
 require("dotenv").config();
 
 axios.defaults.withCredentials = true;
@@ -23,8 +23,6 @@ const InfoModify = ({
   const [authDesc, setAuthDesc] = useState(userinfo.author_desc);
 
   const [modalOpen, setModalOpen] = useState(false);
-
-  const secretKey = process.env.CRYPTOJS_SECRETKEY;
 
   AWS.config.update({
     region: "ap-northeast-2",

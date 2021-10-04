@@ -1,7 +1,7 @@
 import styles from "./MyPick.module.css";
 
 const MyPick = ({ el }) => {
-  //console.log(el, "라이크 데이터 ");
+  console.log(el, "라이크 데이터 ");
   return (
     <section className={styles.container}>
       <div className={styles.exBox}>
@@ -15,7 +15,7 @@ const MyPick = ({ el }) => {
             <span>전시기간:</span>
             <span>{el.start_date}</span>
             <span>~</span>
-            <span>{el.end_data}</span>
+            <span>{el.end_date}</span>
           </div>
         </div>
       </div>

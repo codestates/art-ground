@@ -129,22 +129,21 @@ const SignUp = ({ isAudienceJoined }) => {
             <li className={styles.titleBox}>회원가입</li>
 
             <li className={styles.inputBox}>
-              <div className={styles.mailBox}>
+              <div className={styles.passBox}>
                 <input
                   type="text"
-                  className={styles.text}
+                  className={styles.passText}
                   placeholder="이메일을 입력해주세요"
                   onChange={handleInputValue("userEmail")}
                 ></input>
               </div>
-              <button className={styles.confirm}>인증하기</button>
             </li>
 
             <li className={styles.inputBox}>
-              <div className={styles.nickBox}>
+              <div className={styles.passBox}>
                 <input
                   type="text"
-                  className={styles.text}
+                  className={styles.passText}
                   placeholder="닉네임을 입력해주세요."
                   onChange={handleInputValue("nickname")}
                 ></input>
@@ -181,7 +180,7 @@ const SignUp = ({ isAudienceJoined }) => {
             </li>
             <li className={styles.columnBox}>
               <label className={styles.columnText}>
-                비밀번호는 4-12자리의 숫자,영문입니다.
+                비밀번호는 4-12자리의 숫자,영문이어야 합니다.
               </label>
             </li>
 

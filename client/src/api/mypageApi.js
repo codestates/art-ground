@@ -74,3 +74,15 @@ export function infoModify(userData, history, setUserinfo) {
     })
     .catch((err) => console.log(err));
 }
+
+//passModify : path = passModify
+export function passModify(passData, setModalOpen) {
+  //art-ground.link
+  return axios
+    .patch("https://art-ground.link/mypage/password", passData)
+    .then((result) => {
+      //console.log(result, "비밀번호 수정 데이터 ");
+      setModalOpen(false);
+    })
+    .catch((err) => console.log(err));
+}
