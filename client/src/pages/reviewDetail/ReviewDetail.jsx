@@ -109,8 +109,8 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
   if(pageLoading){
     return (
       <section className={styles.container}>
-        <div className={styles.loading}>
-          <img className={styles.loadingImg} src="../../../images/loading.gif" alt="loading"/>
+        <div className={styles.mainLoading}>
+          <img className={styles.mainLoadingImg} src="../../../images/loading.gif" alt="loading"/>
         </div>
       </section>
     )

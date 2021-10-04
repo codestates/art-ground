@@ -80,6 +80,16 @@
 .loadingImg {
   width: 2rem;
 }
+.mainLoading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10rem 0;
+}
+
+.mainLoadingImg {
+  width: 3rem;
+}
 
 @media screen and (max-width: 768px) {
   .container {

@@ -2,7 +2,13 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import styles from './login.module.css'
 
-const ThreeDModal = ({ closeModal, }) => {
+const ThreeDModal = ({ closeModal, threeDSelected}) => {
+
+  const history = useHistory();
+
+  const goDetailPage = () => { 
+    history.push(`/gallerydetail/${threeDSelected}`);
+  }
 
   return (
     <section className={styles.modalContainer}>
@@ -14,9 +20,7 @@ const ThreeDModal = ({ closeModal, }) => {
           <button className={styles.okBtn} 
           onClick={closeModal}
           >입장하기</button>
-          <Link to="/gallerydetail">
-            <button className={styles.okBtn}>나가기</button>
-          </Link>
+          <button onClick={goDetailPage} className={styles.okBtn}>나가기</button>
         </div>
       </div>
     </section>
