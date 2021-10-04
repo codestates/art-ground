@@ -32,8 +32,6 @@ https://art-ground.io/
 ![image](https://images.velog.io/images/devjade/post/691ca04c-9e6d-4e66-b9f7-4af2c757710f/Art%20Ground.jpg)
 ![image](https://images.velog.io/images/devjade/post/c83fbc78-0c8f-4fc0-a73a-c421925b24b2/Art%20Ground2.jpg)
 
-### Server-Side flow chart
-<img width="727" alt="서버플로우차트_art-Ground" src="">
 
 ## 📱 주요기능별 시연 GIF
 
