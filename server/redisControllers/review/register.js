@@ -8,7 +8,7 @@ const {
 } = require("../../utils/redis/cache.ctrl");
 module.exports.postReview = async (req, res) => {
   const userInfo = isAuthorized(req);
-  //console.log(userInfo);
+
   const { postId: exhibition_id, comments } = req.body;
 
   if (userInfo) {
@@ -16,7 +16,6 @@ module.exports.postReview = async (req, res) => {
     const { id: user_id, nickname, profile_img } = userInfo;
     const reply = await getCached(redisKey);
     const lastCommentId = await cacheIncr("lastCommentId");
-    console.log("haha");
 
     /**
      * reply[n].comments.push({user_id,exhibition_id,comments})
@@ -24,9 +23,9 @@ module.exports.postReview = async (req, res) => {
 
     if (reply) {
       const reviewRedisKey = `${exhibition_id}Review`;
-      console.log(reviewRedisKey);
+
       const DetailReview = await getCached(reviewRedisKey);
-      console.log(DetailReview);
+
       DetailReview.commentsData.push({
         id: lastCommentId,
         user_id,
@@ -35,6 +34,7 @@ module.exports.postReview = async (req, res) => {
         createdAt: new Date(),
         updatedAt: new Date(),
         user: {
+          id: user_id,
           nickname,
           profile_img,
         },
