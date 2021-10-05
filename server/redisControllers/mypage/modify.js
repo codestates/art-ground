@@ -1,4 +1,5 @@
 const { users: userModel } = require("../../models");
+const { redisClient } = require("../../utils/redis");
 const { isAuthorized } = require("../../utils/tokenFunction");
 module.exports.modifyMyInfo = async (req, res) => {
   const userInfo = isAuthorized(req);
@@ -17,6 +18,7 @@ module.exports.modifyMyInfo = async (req, res) => {
     );
 
     if (result) {
+      redisClient.flushall();
       res.status(200).json({ message: "profile changed" });
     }
   } else {
