@@ -59,8 +59,15 @@ module.exports = function (sequelize, DataTypes) {
     comments.belongsTo(models.exhibition, {
       as: "exhibition",
       foreignKey: "exhibition_id",
+      onDelete: "CASCADE",
+      hooks: true,
     });
-    comments.belongsTo(models.users, { as: "user", foreignKey: "user_id" });
+    comments.belongsTo(models.users, {
+      as: "user",
+      foreignKey: "user_id",
+      onDelete: "CASCADE",
+      hooks: true,
+    });
   };
 
   return comments;

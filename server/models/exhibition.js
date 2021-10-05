@@ -70,18 +70,26 @@ module.exports = function (sequelize, DataTypes) {
     exhibition.hasMany(models.comments, {
       as: "comments",
       foreignKey: "exhibition_id",
+      onDelete: "CASCADE",
+      hooks: true,
     });
     exhibition.hasMany(models.images, {
       as: "images",
       foreignKey: "exhibition_id",
+      onDelete: "CASCADE",
+      hooks: true,
     });
     exhibition.hasMany(models.likes, {
       as: "likes",
       foreignKey: "exhibition_id",
+      onDelete: "CASCADE",
+      hooks: true,
     });
     exhibition.belongsTo(models.users, {
       as: "author",
       foreignKey: "author_id",
+      onDelete: "CASCADE",
+      hooks: true,
     });
   };
 
