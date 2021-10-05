@@ -2,8 +2,15 @@ import React, { useState } from "react";
 import styles from "./ScrollTab.module.css";
 
 const ScrollTab = () => {
-  const listNum = [1, 2, 3, 4, 5, 6, 7];
+  const listNum = [1, 2, 3, 4, 5, 6, 7, 8];
   const [listClicked, setListClicked] = useState(1);
+
+  const scrollHeight = Math.max(
+    document.documentElement.scrollHeight,
+    document.body.scrollHeight
+  );
+
+  console.log(scrollHeight, "전체높이");
 
   const slider = (el) => {
     setListClicked(el);
@@ -16,37 +23,43 @@ const ScrollTab = () => {
     }
     if (el === 2) {
       window.scrollTo({
-        top: 650,
+        top: 646,
         behavior: "smooth",
       });
     }
     if (el === 3) {
       window.scrollTo({
-        top: 1700,
+        top: 1696,
         behavior: "smooth",
       });
     }
     if (el === 4) {
       window.scrollTo({
-        top: 2690,
+        top: 2703,
         behavior: "smooth",
       });
     }
     if (el === 5) {
       window.scrollTo({
-        top: 3639,
+        top: 4876,
         behavior: "smooth",
       });
     }
     if (el === 6) {
       window.scrollTo({
-        top: 4590,
+        top: 5830,
         behavior: "smooth",
       });
     }
     if (el === 7) {
       window.scrollTo({
-        top: 5540,
+        top: 6790,
+        behavior: "smooth",
+      });
+    }
+    if (el === 8) {
+      window.scrollTo({
+        top: 7766,
         behavior: "smooth",
       });
     }

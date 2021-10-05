@@ -20,7 +20,7 @@ import Admin from "./pages/admin/Admin";
 import Register from "./pages/register/Register";
 import ScrollButton from "./components/scrollButton/ScrollButton";
 import About from "./pages/about/About";
-import ScrollTab from "./components/scrollTab/ScrollTab";
+// import ScrollTab from "./components/scrollTab/ScrollTab";
 import ThreeDGallery from "./pages/3dGallery/ThreeDGallery";
 import Loading from "./components/loading/Loading";
 import { getSignOutRes } from "./api/signApi";
@@ -30,17 +30,14 @@ import GoLoginModal from "./components/modals/GoLoginModal";
 
 function App() {
   const history = useHistory();
-  // 가입,로그인(page)
-  const [isAuthorJoined, setIsAuthorJoined] = useState(false);
+  const [isAuthorJoined, setIsAuthorJoined] = useState(false); // page
   const [isAudienceJoined, setIsAudienceJoined] = useState(false);
   const [isAuthorLogin, setIsAuthorLogin] = useState(false);
   const [isAudienceLogin, setIsAudienceLogin] = useState(false);
-  // 로그인,유저인포(상태)
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(false); // user
   const [userinfo, setUserinfo] = useState(null);
   const [isAdmin, setisAdmin] = useState(false);
-
-  const [modifyRender, setModifyRender] = useState(false);
+  const [modifyRender, setModifyRender] = useState(false); //render
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
@@ -191,7 +188,8 @@ function App() {
             setModalOpen={setModalOpen}
           />
           <About />
-          <ScrollTab />
+          <ScrollButton />
+          {/* <ScrollTab /> */}
         </Route>
         <Route path="/gallery">
           <Navbar
@@ -216,9 +214,7 @@ function App() {
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
           />
-          <GalleryDetail
-            handle3dExhibition={(el) => setThreeDSelected(el)}
-          />
+          <GalleryDetail handle3dExhibition={(el) => setThreeDSelected(el)} />
           <ScrollButton />
         </Route>
         <Route path="/reviewlist">
@@ -243,10 +239,7 @@ function App() {
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
           />
-          <ReviewDetail
-            userinfo={userinfo}
-            isLogin={isLogin}
-          />
+          <ReviewDetail userinfo={userinfo} isLogin={isLogin} />
           <ScrollButton />
         </Route>
         <Route path="/register">
@@ -257,16 +250,11 @@ function App() {
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
           />
-          <Register 
-          userinfo={userinfo} 
-          isLogin={isLogin} 
-          />
+          <Register userinfo={userinfo} isLogin={isLogin} />
           <ScrollButton />
         </Route>
         <Route path="/3dgallery">
-          <ThreeDGallery 
-          threeDSelected={threeDSelected} 
-          />
+          <ThreeDGallery threeDSelected={threeDSelected} />
         </Route>
         <Route exact path="/modify">
           <Navbar

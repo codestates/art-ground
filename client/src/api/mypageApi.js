@@ -76,13 +76,19 @@ export function infoModify(userData, history, setUserinfo) {
 }
 
 //passModify : path = passModify
-export function passModify(passData, setModalOpen) {
+export function passModify(passData, setModalOpen, history, setErrorMessage) {
   //art-ground.link
   return axios
     .patch("https://art-ground.link/mypage/password", passData)
     .then((result) => {
-      //console.log(result, "비밀번호 수정 데이터 ");
-      setModalOpen(false);
+      //  console.log(result.data, "비밀번호 수정 데이터 ");
+      if (result.data.message === "password successfully updated!") {
+        history.push("/mypage");
+        setModalOpen(false);
+      }
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      setErrorMessage("현재 비밀번호가 틀렸습니다.");
+      setModalOpen(false);
+    });
 }

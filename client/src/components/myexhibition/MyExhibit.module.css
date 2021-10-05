@@ -5,13 +5,10 @@
   max-width: Container;
   height: 30rem;
   margin: 0 auto;
-  /* border: 1px solid red; */
   height: 100%;
-  /* margin-top: 5rem; */
   display: flex;
   align-items: center;
   flex-direction: column;
-
   padding: 0.3rem;
   animation: fadein 2s;
   -moz-animation: fadein 2s;
@@ -21,9 +18,7 @@
   -o-animation: fadein 2s;
   /* Opera */
 }
-/* .exBox:nth-child(1) {
-  margin-top: 5rem;
-} */
+
 .exBox {
   width: 100%;
   height: 20rem;
@@ -42,7 +37,9 @@
   border: 1px solid gainsboro;
   width: 100%;
   height: 100%;
+  cursor: pointer;
 }
+
 .infoBox {
   flex: 6.5;
   height: 77%;
@@ -65,7 +62,11 @@
   font-size: 1.1rem;
   font-family: "Do Hyeon", sans-serif;
 }
-.title:nth-child(3) {
+.title:nth-child(1) {
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.title:nth-child(2) {
   font-size: 0.9rem;
 }
 .date {
@@ -90,9 +91,6 @@
     padding: 1rem 0.2rem;
   }
   .thumBox {
-    /* flex: 3.5; */
-    /* width: 10px;
-    height: 30px; */
     width: 260px;
     height: 260px;
     overflow: hidden;
