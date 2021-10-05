@@ -8,11 +8,9 @@ axios.defaults.withCredentials = true;
 const MyInfo = ({ userinfo, setUserinfo, setIsLogin }) => {
   const history = useHistory();
   const [modalOpen, setModalOpen] = useState(false);
-
   const modifyCLick = () => {
     history.push("/modify");
   };
-
   const clickDelete = () => {
     deleteAccount();
   };

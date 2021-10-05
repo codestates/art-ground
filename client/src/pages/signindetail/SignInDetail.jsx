@@ -19,12 +19,10 @@ const SignInDetail = ({
     userType: "",
   });
   const [errorMessage, setErrorMessage] = useState("");
-
   const [passOpen, setPassOpen] = useState(false);
   const clickEye = () => {
     setPassOpen(!passOpen);
   };
-
   const visibility = !passOpen
     ? "https://user-images.githubusercontent.com/80307779/133570708-c6628e88-1f9c-41f8-8f96-1338e9d79a53.png"
     : "https://user-images.githubusercontent.com/80307779/133570716-32070dec-2879-4bb2-8103-bf8886e433fe.png";
@@ -40,7 +38,7 @@ const SignInDetail = ({
   };
 
   const { userEmail, password } = loginInfo;
-  const secretKey = "Klassiker";
+  const secretKey = process.env.REACT_APP_CRYPTOJS_SECRETKEY;
   const clickAudLogin = () => {
     if (!userEmail || !password) {
       setErrorMessage("아이디와 비밀번호를 모두 입력해주세요");

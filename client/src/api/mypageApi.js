@@ -1,9 +1,9 @@
 import axios from "axios";
-
+require("dotenv").config();
 export function getMyinfo(setUserinfo, setisAdmin) {
   //art-ground.link
   return axios
-    .get("https://art-ground.link/mypage")
+    .get(`https://art-ground.link/mypage`)
     .then((result) => {
       //console.log(result, "마이인포 리쥴트 값!!");
       if (result.status === 200) {
