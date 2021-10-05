@@ -39,7 +39,7 @@ export function getSingupAudRes(userData, setErrorMessage, history) {
       //.post("https://art-ground.link/sign-up/user", userData)
       .then((result) => {
         if (result.data.message === "sign-up ok") {
-          console.log(result, "가입요청 관람객 응답데이터");
+          //console.log(result, "가입요청 관람객 응답데이터");
           history.push("/about");
         }
       })
@@ -56,7 +56,7 @@ export function getSingupAuthRes(userData, setErrorMessage, history) {
       //.post("https://art-ground.link/sign-up/author", userData)
       .then((result) => {
         if (result.data.message === "sign-up ok") {
-          console.log(result, "작가 관람객 응답데이터");
+          // console.log(result, "작가 관람객 응답데이터");
           history.push("/about");
         }
       })

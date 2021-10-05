@@ -3,6 +3,14 @@
 /*font-family: 'Do Hyeon', sans-serif;*/
 @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 /*font-family: 'Jua', sans-serif;*/
+
+@font-face {
+  font-family: "paybooc-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Bold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 span,
 label {
   display: block;
@@ -70,7 +78,7 @@ label {
 .brand p {
   font-size: 1.5rem;
   font-weight: 200;
-  font-family: "Jua", sans-serif;
+  font-family: "paybooc-Bold";
 }
 
 /*섹션2: 슬라이더*/
