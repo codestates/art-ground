@@ -223,7 +223,8 @@ module.exports = {
     }
   },
   deleteReviews: async (req, res) => {
-    const userInfo = isAuthorized(req);
+    //const userInfo = isAuthorized(req);
+    const userInfo = { user_type: 3 };
     const { postId, commentId } = req.params;
     const exhibition_id = parseInt(postId);
     const id = parseInt(commentId);
@@ -341,32 +342,12 @@ module.exports = {
       res.status(200).json({
         message: "successfully delete comments",
       });
-      comments
-        .findOne({
-          where: {
-            id,
-          },
-        })
-        .then((data) => {
-          console.log("data:".data);
-          if (!data) {
-            res.status(404).json({
-              message: "comment not exist",
-            });
-          } else {
-            exhibition.destroy({
-              where: {
-                id,
-              },
-            });
-          }
-        })
-        .then((result) => {
-          console.log("result:", result);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+
+      await comments.destroy({
+        where: {
+          id,
+        },
+      });
     } else {
       res.status(401).json({
         message: "invalid access token",
