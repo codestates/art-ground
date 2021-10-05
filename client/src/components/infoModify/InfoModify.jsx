@@ -90,7 +90,6 @@ const InfoModify = ({
 
   return (
     <section className={styles.container}>
-      {/* 1번박스 */}
       <form onSubmit={(e) => e.preventDefault()}>
         <div className={styles.contentBorder}>
           <div className={styles.imgBox}>
@@ -113,7 +112,6 @@ const InfoModify = ({
             />
           </div>
 
-          {/* 2번박스 */}
           <div className={styles.infoModiBox}>
             <ul className={styles.ulbox}>
               <li className={styles.libox}>
@@ -137,7 +135,7 @@ const InfoModify = ({
               </li>
             </ul>
           </div>
-          {/* 3번박스 */}
+
           {userinfo.user_type === 2 ? (
             <div className={styles.authModiBox}>
               <div className={styles.authTitle}>작가소개</div>
@@ -152,7 +150,7 @@ const InfoModify = ({
               />
             </div>
           ) : null}
-          {/* 4번박스 */}
+
           <div className={styles.btnModiBox}>
             <button className={styles.btn1} onClick={cancleClick}>
               수정취소

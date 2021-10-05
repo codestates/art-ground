@@ -8,8 +8,6 @@ import { withRouter } from 'react-router';
 
 const ReviewDetail = ({ isLogin, userinfo, location }) => {
 
-  //reviewSelected--> 전시회 정보
-
   const [exhibitionInfo, setExhibitionInfo] = useState(null);
   const [thumbnail, setThumbnail] = useState('');
   const [reply, setReply] = useState('');
@@ -27,8 +25,8 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
     if(hiddenReplyList.length !== 0){ //안보여준 댓글이 남아있을 때만
       setIsLoading(true);
       setTimeout(()=> {
-        setReplyList(replyList.concat(hiddenReplyList.slice(0, 5)));
-        setHiddenReplyList(hiddenReplyList.slice(5));
+        setReplyList(replyList.concat(hiddenReplyList.slice(0, 3)));
+        setHiddenReplyList(hiddenReplyList.slice(3));
         setIsLoading(false);
       }, 700)
     }
@@ -49,8 +47,8 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
     setIsLoading(true);
     let result = await getReplyList(Number(location.pathname.substring(14)));
     setReplyCount(await getReplyList(Number(location.pathname.substring(14))));//전체 댓글 개수 랜더링
-    setReplyList(result.slice(0, 5)); //최초에 3개만 보여주고
-    result = result.slice(5); //보여준 3개 제외한 나머지만 추려서
+    setReplyList(result.slice(0, 5)); //최초에 5개만 보여주고
+    result = result.slice(5); //보여준 5개 제외한 나머지만 추려서
     setHiddenReplyList(result); //상태값에 저장
     setIsLoading(false);
   } 
@@ -58,7 +56,7 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
   useEffect(() => { //해당 전시회의 댓글(배열) GET요청. 페이지최초랜더링(+댓글 등록/삭제)때에만 작동
     setTimeout(()=> {
       getFetchData();
-    }, 100)
+    }, 500)
   }, [rerender])
 
   useEffect(()=> {
@@ -70,7 +68,6 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
     async function getInfo() {
       const result = await getExhibitionInfo(Number(location.pathname.substring(14)))
       setExhibitionInfo(result.exhibitionData)
-      //console.log(result.exhibitionData)
       setThumbnail(result.thumbnail)
     }
     getInfo();
@@ -83,7 +80,7 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
   const createReply = () => {
     if(isLogin){
       //로그인 했으면 리뷰등록 가능
-      postReview(reply, Number(location.pathname.substring(14)));
+      postReview(reply, Number(location.pathname.substring(14))); 
       setRerender(!rerender); //댓글 컴포넌트 다시 랜더링 시키기 위한 용도
       setReply(''); //댓글 초기화
     } else{
@@ -97,10 +94,11 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
     }
   }
 
-  const deleteReply = (el) => {
-    deleteReview(el);
+  const deleteReply = (postId, commentsId) => {
+    deleteReview(postId, commentsId);
     setRerender(!rerender); //컴포넌트 다시 랜더링 시키기 위한 용도
   }
+
   const closeModal = () => {
     setLoginModal(false);
   }
@@ -109,8 +107,8 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
   if(pageLoading){
     return (
       <section className={styles.container}>
-        <div className={styles.loading}>
-          <img className={styles.loadingImg} src="../../../images/loading.gif" alt="loading"/>
+        <div className={styles.mainLoading}>
+          <img className={styles.mainLoadingImg} src="../../../images/loading.gif" alt="loading"/>
         </div>
       </section>
     )
@@ -127,7 +125,7 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
       <ul className={styles.replies}>
         <div className={styles.replyBox}>
           <input className={styles.reply} 
-          placeholder="로그인하셔야 리뷰를 작성할 수 있습니다" 
+          placeholder={isLogin ? "리뷰를 작성해주세요." : "로그인하셔야 리뷰를 작성할 수 있습니다."} 
           type="text" 
           value={reply}
           onChange={(e)=> setReply(e.target.value)}

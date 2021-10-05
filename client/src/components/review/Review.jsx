@@ -2,13 +2,12 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import styles from './Review.module.css';
 
-const Review = ({ exhibition, selectReview }) => {
+const Review = ({ exhibition }) => {
 
 
   const history = useHistory();
 
   const goDetailPage = () => { 
-    selectReview(exhibition);
     history.push(`/reviewdetail/${exhibition.id}`);
   }
 

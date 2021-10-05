@@ -1,6 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
 /*font-family: 'Do Hyeon', sans-serif;*/
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+/*font-family: 'Jua', sans-serif;*/
+
+@font-face {
+  font-family: "paybooc-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Bold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 span,
 label {
   display: block;
@@ -22,19 +32,6 @@ label {
   -o-animation: fadein 2s;
   /* Opera */
 }
-.secBorder {
-  width: 1024px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-/* .mainback {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-} */
 
 /*섹션1: 브랜드*/
 .mainBrand {
@@ -80,14 +77,15 @@ label {
 }
 .brand p {
   font-size: 1.5rem;
-  font-family: "Do Hyeon", sans-serif;
+  font-weight: 200;
+  font-family: "paybooc-Bold";
 }
 
 /*섹션2: 슬라이더*/
 .mainSlider {
   background-color: #f1f1f1;
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 /* 움직이는 화살표 */
@@ -107,15 +105,24 @@ label {
   align-items: center;
   overflow: hidden;
 }
+.arrowDown span {
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  border-bottom: 1px solid #202020;
+  border-right: 1px solid #202020;
+  transform: rotate(45deg);
+  margin: -8px;
+  animation: animate-arrows 2s infinite;
+}
 
 /*섹션3: 관람(회색)*/
 .mainExplain {
   width: 100%;
   display: flex;
   justify-content: center;
-  height: 100vh;
+  height: 70vh;
   background-color: #f1f1f1;
-  border: 3px solid red;
 }
 .ExplainSection {
   width: 1024px;
@@ -124,7 +131,6 @@ label {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border: 3px solid purple;
 }
 .explainBorder {
   width: 100%;
@@ -139,7 +145,12 @@ label {
 .explainBorder h3 {
   margin-bottom: 2rem;
   font-size: 3.5rem;
-  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-family: "Jua", sans-serif;
+}
+.explainBorder p {
+  font-weight: 100;
+  font-family: "Jua", sans-serif;
 }
 .explainBorder img {
   width: 50%;
@@ -151,266 +162,183 @@ label {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  font-family: "Poppins", sans-serif;
 }
 
+/*섹션4: 관람디테일 타이틀(하얀색):*/
 
-.main4 {
-  /*하얀바탕메인*/
+.mainWatchDetail1 {
   width: 100%;
-  height: 100vh;
+  height: 30vh;
   background-color: none;
 }
-.main6 {
-  /*바텀 갤러리 둘러보러가기 메인*/
-  width: 100%;
-  height: 50vh;
-  display: flex;
-  justify-content: center;
-  background-color: white;
+.exDetailTitle {
+  width: 1024px;
+  height: 100%;
+  margin: 0 auto;
+  line-height: 9rem;
+  text-align: center;
+  font-size: 1.7rem;
+  font-family: "Jua", sans-serif;
 }
 
-.main8 {
-  /*이미지 섹션*/
+/*섹션5,6: 관람디테일 컨텐츠(검정색)*/
+.mainWatchDetail2 {
   width: 100%;
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: tan;
+  height: 100vh;
+  background-color: black;
+  padding: 5rem 6rem;
 }
-.main9 {
+.exDetailBoard {
+  width: 1024px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.exDetailImg {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.exDetailImg img {
+  width: 65%;
+  height: 90%;
+}
+.exDetailTxt {
+  width: 100%;
+  height: 30%;
+  color: white;
+}
+.exDetailTxt span {
+  text-align: center;
+  width: 100%;
+  font-weight: 100;
+  font-family: "Jua", sans-serif;
+}
+.exDetailTxt span:nth-child(1) {
+  height: 40%;
+  font-size: 3rem;
+  line-height: 6rem;
+}
+.exDetailTxt span:nth-child(2) {
+  height: 60%;
+  font-size: 1.2rem;
+  line-height: 5rem;
+}
+
+/*섹션7 리뷰디테일 컨텐츠(하얀색)*/
+.mainReviewDetail {
+  width: 100%;
+  height: 100vh;
+}
+.ReviewSection {
+  width: 1024px;
+  height: 100%;
+  margin: 0 auto;
+}
+/*섹션8 카운터박스(검정색)*/
+.mainCount {
   width: 100%;
   height: 50vh;
   background-color: black;
 }
-/*리뷰디테일*/
-.main10 {
-  width: 100%;
-  height: 100vh;
-  /* background-color: black; */
-}
-
-/*관람상세*/
-.exSecBorder {
-  width: 100%;
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  padding-top: 0.2rem;
-}
-.exContentTitle {
-  width: 100%;
-  height: 20%;
-  line-height: 5rem;
-  text-align: center;
-  font-size: 2rem;
-  font-family: "Do Hyeon", sans-serif;
-  margin-top: 10rem;
-  /* border: 1px solid teal; */
-}
-.exContentBox {
-  width: 100%;
-  height: 80%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 4rem;
-}
-.exContent {
-  width: 40%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  /* box-shadow: 5px 5px 10px black, 0 0 15px black, 0 0 10px rgb(190, 165, 23); */
-}
-.exContent img {
-  border: 1px solid gainsboro;
-  width: 70%;
-  height: 70%;
-  box-shadow: 5px 5px 10px black, 0 0 15px black, 0 0 10px rgb(190, 165, 23);
-}
-.exTxt {
-  width: 100%;
-  height: 40%;
-  /* line-height: 2rem; */
-  text-align: center;
-  font-family: "Poppins", sans-serif;
-}
-.exTxt span:nth-child(1) {
-  margin-top: 2rem;
-  font-size: 2rem;
-}
-.exTxt span:nth-child(2) {
-  margin-top: 2rem;
-  font-size: 1rem;
-}
-/*관람상세 끝*/
-
-/*리뷰상세*/
-.revSecBorder {
+.countSection {
   width: 1024px;
-  height: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  padding-top: 2rem;
-}
-.reviewTitle {
-  font-family: "Do Hyeon", sans-serif;
-  width: 100%;
-  height: 25%;
-  line-height: 3rem;
-  text-align: center;
-  font-size: 2rem;
-  padding: 1.5rem 2rem;
-}
-.revContentBox {
-  width: 100%;
-  height: 70%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-.revContent {
-  width: 30%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  border: 1px solid gainsboro;
-  box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 1);
-}
-.revContent img {
-  border: 1px solid gainsboro;
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
-}
-.revTxtBox {
-  width: 100%;
-  height: 45%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.revTxt {
-  height: 3rem;
-  text-align: center;
-  font-family: "Do Hyeon", sans-serif;
-}
-.revTxt:nth-child(1) {
-  font-size: 1.5rem;
-}
-/*리뷰상세 끝*/
-/*리뷰 슬라이더*/
-
-/*리뷰 슬라이더*/
-
-.fullSecBorder {
-  /*메인 > 풀섹션보더*/
-  width: 100%;
-  height: 100%;
-  padding: 3rem 20rem;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-.fullSecBorder div {
-  width: 20rem;
-  height: 20rem;
-  margin-left: -10px;
-}
-.fullSecBorder div img {
-  width: 100%;
-  height: 100%;
-}
-.border {
-  /* border: 1px solid gainsboro; */
+/*이쪽 반응형 아직*/
+.conterTxtBox {
   width: 100%;
   height: 50%;
-  margin-bottom: 2rem;
-  overflow: hidden;
   display: flex;
-  flex-direction: row;
-  padding: 0 0.2rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  line-height: 2;
+  font-size: 1.8rem;
+  font-family: "Jua", sans-serif;
 }
-.border h3 {
-  margin-bottom: 2rem;
-  font-size: 3.5rem;
-  font-family: "Poppins", sans-serif;
+.conterBox {
+  width: 100%;
+  height: 50%;
 }
-.border img {
-  width: 50%;
+.conterBox span {
+  width: 100%;
+  height: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Jua", sans-serif;
+}
+
+.conterBox span:nth-child(1) {
+  font-size: 2.8rem;
+}
+.conterBox span:nth-child(2) {
+  font-size: 2rem;
+}
+/*섹션9 바텀txt(하얀색)*/
+.mainBottomTxt {
+  width: 100%;
+  height: 20vh;
+}
+.bottomSectionTxt {
+  width: 1024px;
   height: 100%;
-}
-.border > div {
-  padding: 2rem;
-  width: 50%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  font-family: "Poppins", sans-serif;
+  align-items: center;
+  font-size: 2.5rem;
+
+  font-family: "Jua", sans-serif;
 }
 
-/*카운터*/
-.countBorder {
+/*섹션10 바텀btn(하얀색)*/
+.mainBottom {
+  width: 100%;
+  height: 40vh;
+}
+.bottomSection {
   width: 1024px;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.conterBox {
-  width: 33.3%;
-  height: 80%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.conterBox img {
-  width: 30%;
-  height: 30%;
-  border-radius: 50%;
-}
-.conterBox div {
-  margin-top: 5rem;
-  width: 100%;
-  height: 10rem;
-  display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
 }
-.conterBox span {
-  width: 50%;
-  height: 3rem;
-  line-height: 3rem;
-  margin-top: 1rem;
+.bottomBtn {
+  display: inline-block;
+  border-radius: 5%;
+  background: #202020;
   color: white;
-  text-align: center;
-}
-.conterBox span:nth-child(1) {
-  font-size: 2.5rem;
-}
-.conterBox span:nth-child(2) {
-  font-size: 1.5rem;
+  padding: 0.8rem 1.8rem;
+  margin-top: 2rem;
+  cursor: pointer;
+  width: 15rem;
+  height: 5rem;
+  font-family: "Jua", sans-serif;
+  font-size: 1.3rem;
+
+  animation: motion 0.8s linear 0s infinite alternate;
+  margin-top: 0;
 }
 
+/*설명부분 버튼*/
 .btn {
   display: inline-block;
   border: none;
@@ -420,487 +348,385 @@ label {
   margin-top: 2rem;
   cursor: pointer;
   width: 10rem;
-  font-family: "Poppins", sans-serif;
+  font-family: "Jua", sans-serif;
 }
 .btn:hover {
   opacity: 0.8;
 }
-/*시작하기*/
-.bottomBtn {
-  display: inline-block;
-  border: none;
-  background: #202020;
-  color: white;
-  padding: 0.8rem 1.8rem;
-  margin-top: 2rem;
-  cursor: pointer;
-  width: 15rem;
-  height: 5rem;
-  font-family: "Poppins", sans-serif;
-  font-size: 1.3rem;
-  font-weight: bold;
-  animation: motion 0.8s linear 0s infinite alternate;
-  margin-top: 0;
-}
 
-/*슬라이더 및 화살표*/
-.arrowDown span {
-  display: block;
-  width: 1.5em;
-  height: 1.5em;
-  border-bottom: 1px solid #202020;
-  border-right: 1px solid #202020;
-  transform: rotate(45deg);
-  margin: -8px;
-  animation: animate-arrows 2s infinite;
-}
+@media screen and (max-width: 1240px) {
+  /*섹션1: 브랜드*/
 
-/*스크롤버틍*/
-.scrollBtn {
-  list-style: none;
-  position: absolute;
-  border: 3px solid red;
-}
-
-/*반응형*/
-.revBorder {
-  width: 80%;
-  height: 100%;
-
-  margin: 0 auto;
-}
-@media screen and (max-width: 1206px) {
-  .revBorder {
+  .brandSection {
     width: 100%;
-    height: 100%;
+  }
 
-    margin: 0 auto;
+  /*섹션2: 슬라이더*/
+  .mainSlider {
+    background-color: #f1f1f1;
+    width: 100%;
+    height: 80vh;
+  }
+
+  /* 움직이는 화살표 */
+  .downArr {
+    height: 15vh;
+  }
+  .arrSection {
+    width: 100%;
+  }
+
+  /*섹션3: 관람(회색)*/
+
+  .ExplainSection {
+    width: 100%;
+  }
+
+  .explainBorder h3 {
+    padding: 0.2rem;
+    font-size: 2.5rem;
+  }
+
+  /*섹션4: 관람디테일 타이틀(하얀색):*/
+
+  .mainWatchDetail1 {
+    width: 100%;
+    height: 30vh;
+    background-color: none;
+  }
+  .exDetailTitle {
+    width: 100%;
+  }
+
+  /*섹션5,6: 관람디테일 컨텐츠(검정색)*/
+
+  .exDetailBoard {
+    width: 100%;
+  }
+
+  .ReviewSection {
+    width: 100%;
   }
 }
-
 @media screen and (max-width: 980px) {
-  .main1 {
-    height: 50vh;
-  }
-  .main3 {
-    height: 100vh;
-  }
-  .border {
-    height: 55%;
-  }
-  .border img {
-    width: 50%;
-    height: 100%;
-  }
-  .border > div {
-    padding: 2rem 1.2;
-  }
-  /*리뷰상세*/
-  .revSecBorder {
+  .mainSlider {
+    background-color: #f1f1f1;
     width: 100%;
-    height: 100%;
+    height: 60vh;
   }
-  .reviewTitle {
-    height: 8rem;
-    line-height: 3rem;
-    padding: 1.5rem;
-    margin-top: -5rem;
-    font-size: 1.2rem;
-  }
-  .revContentBox {
-    width: 100%;
-    height: 70%;
-    padding: 0.3rem;
-    margin-top: 2rem;
-  }
-  .revContent {
-    width: 30%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
 
-    box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 1);
+  .mainExplain {
+    height: 60vh;
   }
-  .revContent img {
-    border: 1px solid gainsboro;
-    width: 80%;
-    height: 35%;
-  }
-  .revTxtBox {
+  .ExplainSection {
     width: 100%;
-    height: 60%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .revTxt {
     height: 100%;
   }
-  .revTxt:nth-child(1) {
-    height: 3rem;
+  .explainBorder h3 {
+    padding: 0.2rem;
     font-size: 1.5rem;
-    line-height: 3rem;
   }
-  .revTxt:nth-child(2) {
-    height: 2.8rem;
-    font-size: 0.9rem;
-    line-height: 2.8rem;
+  .explainBorder p {
+    font-size: 0.8rem;
   }
-  .revTxt:nth-child(3) {
+
+  .mainWatchDetail1 {
+    width: 100%;
+    height: 30vh;
+    background-color: none;
+  }
+  .exDetailTitle {
+    width: 750px;
+    line-height: 9rem;
+  }
+
+  .mainWatchDetail2 {
+    height: 80vh;
+  }
+  .exDetailBoard {
+    width: 100%;
+  }
+
+  .exDetailImg img {
+    height: 70%;
+  }
+
+  .exDetailTxt span:nth-child(2) {
     font-size: 1rem;
   }
-  /*리뷰상세 끝*/
-  .revBorder {
-    width: 80%;
-    height: 100%;
 
-    margin: 0 auto;
+  .ReviewSection {
+    width: 100%;
+  }
+
+  .countSection {
+    width: 100%;
+  }
+
+  .mainBottomTxt {
+    width: 100%;
+    height: 20vh;
+  }
+  .bottomSectionTxt {
+    width: 100%;
+  }
+
+  .bottomSection {
+    width: 100%;
   }
 }
 @media screen and (max-width: 768px) {
   .container {
-    width: 100%;
-    padding-top: 2rem;
-  }
-  .main3 {
-    height: 100%;
-  }
-  .border {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .border img {
-    width: 600px;
-    height: 400px;
-  }
-  .border > div {
-    padding: 2rem;
-    width: 100%;
-  }
-  .border h3 {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 3.5rem;
-    font-family: "Poppins", sans-serif;
-  }
-  .border p {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  .border button {
-    margin-top: 10rem;
-    margin: 0 auto;
-  }
-  /*관람상세*/
-  .exSecBorder {
-    height: 100%;
-  }
-  .exContentTitle {
-    margin-top: 0.2rem;
-    font-size: 1.5rem;
-  }
-  .exContentBox {
-    height: 35rem;
-    margin-top: 0.1rem;
-  }
-  .exContent {
-    width: 60%;
-    height: 100%;
-    padding: 0.7rem;
-  }
-  .exContent img {
-    width: 100%;
-  }
-  .exTxt {
-    width: 100%;
-    height: 100%;
     margin-top: 1rem;
   }
+  /*섹션1: 브랜드*/
 
-  .exTxt span:nth-child(1) {
-    margin-top: 2rem;
-    font-size: 2rem;
+  .brand p {
+    font-size: 1.3rem;
   }
-  .exTxt span:nth-child(2) {
-    margin-top: 2rem;
-    font-size: 1rem;
-  }
-  /*관람상세 끝*/
 
-  .revContent img {
-    width: 80%;
-    height: 30%;
-    margin-top: -2rem;
+  /*섹션2: 슬라이더*/
+  .mainSlider {
+    height: 50vh;
   }
-  .revTxtBox {
-    margin-top: -4.3rem;
-    height: 60%;
+
+  /*섹션3: 관람(회색)*/
+  .mainExplain {
+    height: 60vh;
   }
-  .revTxt {
-    margin-top: 0.1rem;
+  .ExplainSection {
     width: 100%;
     height: 100%;
   }
-  .arrowDown span {
-    margin: -11px;
+  .explainBorder {
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
-  .conterBox span {
+  .explainBorder h3 {
+    width: 100%;
+    padding: 0.5rem 0.2rem;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .explainBorder p {
+    width: 100%;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .explainBorder img {
+    width: 80%;
+    height: 50%;
+  }
+  .explainBorder > div {
+    padding: 0.2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  /*섹션4: 관람디테일 타이틀(하얀색):*/
+
+  .mainWatchDetail1 {
+    width: 100%;
+    height: 20vh;
+  }
+  .exDetailTitle {
+    width: 100%;
+    line-height: 5.5rem;
+  }
+
+  /*섹션5,6: 관람디테일 컨텐츠(검정색)*/
+  .mainWatchDetail2 {
+    height: 60vh;
+
+    padding: 1rem 2rem;
+  }
+  .exDetailBoard {
+    width: 100%;
+  }
+
+  .exDetailImg img {
+    width: 90%;
+    height: 90%;
+  }
+
+  .exDetailTxt span:nth-child(1) {
+    height: 40%;
+    font-size: 2rem;
+    line-height: 6rem;
+  }
+  .exDetailTxt span:nth-child(2) {
+    /* height: 60%; */
+    font-size: 0.8rem;
+    line-height: 3rem;
+  }
+
+  /*섹션7 리뷰디테일 컨텐츠(하얀색)*/
+
+  .ReviewSection {
+    width: 100%;
+  }
+  /*섹션8 카운터박스(검정색)*/
+  .mainCount {
+    width: 100%;
+    height: 30vh;
+    background-color: black;
+  }
+  .countSection {
+    width: 100%;
+  }
+
+  .conterBox span:nth-child(1) {
+    font-size: 1.8rem;
+  }
+  .conterBox span:nth-child(2) {
+    font-size: 2rem;
+  }
+  /*섹션9 바텀txt(하얀색)*/
+  .mainBottomTxt {
+    width: 100%;
+    height: 20vh;
+    /* border: 3px solid red; */
+  }
+  .bottomSectionTxt {
+    width: 100%;
+    text-align: center;
+    font-size: 2.2rem;
+  }
+
+  /*섹션10 바텀btn(하얀색)*/
+
+  .bottomSection {
     width: 100%;
   }
 }
 @media screen and (max-width: 580px) {
-  /*관람상세*/
+  /*섹션4: 관람디테일 타이틀(하얀색):*/
 
-  .exContentTitle {
-    margin-top: 0.1rem;
-    height: 7rem;
-    font-size: 1.2rem;
-    line-height: 3;
-  }
-  .exContentBox {
-    margin-top: 0.1rem;
-  }
-  .exContent {
-    padding: 0.7rem;
-  }
-
-  .exTxt {
-    margin-top: 1rem;
-    padding: 0.2rem;
-  }
-
-  .exTxt span:nth-child(1) {
-    margin-top: 2rem;
+  .exDetailTitle {
+    width: 100%;
     font-size: 1.5rem;
+    line-height: 6rem;
   }
-  .exTxt span:nth-child(2) {
-    margin-top: 2rem;
-    font-size: 1rem;
+  .ReviewSection {
+    width: 90%;
   }
-  /*관람상세 끝*/
+  .bottomSectionTxt {
+    width: 100%;
+    text-align: center;
+    font-size: 1.8rem;
+  }
+  .mainBottom {
+    height: 30vh;
+  }
 
-  .main4 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .conterTxtBox {
+    font-size: 1.4rem;
   }
-  /*리뷰상세*/
-  .revSecBorder {
-    width: 100%;
-    height: 100%;
-  }
-  .reviewTitle {
-    height: 8rem;
-    line-height: 3rem;
-    padding: 1.5rem;
-    margin-top: -5rem;
-    font-size: 1.2rem;
-  }
-  .revContentBox {
-    width: 100%;
-    height: 70%;
-    padding: 0.3rem;
-    margin-top: 2rem;
-  }
-  .revContent {
-    width: 30%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
 
-    box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 1);
-  }
-  .revContent img {
-    border: 1px solid gainsboro;
-    width: 85%;
-    height: 30%;
-  }
-  .revTxtBox {
-    width: 100%;
-    height: 60%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .revTxt {
-    height: 100%;
-  }
-  .revTxt:nth-child(1) {
-    height: 3rem;
-    font-size: 1.5rem;
-    line-height: 3rem;
-  }
-  .revTxt:nth-child(2) {
-    height: 2.8rem;
-    font-size: 0.9rem;
-    line-height: 2.8rem;
-  }
-  .revTxt:nth-child(3) {
-    font-size: 1rem;
-  }
-  /*리뷰상세 끝*/
-}
-@media screen and (max-width: 480px) {
-  .brandTitle {
-    width: 3.8rem;
-    height: 4.5rem;
-  }
-  .brand p {
-    margin-top: 2rem;
-    font-size: 1.1rem;
-  }
-  .arrowDown span {
-    margin: -16px;
-  }
-  .secBorder {
-    padding: 0.2rem;
-  }
-  .border {
-    padding: 0.2rem;
-  }
-  .border img {
-    width: 600px;
-    height: 300px;
-  }
-  .border > div {
-    padding: 2rem;
-    width: 100%;
-  }
-  .border h3 {
-    margin-bottom: 2rem;
+  .conterBox span:nth-child(1) {
     font-size: 2.8rem;
   }
-  /*관람상세*/
-  .exContentBox {
-    margin-top: 0.2rem;
+}
+@media screen and (max-width: 480px) {
+  .brand p {
+    font-size: 1rem;
   }
-  .exContentTitle {
-    font-size: 0.9rem;
-    height: 6rem;
-    line-height: 3;
-    margin-top: 7rem;
-  }
-  .exContent img {
-    width: 100%;
-    height: 10rem;
-  }
-  .exTxt {
-    margin-top: 1rem;
-    padding: 0.1rem;
-    font-family: "Poppins", sans-serif;
-    /* border: 1px solid gainsboro; */
+  .mainSlider {
+    height: 30vh;
   }
 
-  .exTxt span:nth-child(1) {
-    /* margin-top: 2rem;
-    font-size: 1.5rem;
-    height: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center; */
-    height: 5rem;
-    margin-top: 2rem;
-    font-size: 1.1rem;
-    line-height: 2rem;
-  }
-  .exTxt span:nth-child(2) {
-    margin-top: 2rem;
-    font-size: 0.9rem;
-    height: 12rem;
-    /* height: 12rem;
-    font-size: 0.8rem;
-    line-height: 1.5rem;
-    border: 1px solid blue; */
-  }
-  /*관람상세 끝*/
-
-  .main4 {
+  .explainBorder > div {
+    height: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
-  /*리뷰상세*/
+  .explainBorder h3 {
+    font-size: 0.8rem;
 
-  .reviewTitle {
-    font-size: 1rem;
+    margin-bottom: 0;
   }
+  .explainBorder p {
+    font-size: 0.7rem;
+    margin-bottom: 0;
+  }
+  .btn {
+    padding: 0.2rem 0.8rem;
+    cursor: pointer;
+    width: 8rem;
+    height: 2rem;
+    margin: 0.1rem;
+  }
+  .exDetailTitle {
+    width: 100%;
+    font-size: 1.2em;
+    line-height: 2rem;
+  }
+  .mainWatchDetail2 {
+    height: 60vh;
 
-  .revContent img {
-    border: 1px solid gainsboro;
-    width: 70%;
-    height: 15%;
+    padding: 0.1rem 0.2rem;
   }
-
-  .revTxt:nth-child(1) {
-    height: 3rem;
-    font-size: 1rem;
-    line-height: 3rem;
-  }
-  .revTxt:nth-child(2) {
-    height: 2.4rem;
-    font-size: 0.9rem;
-    line-height: 2.8rem;
-  }
-  .revTxt:nth-child(3) {
-    padding: 0.2rem;
-    font-size: 1rem;
-    display: inline-block;
-    height: 19rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: normal;
-    line-height: 1.35;
-    text-align: left;
-    word-wrap: break-word;
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    -webkit-box-orient: vertical;
-  }
-  /*리뷰상세 끝*/
-
-  /*카운터*/
-
-  .conterBox {
-    width: 48%;
+  .exDetailBoard {
+    width: 100%;
     height: 100%;
   }
-  .conterBox img {
-    margin-top: 0.5rem;
-    width: 60%;
-    height: 30%;
-    border-radius: 50%;
-  }
-  .conterBox div {
-    margin-top: 2rem;
+  .exDetailImg {
     width: 100%;
-    height: 8rem;
+    height: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
-  .conterBox span {
+  .exDetailImg img {
     width: 100%;
-    height: 5rem;
+    height: 100%;
   }
-  .conterBox span:nth-child(1) {
-    font-size: 2.5rem;
+  .exDetailTxt {
+    height: 50%;
+  }
+
+  .exDetailTxt span:nth-child(1) {
+    height: 40%;
+    font-size: 1.5rem;
+    line-height: 6rem;
+  }
+  .exDetailTxt span:nth-child(2) {
+    font-size: 0.8rem;
+    line-height: 2rem;
+  }
+  .ReviewSection {
+    width: 90%;
+  }
+  .bottomSectionTxt {
+    width: 100%;
+    text-align: center;
+    font-size: 1.4rem;
   }
   .conterBox span:nth-child(2) {
     font-size: 1.5rem;
   }
-}
 
+  .conterTxtBox {
+    font-size: 1.2rem;
+  }
+
+  .conterBox span:nth-child(1) {
+    font-size: 2.3rem;
+  }
+  .conterBox span:nth-child(2) {
+    font-size: 1.8rem;
+  }
+}
 /*화면전환*/
 
 @keyframes motion {
@@ -935,6 +761,7 @@ label {
     transform: rotate(45deg) translate(1.5em, 1.5em);
   }
 }
+
 @-moz-keyframes fadein {
   /* Firefox */
   from {

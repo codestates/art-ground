@@ -8,7 +8,6 @@ import { getExhibitionInfo } from "../../api/galleryApi";
 
 const GalleryDetail = ({ handle3dExhibition, location}) => {
 
-  //gallerySelected--> 전시회 정보
   const sliderNum = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const [exhibitionInfo, setExhibitionInfo] = useState(null);
   const [btnSlider, setBtnSlider] = useState(1);
@@ -25,7 +24,7 @@ const GalleryDetail = ({ handle3dExhibition, location}) => {
     getAxiosData();
     setTimeout(()=> {
       setLoading(false);
-    }, 700)
+    }, 1000)
   }, []); 
 
 
@@ -63,7 +62,7 @@ const GalleryDetail = ({ handle3dExhibition, location}) => {
   const history = useHistory();
   const goThreeDPage = () => { 
     handle3dExhibition(exhibitionInfo.id);
-    //history.push(`/3dgallery/${Number(location.pathname.substring(15))}`);
+    //history.push(`/3dgallery/${exhibitionInfo.id}`);
   }
   
   if(isLoading){

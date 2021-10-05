@@ -6,7 +6,7 @@ const AboutRevSlider = (props) => {
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 2 },
-    // { width: 768, itemsToShow: 3 },
+    { width: 768, itemsToShow: 3 },
     // { width: 1200, itemsToShow: 4 },
   ];
 
@@ -76,10 +76,24 @@ const AboutRevSlider = (props) => {
         "작가의 자아성찰이 잘 그려졌던 작품이었다.이런점은 이러했고,어떤점은 조금 어려운 난해하게 느껴졌던 부분도 있었다. 하지만 전반적으로 어쩌구저쩌구 그래서 매우 만족스러운 전시회였다.",
       img: "https://images.velog.io/images/beablessing/post/530852f3-428f-4a28-8ac0-45781782f8a5/Screenshot%20from%202021-09-30%2005-12-04.png",
     },
+    {
+      nickname: "유다희 님",
+      title: "전시명: 자아성찰",
+      review:
+        "작가의 자아성찰이 잘 그려졌던 작품이었다.이런점은 이러했고,어떤점은 조금 어려운 난해하게 느껴졌던 부분도 있었다. 하지만 전반적으로 어쩌구저쩌구 그래서 매우 만족스러운 전시회였다.",
+      img: "https://images.velog.io/images/beablessing/post/530852f3-428f-4a28-8ac0-45781782f8a5/Screenshot%20from%202021-09-30%2005-12-04.png",
+    },
+    {
+      nickname: "유다희 님",
+      title: "전시명: 자아성찰",
+      review:
+        "작가의 자아성찰이 잘 그려졌던 작품이었다.이런점은 이러했고,어떤점은 조금 어려운 난해하게 느껴졌던 부분도 있었다. 하지만 전반적으로 어쩌구저쩌구 그래서 매우 만족스러운 전시회였다.",
+      img: "https://images.velog.io/images/beablessing/post/530852f3-428f-4a28-8ac0-45781782f8a5/Screenshot%20from%202021-09-30%2005-12-04.png",
+    },
   ]);
 
   return (
-    <section>
+    <>
       <h1 className="seperator">
         아트그라운드에서 수백개의 관람 후기를 만나보세요.
       </h1>
@@ -99,7 +113,7 @@ const AboutRevSlider = (props) => {
           ))}
         </Carousel>
       </div>
-    </section>
+    </>
   );
 };
 

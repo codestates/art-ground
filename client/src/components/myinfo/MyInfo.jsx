@@ -1,14 +1,18 @@
 import styles from "./MyInfo.module.css";
 import { useHistory } from "react-router";
+import { deleteAccount } from "../../api/mypageApi";
+import axios from "axios";
 
+axios.defaults.withCredentials = true;
 const MyInfo = ({ userinfo, setUserinfo, setIsLogin }) => {
   const history = useHistory();
 
   const modifyCLick = () => {
     history.push("/modify");
   };
-  const deleteAccount = () => {
-    deleteAccount(setUserinfo, setIsLogin, history);
+
+  const deleteId = () => {
+    deleteAccount();
   };
 
   const img = !userinfo.profile_img
@@ -72,9 +76,10 @@ const MyInfo = ({ userinfo, setUserinfo, setIsLogin }) => {
           </>
         ) : null}
         <div className={styles.infobox4}>
-          <button className={styles.delete} onClick={deleteAccount}>
+          <button className={styles.delete} onClick={deleteId}>
             회원탈퇴
           </button>
+
           <button className={styles.modify} onClick={modifyCLick}>
             정보수정
           </button>

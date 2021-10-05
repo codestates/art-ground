@@ -103,6 +103,9 @@ span {
 .liBtn button:nth-child(2) {
   margin-top: 1rem;
 }
+.passcheck {
+  color: red;
+}
 @media screen and (max-width: 768px) {
   .ulbox {
     width: 70%;

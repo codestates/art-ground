@@ -7,8 +7,8 @@ const AdminReview = ({ el }) => {
   console.log(el, "adminrevdata");
   const [deleteModal, setDeleteModal] = useState(false);
 
-  const imgurl = el.image_urls
-    ? el.image_urls
+  const imgurl = el.user.profile_img
+    ? el.user.profile_img
     : "https://images.velog.io/images/beablessing/post/54131e26-0389-412e-b88d-a8b6a97600a8/noimg.png";
 
   const clickDelete = () => {
@@ -26,8 +26,14 @@ const AdminReview = ({ el }) => {
 
             <div className={styles.infoBox}>
               <div className={styles.title}>{el.title} </div>
-              <div className={styles.author}> 아티스트: {el.author_name}</div>
-              <div className={styles.author}> 작성자: {el.user.nickname}</div>
+              <div className={styles.author}>
+                {" "}
+                전시명: {el.exhibition.title}
+              </div>
+              <div className={styles.author}>
+                {" "}
+                댓글 작성자: {el.user.nickname}
+              </div>
               <div className={styles.comments}>댓글: {el.comments}</div>
             </div>
           </div>
