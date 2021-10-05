@@ -3,6 +3,7 @@ const { isAuthorized } = require("../../utils/tokenFunction");
 module.exports = {
   getMyInfo: (req, res) => {
     const userInfo = isAuthorized(req);
+    delete userInfo.dataValues.password;
 
     if (userInfo) {
       res.status(200).json({
