@@ -10,14 +10,13 @@ import { getMyExhibition, getMyPickExhibiton } from "../../api/mypageApi";
 
 axios.defaults.withCredentials = true;
 const MyPage = ({ userinfo, setUserinfo }) => {
-  const [isInfoClicked, setIsInfoClicked] = useState(true);
+  const [isInfoClicked, setIsInfoClicked] = useState(true); //subNav
   const [isPickClicked, setIsPickClicked] = useState(false);
   const [isMyExhibit, setIsMyExhibit] = useState(false);
-
-  const [myEx, setMyEx] = useState(null);
+  const [myEx, setMyEx] = useState(null); //data
   const [myPick, setMyPick] = useState(null);
-
-  const colorChange = !isInfoClicked ? styles.category : styles.clickCate;
+  const [infoRender, setInfoRender] = useState(false); //props 시간차
+  const colorChange = !isInfoClicked ? styles.category : styles.clickCate; //css
   const colorChange2 = !isPickClicked ? styles.category : styles.clickCate;
   const colorChange3 = !isMyExhibit ? styles.category : styles.clickCate;
 
@@ -38,12 +37,10 @@ const MyPage = ({ userinfo, setUserinfo }) => {
     setIsPickClicked(false);
     setIsMyExhibit(true);
   };
-
-  const [infoRender, setInfoRender] = useState(false);
   useEffect(() => {
     setTimeout(() => {
       setInfoRender(true);
-    }, 1000);
+    }, 500);
   });
 
   useEffect(() => {

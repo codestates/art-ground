@@ -45,7 +45,7 @@ const SignUp = ({ isAudienceJoined }) => {
     return regExp.test(asValue);
   };
 
-  const secretKey = "Klassiker";
+  const secretKey = process.env.REACT_APP_CRYPTOJS_SECRETKEY;
   const clickAudJoin = () => {
     const { userEmail, nickname, password, password2 } = audInfo;
     if (!userEmail || !nickname || !password || !password2) {
@@ -77,7 +77,6 @@ const SignUp = ({ isAudienceJoined }) => {
       password: encryptedPassword,
       userType: 1,
     };
-
     getSingupAudRes(userData, setErrorMessage, history);
   };
 

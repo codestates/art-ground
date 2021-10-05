@@ -19,12 +19,10 @@ const SignInDetail = ({
     userType: "",
   });
   const [errorMessage, setErrorMessage] = useState("");
-
   const [passOpen, setPassOpen] = useState(false);
   const clickEye = () => {
     setPassOpen(!passOpen);
   };
-
   const visibility = !passOpen
     ? "https://user-images.githubusercontent.com/80307779/133570708-c6628e88-1f9c-41f8-8f96-1338e9d79a53.png"
     : "https://user-images.githubusercontent.com/80307779/133570716-32070dec-2879-4bb2-8103-bf8886e433fe.png";
@@ -40,7 +38,7 @@ const SignInDetail = ({
   };
 
   const { userEmail, password } = loginInfo;
-  const secretKey = "Klassiker";
+  const secretKey = process.env.REACT_APP_CRYPTOJS_SECRETKEY;
   const clickAudLogin = () => {
     if (!userEmail || !password) {
       setErrorMessage("아이디와 비밀번호를 모두 입력해주세요");
@@ -102,7 +100,7 @@ const SignInDetail = ({
 
   const clickGoole = () => {
     window.location.href =
-      "https://accounts.google.com/o/oauth2/v2/auth?scope=openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20&access_type=offline&include_granted_scopes=true&response_type=code&state=state_parameter_passthrough_value&redirect_uri=https://localhost:3000/signin/google&client_id=712078359002-ms5bo3h03tenocjb8sib9mdq6q46jdet.apps.googleusercontent.com";
+      "https://accounts.google.com/o/oauth2/v2/auth?scope=openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20&access_type=offline&include_granted_scopes=true&response_type=code&state=state_parameter_passthrough_value&redirect_uri=https://art-ground.io/signin/google&client_id=712078359002-ms5bo3h03tenocjb8sib9mdq6q46jdet.apps.googleusercontent.com";
   };
 
   const clickKakao = () => {

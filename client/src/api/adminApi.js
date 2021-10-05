@@ -22,7 +22,7 @@ export function confirmExhibition(setConfirmModal, el) {
     .then((result) => {
       console.log(result, "새로 뀐 값 ???");
       setConfirmModal(false);
-      // window.location.href = "https://art-ground.io/admin";
+      window.location.href = "https://art-ground.io/admin";
     })
     .catch((err) => console.log(err));
 }
