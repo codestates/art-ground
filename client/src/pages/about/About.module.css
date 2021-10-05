@@ -12,6 +12,7 @@
   font-style: normal;
 }
 @font-face {
+
   font-family: "paybooc-Bold";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Bold.woff")
     format("woff");
@@ -110,6 +111,7 @@ label {
   line-height: 180%;
   /* margin-top: 20rem; */
   margin-bottom: 1.5rem;
+
 }
 /*섹션2: 슬라이더*/
 .mainSlider {

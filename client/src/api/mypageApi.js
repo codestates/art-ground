@@ -5,7 +5,7 @@ export function getMyinfo(setUserinfo, setisAdmin) {
   return axios
     .get("https://art-ground.link/mypage")
     .then((result) => {
-      console.log(result, "마이인포 리쥴트 값!!");
+      //console.log(result, "마이인포 리쥴트 값!!");
       if (result.status === 200) {
         const img =
           result.data.data.profile_img === null
@@ -44,15 +44,16 @@ export function getMyPickExhibiton(setMyPick) {
     .catch((err) => console.log(err));
 }
 
-export function deleteAccount(setUserinfo, setIsLogin, history) {
+export function deleteAccount() {
   //art-ground.link
   return axios
     .delete("https://art-ground.link/mypage")
     .then((result) => {
-      console.log(result, "탈퇴!");
-      setUserinfo(null);
-      setIsLogin(false);
-      history.push("/about");
+      if (result.data.message === "successfully deleted") {
+        localStorage.removeItem("isLogin");
+        //history.push("/about");
+        window.location.href = "/about";
+      }
     })
     .catch((err) => console.log(err));
 }
