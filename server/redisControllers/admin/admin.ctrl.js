@@ -46,7 +46,7 @@ module.exports = {
     const redisKey =
       exhibit_type === undefined
         ? "allExhibition"
-        : exhibit_type === "1"
+        : exhibit_type === 1
         ? "standard"
         : "premium";
 
