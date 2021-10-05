@@ -2,7 +2,7 @@ const { exhibition } = require("../../models");
 const { isAuthorized } = require("../../utils/tokenFunction");
 
 module.exports = {
-  approveExhibitions: (req, res) => {
+  approveExhibitions: async (req, res) => {
     const userInfo = isAuthorized(req);
 
     const { id, exhibit_type } = req.body.data;

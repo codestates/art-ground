@@ -2,7 +2,7 @@ const { comments } = require("../../models");
 const { isAuthorized } = require("../../utils/tokenFunction");
 
 module.exports = {
-  deleteReviews: (req, res) => {
+  deleteReviews: async (req, res) => {
     //const userInfo = isAuthorized(req);
     const userInfo = { user_type: 3 };
     const { postId, commentId } = req.params;
