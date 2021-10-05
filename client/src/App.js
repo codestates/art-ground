@@ -75,7 +75,6 @@ function App() {
   };
 
   const [gallerySelected, setGallerySelected] = useState(null);
-  const [reviewSelected, setReviewSelected] = useState(null);
   const [threeDSelected, setThreeDSelected] = useState(null);
 
   return (

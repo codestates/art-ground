@@ -56,7 +56,7 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
   useEffect(() => { //해당 전시회의 댓글(배열) GET요청. 페이지최초랜더링(+댓글 등록/삭제)때에만 작동
     setTimeout(()=> {
       getFetchData();
-    }, 100)
+    }, 500)
   }, [rerender])
 
   useEffect(()=> {
@@ -125,7 +125,7 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
       <ul className={styles.replies}>
         <div className={styles.replyBox}>
           <input className={styles.reply} 
-          placeholder="로그인하셔야 리뷰를 작성할 수 있습니다" 
+          placeholder={isLogin ? "리뷰를 작성해주세요." : "로그인하셔야 리뷰를 작성할 수 있습니다."} 
           type="text" 
           value={reply}
           onChange={(e)=> setReply(e.target.value)}
