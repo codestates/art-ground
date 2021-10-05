@@ -2,7 +2,7 @@ import styles from "./PassModify.module.css";
 import { useState } from "react";
 import { passModify } from "../../api/mypageApi";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 const CryptoJS = require("crypto-js");
 require("dotenv").config();
 
@@ -12,11 +12,9 @@ const PassModify = ({ setPassEditPage, setEditFront }) => {
   const [newPassword, setNewPassword] = useState("");
   const [newPassword2, setNewPassword2] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
   const [modalOpen, setModalOpen] = useState(false);
-
   const secretKey = "Klassiker";
-
+  const history = useHistory();
   const currentPassHandle = (event) => {
     setCurrentPass(event.target.value);
   };
@@ -27,22 +25,24 @@ const PassModify = ({ setPassEditPage, setEditFront }) => {
   const newPassword2Handle = (event) => {
     setNewPassword2(event.target.value);
   };
-
+  const checkPass = (asValue) => {
+    const regExp = /^[a-zA-z0-9]{4,12}$/;
+    return regExp.test(asValue);
+  };
   const clickDone = () => {
     if (!currentPass) {
       setErrorMessage("현재 비밀번호를 입력해주세요");
       return false;
-    } else {
-      setErrorMessage("");
+    }
+    if (!checkPass(currentPass)) {
+      setErrorMessage("비밀번호는 4-12자리의 숫자,영문입니다.");
+      return false;
     }
     if (newPassword !== newPassword2) {
       setErrorMessage("동일한 비밀번호를 한번더 입력해주세요");
       return false;
-    } else {
-      setErrorMessage("");
     }
     setModalOpen(true);
-    console.log(currentPass, newPassword, newPassword2);
   };
 
   const cancleClick = () => {
@@ -67,13 +67,7 @@ const PassModify = ({ setPassEditPage, setEditFront }) => {
         currentPassword: encryptedcurPass,
         newPassword: encryptedNewPass,
       };
-      passModify(passData, setModalOpen);
-      // axios //art-ground.link
-      //   .patch("https://art-ground.link/mypage/password", passData)
-      //   .then((result) => {
-      //     console.log(result, "비밀번호 수정 데이터 ");
-      //     setModalOpen(false);
-      //   });
+      passModify(passData, setModalOpen, history, setErrorMessage);
     }
   };
 
@@ -92,12 +86,13 @@ const PassModify = ({ setPassEditPage, setEditFront }) => {
               </li>
               <li className={styles.liEdit}>
                 <input
-                  type="text"
+                  type="password"
                   value={currentPass}
                   placeholder={"현재비밀번호"}
                   className={styles.inputedit}
                   onChange={currentPassHandle}
                 />
+
                 <input
                   type="text"
                   placeholder={"새 비밀번호"}
@@ -138,11 +133,10 @@ const PassModify = ({ setPassEditPage, setEditFront }) => {
                 >
                   아니오
                 </button>
-                <Link to="/mypage">
-                  <button className={styles.modifyBtn} onClick={clickModify}>
-                    수정하기
-                  </button>
-                </Link>
+
+                <button className={styles.modifyBtn} onClick={clickModify}>
+                  수정하기
+                </button>
               </div>
             </div>
           </section>

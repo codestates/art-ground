@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+/*font-family: 'Jua', sans-serif;*/
 .seperator {
   width: 100%;
   height: 20%;
@@ -6,6 +8,8 @@
   color: black;
   text-align: center;
   font-size: 2rem;
+  font-weight: 100;
+  font-family: "Jua", sans-serif;
 }
 .carousel-wrapper {
   width: 100%;
@@ -45,6 +49,7 @@
 
 .revTxt:nth-child(1),
 .revTxt:nth-child(2) {
+  font-family: "Jua", sans-serif;
   height: 20%;
   text-align: center;
   line-height: 3;
@@ -52,6 +57,8 @@
 }
 
 .revTxt:nth-child(3) {
+  font-weight: 100;
+  font-family: "Jua", sans-serif;
   padding: 0 0.6rem;
   height: 60%;
   line-height: 2;
@@ -92,100 +99,44 @@
 }
 /*시도하기*/
 .jJKuoL {
-  box-shadow: 0 0 1px 3px red;
+  box-shadow: 0 0 1px 3px gray;
 }
 .jJKuoL:hover {
   cursor: pointer;
-  box-shadow: 0 0 1px 3px red;
+  box-shadow: 0 0 1px 3px gray;
 }
 
-@media screen and (max-width: 1500px) {
-  .seperator {
-    width: 100%;
-    height: 150px;
-    line-height: 150px;
-
-    font-size: 2rem;
-  }
+@media screen and (max-width: 1240px) {
   .carousel-wrapper {
-    width: 970px;
+    width: 100%;
   }
 }
 @media screen and (max-width: 980px) {
-  .seperator {
-    height: 130px;
-    line-height: 130px;
-    font-size: 2rem;
-  }
-  .carousel-wrapper {
-    width: 100%;
-    height: 90%;
-  }
-  .revContent {
-    width: 100%;
-    height: 100%;
-  }
-  .revImgtBox {
-    width: 100%;
-    height: 40%;
-    text-align: center;
-  }
-  .revimg {
-    width: 30%;
-    height: 80%;
-  }
-  .revTxtBox {
-    width: 100%;
-    height: 60%;
-    padding: 0 0.5rem;
-  }
-
-  .revTxt:nth-child(1),
-  .revTxt:nth-child(2) {
-    height: 20%;
-    text-align: center;
-    line-height: 3;
-    font-size: 1rem;
-  }
-
-  .revTxt:nth-child(3) {
-    height: 60%;
-    line-height: 2;
-    font-size: 0.9rem;
-  }
-  .seperator {
-    font-size: 1.5rem;
-  }
 }
 @media screen and (max-width: 780px) {
   .seperator {
-    height: 170px;
-    line-height: 170px;
-    font-size: 1rem;
+    width: 100%;
+    line-height: 80px;
+    text-align: center;
+    font-size: 2rem;
   }
+}
+@media screen and (max-width: 580px) {
   .carousel-wrapper {
     width: 100%;
-    height: 90%;
-  }
-  .revContent {
-    width: 100%;
-    height: 100%;
-  }
-  .revImgtBox {
-    width: 100%;
-    height: 40%;
-    text-align: center;
-  }
-  .revimg {
-    width: 30%;
-    height: 80%;
-  }
-  .revTxtBox {
-    width: 100%;
     height: 60%;
-    padding: 0 0.5rem;
+    display: flex;
+    align-items: center;
   }
+}
 
+@media screen and (max-width: 480px) {
+  .seperator {
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 1.2rem;
+  }
   .revTxt:nth-child(1),
   .revTxt:nth-child(2) {
     height: 20%;
@@ -193,16 +144,17 @@
     line-height: 3;
     font-size: 1rem;
   }
+
   .revTxt:nth-child(3) {
+    padding: 0 0.6rem;
     height: 60%;
     line-height: 2;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
-}
-@media screen and (max-width: 480px) {
-  .seperator {
-    height: 100px;
-    line-height: 100px;
-    font-size: 0.7rem;
+  .revContent {
+    width: 90%;
+    height: 350px;
+
+    padding: 0.5rem;
   }
 }

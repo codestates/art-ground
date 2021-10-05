@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./About.module.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import AboutSlider from "../../components/aboutSlider/AboutSlider";
 import AboutRevSlider from "../../components/aboutRevSlider/AboutRevSlider";
 
@@ -11,8 +11,7 @@ AOS.init();
 const About = () => {
   const history = useHistory();
   const [position, setPosition] = useState(0);
-  const [Count1, setCount1] = useState(0);
-  const [Count2, setCount2] = useState(0);
+  const [Count1, setCount1] = useState(1000);
 
   function onScroll() {
     setPosition(window.scrollY);
@@ -20,31 +19,23 @@ const About = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
-    if (position > 4876) {
+    if (position > 6971) {
       const interval1 = setInterval(() => {
         setCount1(Count1 + 1);
-      }, 3);
+      }, 2);
 
-      const interval2 = setInterval(() => {
-        setCount2(Count2 + 1);
-      }, 1);
-
-      if (Count1 === 198) {
+      if (Count1 === 1229) {
         clearInterval(interval1);
-      }
-      if (Count2 === 1026) {
-        clearInterval(interval2);
       }
 
       return () => {
         clearInterval(interval1);
-        clearInterval(interval2);
       };
     }
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
-  }, []);
+  });
 
   //console.log(position);
 
@@ -108,7 +99,6 @@ const About = () => {
                 아트그라운드는 시간과 공간의 제약을 받지 않고 <br></br>
                 다양한 작품을{" "}보고 느낄 수 있는 공간을 제공합니다.
               </p>
-
               <button
                 className={styles.btn}
                 onClick={() => {
@@ -128,8 +118,8 @@ const About = () => {
           data-aos="fade-up"
           data-aos-duration="2000"
         >
-          아트 그라운드는 2D와 더불어 3D 환경을 제공함으로써 관람객에게 최상의
-          경험을 선사합니다.
+          아트 그라운드는 2D와 더불어 3D 환경을 제공함으로써 <br></br>관람객에게
+          최상의 경험을 선사합니다.
         </div>
       </main>
       <main className={styles.mainWatchDetail2}>
@@ -185,7 +175,7 @@ const About = () => {
           >
             <div>
               <h3>
-                관람한 전시의 <br></br>생생한 경험을 <br></br>나누세요
+                전시회의 생생한 <br></br>경험을 나누세요
               </h3>
               <p>
                 아트 그라운드에서의 전시는 어떠셨나요? 생생했던 관람의 경험을
@@ -256,28 +246,32 @@ const About = () => {
 
       <main className={styles.mainCount}>
         <section className={styles.countSection}>
-          <div></div>
-          <div></div>
-          {/* <div className={styles.conterBox}>
-            <div>
-              <span>Author</span>
-              <span>{Count1}</span>
-            </div>
+          <div className={styles.conterTxtBox}>
+            현재까지 수 많은 작가님들이 아트그라운드에서 <br></br>작품을
+            전시하고 있습니다.
           </div>
           <div className={styles.conterBox}>
-            <div>
-              <span>Piece of Art</span>
-              <span>{Count2}+</span>
-            </div>
-          </div> */}
+            <span>{Count1}+</span>
+            <span>Piece of Art</span>
+          </div>
         </section>
       </main>
-      <main className={`${styles.main6}`}>
-        <section className={styles.secBorder}>
-          <div>지금 바로 artience가 되어보세요</div>
-          <Link to="/gallery">
-            <button className={styles.bottomBtn}>갤러리 둘러보러가기</button>
-          </Link>
+
+      <main className={styles.mainBottomTxt}>
+        <section className={styles.bottomSectionTxt}>
+          여러분도 지금 바로 artience가 될 수 있습니다.
+        </section>
+      </main>
+      <main className={styles.mainBottom}>
+        <section className={styles.bottomSection}>
+          <button
+            className={styles.bottomBtn}
+            onClick={() => {
+              history.push("/gallery");
+            }}
+          >
+            갤러리 둘러보러가기
+          </button>
         </section>
       </main>
     </div>
