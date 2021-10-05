@@ -1,4 +1,4 @@
-const { exhibition, comments, users } = require("../../models");
+const { exhibition, comments, users, images, likes } = require("../../models");
 
 const { isAuthorized } = require("../../utils/tokenFunction");
 const {
@@ -115,36 +115,94 @@ module.exports = {
         : "premium";
 
     if (userInfo.user_type === 3) {
-      try {
-        const allExhibitionResult = await axios.get(
-          "https://art-ground.link/exhibition"
-        );
+      let allExhibitionResult;
+      let typeExhibitionResult;
 
-        const typeExhibitionResult = await axios.get(
-          `https://art-ground.link/exhibition/${exhibit_type}`
-        );
-        const allExhibitionReply = allExhibitionResult.data.data;
-        const typeExhibitionReply = typeExhibitionResult.data.data;
-
-        allExhibitionReply.some((el) => {
-          if (el.id === id) {
-            el.status = 2;
-            return true;
-          }
+      if (!(await getCached("allExhibition"))) {
+        const result = await exhibition.findAll({
+          include: [
+            {
+              model: images,
+              as: "images",
+            },
+            {
+              attributes: ["exhibition_id", "user_id"],
+              model: likes,
+              as: "likes",
+            },
+            {
+              attributes: [
+                "user_email",
+                "nickname",
+                "profile_img",
+                "author_desc",
+              ],
+              model: users,
+              as: "author",
+            },
+          ],
         });
-        typeExhibitionReply.some((el, idx) => {
-          if (el.id === id) {
-            typeExhibitionReply.splice(idx, 1);
-            return true;
-          }
-        });
-        console.log(typeExhibitionReply);
-      } catch (err) {
-        console.log(err);
+        const data = result.map((el) => el.dataValues);
+        caching("allExhibition", data);
+        allExhibitionResult = data;
+      } else {
+        allExhibitionResult = await getCached("allExhibition");
       }
 
-      caching("allExhibition", allExhibitionReply);
-      caching(redisKey, typeExhibitionReply);
+      if (!(await getCached(redisKey))) {
+        const result = await exhibition.findAll({
+          include: [
+            {
+              model: images,
+              as: "images",
+            },
+            {
+              attributes: ["exhibition_id", "user_id"],
+              model: likes,
+              as: "likes",
+            },
+            {
+              attributes: [
+                "user_email",
+                "nickname",
+                "profile_img",
+                "author_desc",
+              ],
+              model: users,
+              as: "author",
+            },
+          ],
+          where: {
+            exhibit_type,
+            status: 1,
+          },
+        });
+
+        const data = result.map((el) => el.dataValues);
+        caching(redisKey, data);
+        typeExhibitionResult = data;
+      } else {
+        typeExhibitionResult = await getCached(redisKey);
+      }
+
+      //let typeExhibitionResult;
+      allExhibitionResult.some((el) => {
+        if (el.id === id) {
+          el.status = 2;
+          return true;
+        }
+      });
+
+      typeExhibitionResult.some((el, idx) => {
+        if (el.id === id) {
+          typeExhibitionResult.splice(idx, 1);
+          return true;
+        }
+      });
+
+      caching("allExhibition", allExhibitionResult);
+      caching(redisKey, typeExhibitionResult);
+
       res.status(200).json({
         message: "successfully close exhibitions",
       });
@@ -165,71 +223,147 @@ module.exports = {
     }
   },
   deleteReviews: async (req, res) => {
-    const userInfo = isAuthorized(req);
+    //const userInfo = isAuthorized(req);
     const { postId, commentId } = req.params;
     const exhibition_id = parseInt(postId);
     const id = parseInt(commentId);
     //전시 리뷰에서 리뷰삭제.
     //디테일 리뷰에서 리뷰삭제..
-    if (userInfo.user_type === 3) {
-      const redisKey = "exhibitionReview";
-      const reply = await getCached(redisKey);
+    //if (userInfo.user_type === 3) {
+    const redisKey = "exhibitionReview";
+    const reviewRedisKey = `${exhibition_id}Review`;
+    let reply;
+    let DetailReview;
+    if (await getCached(redisKey)) {
+      reply = await getCached(redisKey);
+    } else {
+      const result = await exhibition.findAll({
+        include: [
+          {
+            model: images,
+            as: "images",
+          },
+          {
+            attributes: ["nickname", "profile_img", "author_desc"],
+            model: users,
+            as: "author",
+          },
+          {
+            model: comments,
+            as: "comments",
+          },
+        ],
+        where: {
+          status: [1, 2],
+        },
+      });
+      const data = result.map((el) => el.dataValues);
+      reply = data;
+    }
 
-      if (reply) {
-        const reviewRedisKey = `${exhibition_id}Review`;
-        const DetailReview = await getCached(reviewRedisKey);
-        reply.some((el) => {
-          if (el.id === exhibition_id) {
-            el.comments.some((ele, idx) => {
-              if (ele.id === id) {
-                el.comments.splice(idx, 1);
-              }
-            });
-          }
-        });
-        DetailReview.some((el, idx) => {
-          if (el.id === id) {
-            DetailReview.splice(idx, 1);
+    if (await getCached(reviewRedisKey)) {
+      DetailReview = await getCached(reviewRedisKey);
+    } else {
+      const commentsResult = await comments.findAll({
+        include: [
+          {
+            attributes: ["id", "nickname", "profile_img"],
+            model: users,
+            as: "user",
+          },
+        ],
+        where: {
+          exhibition_id,
+        },
+      });
 
+      const exhibitResult = await exhibition.findOne({
+        include: [
+          {
+            attributes: ["nickname"],
+            model: users,
+            as: "author",
+          },
+        ],
+        attributes: ["id", "title", "start_date", "end_date", "genre_hashtags"],
+
+        where: {
+          id: exhibition_id,
+        },
+      });
+
+      // select * from images where exhibition_id =47  order by id asc \G;
+      const imagesResult = await images.findAll({
+        limit: 1,
+        attributes: ["image_urls"],
+        where: {
+          exhibition_id,
+        },
+        order: [["id", "ASC"]],
+      });
+
+      const commentsData = commentsResult.map((el) => el.dataValues);
+      const exhibitionData = exhibitResult.dataValues;
+
+      const thumbnail = imagesResult.map((el) => el.dataValues);
+
+      caching(reviewRedisKey, { commentsData, exhibitionData, thumbnail });
+
+      DetailReview = await getCached(reviewRedisKey);
+    }
+
+    reply.some((el) => {
+      if (el.id === exhibition_id) {
+        el.comments.some((ele, idx) => {
+          if (ele.id === id) {
+            el.comments.splice(idx, 1);
             return true;
           }
         });
-        caching(reviewRedisKey, DetailReview);
-        caching(redisKey, reply);
+        return true;
       }
-      res.status(200).json({
-        message: "successfully delete comments",
-      });
-      comments
-        .findOne({
-          where: {
-            id,
-          },
-        })
-        .then((data) => {
-          console.log("data:".data);
-          if (!data) {
-            res.status(404).json({
-              message: "comment not exist",
-            });
-          } else {
-            exhibition.destroy({
-              where: {
-                id,
-              },
-            });
-          }
-        })
-        .then((result) => {
-          console.log("result:", result);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    } else {
-      res.status(401).json({
-        message: "invalid access token",
-      });
-    }
+    });
+    DetailReview.commentsData.some((el, idx) => {
+      if (el.id === id) {
+        DetailReview.commentsData.splice(idx, 1);
+
+        return true;
+      }
+    });
+    res.status(200).json({
+      message: "successfully delete comments",
+      DetailReview,
+    });
+    // comments
+    //   .findOne({
+    //     where: {
+    //       id,
+    //     },
+    //   })
+    //   .then((data) => {
+    //     console.log("data:".data);
+    //     if (!data) {
+    //       res.status(404).json({
+    //         message: "comment not exist",
+    //       });
+    //     } else {
+    //       exhibition.destroy({
+    //         where: {
+    //           id,
+    //         },
+    //       });
+    //     }
+    //   })
+    //   .then((result) => {
+    //     console.log("result:", result);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+    // } else {
+    // res.status(401).json({
+    //  message: "invalid access token",
+    //  });
+    // }
   },
 };
