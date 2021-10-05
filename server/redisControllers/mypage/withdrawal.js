@@ -1,4 +1,4 @@
-const { users: userModel } = require("../../models");
+const { users } = require("../../models");
 const { redisClient } = require("../../utils/redis");
 const { isAuthorized } = require("../../utils/tokenFunction");
 
@@ -8,12 +8,14 @@ module.exports.withdrawal = async (req, res) => {
   if (userInfo) {
     const { id } = userInfo;
 
-    const result = await userModel.destroy({
+    const result = await users.destroy({
       where: {
         id,
       },
     });
 
+    //comments = user_id
+    //exhibition = author_id
     if (result) {
       redisClient.flushall();
       res
