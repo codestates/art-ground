@@ -44,29 +44,56 @@ const About = () => {
       <main className={styles.mainBrand}>
         <section className={styles.brandSection}>
           <div className={styles.brand}>
-            <span
-              className={styles.logoBorder}
-              data-aos="fade-down"
-              data-aos-duration="2000"
-            >
-              <img
-                src="../../../favicon.png"
-                alt=""
-                className={styles.logoImg}
-                alt="logoimg"
-              />
-            </span>
-            <p data-aos="fade-down" data-aos-duration="2000">
-              아트그라운드는 온라인 갤러리를 통해<br></br>
-              누구나 자유로운 예술활동을 펼칠 수 문화의 장입니다.
-            </p>
+            <img src="../../../images/main2.jpeg"
+            className={styles.backgroundImg}></img>
+            <div className={styles.mainContentBox}>
+            <h1 data-aos="fade-down" data-aos-duration="3000">
+              누구나 예술가가 될 수 있는 공간
+              </h1>
+              <p data-aos="fade-down" data-aos-duration="3000">
+              아트 그라운드는 온라인 갤러리 대관 서비스로<br></br>
+              누구나 자유롭게 작품 활동을 펼칠 수 있는 열린 놀이터입니다.
+              </p>
+            
+            </div>
           </div>
         </section>
       </main>
 
-      <main className={styles.mainSlider}>
-        <AboutSlider />
+      <main className={styles.mainBrand2}>
+        <section className={styles.brandSection}>
+
+        <div
+            className={styles.secondHead}
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            아트 그라운드는 2D와 더불어 3D 환경을 제공함으로써 <br></br>관람객에게
+            최상의 경험을 선사합니다.
+          </div>
+          <div className={styles.brand2}>
+  
+            <img data-aos="fade-up" data-aos-duration="2000" 
+            className={styles.img1} src="../../../images/image-1.webp"></img>
+            <img  
+            className={styles.img2} src="../../../images/Black on White.png"></img>
+            <img data-aos="fade-up" data-aos-duration="1000" 
+            className={styles.img3} src="../../../images/image-3.webp"></img>
+            <img data-aos="fade-up" data-aos-duration="2000" 
+            className={styles.img4} src="../../../images/image-4.webp"></img>
+            <img data-aos="fade-up" data-aos-duration="1000" 
+            className={styles.img5} src="../../../images/image-5.webp"></img>
+            <div className={styles.mainContentBox}>
+            
+            </div>
+          </div>
+        </section>
       </main>
+      
+
+      {/* <main className={styles.mainSlider}>
+        <AboutSlider />
+      </main> */}
 
       <main className={styles.downArr}>
         <section className={styles.arrSection}>
@@ -82,7 +109,7 @@ const About = () => {
         <section className={styles.ExplainSection}>
           <div
             className={styles.explainBorder}
-            data-aos="fade-right"
+            data-aos="fade-up"
             data-aos-duration="2000"
           >
             <img
@@ -92,7 +119,7 @@ const About = () => {
             ></img>
             <div>
               <h3>
-                자유롭게 다양한 <br></br>전시회를 즐기세요
+                다양한 전시회를<br></br>자유롭게 즐기세요
               </h3>
               <p>
                 언제, 어디서든 당신이 좋아하는 전시를 관람하세요! <br></br>
@@ -125,7 +152,7 @@ const About = () => {
       <main className={styles.mainWatchDetail2}>
         <section
           className={styles.exDetailBoard}
-          data-aos="fade-left"
+          data-aos="fade-up"
           data-aos-duration="2000"
         >
           <div className={styles.exDetailImg}>
@@ -146,7 +173,7 @@ const About = () => {
       <main className={styles.mainWatchDetail2}>
         <section
           className={styles.exDetailBoard}
-          data-aos="fade-right"
+          data-aos="fade-up"
           data-aos-duration="2000"
         >
           <div className={styles.exDetailImg}>
@@ -163,6 +190,7 @@ const About = () => {
               경험을 제공합니다.
             </span>
           </div>
+          <div className={styles.emptyBox}></div>
         </section>
       </main>
 
@@ -170,7 +198,7 @@ const About = () => {
         <section className={styles.ExplainSection}>
           <div
             className={styles.explainBorder}
-            data-aos="fade-left"
+            data-aos="fade-up"
             data-aos-duration="2000"
           >
             <div>
@@ -178,8 +206,8 @@ const About = () => {
                 전시회의 생생한 <br></br>경험을 나누세요
               </h3>
               <p>
-                아트 그라운드에서의 전시는 어떠셨나요? 생생했던 관람의 경험을
-                다양한 유저들과 나눠보세요. 즐거웠던 놀이터에서의 기억을 더
+                아트 그라운드에서의 전시는 어떠셨나요? <br></br>생생했던 관람의 경험을
+                다양한 유저들과 나눠보세요. <br></br>즐거웠던 놀이터에서의 기억을 더
                 오래도록 간직할 수 있을 거예요!
               </p>
 
@@ -215,7 +243,7 @@ const About = () => {
         <section className={styles.ExplainSection}>
           <div
             className={styles.explainBorder}
-            data-aos="fade-right"
+            data-aos="fade-up"
             data-aos-duration="2000"
           >
             <img
@@ -247,7 +275,7 @@ const About = () => {
       <main className={styles.mainCount}>
         <section className={styles.countSection}>
           <div className={styles.conterTxtBox}>
-            현재까지 수 많은 작가님들이 아트그라운드에서 <br></br>작품을
+            현재까지 수 많은 아티스트들이 아트그라운드에서 <br></br>작품을
             전시하고 있습니다.
           </div>
           <div className={styles.conterBox}>
@@ -259,7 +287,7 @@ const About = () => {
 
       <main className={styles.mainBottomTxt}>
         <section className={styles.bottomSectionTxt}>
-          여러분도 지금 바로 artience가 될 수 있습니다.
+          여러분도 지금 바로 artience가 되어 보세요.
         </section>
       </main>
       <main className={styles.mainBottom}>

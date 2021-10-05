@@ -36,7 +36,7 @@ const Gallery = ({ isLogin, userinfo }) => {
     }, 500)
     setTimeout(()=> {
       setLoading(false);
-    }, 700)
+    }, 1000)
   }, [isStandard, tagClicked, sortValue, rerender]); 
 
   const handleStandard = () => { //STANDARD, PREMIUM 필터

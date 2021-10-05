@@ -1,27 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+
+@font-face {
+  font-family: "paybooc-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Bold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "paybooc-Light";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Light.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 /*font-family: 'Jua', sans-serif;*/
 .seperator {
   width: 100%;
-  height: 20%;
-  line-height: 190px;
+  /* height: 20%; */
+  /* line-height: 190px; */
+  margin-bottom: 6rem;
   border: none;
   color: black;
   text-align: center;
   font-size: 2rem;
   font-weight: 100;
-  font-family: "Jua", sans-serif;
+  font-family: "paybooc-Bold";
 }
 .carousel-wrapper {
   width: 100%;
-  height: 80%;
+  /* height: 80%; */
   display: flex;
   align-items: center;
 }
 .revContent {
   color: white;
   outline: none;
-  background-color: black;
-  border-radius: 5%;
+  background-color: rgb(50, 50, 50);
+  border-radius: 15px;
   width: 90%;
   height: 560px;
   display: flex;
@@ -31,25 +47,26 @@
   padding: 0.5rem 0.5rem;
 }
 .revImgtBox {
-  padding-top: 1rem;
+  padding-top: 2rem;
   width: 100%;
-  height: 40%;
+  height: 35%;
   text-align: center;
 }
 .revimg {
   border-radius: 50%;
-  width: 55%;
-  height: 90%;
+  width: auto;
+  height: 100%;
+  object-fit: cover;
 }
 .revTxtBox {
   width: 100%;
-  height: 60%;
-  padding: 0 0.5rem;
+  height: 65%;
+  padding: 0.5rem;
 }
 
 .revTxt:nth-child(1),
 .revTxt:nth-child(2) {
-  font-family: "Jua", sans-serif;
+  font-family: "paybooc-Light";
   height: 20%;
   text-align: center;
   line-height: 3;
@@ -58,7 +75,7 @@
 
 .revTxt:nth-child(3) {
   font-weight: 100;
-  font-family: "Jua", sans-serif;
+  font-family: "paybooc-Light";
   padding: 0 0.6rem;
   height: 60%;
   line-height: 2;
@@ -72,15 +89,16 @@
   border-radius: 50%;
   outline: none;
   margin-top: 15rem;
+  padding-top: 0.3rem;
   border: none;
   cursor: pointer;
   font-size: 1.8rem;
-  background-color: black;
+  background-color: rgb(50, 50, 50);
   color: white;
 }
 .btn:hover {
   background-color: white;
-  color: black;
+  color: rgb(50, 50, 50);
 }
 /*dot*/
 .rec.rec-dot {
@@ -116,9 +134,16 @@
 @media screen and (max-width: 780px) {
   .seperator {
     width: 100%;
-    line-height: 80px;
+    /* line-height: 80px; */
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
+  }
+  .revTxt:nth-child(1),
+  .revTxt:nth-child(2) {
+    font-size: 1.2rem;
+  }
+  .revTxt:nth-child(3) {
+    font-size: 0.75rem;
   }
 }
 @media screen and (max-width: 580px) {
@@ -133,23 +158,24 @@
 @media screen and (max-width: 480px) {
   .seperator {
     width: 100%;
-    line-height: 50px;
+    /* line-height: 50px; */
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
+    margin-bottom: 3rem;
   }
   .revTxt:nth-child(1),
   .revTxt:nth-child(2) {
     height: 20%;
     text-align: center;
-    line-height: 3;
-    font-size: 1rem;
+    /* line-height: 3; */
+    font-size: 0.8rem;
   }
 
   .revTxt:nth-child(3) {
     padding: 0 0.6rem;
     height: 60%;
-    line-height: 2;
-    font-size: 0.8rem;
+    /* line-height: 2; */
+    font-size: 0.65rem;
   }
   .revContent {
     width: 90%;
