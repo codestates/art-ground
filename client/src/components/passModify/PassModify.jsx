@@ -2,9 +2,9 @@ import styles from "./PassModify.module.css";
 import { useState } from "react";
 import { passModify } from "../../api/mypageApi";
 import axios from "axios";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+
 const CryptoJS = require("crypto-js");
-require("dotenv").config();
 
 axios.defaults.withCredentials = true;
 const PassModify = ({ setPassEditPage, setEditFront }) => {
@@ -14,6 +14,7 @@ const PassModify = ({ setPassEditPage, setEditFront }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const secretKey = "Klassiker";
+  //process.env.CRYPTOJS_SECRETKEY "Klassiker";
   const history = useHistory();
   const currentPassHandle = (event) => {
     setCurrentPass(event.target.value);
@@ -94,7 +95,7 @@ const PassModify = ({ setPassEditPage, setEditFront }) => {
                 />
 
                 <input
-                  type="text"
+                  type="password"
                   placeholder={"새 비밀번호"}
                   value={newPassword}
                   className={styles.inputedit}
@@ -102,7 +103,7 @@ const PassModify = ({ setPassEditPage, setEditFront }) => {
                 />
 
                 <input
-                  type="text"
+                  type="password"
                   placeholder={"새 비밀번호를 확인합니다"}
                   value={newPassword2}
                   className={styles.inputedit}

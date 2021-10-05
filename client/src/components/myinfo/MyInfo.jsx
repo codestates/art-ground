@@ -2,17 +2,22 @@ import styles from "./MyInfo.module.css";
 import { useHistory } from "react-router";
 import { deleteAccount } from "../../api/mypageApi";
 import axios from "axios";
+import { useState } from "react";
 
 axios.defaults.withCredentials = true;
 const MyInfo = ({ userinfo, setUserinfo, setIsLogin }) => {
   const history = useHistory();
+  const [modalOpen, setModalOpen] = useState(false);
 
   const modifyCLick = () => {
     history.push("/modify");
   };
 
-  const deleteId = () => {
+  const clickDelete = () => {
     deleteAccount();
+  };
+  const deleteId = () => {
+    setModalOpen(true);
   };
 
   const img = !userinfo.profile_img
@@ -79,11 +84,31 @@ const MyInfo = ({ userinfo, setUserinfo, setIsLogin }) => {
           <button className={styles.delete} onClick={deleteId}>
             회원탈퇴
           </button>
-
           <button className={styles.modify} onClick={modifyCLick}>
             정보수정
           </button>
         </div>
+        {modalOpen ? (
+          <section className={styles.modalContainer}>
+            <div className={styles.modalBox}>
+              <span className={styles.modalText}>정말 탈퇴하시겠습니까?</span>
+              <div className={styles.btnBox}>
+                <button
+                  className={styles.modifyBtn}
+                  onClick={() => {
+                    setModalOpen(false);
+                  }}
+                >
+                  아니오
+                </button>
+
+                <button className={styles.modifyBtn} onClick={clickDelete}>
+                  탈퇴하기
+                </button>
+              </div>
+            </div>
+          </section>
+        ) : null}
       </>
     </section>
   );
