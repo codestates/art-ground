@@ -185,7 +185,7 @@ https://art-ground.io/
 </details>
 
 
-## 👨‍👧‍👧Team Pickme
+## 👨‍👧‍👧Team Klassiker
 | 이름(깃헙링크) | Position & Role|
 | ------- | ----- |
 | [문순려(팀장)](https://github.com/Sunryeo) | 💻 Back-end|
