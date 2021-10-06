@@ -50,7 +50,7 @@ label {
   align-items: center; */
 }
 .mainBrand2 {
-  height: 100vh;
+  /* height: 100vh; */
   background-color: none;
   width: 100%;
 }
@@ -62,6 +62,7 @@ label {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  position: relative;
 }
 
 .backgroundImg {
@@ -120,7 +121,10 @@ label {
   width: 100%;
   max-width: 1200px;
   height: 100%;
-  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 3rem 0 5rem 0;
+  margin-bottom: 3rem;
 }
 
 .secondHead {
@@ -134,59 +138,72 @@ label {
   font-family: "paybooc-Bold";
 }
 
+.img1Wrap {
+  display: flex;
+  justify-content: end;
+  align-items: flex-end;
+  height: 100%;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+}
 .img1 {
-  position: absolute;
-  top: 6%;
-  right: 12%;
-  width: 20rem;
-  /* opacity: 0.3; */
+  width: 30rem;
   border-radius: 10px;
-  /* box-shadow: 5px 5px 5px rgb(215, 215, 215); */
   z-index: 2;
+  -webkit-filter: grayscale(100%);
 }
 .img2 {
   position: absolute;
-  top: 35%;
-  left: 39%;
-  width: 18rem;
-  height: 18rem;
-  /* opacity: 0.6; */
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 15rem;
+  height: 15rem;
   border-radius: 50%;
   z-index: 50;
   border: 1px solid rgb(232, 232, 232);
   box-shadow: 1px 3px 3px rgb(181, 181, 181);
   image-rendering: -webkit-optimize-contrast;
-  /* transform: translateZ(0); */
   backface-visibility: hidden;
 }
+.img3Wrap {
+  display: flex;
+  justify-content: start;
+  align-items: flex-end;
+  height: 100%;
+  padding-left: 2rem;
+  padding-bottom: 2rem;
+}
 .img3 {
-  position: absolute;
-  /* top: 12%;
-  right: 10%; */
-  bottom: 10%;
-  left: 12%;
-  width: 20rem;
-  /* opacity: 0.2; */
+  width: 18rem;
   border-radius: 10px;
   -webkit-filter: grayscale(100%);
   z-index: 1;
+}
+.img4Wrap {
+  display: flex;
+  justify-content: end;
+  align-items: flex-start;
+  height: 100%;
+  padding-right: 2rem;
+  padding-top: 2rem;
 }
 .img4 {
-  position: absolute;
-  top: 10%;
-  left: 7%;
-  width: 30rem;
-  /* opacity: 0.6; */
+  width: 18rem;
   border-radius: 10px;
   -webkit-filter: grayscale(100%);
   z-index: 1;
 }
+.img5Wrap {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  height: 100%;
+  padding-left: 2rem;
+  padding-top: 2rem;
+}
 .img5 {
-  position: absolute;
-  bottom: 15%;
-  right: 7%;
   width: 30rem;
-  /* opacity: 0.6; */
   border-radius: 10px;
   -webkit-filter: grayscale(100%);
   z-index: -1;
@@ -260,7 +277,7 @@ label {
 .explainBorder p {
   font-family: "paybooc-Light";
   color: #484848;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 100;
   line-height: 170%;
 }
@@ -493,46 +510,7 @@ label {
   opacity: 0.8;
 }
 
-@media screen and (max-height: 1024px) {
-  .mainBrand2 {
-    height: 120vh;
-  }
-  @media (orientation: portrait) {
-    /* Portrait 모드(세로)일 때 적용할 CSS */
-    .mainBrand2 {
-      height: 100vh;
-    }
-  }
-}
-@media screen and (max-height: 918px) {
-  .mainBrand2 {
-    height: 140vh;
-  }
-  @media (orientation: portrait) {
-    /* Portrait 모드(세로)일 때 적용할 CSS */
-    .mainBrand2 {
-      height: 100vh;
-    }
-  }
-}
-@media screen and (max-height: 759px) {
-  .mainBrand2 {
-    height: 150vh;
-  }
-  @media (orientation: portrait) {
-    /* Portrait 모드(세로)일 때 적용할 CSS */
-    .mainBrand2 {
-      height: 100vh;
-    }
-  }
-}
 @media screen and (max-width: 1240px) {
-  /*섹션1: 브랜드*/
-
-  .brandSection {
-    width: 100%;
-  }
-
   /*섹션2: 슬라이더*/
   .mainSlider {
     background-color: #f1f1f1;
@@ -575,30 +553,20 @@ label {
     font-size: 2.5rem;
   }
   .img1 {
-    top: 10%;
-    right: 17%;
-    width: 14rem;
+    width: 25rem;
   }
   .img2 {
-    top: 40%;
-    left: 42%;
     width: 12rem;
     height: 12rem;
   }
   .img3 {
-    bottom: 10%;
-    left: 20%;
-    width: 14rem;
+    width: 17rem;
   }
   .img4 {
-    top: 13%;
-    left: 15%;
-    width: 23rem;
+    width: 17rem;
   }
   .img5 {
-    bottom: 12%;
-    right: 12%;
-    width: 23rem;
+    width: 25rem;
   }
   .explainBorder h3 {
     font-size: 2rem;
@@ -658,6 +626,42 @@ label {
     width: 100%;
   }
 }
+@media screen and (max-width: 891px) {
+  .img1 {
+    width: 20rem;
+  }
+  .img2 {
+    top: 52%;
+    width: 10rem;
+    height: 10rem;
+  }
+  .img3 {
+    width: 13rem;
+  }
+  .img4 {
+    width: 14rem;
+  }
+  .img5 {
+    width: 20rem;
+  }
+  .img1Wrap {
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+  }
+  .img3Wrap {
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .img4Wrap {
+    padding-right: 1rem;
+    padding-top: 1rem;
+  }
+  .img5Wrap {
+    padding-left: 1rem;
+    padding-top: 1rem;
+  }
+}
 @media screen and (max-width: 768px) {
   .container {
     margin-top: 4.5rem;
@@ -669,32 +673,6 @@ label {
   }
   .brand h1 {
     font-size: 2.8rem;
-  }
-  .img1 {
-    top: 10%;
-    right: 10%;
-    width: 15rem;
-  }
-  .img2 {
-    top: 35%;
-    left: 38%;
-    width: 13rem;
-    height: 13rem;
-  }
-  .img3 {
-    bottom: 10%;
-    left: 12%;
-    width: 15rem;
-  }
-  .img4 {
-    top: 13%;
-    left: 10%;
-    width: 23rem;
-  }
-  .img5 {
-    bottom: 15%;
-    right: 7%;
-    width: 23rem;
   }
 
   .secondHead {
@@ -825,6 +803,25 @@ label {
     font-size: 1.5rem;
   }
 }
+@media screen and (max-width: 700px) {
+  .img1 {
+    width: 14rem;
+  }
+  .img2 {
+    top: 54%;
+    width: 7rem;
+    height: 7rem;
+  }
+  .img3 {
+    width: 9rem;
+  }
+  .img4 {
+    width: 9rem;
+  }
+  .img5 {
+    width: 15rem;
+  }
+}
 @media screen and (max-width: 580px) {
   /*섹션4: 관람디테일 타이틀(하얀색):*/
 
@@ -833,32 +830,6 @@ label {
   }
   .brand h1 {
     font-size: 1.5rem;
-  }
-  .img1 {
-    top: 10%;
-    right: 10%;
-    width: 8rem;
-  }
-  .img2 {
-    top: 37%;
-    left: 36%;
-    width: 8rem;
-    height: 8rem;
-  }
-  .img3 {
-    bottom: 10%;
-    left: 12%;
-    width: 10rem;
-  }
-  .img4 {
-    top: 16%;
-    left: 7%;
-    width: 14rem;
-  }
-  .img5 {
-    bottom: 18%;
-    right: 7%;
-    width: 15rem;
   }
   .explainBorder {
     margin: 4rem 0;
@@ -895,6 +866,42 @@ label {
   .mainReviewDetail {
     width: 100%;
     padding: 5rem 0;
+  }
+}
+@media screen and (max-width: 524px) {
+  .img1 {
+    width: 10rem;
+  }
+  .img2 {
+    top: 51%;
+    width: 4rem;
+    height: 4rem;
+  }
+  .img3 {
+    width: 7.5rem;
+  }
+  .img4 {
+    width: 7.5rem;
+  }
+  .img5 {
+    width: 10.5rem;
+  }
+  .img1Wrap {
+    padding-right: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .img3Wrap {
+    padding-left: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .img4Wrap {
+    padding-right: 0.5rem;
+    padding-top: 0.5rem;
+  }
+  .img5Wrap {
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
   }
 }
 @media screen and (max-width: 480px) {

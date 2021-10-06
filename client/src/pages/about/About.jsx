@@ -72,21 +72,21 @@ const About = () => {
             최상의 경험을 선사합니다.
           </div>
           <div data-aos="fade-up" data-aos-duration="3000" className={styles.brand2}>
-  
-            <img 
-            className={styles.img1} src="../../../images/image-1.webp"></img>
-            <img  
-            className={styles.img2} src="../../../images/Black on White.png"></img>
-            <img 
-            className={styles.img3} src="../../../images/image-3.webp"></img>
-            <img 
-            className={styles.img4} src="../../../images/image-4.webp"></img>
-            <img 
-            className={styles.img5} src="../../../images/image-5.webp"></img>
-            <div className={styles.mainContentBox}>
-            
+            <div className={styles.img1Wrap}>
+              <img className={styles.img1} src="../../../images/image-4.webp"></img>
+            </div>
+            <div className={styles.img3Wrap}>
+              <img className={styles.img3} src="../../../images/image-1.webp"></img>
+            </div>
+            <div className={styles.img4Wrap}>
+              <img className={styles.img4} src="../../../images/image-3.webp"></img>
+            </div>
+            <div className={styles.img5Wrap}>
+              <img className={styles.img5} src="../../../images/image-5.webp"></img>
             </div>
           </div>
+           <img  
+            className={styles.img2} src="../../../images/Black on White.png"></img>
         </section>
       </main>
       
