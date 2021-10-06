@@ -11,8 +11,28 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  margin-top: 5rem;
 }
 
 .container div {
-  margin-top: 200px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container img {
+  width: 5rem;
+  height: 5rem;
+}
+.container span {
+  width: 10rem;
+  height: 3rem;
+
+  text-align: center;
+  line-height: 3rem;
+  color: gray;
+  text-decoration-line: underline;
+  cursor: pointer;
 }

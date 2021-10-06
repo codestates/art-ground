@@ -27,7 +27,7 @@ export function getMyExhibition(setMyEx) {
   return axios
     .get("https://art-ground.link/mypage/exhibition")
     .then((result) => {
-      console.log(result.data.data, "전시데이터값");
+      //console.log(result.data.data, "전시데이터값");
       setMyEx(result.data.data);
     })
     .catch((err) => console.log(err));

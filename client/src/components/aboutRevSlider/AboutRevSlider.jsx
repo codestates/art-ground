@@ -21,11 +21,11 @@ const AboutRevSlider = (props) => {
 
   const [items, setItems] = useState([
     {
-      nickname: "문순려 님",
+      nickname: "elma9700 님",
       title: "전시명: 자아성찰",
       review:
         "작가의 자아성찰이 잘 그려졌던 작품이었다.이런점은 이러했고,어떤점은 조금 어려운 난해하게 느껴졌던 부분도 있었다. 하지만 전반적으로 어쩌구저쩌구 그래서 매우 만족스러운 전시회였다.",
-      img: "https://images.velog.io/images/beablessing/post/6cee083a-f884-4a87-9217-02005bec687e/Screenshot%20from%202021-09-30%2005-11-44.png",
+      img: "https://images.velog.io/images/beablessing/post/6d329d22-be8b-40a6-8e26-1b81f0171a1e/%EC%88%9C%EB%A0%A4%EB%8B%98.jpg",
     },
     {
       nickname: "박지영 님",
@@ -42,53 +42,53 @@ const AboutRevSlider = (props) => {
       img: "https://images.velog.io/images/beablessing/post/cbb9a9be-2030-4a9f-ade0-74cf3677b9ca/Screenshot%20from%202021-09-30%2005-11-48.png",
     },
     {
-      nickname: "유다희 님",
+      nickname: "smw1234 님",
       title: "전시명: 자아성찰",
       review:
         "작가의 자아성찰이 잘 그려졌던 작품이었다.이런점은 이러했고,어떤점은 조금 어려운 난해하게 느껴졌던 부분도 있었다. 하지만 전반적으로 어쩌구저쩌구 그래서 매우 만족스러운 전시회였다.",
-      img: "https://images.velog.io/images/beablessing/post/530852f3-428f-4a28-8ac0-45781782f8a5/Screenshot%20from%202021-09-30%2005-12-04.png",
+      img: "https://images.velog.io/images/beablessing/post/fda8834e-b1aa-497d-a36b-3aa24090d9a9/%EB%82%98.png",
     },
     {
-      nickname: "문순려 님",
+      nickname: "smw1234 님",
       title: "전시명: 자아성찰",
       review:
         "작가의 자아성찰이 잘 그려졌던 작품이었다.이런점은 이러했고,어떤점은 조금 어려운 난해하게 느껴졌던 부분도 있었다. 하지만 전반적으로 어쩌구저쩌구 그래서 매우 만족스러운 전시회였다.",
-      img: "https://images.velog.io/images/beablessing/post/6cee083a-f884-4a87-9217-02005bec687e/Screenshot%20from%202021-09-30%2005-11-44.png",
+      img: "https://images.velog.io/images/beablessing/post/ed6eed82-4668-4e3f-b2c4-a104789e0a39/%EC%82%AC%EB%9E%8C1.png",
     },
     {
-      nickname: "박지영 님",
+      nickname: "smw1234 님",
       title: "전시명: 자아성찰",
       review:
         "작가의 자아성찰이 잘 그려졌던 작품이었다.이런점은 이러했고,어떤점은 조금 어려운 난해하게 느껴졌던 부분도 있었다. 하지만 전반적으로 어쩌구저쩌구 그래서 매우 만족스러운 전시회였다.",
-      img: "https://images.velog.io/images/beablessing/post/25809c97-d973-4a68-b8ca-0f834128d3ed/Screenshot%20from%202021-09-30%2005-11-38.png",
+      img: "https://images.velog.io/images/beablessing/post/ed6eed82-4668-4e3f-b2c4-a104789e0a39/%EC%82%AC%EB%9E%8C1.png",
     },
     {
-      nickname: "이동욱 님",
+      nickname: "smw1234 님",
       title: "전시명: 자아성찰",
       review:
         "작가의 자아성찰이 잘 그려졌던 작품이었다.이런점은 이러했고,어떤점은 조금 어려운 난해하게 느껴졌던 부분도 있었다. 하지만 전반적으로 어쩌구저쩌구 그래서 매우 만족스러운 전시회였다.",
-      img: "https://images.velog.io/images/beablessing/post/cbb9a9be-2030-4a9f-ade0-74cf3677b9ca/Screenshot%20from%202021-09-30%2005-11-48.png",
+      img: "https://images.velog.io/images/beablessing/post/ed6eed82-4668-4e3f-b2c4-a104789e0a39/%EC%82%AC%EB%9E%8C1.png",
     },
     {
-      nickname: "유다희 님",
+      nickname: "smw1234 님",
       title: "전시명: 자아성찰",
       review:
         "작가의 자아성찰이 잘 그려졌던 작품이었다.이런점은 이러했고,어떤점은 조금 어려운 난해하게 느껴졌던 부분도 있었다. 하지만 전반적으로 어쩌구저쩌구 그래서 매우 만족스러운 전시회였다.",
-      img: "https://images.velog.io/images/beablessing/post/530852f3-428f-4a28-8ac0-45781782f8a5/Screenshot%20from%202021-09-30%2005-12-04.png",
+      img: "https://images.velog.io/images/beablessing/post/ed6eed82-4668-4e3f-b2c4-a104789e0a39/%EC%82%AC%EB%9E%8C1.png",
     },
     {
-      nickname: "유다희 님",
+      nickname: "smw1234 님",
       title: "전시명: 자아성찰",
       review:
         "작가의 자아성찰이 잘 그려졌던 작품이었다.이런점은 이러했고,어떤점은 조금 어려운 난해하게 느껴졌던 부분도 있었다. 하지만 전반적으로 어쩌구저쩌구 그래서 매우 만족스러운 전시회였다.",
-      img: "https://images.velog.io/images/beablessing/post/530852f3-428f-4a28-8ac0-45781782f8a5/Screenshot%20from%202021-09-30%2005-12-04.png",
+      img: "https://images.velog.io/images/beablessing/post/ed6eed82-4668-4e3f-b2c4-a104789e0a39/%EC%82%AC%EB%9E%8C1.png",
     },
     {
-      nickname: "유다희 님",
+      nickname: "smw1234 님",
       title: "전시명: 자아성찰",
       review:
         "작가의 자아성찰이 잘 그려졌던 작품이었다.이런점은 이러했고,어떤점은 조금 어려운 난해하게 느껴졌던 부분도 있었다. 하지만 전반적으로 어쩌구저쩌구 그래서 매우 만족스러운 전시회였다.",
-      img: "https://images.velog.io/images/beablessing/post/530852f3-428f-4a28-8ac0-45781782f8a5/Screenshot%20from%202021-09-30%2005-12-04.png",
+      img: "https://images.velog.io/images/beablessing/post/ed6eed82-4668-4e3f-b2c4-a104789e0a39/%EC%82%AC%EB%9E%8C1.png",
     },
   ]);
 
