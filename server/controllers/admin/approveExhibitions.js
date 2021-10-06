@@ -15,24 +15,85 @@ module.exports = {
         : "premium";
 
     if (userInfo.user_type === 3) {
-      const allExhibitionResult = await axios.get(
-        "https://art-ground.link/exhibition"
-      );
-      const typeExhibitionResult = await axios.get(
-        `https://art-ground.link/exhibition/${exhibit_type}`
-      );
+      let allExhibitionResult;
+      let typeExhibitionResult;
 
-      const allExhibitionReply = allExhibitionResult.data.data;
-      const typeExhibitionReply = typeExhibitionResult.data.data;
-      allExhibitionReply.some((el) => {
+      if (!(await getCached("allExhibition"))) {
+        const result = await exhibition.findAll({
+          include: [
+            {
+              model: images,
+              as: "images",
+            },
+            {
+              attributes: ["exhibition_id", "user_id"],
+              model: likes,
+              as: "likes",
+            },
+            {
+              attributes: [
+                "user_email",
+                "nickname",
+                "profile_img",
+                "author_desc",
+              ],
+              model: users,
+              as: "author",
+            },
+          ],
+        });
+        const data = result.map((el) => el.dataValues);
+        caching("allExhibition", data);
+        allExhibitionResult = data;
+      } else {
+        allExhibitionResult = await getCached("allExhibition");
+      }
+
+      if (!(await getCached(redisKey))) {
+        const result = await exhibition.findAll({
+          include: [
+            {
+              model: images,
+              as: "images",
+            },
+            {
+              attributes: ["exhibition_id", "user_id"],
+              model: likes,
+              as: "likes",
+            },
+            {
+              attributes: [
+                "user_email",
+                "nickname",
+                "profile_img",
+                "author_desc",
+              ],
+              model: users,
+              as: "author",
+            },
+          ],
+          where: {
+            exhibit_type,
+            status: 1,
+          },
+        });
+
+        const data = result.map((el) => el.dataValues);
+        caching(redisKey, data);
+        typeExhibitionResult = data;
+      } else {
+        typeExhibitionResult = await getCached(redisKey);
+      }
+
+      allExhibitionResult.some((el) => {
         if (el.id === id) {
           el.status = 1;
           return true;
         }
       });
-      typeExhibitionReply.push({ ...req.body.data });
-      caching("allExhibition", allExhibitionReply);
-      caching(redisKey, typeExhibitionReply);
+      typeExhibitionResult.push({ ...req.body.data });
+      caching("allExhibition", allExhibitionResult);
+      caching(redisKey, typeExhibitionResult);
       res.status(200).json({
         message: "exhibition successfully approved",
       });
