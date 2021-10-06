@@ -120,7 +120,7 @@ span {
   height: 2.5rem;
   border: none;
   outline: none;
-  font-size: 1.1em;
+  font-size: 1em;
   text-align: end;
   border-bottom: 1px solid gainsboro;
 }
@@ -199,7 +199,7 @@ span {
   }
   .inputedit {
     width: 60%;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   .editbox {
     top: 300px;
@@ -251,7 +251,7 @@ span {
   }
   .inputedit {
     width: 65%;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 }
 
