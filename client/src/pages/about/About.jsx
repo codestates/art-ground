@@ -71,17 +71,17 @@ const About = () => {
             아트 그라운드는 2D와 더불어 3D 환경을 제공함으로써 <br></br>관람객에게
             최상의 경험을 선사합니다.
           </div>
-          <div className={styles.brand2}>
+          <div data-aos="fade-up" data-aos-duration="3000" className={styles.brand2}>
   
-            <img data-aos="fade-up" data-aos-duration="2000" 
+            <img 
             className={styles.img1} src="../../../images/image-1.webp"></img>
             <img  
             className={styles.img2} src="../../../images/Black on White.png"></img>
-            <img data-aos="fade-up" data-aos-duration="1000" 
+            <img 
             className={styles.img3} src="../../../images/image-3.webp"></img>
-            <img data-aos="fade-up" data-aos-duration="2000" 
+            <img 
             className={styles.img4} src="../../../images/image-4.webp"></img>
-            <img data-aos="fade-up" data-aos-duration="1000" 
+            <img 
             className={styles.img5} src="../../../images/image-5.webp"></img>
             <div className={styles.mainContentBox}>
             
@@ -122,7 +122,7 @@ const About = () => {
                 다양한 전시회를<br></br>자유롭게 즐기세요
               </h3>
               <p>
-                언제, 어디서든 당신이 좋아하는 전시를 관람하세요! <br></br>
+                언제 어디서든 당신이 좋아하는 전시를 관람하세요! <br></br>
                 아트그라운드는 시간과 공간의 제약을 받지 않고 <br></br>
                 다양한 작품을 보고 느낄 수 있는 공간을 제공합니다.
               </p>
@@ -153,7 +153,7 @@ const About = () => {
         <section
           className={styles.exDetailBoard}
           data-aos="fade-up"
-          data-aos-duration="2000"
+          data-aos-duration="3000"
         >
           <div className={styles.exDetailImg}>
             <img
@@ -174,7 +174,7 @@ const About = () => {
         <section
           className={styles.exDetailBoard}
           data-aos="fade-up"
-          data-aos-duration="2000"
+          data-aos-duration="3000"
         >
           <div className={styles.exDetailImg}>
             <img
@@ -199,7 +199,7 @@ const About = () => {
           <div
             className={styles.explainBorder}
             data-aos="fade-up"
-            data-aos-duration="2000"
+            data-aos-duration="3000"
           >
             <div>
               <h3>
@@ -232,7 +232,7 @@ const About = () => {
         <section
           className={styles.ReviewSection}
           data-aos="fade-up"
-          data-aos-duration="2000"
+          data-aos-duration="3000"
         >
           {" "}
           <AboutRevSlider />
@@ -244,7 +244,7 @@ const About = () => {
           <div
             className={styles.explainBorder}
             data-aos="fade-up"
-            data-aos-duration="2000"
+            data-aos-duration="3000"
           >
             <img
               src="../../../images/main2.jpeg"
