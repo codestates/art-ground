@@ -133,14 +133,14 @@ label {
   width: 100%;
   max-width: 1024px;
   margin: 7rem 0 0rem;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   text-align: center;
-  font-family: "paybooc-Bold";
+  font-family: "paybooc-Light";
 }
 
 .img1Wrap {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: flex-end;
   height: 100%;
   padding-right: 2rem;
@@ -168,7 +168,7 @@ label {
 }
 .img3Wrap {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: flex-end;
   height: 100%;
   padding-left: 2rem;
@@ -182,7 +182,7 @@ label {
 }
 .img4Wrap {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: flex-start;
   height: 100%;
   padding-right: 2rem;
@@ -196,7 +196,7 @@ label {
 }
 .img5Wrap {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: flex-start;
   height: 100%;
   padding-left: 2rem;
@@ -311,7 +311,7 @@ label {
   height: 100%;
   margin: 0 auto;
   font-size: 2rem;
-  font-family: "paybooc-Bold";
+  font-family: "paybooc-Light";
   line-height: 180%;
 }
 
