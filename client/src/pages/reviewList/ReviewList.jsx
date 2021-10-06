@@ -23,7 +23,7 @@ const ReviewList = () => {
     }, 100)
     setTimeout(()=> {
       setLoading(false);
-    }, 700)
+    }, 1000)
   }, [search, sortValue])
 
   const handleChange = (e) => {

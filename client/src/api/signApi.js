@@ -1,11 +1,6 @@
 import axios from "axios";
 
-export function getSigninRes(
-  userData,
-  handleResponseSuccess,
-  setisAdmin,
-  setErrorMessage
-) {
+export function getSigninRes(userData, handleResponseSuccess, setErrorMessage) {
   //art-ground.link
   return axios
     .post("https://art-ground.link/sign-in", userData)

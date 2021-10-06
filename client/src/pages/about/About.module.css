@@ -5,12 +5,20 @@
 /*font-family: 'Jua', sans-serif;*/
 
 @font-face {
+  font-family: "paybooc-Light";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Light.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
   font-family: "paybooc-Bold";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Bold.woff")
     format("woff");
   font-weight: normal;
   font-style: normal;
 }
+
 span,
 label {
   display: block;
@@ -19,79 +27,175 @@ label {
   width: 100%;
   margin: 0;
   margin-top: 11rem;
-  padding: 0.1rem;
+  /* padding: 0.1rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   animation: fadein 2s;
   -moz-animation: fadein 2s;
-  /* Firefox */
   -webkit-animation: fadein 2s;
-  /* Safari and Chrome */
   -o-animation: fadein 2s;
-  /* Opera */
+  font-family: "paybooc-Light";
 }
 
 /*섹션1: 브랜드*/
 .mainBrand {
+  height: 90vh;
+  background-color: none;
+  width: 100%;
+  /* height: 90vh; */
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.mainBrand2 {
   height: 100vh;
   background-color: none;
   width: 100%;
-  height: 50vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .brandSection {
-  width: 1024px;
+  width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
-.logoBorder {
-  margin-top: 3rem;
-  background: #202020;
-  width: 4.5rem;
-  height: 4.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-.logoImg {
-  width: 80%;
-  height: 80%;
-}
-.brand {
+
+.backgroundImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
-  height: 40vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-}
-.brand p {
-  font-size: 1.5rem;
-  font-weight: 200;
-  font-family: "paybooc-Bold";
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
 }
 
+.brand {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.mainContentBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.brand p {
+  color: rgb(80, 80, 80);
+  font-family: "paybooc-Bold";
+  font-size: 1.6rem;
+  z-index: 1;
+  line-height: 180%;
+}
+.brand h1 {
+  color: rgb(55, 55, 55);
+  font-family: "paybooc-Bold";
+  font-weight: normal;
+  font-size: 3rem;
+  z-index: 1;
+  line-height: 180%;
+  /* margin-top: 20rem; */
+  margin-bottom: 1.5rem;
+}
 /*섹션2: 슬라이더*/
 .mainSlider {
   background-color: #f1f1f1;
+  max-width: 1200px;
   width: 100%;
-  /* height: 100vh; */
+}
+.brand2 {
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  position: relative;
+}
+
+.secondHead {
+  color: rgb(72, 72, 72);
+  line-height: 170%;
+  width: 100%;
+  max-width: 1024px;
+  margin: 7rem 0 0rem;
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: "paybooc-Bold";
+}
+
+.img1 {
+  position: absolute;
+  top: 6%;
+  right: 12%;
+  width: 20rem;
+  /* opacity: 0.3; */
+  border-radius: 10px;
+  /* box-shadow: 5px 5px 5px rgb(215, 215, 215); */
+  z-index: 2;
+}
+.img2 {
+  position: absolute;
+  top: 35%;
+  left: 39%;
+  width: 18rem;
+  height: 18rem;
+  /* opacity: 0.6; */
+  border-radius: 50%;
+  z-index: 50;
+  border: 1px solid rgb(232, 232, 232);
+  box-shadow: 1px 3px 3px rgb(181, 181, 181);
+  image-rendering: -webkit-optimize-contrast;
+  /* transform: translateZ(0); */
+  backface-visibility: hidden;
+}
+.img3 {
+  position: absolute;
+  /* top: 12%;
+  right: 10%; */
+  bottom: 10%;
+  left: 12%;
+  width: 20rem;
+  /* opacity: 0.2; */
+  border-radius: 10px;
+  -webkit-filter: grayscale(100%);
+  z-index: 1;
+}
+.img4 {
+  position: absolute;
+  top: 10%;
+  left: 7%;
+  width: 30rem;
+  /* opacity: 0.6; */
+  border-radius: 10px;
+  -webkit-filter: grayscale(100%);
+  z-index: 1;
+}
+.img5 {
+  position: absolute;
+  bottom: 15%;
+  right: 7%;
+  width: 30rem;
+  /* opacity: 0.6; */
+  border-radius: 10px;
+  -webkit-filter: grayscale(100%);
+  z-index: -1;
 }
 
 /* 움직이는 화살표 */
 .downArr {
   width: 100%;
-  height: 15vh;
+  height: 8vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,6 +205,7 @@ label {
   width: 1024px;
   height: 100%;
   display: flex;
+  margin-top: 4rem;
   justify-content: center;
   align-items: center;
   overflow: hidden;
@@ -121,7 +226,7 @@ label {
   width: 100%;
   display: flex;
   justify-content: center;
-  height: 70vh;
+  /* height: 70vh; */
   background-color: #f1f1f1;
 }
 .ExplainSection {
@@ -135,58 +240,70 @@ label {
 .explainBorder {
   width: 100%;
   height: 50%;
-  margin-bottom: 2rem;
+  margin: 12rem 0;
   overflow: hidden;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   padding: 0 0.2rem;
 }
 
 .explainBorder h3 {
   margin-bottom: 2rem;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 100;
-  font-family: "Jua", sans-serif;
+  font-family: "paybooc-Bold";
+  color: rgb(55, 55, 55);
+  line-height: 150%;
 }
 .explainBorder p {
+  font-family: "paybooc-Light";
+  color: #484848;
+  font-size: 1rem;
   font-weight: 100;
-  font-family: "Jua", sans-serif;
+  line-height: 170%;
 }
 .explainBorder img {
-  width: 50%;
+  width: 60%;
   height: 100%;
+  padding: 0 2rem;
 }
 .explainBorder > div {
-  padding: 2rem;
-  width: 50%;
+  padding: 2.5rem 2rem;
+  width: 40%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  /* justify-content: space-around; */
 }
 
 /*섹션4: 관람디테일 타이틀(하얀색):*/
 
 .mainWatchDetail1 {
   width: 100%;
-  height: 30vh;
-  background-color: none;
+  padding: 8rem 0 5rem;
+  background-color: rgb(55, 55, 55);
 }
 .exDetailTitle {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   width: 1024px;
   height: 100%;
   margin: 0 auto;
-  line-height: 9rem;
-  text-align: center;
-  font-size: 1.7rem;
-  font-family: "Jua", sans-serif;
+  font-size: 2rem;
+  font-family: "paybooc-Bold";
+  line-height: 180%;
 }
 
 /*섹션5,6: 관람디테일 컨텐츠(검정색)*/
 .mainWatchDetail2 {
   width: 100%;
-  height: 100vh;
-  background-color: black;
-  padding: 5rem 6rem;
+  /* height: 75vh; */
+  background-color: rgb(55, 55, 55);
+  padding: 4rem 2rem;
 }
 .exDetailBoard {
   width: 1024px;
@@ -194,57 +311,66 @@ label {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 .exDetailImg {
   width: 100%;
-  height: 70%;
+  /* height: 70%; */
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 .exDetailImg img {
-  width: 65%;
-  height: 90%;
+  width: 85%;
+  height: auto;
 }
 .exDetailTxt {
+  margin-top: 1.5rem;
   width: 100%;
-  height: 30%;
+  /* height: 30%; */
   color: white;
+}
+.emptyBox {
+  height: 6rem;
 }
 .exDetailTxt span {
   text-align: center;
   width: 100%;
-  font-weight: 100;
-  font-family: "Jua", sans-serif;
+  /* font-weight: 100; */
+  font-family: "Poppins", sans-serif;
 }
 .exDetailTxt span:nth-child(1) {
-  height: 40%;
   font-size: 3rem;
-  line-height: 6rem;
+  margin-bottom: 1.5rem;
+  /* line-height: 6rem; */
 }
 .exDetailTxt span:nth-child(2) {
   height: 60%;
   font-size: 1.2rem;
-  line-height: 5rem;
+  line-height: 150%;
+  font-family: "paybooc-Light";
 }
 
 /*섹션7 리뷰디테일 컨텐츠(하얀색)*/
 .mainReviewDetail {
   width: 100%;
-  height: 100vh;
+  padding: 10rem 0.5rem;
 }
 .ReviewSection {
   width: 1024px;
   height: 100%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 /*섹션8 카운터박스(검정색)*/
 .mainCount {
   width: 100%;
-  height: 50vh;
-  background-color: black;
+  /* height: 50vh; */
+  padding: 8rem 0;
+  background-color: rgb(55, 55, 55);
 }
 .countSection {
   width: 1024px;
@@ -257,6 +383,8 @@ label {
 }
 /*이쪽 반응형 아직*/
 .conterTxtBox {
+  margin-bottom: 5rem;
+  font-family: "paybooc-Light";
   width: 100%;
   height: 50%;
   display: flex;
@@ -265,10 +393,10 @@ label {
   text-align: center;
   color: white;
   line-height: 2;
-  font-size: 1.8rem;
-  font-family: "Jua", sans-serif;
+  font-size: 2rem;
 }
 .conterBox {
+  font-family: "paybooc-Light";
   width: 100%;
   height: 50%;
 }
@@ -280,7 +408,6 @@ label {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-family: "Jua", sans-serif;
 }
 
 .conterBox span:nth-child(1) {
@@ -291,8 +418,10 @@ label {
 }
 /*섹션9 바텀txt(하얀색)*/
 .mainBottomTxt {
+  color: rgb(55, 55, 55);
   width: 100%;
-  height: 20vh;
+  padding-top: 10rem;
+  /* height: 20vh; */
 }
 .bottomSectionTxt {
   width: 1024px;
@@ -302,15 +431,15 @@ label {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  font-size: 2.5rem;
-
-  font-family: "Jua", sans-serif;
+  font-size: 2.2rem;
+  font-family: "paybooc-Bold";
 }
 
 /*섹션10 바텀btn(하얀색)*/
 .mainBottom {
   width: 100%;
-  height: 40vh;
+  padding: 5rem 0 15rem;
+  /* height: 40vh; */
 }
 .bottomSection {
   width: 1024px;
@@ -323,37 +452,80 @@ label {
 }
 .bottomBtn {
   display: inline-block;
-  border-radius: 5%;
-  background: #202020;
+  border-radius: 10px;
+  border: 1px solid #353535;
+  background: #353535;
   color: white;
   padding: 0.8rem 1.8rem;
   margin-top: 2rem;
   cursor: pointer;
   width: 15rem;
   height: 5rem;
-  font-family: "Jua", sans-serif;
-  font-size: 1.3rem;
-
+  font-size: 1.2rem;
   animation: motion 0.8s linear 0s infinite alternate;
   margin-top: 0;
+  font-family: "paybooc-Light";
+  transition: 0.5s;
+}
+
+.bottomBtn:hover {
+  border: 1px solid #9d9d9d;
+  background: white;
+  color: #353535;
 }
 
 /*설명부분 버튼*/
 .btn {
   display: inline-block;
   border: none;
-  background: #202020;
+  border-radius: 5px;
+  background: #454545;
   color: white;
   padding: 0.8rem 1.8rem;
   margin-top: 2rem;
+  margin-bottom: 1rem;
   cursor: pointer;
   width: 10rem;
-  font-family: "Jua", sans-serif;
+  transition: 0.3s;
+  font-size: 1rem;
 }
 .btn:hover {
   opacity: 0.8;
 }
 
+@media screen and (max-height: 1024px) {
+  .mainBrand2 {
+    height: 120vh;
+  }
+  @media (orientation: portrait) {
+    /* Portrait 모드(세로)일 때 적용할 CSS */
+    .mainBrand2 {
+      height: 100vh;
+    }
+  }
+}
+@media screen and (max-height: 918px) {
+  .mainBrand2 {
+    height: 140vh;
+  }
+  @media (orientation: portrait) {
+    /* Portrait 모드(세로)일 때 적용할 CSS */
+    .mainBrand2 {
+      height: 100vh;
+    }
+  }
+}
+@media screen and (max-height: 759px) {
+  .mainBrand2 {
+    height: 150vh;
+  }
+  @media (orientation: portrait) {
+    /* Portrait 모드(세로)일 때 적용할 CSS */
+    .mainBrand2 {
+      height: 100vh;
+    }
+  }
+}
 @media screen and (max-width: 1240px) {
   /*섹션1: 브랜드*/
 
@@ -369,9 +541,6 @@ label {
   }
 
   /* 움직이는 화살표 */
-  .downArr {
-    height: 15vh;
-  }
   .arrSection {
     width: 100%;
   }
@@ -382,18 +551,8 @@ label {
     width: 100%;
   }
 
-  .explainBorder h3 {
-    padding: 0.2rem;
-    font-size: 2.5rem;
-  }
-
   /*섹션4: 관람디테일 타이틀(하얀색):*/
 
-  .mainWatchDetail1 {
-    width: 100%;
-    height: 30vh;
-    background-color: none;
-  }
   .exDetailTitle {
     width: 100%;
   }
@@ -408,6 +567,47 @@ label {
     width: 100%;
   }
 }
+@media screen and (max-width: 1024px) {
+  .brand p {
+    font-size: 1.2rem;
+  }
+  .brand h1 {
+    font-size: 2.5rem;
+  }
+  .img1 {
+    top: 10%;
+    right: 17%;
+    width: 14rem;
+  }
+  .img2 {
+    top: 40%;
+    left: 42%;
+    width: 12rem;
+    height: 12rem;
+  }
+  .img3 {
+    bottom: 10%;
+    left: 20%;
+    width: 14rem;
+  }
+  .img4 {
+    top: 13%;
+    left: 15%;
+    width: 23rem;
+  }
+  .img5 {
+    bottom: 12%;
+    right: 12%;
+    width: 23rem;
+  }
+  .explainBorder h3 {
+    font-size: 2rem;
+  }
+  .exDetailTxt span:nth-child(1) {
+    font-size: 2.3rem;
+    /* line-height: 6rem; */
+  }
+}
 @media screen and (max-width: 980px) {
   .mainSlider {
     background-color: #f1f1f1;
@@ -415,9 +615,9 @@ label {
     height: 60vh;
   }
 
-  .mainExplain {
+  /* .mainExplain {
     height: 60vh;
-  }
+  } */
   .ExplainSection {
     width: 100%;
     height: 100%;
@@ -430,25 +630,12 @@ label {
     font-size: 0.8rem;
   }
 
-  .mainWatchDetail1 {
-    width: 100%;
-    height: 30vh;
-    background-color: none;
-  }
   .exDetailTitle {
     width: 750px;
-    line-height: 9rem;
   }
 
-  .mainWatchDetail2 {
-    height: 80vh;
-  }
   .exDetailBoard {
     width: 100%;
-  }
-
-  .exDetailImg img {
-    height: 70%;
   }
 
   .exDetailTxt span:nth-child(2) {
@@ -463,10 +650,6 @@ label {
     width: 100%;
   }
 
-  .mainBottomTxt {
-    width: 100%;
-    height: 20vh;
-  }
   .bottomSectionTxt {
     width: 100%;
   }
@@ -477,30 +660,61 @@ label {
 }
 @media screen and (max-width: 768px) {
   .container {
-    margin-top: 1rem;
+    margin-top: 4.5rem;
   }
   /*섹션1: 브랜드*/
 
   .brand p {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+  }
+  .brand h1 {
+    font-size: 2.8rem;
+  }
+  .img1 {
+    top: 10%;
+    right: 10%;
+    width: 15rem;
+  }
+  .img2 {
+    top: 35%;
+    left: 38%;
+    width: 13rem;
+    height: 13rem;
+  }
+  .img3 {
+    bottom: 10%;
+    left: 12%;
+    width: 15rem;
+  }
+  .img4 {
+    top: 13%;
+    left: 10%;
+    width: 23rem;
+  }
+  .img5 {
+    bottom: 15%;
+    right: 7%;
+    width: 23rem;
   }
 
+  .secondHead {
+    /* font-size: 1.1rem; */
+    margin-top: 5rem;
+  }
   /*섹션2: 슬라이더*/
   .mainSlider {
     height: 50vh;
   }
 
   /*섹션3: 관람(회색)*/
-  .mainExplain {
-    height: 60vh;
-  }
+
   .ExplainSection {
     width: 100%;
     height: 100%;
   }
   .explainBorder {
     height: 100%;
-
+    margin: 7rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -523,7 +737,7 @@ label {
     height: 50%;
   }
   .explainBorder > div {
-    padding: 0.2rem;
+    padding: 1.5rem;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -534,17 +748,17 @@ label {
   /*섹션4: 관람디테일 타이틀(하얀색):*/
 
   .mainWatchDetail1 {
-    width: 100%;
-    height: 20vh;
+    padding: 7rem 0 5rem;
   }
   .exDetailTitle {
     width: 100%;
-    line-height: 5.5rem;
+    font-size: 1.5rem;
+    /* line-height: 5.5rem; */
   }
 
   /*섹션5,6: 관람디테일 컨텐츠(검정색)*/
   .mainWatchDetail2 {
-    height: 60vh;
+    /* height: 60vh; */
 
     padding: 1rem 2rem;
   }
@@ -558,14 +772,13 @@ label {
   }
 
   .exDetailTxt span:nth-child(1) {
-    height: 40%;
     font-size: 2rem;
-    line-height: 6rem;
   }
   .exDetailTxt span:nth-child(2) {
     /* height: 60%; */
     font-size: 0.8rem;
-    line-height: 3rem;
+    margin-bottom: 3rem;
+    /* line-height: 3rem; */
   }
 
   /*섹션7 리뷰디테일 컨텐츠(하얀색)*/
@@ -574,7 +787,7 @@ label {
     width: 100%;
   }
   /*섹션8 카운터박스(검정색)*/
-  .mainCount {
+  s .mainCount {
     width: 100%;
     height: 30vh;
     background-color: black;
@@ -596,9 +809,8 @@ label {
     /* border: 3px solid red; */
   }
   .bottomSectionTxt {
-    width: 100%;
     text-align: center;
-    font-size: 2.2rem;
+    font-size: 1.5rem;
   }
 
   /*섹션10 바텀btn(하얀색)*/
@@ -606,14 +818,60 @@ label {
   .bottomSection {
     width: 100%;
   }
+  .mainReviewDetail {
+    padding: 7rem 0.5rem;
+  }
+  .conterTxtBox {
+    font-size: 1.5rem;
+  }
 }
 @media screen and (max-width: 580px) {
   /*섹션4: 관람디테일 타이틀(하얀색):*/
 
-  .exDetailTitle {
-    width: 100%;
+  .brand p {
+    font-size: 0.8rem;
+  }
+  .brand h1 {
     font-size: 1.5rem;
-    line-height: 6rem;
+  }
+  .img1 {
+    top: 10%;
+    right: 10%;
+    width: 8rem;
+  }
+  .img2 {
+    top: 37%;
+    left: 36%;
+    width: 8rem;
+    height: 8rem;
+  }
+  .img3 {
+    bottom: 10%;
+    left: 12%;
+    width: 10rem;
+  }
+  .img4 {
+    top: 16%;
+    left: 7%;
+    width: 14rem;
+  }
+  .img5 {
+    bottom: 18%;
+    right: 7%;
+    width: 15rem;
+  }
+  .explainBorder {
+    margin: 4rem 0;
+  }
+  .secondHead {
+    font-size: 0.9rem;
+    margin-top: 3rem;
+  }
+  .emptyBox {
+    height: 2rem;
+  }
+  .mainWatchDetail1 {
+    padding: 5rem 0.2rem 3rem;
   }
   .ReviewSection {
     width: 90%;
@@ -634,11 +892,12 @@ label {
   .conterBox span:nth-child(1) {
     font-size: 2.8rem;
   }
+  .mainReviewDetail {
+    width: 100%;
+    padding: 5rem 0;
+  }
 }
 @media screen and (max-width: 480px) {
-  .brand p {
-    font-size: 1rem;
-  }
   .mainSlider {
     height: 30vh;
   }
@@ -651,7 +910,7 @@ label {
     justify-content: center;
   }
   .explainBorder h3 {
-    font-size: 0.8rem;
+    font-size: 1rem;
 
     margin-bottom: 0;
   }
@@ -664,15 +923,14 @@ label {
     cursor: pointer;
     width: 8rem;
     height: 2rem;
-    margin: 0.1rem;
+    font-size: 0.75rem;
   }
   .exDetailTitle {
     width: 100%;
-    font-size: 1.2em;
-    line-height: 2rem;
+    font-size: 0.9rem;
   }
   .mainWatchDetail2 {
-    height: 60vh;
+    /* height: 60vh; */
 
     padding: 0.1rem 0.2rem;
   }
@@ -698,11 +956,13 @@ label {
   .exDetailTxt span:nth-child(1) {
     height: 40%;
     font-size: 1.5rem;
-    line-height: 6rem;
+    /* line-height: 6rem; */
   }
   .exDetailTxt span:nth-child(2) {
-    font-size: 0.8rem;
-    line-height: 2rem;
+    padding: 0 1rem;
+    font-size: 0.75rem;
+    margin-bottom: 4rem;
+    /* line-height: 2rem; */
   }
   .ReviewSection {
     width: 90%;
@@ -710,14 +970,14 @@ label {
   .bottomSectionTxt {
     width: 100%;
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1rem;
   }
   .conterBox span:nth-child(2) {
     font-size: 1.5rem;
   }
 
   .conterTxtBox {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
   }
 
   .conterBox span:nth-child(1) {
@@ -725,6 +985,12 @@ label {
   }
   .conterBox span:nth-child(2) {
     font-size: 1.8rem;
+  }
+  .mainCount {
+    padding: 6rem 0;
+  }
+  .bottomBtn {
+    font-size: 0.9rem;
   }
 }
 /*화면전환*/
