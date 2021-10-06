@@ -33,7 +33,7 @@ const Gallery = ({ isLogin, userinfo }) => {
     }
     setTimeout(() => {
       getAxiosData();
-    }, 500)
+    }, 300)
     setTimeout(()=> {
       setLoading(false);
     }, 1000)
@@ -52,12 +52,12 @@ const Gallery = ({ isLogin, userinfo }) => {
     setPremiumBlocked(true);
   }
 
-  const handleTagFilter = async (el) => {
+  const handleTagFilter = (el) => {
     //해시태그 필터
     setTagClicked(el);
   };
 
-  const handleSort = async (e) => {
+  const handleSort = (e) => {
     //정렬
     setSortValue(e.target.value);
   };
