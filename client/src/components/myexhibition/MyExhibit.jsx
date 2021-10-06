@@ -16,31 +16,50 @@ const MyExhibit = ({ el }) => {
 
   return (
     <section className={styles.container}>
-      <div className={styles.exBox}>
-        <div className={styles.thumBox}>
-          <img
-            src={imgurl}
-            alt={imgurlAlt}
-            className={styles.eximg}
-            onClick={goToGallery}
-          />
-        </div>
-        <div className={styles.infoBox}>
-          {el.status === 0 ? (
+      {el.status === 0 ? (
+        <div className={styles.exBox}>
+          <div className={styles.thumBox}>
+            <img src={imgurl} alt={imgurlAlt} className={styles.eximg} />
+          </div>
+
+          <div className={styles.infoBox}>
             <div className={styles.status}>승인 대기중</div>
-          ) : null}
-          <div className={styles.title} onClick={goToGallery}>
-            {el.title}
-          </div>
-          <div className={styles.title}>{el.author.nickname}</div>
-          <div className={styles.date}>
-            <span>전시기간:</span>
-            <span>{el.start_date}</span>
-            <span>~</span>
-            <span>{el.end_date}</span>
+            <div className={styles.title}>{el.title}</div>
+            <div className={styles.title}>{el.author.nickname}</div>
+            <div className={styles.date}>
+              <span>전시기간:</span>
+              <span>{el.start_date}</span>
+              <span>~</span>
+              <span>{el.end_date}</span>
+            </div>
           </div>
         </div>
-      </div>
+      ) : null}
+      {el.status === 1 ? (
+        <div className={styles.exBox}>
+          <div className={styles.thumBox}>
+            <img
+              src={imgurl}
+              alt={imgurlAlt}
+              className={styles.eximg}
+              onClick={goToGallery}
+            />
+          </div>
+          <div className={styles.infoBox}>
+            <div className={styles.title} onClick={goToGallery}>
+              {el.title}
+            </div>
+            <div className={styles.title}>{el.author.nickname}</div>
+            <div className={styles.date}>
+              <span>전시기간:</span>
+              <span>{el.start_date}</span>
+              <span>~</span>
+              <span>{el.end_date}</span>
+            </div>
+          </div>
+        </div>
+      ) : null}
+      {el.status === 2 ? null : null}
     </section>
   );
 };
