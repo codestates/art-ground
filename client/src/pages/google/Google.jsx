@@ -2,7 +2,7 @@ import styles from "./Google.module.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const Google = (props) => {
+const Google = ({ handleResponseSuccess }) => {
   const [accessToken, setAccessToken] = useState();
   const [userInfo, setUserInfo] = useState();
   const [refreshToken, setRefreshToken] = useState();
@@ -28,8 +28,9 @@ const Google = (props) => {
         `https://art-ground.link/receive/userinfo?accessToken=${accessToken}`
       )
       .then((res) => {
-        console.log(res.data);
-        setUserInfo(res.data);
+        // console.log(res.data);
+        // setUserInfo(res.data);
+        handleResponseSuccess();
       });
   };
 

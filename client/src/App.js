@@ -118,7 +118,7 @@ function App() {
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
           />
-          <Google />
+          <Google handleResponseSuccess={handleResponseSuccess} />
         </Route>
         <Route path="/signin/kakao">
           <Navbar
@@ -128,7 +128,7 @@ function App() {
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
           />
-          <Kakao />
+          <Kakao handleResponseSuccess={handleResponseSuccess} />
         </Route>
         <Route exact path="/join">
           <Navbar

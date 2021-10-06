@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 require("dotenv").config();
 
-const Kakao = ({}) => {
+const Kakao = ({ handleResponseSuccess }) => {
   const [accessToken, setAccessToken] = useState();
   const [userInfo, setUserInfo] = useState();
   const [refreshToken, setRefreshToken] = useState();
@@ -50,11 +50,12 @@ const Kakao = ({}) => {
   const getUserInfo = (accessToken) => {
     axios({
       method: "get",
-      url: `https://art-ground.link/kakao-login/userinfo?accessToken=${accessToken}`
+      url: `https://art-ground.link/kakao-login/userinfo?accessToken=${accessToken}`,
     })
       .then((res) => {
-        console.log(res.data);
-        setUserInfo(res.data);
+        // console.log(res.data);
+        // setUserInfo(res.data);
+        handleResponseSuccess();
       })
       .catch((error) => {
         console.log(error);
