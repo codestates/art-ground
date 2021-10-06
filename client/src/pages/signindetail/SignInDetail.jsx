@@ -38,7 +38,7 @@ const SignInDetail = ({
   };
 
   const { userEmail, password } = loginInfo;
-  const secretKey = process.env.REACT_APP_CRYPTOJS_SECRETKEY;
+  const secretKey = "Klassiker";
   const clickAudLogin = () => {
     if (!userEmail || !password) {
       setErrorMessage("아이디와 비밀번호를 모두 입력해주세요");

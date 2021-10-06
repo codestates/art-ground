@@ -13,7 +13,7 @@ export function getMyinfo(setUserinfo, setisAdmin) {
             : result.data.data.profile_img;
 
         setUserinfo({ ...result.data.data, profile_img: img });
-        console.log(result.data.data.user_type);
+        //console.log(result.data.data.user_type);
         if (result.data.data.user_type === 3) {
           setisAdmin(true);
         }

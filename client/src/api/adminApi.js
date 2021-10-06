@@ -20,7 +20,7 @@ export function confirmExhibition(setConfirmModal, el) {
       data: el,
     })
     .then((result) => {
-      console.log(result, "새로 뀐 값 ???");
+      //console.log(result, "새로 뀐 값 ???");
       setConfirmModal(false);
       window.location.href = "https://art-ground.io/admin";
     })
@@ -34,7 +34,7 @@ export function deleteExhibition(setConfirmModal, el) {
       `https://art-ground.link/admin/exhibition/${el.id}/${el.exhibit_type}`
     )
     .then((result) => {
-      console.log(result, ":삭제 데이터 ????");
+      //console.log(result, ":삭제 데이터 ????");
       setConfirmModal(false);
       window.location.href = "https://art-ground.io/admin";
     })
