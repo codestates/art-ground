@@ -8,7 +8,7 @@ const Kakao = ({}) => {
   const [userInfo, setUserInfo] = useState();
   const [refreshToken, setRefreshToken] = useState();
 
-  useEffect(() => {
+  useEffect(({ handleResponseSuccess }) => {
     console.log("useEffect...");
     const url = new URL(window.location.href);
     const authorizationCode = url.searchParams.get("code");
@@ -50,11 +50,12 @@ const Kakao = ({}) => {
   const getUserInfo = (accessToken) => {
     axios({
       method: "get",
-      url: `https://art-ground.link/kakao-login/userinfo?accessToken=${accessToken}`
+      url: `https://art-ground.link/kakao-login/userinfo?accessToken=${accessToken}`,
     })
       .then((res) => {
-        console.log(res.data);
-        setUserInfo(res.data);
+        // console.log(res.data);
+        // setUserInfo(res.data);
+        handleResponseSuccess();
       })
       .catch((error) => {
         console.log(error);
@@ -63,7 +64,7 @@ const Kakao = ({}) => {
   console.log("userinfo:", userInfo);
   return (
     <section className={styles.container}>
-      <div>카카오</div>
+      <div></div>
     </section>
   );
 };

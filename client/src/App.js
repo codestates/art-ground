@@ -128,7 +128,7 @@ function App() {
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
           />
-          <Kakao />
+          <Kakao handleResponseSuccess={handleResponseSuccess} />
         </Route>
         <Route exact path="/join">
           <Navbar
