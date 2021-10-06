@@ -38,10 +38,15 @@ https://art-ground.io/
 <작성중>
 
 <details>
-  <summary> 회원가입, 로그인, 비밀번호 찾기, 로그아웃 </summary>
+  <summary> 회원가입, 로그인, 로그아웃 </summary>
   
   <details>
-  <summary> 회원가입 </summary>
+  <summary> 일반 회원가입 </summary>
+    <img width="727" src=""/>
+  </details>
+  
+  <details>
+  <summary> 작가 회원가입 </summary>
     <img width="727" src=""/>
   </details>
   
@@ -138,6 +143,11 @@ https://art-ground.io/
   
   <details>
    <summary>내 전시회 및 내가 찜한 전시회 조회</summary>
+    <img width="727" src=""/>
+  </details>
+  
+  <details>
+   <summary>회원 탈퇴</summary>
     <img width="727" src=""/>
   </details>
   
