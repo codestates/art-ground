@@ -1,4 +1,5 @@
-const { exhibition } = require("../../models");
+const { exhibition, comments, users, images, likes } = require("../../models");
+
 const { isAuthorized } = require("../../utils/tokenFunction");
 const { getCached, caching } = require("../../utils/redis/cache.ctrl");
 module.exports = {
