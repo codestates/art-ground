@@ -148,7 +148,7 @@ https://art-ground.io/
   
   <details>
    <summary>회원 탈퇴</summary>
-    ![회원탈퇴](https://user-images.githubusercontent.com/79203932/136157748-0c1d9490-7278-4165-9b63-feaf563a9cda.gif)
+    <img src="https://user-images.githubusercontent.com/79203932/136157748-0c1d9490-7278-4165-9b63-feaf563a9cda.gif"/>
   </details>
   
 </details>
