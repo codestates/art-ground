@@ -1,10 +1,10 @@
-const { comments } = require("../../models");
+const { comments, exhibition, images, users } = require("../../models");
 const { isAuthorized } = require("../../utils/tokenFunction");
-
+const { getCached, caching } = require("../../utils/redis/cache.ctrl");
 module.exports = {
   deleteReviews: async (req, res) => {
-    //const userInfo = isAuthorized(req);
-    const userInfo = { user_type: 3 };
+    const userInfo = isAuthorized(req);
+
     const { postId, commentId } = req.params;
     const exhibition_id = parseInt(postId);
     const id = parseInt(commentId);

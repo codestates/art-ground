@@ -49,7 +49,7 @@ module.exports.register = async (req, res) => {
             content: image_desc,
             subContent: image_add_desc,
           } = el;
-          console.log(el);
+
           await imagesModel.create({
             exhibition_id,
             title,

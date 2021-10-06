@@ -15,7 +15,6 @@ module.exports = {
     try {
       const { currentPassword, newPassword } = req.body;
       const data = isAuthorized(req);
-      console.log("data:", data, currentPassword, newPassword);
 
       const userInfo = await users.findOne({
         where: {
@@ -27,17 +26,14 @@ module.exports = {
         currentPassword,
         process.env.ART_GROUND_CRYPTOJS_SECRETKEY
       );
-      console.log("byte1:", byte);
 
       let decodedPassword = await JSON.parse(byte.toString(CryptoJS.enc.Utf8));
-      console.log("decoded1:", decodedPassword);
 
       // compare password
       const validPassword = await bcrypt.compare(
         decodedPassword,
         userInfo.password
       );
-      console.log("validpw:", validPassword);
 
       // password가 유효하면
       if (validPassword) {
@@ -46,7 +42,6 @@ module.exports = {
           newPassword,
           process.env.ART_GROUND_CRYPTOJS_SECRETKEY
         );
-        console.log("byte2:", byte2);
 
         const decodedPassword2 = await JSON.parse(
           byte2.toString(CryptoJS.enc.Utf8)

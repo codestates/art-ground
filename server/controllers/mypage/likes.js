@@ -3,7 +3,7 @@ const { isAuthorized } = require("../../utils/tokenFunction");
 module.exports = {
   getMyLikes: async (req, res) => {
     const userInfo = isAuthorized(req);
-    console.log("userInfo:", userInfo);
+
     try {
       if (!userInfo) {
         res.status(401).json({ message: "invalid access token" });

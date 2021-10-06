@@ -1,6 +1,6 @@
 const { exhibition } = require("../../models");
 const { isAuthorized } = require("../../utils/tokenFunction");
-
+const { getCached, caching } = require("../../utils/redis/cache.ctrl");
 module.exports = {
   closeExhibitions: async (req, res) => {
     const userInfo = isAuthorized(req);
