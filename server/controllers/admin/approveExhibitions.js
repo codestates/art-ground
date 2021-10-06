@@ -1,13 +1,12 @@
 const { exhibition, comments, users, images, likes } = require("../../models");
 
 const { isAuthorized } = require("../../utils/tokenFunction");
-const axios = require("axios");
 const { getCached, caching } = require("../../utils/redis/cache.ctrl");
 module.exports = {
   approveExhibitions: async (req, res) => {
     const userInfo = isAuthorized(req);
 
-    const { id, exhibit_type } = req.body;
+    const { id, exhibit_type } = req.body.data;
     const redisKey =
       exhibit_type === undefined
         ? "allExhibition"
