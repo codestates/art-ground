@@ -55,6 +55,16 @@ https://art-ground.io/
     <img src="https://user-images.githubusercontent.com/79203932/136155085-20caf580-fe8e-4bbc-a29a-4feaf3a8e760.gif"/>
   </details>
   
+   <details>
+  <summary> 카카오 로그인 </summary>
+    <img src="https://user-images.githubusercontent.com/79203932/136164915-2bcd1820-f3d8-4f05-aaab-b29d38662f14.gif"/>
+  </details>
+  
+   <details>
+  <summary> 구글 로그인 </summary>
+    <img src="https://user-images.githubusercontent.com/79203932/136164960-48de965c-3d0e-4628-b37c-9c48ef30060a.gif"/>
+  </details>
+  
   <details>
   <summary> 로그아웃 </summary>
     <img src="https://user-images.githubusercontent.com/79203932/136152623-2dbbb67e-c760-474e-b689-1cb71ca981e5.gif"/>
