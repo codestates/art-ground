@@ -42,22 +42,22 @@ https://art-ground.io/
   
   <details>
   <summary> 일반 회원가입 </summary>
-    <img width="727" src=""/>
+    <img src="https://user-images.githubusercontent.com/79203932/136157015-f97d66f6-2eb1-4dfb-961a-372198eb7aef.gif"/>
   </details>
   
   <details>
   <summary> 작가 회원가입 </summary>
-    <img width="727" src=""/>
+    <img src="https://user-images.githubusercontent.com/79203932/136157433-4a5871c1-0e9a-4e41-91bc-51b9efbd6964.gif"/>
   </details>
   
   <details>
   <summary> 로그인 </summary>
-    <img width="727" src=""/>
+    <img src="https://user-images.githubusercontent.com/79203932/136155085-20caf580-fe8e-4bbc-a29a-4feaf3a8e760.gif"/>
   </details>
   
   <details>
   <summary> 로그아웃 </summary>
-    <img width="727" src=""/>
+    <img src="https://user-images.githubusercontent.com/79203932/136152623-2dbbb67e-c760-474e-b689-1cb71ca981e5.gif"/>
   </details>
   
 </details>
