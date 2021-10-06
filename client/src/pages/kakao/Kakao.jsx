@@ -3,12 +3,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 require("dotenv").config();
 
-const Kakao = ({}) => {
+const Kakao = ({ handleResponseSuccess }) => {
   const [accessToken, setAccessToken] = useState();
   const [userInfo, setUserInfo] = useState();
   const [refreshToken, setRefreshToken] = useState();
 
-  useEffect(({ handleResponseSuccess }) => {
+  useEffect(() => {
     console.log("useEffect...");
     const url = new URL(window.location.href);
     const authorizationCode = url.searchParams.get("code");
@@ -64,7 +64,7 @@ const Kakao = ({}) => {
   console.log("userinfo:", userInfo);
   return (
     <section className={styles.container}>
-      <div></div>
+      <div>카카오</div>
     </section>
   );
 };
