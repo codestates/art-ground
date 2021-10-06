@@ -185,12 +185,20 @@ const SignInDetail = ({
             </li>
             {isAudienceLogin ? (
               <li className={styles.oauthBtnBox}>
-                <button className={styles.ouathBtn} onClick={clickGoole}>
-                  구글 로그인
-                </button>
-                <button className={styles.ouathBtn} onClick={clickKakao}>
-                  카카오 로그인
-                </button>
+                <div className={styles.ouathBtn} onClick={clickGoole}>
+                  <img
+                    src="https://images.velog.io/images/beablessing/post/5e407c71-1427-4e98-b1f2-7473b90ee5b2/googleicon.png"
+                    alt=""
+                  ></img>
+                  <span>구글 로그인</span>
+                </div>
+                <div className={styles.ouathBtn} onClick={clickKakao}>
+                  <img
+                    src="https://images.velog.io/images/beablessing/post/489c6faa-355d-4f5a-9c9d-72dc28c38c61/join_kakao.png"
+                    alt=""
+                  ></img>
+                  <span>카카오 로그인</span>
+                </div>
               </li>
             ) : null}
           </ul>
