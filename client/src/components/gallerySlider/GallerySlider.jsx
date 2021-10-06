@@ -15,13 +15,11 @@ const GallerySlider = ({
 
   const onMouseDown = (e) => {
     setMouseDownClientX(e.targetTouches[0].clientX);
-    console.log('1', e.targetTouches[0].clientX) 
   };
 
   const onMouseDrag = (e) => {
     setMouseUpClientX(e.targetTouches[0].clientX)
     setSwiped(true);
-    console.log('2', e.targetTouches[0].clientX)
   }
 
   const onMouseUp = (e) => {
@@ -33,7 +31,6 @@ const GallerySlider = ({
         sliderDown();
       }
     }
-    console.log('3')
     setSwiped(false);
   };
 
@@ -48,7 +45,7 @@ const GallerySlider = ({
         {gallerySelected.images.map(el =>
           <div key={el.id} 
           className='sliderWrap'>
-            <img className='slider' src="../../../images/sliderBackground.png" alt='slider' />
+            <img className='sliderBackground' src="../../../images/sliderBackground.png" alt='slider' />
             <img className='sliderPic' src={el.image_urls} alt='sliderIn' onClick={() => handleModalOpen(el)} />
           </div>
         )}

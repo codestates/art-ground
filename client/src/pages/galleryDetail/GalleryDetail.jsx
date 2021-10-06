@@ -20,7 +20,6 @@ const GalleryDetail = ({ handle3dExhibition, location}) => {
     async function getAxiosData() {
       setExhibitionInfo(await getExhibitionInfo(Number(location.pathname.substring(15))))
     }
-    
     getAxiosData();
     setTimeout(()=> {
       setLoading(false);

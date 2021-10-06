@@ -123,7 +123,7 @@ label {
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 3rem 0 5rem 0;
+  padding: 4rem 0 5rem 0;
   margin-bottom: 3rem;
 }
 
@@ -154,7 +154,7 @@ label {
 }
 .img2 {
   position: absolute;
-  top: 55%;
+  top: 53%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 15rem;
