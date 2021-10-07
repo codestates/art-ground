@@ -27,17 +27,22 @@ span {
   width: 95%;
   display: flex;
   flex-direction: row;
+
   margin-top: 2px;
   border-bottom: 1px solid gainsboro;
 }
 .thumBox {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 .eximg {
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  height: 70%;
   border-right: 1px solid gainsboro;
   border-radius: 50%;
 }
@@ -47,23 +52,23 @@ span {
 }
 .title {
   font-family: "Do Hyeon", sans-serif;
-
-  text-indent: 10px;
   font-size: 1.5rem;
 }
+.user {
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 1rem;
+}
 .author {
-  text-indent: 10px;
   font-size: 0.9rem;
   font-weight: bold;
 }
 .comments {
   font-family: "Do Hyeon", sans-serif;
-  text-indent: 3px;
-  padding: 0.3rem 0;
 }
 .btnBox {
   width: 100px;
   display: flex;
+
   justify-content: center;
   align-items: center;
 }
@@ -92,8 +97,8 @@ span {
 
 @media screen and (max-width: 780px) {
   .thumBox {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
   }
   .infoBox {
     flex: 18rem;
@@ -115,7 +120,7 @@ span {
 
 @media screen and (max-width: 480px) {
   .thumBox {
-    width: 120px;
+    width: 100px;
     height: 100px;
   }
   .infoBox {
