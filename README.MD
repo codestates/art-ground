@@ -110,10 +110,14 @@ https://art-ground.io/
   </details>
   
   <details>
-  <summary> 전시회 찜하기/찜하기 해제 </summary>
-    <img width="727" src=""/>
+  <summary> 전시회 찜하기 </summary>
+    <img src="https://user-images.githubusercontent.com/79203932/136372525-587eb33b-3e27-4e61-b106-b8d0654263c0.gif"/>
   </details>
 
+   <details>
+  <summary> 전시회 찜하기 해제 </summary>
+    <img src="https://user-images.githubusercontent.com/79203932/136372588-5b67c09f-64ac-4b80-a6f5-ec3c8a6a8f0b.gif"/>
+  </details>
   
 </details>
 
@@ -133,8 +137,13 @@ https://art-ground.io/
   </details>
   
   <details>
-   <summary>리뷰 등록 및 삭제</summary>
-    <img width="727" src=""/>
+   <summary>리뷰 등록</summary>
+    <img src=""/>
+  </details>
+  
+  <details>
+   <summary>리뷰 삭제</summary>
+    <img src="https://user-images.githubusercontent.com/79203932/136375382-0ec5893c-76f8-4761-a575-501890a8a680.gif"/>
   </details>
   
 </details>
@@ -147,13 +156,13 @@ https://art-ground.io/
  <summary>마이 페이지</summary>
   
   <details>
-   <summary>내 정보 수정</summary>
-    <img width="727" src=""/>
+   <summary>내 정보 수정(비밀번호 제외)</summary>
+    <img src="https://user-images.githubusercontent.com/79203932/136372647-bad6c81d-c8d4-4387-8020-e6c31df6f34c.gif"/>
   </details>
   
   <details>
-   <summary>내 전시회 및 내가 찜한 전시회 조회</summary>
-    <img width="727" src=""/>
+   <summary>비밀번호 수정</summary>
+    <img src="https://user-images.githubusercontent.com/79203932/136375338-d7811c00-9a92-4585-a3a1-90d75a337877.gif"/>
   </details>
   
   <details>
@@ -169,15 +178,18 @@ https://art-ground.io/
  <summary>Admin 페이지</summary>
   
   <details>
-   <summary>전시 승인 및 마감하기</summary>
-    <img width="727" src=""/>
-    
+   <summary>전시 승인</summary>
+    <img src="https://user-images.githubusercontent.com/79203932/136372362-d3034a6e-df10-48d3-ae62-cc8345abffac.gif"/>
+  </details>
+  
+   <details>
+   <summary>전시 마감</summary>
+    <img src="https://user-images.githubusercontent.com/79203932/136372400-846c8cc8-5148-4e03-b894-468a33980223.gif"/>
   </details>
   
   <details>
-   <summary>댓글 삭제하기</summary>
-    <img width="727" src=""/>
-    
+   <summary>회원 리뷰 삭제</summary>
+    <img src="https://user-images.githubusercontent.com/79203932/136372449-30c34f5c-df84-498d-b86d-3ba3d79adcda.gif"/>
   </details>
   
 </details>
