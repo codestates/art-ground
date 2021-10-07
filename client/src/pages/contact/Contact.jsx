@@ -99,22 +99,54 @@ const Contact = () => {
           <div className={styles.sInfo}>
             <span>문순려</span>
             <span>Back-end</span>
-            <span>github</span>
+            <span>
+              <a
+                target="_blank"
+                href="https://github.com/Sunryeo"
+                className={styles.member}
+              >
+                GitHub
+              </a>
+            </span>
           </div>
           <div className={styles.sInfo}>
             <span>이동욱</span>
             <span>Back-end</span>
-            <span>github</span>
+            <span>
+              <a
+                target="_blank"
+                href="https://github.com/dongukuklee"
+                className={styles.member}
+              >
+                GitHub
+              </a>
+            </span>
           </div>
           <div className={styles.sInfo}>
             <span>유다희</span>
             <span>Front-end</span>
-            <span>github</span>
+            <span>
+              <a
+                target="_blank"
+                href="https://github.com/tkdkagody"
+                className={styles.member}
+              >
+                GitHub
+              </a>
+            </span>
           </div>
           <div className={styles.sInfo}>
             <span>박지영</span>
             <span>Front-end</span>
-            <span>github</span>
+            <span>
+              <a
+                target="_blank"
+                href="https://github.com/devjade"
+                className={styles.member}
+              >
+                GitHub
+              </a>
+            </span>
           </div>
         </div>
       </div>
