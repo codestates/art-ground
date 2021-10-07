@@ -41,72 +41,82 @@ const About = () => {
 
   return (
     <div className={styles.container}>
-      <main className={styles.mainBrand}>
-        <section className={styles.brandSection}>
+      <section className={styles.mainBrand}>
+        <div className={styles.brandSection}>
           <div className={styles.brand}>
-            <img src="../../../images/main2.jpeg"
-            className={styles.backgroundImg}></img>
+            <img
+              src="../../../images/main2.jpeg"
+              className={styles.backgroundImg}
+            ></img>
             <div className={styles.mainContentBox}>
-            <h1 data-aos="fade-down" data-aos-duration="3000">
-              누구나 예술가가 될 수 있는 공간
+              <h1 data-aos="fade-down" data-aos-duration="3000">
+                누구나 예술가가 될 수 있는 공간
               </h1>
               <p data-aos="fade-down" data-aos-duration="3000">
-              아트 그라운드는 온라인 갤러리 대관 서비스로<br></br>
-              누구나 자유롭게 작품 활동을 펼칠 수 있는 열린 놀이터입니다.
+                아트 그라운드는 온라인 갤러리 대관 서비스로<br></br>
+                누구나 자유롭게 작품 활동을 펼칠 수 있는 열린 놀이터입니다.
               </p>
-            
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
 
-      <main className={styles.mainBrand2}>
-        <section className={styles.brandSection}>
-
-        <div
+      <section className={styles.mainBrand2}>
+        <div className={styles.brandSection}>
+          <div
             className={styles.secondHead}
             data-aos="fade-up"
             data-aos-duration="2000"
           >
-            아트 그라운드는 2D와 더불어 3D 환경을 제공함으로써 <br></br>관람객에게
-            최상의 경험을 선사합니다.
+            아트 그라운드는 2D와 더불어 3D 환경을 제공함으로써 <br></br>
+            관람객에게 최상의 경험을 선사합니다.
           </div>
-          <div data-aos="fade-up" data-aos-duration="3000" className={styles.brand2}>
-  
-            <img 
-            className={styles.img1} src="../../../images/image-1.webp"></img>
-            <img  
-            className={styles.img2} src="../../../images/Black on White.png"></img>
-            <img 
-            className={styles.img3} src="../../../images/image-3.webp"></img>
-            <img 
-            className={styles.img4} src="../../../images/image-4.webp"></img>
-            <img 
-            className={styles.img5} src="../../../images/image-5.webp"></img>
-            <div className={styles.mainContentBox}>
-            
-            </div>
+          <div
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            className={styles.brand2}
+          >
+            <img
+              className={styles.img1}
+              src="../../../images/image-1.webp"
+            ></img>
+            <img
+              className={styles.img2}
+              src="../../../images/Black on White.png"
+            ></img>
+            <img
+              className={styles.img3}
+              src="../../../images/image-3.webp"
+            ></img>
+            <img
+              className={styles.img4}
+              src="../../../images/image-4.webp"
+            ></img>
+            <img
+              className={styles.img5}
+              src="../../../images/image-5.webp"
+            ></img>
+            <div className={styles.mainContentBox}></div>
           </div>
-        </section>
-      </main>
-      
+        </div>
+      </section>
 
       {/* <main className={styles.mainSlider}>
         <AboutSlider />
       </main> */}
 
-      <main className={styles.downArr}>
-        <section className={styles.arrSection}>
+      <section className={styles.downArr}>
+        <div className={styles.arrSection}>
           <div className={styles.arrowDown}>
             <span></span>
             <span></span>
             <span></span>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
 
-      <main className={styles.mainExplain}>
-        <section className={styles.ExplainSection}>
+      <section className={styles.mainExplain}>
+        <div className={styles.ExplainSection}>
           <div
             className={styles.explainBorder}
             data-aos="fade-up"
@@ -136,10 +146,10 @@ const About = () => {
               </button>
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
 
-      <main className={styles.mainWatchDetail1}>
+      <section className={styles.mainWatchDetail1}>
         <div
           className={styles.exDetailTitle}
           data-aos="fade-up"
@@ -148,9 +158,10 @@ const About = () => {
           아트 그라운드는 2D와 더불어 3D 환경을 제공함으로써 <br></br>관람객에게
           최상의 경험을 선사합니다.
         </div>
-      </main>
-      <main className={styles.mainWatchDetail2}>
-        <section
+      </section>
+
+      <section className={styles.mainWatchDetail2}>
+        <div
           className={styles.exDetailBoard}
           data-aos="fade-up"
           data-aos-duration="3000"
@@ -168,10 +179,11 @@ const About = () => {
               갤러리의 작품 앞에 서서 관람하는 듯한 관람 경험을 제공합니다.
             </span>
           </div>
-        </section>
-      </main>
-      <main className={styles.mainWatchDetail2}>
-        <section
+        </div>
+      </section>
+
+      <section className={styles.mainWatchDetail2}>
+        <div
           className={styles.exDetailBoard}
           data-aos="fade-up"
           data-aos-duration="3000"
@@ -191,11 +203,11 @@ const About = () => {
             </span>
           </div>
           <div className={styles.emptyBox}></div>
-        </section>
-      </main>
+        </div>
+      </section>
 
-      <main className={styles.mainExplain}>
-        <section className={styles.ExplainSection}>
+      <section className={styles.mainExplain}>
+        <div className={styles.ExplainSection}>
           <div
             className={styles.explainBorder}
             data-aos="fade-up"
@@ -206,9 +218,9 @@ const About = () => {
                 전시회의 생생한 <br></br>경험을 나누세요
               </h3>
               <p>
-                아트 그라운드에서의 전시는 어떠셨나요? <br></br>생생했던 관람의 경험을
-                다양한 유저들과 나눠보세요. <br></br>즐거웠던 놀이터에서의 기억을 더
-                오래도록 간직할 수 있을 거예요!
+                아트 그라운드에서의 전시는 어떠셨나요? <br></br>생생했던 관람의
+                경험을 다양한 유저들과 나눠보세요. <br></br>즐거웠던
+                놀이터에서의 기억을 더 오래도록 간직할 수 있을 거예요!
               </p>
 
               <button
@@ -225,22 +237,22 @@ const About = () => {
               alt="리뷰관련 이미지 혹은 아이콘"
             ></img>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
 
-      <main className={styles.mainReviewDetail}>
-        <section
+      <section className={styles.mainReviewDetail}>
+        <div
           className={styles.ReviewSection}
           data-aos="fade-up"
           data-aos-duration="3000"
         >
           {" "}
           <AboutRevSlider />
-        </section>
-      </main>
+        </div>
+      </section>
 
-      <main className={styles.mainExplain}>
-        <section className={styles.ExplainSection}>
+      <section className={styles.mainExplain}>
+        <div className={styles.ExplainSection}>
           <div
             className={styles.explainBorder}
             data-aos="fade-up"
@@ -269,11 +281,11 @@ const About = () => {
               </button>
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
 
-      <main className={styles.mainCount}>
-        <section className={styles.countSection}>
+      <section className={styles.mainCount}>
+        <div className={styles.countSection}>
           <div className={styles.conterTxtBox}>
             현재까지 수 많은 아티스트들이 아트그라운드에서 <br></br>작품을
             전시하고 있습니다.
@@ -282,16 +294,17 @@ const About = () => {
             <span>{Count1}+</span>
             <span>Piece of Art</span>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
 
-      <main className={styles.mainBottomTxt}>
-        <section className={styles.bottomSectionTxt}>
+      <section className={styles.mainBottomTxt}>
+        <div className={styles.bottomSectionTxt}>
           여러분도 지금 바로 artience가 되어 보세요.
-        </section>
-      </main>
-      <main className={styles.mainBottom}>
-        <section className={styles.bottomSection}>
+        </div>
+      </section>
+
+      <section className={styles.mainBottom}>
+        <div className={styles.bottomSection}>
           <button
             className={styles.bottomBtn}
             onClick={() => {
@@ -300,8 +313,8 @@ const About = () => {
           >
             갤러리 둘러보러가기
           </button>
-        </section>
-      </main>
+        </div>
+      </section>
     </div>
   );
 };
