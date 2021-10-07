@@ -96,7 +96,7 @@ https://art-ground.io/
 
   <details>
   <summary> 전시 신청 </summary>
-    <img width="727" src=""/>
+    <img width="727" src="https://user-images.githubusercontent.com/83934037/136417302-6f29bb9e-e150-48ff-98e9-be480df33ca9.gif"/>
   </details>
   
   <details>
@@ -117,6 +117,16 @@ https://art-ground.io/
    <details>
   <summary> 전시회 찜하기 해제 </summary>
     <img src="https://user-images.githubusercontent.com/79203932/136372588-5b67c09f-64ac-4b80-a6f5-ec3c8a6a8f0b.gif"/>
+  </details>
+  
+  <details>
+  <summary> 전시 감상 </summary>
+    <img width="727" src="https://user-images.githubusercontent.com/83934037/136418579-091b84e5-f044-42a2-8957-56262ebcdb94.gif"/>
+  </details>
+  
+  <details>
+  <summary> 전시 감상(모바일) </summary>
+    <img width="400" src="https://user-images.githubusercontent.com/83934037/136418162-e75c5f7b-cd59-41bc-8ced-55792d71863c.gif"/>
   </details>
   
 </details>
@@ -200,7 +210,7 @@ https://art-ground.io/
   
   <details>
    <summary>3D 전시관</summary>
-    <img width="727" src=""/>
+    <img width="727" src="https://user-images.githubusercontent.com/83934037/136419124-a80d41c4-82c9-4124-8502-b60af909d799.gif"/>
     
   </details>
   
