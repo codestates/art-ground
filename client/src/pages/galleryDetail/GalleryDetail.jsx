@@ -19,6 +19,7 @@ const GalleryDetail = ({ handle3dExhibition, location}) => {
   useEffect(() => {
     async function getAxiosData() {
       setExhibitionInfo(await getExhibitionInfo(Number(location.pathname.substring(15))))
+      console.log(await getExhibitionInfo(Number(location.pathname.substring(15))))
     }
     getAxiosData();
     setTimeout(()=> {

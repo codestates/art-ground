@@ -43,13 +43,21 @@ const Register = ({ userinfo, isLogin }) => {
     let sYear = date.getFullYear();
     let sMonth = date.getMonth() + 1;
     let sDate = date.getDate();
-    if(sMonth < 9){
+    if(sMonth < 10){
       sMonth = "0" + sMonth
     }
-    if(sDate < 9){
+    if(sDate < 10){
       sDate = "0" + sDate
     } 
     return `${sYear}-${sMonth}-${sDate}`;
+  }
+  const getByteB = (str) => {
+
+    let byte = 0;
+    for (let i=0; i<str.length; ++i) {
+      (str.charCodeAt(i) > 127) ? byte += 3 : byte++ ;
+    }
+    return byte;
   }
 
   const handleStartDate = (el) => {
@@ -143,7 +151,9 @@ const Register = ({ userinfo, isLogin }) => {
       arts.length === 0
     ){
       setErrorMessage("항목을 모두 입력하세요!🙏");
-    } else{
+    } else if(getByteB(content) > 255){
+      setErrorMessage("전시 설명을 100자 이내로 작성해주세요!🙏");
+    }else{
       setModalOpen(true);
       setErrorMessage(''); //에러메세지 다시 초기화
       createExhibition(title, strStartDate, strEndDate, type, content, isClicked, arts);
@@ -202,7 +212,7 @@ const Register = ({ userinfo, isLogin }) => {
       <div className={styles.categoryName}>전시 설명</div>
       <textarea className={styles.contentInput} 
       value={content}
-      placeholder="어떤 전시회인지 간단히 소개해주세요(100자 내외)" 
+      placeholder="어떤 전시회인지 간단히 소개해주세요(100자 이내)" 
       onChange={handleContent}/>
 
       {artCount.map(el => 
