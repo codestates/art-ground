@@ -999,6 +999,14 @@ label {
   .bottomBtn {
     font-size: 0.9rem;
   }
+  .secondHead {
+    font-size: 0.8rem;
+  }
+  .brand2 {
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem 0 3rem 0;
+    margin-bottom: 1rem;
+  }
 }
 /*화면전환*/
 

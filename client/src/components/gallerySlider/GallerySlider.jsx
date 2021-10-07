@@ -9,25 +9,25 @@ const GallerySlider = ({
   handleModalOpen
 }) => {
 
-  const [mouseDownClientX, setMouseDownClientX] = useState(null);
-  const [mouseUpClientX, setMouseUpClientX] = useState(null);
+  const [touchDownX, setTouchDownX] = useState(null);
+  const [touchUpX, setTouchUpX] = useState(null);
   const [swiped, setSwiped] = useState(false);
 
-  const onMouseDown = (e) => {
-    setMouseDownClientX(e.targetTouches[0].clientX);
+  const onTouchDown = (e) => {
+    setTouchDownX(e.targetTouches[0].clientX);
   };
 
-  const onMouseDrag = (e) => {
-    setMouseUpClientX(e.targetTouches[0].clientX)
+  const onTouchDrag = (e) => {
+    setTouchUpX(e.targetTouches[0].clientX)
     setSwiped(true);
   }
 
-  const onMouseUp = (e) => {
+  const onTouchUp = () => {
     if(swiped) {
-      if (mouseDownClientX - mouseUpClientX > 50) {
+      if (touchDownX - touchUpX > 50) {
         sliderUp();
       }
-      if (mouseDownClientX - mouseUpClientX < -50) {
+      if (touchDownX - touchUpX < -50) {
         sliderDown();
       }
     }
@@ -37,9 +37,9 @@ const GallerySlider = ({
 
   return(
     <div 
-    onTouchStart={onMouseDown}
-    onTouchMove={onMouseDrag}
-    onTouchEnd={onMouseUp}
+    onTouchStart={onTouchDown}
+    onTouchMove={onTouchDrag}
+    onTouchEnd={onTouchUp}
     className='outer'>
       <div className={`sliderOuter${btnSlider}`}>
         {gallerySelected.images.map(el =>
