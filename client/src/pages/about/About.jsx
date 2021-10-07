@@ -53,10 +53,8 @@ const About = () => {
                 누구나 예술가가 될 수 있는 공간
               </h1>
               <p data-aos="fade-down" data-aos-duration="3000">
-
-              아트그라운드는 온라인 갤러리 대관 서비스로<br></br>
-              누구나 자유롭게 작품 활동을 펼칠 수 있는 열린 놀이터입니다.
-
+                아트그라운드는 온라인 갤러리 대관 서비스로<br></br>
+                누구나 자유롭게 작품 활동을 펼칠 수 있는 열린 놀이터입니다.
               </p>
             </div>
           </div>
@@ -70,29 +68,44 @@ const About = () => {
             data-aos="fade-up"
             data-aos-duration="2000"
           >
-
             작가도 관람객도, 아트 그라운드에서는 모두가 아티스트입니다.
           </div>
-          <div data-aos="fade-up" data-aos-duration="3000" className={styles.brand2}>
+          <div
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            className={styles.brand2}
+          >
             <div className={styles.img1Wrap}>
-              <img className={styles.img1} src="../../../images/image-4.webp"></img>
+              <img
+                className={styles.img1}
+                src="../../../images/image-4.webp"
+              ></img>
             </div>
             <div className={styles.img3Wrap}>
-              <img className={styles.img3} src="../../../images/image-3.webp"></img>
+              <img
+                className={styles.img3}
+                src="../../../images/image-3.webp"
+              ></img>
             </div>
             <div className={styles.img4Wrap}>
-              <img className={styles.img4} src="../../../images/image-1.webp"></img>
+              <img
+                className={styles.img4}
+                src="../../../images/image-1.webp"
+              ></img>
             </div>
             <div className={styles.img5Wrap}>
-              <img className={styles.img5} src="../../../images/image-5.webp"></img>
+              <img
+                className={styles.img5}
+                src="../../../images/image-5.webp"
+              ></img>
             </div>
           </div>
-           <img  
-            className={styles.img2} src="../../../images/Black on White.png"></img>
-        </section>
-      </main>
-      
-
+          <img
+            className={styles.img2}
+            src="../../../images/Black on White.png"
+          ></img>
+        </div>
+      </section>
 
       {/* <main className={styles.mainSlider}>
         <AboutSlider />
@@ -211,11 +224,9 @@ const About = () => {
                 전시회의 생생한 <br></br>경험을 나누세요
               </h3>
               <p>
-
-                아트그라운드에서의 전시는 어떠셨나요? <br></br>생생했던 관람의 경험을
-                다양한 유저들과 나눠보세요. <br></br>즐거웠던 놀이터에서의 기억을 더
-                오래도록 간직할 수 있을 거예요!
-
+                아트그라운드에서의 전시는 어떠셨나요? <br></br>생생했던 관람의
+                경험을 다양한 유저들과 나눠보세요. <br></br>즐거웠던
+                놀이터에서의 기억을 더 오래도록 간직할 수 있을 거예요!
               </p>
 
               <button
