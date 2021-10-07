@@ -138,7 +138,7 @@ https://art-ground.io/
   
   <details>
    <summary>리뷰 등록</summary>
-    <img src=""/>
+    <img src="https://user-images.githubusercontent.com/79203932/136377157-a1fad93c-8f2e-4e7e-bf2e-22d2082d973a.gif"/>
   </details>
   
   <details>
