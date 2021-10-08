@@ -3,7 +3,6 @@ import styles from "./About.module.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useHistory } from "react-router-dom";
-import AboutSlider from "../../components/aboutSlider/AboutSlider";
 import AboutRevSlider from "../../components/aboutRevSlider/AboutRevSlider";
 
 AOS.init();
@@ -47,6 +46,7 @@ const About = () => {
             <img
               src="../../../images/main2.jpeg"
               className={styles.backgroundImg}
+              alt="about"
             ></img>
             <div className={styles.mainContentBox}>
               <h1 data-aos="fade-down" data-aos-duration="3000">
@@ -68,7 +68,7 @@ const About = () => {
             data-aos="fade-up"
             data-aos-duration="2000"
           >
-            작가도 관람객도, 아트 그라운드에서는 모두가 아티스트입니다.
+            작가도 관람객도,<br></br>아트 그라운드에서는 모두가 아티스트입니다.
           </div>
           <div
             data-aos="fade-up"
@@ -79,30 +79,35 @@ const About = () => {
               <img
                 className={styles.img1}
                 src="../../../images/image-4.webp"
+                alt="about"
               ></img>
             </div>
             <div className={styles.img3Wrap}>
               <img
                 className={styles.img3}
                 src="../../../images/image-3.webp"
+                alt="about"
               ></img>
             </div>
             <div className={styles.img4Wrap}>
               <img
                 className={styles.img4}
                 src="../../../images/image-1.webp"
+                alt="about"
               ></img>
             </div>
             <div className={styles.img5Wrap}>
               <img
                 className={styles.img5}
                 src="../../../images/image-5.webp"
+                alt="about"
               ></img>
             </div>
           </div>
           <img
             className={styles.img2}
             src="../../../images/Black on White.png"
+            alt="about"
           ></img>
         </div>
       </section>
@@ -187,7 +192,7 @@ const About = () => {
           data-aos-duration="3000"
         >
           <div className={styles.exDetailImg}>
-            <img alt="관람" src="../../../images/about_video2.gif"></img>
+            <img alt="about" src="../../../images/about_video2.gif"></img>
           </div>
           <div className={styles.exDetailTxt}>
             <span>Premium Gallery(3D)</span>
@@ -204,11 +209,11 @@ const About = () => {
       <section className={styles.mainExplain}>
         <div className={styles.ExplainSection}>
           <div
-            className={styles.explainBorder}
+            className={styles.explainBorder2}
             data-aos="fade-up"
             data-aos-duration="3000"
           >
-            <div>
+            <div className={styles.secondEx}>
               <h3>
                 전시회의 생생한 <br></br>경험을 나누세요
               </h3>
@@ -218,16 +223,19 @@ const About = () => {
                 오래도록 간직할 수 있을 거예요!
               </p>
 
-              <button
-                className={styles.btn}
-                onClick={() => {
-                  history.push("/reviewlist");
-                }}
-              >
-                리뷰보러가기
-              </button>
+              <div className={styles.btnWrap}> 
+                <button
+                  className={styles.btn}
+                  onClick={() => {
+                    history.push("/reviewlist");
+                  }}
+                >
+                  리뷰보러가기
+                </button>
+              </div>
             </div>
             <img
+              className={styles.secondImg}
               src="../../../images/about_img2.png"
               alt="리뷰관련 이미지 혹은 아이콘"
             ></img>

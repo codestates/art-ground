@@ -70,9 +70,9 @@
 .buttonWrap {
   display: flex;
   justify-content: flex-end;
+  margin-top: 0.5rem;
 }
 .button {
-  /* margin: 0 1rem; */
   width: 10rem;
   text-align: center;
   height: 2.5rem;
@@ -90,6 +90,19 @@
   border: 1px solid rgb(210, 210, 210);
   background-color: white;
   color: rgb(66, 66, 66);
+}
+
+.exClosed {
+  width: 10rem;
+  text-align: center;
+  height: 2.5rem;
+  border: 1px solid rgb(203, 203, 203);
+  padding: 0.7rem 0.7rem;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 0.9rem;
+  color: rgb(111, 111, 111);
+  white-space: nowrap;
 }
 
 @media screen and (max-width: 768px) {

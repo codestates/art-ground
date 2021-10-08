@@ -6,7 +6,6 @@ import ReviewLogin from '../../components/modals/ReviewLogin';
 import ReviewArtInfo from '../../components/reviewArtInfo/ReviewArtInfo';
 import { withRouter } from 'react-router';
 import GalleryModal from '../../components/modals/GalleryModal';
-import ClosedExhibition from '../../components/modals/ClosedExhibition';
 
 const ReviewDetail = ({ isLogin, userinfo, location }) => {
 
@@ -15,7 +14,6 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
   const [reply, setReply] = useState('');
   const [loginModal, setLoginModal] = useState(false);
   const [premiumModal, setPremiumModal] = useState(false);
-  const [closedExModal, setClosedExModal] = useState(false);
 
   const [replyList, setReplyList] = useState([]); //랜더링할 데이터(스크롤할 때마다 +)
   const [hiddenReplyList, setHiddenReplyList] = useState([]); //랜더링하기 전 숨겨놓는 데이터(스크롤 할 때마다 -)
@@ -104,10 +102,6 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
     setRerender(!rerender); //컴포넌트 다시 랜더링 시키기 위한 용도
   }
 
-  // const closeModal = () => {
-  //   setLoginModal(false);
-  // }
-  
 
   if(pageLoading){
     return (
@@ -124,8 +118,7 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
       isLogin={isLogin}
       reviewSelected={exhibitionInfo}
       thumbnail={thumbnail}
-      handlePremiumModal={() => setPremiumModal(true)}
-      handleModalClosedEx={() => setClosedExModal(true)}
+      handleModalPremium={() => setPremiumModal(true)}
       />
 
       <span className={styles.review}>리뷰</span>
@@ -172,10 +165,6 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
         premiumBlocked={premiumModal}
         closeModal={() => setPremiumModal(false)} />
       ): null} 
-
-      {closedExModal? (
-        <ClosedExhibition closeModal={() => setClosedExModal(false)} />
-      ): null}  
 
     </section> 
   )

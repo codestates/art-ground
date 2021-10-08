@@ -114,16 +114,16 @@ label {
 /*섹션2: 슬라이더*/
 .mainSlider {
   background-color: #f1f1f1;
-  max-width: 1200px;
+  max-width: 1024px;
   width: 100%;
 }
 .brand2 {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1024px;
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 4rem 0 5rem 0;
+  padding: 4rem 1rem 5rem 1rem;
   margin-bottom: 3rem;
 }
 
@@ -147,7 +147,7 @@ label {
   padding-bottom: 2rem;
 }
 .img1 {
-  width: 30rem;
+  width: 27rem;
   border-radius: 10px;
   z-index: 2;
   -webkit-filter: grayscale(100%);
@@ -203,7 +203,7 @@ label {
   padding-top: 2rem;
 }
 .img5 {
-  width: 30rem;
+  width: 27rem;
   border-radius: 10px;
   -webkit-filter: grayscale(100%);
   z-index: -1;
@@ -247,14 +247,15 @@ label {
   background-color: #f1f1f1;
 }
 .ExplainSection {
-  width: 1024px;
+  max-width: 1024px;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
-.explainBorder {
+.explainBorder,
+.explainBorder2 {
   width: 100%;
   height: 50%;
   margin: 12rem 0;
@@ -266,7 +267,8 @@ label {
   padding: 0 0.2rem;
 }
 
-.explainBorder h3 {
+.explainBorder h3,
+.explainBorder2 h3 {
   margin-bottom: 2rem;
   font-size: 2.5rem;
   font-weight: 100;
@@ -275,7 +277,8 @@ label {
   line-height: 150%;
   white-space: nowrap;
 }
-.explainBorder p {
+.explainBorder p,
+.explainBorder2 p {
   font-family: "paybooc-Light";
   color: #484848;
   font-size: 0.95rem;
@@ -286,13 +289,30 @@ label {
 .explainBorder img {
   width: 60%;
   height: 100%;
-  margin: 1rem 2rem;
+  margin: 1rem 1rem 1rem 2rem;
   border-radius: 12px;
   border: 1px solid rgb(213, 213, 213);
   box-shadow: 1px 5px 20px -5px rgb(199, 199, 199);
 }
+
 .explainBorder > div {
   padding: 2.5rem 2rem;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+}
+
+.explainBorder2 img {
+  width: 55%;
+  height: 100%;
+  margin: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgb(213, 213, 213);
+  box-shadow: 1px 5px 20px -5px rgb(199, 199, 199);
+}
+.explainBorder2 > div {
+  padding: 2.5rem 2rem 2.5rem 3rem;
   width: 40%;
   display: flex;
   flex-direction: column;
@@ -552,10 +572,11 @@ label {
     width: 100%;
   }
   .explainBorder > div {
-    padding: 1rem;
-  }
-  .explainBorder img {
-    margin: 0 0.5rem;
+    padding: 2.5rem 2rem 2.5rem 1rem;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
   }
 }
 @media screen and (max-width: 1024px) {
@@ -581,7 +602,8 @@ label {
   .img5 {
     width: 25rem;
   }
-  .explainBorder h3 {
+  .explainBorder h3,
+  .explainBorder2 h3 {
     font-size: 2rem;
   }
   .exDetailTxt span:nth-child(1) {
@@ -603,11 +625,13 @@ label {
     width: 100%;
     height: 100%;
   }
-  .explainBorder h3 {
+  .explainBorder h3,
+  .explainBorder2 h3 {
     padding: 0.2rem;
     font-size: 1.5rem;
   }
-  .explainBorder p {
+  .explainBorder p,
+  .explainBorder2 p {
     font-size: 0.8rem;
   }
 
@@ -637,6 +661,13 @@ label {
 
   .bottomSection {
     width: 100%;
+  }
+  .explainBorder2 > div {
+    padding: 2.5rem 2rem 2.5rem 3rem;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
   }
 }
 @media screen and (max-width: 891px) {
@@ -703,7 +734,8 @@ label {
     width: 100%;
     height: 100%;
   }
-  .explainBorder {
+  .explainBorder,
+  .explainBorder2 {
     height: 100%;
     margin: 7rem 0;
     display: flex;
@@ -711,29 +743,38 @@ label {
     align-items: center;
     flex-direction: column;
   }
-  .explainBorder h3 {
+  .explainBorder h3,
+  .explainBorder2 h3 {
     width: 100%;
     padding: 0.5rem 0.2rem;
     font-size: 1.5rem;
     text-align: center;
+    margin-bottom: 0.8rem;
   }
-  .explainBorder p {
+  .explainBorder p,
+  .explainBorder2 p {
     width: 100%;
     font-size: 0.8rem;
     text-align: center;
   }
 
-  .explainBorder img {
+  .explainBorder img,
+  .explainBorder2 img {
     width: 80%;
     height: 50%;
   }
-  .explainBorder > div {
+  .explainBorder > div,
+  .explainBorder2 > div {
     padding: 1.5rem;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+  }
+  .btn {
+    margin-top: 3rem;
+    font-size: 0.9rem;
   }
 
   /*섹션4: 관람디테일 타이틀(하얀색):*/
@@ -844,7 +885,8 @@ label {
   .brand h1 {
     font-size: 1.5rem;
   }
-  .explainBorder {
+  .explainBorder,
+  .explainBorder2 {
     margin: 4rem 0;
   }
   .secondHead {
@@ -922,19 +964,22 @@ label {
     height: 30vh;
   }
 
-  .explainBorder > div {
+  .explainBorder > div,
+  .explainBorder2 > div {
     height: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-  .explainBorder h3 {
+  .explainBorder h3,
+  .explainBorder2 h3 {
     font-size: 1rem;
 
     margin-bottom: 0;
   }
-  .explainBorder p {
+  .explainBorder p,
+  .explainBorder2 p {
     font-size: 0.7rem;
     margin-bottom: 0;
   }
