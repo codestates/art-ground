@@ -138,77 +138,76 @@ label {
 .img1Wrap {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
+  align-items: center;
   height: 100%;
-  padding-right: 2rem;
-  padding-bottom: 2rem;
+  margin-right: -1rem;
+  /* padding-bottom: 1rem; */
 }
 .img1 {
-  width: 27rem;
+  width: 29rem;
   border-radius: 10px;
   z-index: 2;
-  -webkit-filter: grayscale(100%);
-  box-shadow: 3px 3px 3px rgb(181, 181, 181);
+  box-shadow: 3px 3px 5px rgb(181, 181, 181);
 }
+
 .img2 {
   position: absolute;
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 15rem;
-  height: 15rem;
+  width: 18rem;
+  height: 18rem;
   border-radius: 50%;
-  z-index: 50;
-  border: 1px solid rgb(232, 232, 232);
-  box-shadow: 1px 3px 5px rgb(181, 181, 181);
+  z-index: 9;
+  opacity: 0.992;
+  /* border: 1px solid rgb(232, 232, 232); */
+  box-shadow: 3px 3px 5px rgb(85, 85, 85);
   image-rendering: -webkit-optimize-contrast;
   backface-visibility: hidden;
   background: white;
+  animation: float 1s linear 0s infinite alternate;
 }
 .img3Wrap {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: flex-start;
   height: 100%;
-  padding-left: 2rem;
-  padding-bottom: 2rem;
+  /* padding-left: 1rem; */
+  margin-bottom: -1rem;
 }
 .img3 {
-  width: 18rem;
+  width: 20rem;
   border-radius: 10px;
-  -webkit-filter: grayscale(100%);
-  box-shadow: 3px 3px 3px rgb(181, 181, 181);
+  box-shadow: 3px 3px 5px rgb(181, 181, 181);
   z-index: 1;
 }
 .img4Wrap {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: flex-start;
   height: 100%;
-  padding-right: 2rem;
-  padding-top: 2rem;
+  /* padding-right: 1rem; */
+  margin-top: -1rem;
 }
 .img4 {
-  width: 18rem;
+  width: 20rem;
   border-radius: 10px;
-  -webkit-filter: grayscale(100%);
   z-index: 1;
-  box-shadow: 3px 3px 3px rgb(181, 181, 181);
+  box-shadow: 3px 3px 5px rgb(181, 181, 181);
 }
 .img5Wrap {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   height: 100%;
-  padding-left: 2rem;
-  padding-top: 2rem;
+  margin-left: -1rem;
+  /* padding-top: 1rem; */
 }
 .img5 {
-  width: 27rem;
+  width: 29rem;
   border-radius: 10px;
-  -webkit-filter: grayscale(100%);
   z-index: -1;
-  box-shadow: 3px 3px 3px rgb(181, 181, 181);
+  box-shadow: 3px 3px 5px rgb(181, 181, 181);
 }
 
 /* 움직이는 화살표 */
@@ -590,22 +589,6 @@ label {
   .brand h1 {
     font-size: 2.5rem;
   }
-  .img1 {
-    width: 25rem;
-  }
-  .img2 {
-    width: 12rem;
-    height: 12rem;
-  }
-  .img3 {
-    width: 17rem;
-  }
-  .img4 {
-    width: 17rem;
-  }
-  .img5 {
-    width: 25rem;
-  }
   .explainBorder h3,
   .explainBorder2 h3 {
     font-size: 2rem;
@@ -674,40 +657,43 @@ label {
     /* justify-content: space-around; */
   }
 }
-@media screen and (max-width: 891px) {
+@media screen and (max-width: 933px) {
   .img1 {
-    width: 20rem;
+    width: 25rem;
   }
   .img2 {
-    top: 54.5%;
-    width: 10rem;
-    height: 10rem;
+    top: 55%;
+    width: 16rem;
+    height: 16rem;
+  }
+  .img3 {
+    width: 16rem;
+  }
+  .img4 {
+    width: 17rem;
+  }
+  .img5 {
+    width: 25rem;
+  }
+}
+
+@media screen and (max-width: 816px) {
+  .img1 {
+    width: 22rem;
+  }
+  .img2 {
+    top: 54%;
+    width: 14rem;
+    height: 14rem;
   }
   .img3 {
     width: 14rem;
   }
   .img4 {
-    width: 14.5rem;
+    width: 15rem;
   }
   .img5 {
-    width: 20rem;
-  }
-  .img1Wrap {
-    padding-right: 1rem;
-    padding-bottom: 1rem;
-  }
-  .img3Wrap {
-    padding-left: 1rem;
-    padding-bottom: 1rem;
-  }
-
-  .img4Wrap {
-    padding-right: 1rem;
-    padding-top: 1rem;
-  }
-  .img5Wrap {
-    padding-left: 1rem;
-    padding-top: 1rem;
+    width: 22rem;
   }
 }
 @media screen and (max-width: 768px) {
@@ -861,23 +847,24 @@ label {
     font-size: 1.5rem;
   }
 }
+
 @media screen and (max-width: 700px) {
   .img1 {
-    width: 14rem;
+    width: 18.5rem;
   }
   .img2 {
     top: 54%;
-    width: 7rem;
-    height: 7rem;
+    width: 12rem;
+    height: 12rem;
   }
   .img3 {
-    width: 9rem;
+    width: 11.5rem;
   }
   .img4 {
-    width: 9rem;
+    width: 12.5rem;
   }
   .img5 {
-    width: 15rem;
+    width: 18.5rem;
   }
 }
 @media screen and (max-width: 580px) {
@@ -926,41 +913,43 @@ label {
     width: 100%;
     padding: 4rem 0;
   }
-}
-@media screen and (max-width: 524px) {
-  .img1 {
-    width: 9rem;
-  }
   .img2 {
-    top: 55%;
-    width: 5rem;
-    height: 5rem;
+    top: 50%;
+    width: 10rem;
+    height: 10rem;
   }
-  .img3 {
-    width: 6.5rem;
-  }
-  .img4 {
-    width: 6.5rem;
-  }
-  .img5 {
-    width: 9rem;
-  }
-  .img1Wrap {
-    padding-right: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-  .img3Wrap {
-    padding-left: 0.5rem;
-    padding-bottom: 0.5rem;
+  .img1 {
+    width: 16rem;
   }
 
-  .img4Wrap {
-    padding-right: 0.5rem;
-    padding-top: 0.5rem;
+  .img3 {
+    width: 10rem;
   }
-  .img5Wrap {
-    padding-left: 0.5rem;
-    padding-top: 0.5rem;
+  .img4 {
+    width: 10.5rem;
+  }
+  .img5 {
+    width: 16rem;
+  }
+}
+
+@media screen and (max-width: 524px) {
+  .img1 {
+    width: 14rem;
+  }
+  .img2 {
+    top: 52%;
+    width: 8rem;
+    height: 8rem;
+  }
+  .img3 {
+    width: 9rem;
+  }
+  .img4 {
+    width: 9.5rem;
+  }
+  .img5 {
+    width: 14rem;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1067,6 +1056,48 @@ label {
     margin-bottom: 1rem;
   }
 }
+@media screen and (max-width: 440px) {
+  .img1 {
+    width: 12rem;
+    box-shadow: none;
+  }
+  .img2 {
+    top: 54.5%;
+    width: 7rem;
+    height: 7rem;
+  }
+  .img3 {
+    width: 8rem;
+    box-shadow: none;
+  }
+  .img4 {
+    width: 8.5rem;
+    box-shadow: none;
+  }
+  .img5 {
+    width: 12rem;
+    box-shadow: none;
+  }
+}
+@media screen and (max-width: 374px) {
+  .img1 {
+    width: 10rem;
+  }
+  .img2 {
+    top: 55%;
+    width: 6rem;
+    height: 6rem;
+  }
+  .img3 {
+    width: 7rem;
+  }
+  .img4 {
+    width: 7.5rem;
+  }
+  .img5 {
+    width: 10rem;
+  }
+}
 /*화면전환*/
 
 @keyframes motion {
@@ -1077,6 +1108,30 @@ label {
     margin-top: 20px;
   }
 }
+@keyframes float {
+  0% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: -0.5rem;
+  }
+}
+/* @keyframes imagemove {
+  from {
+    width: 0;
+  }
+  to {
+    width: 27rem;
+  }
+}
+@keyframes imagemove2 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 18rem;
+  }
+} */
 
 @keyframes fadein {
   from {
