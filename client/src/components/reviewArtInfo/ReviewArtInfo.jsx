@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router';
 import styles from './ReviewArtInfo.module.css';
 
@@ -7,7 +7,7 @@ const ReviewArtInfo = ({
   reviewSelected, 
   thumbnail, 
   handleModalPremium,
-  handleModalClosedEx }) => {
+  }) => {
 
   const history = useHistory();
 
@@ -15,11 +15,7 @@ const ReviewArtInfo = ({
     if(!isLogin && reviewSelected.exhibit_type === 2){
       handleModalPremium();
     } else{
-      if(reviewSelected.exhibit_status === 2){
-        handleModalClosedEx();
-      } else{
-        history.push(`/gallerydetail/${reviewSelected.id}`);
-      }
+      history.push(`/gallerydetail/${reviewSelected.id}`);
     } 
   }
 
@@ -49,7 +45,9 @@ const ReviewArtInfo = ({
           </div>  
         </div>
         <div className={styles.buttonWrap}>
-          <span className={styles.button} onClick={goGalleryDetailPage}>전시 감상하러 가기</span>
+        {reviewSelected.status === 2 
+        ? <span className={styles.exClosed} >종료된 전시입니다</span> 
+        : <span className={styles.button} onClick={goGalleryDetailPage}>전시 감상하러 가기</span>}
         </div>
       </div>
     </div>
