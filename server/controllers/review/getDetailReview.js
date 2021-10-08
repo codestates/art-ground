@@ -1,4 +1,3 @@
-const e = require("express");
 const { comments, users, exhibition, images } = require("../../models");
 const {
   getCached,
@@ -44,7 +43,7 @@ module.exports.getDetailReview = async (req, res) => {
         "end_date",
         "genre_hashtags",
         "status",
-        "exhibit_type ",
+        "exhibit_type",
       ],
 
       where: {
