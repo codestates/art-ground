@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import ReviewDelModal from "../modals/ReviewDelModal";
 
 const AdminReview = ({ el }) => {
-  console.log(el, "adminrevdata");
+  //console.log(el, "adminrevdata");
   const [deleteModal, setDeleteModal] = useState(false);
 
   const imgurl = el.user.profile_img
@@ -30,7 +30,7 @@ const AdminReview = ({ el }) => {
                 {" "}
                 전시명: {el.exhibition.title}
               </div>
-              <div className={styles.author}>
+              <div className={styles.user}>
                 {" "}
                 댓글 작성자: {el.user.nickname}
               </div>

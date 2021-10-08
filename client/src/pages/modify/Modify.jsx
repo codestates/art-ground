@@ -1,16 +1,16 @@
 import styles from "./Modify.module.css";
 import { useState } from "react";
-
+import { deleteAccount } from "../../api/mypageApi";
 import InfoModify from "../../components/infoModify/InfoModify";
 import PassModify from "../../components/passModify/PassModify";
-
+import axios from "axios";
 require("dotenv").config();
-
+axios.defaults.withCredentials = true;
 const Modify = ({ userinfo, setUserinfo }) => {
   const [editFront, setEditFront] = useState(true);
   const [infoEditPage, setInfoEditPage] = useState(false);
   const [passEditPage, setPassEditPage] = useState(false);
-
+  const [modalOpen, setModalOpen] = useState(false);
   const clickInfoEdit = () => {
     setEditFront(false);
     setInfoEditPage(true);
@@ -23,6 +23,12 @@ const Modify = ({ userinfo, setUserinfo }) => {
     setPassEditPage(true);
   };
 
+  const deleteId = () => {
+    setModalOpen(true);
+  };
+  const clickDelete = () => {
+    deleteAccount();
+  };
   const img = !userinfo.profile_img
     ? "https://images.velog.io/images/beablessing/post/54131e26-0389-412e-b88d-a8b6a97600a8/noimg.png"
     : userinfo.profile_img;
@@ -43,6 +49,9 @@ const Modify = ({ userinfo, setUserinfo }) => {
                 </span>
               </div>
               <div className={styles.infoBtnBox}>
+                <button className={styles.deleteBtn} onClick={deleteId}>
+                  회원탈퇴
+                </button>
                 <button className={styles.infoBtn} onClick={clickInfoEdit}>
                   수정
                 </button>
@@ -75,6 +84,26 @@ const Modify = ({ userinfo, setUserinfo }) => {
           setEditFront={setEditFront}
           setUserinfo={setUserinfo}
         />
+      ) : null}
+      {modalOpen ? (
+        <section className={styles.modalContainer}>
+          <div className={styles.modalBox}>
+            <span className={styles.modalText}>정말 탈퇴하시겠습니까?</span>
+            <div className={styles.btnBox}>
+              <button className={styles.delBtn} onClick={clickDelete}>
+                탈퇴하기
+              </button>
+              <button
+                className={styles.modifyBtn}
+                onClick={() => {
+                  setModalOpen(false);
+                }}
+              >
+                아니오
+              </button>
+            </div>
+          </div>
+        </section>
       ) : null}
     </section>
   );
