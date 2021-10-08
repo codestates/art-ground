@@ -286,9 +286,10 @@ label {
 .explainBorder img {
   width: 60%;
   height: 100%;
-  margin: 0 2rem;
-  border-radius: 10px;
+  margin: 1rem 2rem;
+  border-radius: 12px;
   border: 1px solid rgb(213, 213, 213);
+  box-shadow: 1px 5px 20px -5px rgb(199, 199, 199);
 }
 .explainBorder > div {
   padding: 2.5rem 2rem;
@@ -346,6 +347,7 @@ label {
   width: 85%;
   height: auto;
   border-radius: 10px;
+  /* box-shadow: 1px 3px 3px rgb(181, 181, 181); */
 }
 .exDetailTxt {
   margin-top: 1.5rem;
