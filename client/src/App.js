@@ -71,7 +71,7 @@ function App() {
     history.push("/about");
   };
 
-  const [gallerySelected, setGallerySelected] = useState(null);
+  
   const [threeDSelected, setThreeDSelected] = useState(null);
 
   return (
@@ -170,8 +170,6 @@ function App() {
               userinfo={userinfo}
               setUserinfo={setUserinfo}
               setIsLogin={setIsLogin}
-              gallerySelected={gallerySelected}
-              selectGallery={(el) => setGallerySelected(el)}
             />
           ) : (
             <Loading />
