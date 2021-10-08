@@ -28,8 +28,8 @@ const AboutRevSlider = (props) => {
       img: "https://images.velog.io/images/beablessing/post/6d329d22-be8b-40a6-8e26-1b81f0171a1e/%EC%88%9C%EB%A0%A4%EB%8B%98.jpg",
     },
     {
-      nickname: "일상에서 마주한 풍경 님",
-      title: "전시명: 자아성찰",
+      nickname: "박지영 님",
+      title: "전시명: 일상에서 마주한 풍경",
       review:
         "작가의 자아성찰이 잘 그려졌던 작품이었다.이런점은 이러했고,어떤점은 조금 어려운 난해하게 느껴졌던 부분도 있었다. 하지만 전반적으로 어쩌구저쩌구 그래서 매우 만족스러운 전시회였다.",
       img: "https://images.velog.io/images/beablessing/post/25809c97-d973-4a68-b8ca-0f834128d3ed/Screenshot%20from%202021-09-30%2005-11-38.png",
