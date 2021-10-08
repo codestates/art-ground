@@ -273,6 +273,7 @@ label {
   font-family: "paybooc-Bold";
   color: rgb(55, 55, 55);
   line-height: 150%;
+  white-space: nowrap;
 }
 .explainBorder p {
   font-family: "paybooc-Light";
@@ -280,11 +281,15 @@ label {
   font-size: 0.95rem;
   font-weight: 100;
   line-height: 170%;
+  white-space: nowrap;
 }
 .explainBorder img {
   width: 60%;
   height: 100%;
-  padding: 0 2rem;
+  margin: 1rem 2rem;
+  border-radius: 12px;
+  border: 1px solid rgb(213, 213, 213);
+  box-shadow: 1px 5px 20px -5px rgb(199, 199, 199);
 }
 .explainBorder > div {
   padding: 2.5rem 2rem;
@@ -342,6 +347,7 @@ label {
   width: 85%;
   height: auto;
   border-radius: 10px;
+  /* box-shadow: 1px 3px 3px rgb(181, 181, 181); */
 }
 .exDetailTxt {
   margin-top: 1.5rem;
@@ -511,7 +517,7 @@ label {
   opacity: 0.8;
 }
 
-@media screen and (max-width: 1240px) {
+@media screen and (max-width: 1024px) {
   /*섹션2: 슬라이더*/
   .mainSlider {
     background-color: #f1f1f1;
@@ -544,6 +550,12 @@ label {
 
   .ReviewSection {
     width: 100%;
+  }
+  .explainBorder > div {
+    padding: 1rem;
+  }
+  .explainBorder img {
+    margin: 0 0.5rem;
   }
 }
 @media screen and (max-width: 1024px) {
