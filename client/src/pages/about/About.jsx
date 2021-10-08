@@ -112,8 +112,7 @@ const About = () => {
             data-aos-duration="2000"
           >
             <img
-              src="    ../../../images/main.jpeg
-              "
+              src="../../../images/about_img.png"
               alt="관람관련 이미지 혹은 아이콘"
             ></img>
             <div>
@@ -209,7 +208,7 @@ const About = () => {
               <p>
 
                 아트그라운드에서의 전시는 어떠셨나요? <br></br>생생했던 관람의 경험을
-                다양한 유저들과 나눠보세요. <br></br>즐거웠던 놀이터에서의 기억을 더
+                다양한 유저들과 나눠보세요. <br></br>즐거웠던 놀이터에서의 기억을 <br></br>더
                 오래도록 간직할 수 있을 거예요!
 
               </p>
@@ -224,7 +223,7 @@ const About = () => {
               </button>
             </div>
             <img
-              src="../../../images/main2.jpeg"
+              src="../../../images/about_img2.png"
               alt="리뷰관련 이미지 혹은 아이콘"
             ></img>
           </div>
@@ -250,7 +249,7 @@ const About = () => {
             data-aos-duration="3000"
           >
             <img
-              src="../../../images/main2.jpeg"
+              src="../../../images/about_img3.png"
               alt="대관관련 이미지 혹은 아이콘"
             ></img>
             <div>

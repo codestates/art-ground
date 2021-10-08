@@ -196,7 +196,10 @@ function App() {
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
           />
-          <Gallery isLogin={isLogin} userinfo={userinfo} />
+          <Gallery 
+          isLogin={isLogin} 
+          userinfo={userinfo} 
+          />
           <ScrollButton />
         </Route>
         <Route path="/gallerydetail/:id">
@@ -207,7 +210,9 @@ function App() {
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
           />
-          <GalleryDetail handle3dExhibition={(el) => setThreeDSelected(el)} />
+          <GalleryDetail 
+          handle3dExhibition={(el) => setThreeDSelected(el)} 
+          />
           <ScrollButton />
         </Route>
         <Route path="/reviewlist">
@@ -229,7 +234,10 @@ function App() {
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
           />
-          <ReviewDetail userinfo={userinfo} isLogin={isLogin} />
+          <ReviewDetail 
+          userinfo={userinfo} 
+          isLogin={isLogin} 
+          />
           <ScrollButton />
         </Route>
         <Route path="/register">
@@ -240,11 +248,16 @@ function App() {
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
           />
-          <Register userinfo={userinfo} isLogin={isLogin} />
+          <Register 
+          userinfo={userinfo} 
+          isLogin={isLogin} 
+          />
           <ScrollButton />
         </Route>
         <Route path="/3dgallery">
-          <ThreeDGallery threeDSelected={threeDSelected} />
+          <ThreeDGallery 
+          threeDSelected={threeDSelected} 
+          />
         </Route>
         <Route exact path="/modify">
           <Navbar
