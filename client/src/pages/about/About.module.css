@@ -44,11 +44,8 @@ label {
   height: 90vh;
   background-color: none;
   width: 100%;
-  /* height: 90vh; */
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
+
 .mainBrand2 {
   /* height: 100vh; */
   background-color: none;
@@ -151,10 +148,11 @@ label {
   border-radius: 10px;
   z-index: 2;
   -webkit-filter: grayscale(100%);
+  box-shadow: 3px 3px 3px rgb(181, 181, 181);
 }
 .img2 {
   position: absolute;
-  top: 53%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 15rem;
@@ -162,9 +160,10 @@ label {
   border-radius: 50%;
   z-index: 50;
   border: 1px solid rgb(232, 232, 232);
-  box-shadow: 1px 3px 3px rgb(181, 181, 181);
+  box-shadow: 1px 3px 5px rgb(181, 181, 181);
   image-rendering: -webkit-optimize-contrast;
   backface-visibility: hidden;
+  background: white;
 }
 .img3Wrap {
   display: flex;
@@ -178,6 +177,7 @@ label {
   width: 18rem;
   border-radius: 10px;
   -webkit-filter: grayscale(100%);
+  box-shadow: 3px 3px 3px rgb(181, 181, 181);
   z-index: 1;
 }
 .img4Wrap {
@@ -193,6 +193,7 @@ label {
   border-radius: 10px;
   -webkit-filter: grayscale(100%);
   z-index: 1;
+  box-shadow: 3px 3px 3px rgb(181, 181, 181);
 }
 .img5Wrap {
   display: flex;
@@ -207,6 +208,7 @@ label {
   border-radius: 10px;
   -webkit-filter: grayscale(100%);
   z-index: -1;
+  box-shadow: 3px 3px 3px rgb(181, 181, 181);
 }
 
 /* 움직이는 화살표 */
@@ -335,7 +337,7 @@ label {
   width: 1024px;
   height: 100%;
   margin: 0 auto;
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-family: "paybooc-Light";
   line-height: 180%;
 }
@@ -364,7 +366,7 @@ label {
   align-items: center;
 }
 .exDetailImg img {
-  width: 85%;
+  width: 80%;
   height: auto;
   border-radius: 10px;
   /* box-shadow: 1px 3px 3px rgb(181, 181, 181); */
@@ -437,7 +439,7 @@ label {
   text-align: center;
   color: white;
   line-height: 2;
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 .conterBox {
   font-family: "paybooc-Light";
@@ -532,9 +534,11 @@ label {
   width: 10rem;
   transition: 0.3s;
   font-size: 1rem;
+  font-family: "paybooc-Light";
 }
 .btn:hover {
-  opacity: 0.8;
+  opacity: 0.5;
+  font-family: "paybooc-Bold";
 }
 
 @media screen and (max-width: 1024px) {
@@ -675,15 +679,15 @@ label {
     width: 20rem;
   }
   .img2 {
-    top: 52%;
+    top: 54.5%;
     width: 10rem;
     height: 10rem;
   }
   .img3 {
-    width: 13rem;
+    width: 14rem;
   }
   .img4 {
-    width: 14rem;
+    width: 14.5rem;
   }
   .img5 {
     width: 20rem;
@@ -720,7 +724,7 @@ label {
   }
 
   .secondHead {
-    /* font-size: 1.1rem; */
+    font-size: 1.5rem;
     margin-top: 5rem;
   }
   /*섹션2: 슬라이더*/
@@ -880,10 +884,10 @@ label {
   /*섹션4: 관람디테일 타이틀(하얀색):*/
 
   .brand p {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
   .brand h1 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   .explainBorder,
   .explainBorder2 {
@@ -920,26 +924,26 @@ label {
   }
   .mainReviewDetail {
     width: 100%;
-    padding: 5rem 0;
+    padding: 4rem 0;
   }
 }
 @media screen and (max-width: 524px) {
   .img1 {
-    width: 10rem;
+    width: 9rem;
   }
   .img2 {
-    top: 51%;
-    width: 4rem;
-    height: 4rem;
+    top: 55%;
+    width: 5rem;
+    height: 5rem;
   }
   .img3 {
-    width: 7.5rem;
+    width: 6.5rem;
   }
   .img4 {
-    width: 7.5rem;
+    width: 6.5rem;
   }
   .img5 {
-    width: 10.5rem;
+    width: 9rem;
   }
   .img1Wrap {
     padding-right: 0.5rem;
@@ -992,7 +996,7 @@ label {
   }
   .exDetailTitle {
     width: 100%;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
   .mainWatchDetail2 {
     /* height: 60vh; */
@@ -1010,23 +1014,20 @@ label {
     justify-content: space-around;
     align-items: center;
   }
-  .exDetailImg img {
-    width: 100%;
-    height: 100%;
-  }
+
   .exDetailTxt {
     height: 50%;
   }
 
   .exDetailTxt span:nth-child(1) {
     height: 40%;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     /* line-height: 6rem; */
   }
   .exDetailTxt span:nth-child(2) {
     padding: 0 1rem;
-    font-size: 0.75rem;
-    margin-bottom: 4rem;
+    font-size: 0.65rem;
+    margin-bottom: 3rem;
     /* line-height: 2rem; */
   }
   .ReviewSection {

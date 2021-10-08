@@ -23,7 +23,7 @@
   border: none;
   color: rgb(55, 55, 55);
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: 100;
   font-family: "paybooc-Light";
 }
@@ -160,7 +160,7 @@
     width: 100%;
     /* line-height: 50px; */
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     margin-bottom: 3rem;
   }
   .revTxt:nth-child(1),
