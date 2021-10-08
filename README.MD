@@ -131,7 +131,7 @@ https://art-ground.io/
   
   <details>
   <summary> standard 전시 감상(모바일) </summary>
-    <img width="450" src="https://user-images.githubusercontent.com/83934037/136418162-e75c5f7b-cd59-41bc-8ced-55792d71863c.gif"/>
+    <img width="327" src="https://user-images.githubusercontent.com/83934037/136418162-e75c5f7b-cd59-41bc-8ced-55792d71863c.gif"/>
   </details>
   <details>
    <summary> premium 전시 감상 </summary>
