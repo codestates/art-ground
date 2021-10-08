@@ -89,14 +89,10 @@ const About = () => {
           </div>
            <img  
             className={styles.img2} src="../../../images/Black on White.png"></img>
-        </section>
-      </main>
+        </div>
+      </section>
       
 
-
-      {/* <main className={styles.mainSlider}>
-        <AboutSlider />
-      </main> */}
 
       <section className={styles.downArr}>
         <div className={styles.arrSection}>
