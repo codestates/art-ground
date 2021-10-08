@@ -341,6 +341,7 @@ label {
 .exDetailImg img {
   width: 85%;
   height: auto;
+  border-radius: 10px;
 }
 .exDetailTxt {
   margin-top: 1.5rem;
@@ -470,8 +471,8 @@ label {
 .bottomBtn {
   display: inline-block;
   border-radius: 10px;
-  border: 1px solid #353535;
-  background: #353535;
+  border: 1px solid #454545;
+  background: #454545;
   color: white;
   padding: 0.8rem 1.8rem;
   margin-top: 2rem;

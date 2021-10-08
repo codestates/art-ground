@@ -107,10 +107,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* <main className={styles.mainSlider}>
-        <AboutSlider />
-      </main> */}
-
       <section className={styles.downArr}>
         <div className={styles.arrSection}>
           <div className={styles.arrowDown}>
@@ -173,10 +169,7 @@ const About = () => {
           data-aos-duration="3000"
         >
           <div className={styles.exDetailImg}>
-            <img
-              alt="관람"
-              src="https://images.velog.io/images/beablessing/post/f3334850-3411-4bd4-92ab-2f971ef1692b/Screenshot%20from%202021-09-30%2012-34-17.png"
-            ></img>
+            <img alt="관람" src="../../../images/about_video.gif"></img>
           </div>
           <div className={styles.exDetailTxt}>
             <span>Standard Gallery(2D)</span>
@@ -195,10 +188,7 @@ const About = () => {
           data-aos-duration="3000"
         >
           <div className={styles.exDetailImg}>
-            <img
-              alt="관람"
-              src="https://images.velog.io/images/beablessing/post/8fa8d63a-3f93-4811-bca3-b29023c18089/Screenshot%20from%202021-09-30%2012-37-52.png"
-            ></img>
+            <img alt="관람" src="../../../images/about_video2.gif"></img>
           </div>
           <div className={styles.exDetailTxt}>
             <span>Premium Gallery(3D)</span>

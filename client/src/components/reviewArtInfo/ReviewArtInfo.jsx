@@ -1,7 +1,27 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import styles from './ReviewArtInfo.module.css';
 
-const ReviewArtInfo = ({reviewSelected, thumbnail}) => {
+const ReviewArtInfo = ({
+  isLogin, 
+  reviewSelected, 
+  thumbnail, 
+  handleModalPremium,
+  handleModalClosedEx }) => {
+
+  const history = useHistory();
+
+  const goGalleryDetailPage = () => {
+    if(!isLogin && reviewSelected.exhibit_type === 2){
+      handleModalPremium();
+    } else{
+      if(reviewSelected.exhibit_status === 2){
+        handleModalClosedEx();
+      } else{
+        history.push(`/gallerydetail/${reviewSelected.id}`);
+      }
+    } 
+  }
 
   return (
     <div className={styles.artDetail}>
@@ -27,7 +47,9 @@ const ReviewArtInfo = ({reviewSelected, thumbnail}) => {
               {reviewSelected.genre_hashtags.map(el=> <span key={el} className={styles.tag}>{el}</span>)}
             </div>
           </div>  
-
+        </div>
+        <div className={styles.buttonWrap}>
+          <span className={styles.button} onClick={goGalleryDetailPage}>전시 감상하러 가기</span>
         </div>
       </div>
     </div>
