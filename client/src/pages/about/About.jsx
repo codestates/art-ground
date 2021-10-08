@@ -3,7 +3,6 @@ import styles from "./About.module.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useHistory } from "react-router-dom";
-import AboutSlider from "../../components/aboutSlider/AboutSlider";
 import AboutRevSlider from "../../components/aboutRevSlider/AboutRevSlider";
 
 AOS.init();
@@ -47,6 +46,7 @@ const About = () => {
             <img
               src="../../../images/main2.jpeg"
               className={styles.backgroundImg}
+              alt="about"
             ></img>
             <div className={styles.mainContentBox}>
               <h1 data-aos="fade-down" data-aos-duration="3000">
@@ -79,30 +79,35 @@ const About = () => {
               <img
                 className={styles.img1}
                 src="../../../images/image-4.webp"
+                alt="about"
               ></img>
             </div>
             <div className={styles.img3Wrap}>
               <img
                 className={styles.img3}
                 src="../../../images/image-3.webp"
+                alt="about"
               ></img>
             </div>
             <div className={styles.img4Wrap}>
               <img
                 className={styles.img4}
                 src="../../../images/image-1.webp"
+                alt="about"
               ></img>
             </div>
             <div className={styles.img5Wrap}>
               <img
                 className={styles.img5}
                 src="../../../images/image-5.webp"
+                alt="about"
               ></img>
             </div>
           </div>
           <img
             className={styles.img2}
             src="../../../images/Black on White.png"
+            alt="about"
           ></img>
         </div>
       </section>
@@ -187,7 +192,7 @@ const About = () => {
           data-aos-duration="3000"
         >
           <div className={styles.exDetailImg}>
-            <img alt="관람" src="../../../images/about_video2.gif"></img>
+            <img alt="about" src="../../../images/about_video2.gif"></img>
           </div>
           <div className={styles.exDetailTxt}>
             <span>Premium Gallery(3D)</span>

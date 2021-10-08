@@ -6,7 +6,6 @@ import ReviewLogin from '../../components/modals/ReviewLogin';
 import ReviewArtInfo from '../../components/reviewArtInfo/ReviewArtInfo';
 import { withRouter } from 'react-router';
 import GalleryModal from '../../components/modals/GalleryModal';
-import ClosedExhibition from '../../components/modals/ClosedExhibition';
 
 const ReviewDetail = ({ isLogin, userinfo, location }) => {
 
@@ -103,10 +102,6 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
     setRerender(!rerender); //컴포넌트 다시 랜더링 시키기 위한 용도
   }
 
-  // const closeModal = () => {
-  //   setLoginModal(false);
-  // }
-  
 
   if(pageLoading){
     return (
