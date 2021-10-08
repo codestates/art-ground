@@ -341,6 +341,7 @@ label {
 .exDetailImg img {
   width: 85%;
   height: auto;
+  border-radius: 10px;
 }
 .exDetailTxt {
   margin-top: 1.5rem;
