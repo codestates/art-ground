@@ -37,7 +37,15 @@ module.exports.getDetailReview = async (req, res) => {
           as: "author",
         },
       ],
-      attributes: ["id", "title", "start_date", "end_date", "genre_hashtags"],
+      attributes: [
+        "id",
+        "title",
+        "start_date",
+        "end_date",
+        "genre_hashtags",
+        "status",
+        "exhibit_type ",
+      ],
 
       where: {
         id: exhibition_id,

@@ -72,6 +72,8 @@ module.exports = {
             "start_date",
             "end_date",
             "genre_hashtags",
+            "status",
+            "exhibit_type ",
           ],
 
           where: {
