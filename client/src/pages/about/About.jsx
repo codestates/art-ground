@@ -106,7 +106,7 @@ const About = () => {
           </div>
           <img
             className={styles.img2}
-            src="../../../images/Black on White.png"
+            src="../../../images/logo on white.png"
             alt="about"
           ></img>
         </div>
@@ -127,7 +127,7 @@ const About = () => {
           <div
             className={styles.explainBorder}
             data-aos="fade-up"
-            data-aos-duration="2000"
+            data-aos-duration="3000"
           >
             <img
               src="../../../images/about_img.png"
@@ -159,7 +159,7 @@ const About = () => {
         <div
           className={styles.exDetailTitle}
           data-aos="fade-up"
-          data-aos-duration="2000"
+          data-aos-duration="3000"
         >
           아트그라운드는 2D와 더불어 3D 환경을 제공함으로써 <br></br>관람객에게
           최상의 경험을 선사합니다.
