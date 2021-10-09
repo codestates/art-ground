@@ -5,39 +5,40 @@ import React, { useEffect, useState } from "react";
 const Contact = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
 
-  useEffect(() => {
-    const container = document.getElementById("map");
-    const options = {
-      center: new kakao.maps.LatLng(37.496633, 127.024779),
-      level: 3,
-    };
-    const map = new kakao.maps.Map(container, options);
-    const markerPosition = new kakao.maps.LatLng(37.496633, 127.024779);
-    const marker = new kakao.maps.Marker({
-      position: markerPosition,
-    });
-    marker.setMap(map);
+  // useEffect(() => {
+  //   const container = document.getElementById("map");
+  //   const options = {
+  //     center: new kakao.maps.LatLng(37.496633, 127.024779),
+  //     level: 3,
+  //   };
+  //   const map = new kakao.maps.Map(container, options);
+  //   const markerPosition = new kakao.maps.LatLng(37.496633, 127.024779);
+  //   const marker = new kakao.maps.Marker({
+  //     position: markerPosition,
+  //   });
+  //   marker.setMap(map);
 
-    const iwContent = '<div style="text-align:center">art-Ground</div>';
-    const iwPosition = new kakao.maps.LatLng(37.496633, 127.024779);
+  //   const iwContent = '<div style="text-align:center">art-Ground</div>';
+  //   const iwPosition = new kakao.maps.LatLng(37.496633, 127.024779);
 
-    // 인포윈도우를 생성
-    const infowindow = new kakao.maps.InfoWindow({
-      position: iwPosition,
-      content: iwContent,
-    });
+  //   // 인포윈도우를 생성
+  //   const infowindow = new kakao.maps.InfoWindow({
+  //     position: iwPosition,
+  //     content: iwContent,
+  //   });
 
-    infowindow.open(map, marker);
-  }, []);
+  //   infowindow.open(map, marker);
+  // }, []);
 
   const clickAsk = () => {
     setIsOpenModal(true);
   };
   return (
+    <>
     <section className={styles.container}>
       <div className={styles.titleBox}>
         <span>CONTACT US</span>
-        <span>아트그라운드에게 궁금한점이 있다면 메일을 보내주세요</span>
+        <span>아트그라운드에게 궁금한 점이 있다면 메일을 보내주세요.</span>
       </div>
       <div className={styles.infoBox}>
         <div className={styles.mailBox}>
@@ -94,62 +95,6 @@ const Contact = () => {
         </div>
       </div>
       {""}
-      <div className={styles.introBox}>
-        <div className={styles.introBorder}>
-          <div className={styles.sInfo}>
-            <span>문순려</span>
-            <span>Back-end</span>
-            <span>
-              <a
-                target="_blank"
-                href="https://github.com/Sunryeo"
-                className={styles.member}
-              >
-                GitHub
-              </a>
-            </span>
-          </div>
-          <div className={styles.sInfo}>
-            <span>이동욱</span>
-            <span>Back-end</span>
-            <span>
-              <a
-                target="_blank"
-                href="https://github.com/dongukuklee"
-                className={styles.member}
-              >
-                GitHub
-              </a>
-            </span>
-          </div>
-          <div className={styles.sInfo}>
-            <span>유다희</span>
-            <span>Front-end</span>
-            <span>
-              <a
-                target="_blank"
-                href="https://github.com/tkdkagody"
-                className={styles.member}
-              >
-                GitHub
-              </a>
-            </span>
-          </div>
-          <div className={styles.sInfo}>
-            <span>박지영</span>
-            <span>Front-end</span>
-            <span>
-              <a
-                target="_blank"
-                href="https://github.com/devjade"
-                className={styles.member}
-              >
-                GitHub
-              </a>
-            </span>
-          </div>
-        </div>
-      </div>
       {isOpenModal ? (
         <section className={styles.modalContainer}>
           <div className={styles.modalBox}>
@@ -168,6 +113,65 @@ const Contact = () => {
         </section>
       ) : null}
     </section>
+    <div className={styles.introBox}>
+    <div className={styles.aboutUs}>About Us</div>
+    <div className={styles.introBorder}>
+      <div className={styles.sInfo}>
+        <span>문순려</span>
+        <span>Back-end</span>
+        <span>
+          <a
+            target="_blank"
+            href="https://github.com/Sunryeo"
+            className={styles.member}
+          >
+            GitHub
+          </a>
+        </span>
+      </div>
+      <div className={styles.sInfo}>
+        <span>이동욱</span>
+        <span>Back-end</span>
+        <span>
+          <a
+            target="_blank"
+            href="https://github.com/dongukuklee"
+            className={styles.member}
+          >
+            GitHub
+          </a>
+        </span>
+      </div>
+      <div className={styles.sInfo}>
+        <span>유다희</span>
+        <span>Front-end</span>
+        <span>
+          <a
+            target="_blank"
+            href="https://github.com/tkdkagody"
+            className={styles.member}
+          >
+            GitHub
+          </a>
+        </span>
+      </div>
+      <div className={styles.sInfo}>
+        <span>박지영</span>
+        <span>Front-end</span>
+        <span>
+          <a
+            target="_blank"
+            href="https://github.com/devjade"
+            className={styles.member}
+          >
+            GitHub
+          </a>
+        </span>
+      </div>
+    </div>
+    <div className={styles.rights}>Copyright &#169; 2021 art-Ground All rights reserved</div>
+  </div>
+  </>
   );
 };
 export default Contact;
