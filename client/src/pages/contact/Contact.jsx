@@ -5,30 +5,30 @@ import React, { useEffect, useState } from "react";
 const Contact = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
 
-  // useEffect(() => {
-  //   const container = document.getElementById("map");
-  //   const options = {
-  //     center: new kakao.maps.LatLng(37.496633, 127.024779),
-  //     level: 3,
-  //   };
-  //   const map = new kakao.maps.Map(container, options);
-  //   const markerPosition = new kakao.maps.LatLng(37.496633, 127.024779);
-  //   const marker = new kakao.maps.Marker({
-  //     position: markerPosition,
-  //   });
-  //   marker.setMap(map);
+  useEffect(() => {
+    const container = document.getElementById("map");
+    const options = {
+      center: new kakao.maps.LatLng(37.496633, 127.024779),
+      level: 3,
+    };
+    const map = new kakao.maps.Map(container, options);
+    const markerPosition = new kakao.maps.LatLng(37.496633, 127.024779);
+    const marker = new kakao.maps.Marker({
+      position: markerPosition,
+    });
+    marker.setMap(map);
 
-  //   const iwContent = '<div style="text-align:center">art-Ground</div>';
-  //   const iwPosition = new kakao.maps.LatLng(37.496633, 127.024779);
+    const iwContent = '<div style="text-align:center">art-Ground</div>';
+    const iwPosition = new kakao.maps.LatLng(37.496633, 127.024779);
 
-  //   // 인포윈도우를 생성
-  //   const infowindow = new kakao.maps.InfoWindow({
-  //     position: iwPosition,
-  //     content: iwContent,
-  //   });
+    // 인포윈도우를 생성
+    const infowindow = new kakao.maps.InfoWindow({
+      position: iwPosition,
+      content: iwContent,
+    });
 
-  //   infowindow.open(map, marker);
-  // }, []);
+    infowindow.open(map, marker);
+  }, []);
 
   const clickAsk = () => {
     setIsOpenModal(true);
