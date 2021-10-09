@@ -169,7 +169,7 @@ const Register = ({ userinfo, isLogin }) => {
       <input className={styles.textInput} 
       type="text" value={title} onChange={handleTitle}/>
 
-      <div className={styles.categoryName}>전시 시작일</div>
+      <div className={styles.categoryName}>전시 시작일<span className={styles.subGenre}>(신청일로부터 영업일 기준 최소 3일 이후로 설정해주세요)</span></div>
       <DatePicker 
       selected={startDate} 
       onChange={el => handleStartDate(el)} 
@@ -179,7 +179,7 @@ const Register = ({ userinfo, isLogin }) => {
       className={styles.textInput} 
       />
 
-      <div className={styles.categoryName}>전시 마감일</div>
+      <div className={styles.categoryName}>전시 마감일<span className={styles.subGenre}>(전시 가능한 최대 기간은 90일입니다)</span></div>
       <DatePicker 
       selected={endDate} 
       onChange={el => handleEndDate(el)} 
@@ -198,7 +198,7 @@ const Register = ({ userinfo, isLogin }) => {
         onChange={handleType}/><label className={styles.type}>Premium</label>
       </div>
 
-      <div className={styles.categoryName}>전시 장르<span className={styles.subGenre}>(복수선택가능)</span></div>
+      <div className={styles.categoryName}>전시 장르<span className={styles.subGenre}>(복수선택 가능합니다)</span></div>
       <div className={styles.tags}> 
         {tags.map((el) => 
           <span key={el}>
