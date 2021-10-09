@@ -106,7 +106,7 @@ const About = () => {
           </div>
           <img
             className={styles.img2}
-            src="../../../images/Original.png"
+            src="../../../images/logo on white.png"
             alt="about"
           ></img>
         </div>

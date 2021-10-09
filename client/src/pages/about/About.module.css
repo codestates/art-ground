@@ -155,13 +155,14 @@ label {
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 18rem;
-  height: 18rem;
+  width: 17rem;
+  height: 17rem;
+  padding: 1rem;
   border-radius: 50%;
   z-index: 9;
   opacity: 0.992;
-  /* border: 1px solid rgb(232, 232, 232); */
-  box-shadow: 3px 3px 5px rgb(85, 85, 85);
+  border: 1px solid rgb(232, 232, 232);
+  box-shadow: 3px 3px 5px rgb(181, 181, 181);
   image-rendering: -webkit-optimize-contrast;
   backface-visibility: hidden;
   background: white;
@@ -985,7 +986,7 @@ label {
   }
   .exDetailTitle {
     width: 100%;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
   }
   .mainWatchDetail2 {
     /* height: 60vh; */
@@ -1032,7 +1033,7 @@ label {
   }
 
   .conterTxtBox {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 
   .conterBox span:nth-child(1) {
@@ -1048,7 +1049,8 @@ label {
     font-size: 0.9rem;
   }
   .secondHead {
-    font-size: 0.8rem;
+    font-size: 0.95rem;
+    font-family: "paybooc-Bold";
   }
   .brand2 {
     grid-template-columns: 1fr 1fr;
@@ -1096,6 +1098,15 @@ label {
   }
   .img5 {
     width: 10rem;
+  }
+  .secondHead {
+    font-size: 0.85rem;
+  }
+  .exDetailTitle {
+    font-size: 0.85rem;
+  }
+  .conterTxtBox {
+    font-size: 0.85rem;
   }
 }
 /*화면전환*/
