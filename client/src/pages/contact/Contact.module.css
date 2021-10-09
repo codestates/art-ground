@@ -108,7 +108,7 @@ input {
   font-size: 0.8rem;
   outline: none;
   text-indent: 0.2rem;
-  background-color: #f1efe4;
+  background-color: #f2f1ec;
   border: none;
 }
 .email {
@@ -117,7 +117,7 @@ input {
   text-indent: 0.2rem;
   font-size: 0.8rem;
   outline: none;
-  background-color: #f1efe4;
+  background-color: #f2f1ec;
   border: none;
 }
 .phone {
@@ -126,7 +126,7 @@ input {
   text-indent: 0.2rem;
   font-size: 0.8rem;
   outline: none;
-  background-color: #f1efe4;
+  background-color: #f2f1ec;
   border: none;
 }
 .btnBox {
@@ -146,7 +146,7 @@ input {
   overflow-y: scroll;
   resize: none;
   border: none;
-  background-color: #f1efe4;
+  background-color: #f2f1ec;
   padding-top: 1rem;
 }
 

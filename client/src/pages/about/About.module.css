@@ -155,14 +155,14 @@ label {
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 17rem;
-  height: 17rem;
+  width: 16rem;
+  height: 16rem;
   padding: 1rem;
   border-radius: 50%;
   z-index: 9;
   opacity: 0.992;
   border: 1px solid rgb(232, 232, 232);
-  box-shadow: 3px 3px 5px rgb(181, 181, 181);
+  /* box-shadow: 3px 3px 5px rgb(181, 181, 181); */
   image-rendering: -webkit-optimize-contrast;
   backface-visibility: hidden;
   background: white;
@@ -664,8 +664,8 @@ label {
   }
   .img2 {
     top: 55%;
-    width: 16rem;
-    height: 16rem;
+    width: 15rem;
+    height: 15rem;
   }
   .img3 {
     width: 16rem;
