@@ -192,6 +192,7 @@
     padding: 0.5rem;
   }
   .btn {
+
     margin-top: 9rem;
     height: 2.1rem;
     font-size: 1rem;
@@ -203,5 +204,6 @@
   }
   .btn {
     height: 1.9rem;
+
   }
 }
