@@ -154,18 +154,18 @@ span {
     cursor: pointer;
     position: absolute;
     color: rgb(208, 208, 208);
-    top: 1.2rem;
-    left: 1.2rem;
-    font-size: 1rem;
+    top: 1.45rem;
+    left: 1.45rem;
+    font-size: 1.3rem;
   }
   .moreOptScroll {
     all: unset;
     cursor: pointer;
     position: absolute;
     color: rgb(117, 117, 117);
-    top: 1.2rem;
-    left: 1.2rem;
-    font-size: 1rem;
+    top: 1.45rem;
+    left: 1.45rem;
+    font-size: 1.3rem;
   }
   .topNav {
     all: unset;

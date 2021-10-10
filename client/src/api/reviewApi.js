@@ -22,6 +22,11 @@ export async function getAllGallery(sortValue, search) {
       let result = res.data.data.filter((el) => {
         return el.title.toLowerCase().includes(search.toLowerCase());
       });
+      result = result.concat(res.data.data.filter((el) => {
+        return el.author.nickname.toLowerCase().includes(search.toLowerCase());
+      }));
+      result = result.filter((arr, index, callback) => index === callback.findIndex(t => t.id === arr.id))
+      
       if (sortValue === "최신순") {
         return result.sort(
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)

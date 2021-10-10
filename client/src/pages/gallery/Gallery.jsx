@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import {
   getPremiumGallery,
   getStandardGallery,
 } from "../../api/galleryApi";
 import GalleryContent from "../../components/galleryContent/GalleryContent";
 import GalleryModal from "../../components/modals/GalleryModal";
+import MobileBlocked from "../../components/modals/MobileBlocked";
 import SubNavBar from "../../components/subNavBar/SubNavBar";
 import styles from "./Gallery.module.css";
 
 const Gallery = ({ isLogin, userinfo }) => {
 
-  const [galleryList, setGalleryList] = useState([]);
+  const history = useHistory();
 
+  const [galleryList, setGalleryList] = useState([]);
   const [isStandard, setStandard] = useState(true); //STANDARD, PREMIUM 카테고리 상태값
   const [tagClicked, setTagClicked] = useState("전체"); //해시태그 카테고리 상태값
   const [sortValue, setSortValue] = useState("최신순"); //최신순, 전시마감일순 정렬 상태값
@@ -75,7 +78,11 @@ const Gallery = ({ isLogin, userinfo }) => {
         </div>
       </section>
     )
-  }else{
+  } else if(isLogin && userinfo === null){ // 모바일기기에서 로그인 했지만 userinfo가 없어 흰 화면 뜨는 경우...
+    return (
+      <MobileBlocked goBack={() => history.goBack()}/>
+    )
+  } else {
   return ( 
     <section className={styles.container}>
       <SubNavBar
@@ -86,6 +93,9 @@ const Gallery = ({ isLogin, userinfo }) => {
         sortValue={sortValue}
         handleSort={handleSort}
       />
+      {galleryList.length === 0 ?
+      <div className={styles.noResult}>장르 필터 결과가 없습니다!</div>
+      : null}
       <ul className={styles.objectList}>
         {galleryList.map((el) => (
           <GalleryContent
