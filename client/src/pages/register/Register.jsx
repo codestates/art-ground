@@ -9,6 +9,7 @@ import ConfirmRegister from '../../components/modals/ConfirmRegister';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"
 import { ko } from 'date-fns/esm/locale'
+import MobileBlocked from '../../components/modals/MobileBlocked';
 
 const Register = ({ userinfo, isLogin }) => {
 
@@ -51,14 +52,6 @@ const Register = ({ userinfo, isLogin }) => {
     } 
     return `${sYear}-${sMonth}-${sDate}`;
   }
-  // const getByteB = (str) => {
-
-  //   let byte = 0;
-  //   for (let i=0; i<str.length; ++i) {
-  //     (str.charCodeAt(i) > 127) ? byte += 3 : byte++ ;
-  //   }
-  //   return byte;
-  // }
 
   const handleStartDate = (el) => {
     setStartDate(el);
@@ -160,7 +153,7 @@ const Register = ({ userinfo, isLogin }) => {
     }
   }
 
-  if((userinfo && userinfo.user_type === 2) || (userinfo && userinfo.user_type === 3)){ //유효한 회원일 경우만.
+  //if((userinfo && userinfo.user_type === 2) || (userinfo && userinfo.user_type === 3)){ //유효한 회원일 경우만.
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>전시 신청</h2>
@@ -265,13 +258,16 @@ const Register = ({ userinfo, isLogin }) => {
       <ConfirmRegister closeModal={() => setModalOpen(false)} />
       : null}
 
+      {userinfo && userinfo.user_type === 1 ?
+      <AuthorLogin goBack={() => history.goBack()}/> 
+      : !userinfo && !isLogin ?
+      <RegisterLogin goBack={() => history.goBack()} />
+      : !userinfo && isLogin ? 
+      <MobileBlocked goBack={() => history.goBack()}/>
+      : null}
+
     </section>
   )
-  } else if(userinfo && userinfo.user_type === 1){ // 관람객 로그인 시 모달창
-    return <AuthorLogin goBack={() => history.goBack()}/>
-  } else if(!userinfo && !isLogin){ //비로그인 시 모달창
-    return <RegisterLogin goBack={() => history.goBack()} />
-  }
 }
 
 export default withRouter(Register);

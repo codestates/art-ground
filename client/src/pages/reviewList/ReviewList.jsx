@@ -17,6 +17,7 @@ const ReviewList = () => {
     //standard, premium gallery, 마감된 전시 모두 모아서 setGalleryList에 넣기.
     async function getAxiosData(){
       setGalleryList(await getAllGallery(sortValue, search));
+      //console.log(await getAllGallery(sortValue, search));
     }
     setTimeout(()=> {
       getAxiosData();
@@ -60,7 +61,7 @@ const ReviewList = () => {
     <section className={styles.container}>
       <div className={styles.searchBox}>
         <input className={styles.search} 
-        placeholder="전시회 제목으로 검색" 
+        placeholder="전시회 제목, 작가명으로 검색" 
         type="text" 
         value={searchWord}
         onChange={handleChange}
@@ -87,7 +88,7 @@ const ReviewList = () => {
 
       <ul className={styles.reviews}>
         {search !== '' && galleryList.length === 0 ?
-        <div className={styles.result}>검색결과가 없습니다!</div>
+        <div className={styles.result}>검색 결과가 없습니다!</div>
         : search !=='' && galleryList.length !== 0 ?
         <div className={styles.result}>총 {galleryList.length}개의 전시회가 검색되었습니다.</div>
         : null}
