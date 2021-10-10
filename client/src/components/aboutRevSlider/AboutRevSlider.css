@@ -23,7 +23,7 @@
   border: none;
   color: rgb(55, 55, 55);
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: 100;
   font-family: "paybooc-Light";
 }
@@ -48,7 +48,7 @@
 }
 .revImgtBox {
   padding-top: 2rem;
-  width: 100%;
+  width: auto;
   height: 35%;
   text-align: center;
 }
@@ -67,10 +67,10 @@
 .revTxt:nth-child(1),
 .revTxt:nth-child(2) {
   font-family: "paybooc-Light";
-  height: 20%;
+  height: 17%;
   text-align: center;
-  line-height: 3;
-  font-size: 1.3rem;
+  /* line-height: 3; */
+  font-size: 1rem;
 }
 
 .revTxt:nth-child(3) {
@@ -79,26 +79,26 @@
   padding: 0 0.6rem;
   height: 60%;
   line-height: 2;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 /*arrow*/
 .btn {
-  width: 50px;
-  height: 50px;
+  width: 3rem;
+  height: 2.7rem;
   border-radius: 50%;
   outline: none;
-  margin-top: 15rem;
+  margin: 15rem 0.5rem 0 0.5rem;
   padding-top: 0.3rem;
   border: none;
   cursor: pointer;
   font-size: 1.8rem;
   background-color: rgb(50, 50, 50);
   color: white;
+  transition: 0.3s;
 }
 .btn:hover {
-  background-color: white;
-  color: rgb(50, 50, 50);
+  background-color: rgb(101, 101, 101);
 }
 /*dot*/
 .rec.rec-dot {
@@ -145,6 +145,9 @@
   .revTxt:nth-child(3) {
     font-size: 0.75rem;
   }
+  .btn {
+    height: 2.5rem;
+  }
 }
 @media screen and (max-width: 580px) {
   .carousel-wrapper {
@@ -153,6 +156,10 @@
     display: flex;
     align-items: center;
   }
+  .btn {
+    height: 2.3rem;
+    font-size: 1.4rem;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -160,8 +167,9 @@
     width: 100%;
     /* line-height: 50px; */
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     margin-bottom: 3rem;
+    font-family: "paybooc-Bold";
   }
   .revTxt:nth-child(1),
   .revTxt:nth-child(2) {
@@ -184,7 +192,18 @@
     padding: 0.5rem;
   }
   .btn {
-    margin-top: 10rem;
-    padding-top: 0.3rem;
+
+    margin-top: 9rem;
+    height: 2.1rem;
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 374px) {
+  .seperator {
+    font-size: 0.82rem;
+  }
+  .btn {
+    height: 1.9rem;
+
   }
 }

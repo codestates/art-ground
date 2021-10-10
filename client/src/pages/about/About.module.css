@@ -44,11 +44,8 @@ label {
   height: 90vh;
   background-color: none;
   width: 100%;
-  /* height: 90vh; */
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
+
 .mainBrand2 {
   /* height: 100vh; */
   background-color: none;
@@ -114,16 +111,16 @@ label {
 /*섹션2: 슬라이더*/
 .mainSlider {
   background-color: #f1f1f1;
-  max-width: 1200px;
+  max-width: 1024px;
   width: 100%;
 }
 .brand2 {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1024px;
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 4rem 0 5rem 0;
+  padding: 4rem 1rem 5rem 1rem;
   margin-bottom: 3rem;
 }
 
@@ -141,72 +138,77 @@ label {
 .img1Wrap {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
+  align-items: center;
   height: 100%;
-  padding-right: 2rem;
-  padding-bottom: 2rem;
+  margin-right: -1rem;
+  /* padding-bottom: 1rem; */
 }
 .img1 {
-  width: 30rem;
+  width: 29rem;
   border-radius: 10px;
   z-index: 2;
-  -webkit-filter: grayscale(100%);
+  box-shadow: 3px 3px 5px rgb(181, 181, 181);
 }
+
 .img2 {
   position: absolute;
-  top: 53%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 15rem;
-  height: 15rem;
+  width: 16rem;
+  height: 16rem;
+  padding: 1rem;
   border-radius: 50%;
-  z-index: 50;
+  z-index: 9;
+  opacity: 0.992;
   border: 1px solid rgb(232, 232, 232);
-  box-shadow: 1px 3px 3px rgb(181, 181, 181);
+  /* box-shadow: 3px 3px 5px rgb(181, 181, 181); */
   image-rendering: -webkit-optimize-contrast;
   backface-visibility: hidden;
+  background: white;
+  animation: float 1s linear 0s infinite alternate;
 }
 .img3Wrap {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: flex-start;
   height: 100%;
-  padding-left: 2rem;
-  padding-bottom: 2rem;
+  /* padding-left: 1rem; */
+  margin-bottom: -1rem;
 }
 .img3 {
-  width: 18rem;
+  width: 20rem;
   border-radius: 10px;
-  -webkit-filter: grayscale(100%);
+  box-shadow: 3px 3px 5px rgb(181, 181, 181);
   z-index: 1;
 }
 .img4Wrap {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: flex-start;
   height: 100%;
-  padding-right: 2rem;
-  padding-top: 2rem;
+  /* padding-right: 1rem; */
+  margin-top: -1rem;
 }
 .img4 {
-  width: 18rem;
+  width: 20rem;
   border-radius: 10px;
-  -webkit-filter: grayscale(100%);
   z-index: 1;
+  box-shadow: 3px 3px 5px rgb(181, 181, 181);
 }
 .img5Wrap {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   height: 100%;
-  padding-left: 2rem;
-  padding-top: 2rem;
+  margin-left: -1rem;
+  /* padding-top: 1rem; */
 }
 .img5 {
-  width: 30rem;
+  width: 29rem;
   border-radius: 10px;
-  -webkit-filter: grayscale(100%);
   z-index: -1;
+  box-shadow: 3px 3px 5px rgb(181, 181, 181);
 }
 
 /* 움직이는 화살표 */
@@ -247,14 +249,15 @@ label {
   background-color: #f1f1f1;
 }
 .ExplainSection {
-  width: 1024px;
+  max-width: 1024px;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
-.explainBorder {
+.explainBorder,
+.explainBorder2 {
   width: 100%;
   height: 50%;
   margin: 12rem 0;
@@ -266,7 +269,8 @@ label {
   padding: 0 0.2rem;
 }
 
-.explainBorder h3 {
+.explainBorder h3,
+.explainBorder2 h3 {
   margin-bottom: 2rem;
   font-size: 2.5rem;
   font-weight: 100;
@@ -275,7 +279,8 @@ label {
   line-height: 150%;
   white-space: nowrap;
 }
-.explainBorder p {
+.explainBorder p,
+.explainBorder2 p {
   font-family: "paybooc-Light";
   color: #484848;
   font-size: 0.95rem;
@@ -286,13 +291,30 @@ label {
 .explainBorder img {
   width: 60%;
   height: 100%;
-  margin: 1rem 2rem;
+  margin: 1rem 1rem 1rem 2rem;
   border-radius: 12px;
   border: 1px solid rgb(213, 213, 213);
   box-shadow: 1px 5px 20px -5px rgb(199, 199, 199);
 }
+
 .explainBorder > div {
   padding: 2.5rem 2rem;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+}
+
+.explainBorder2 img {
+  width: 55%;
+  height: 100%;
+  margin: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgb(213, 213, 213);
+  box-shadow: 1px 5px 20px -5px rgb(199, 199, 199);
+}
+.explainBorder2 > div {
+  padding: 2.5rem 2rem 2.5rem 3rem;
   width: 40%;
   display: flex;
   flex-direction: column;
@@ -315,7 +337,7 @@ label {
   width: 1024px;
   height: 100%;
   margin: 0 auto;
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-family: "paybooc-Light";
   line-height: 180%;
 }
@@ -344,7 +366,7 @@ label {
   align-items: center;
 }
 .exDetailImg img {
-  width: 85%;
+  width: 80%;
   height: auto;
   border-radius: 10px;
   /* box-shadow: 1px 3px 3px rgb(181, 181, 181); */
@@ -417,7 +439,7 @@ label {
   text-align: center;
   color: white;
   line-height: 2;
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 .conterBox {
   font-family: "paybooc-Light";
@@ -512,9 +534,11 @@ label {
   width: 10rem;
   transition: 0.3s;
   font-size: 1rem;
+  font-family: "paybooc-Light";
 }
 .btn:hover {
-  opacity: 0.8;
+  opacity: 0.5;
+  font-family: "paybooc-Bold";
 }
 
 @media screen and (max-width: 1024px) {
@@ -552,10 +576,11 @@ label {
     width: 100%;
   }
   .explainBorder > div {
-    padding: 1rem;
-  }
-  .explainBorder img {
-    margin: 0 0.5rem;
+    padding: 2.5rem 2rem 2.5rem 1rem;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
   }
 }
 @media screen and (max-width: 1024px) {
@@ -565,23 +590,8 @@ label {
   .brand h1 {
     font-size: 2.5rem;
   }
-  .img1 {
-    width: 25rem;
-  }
-  .img2 {
-    width: 12rem;
-    height: 12rem;
-  }
-  .img3 {
-    width: 17rem;
-  }
-  .img4 {
-    width: 17rem;
-  }
-  .img5 {
-    width: 25rem;
-  }
-  .explainBorder h3 {
+  .explainBorder h3,
+  .explainBorder2 h3 {
     font-size: 2rem;
   }
   .exDetailTxt span:nth-child(1) {
@@ -603,11 +613,13 @@ label {
     width: 100%;
     height: 100%;
   }
-  .explainBorder h3 {
+  .explainBorder h3,
+  .explainBorder2 h3 {
     padding: 0.2rem;
     font-size: 1.5rem;
   }
-  .explainBorder p {
+  .explainBorder p,
+  .explainBorder2 p {
     font-size: 0.8rem;
   }
 
@@ -638,41 +650,51 @@ label {
   .bottomSection {
     width: 100%;
   }
+  .explainBorder2 > div {
+    padding: 2.5rem 2rem 2.5rem 3rem;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+  }
 }
-@media screen and (max-width: 891px) {
+@media screen and (max-width: 933px) {
   .img1 {
-    width: 20rem;
+    width: 25rem;
   }
   .img2 {
-    top: 52%;
-    width: 10rem;
-    height: 10rem;
+    top: 55%;
+    width: 15rem;
+    height: 15rem;
   }
   .img3 {
-    width: 13rem;
+    width: 16rem;
   }
   .img4 {
-    width: 14rem;
+    width: 17rem;
   }
   .img5 {
-    width: 20rem;
+    width: 25rem;
   }
-  .img1Wrap {
-    padding-right: 1rem;
-    padding-bottom: 1rem;
-  }
-  .img3Wrap {
-    padding-left: 1rem;
-    padding-bottom: 1rem;
-  }
+}
 
-  .img4Wrap {
-    padding-right: 1rem;
-    padding-top: 1rem;
+@media screen and (max-width: 816px) {
+  .img1 {
+    width: 22rem;
   }
-  .img5Wrap {
-    padding-left: 1rem;
-    padding-top: 1rem;
+  .img2 {
+    top: 54%;
+    width: 14rem;
+    height: 14rem;
+  }
+  .img3 {
+    width: 14rem;
+  }
+  .img4 {
+    width: 15rem;
+  }
+  .img5 {
+    width: 22rem;
   }
 }
 @media screen and (max-width: 768px) {
@@ -689,7 +711,7 @@ label {
   }
 
   .secondHead {
-    /* font-size: 1.1rem; */
+    font-size: 1.5rem;
     margin-top: 5rem;
   }
   /*섹션2: 슬라이더*/
@@ -703,7 +725,8 @@ label {
     width: 100%;
     height: 100%;
   }
-  .explainBorder {
+  .explainBorder,
+  .explainBorder2 {
     height: 100%;
     margin: 7rem 0;
     display: flex;
@@ -711,29 +734,38 @@ label {
     align-items: center;
     flex-direction: column;
   }
-  .explainBorder h3 {
+  .explainBorder h3,
+  .explainBorder2 h3 {
     width: 100%;
     padding: 0.5rem 0.2rem;
     font-size: 1.5rem;
     text-align: center;
+    margin-bottom: 0.8rem;
   }
-  .explainBorder p {
+  .explainBorder p,
+  .explainBorder2 p {
     width: 100%;
     font-size: 0.8rem;
     text-align: center;
   }
 
-  .explainBorder img {
+  .explainBorder img,
+  .explainBorder2 img {
     width: 80%;
     height: 50%;
   }
-  .explainBorder > div {
+  .explainBorder > div,
+  .explainBorder2 > div {
     padding: 1.5rem;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+  }
+  .btn {
+    margin-top: 3rem;
+    font-size: 0.9rem;
   }
 
   /*섹션4: 관람디테일 타이틀(하얀색):*/
@@ -816,35 +848,37 @@ label {
     font-size: 1.5rem;
   }
 }
+
 @media screen and (max-width: 700px) {
   .img1 {
-    width: 14rem;
+    width: 18.5rem;
   }
   .img2 {
     top: 54%;
-    width: 7rem;
-    height: 7rem;
+    width: 12rem;
+    height: 12rem;
   }
   .img3 {
-    width: 9rem;
+    width: 11.5rem;
   }
   .img4 {
-    width: 9rem;
+    width: 12.5rem;
   }
   .img5 {
-    width: 15rem;
+    width: 18.5rem;
   }
 }
 @media screen and (max-width: 580px) {
   /*섹션4: 관람디테일 타이틀(하얀색):*/
 
   .brand p {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
   .brand h1 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
-  .explainBorder {
+  .explainBorder,
+  .explainBorder2 {
     margin: 4rem 0;
   }
   .secondHead {
@@ -878,43 +912,45 @@ label {
   }
   .mainReviewDetail {
     width: 100%;
-    padding: 5rem 0;
-  }
-}
-@media screen and (max-width: 524px) {
-  .img1 {
-    width: 10rem;
+    padding: 4rem 0;
   }
   .img2 {
-    top: 51%;
-    width: 4rem;
-    height: 4rem;
+    top: 50%;
+    width: 10rem;
+    height: 10rem;
   }
-  .img3 {
-    width: 7.5rem;
-  }
-  .img4 {
-    width: 7.5rem;
-  }
-  .img5 {
-    width: 10.5rem;
-  }
-  .img1Wrap {
-    padding-right: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-  .img3Wrap {
-    padding-left: 0.5rem;
-    padding-bottom: 0.5rem;
+  .img1 {
+    width: 16rem;
   }
 
-  .img4Wrap {
-    padding-right: 0.5rem;
-    padding-top: 0.5rem;
+  .img3 {
+    width: 10rem;
   }
-  .img5Wrap {
-    padding-left: 0.5rem;
-    padding-top: 0.5rem;
+  .img4 {
+    width: 10.5rem;
+  }
+  .img5 {
+    width: 16rem;
+  }
+}
+
+@media screen and (max-width: 524px) {
+  .img1 {
+    width: 14rem;
+  }
+  .img2 {
+    top: 52%;
+    width: 8rem;
+    height: 8rem;
+  }
+  .img3 {
+    width: 9rem;
+  }
+  .img4 {
+    width: 9.5rem;
+  }
+  .img5 {
+    width: 14rem;
   }
 }
 @media screen and (max-width: 480px) {
@@ -922,19 +958,22 @@ label {
     height: 30vh;
   }
 
-  .explainBorder > div {
+  .explainBorder > div,
+  .explainBorder2 > div {
     height: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-  .explainBorder h3 {
+  .explainBorder h3,
+  .explainBorder2 h3 {
     font-size: 1rem;
 
     margin-bottom: 0;
   }
-  .explainBorder p {
+  .explainBorder p,
+  .explainBorder2 p {
     font-size: 0.7rem;
     margin-bottom: 0;
   }
@@ -947,7 +986,7 @@ label {
   }
   .exDetailTitle {
     width: 100%;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
   .mainWatchDetail2 {
     /* height: 60vh; */
@@ -965,23 +1004,20 @@ label {
     justify-content: space-around;
     align-items: center;
   }
-  .exDetailImg img {
-    width: 100%;
-    height: 100%;
-  }
+
   .exDetailTxt {
     height: 50%;
   }
 
   .exDetailTxt span:nth-child(1) {
     height: 40%;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     /* line-height: 6rem; */
   }
   .exDetailTxt span:nth-child(2) {
     padding: 0 1rem;
-    font-size: 0.75rem;
-    margin-bottom: 4rem;
+    font-size: 0.65rem;
+    margin-bottom: 3rem;
     /* line-height: 2rem; */
   }
   .ReviewSection {
@@ -997,7 +1033,7 @@ label {
   }
 
   .conterTxtBox {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 
   .conterBox span:nth-child(1) {
@@ -1013,12 +1049,64 @@ label {
     font-size: 0.9rem;
   }
   .secondHead {
-    font-size: 0.8rem;
+    font-size: 0.95rem;
+    font-family: "paybooc-Bold";
   }
   .brand2 {
     grid-template-columns: 1fr 1fr;
     padding: 2rem 0 3rem 0;
     margin-bottom: 1rem;
+  }
+}
+@media screen and (max-width: 440px) {
+  .img1 {
+    width: 12rem;
+    box-shadow: none;
+  }
+  .img2 {
+    top: 54.5%;
+    width: 7rem;
+    height: 7rem;
+  }
+  .img3 {
+    width: 8rem;
+    box-shadow: none;
+  }
+  .img4 {
+    width: 8.5rem;
+    box-shadow: none;
+  }
+  .img5 {
+    width: 12rem;
+    box-shadow: none;
+  }
+}
+@media screen and (max-width: 374px) {
+  .img1 {
+    width: 10rem;
+  }
+  .img2 {
+    top: 55%;
+    width: 6rem;
+    height: 6rem;
+  }
+  .img3 {
+    width: 7rem;
+  }
+  .img4 {
+    width: 7.5rem;
+  }
+  .img5 {
+    width: 10rem;
+  }
+  .secondHead {
+    font-size: 0.85rem;
+  }
+  .exDetailTitle {
+    font-size: 0.85rem;
+  }
+  .conterTxtBox {
+    font-size: 0.85rem;
   }
 }
 /*화면전환*/
@@ -1031,6 +1119,30 @@ label {
     margin-top: 20px;
   }
 }
+@keyframes float {
+  0% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: -0.5rem;
+  }
+}
+/* @keyframes imagemove {
+  from {
+    width: 0;
+  }
+  to {
+    width: 27rem;
+  }
+}
+@keyframes imagemove2 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 18rem;
+  }
+} */
 
 @keyframes fadein {
   from {

@@ -34,10 +34,11 @@ const Contact = () => {
     setIsOpenModal(true);
   };
   return (
+    <>
     <section className={styles.container}>
       <div className={styles.titleBox}>
         <span>CONTACT US</span>
-        <span>아트그라운드에게 궁금한점이 있다면 메일을 보내주세요</span>
+        <span>아트그라운드에게 궁금한 점이 있다면 메일을 보내주세요.</span>
       </div>
       <div className={styles.infoBox}>
         <div className={styles.mailBox}>
@@ -94,62 +95,6 @@ const Contact = () => {
         </div>
       </div>
       {""}
-      <div className={styles.introBox}>
-        <div className={styles.introBorder}>
-          <div className={styles.sInfo}>
-            <span>문순려</span>
-            <span>Back-end</span>
-            <span>
-              <a
-                target="_blank"
-                href="https://github.com/Sunryeo"
-                className={styles.member}
-              >
-                GitHub
-              </a>
-            </span>
-          </div>
-          <div className={styles.sInfo}>
-            <span>이동욱</span>
-            <span>Back-end</span>
-            <span>
-              <a
-                target="_blank"
-                href="https://github.com/dongukuklee"
-                className={styles.member}
-              >
-                GitHub
-              </a>
-            </span>
-          </div>
-          <div className={styles.sInfo}>
-            <span>유다희</span>
-            <span>Front-end</span>
-            <span>
-              <a
-                target="_blank"
-                href="https://github.com/tkdkagody"
-                className={styles.member}
-              >
-                GitHub
-              </a>
-            </span>
-          </div>
-          <div className={styles.sInfo}>
-            <span>박지영</span>
-            <span>Front-end</span>
-            <span>
-              <a
-                target="_blank"
-                href="https://github.com/devjade"
-                className={styles.member}
-              >
-                GitHub
-              </a>
-            </span>
-          </div>
-        </div>
-      </div>
       {isOpenModal ? (
         <section className={styles.modalContainer}>
           <div className={styles.modalBox}>
@@ -168,6 +113,65 @@ const Contact = () => {
         </section>
       ) : null}
     </section>
+    <div className={styles.introBox}>
+    <div className={styles.aboutUs}>About Us</div>
+    <div className={styles.introBorder}>
+      <div className={styles.sInfo}>
+        <span>문순려</span>
+        <span>Back-end</span>
+        <span>
+          <a
+            target="_blank"
+            href="https://github.com/Sunryeo"
+            className={styles.member}
+          >
+            GitHub
+          </a>
+        </span>
+      </div>
+      <div className={styles.sInfo}>
+        <span>이동욱</span>
+        <span>Back-end</span>
+        <span>
+          <a
+            target="_blank"
+            href="https://github.com/dongukuklee"
+            className={styles.member}
+          >
+            GitHub
+          </a>
+        </span>
+      </div>
+      <div className={styles.sInfo}>
+        <span>유다희</span>
+        <span>Front-end</span>
+        <span>
+          <a
+            target="_blank"
+            href="https://github.com/tkdkagody"
+            className={styles.member}
+          >
+            GitHub
+          </a>
+        </span>
+      </div>
+      <div className={styles.sInfo}>
+        <span>박지영</span>
+        <span>Front-end</span>
+        <span>
+          <a
+            target="_blank"
+            href="https://github.com/devjade"
+            className={styles.member}
+          >
+            GitHub
+          </a>
+        </span>
+      </div>
+    </div>
+    <div className={styles.rights}>Copyright &#169; 2021 art-Ground All rights reserved</div>
+  </div>
+  </>
   );
 };
 export default Contact;
