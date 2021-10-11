@@ -158,13 +158,8 @@ https://art-ground.io/
   </details>
   
   <details>
-   <summary>리뷰 등록</summary>
-    <img width="700" src="https://user-images.githubusercontent.com/79203932/136377157-a1fad93c-8f2e-4e7e-bf2e-22d2082d973a.gif"/>
-  </details>
-  
-  <details>
-   <summary>리뷰 삭제</summary>
-    <img width="700" src="https://user-images.githubusercontent.com/79203932/136375382-0ec5893c-76f8-4761-a575-501890a8a680.gif"/>
+   <summary>리뷰 등록/삭제</summary>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136755629-53e05c36-7d22-4095-be8e-7d1cac77c255.gif"/>
   </details>
   
 </details>
