@@ -107,7 +107,7 @@ https://art-ground.io/
   
   <details>
   <summary> 전시회 카테고리 필터링 </summary>
-    <img width="700" src="https://user-images.githubusercontent.com/83934037/136757055-db81704e-5acf-4cc2-a9fe-26b1519f5624.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136779276-36de7b9b-b959-4bd2-b936-405c45bf2aa8.gif"/>
 
   </details>
   <details>
