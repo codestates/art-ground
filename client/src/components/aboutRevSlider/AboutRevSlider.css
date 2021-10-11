@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+
+@font-face {
+  font-family: "paybooc-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Bold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "paybooc-Light";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Light.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/*font-family: 'Jua', sans-serif;*/
+.seperator {
+  width: 100%;
+  /* height: 20%; */
+  /* line-height: 190px; */
+  margin-bottom: 6rem;
+  border: none;
+  color: rgb(55, 55, 55);
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 100;
+  font-family: "paybooc-Light";
+}
+.carousel-wrapper {
+  width: 100%;
+  /* height: 80%; */
+  display: flex;
+  align-items: center;
+}
+.revContent {
+  color: white;
+  outline: none;
+  background-color: rgb(50, 50, 50);
+  border-radius: 15px;
+  width: 90%;
+  height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0.5rem;
+}
+.revImgtBox {
+  padding-top: 2rem;
+  width: auto;
+  height: 35%;
+  text-align: center;
+}
+.revimg {
+  border-radius: 50%;
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+}
+.revTxtBox {
+  width: 100%;
+  height: 65%;
+  padding: 0.5rem;
+}
+
+.revTxt:nth-child(1),
+.revTxt:nth-child(2) {
+  font-family: "paybooc-Light";
+  height: 17%;
+  text-align: center;
+  /* line-height: 3; */
+  font-size: 1rem;
+}
+
+.revTxt:nth-child(3) {
+  font-weight: 100;
+  font-family: "paybooc-Light";
+  padding: 0 0.6rem;
+  height: 60%;
+  line-height: 2;
+  font-size: 0.8rem;
+}
+
+/*arrow*/
+.btn {
+  width: 3rem;
+  height: 2.7rem;
+  border-radius: 50%;
+  outline: none;
+  margin: 15rem 0.5rem 0 0.5rem;
+  padding-top: 0.3rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1.8rem;
+  background-color: rgb(50, 50, 50);
+  color: white;
+  transition: 0.3s;
+}
+.btn:hover {
+  background-color: rgb(101, 101, 101);
+}
+/*dot*/
+.rec.rec-dot {
+  border-radius: 50%;
+  background: white;
+}
+.rec.rec-dot_active {
+  background: white;
+  border: 2px #333 solid;
+}
+.rec-dot:focus {
+  box-shadow: 0 0 1px 3px rgba(24, 23, 23, 0.5);
+}
+.rec.rec-arrow:disabled {
+  visibility: hidden;
+}
+/*시도하기*/
+.jJKuoL {
+  box-shadow: 0 0 1px 3px gray;
+}
+.jJKuoL:hover {
+  cursor: pointer;
+  box-shadow: 0 0 1px 3px gray;
+}
+
+@media screen and (max-width: 1240px) {
+  .carousel-wrapper {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 980px) {
+}
+@media screen and (max-width: 780px) {
+  .seperator {
+    width: 100%;
+    /* line-height: 80px; */
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  .revTxt:nth-child(1),
+  .revTxt:nth-child(2) {
+    font-size: 1.2rem;
+  }
+  .revTxt:nth-child(3) {
+    font-size: 0.75rem;
+  }
+  .btn {
+    height: 2.5rem;
+  }
+}
+@media screen and (max-width: 580px) {
+  .carousel-wrapper {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+  }
+  .btn {
+    height: 2.3rem;
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .seperator {
+    width: 100%;
+    /* line-height: 50px; */
+    text-align: center;
+    font-size: 0.95rem;
+    margin-bottom: 3rem;
+    font-family: "paybooc-Bold";
+  }
+  .revTxt:nth-child(1),
+  .revTxt:nth-child(2) {
+    height: 20%;
+    text-align: center;
+    /* line-height: 3; */
+    font-size: 0.8rem;
+  }
+
+  .revTxt:nth-child(3) {
+    padding: 0 0.6rem;
+    height: 60%;
+    /* line-height: 2; */
+    font-size: 0.65rem;
+  }
+  .revContent {
+    width: 90%;
+    height: 350px;
+
+    padding: 0.5rem;
+  }
+  .btn {
+
+    margin-top: 9rem;
+    height: 2.1rem;
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 374px) {
+  .seperator {
+    font-size: 0.82rem;
+  }
+  .btn {
+    height: 1.9rem;
+
+  }
+}

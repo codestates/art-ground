@@ -1,0 +1,156 @@
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 11rem 0.5rem 5rem 0.5rem;
+  animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s;
+  /* Firefox */
+  -webkit-animation: fadein 1.5s;
+  /* Safari and Chrome */
+  -o-animation: fadein 1.5s;
+  /* Opera */
+}
+
+.searchBox {
+  margin: 3rem 2rem 1rem 2rem;
+  border-bottom: 1px solid rgb(179, 179, 179);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.search {
+  width: 95%;
+  height: 2rem;
+  border: none;
+  font-size: 0.9rem;
+}
+.searchIcon {
+  cursor: pointer;
+  font-size: 1.2rem;
+  height: 100%;
+  padding: 0.5rem;
+  border: none;
+  background-color: white;
+  color: rgb(112, 112, 112);
+  transition: 0.3s;
+}
+.deleteIcon {
+  cursor: pointer;
+  font-size: 1.4rem;
+  height: 100%;
+  padding: 0.3rem;
+  border: none;
+  background-color: white;
+  color: rgb(181, 181, 181);
+  transition: 0.3s;
+}
+.searchIcon:hover {
+  color: black;
+}
+.reviews {
+  list-style: none;
+  margin-top: 0.5rem;
+  animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s;
+  /* Firefox */
+  -webkit-animation: fadein 1.5s;
+  /* Safari and Chrome */
+  -o-animation: fadein 1.5s;
+  /* Opera */
+}
+
+.sortWrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sort {
+  cursor: pointer;
+  width: 6.5rem;
+  font-size: 0.7rem;
+  margin-right: 0.5rem;
+  color: grey;
+  background: url("https://citicene.com.au/wp-content/uploads/2020/03/arrow-navigate.png")
+    calc(100% - 5px) center no-repeat;
+  background-size: 20px;
+  padding: 5px 30px 5px 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(210, 210, 210);
+  outline: 0 none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.result {
+  text-align: center;
+  color: rgb(103, 103, 103);
+  padding: 2rem 0;
+}
+
+.resultNone {
+  text-align: center;
+  color: rgb(103, 103, 103);
+  padding: 2rem 0;
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10rem 0;
+}
+
+.loadingImg {
+  width: 3rem;
+}
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 4.5rem 0.5rem 5rem 0.5rem;
+  }
+  .searchBox {
+    margin: 1.5rem 0.5rem 1.5rem 0.5rem;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,149 @@
+.container {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 11rem 0 0 0;
+  animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s;
+  /* Firefox */
+  -webkit-animation: fadein 1.5s;
+  /* Safari and Chrome */
+  -o-animation: fadein 1.5s;
+  /* Opera */
+}
+
+.review {
+  color: white;
+  background: rgb(90, 90, 90);
+  margin: 3rem 1rem 0 1rem;
+  padding: 0.8rem 0.5rem;
+  width: 6rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.replies {
+  margin: 0rem 1rem 3rem 1rem;
+  padding: 1.5rem 0.5rem 2.5rem 0.5rem;
+  border: 1px solid rgb(226, 226, 226);
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.replyBox {
+  margin: 2rem 2rem 3rem 2rem;
+  border-bottom: 1px solid rgb(179, 179, 179);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.reply {
+  /* border: 1px solid rgb(179, 179, 179); */
+  width: 90%;
+  height: 2rem;
+  border: none;
+  font-size: 0.9rem;
+}
+.replyIcon {
+  cursor: pointer;
+  font-size: 0.8rem;
+  height: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.2rem;
+  border: 1px solid rgb(172, 172, 172);
+  border-radius: 5px;
+  background-color: white;
+  color: rgb(95, 95, 95);
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.replyIcon:hover {
+  background-color: rgb(241, 241, 241);
+}
+
+.replyCount {
+  margin: 0 2rem;
+  padding: 0 0.5rem;
+  color: rgb(82, 82, 82);
+  font-size: 0.9rem;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.loadingImg {
+  width: 2rem;
+}
+.mainLoading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10rem 0;
+}
+
+.mainLoadingImg {
+  width: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 4.5rem 0 0 0;
+  }
+  .replyBox {
+    margin: 1rem 1rem 2rem;
+  }
+  .replyCount {
+    margin: 0 1rem;
+    padding: 0;
+  }
+}
+
+/* 모달 section(위) */
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

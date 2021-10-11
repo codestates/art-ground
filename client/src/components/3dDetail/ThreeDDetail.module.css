@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
+
+.container {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.topContent {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 10;
+  width: 18rem;
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(85, 85, 85);
+  background-color: white;
+  border-radius: 10px;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  -webkit-animation: fadein 2s;
+  -o-animation: fadein 2s;
+}
+.topContentClose {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 10;
+  width: 18rem;
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(85, 85, 85);
+  background-color: white;
+  border-radius: 10px;
+  animation: fadeout 2s;
+  -moz-animation: fadeout 2s;
+  -webkit-animation: fadeout 2s;
+  -o-animation: fadeout 2s;
+  opacity: 0;
+}
+
+.loader {
+  z-index: -1;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.8;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.8;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.8;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.8;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 0.8;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes fadeout {
+  /* Firefox */
+  from {
+    opacity: 0.8;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  /* Safari and Chrome */
+  from {
+    opacity: 0.8;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes fadeout {
+  /* Opera */
+  from {
+    opacity: 0.8;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

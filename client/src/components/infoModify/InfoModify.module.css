@@ -1,0 +1,365 @@
+@value Black, White from '../../common/colors.css';
+@value Container from '../../common/size.css';
+
+label,
+span {
+  display: block;
+}
+
+.container {
+  max-width: Container;
+  margin: 0 auto;
+  animation: fadein 1s;
+  -moz-animation: fadein 1s;
+  /* Firefox */
+  -webkit-animation: fadein 1s;
+  /* Safari and Chrome */
+  -o-animation: fadein 1s;
+  /* Opera */
+}
+.contentBorder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15rem;
+}
+/*프로필이미지*/
+.imgBox {
+  width: 80%;
+  height: 16rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.infoModiBox {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem;
+  flex-direction: row;
+}
+.authModiBox {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem;
+  flex-direction: column;
+}
+.btnModiBox {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem;
+  flex-direction: row;
+}
+.imgBorder {
+  /* label */
+  width: 200px;
+  height: 200px;
+  background-color: gray;
+  border-radius: 50%;
+  border: 1px solid gainsboro;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  position: relative;
+}
+.imgInput {
+  text-align: center;
+  width: 115px;
+  height: 30px;
+  position: absolute;
+}
+.ProfileView {
+  width: 100%;
+  height: 100%;
+  /* //margin-left: 1px; */
+}
+.editbox {
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 440px;
+}
+
+.camera {
+  width: 90%;
+  height: 90%;
+  z-index: 2;
+  border-radius: 50%;
+  border: 1px solid gainsboro;
+  margin-left: 4px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+/*input박스*/
+.ulbox {
+  list-style: none;
+  width: 80%;
+  /* border: 1px solid blue; */
+}
+.libox {
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.titlebox {
+  margin-left: 15px;
+}
+.inputedit {
+  height: 2.5rem;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  text-align: end;
+  border-bottom: 1px solid gainsboro;
+}
+.passcheck {
+  text-align: center;
+  color: red;
+}
+
+/*작가소개*/
+.authTitle {
+  flex: 1.5;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.authorText {
+  flex: 10;
+  text-indent: 5px;
+  line-height: 2;
+  outline: none;
+  overflow-y: scroll;
+  resize: none;
+  border: 1px solid gainsboro;
+}
+
+/*버튼*/
+
+.btn1,
+.btn2 {
+  width: 100px;
+  height: 40px;
+  border: 1px solid gainsboro;
+  outline: none;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn2 {
+  margin-left: 15px;
+}
+
+.btn1:hover,
+.btn2:hover {
+  background-color: #202020;
+  color: white;
+  transition: transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02);
+}
+
+@media screen and (max-width: 768px) {
+  .contentBorder {
+    padding-top: 6rem;
+  }
+  .authModiBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem;
+  }
+  .authTitle {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  .authorText {
+    width: 90%;
+    height: 80%;
+  }
+  .infoModiBox {
+    width: 90%;
+    padding: 0.2rem;
+  }
+  .titlebox {
+    width: 25%;
+    margin-left: 15px;
+    font-size: 1rem;
+  }
+  .inputedit {
+    width: 60%;
+    font-size: 1rem;
+  }
+  .editbox {
+    top: 300px;
+  }
+}
+@media screen and (max-width: 580px) {
+  .container {
+    padding-top: 4.5rem;
+  }
+  .authModiBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem;
+  }
+  .authTitle {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  .authorText {
+    width: 90%;
+    height: 80%;
+  }
+  .infoModiBox {
+    width: 100%;
+    padding: 0.5rem 0.1rem;
+  }
+  .titlebox {
+    width: 30%;
+    margin-left: 15px;
+    font-size: 1rem;
+  }
+  .inputedit {
+    width: 60%;
+    font-size: 1rem;
+  }
+  .editbox {
+    top: 370px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .titlebox {
+    width: 35%;
+    margin-left: 15px;
+    font-size: 0.9rem;
+  }
+  .inputedit {
+    width: 65%;
+    font-size: 0.8rem;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/*모달*/
+.modalContainer {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  /* Firefox */
+  -webkit-animation: fadein 2s;
+  /* Safari and Chrome */
+  -o-animation: fadein 2s;
+  /* Opera */
+}
+
+.modalBox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  background-color: white;
+  width: 20rem;
+  height: 25rem;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modalText {
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #202020;
+}
+.btnBox {
+  width: 15rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+.modifyBtn {
+  width: 5rem;
+  height: 2.5rem;
+  padding: 0.2rem;
+  border: 1px solid gainsboro;
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.5s;
+}
+.modifyBtn:hover {
+  background-color: #202020;
+  color: white;
+  transition: transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02);
+}

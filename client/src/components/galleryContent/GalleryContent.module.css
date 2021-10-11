@@ -1,0 +1,121 @@
+.object {
+  position: relative;
+  animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s;
+  -webkit-animation: fadein 1.5s;
+  -o-animation: fadein 1.5s;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 16rem;
+  margin: 0;
+  object-fit: cover;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.thumbnail:hover {
+  filter: brightness(50%);
+}
+
+.title {
+  margin-top: 0.3rem;
+  font-size: 1rem;
+  color: rgb(44, 44, 44);
+}
+
+.likesMeta {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: -0.5rem;
+  width: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: right;
+  background-color: rgb(255, 255, 255, 0.6);
+  padding: 0.3rem;
+  margin-right: 0.5rem;
+}
+.likesCount {
+  font-size: 0.9rem;
+  color: rgb(97, 97, 97);
+}
+
+.notlike {
+  padding-right: 0.4rem;
+  font-size: 1rem;
+  color: rgb(97, 97, 97);
+}
+.like {
+  padding-right: 0.4rem;
+  font-size: 1rem;
+  color: rgb(241, 112, 112);
+}
+
+.period {
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
+  color: rgb(156, 156, 156);
+}
+
+.threeDIconWrap {
+  background: white;
+  opacity: 0.6;
+  position: absolute;
+  top: 2rem;
+  right: 0rem;
+  width: 3.2rem;
+  height: 1.8rem;
+  padding: 0.1rem 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.threeDIcon {
+  width: 100%;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

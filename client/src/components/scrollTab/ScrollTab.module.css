@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
+.tapBorder {
+  width: 2.5rem;
+  height: 14rem;
+  list-style: none;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  transition: opacity 0.5s ease-in;
+  opacity: 0.8;
+  padding: 0.7rem;
+  font-size: 0.8rem;
+  font-family: "Poppins", sans-serif;
+}
+.list {
+  width: 1.2rem;
+  height: 1.2rem;
+  text-align: center;
+  line-height: 1.5;
+  background-color: gray;
+  border: 1px solid gray;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.list:hover {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.listClicked {
+  width: 1.2rem;
+  height: 1.2rem;
+  text-align: center;
+  line-height: 1.5;
+  background-color: black;
+  border: 3px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+}

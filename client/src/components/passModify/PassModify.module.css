@@ -1,0 +1,234 @@
+@value Black, White from '../../common/colors.css';
+@value Container from '../../common/size.css';
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
+label,
+span {
+  display: block;
+}
+
+.container {
+  max-width: Container;
+  height: 100%;
+  margin: 0 auto;
+  animation: fadein 1s;
+  -moz-animation: fadein 1s;
+  /* Firefox */
+  -webkit-animation: fadein 1s;
+  /* Safari and Chrome */
+  -o-animation: fadein 1s;
+  /* Opera */
+}
+.contentBorder {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 11rem;
+}
+.infoModiBox {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ulbox {
+  list-style: none;
+  width: 50%;
+  height: 70%;
+  border: 1px solid gainsboro;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.liTitle {
+  width: 100%;
+  height: 6rem;
+  padding: 1.2rem 3.2rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+}
+.liTitle span:nth-child(1) {
+  font-size: 1.5rem;
+}
+.liTitle span:nth-child(2) {
+  font-size: 0.7rem;
+}
+.liTitle span:nth-child(3) {
+  font-size: 0.7rem;
+}
+.liEdit {
+  width: 100%;
+  height: 19rem;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.liEdit input {
+  border: 1px solid gainsboro;
+  width: 80%;
+  height: 3rem;
+  margin-top: 1rem;
+  text-indent: 0.8rem;
+}
+.liEdit input:nth-child(2) {
+  margin-top: 2rem;
+}
+.liBtn {
+  width: 100%;
+  height: 8rem;
+
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.liBtn button {
+  width: 18rem;
+  height: 3.5rem;
+  border: 1px solid gainsboro;
+  background: none;
+  cursor: pointer;
+}
+.liBtn button:nth-child(1) {
+  background-color: gainsboro;
+}
+.liBtn button:nth-child(2) {
+  margin-top: 1rem;
+}
+.passcheck {
+  color: red;
+}
+@media screen and (max-width: 768px) {
+  .ulbox {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 580px) {
+  .ulbox {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ulbox {
+    width: 100%;
+  }
+  .liBtn button {
+    width: 15rem;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/*모달*/
+.modalContainer {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  /* Firefox */
+  -webkit-animation: fadein 2s;
+  /* Safari and Chrome */
+  -o-animation: fadein 2s;
+  /* Opera */
+}
+
+.modalBox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  background-color: white;
+  width: 20rem;
+  height: 25rem;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modalText {
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #202020;
+}
+.btnBox {
+  width: 15rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+.modifyBtn {
+  width: 5rem;
+  height: 2.5rem;
+  padding: 0.2rem;
+  border: 1px solid gainsboro;
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.5s;
+}
+.modifyBtn:hover {
+  background-color: #202020;
+  color: white;
+  transition: transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02);
+}

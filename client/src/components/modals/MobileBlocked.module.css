@@ -1,0 +1,165 @@
+.modalContainer {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  animation: fadein 1s;
+  -moz-animation: fadein 1s;
+  -webkit-animation: fadein 1s;
+  -o-animation: fadein 1s;
+}
+
+.modalWrap {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 7.5rem 1.5rem;
+  width: 20rem;
+  height: 25rem;
+  z-index: 30;
+  border-radius: 10px;
+}
+
+.modalContentWeb {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.2rem;
+  color: rgb(90, 90, 90);
+  line-height: 1.8rem;
+}
+.modalSubContentWeb {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgb(148, 148, 148);
+  line-height: 1.2rem;
+}
+.modalContentMobile {
+  display: none;
+}
+.modalSubContentMobile {
+  display: none;
+}
+.ok {
+  margin: 4rem 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.okBtn {
+  margin: 0 1rem;
+  width: 6rem;
+  height: 2.5rem;
+  cursor: pointer;
+  border: 1px solid rgb(90, 90, 90);
+  padding: 0.2rem 0.7rem;
+  border-radius: 5px;
+  background-color: rgb(90, 90, 90);
+  transition: 0.3s;
+  font-size: 0.8rem;
+  color: white;
+  white-space: nowrap;
+}
+.okBtn:hover {
+  border: 1px solid rgb(210, 210, 210);
+  background-color: white;
+  color: rgb(66, 66, 66);
+}
+
+@media screen and (max-width: 768px) {
+  .modalContentWeb {
+    display: none;
+  }
+  .modalSubContentWeb {
+    display: none;
+  }
+  .modalContentMobile {
+    all: unset;
+    display: block;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgb(90, 90, 90);
+    line-height: 1.8rem;
+  }
+  .modalSubContentMobile {
+    all: unset;
+    display: block;
+    margin-top: 0.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgb(148, 148, 148);
+    line-height: 1.2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .modalWrap {
+    width: 80%;
+    padding: 4.5rem 1.5rem;
+    height: 20rem;
+  }
+  .ok {
+    margin: 3.5rem 0;
+  }
+  .okBtn {
+    margin: 0 0.5rem;
+    width: 5rem;
+  }
+  .modalContentMobile {
+    font-size: 1rem;
+  }
+  .modalSubContentMobile {
+    font-size: 0.75rem;
+  }
+}
+/* 모달 section(위) */
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

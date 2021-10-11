@@ -1,0 +1,117 @@
+@value Black, White from '../../common/colors.css';
+@value Container from '../../common/size.css';
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
+
+.container {
+  max-width: Container;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 20rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.joinbox {
+  width: 28rem;
+  height: 33rem;
+  padding: 5rem 0.8rem;
+  margin: 0 auto;
+  margin-top: 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gainsboro;
+}
+.btn {
+  width: 18rem;
+  height: 3.3rem;
+  background-color: White;
+  border: 1px solid gainsboro;
+  outline: none;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: rgb(53, 52, 52);
+  color: white;
+}
+.btn.second {
+  margin-top: 3rem;
+}
+.Box {
+  width: 30rem;
+  height: 20rem;
+  padding: 0.8rem;
+}
+
+.backToLogin {
+  margin-top: 4rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  color: rgb(82, 79, 79);
+  cursor: pointer;
+}
+.bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  color: black;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding-top: 4.5rem;
+  }
+  .joinbox {
+    margin-top: 17rem;
+  }
+}
+@media screen and (max-width: 580px) {
+  .container {
+    padding-top: 4.5rem;
+  }
+  .joinbox {
+    margin-top: 17rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding-top: 4.5rem;
+  }
+  .joinbox {
+    margin-top: 17rem;
+    height: 28rem;
+  }
+  .btn {
+    width: 80%;
+    height: 3.3rem;
+    background-color: White;
+    border: 1px solid gainsboro;
+    outline: none;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .container {
+    padding-top: 4.5rem;
+  }
+  .joinbox {
+    margin-top: 20rem;
+    height: 25rem;
+  }
+  .btn {
+    width: 85%;
+    height: 3.3rem;
+    background-color: White;
+    border: 1px solid gainsboro;
+    outline: none;
+    cursor: pointer;
+  }
+  .bold {
+    font-size: 0.8rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    color: black;
+  }
+}

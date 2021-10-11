@@ -1,0 +1,85 @@
+.reply {
+  margin: 1.5rem 2rem 0 2rem;
+  padding: 1rem;
+  border: 1px solid rgb(226, 226, 226);
+  border-radius: 5px;
+  display: flex;
+  position: relative;
+}
+
+.contentBox {
+  padding: 0.3rem 0.8rem 0 0.8rem;
+}
+
+.profile {
+  width: 5rem;
+  height: 5rem;
+  margin: 0;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userAndDate {
+  display: flex;
+  padding-bottom: 0.5rem;
+  align-items: flex-end;
+}
+
+.user {
+  margin-right: 0.5rem;
+  color: rgb(66, 66, 66);
+}
+
+.date {
+  font-size: 0.8rem;
+  color: rgb(163, 163, 163);
+}
+
+.content {
+  font-size: 0.85rem;
+  color: rgb(85, 85, 85);
+  line-height: 1.2rem;
+}
+
+.deleteBtn {
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: rgb(163, 163, 163);
+  transition: 0.3s;
+}
+
+.deleteBtn:hover {
+  color: rgb(46, 46, 46);
+}
+
+@media screen and (max-width: 768px) {
+  .reply {
+    margin: 1.5rem 0.5rem 0 0.5rem;
+    padding: 1rem 0.5rem;
+  }
+  .profile {
+    width: 3rem;
+    height: 3rem;
+  }
+  .contentBox {
+    padding: 0.2rem 0 0 0.3rem;
+  }
+  .content {
+    font-size: 0.8rem;
+  }
+  .deleteBtn {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+  .userAndDate {
+    padding-bottom: 0.2rem;
+  }
+  .user {
+    font-size: 0.95rem;
+  }
+  .date {
+    font-size: 0.75rem;
+  }
+}

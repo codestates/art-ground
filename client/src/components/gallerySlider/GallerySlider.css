@@ -1,0 +1,142 @@
+.outer {
+  overflow: hidden;
+  position: relative;
+}
+
+.sliderOuter1 {
+  width: 900%;
+  max-width: 9216px;
+  transition: transform 2s;
+}
+.sliderOuter2 {
+  width: 900%;
+  max-width: 9216px;
+  transition: transform 2s;
+  transform: translate(calc(-100% / 9));
+}
+.sliderOuter3 {
+  width: 900%;
+  max-width: 9216px;
+  transition: transform 2s;
+  transform: translate(calc(-200% / 9));
+}
+.sliderOuter4 {
+  width: 900%;
+  max-width: 9216px;
+  transition: transform 2s;
+  transform: translate(calc(-300% / 9));
+}
+.sliderOuter5 {
+  width: 900%;
+  max-width: 9216px;
+  transition: transform 2s;
+  transform: translate(calc(-400% / 9));
+}
+.sliderOuter6 {
+  width: 900%;
+  max-width: 9216px;
+  transition: transform 2s;
+  transform: translate(calc(-500% / 9));
+}
+.sliderOuter7 {
+  width: 900%;
+  max-width: 9216px;
+  transition: transform 2s;
+  transform: translate(calc(-600% / 9));
+}
+.sliderOuter8 {
+  width: 900%;
+  max-width: 9216px;
+  transition: transform 2s;
+  transform: translate(calc(-700% / 9));
+}
+.sliderOuter9 {
+  width: 900%;
+  max-width: 9216px;
+  transition: transform 2s;
+  transform: translate(calc(-800% / 9));
+}
+
+.sliderWrap {
+  width: calc(100% / 9);
+  float: left;
+  position: relative;
+}
+.sliderBackground {
+  margin: 0;
+  width: 100%;
+  height: auto;
+}
+.sliderPic {
+  cursor: pointer;
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 47%;
+  width: auto;
+  margin: 0;
+  box-shadow: 0px 10px 10px 7px #9c9c9c;
+  border-radius: 3px;
+}
+
+.leftArrow,
+.rightArrow {
+  cursor: pointer;
+  font-size: 2rem;
+  position: absolute;
+  top: 38%;
+  color: whitesmoke;
+  transition: 0.3s;
+}
+.leftArrow {
+  left: 0rem;
+  padding: 3rem 3rem 3rem 1rem;
+}
+
+.rightArrow {
+  right: 0rem;
+  padding: 3rem 1rem 3rem 3rem;
+}
+
+.leftArrow:hover,
+.rightArrow:hover {
+  color: gray;
+}
+
+@media screen and (max-width: 480px) {
+  .leftArrow,
+  .rightArrow {
+    /* font-size: 1.5rem;
+    top: 27%; */
+    display: none;
+  }
+
+  .sliderOuter1 {
+    transition: transform 0.7s;
+  }
+  .sliderOuter2 {
+    transition: transform 0.7s;
+  }
+  .sliderOuter3 {
+    transition: transform 0.7s;
+  }
+  .sliderOuter4 {
+    transition: transform 0.7s;
+  }
+  .sliderOuter5 {
+    transition: transform 0.7s;
+  }
+  .sliderOuter6 {
+    transition: transform 0.7s;
+  }
+  .sliderOuter7 {
+    transition: transform 0.7s;
+  }
+  .sliderOuter8 {
+    transition: transform 0.7s;
+  }
+  .sliderOuter9 {
+    transition: transform 0.7s;
+  }
+}

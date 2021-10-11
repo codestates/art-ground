@@ -1,0 +1,211 @@
+@value Black, White from '../../common/colors.css';
+@value Container from '../../common/size.css';
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
+.container {
+  max-width: Container;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 11rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  animation: fadein 1s;
+  -moz-animation: fadein 1s;
+  /* Firefox */
+  -webkit-animation: fadein 1s;
+  /* Safari and Chrome */
+  -o-animation: fadein 1s;
+  /* Opera */
+}
+.side {
+  margin-top: 3rem;
+  width: 10rem;
+  height: 40rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+.content {
+  width: 60rem;
+  height: 100%;
+}
+
+.sidebar {
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.category {
+  border: 1px solid gainsboro;
+  width: 80%;
+  height: 7rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  transition: all 0.5s;
+  font-family: "Poppins", sans-serif;
+}
+
+.category:hover {
+  background-color: gainsboro;
+  transition: transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02);
+  font-weight: bold;
+}
+
+.clickCate {
+  border: 1px solid gainsboro;
+  width: 80%;
+  height: 7rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  background-color: gainsboro;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding-top: 2rem;
+    flex-direction: column;
+  }
+  .side {
+    width: 100%;
+    height: 7rem;
+  }
+  .content {
+    width: 100%;
+    height: 100%;
+  }
+  .sidebar {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.1rem;
+    border-bottom: 1px solid gainsboro;
+  }
+  .category {
+    width: 12rem;
+    height: 4rem;
+  }
+  .clickCate {
+    width: 12rem;
+    height: 4.5rem;
+  }
+}
+@media screen and (max-width: 580px) {
+  .container {
+    padding-top: 1rem;
+  }
+  .side {
+    width: 100%;
+    height: 9rem;
+  }
+  .content {
+    width: 100%;
+    height: 40rem;
+  }
+  .sidebar {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.1rem;
+    border-bottom: 1px solid gainsboro;
+  }
+  .category {
+    width: 8rem;
+    height: 4rem;
+  }
+  .clickCate {
+    width: 8rem;
+    height: 4.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding-top: 0.2rem;
+  }
+  .side {
+    width: 100%;
+    height: 9rem;
+  }
+  .content {
+    width: 100%;
+    height: 40rem;
+  }
+  .sidebar {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.1rem;
+    border-bottom: 1px solid gainsboro;
+  }
+  .category {
+    width: 6rem;
+    height: 4rem;
+  }
+  .clickCate {
+    width: 6rem;
+    height: 4.5rem;
+  }
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

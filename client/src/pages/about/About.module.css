@@ -1,0 +1,1229 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+/*font-family: 'Do Hyeon', sans-serif;*/
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+/*font-family: 'Jua', sans-serif;*/
+
+@font-face {
+  font-family: "paybooc-Light";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Light.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "paybooc-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Bold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+span,
+label {
+  display: block;
+}
+.container {
+  width: 100%;
+  margin: 0;
+  margin-top: 11rem;
+  /* padding: 0.1rem; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  -webkit-animation: fadein 2s;
+  -o-animation: fadein 2s;
+  font-family: "paybooc-Light";
+}
+
+/*섹션1: 브랜드*/
+.mainBrand {
+  height: 90vh;
+  background-color: none;
+  width: 100%;
+}
+
+.mainBrand2 {
+  /* height: 100vh; */
+  background-color: none;
+  width: 100%;
+}
+.brandSection {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.backgroundImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+}
+
+.brand {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.mainContentBox {
+  position: absolute;
+  top: -12%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.brand p {
+  color: rgb(80, 80, 80);
+  font-family: "paybooc-Bold";
+  font-size: 1.6rem;
+  z-index: 1;
+  line-height: 180%;
+}
+.brand h1 {
+  color: rgb(55, 55, 55);
+  font-family: "paybooc-Bold";
+  font-weight: normal;
+  font-size: 3rem;
+  z-index: 1;
+  line-height: 180%;
+  /* margin-top: 20rem; */
+  margin-bottom: 1.5rem;
+}
+/*섹션2: 슬라이더*/
+.mainSlider {
+  background-color: #f1f1f1;
+  max-width: 1024px;
+  width: 100%;
+}
+.brand2 {
+  width: 100%;
+  max-width: 1024px;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 4rem 1rem 5rem 1rem;
+  margin-bottom: 3rem;
+}
+
+.secondHead {
+  color: rgb(72, 72, 72);
+  line-height: 170%;
+  width: 100%;
+  max-width: 1024px;
+  margin: 7rem 0 0rem;
+  font-size: 1.7rem;
+  text-align: center;
+  font-family: "paybooc-Light";
+}
+
+.img1Wrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  margin-right: -1rem;
+  /* padding-bottom: 1rem; */
+}
+.img1 {
+  width: 29rem;
+  border-radius: 10px;
+  z-index: 2;
+  box-shadow: 3px 3px 5px rgb(181, 181, 181);
+}
+
+.img2 {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16rem;
+  height: 16rem;
+  padding: 1rem;
+  border-radius: 50%;
+  z-index: 9;
+  opacity: 0.992;
+  border: 1px solid rgb(232, 232, 232);
+  /* box-shadow: 3px 3px 5px rgb(181, 181, 181); */
+  image-rendering: -webkit-optimize-contrast;
+  backface-visibility: hidden;
+  background: white;
+  animation: float 1s linear 0s infinite alternate;
+}
+.img3Wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  /* padding-left: 1rem; */
+  margin-bottom: -1rem;
+}
+.img3 {
+  width: 20rem;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px rgb(181, 181, 181);
+  z-index: 1;
+}
+.img4Wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  /* padding-right: 1rem; */
+  margin-top: -1rem;
+}
+.img4 {
+  width: 20rem;
+  border-radius: 10px;
+  z-index: 1;
+  box-shadow: 3px 3px 5px rgb(181, 181, 181);
+}
+.img5Wrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  margin-left: -1rem;
+  /* padding-top: 1rem; */
+}
+.img5 {
+  width: 29rem;
+  border-radius: 10px;
+  z-index: -1;
+  box-shadow: 3px 3px 5px rgb(181, 181, 181);
+}
+
+/* 움직이는 화살표 */
+.downArr2 {
+  position: absolute;
+  bottom: 9rem;
+  left: 0;
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+.arrSection2 {
+  max-width: 1024px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin-top: 4rem;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.arrowDown2 span {
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  border-bottom: 2px solid #606060;
+  border-right: 2px solid #606060;
+  transform: rotate(45deg);
+  margin: -8px;
+  animation: animate-arrows 1.5s infinite;
+}
+.downArr {
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f1f1;
+}
+.arrSection {
+  max-width: 1024px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin-top: 4rem;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.arrowDown span {
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  border-bottom: 1px solid #202020;
+  border-right: 1px solid #202020;
+  transform: rotate(45deg);
+  margin: -8px;
+  animation: animate-arrows 2s infinite;
+}
+
+/*섹션3: 관람(회색)*/
+.mainExplain {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* height: 70vh; */
+  background-color: #f1f1f1;
+}
+.ExplainSection {
+  max-width: 1024px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.explainBorder,
+.explainBorder2 {
+  width: 100%;
+  height: 50%;
+  margin: 12rem 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.2rem;
+}
+
+.explainBorder h3,
+.explainBorder2 h3 {
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 100;
+  font-family: "paybooc-Bold";
+  color: rgb(55, 55, 55);
+  line-height: 150%;
+  white-space: nowrap;
+}
+.explainBorder p,
+.explainBorder2 p {
+  font-family: "paybooc-Light";
+  color: #484848;
+  font-size: 0.95rem;
+  font-weight: 100;
+  line-height: 170%;
+  white-space: nowrap;
+}
+.explainBorder img {
+  width: 60%;
+  height: 100%;
+  margin: 1rem 1rem 1rem 2rem;
+  border-radius: 12px;
+  border: 1px solid rgb(213, 213, 213);
+  box-shadow: 1px 5px 20px -5px rgb(199, 199, 199);
+}
+
+.explainBorder > div {
+  padding: 2.5rem 2rem;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+}
+
+.explainBorder2 img {
+  width: 55%;
+  height: 100%;
+  margin: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgb(213, 213, 213);
+  box-shadow: 1px 5px 20px -5px rgb(199, 199, 199);
+}
+.explainBorder2 > div {
+  padding: 2.5rem 2rem 2.5rem 3rem;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+}
+
+/*섹션4: 관람디테일 타이틀(하얀색):*/
+
+.mainWatchDetail1 {
+  width: 100%;
+  padding: 8rem 0 5rem;
+  background-color: rgb(55, 55, 55);
+}
+.exDetailTitle {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 1024px;
+  height: 100%;
+  margin: 0 auto;
+  font-size: 1.7rem;
+  font-family: "paybooc-Light";
+  line-height: 180%;
+}
+
+/*섹션5,6: 관람디테일 컨텐츠(검정색)*/
+.mainWatchDetail2 {
+  width: 100%;
+  /* height: 75vh; */
+  background-color: rgb(55, 55, 55);
+  padding: 4rem 2rem;
+}
+.exDetailBoard {
+  width: 1024px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.exDetailImg {
+  width: 100%;
+  /* height: 70%; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.exDetailImg img {
+  width: 80%;
+  height: auto;
+  border-radius: 10px;
+  /* box-shadow: 1px 3px 3px rgb(181, 181, 181); */
+}
+.exDetailTxt {
+  margin-top: 1.5rem;
+  width: 100%;
+  /* height: 30%; */
+  color: white;
+}
+.emptyBox {
+  height: 6rem;
+}
+.exDetailTxt span {
+  text-align: center;
+  width: 100%;
+  /* font-weight: 100; */
+  font-family: "Poppins", sans-serif;
+}
+.exDetailTxt span:nth-child(1) {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  /* line-height: 6rem; */
+}
+.exDetailTxt span:nth-child(2) {
+  height: 60%;
+  font-size: 1.2rem;
+  line-height: 150%;
+  font-family: "paybooc-Light";
+}
+
+/*섹션7 리뷰디테일 컨텐츠(하얀색)*/
+.mainReviewDetail {
+  width: 100%;
+  padding: 10rem 0.5rem;
+}
+.ReviewSection {
+  width: 1024px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/*섹션8 카운터박스(검정색)*/
+.mainCount {
+  width: 100%;
+  /* height: 50vh; */
+  padding: 8rem 0;
+  background-color: rgb(55, 55, 55);
+}
+.countSection {
+  width: 1024px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/*이쪽 반응형 아직*/
+.conterTxtBox {
+  margin-bottom: 5rem;
+  font-family: "paybooc-Light";
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  line-height: 2;
+  font-size: 1.7rem;
+}
+.conterBox {
+  font-family: "paybooc-Light";
+  width: 100%;
+  height: 50%;
+}
+.conterBox span {
+  width: 100%;
+  height: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.conterBox span:nth-child(1) {
+  font-size: 2.8rem;
+}
+.conterBox span:nth-child(2) {
+  font-size: 2rem;
+}
+/*섹션9 바텀txt(하얀색)*/
+.mainBottomTxt {
+  color: rgb(55, 55, 55);
+  width: 100%;
+  padding-top: 10rem;
+  /* height: 20vh; */
+}
+.bottomSectionTxt {
+  width: 1024px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 2.2rem;
+  font-family: "paybooc-Bold";
+}
+
+/*섹션10 바텀btn(하얀색)*/
+.mainBottom {
+  width: 100%;
+  padding: 5rem 0 15rem;
+  /* height: 40vh; */
+}
+.bottomSection {
+  width: 1024px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.bottomBtn {
+  display: inline-block;
+  border-radius: 10px;
+  border: 1px solid #454545;
+  background: #454545;
+  color: white;
+  padding: 0.8rem 1.8rem;
+  margin-top: 2rem;
+  cursor: pointer;
+  width: 15rem;
+  height: 5rem;
+  font-size: 1.2rem;
+  animation: motion 0.8s linear 0s infinite alternate;
+  margin-top: 0;
+  font-family: "paybooc-Light";
+  transition: 0.5s;
+}
+
+.bottomBtn:hover {
+  border: 1px solid #9d9d9d;
+  background: white;
+  color: #353535;
+}
+
+/*설명부분 버튼*/
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 5px;
+  background: #454545;
+  color: white;
+  padding: 0.8rem 1.8rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  width: 10rem;
+  transition: 0.3s;
+  font-size: 1rem;
+  font-family: "paybooc-Light";
+}
+.btn:hover {
+  opacity: 0.5;
+  font-family: "paybooc-Bold";
+}
+
+@media screen and (max-width: 1024px) {
+  /*섹션2: 슬라이더*/
+  .mainSlider {
+    background-color: #f1f1f1;
+    width: 100%;
+    height: 80vh;
+  }
+
+  /*섹션3: 관람(회색)*/
+
+  .ExplainSection {
+    width: 100%;
+  }
+
+  /*섹션4: 관람디테일 타이틀(하얀색):*/
+
+  .exDetailTitle {
+    width: 100%;
+  }
+
+  /*섹션5,6: 관람디테일 컨텐츠(검정색)*/
+
+  .exDetailBoard {
+    width: 100%;
+  }
+
+  .ReviewSection {
+    width: 100%;
+  }
+  .explainBorder > div {
+    padding: 2.5rem 2rem 2.5rem 1rem;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+  }
+}
+@media screen and (max-width: 1024px) {
+  .brand p {
+    font-size: 1.2rem;
+  }
+  .brand h1 {
+    font-size: 2.5rem;
+  }
+  .explainBorder h3,
+  .explainBorder2 h3 {
+    font-size: 2rem;
+  }
+  .exDetailTxt span:nth-child(1) {
+    font-size: 2.3rem;
+    /* line-height: 6rem; */
+  }
+}
+@media screen and (max-width: 980px) {
+  .mainSlider {
+    background-color: #f1f1f1;
+    width: 100%;
+    height: 60vh;
+  }
+
+  /* .mainExplain {
+    height: 60vh;
+  } */
+  .ExplainSection {
+    width: 100%;
+    height: 100%;
+  }
+  .explainBorder h3,
+  .explainBorder2 h3 {
+    padding: 0.2rem;
+    font-size: 1.5rem;
+  }
+  .explainBorder p,
+  .explainBorder2 p {
+    font-size: 0.8rem;
+  }
+
+  .exDetailTitle {
+    width: 750px;
+  }
+
+  .exDetailBoard {
+    width: 100%;
+  }
+
+  .exDetailTxt span:nth-child(2) {
+    font-size: 1rem;
+  }
+
+  .ReviewSection {
+    width: 100%;
+  }
+
+  .countSection {
+    width: 100%;
+  }
+
+  .bottomSectionTxt {
+    width: 100%;
+  }
+
+  .bottomSection {
+    width: 100%;
+  }
+  .explainBorder2 > div {
+    padding: 2.5rem 2rem 2.5rem 3rem;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+  }
+}
+@media screen and (max-width: 933px) {
+  .img1 {
+    width: 25rem;
+  }
+  .img2 {
+    top: 55%;
+    width: 15rem;
+    height: 15rem;
+  }
+  .img3 {
+    width: 16rem;
+  }
+  .img4 {
+    width: 17rem;
+  }
+  .img5 {
+    width: 25rem;
+  }
+}
+
+@media screen and (max-width: 816px) {
+  .img1 {
+    width: 22rem;
+  }
+  .img2 {
+    top: 54%;
+    width: 14rem;
+    height: 14rem;
+  }
+  .img3 {
+    width: 14rem;
+  }
+  .img4 {
+    width: 15rem;
+  }
+  .img5 {
+    width: 22rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    margin-top: 4.5rem;
+  }
+  /*섹션1: 브랜드*/
+
+  .brand p {
+    font-size: 1.2rem;
+  }
+  .brand h1 {
+    font-size: 2.8rem;
+  }
+
+  .secondHead {
+    font-size: 1.5rem;
+    margin-top: 5rem;
+  }
+  /*섹션2: 슬라이더*/
+  .mainSlider {
+    height: 50vh;
+  }
+
+  /*섹션3: 관람(회색)*/
+
+  .ExplainSection {
+    width: 100%;
+    height: 100%;
+  }
+  .explainBorder,
+  .explainBorder2 {
+    height: 100%;
+    margin: 7rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .explainBorder h3,
+  .explainBorder2 h3 {
+    width: 100%;
+    padding: 0.5rem 0.2rem;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 0.8rem;
+  }
+  .explainBorder p,
+  .explainBorder2 p {
+    width: 100%;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .explainBorder img,
+  .explainBorder2 img {
+    width: 80%;
+    height: 50%;
+  }
+  .explainBorder > div,
+  .explainBorder2 > div {
+    padding: 1.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .btn {
+    margin-top: 3rem;
+    font-size: 0.9rem;
+  }
+
+  /*섹션4: 관람디테일 타이틀(하얀색):*/
+
+  .mainWatchDetail1 {
+    padding: 7rem 0 5rem;
+  }
+  .exDetailTitle {
+    width: 100%;
+    font-size: 1.5rem;
+    /* line-height: 5.5rem; */
+  }
+
+  /*섹션5,6: 관람디테일 컨텐츠(검정색)*/
+  .mainWatchDetail2 {
+    /* height: 60vh; */
+
+    padding: 1rem 2rem;
+  }
+  .exDetailBoard {
+    width: 100%;
+  }
+
+  .exDetailImg img {
+    width: 90%;
+    height: 90%;
+  }
+
+  .exDetailTxt span:nth-child(1) {
+    font-size: 2rem;
+  }
+  .exDetailTxt span:nth-child(2) {
+    /* height: 60%; */
+    font-size: 0.8rem;
+    margin-bottom: 3rem;
+    /* line-height: 3rem; */
+  }
+
+  /*섹션7 리뷰디테일 컨텐츠(하얀색)*/
+
+  .ReviewSection {
+    width: 100%;
+  }
+  /*섹션8 카운터박스(검정색)*/
+  s .mainCount {
+    width: 100%;
+    height: 30vh;
+    background-color: black;
+  }
+  .countSection {
+    width: 100%;
+  }
+
+  .conterBox span:nth-child(1) {
+    font-size: 1.8rem;
+  }
+  .conterBox span:nth-child(2) {
+    font-size: 2rem;
+  }
+  /*섹션9 바텀txt(하얀색)*/
+  .mainBottomTxt {
+    width: 100%;
+    height: 20vh;
+    /* border: 3px solid red; */
+  }
+  .bottomSectionTxt {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  /*섹션10 바텀btn(하얀색)*/
+
+  .bottomSection {
+    width: 100%;
+  }
+  .mainReviewDetail {
+    padding: 7rem 0.5rem;
+  }
+  .conterTxtBox {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .img1 {
+    width: 18.5rem;
+  }
+  .img2 {
+    top: 54%;
+    width: 12rem;
+    height: 12rem;
+  }
+  .img3 {
+    width: 11.5rem;
+  }
+  .img4 {
+    width: 12.5rem;
+  }
+  .img5 {
+    width: 18.5rem;
+  }
+}
+@media screen and (max-width: 580px) {
+  /*섹션4: 관람디테일 타이틀(하얀색):*/
+
+  .brand p {
+    font-size: 0.75rem;
+  }
+  .brand h1 {
+    font-size: 1.4rem;
+  }
+  .explainBorder,
+  .explainBorder2 {
+    margin: 4rem 0;
+  }
+  .secondHead {
+    font-size: 0.9rem;
+    margin-top: 3rem;
+  }
+  .emptyBox {
+    height: 2rem;
+  }
+  .mainWatchDetail1 {
+    padding: 5rem 0.2rem 3rem;
+  }
+  .ReviewSection {
+    width: 90%;
+  }
+  .bottomSectionTxt {
+    width: 100%;
+    text-align: center;
+    font-size: 1.8rem;
+  }
+  .mainBottom {
+    height: 30vh;
+  }
+
+  .conterTxtBox {
+    font-size: 1.4rem;
+  }
+
+  .conterBox span:nth-child(1) {
+    font-size: 2.8rem;
+  }
+  .mainReviewDetail {
+    width: 100%;
+    padding: 4rem 0;
+  }
+  .img2 {
+    top: 50%;
+    width: 10rem;
+    height: 10rem;
+  }
+  .img1 {
+    width: 16rem;
+  }
+
+  .img3 {
+    width: 10rem;
+  }
+  .img4 {
+    width: 10.5rem;
+  }
+  .img5 {
+    width: 16rem;
+  }
+}
+
+@media screen and (max-width: 524px) {
+  .img1 {
+    width: 14rem;
+  }
+  .img2 {
+    top: 52%;
+    width: 8rem;
+    height: 8rem;
+  }
+  .img3 {
+    width: 9rem;
+  }
+  .img4 {
+    width: 9.5rem;
+  }
+  .img5 {
+    width: 14rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .mainSlider {
+    height: 30vh;
+  }
+
+  .explainBorder > div,
+  .explainBorder2 > div {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .explainBorder h3,
+  .explainBorder2 h3 {
+    font-size: 1rem;
+
+    margin-bottom: 0;
+  }
+  .explainBorder p,
+  .explainBorder2 p {
+    font-size: 0.7rem;
+    margin-bottom: 0;
+  }
+  .btn {
+    padding: 0.2rem 0.8rem;
+    cursor: pointer;
+    width: 8rem;
+    height: 2rem;
+    font-size: 0.75rem;
+  }
+  .exDetailTitle {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+  .mainWatchDetail2 {
+    /* height: 60vh; */
+
+    padding: 0.1rem 0.2rem;
+  }
+  .exDetailBoard {
+    width: 100%;
+    height: 100%;
+  }
+  .exDetailImg {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .exDetailTxt {
+    height: 50%;
+  }
+
+  .exDetailTxt span:nth-child(1) {
+    height: 40%;
+    font-size: 1.2rem;
+    /* line-height: 6rem; */
+  }
+  .exDetailTxt span:nth-child(2) {
+    padding: 0 1rem;
+    font-size: 0.65rem;
+    margin-bottom: 3rem;
+    /* line-height: 2rem; */
+  }
+  .ReviewSection {
+    width: 90%;
+  }
+  .bottomSectionTxt {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+  }
+  .conterBox span:nth-child(2) {
+    font-size: 1.5rem;
+  }
+
+  .conterTxtBox {
+    font-size: 0.95rem;
+  }
+
+  .conterBox span:nth-child(1) {
+    font-size: 2.3rem;
+  }
+  .conterBox span:nth-child(2) {
+    font-size: 1.8rem;
+  }
+  .mainCount {
+    padding: 6rem 0;
+  }
+  .bottomBtn {
+    font-size: 0.9rem;
+  }
+  .secondHead {
+    font-size: 0.95rem;
+    font-family: "paybooc-Bold";
+  }
+  .brand2 {
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem 0 3rem 0;
+    margin-bottom: 1rem;
+  }
+}
+@media screen and (max-width: 440px) {
+  .img1 {
+    width: 12rem;
+    box-shadow: none;
+  }
+  .img2 {
+    top: 54.5%;
+    width: 7rem;
+    height: 7rem;
+  }
+  .img3 {
+    width: 8rem;
+    box-shadow: none;
+  }
+  .img4 {
+    width: 8.5rem;
+    box-shadow: none;
+  }
+  .img5 {
+    width: 12rem;
+    box-shadow: none;
+  }
+}
+@media screen and (max-width: 374px) {
+  .img1 {
+    width: 10rem;
+  }
+  .img2 {
+    top: 55%;
+    width: 6rem;
+    height: 6rem;
+  }
+  .img3 {
+    width: 7rem;
+  }
+  .img4 {
+    width: 7.5rem;
+  }
+  .img5 {
+    width: 10rem;
+  }
+  .secondHead {
+    font-size: 0.85rem;
+  }
+  .exDetailTitle {
+    font-size: 0.85rem;
+  }
+  .conterTxtBox {
+    font-size: 0.85rem;
+  }
+}
+/*화면전환*/
+
+@keyframes motion {
+  0% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: 20px;
+  }
+}
+@keyframes float {
+  0% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: -0.5rem;
+  }
+}
+/* @keyframes imagemove {
+  from {
+    width: 0;
+  }
+  to {
+    width: 27rem;
+  }
+}
+@keyframes imagemove2 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 18rem;
+  }
+} */
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes animate-arrows {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-1.5em, -1.5em);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(1.5em, 1.5em);
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

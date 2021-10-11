@@ -1,0 +1,15 @@
+@value Black, White from '../../common/colors.css';
+@value Container from '../../common/size.css';
+
+.container {
+  max-width: Container;
+  margin: 0 auto;
+  border: 1px solid red;
+  padding-top: 11rem;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding-top: 4.5rem;
+  }
+}

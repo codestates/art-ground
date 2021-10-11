@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap");
+
+.container {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 11rem 0 5rem 0;
+  animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s;
+  /* Firefox */
+  -webkit-animation: fadein 1.5s;
+  /* Safari and Chrome */
+  -o-animation: fadein 1.5s;
+  /* Opera */
+}
+
+.space {
+  margin: 2rem 0rem;
+  border-bottom: 1px solid rgb(201, 201, 201);
+  display: flex;
+  padding: 1.5rem 0 0.25rem 1.5rem;
+  border-bottom: 1px solid rgb(231, 231, 231);
+  font-size: 0.75rem;
+}
+
+.tag {
+  margin-right: 0.5rem;
+  border: 1px solid rgb(199, 199, 199);
+  border-radius: 5px;
+  padding: 0.2rem;
+  white-space: nowrap;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0 0.5rem 0;
+  font-size: 1.3rem;
+  font-family: "Nanum Gothic Coding", monospace;
+}
+.date {
+  display: flex;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: rgb(156, 156, 156);
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.btnWrap {
+  text-align: center;
+}
+
+.btn {
+  cursor: pointer;
+  margin: 0 0.5rem;
+  border: 1px solid rgb(190, 190, 190);
+  padding: 0.2rem;
+  border-radius: 50%;
+  background-color: rgb(190, 190, 190);
+}
+.btnClicked {
+  cursor: pointer;
+  margin: 0 0.5rem;
+  border: 1px solid rgb(53, 53, 53);
+  padding: 0.2rem;
+  border-radius: 50%;
+  background-color: rgb(53, 53, 53);
+}
+.content {
+  padding: 4rem 2rem;
+  font-size: 0.9rem;
+  color: rgb(113, 113, 113);
+  line-height: 1.5rem;
+}
+.threeDBtn {
+  cursor: pointer;
+  border: 1px solid rgb(191, 191, 191);
+  color: rgb(114, 114, 114);
+  border-radius: 5px;
+  padding: 0.5rem 0;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 4rem;
+  transition: 0.3s;
+}
+.threeDBtn:hover {
+  border: 1px solid rgb(145, 145, 145);
+  color: white;
+  background: rgb(145, 145, 145);
+}
+.intro {
+  padding: 2rem 0 0 0.5rem;
+  margin: 0 1rem;
+}
+
+.artist {
+  padding: 2rem 0.5rem;
+  margin: 0 1rem;
+  color: gray;
+  font-size: 0.8rem;
+  display: flex;
+}
+
+.artistName {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: rgb(92, 92, 92);
+  font-size: 0.9rem;
+}
+
+.imgBox {
+  /* flex: 3; */
+  width: 5rem;
+  height: 5rem;
+  border-radius: 70%;
+  overflow: hidden;
+}
+
+.profilePic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 0;
+}
+
+.contentBox {
+  flex: 7;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1.5rem;
+  justify-content: center;
+}
+
+.artistContent {
+  font-size: 0.85rem;
+  line-height: 1.2rem;
+}
+
+.workList {
+  padding: 4rem 0 0 0.5rem;
+  margin: 0 1rem;
+}
+
+.workBox {
+  padding: 2rem 0.5rem;
+  margin: 0 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-rows: repeat(auto-fit); */
+  grid-column-gap: 0.5rem;
+  grid-row-gap: 1.2rem;
+  list-style: none;
+}
+.work {
+  margin: 0;
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+.workTitleMeta {
+  margin-top: 0.3rem;
+  display: flex;
+  justify-content: space-between;
+}
+.workTitleMeta i {
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+  margin-right: 0.3rem;
+  position: relative;
+}
+
+.more {
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  width: 5rem;
+  text-align: center;
+  list-style: none;
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 2px;
+  padding: 1rem;
+  color: grey;
+  background-color: white;
+  font-size: 0.8rem;
+  box-shadow: -1px 0 4px rgba(14, 55, 63, 0.15);
+  font-weight: normal;
+  transition: 0.2s;
+  opacity: 0.9;
+}
+
+.moreOpt {
+  margin-bottom: 0;
+}
+.moreOpt:hover {
+  color: rgb(106, 126, 191);
+  font-weight: bold;
+}
+
+.workTitle {
+  font-size: 0.95rem;
+}
+
+.workContent {
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
+  color: rgb(156, 156, 156);
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10rem 0;
+}
+
+.loadingImg {
+  width: 3rem;
+}
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 4.5rem 0 5rem 0;
+  }
+  .workBox {
+    grid-template-columns: 1fr 1fr;
+  }
+  .sliderPic {
+    box-shadow: 0px 10px 10px 3px #9c9c9c;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .workBox {
+    grid-template-columns: 1fr;
+  }
+  .leftArrow,
+  .rightArrow {
+    font-size: 1.5rem;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

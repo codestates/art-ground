@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap");
+
+span {
+  display: block;
+}
+.container {
+  max-width: 100%;
+  position: relative;
+  padding: 0.3rem;
+  animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s;
+  /* Firefox */
+  -webkit-animation: fadein 1.5s;
+  /* Safari and Chrome */
+  -o-animation: fadein 1.5s;
+  /* Opera */
+}
+.top {
+  max-width: 100%;
+  background-color: rgb(163, 159, 159);
+}
+.navBox {
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: rgb(163, 159, 159);
+}
+
+.logo {
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logoborder {
+  width: 70%;
+  font-size: 2rem;
+  color: White;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+.bottom {
+  max-width: 100%;
+  background-color: rgb(53, 52, 52);
+}
+.categoryBox {
+  list-style: none;
+  max-width: Container;
+  margin: 0 auto;
+}
+.title {
+  list-style: none;
+  width: 100%;
+  height: 40px;
+  color: White;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.libox {
+  width: 15%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+.libox:hover {
+  color: black;
+  background-color: white;
+}
+.liboxClick {
+  width: 15%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: black;
+  background-color: white;
+}
+/*contents*/
+.content {
+  max-width: Container;
+  margin: 0 auto;
+}
+.exhibit {
+  width: 100%;
+}
+.review {
+  width: 100%;
+}
+.btnbox {
+  margin: 0 auto;
+  max-width: 1024px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  height: 70px;
+  margin-top: 0.5rem;
+  padding: 0.2rem;
+}
+.btn {
+  margin-left: 0.2rem;
+  width: 6rem;
+  height: 70%;
+  border: 1px solid gainsboro;
+  background-color: #e7e7e7;
+  outline: none;
+  cursor: pointer;
+}
+.btnClick {
+  width: 6rem;
+  height: 90%;
+  border: none;
+  background-color: rgb(53, 52, 52);
+  color: white;
+  outline: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .logoborder {
+    width: 70%;
+    font-size: 1.8rem;
+  }
+  .libox {
+    width: 30%;
+  }
+  .liboxClick {
+    width: 30%;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

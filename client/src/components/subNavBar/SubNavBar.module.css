@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Nunito:wght@400;700&display=swap");
+
+.subNavBar {
+  display: flex;
+  font-size: 1rem;
+  border-bottom: 1px solid rgb(236, 236, 236);
+}
+
+.subMenu {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  margin: 3rem 0.5rem 0.5rem 0.5rem;
+  color: rgb(150, 150, 150);
+}
+.subMenuClicked {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  margin: 3rem 0.5rem 0.5rem 0.5rem;
+  color: rgb(54, 54, 54);
+}
+
+.categories {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0 1.2rem 0;
+  padding: 0 0.5rem;
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.categories::-webkit-scrollbar {
+  display: none;
+}
+
+.hashtag {
+  cursor: pointer;
+  color: rgb(65, 65, 65);
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 20px;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.8rem;
+  margin-right: 0.3rem;
+  white-space: nowrap;
+}
+.hashtagClicked {
+  cursor: pointer;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.8rem;
+  margin-right: 0.3rem;
+  color: white;
+  border: 1px solid rgb(90, 90, 90);
+  background-color: rgb(90, 90, 90);
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.sortWrap {
+  display: flex;
+  justify-content: flex-end;
+}
+.sort {
+  cursor: pointer;
+  width: 6.5rem;
+  font-size: 0.7rem;
+  margin-right: 0.5rem;
+  color: grey;
+  background: url("https://citicene.com.au/wp-content/uploads/2020/03/arrow-navigate.png")
+    calc(100% - 5px) center no-repeat;
+  background-size: 20px;
+  padding: 5px 30px 5px 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(210, 210, 210);
+  outline: 0 none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.sort::-ms-expand {
+  display: none;
+}

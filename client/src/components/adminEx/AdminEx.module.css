@@ -1,0 +1,263 @@
+@value Black, White from '../../common/colors.css';
+@value Container from '../../common/size.css';
+
+span {
+  display: block;
+}
+.container {
+  max-width: Container;
+  margin: 0 auto;
+}
+.box {
+  width: 100%;
+  height: 100%;
+}
+.filterBox {
+  height: 4rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.upDateBox {
+  border: 1px solid gainsboro;
+}
+.DeleteBox {
+  border: 1px solid gainsboro;
+}
+/*필터*/
+.filterBtn {
+  width: 80px;
+  height: 40px;
+  border: none;
+  background-color: rgb(95, 95, 95);
+  color: white;
+  border-radius: 5%;
+  outline: none;
+  cursor: pointer;
+  margin-left: 10px;
+  text-align: center;
+  line-height: 40px;
+}
+/*작품 개별*/
+.exBox {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2px;
+  border-bottom: 1px solid gainsboro;
+}
+.thumBox {
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+}
+.eximg {
+  width: 100%;
+  height: 100%;
+}
+.infoBox {
+  width: 50rem;
+
+  margin-top: 5px;
+}
+.title {
+  text-indent: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  width: 20rem;
+}
+.detail {
+  margin-left: 10px;
+  width: 6.5rem;
+  height: 1.5rem;
+  font-size: 0.8rem;
+  background-color: rgb(129, 122, 122);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.5rem;
+  cursor: pointer;
+}
+.author {
+  text-indent: 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.date {
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  text-indent: 10px;
+  font-size: 0.8rem;
+}
+.btnBox {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn,
+.btn2 {
+  width: 80px;
+  height: 50px;
+  border: none;
+  background-color: #e7e7e7;
+  border-radius: 10%;
+  outline: none;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: rgb(53, 52, 52);
+  color: white;
+}
+
+.btn2 {
+  background-color: rgb(53, 52, 52);
+  color: white;
+}
+.btn2:hover {
+  background-color: red;
+}
+
+@media screen and (max-width: 780px) {
+  .thumBox {
+    width: 120px;
+    height: 120px;
+  }
+  .infoBox {
+    width: 27rem;
+    margin-top: 5px;
+  }
+  .title {
+    font-size: 1.2rem;
+    text-indent: 4px;
+  }
+  .author {
+    font-size: 0.9rem;
+    text-indent: 4px;
+  }
+  .date {
+    font-size: 0.8rem;
+    text-indent: 4px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .exBox {
+    width: 100%;
+    height: 400px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .thumBox {
+    width: 300px;
+    height: 400px;
+    background-color: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .eximg {
+    width: 70%;
+    height: 87%;
+  }
+  .infoBox {
+    width: 98%;
+    height: 12rem;
+    margin-top: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.8rem;
+  }
+  .title {
+    width: 100%;
+    font-size: 1.2rem;
+    text-align: center;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+  }
+
+  .author {
+    font-size: 0.9rem;
+    text-indent: 4px;
+  }
+  .date {
+    font-size: 0.8rem;
+    text-indent: 4px;
+  }
+  .btnBox {
+    height: 6rem;
+    padding: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .exBox {
+    width: 100%;
+    height: 400px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .thumBox {
+    width: 300px;
+    height: 400px;
+    background-color: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .eximg {
+    width: 70%;
+    height: 87%;
+  }
+  .infoBox {
+    width: 98%;
+    height: 12rem;
+    margin-top: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.8rem;
+  }
+  .title {
+    width: 100%;
+    font-size: 1.2rem;
+    text-align: center;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+  }
+  .author {
+    font-size: 0.9rem;
+    text-indent: 4px;
+  }
+  .date {
+    font-size: 0.8rem;
+    text-indent: 4px;
+  }
+  .btnBox {
+    height: 6rem;
+    padding: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

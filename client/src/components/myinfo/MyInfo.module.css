@@ -1,0 +1,346 @@
+@value Black, White from '../../common/colors.css';
+@value Container from '../../common/size.css';
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0.3rem;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  /* Firefox */
+  -webkit-animation: fadein 2s;
+  /* Safari and Chrome */
+  -o-animation: fadein 2s;
+  /* Opera */
+}
+
+.infobox1 {
+  width: 100%;
+  height: 6.5rem;
+  border-bottom: 1px solid gainsboro;
+  margin-top: 20px;
+  padding: 0.5rem;
+}
+.infobox1 div {
+  font-family: "Poppins", sans-serif;
+  line-height: 5.5rem;
+
+  font-size: 1.5rem;
+}
+.infobox2 {
+  width: 100%;
+  height: 30rem;
+  border: 1px solid gainsboro;
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+  padding: 0.5rem;
+}
+.infobox3 {
+  width: 100%;
+  height: 28rem;
+  border: 1px solid gainsboro;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin-top: 5px;
+}
+
+.infobox4 {
+  width: 100%;
+  height: 10rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+.imgbox {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imgborder {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  border: 1px solid gainsboro;
+}
+.ProfileView {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.textbox {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.ulbox {
+  width: 70%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+.libox {
+  border-bottom: 1px solid gainsboro;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+.title {
+  width: 10rem;
+  text-align: center;
+  line-height: 50px;
+  color: rgb(77, 73, 73);
+}
+.inputbox {
+  width: 13rem;
+  outline: none;
+  border: none;
+  text-align: end;
+  color: grey;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+}
+
+/*작가소개*/
+.authorinfo {
+  text-align: center;
+  height: 100%;
+  padding: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+.authorinfoTitle {
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+}
+.authorText {
+  margin-top: 0.7rem;
+  overflow-y: scroll;
+  resize: none;
+  outline: none;
+  text-indent: 5px;
+  line-height: 2;
+  border: 1px solid gainsboro;
+}
+/*버튼즈*/
+.infobox4 button {
+  width: 150px;
+  height: 40px;
+  border: 1px solid gainsboro;
+  outline: none;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.5s;
+  font-family: "Poppins", sans-serif;
+}
+.modify {
+  margin-left: 15px;
+}
+
+.delete:hover {
+  background-color: rgb(206, 20, 20);
+  color: white;
+  transition: transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02);
+}
+
+.modify:hover {
+  background-color: #202020;
+  color: white;
+  transition: transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02);
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+  }
+  .infobox1 {
+    flex: 5;
+
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    padding: 1rem;
+  }
+  .imgbox {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .infobox2 {
+    flex: 5;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 1rem;
+  }
+  .infobox3 {
+    width: 95%;
+    padding: 1rem;
+  }
+  .authorText {
+    max-width: 100%;
+  }
+  .infobox4 {
+    height: 5rem;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.1rem;
+  }
+  .infobox1 div {
+    font-family: "Poppins", sans-serif;
+    line-height: 5rem;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  .infobox2 {
+    flex: 5;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 1rem;
+  }
+  .authorinfo {
+    width: 100%;
+  }
+  .infobox3 {
+    width: 95%;
+    padding-top: 0.2rem;
+  }
+  .authorText {
+    width: 100%;
+    height: 100%;
+  }
+  .infobox4 {
+    width: 95%;
+    padding: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.1rem;
+  }
+  .infobox1 div {
+    font-family: "Poppins", sans-serif;
+    line-height: 5rem;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  .infobox2 {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 1rem;
+  }
+
+  .libox {
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .authorinfo {
+    width: 100%;
+  }
+  .infobox3 {
+    width: 95%;
+    padding-top: 1rem;
+  }
+  .authorText {
+    width: 100%;
+    height: 100%;
+  }
+  .infobox4 {
+    height: 100px;
+  }
+  .infobox4 button {
+    width: 130px;
+  }
+  .title {
+    width: 100%;
+  }
+  .inputbox {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

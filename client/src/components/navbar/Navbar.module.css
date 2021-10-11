@@ -1,0 +1,284 @@
+@value Black, White from '../../common/colors.css';
+@value Container from '../../common/size.css';
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
+
+span {
+  display: block;
+}
+.containerHide {
+  width: 100%;
+  background-color: #202020;
+  box-shadow: 0 -5px 15px rgb(57, 57, 57);
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  transition: 0.3s;
+  transform: translateY(-11.5rem);
+}
+.container {
+  width: 100%;
+  background-color: #202020;
+  box-shadow: 0 -5px 15px rgb(57, 57, 57);
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  transition: 0.3s;
+  /* transform: translateY(-11.5rem); */
+}
+.containerScroll {
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 -5px 10px rgb(57, 57, 57);
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  transition: 0.3s;
+}
+
+.navBox {
+  width: 100%;
+  max-width: Container;
+  margin: 0 auto;
+}
+
+.moreOpt,
+.moreOptScroll {
+  display: none;
+}
+
+.btns {
+  /* max-width: 100%; */
+  list-style: none;
+  color: rgb(228, 228, 228);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 1.5rem;
+}
+
+.btnsScroll {
+  list-style: none;
+  color: rgb(53, 53, 53);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 1.5rem;
+}
+.btn {
+  display: inline-block;
+  width: auto;
+  margin: 1.5em 0.8rem 0rem 0.8rem;
+  text-align: right;
+  background-color: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+.btn:hover {
+  font-weight: bold;
+}
+.logo {
+  /* width: auto; */
+  height: 6.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.logoImg {
+  margin: 0;
+  height: 65%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.logoScroll {
+  margin-top: -1.5rem;
+  margin-left: 2rem;
+  height: 3rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  transition: 0.3s;
+}
+.logoImgScroll {
+  margin: 0;
+  height: 90%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.categoryBox {
+  font-size: 1rem;
+  list-style: none;
+  height: 2.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.title {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 200;
+  width: 5rem;
+  margin: 0 2rem;
+  line-height: 2.5rem;
+  color: rgb(228, 228, 228);
+  text-align: center;
+  cursor: pointer;
+}
+.titleScroll {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 300;
+  width: 4rem;
+  margin: 0 2rem;
+  line-height: 2.5rem;
+  text-align: center;
+  cursor: pointer;
+  color: rgb(53, 53, 53);
+}
+.title:hover,
+.titleScroll:hover {
+  font-weight: bold;
+}
+
+.closeBtn {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .moreOpt {
+    all: unset;
+    cursor: pointer;
+    position: absolute;
+    color: rgb(208, 208, 208);
+    top: 1.45rem;
+    left: 1.45rem;
+    font-size: 1.3rem;
+  }
+  .moreOptScroll {
+    all: unset;
+    cursor: pointer;
+    position: absolute;
+    color: rgb(117, 117, 117);
+    top: 1.45rem;
+    left: 1.45rem;
+    font-size: 1.3rem;
+  }
+  .topNav {
+    all: unset;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 19rem;
+    height: 6rem;
+    background-color: rgb(251, 251, 251);
+    opacity: 0.95;
+    /* border-right: 1px solid rgb(238, 238, 238); */
+    box-shadow: 5px 0 15px rgba(83, 83, 83, 0.15);
+    transition: 0.5s;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+  }
+
+  .btns,
+  .btnsScroll {
+    all: unset;
+    margin: 3.5rem 1rem;
+  }
+
+  .btn {
+    all: unset;
+    margin: 0 0.3rem;
+    font-size: 0.85rem;
+    color: rgb(53, 53, 53);
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+  }
+  .category {
+    position: fixed;
+    top: 6rem;
+    left: 0;
+    width: 19rem;
+    height: 100vh;
+    background-color: rgb(251, 251, 251);
+    opacity: 0.95;
+    /* border-right: 1px solid rgb(238, 238, 238); */
+    box-shadow: 5px 0 15px rgba(83, 83, 83, 0.15);
+    transition: 0.5s;
+    z-index: 10;
+  }
+  .categoryBox {
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 3rem;
+    row-gap: 1.5rem;
+    text-align: center;
+  }
+
+  .closeBtn {
+    all: unset;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: rgb(125, 125, 125);
+    position: absolute;
+    top: -5rem;
+    left: 17rem;
+    transition: 0.3s;
+  }
+  .closeBtn:hover {
+    color: rgb(0, 0, 0);
+  }
+  .title,
+  .titleScroll {
+    all: unset;
+    color: rgb(53, 53, 53);
+    font-weight: 300;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .categoryClose {
+    position: fixed;
+    top: 6rem;
+    left: -100%;
+    width: 19rem;
+    height: 100vh;
+    background-color: rgb(251, 251, 251);
+    opacity: 0.95;
+    box-shadow: 5px 0 15px rgba(83, 83, 83, 0.15);
+    transition: 0.5s;
+    z-index: 10;
+  }
+  .topNavClose {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 19rem;
+    height: 6rem;
+    background-color: rgb(251, 251, 251);
+    opacity: 0.95;
+    box-shadow: 5px 0 15px rgba(83, 83, 83, 0.15);
+    transition: 0.5s;
+    z-index: 10;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .logo,
+  .logoScroll {
+    margin-top: 0;
+    margin-left: 0;
+    padding: 1rem 0 0.8rem;
+    height: 4.5rem;
+    justify-content: center;
+    position: relative;
+  }
+  .logoImg,
+  .logoImgScroll {
+    width: auto;
+    height: 100%;
+  }
+}

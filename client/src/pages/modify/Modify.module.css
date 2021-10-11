@@ -1,0 +1,267 @@
+@value Black, White from '../../common/colors.css';
+@value Container from '../../common/size.css';
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
+
+label,
+span {
+  display: block;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: white;
+  padding: 0.8rem;
+  animation: fadein 1s;
+  -moz-animation: fadein 1s;
+  /* Firefox */
+  -webkit-animation: fadein 1s;
+  /* Safari and Chrome */
+  -o-animation: fadein 1s;
+  /* Opera */
+}
+
+.contentBorder {
+  max-width: Container;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15rem;
+}
+.infoEdit {
+  width: 25rem;
+  height: 30rem;
+  border: 1px solid gainsboro;
+  background-color: white;
+}
+
+.infoTitle {
+  height: 5rem;
+  line-height: 5rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.imgBorder {
+  width: 100%;
+  height: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem;
+}
+
+.ProfileView {
+  border: 1px solid gainsboro;
+  width: 50%;
+  height: 80%;
+  border-radius: 50%;
+}
+
+.nickName {
+  height: 4rem;
+  line-height: 4rem;
+  display: flex;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+}
+.nickName span:nth-child(1) {
+  width: 40%;
+  text-align: end;
+  margin-left: -2rem;
+}
+.nickName span:nth-child(2) {
+  width: 40%;
+  margin-left: 2rem;
+}
+.infoBtnBox {
+  height: 6.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.infoBtn,
+.passBtn,
+.deleteBtn {
+  width: 6rem;
+  height: 3rem;
+  border: 1px solid gainsboro;
+  background: none;
+  cursor: pointer;
+}
+.infoBtn {
+  margin-left: 2rem;
+}
+.passEdit {
+  width: 25rem;
+  height: 30rem;
+  border: 1px solid gainsboro;
+  margin-left: 5rem;
+  background-color: white;
+}
+.PassBtnBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 21.4rem;
+}
+
+@media screen and (max-width: 768px) {
+  .contentBorder {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 10rem;
+  }
+  .passEdit {
+    margin-left: 0;
+    margin-top: 2rem;
+    background-color: white;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    width: 100%;
+  }
+  .infoEdit {
+    width: 18rem;
+  }
+  .passEdit {
+    width: 18rem;
+  }
+  .ProfileView {
+    border: 1px solid gainsboro;
+    width: 70%;
+    height: 80%;
+    border-radius: 50%;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/*모달*/
+.modalContainer {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  /* Firefox */
+  -webkit-animation: fadein 2s;
+  /* Safari and Chrome */
+  -o-animation: fadein 2s;
+  /* Opera */
+}
+
+.modalBox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  background-color: white;
+  width: 20rem;
+  height: 25rem;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modalText {
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #202020;
+}
+.btnBox {
+  width: 15rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+.modifyBtn {
+  width: 5rem;
+  height: 2.5rem;
+  padding: 0.2rem;
+  border: 1px solid gainsboro;
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.5s;
+}
+.modifyBtn:hover {
+  background-color: #202020;
+  color: white;
+  transition: transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02);
+}
+.delBtn {
+  width: 5rem;
+  height: 2.5rem;
+  padding: 0.2rem;
+  border: 1px solid gainsboro;
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.5s;
+}
+.delBtn:hover {
+  background-color: red;
+  color: white;
+  transition: transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02);
+}

@@ -1,0 +1,198 @@
+/* body {
+  padding-top: 0;
+} */
+
+.container {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.9);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  animation: fadein 0.5s;
+  -moz-animation: fadein 0.5s;
+  -webkit-animation: fadein 0.5s;
+  -o-animation: fadein 0.5s;
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.artMetaData {
+  color: rgb(218, 218, 218);
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  column-gap: 0.5rem;
+  padding: 2rem;
+  padding-left: 1rem;
+}
+
+.title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.content {
+  font-size: 0.7rem;
+  margin-bottom: 0.7rem;
+  font-style: italic;
+}
+.subContent {
+  font-size: 0.8rem;
+}
+.img {
+  padding: 2rem;
+  padding-right: 1rem;
+  margin: 0;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  cursor: pointer;
+  color: rgb(155, 155, 155);
+  font-size: 1.8rem;
+  opacity: 0.8;
+}
+
+.closeBtn:hover {
+  color: whitesmoke;
+}
+
+@media (orientation: portrait) {
+  /* Portrait 모드(세로)일 때 적용할 CSS */
+  .img {
+    width: 80%;
+    height: auto;
+  }
+}
+
+@media (orientation: landscape) {
+  /* Landscape 모드(가로)일 때 적용할 CSS */
+  .img {
+    /* max-width: 80vw; */
+    width: auto;
+    height: 75%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  @media (orientation: portrait) {
+    /* Portrait 모드(세로)일 때 적용할 CSS */
+    .img {
+      width: 80%;
+    }
+  }
+
+  @media (orientation: landscape) {
+    /* Landscape 모드(가로)일 때 적용할 CSS */
+    .img {
+      height: 78%;
+    }
+  }
+  .background {
+    flex-direction: column;
+  }
+  .img {
+    padding: 0.5rem 1rem;
+  }
+  .artMetaData {
+    width: 21rem;
+    height: 22%;
+    padding: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  @media (orientation: portrait) {
+    /* Portrait 모드(세로)일 때 적용할 CSS */
+    .img {
+      width: 95%;
+    }
+  }
+
+  @media (orientation: landscape) {
+    /* Landscape 모드(가로)일 때 적용할 CSS */
+    .img {
+      height: 70%;
+    }
+  }
+  .artMetaData {
+    height: 30%;
+  }
+}
+
+@media screen and (max-width: 668px) {
+  .title {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .content {
+    font-size: 0.5rem;
+    margin-bottom: 0.1rem;
+  }
+  .subContent {
+    font-size: 0.65rem;
+  }
+  .artMetaData {
+    width: 18rem;
+  }
+  .closeBtn {
+    top: 1rem;
+    right: 1.3rem;
+    font-size: 1.4rem;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

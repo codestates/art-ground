@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
+
+.container {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 15rem 5.5rem 5rem 5.5rem;
+  display: flex;
+  flex-direction: column;
+  color: rgb(66, 66, 66);
+  animation: fadein 1s;
+  -moz-animation: fadein 1s;
+  /* Firefox */
+  -webkit-animation: fadein 1s;
+  /* Safari and Chrome */
+  -o-animation: fadein 1s;
+  /* Opera */
+}
+
+.title {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  font-family: "Nanum Gothic Coding", monospace;
+}
+
+.categoryName {
+  margin-bottom: 0.1rem;
+  margin-left: 0.1rem;
+  font-size: 0.9rem;
+}
+
+.types {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.type {
+  margin-right: 1rem;
+  font-size: 0.9rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+.typeBtn {
+  margin: 0 0.3rem;
+}
+
+.artWrap {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.artFile {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 이거 수정해야 함........ */
+.artContent {
+  width: 70%;
+}
+/* 이거 수정해야 함........ */
+
+.textInput {
+  width: 100%;
+  height: 2rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.8rem;
+  border: 1px solid rgb(210, 210, 210);
+}
+.artTextInput {
+  width: 100%;
+  height: 2rem;
+  font-size: 0.8rem;
+  border: 1px solid rgb(210, 210, 210);
+  border-bottom: none;
+}
+
+.contentInput {
+  font-size: 0.8rem;
+  height: 7rem;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgb(210, 210, 210);
+  font-family: "Poppins", sans-serif;
+  padding: 0.5rem 0;
+}
+
+.artImg {
+  width: auto;
+  margin: 0;
+  height: 9rem;
+  object-fit: cover;
+  border-right: 1px solid rgb(210, 210, 210);
+  border-bottom: 1px solid rgb(210, 210, 210);
+}
+.fileInput {
+  cursor: pointer;
+  font-size: 0.75rem;
+  width: 100%;
+  height: 2rem;
+  padding-top: 0.2rem;
+  border: 1px solid rgb(210, 210, 210);
+  border-left: none;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.tags {
+  margin-bottom: 1.5rem;
+  /* display: flex;
+  align-items: center; */
+}
+.tags span {
+  display: inline;
+}
+
+.hashtag {
+  display: inline;
+  line-height: 2rem;
+  cursor: pointer;
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 20px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+  margin-right: 0.3rem;
+  margin-bottom: 1rem;
+  white-space: nowrap;
+}
+
+.hashtagClicked {
+  display: inline;
+  line-height: 2rem;
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.75rem;
+  margin-right: 0.3rem;
+  border: none;
+  color: white;
+  border: 1px solid rgb(90, 90, 90);
+  background-color: rgb(90, 90, 90);
+  white-space: nowrap;
+}
+
+.subGenre {
+  display: inline-block;
+  font-size: 0.7rem;
+}
+
+.submit {
+  margin-top: 5rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submitBtn {
+  margin: 0 1rem;
+  width: 5rem;
+  height: 2rem;
+  cursor: pointer;
+  border: 1px solid rgb(90, 90, 90);
+  padding: 0.4rem 1rem;
+  border-radius: 5px;
+  background-color: rgb(90, 90, 90);
+  transition: 0.3s;
+  font-size: 0.8rem;
+  color: white;
+}
+
+.submitBtn:hover {
+  border: 1px solid rgb(210, 210, 210);
+  background-color: white;
+  color: rgb(66, 66, 66);
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+}
+
+/* 모달 section(위) */
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 7.5rem 3rem 5rem 3rem;
+  }
+  .artFile {
+    width: 40%;
+  }
+  .artContent {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .container {
+    padding: 7.5rem 1rem 3rem 1rem;
+  }
+}
+
+/* 모달 section(아래) */
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

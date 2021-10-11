@@ -1,0 +1,117 @@
+/* @value Container from '../../common/size.css' */
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 10.5rem 0.5rem 5rem 0.5rem;
+  animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s;
+  /* Firefox */
+  -webkit-animation: fadein 1.5s;
+  /* Safari and Chrome */
+  -o-animation: fadein 1.5s;
+  /* Opera */
+}
+
+.subNavBar {
+  display: flex;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgb(201, 201, 201);
+  color: rgb(100, 100, 100);
+}
+
+.subMenu {
+  display: block;
+  margin: 3rem 0.5rem 1rem 0.5rem;
+}
+
+/* 아래에서부터 단일 썸네일 */
+.objectList {
+  margin-top: 0.7rem;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 0.5rem;
+  grid-row-gap: 2.5rem;
+  animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s;
+  /* Firefox */
+  -webkit-animation: fadein 1.5s;
+  /* Safari and Chrome */
+  -o-animation: fadein 1.5s;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10rem 0;
+}
+
+.loadingImg {
+  width: 3rem;
+}
+
+.noResult {
+  text-align: center;
+  color: rgb(103, 103, 103);
+  padding: 4rem 0;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 3.5rem 0.5rem 5rem 0.5rem;
+  }
+  .objectList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .objectList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

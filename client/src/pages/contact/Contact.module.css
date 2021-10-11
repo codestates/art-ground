@@ -1,0 +1,493 @@
+@value Black, White from '../../common/colors.css';
+@value Container from '../../common/size.css';
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
+
+@font-face {
+  font-family: "paybooc-Light";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Light.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "paybooc-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Bold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+span {
+  display: block;
+}
+.container {
+  max-width: Container;
+  margin: 0 auto;
+  padding: 3rem;
+  animation: fadein 1s;
+  -moz-animation: fadein 1s;
+  /* Firefox */
+  -webkit-animation: fadein 1s;
+  /* Safari and Chrome */
+  -o-animation: fadein 1s;
+  /* Opera */
+  margin-top: 11rem;
+}
+.contactBox {
+  padding: 0.2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  margin-bottom: 1rem;
+}
+.titleBox {
+  height: 13rem;
+}
+.titleBox span {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+.titleBox span:nth-child(1) {
+  line-height: 8rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  height: 60%;
+  color: rgb(77, 77, 77);
+}
+.titleBox span:nth-child(2) {
+  font-size: 0.95rem;
+  line-height: 2rem;
+  height: 40%;
+  color: gray;
+}
+/*info*/
+.infoBox {
+  list-style: none;
+  width: 100%;
+}
+
+.mailBox {
+  height: 25rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.ulBox {
+  width: 80%;
+  height: 100%;
+  list-style: none;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.liBox {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.liBox2 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+input {
+  font-family: "Poppins", sans-serif;
+}
+.name {
+  width: 48%;
+  height: 4em;
+  font-size: 0.8rem;
+  outline: none;
+  text-indent: 0.2rem;
+  background-color: #f2f1ec;
+  border: none;
+}
+.email {
+  width: 48%;
+  height: 4em;
+  text-indent: 0.2rem;
+  font-size: 0.8rem;
+  outline: none;
+  background-color: #f2f1ec;
+  border: none;
+}
+.phone {
+  width: 48%;
+  height: 4em;
+  text-indent: 0.2rem;
+  font-size: 0.8rem;
+  outline: none;
+  background-color: #f2f1ec;
+  border: none;
+}
+.btnBox {
+  width: 45%;
+  height: 4em;
+  font-size: 0.8rem;
+  outline: none;
+  border: none;
+  text-align: center;
+}
+.content {
+  width: 100%;
+  height: 150px;
+  font-size: 0.8rem;
+  text-indent: 0.2rem;
+  outline: none;
+  overflow-y: scroll;
+  resize: none;
+  border: none;
+  background-color: #f2f1ec;
+  padding-top: 1rem;
+}
+
+.btn {
+  width: 120px;
+  height: 4em;
+  text-indent: 0.2rem;
+  font-size: 0.8rem;
+  outline: none;
+  background-color: white;
+  border-radius: 5px;
+  border: none;
+  border: 1px solid gainsboro;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn:hover {
+  background-color: rgb(80, 80, 80);
+  color: white;
+}
+/*map section*/
+.mapBox {
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+  height: 470px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.mapBorder {
+  height: 100%;
+  border: none;
+  background-color: white;
+  overflow: hidden;
+}
+.textBox {
+  flex: 0.8;
+  padding: 1.2rem;
+  margin-left: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addr {
+  color: rgb(108, 108, 108);
+  font-size: 0.9rem;
+}
+.finder {
+  width: 120px;
+  height: 4em;
+  line-height: 4em;
+  text-align: center;
+  text-indent: 0.2rem;
+  font-size: 0.8rem;
+  outline: none;
+  background-color: white;
+  border: none;
+  margin-top: 1rem;
+  border: 1px solid gainsboro;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.finder:hover {
+  background-color: rgb(80, 80, 80);
+  color: white;
+}
+.introBox {
+  background: whitesmoke;
+  margin: 0 auto;
+  animation: fadein 1s;
+  -moz-animation: fadein 1s;
+  -webkit-animation: fadein 1s;
+  -o-animation: fadein 1s;
+  width: 100%;
+  padding: 3rem 0 2rem 0;
+  /* height: 100px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.introBorder {
+  max-width: Container;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.sInfo {
+  width: 7rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.sInfo span {
+  width: 100%;
+  text-align: center;
+  line-height: 1.5;
+  font-family: "paybooc-Light";
+}
+.sInfo span:nth-child(1) {
+  height: 30%;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: rgb(91, 91, 91);
+  margin-bottom: 0.5rem;
+  font-family: "paybooc-Bold";
+}
+.sInfo span:nth-child(2) {
+  height: 30%;
+  color: rgb(111, 111, 111);
+  font-size: 0.75rem;
+}
+.sInfo span:nth-child(3) {
+  height: 30%;
+  cursor: pointer;
+  color: rgb(111, 111, 111);
+  font-size: 0.75rem;
+}
+.sInfo span:nth-child(3):hover {
+  color: rgb(89, 115, 189);
+  font-weight: bold;
+}
+
+.rights {
+  margin-top: 4rem;
+  font-size: 0.65rem;
+  font-style: italic;
+  color: gray;
+}
+.aboutUs {
+  font-family: "paybooc-Bold";
+  color: rgb(65, 65, 65);
+  max-width: Container;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.socialLogo {
+  width: 1.3rem;
+  margin-left: 0.5rem;
+}
+.github {
+  width: 100%;
+  opacity: 0.8;
+}
+.notion {
+  width: 100%;
+  opacity: 0.7;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 1rem;
+    margin-top: 5rem;
+  }
+  .contactBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .textBox {
+    flex: 0.8;
+    padding: 2rem;
+    margin-left: 15px;
+  }
+
+  .mapBorder {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .infoBox {
+    list-style: none;
+    width: 100%;
+  }
+  .ulBox {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 0.4rem;
+  }
+  .ulBox {
+    width: 100%;
+  }
+  .liBox {
+    height: 7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mailBox {
+    padding: 0.2rem;
+    height: 100%;
+  }
+  .name {
+    width: 100%;
+  }
+  .email {
+    width: 100%;
+  }
+  .liBox2 {
+    height: 7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .phone {
+    width: 100%;
+  }
+  .btnBox {
+    width: 100%;
+  }
+  .finder {
+    margin-left: -1rem;
+  }
+  .introBorder {
+    width: 100%;
+    padding: 0.1rem;
+  }
+  .sInfo {
+    width: 25%;
+  }
+}
+
+/*모달*/
+.modalContainer {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  /* Firefox */
+  -webkit-animation: fadein 2s;
+  /* Safari and Chrome */
+  -o-animation: fadein 2s;
+  /* Opera */
+}
+
+.modalBox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  background-color: white;
+  width: 20rem;
+  height: 25rem;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modalText {
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #202020;
+}
+.btnBox {
+  width: 48%;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* margin-top: 2rem; */
+}
+.modifyBtn {
+  width: 5rem;
+  height: 2.5rem;
+  padding: 0.2rem;
+  border: 1px solid gainsboro;
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.3s;
+}
+.modifyBtn:hover {
+  background-color: #202020;
+  color: white;
+  transition: transform 0.3s cubic-bezier(0.08, 0.35, 0.13, 1.02);
+}
