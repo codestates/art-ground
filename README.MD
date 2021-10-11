@@ -34,9 +34,11 @@ https://art-ground.io/
 <img width="800" alt="스크린샷 2021-10-04 오후 3 28 35" src="https://user-images.githubusercontent.com/83934037/136751229-4dae01b8-8059-4982-ad74-5d6892ca4532.jpg">
 
 
-## 📱 주요기능별 시연 GIF
+### DB Schema
+<img width="800" alt="스크린샷 2021-10-04 오후 3 28 35" src="https://user-images.githubusercontent.com/83934037/136808311-78a203ae-3190-4f3b-88e3-099d03870808.png">
 
-<작성중>
+
+## 📱 주요기능별 시연 GIF
 
 <details>
   <summary> 회원가입, 로그인, 로그아웃</summary>
