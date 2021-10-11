@@ -70,6 +70,13 @@ const GalleryContent = ({
           <span className={styles.likesCount}>{exhibition.likes.length}</span>
         </div>
 
+        {exhibition.exhibit_type === 2 ?
+        <div className={styles.threeDIconWrap}>
+          <img className={styles.threeDIcon} 
+          src="../../../images/3dIcon.png" alt="3d"/>
+        </div>
+        : null}
+
       </li>
     )
   } else{ // 로그인 안 했다면? 좋아요 default 회색하트 랜더링. 클릭 시 로그인해주세요 모달창 띄우기
@@ -89,6 +96,12 @@ const GalleryContent = ({
           <span className={styles.likesCount}>{exhibition.likes.length}</span>
 
         </div>
+        {exhibition.exhibit_type === 2 ?
+        <div className={styles.threeDIconWrap}>
+          <img className={styles.threeDIcon} 
+          src="../../../images/3dIcon.png" alt="3d"/>
+        </div>
+        : null}
       </li>
     );
   }

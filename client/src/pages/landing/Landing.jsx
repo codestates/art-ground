@@ -20,7 +20,7 @@ const Landing = () => {
       duration: 2.5,
       height: 0,
       ease: "power3.inOut",
-      delay: 7.5
+      delay: 7
     });
   
     var tl = gsap.timeline();
@@ -56,7 +56,7 @@ const Landing = () => {
       scaleY: 0,
       ease: "power3.inOut",
       transformOrigin:"0% -100%", 
-      delay: 2
+      delay: 1.7
   });
     tl.from(contentRef.current, {
       duration: 2,
@@ -66,14 +66,6 @@ const Landing = () => {
       delay: 0,
       transformOrigin:"50% 100%"
     });
-  
-    // gsap.to(boxRef.current, {
-    //   duration: 2,
-    //   y: "-100%",
-    //   ease: "power3.inOut",
-    //   delay: 8,
-    // });
-
   }, [])
  
   //타이핑 효과 function

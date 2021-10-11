@@ -282,7 +282,7 @@ input {
 }
 .aboutUs {
   font-family: "paybooc-Bold";
-  color: rgb(85, 85, 85);
+  color: rgb(65, 65, 65);
   max-width: Container;
   width: 80%;
   display: flex;
@@ -290,6 +290,20 @@ input {
   margin-bottom: 1.5rem;
   font-size: 1.2rem;
 }
+
+.socialLogo {
+  width: 1.3rem;
+  margin-left: 0.5rem;
+}
+.github {
+  width: 100%;
+  opacity: 0.8;
+}
+.notion {
+  width: 100%;
+  opacity: 0.7;
+}
+
 @keyframes fadein {
   from {
     opacity: 0;

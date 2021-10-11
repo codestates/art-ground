@@ -114,7 +114,20 @@ const Contact = () => {
       ) : null}
     </section>
     <div className={styles.introBox}>
-    <div className={styles.aboutUs}>About Us</div>
+    <div className={styles.aboutUs}>About Us
+      <a
+      target="_blank"
+      href="https://github.com/codestates/art-ground"
+      className={styles.socialLogo}
+      ><img className={styles.github} src="../../../images/githubLogo.png" alt="github"/>
+      </a>
+      <a
+      target="_blank"
+      href="https://www.notion.so/4-Klassiker-art-Ground-8065b7f612a746d7a7fbd4f329749474"
+      className={styles.socialLogo}
+      ><img className={styles.notion} src="../../../images/notionLogo.svg" alt="notion"/>
+      </a>
+    </div>
     <div className={styles.introBorder}>
       <div className={styles.sInfo}>
         <span>문순려</span>
