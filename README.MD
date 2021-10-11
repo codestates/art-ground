@@ -29,8 +29,9 @@ https://art-ground.io/
 ## 🏛 Architecture
 
 ### Client-Side flow chart [static]
-![image](https://images.velog.io/images/devjade/post/691ca04c-9e6d-4e66-b9f7-4af2c757710f/Art%20Ground.jpg)
-![image](https://images.velog.io/images/devjade/post/c83fbc78-0c8f-4fc0-a73a-c421925b24b2/Art%20Ground2.jpg)
+
+<img width="800" alt="스크린샷 2021-10-04 오후 3 28 35" src="https://user-images.githubusercontent.com/83934037/136751218-86d320b7-eb53-4c70-bc78-fc8c6cbc1210.jpg">
+<img width="800" alt="스크린샷 2021-10-04 오후 3 28 35" src="https://user-images.githubusercontent.com/83934037/136751229-4dae01b8-8059-4982-ad74-5d6892ca4532.jpg">
 
 
 ## 📱 주요기능별 시연 GIF
