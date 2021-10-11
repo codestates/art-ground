@@ -135,7 +135,7 @@ https://art-ground.io/
   </details>
   <details>
    <summary> premium 전시 감상 </summary>
-    <img width="700" src="https://user-images.githubusercontent.com/83934037/136419124-a80d41c4-82c9-4124-8502-b60af909d799.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136749266-ec2c60d5-11a8-49e3-9243-336e43b4a192.gif"/>
     
   </details>
   
