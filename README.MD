@@ -42,32 +42,32 @@ https://art-ground.io/
   
   <details>
   <summary> 일반 회원가입 </summary>
-    <img width="450" src="https://user-images.githubusercontent.com/79203932/136157015-f97d66f6-2eb1-4dfb-961a-372198eb7aef.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/79203932/136157015-f97d66f6-2eb1-4dfb-961a-372198eb7aef.gif"/>
   </details>
   
   <details>
   <summary> 작가 회원가입 </summary>
-    <img width="450" src="https://user-images.githubusercontent.com/79203932/136157433-4a5871c1-0e9a-4e41-91bc-51b9efbd6964.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/79203932/136157433-4a5871c1-0e9a-4e41-91bc-51b9efbd6964.gif"/>
   </details>
   
   <details>
   <summary> 로그인 </summary>
-    <img width="450" src="https://user-images.githubusercontent.com/79203932/136155085-20caf580-fe8e-4bbc-a29a-4feaf3a8e760.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/79203932/136155085-20caf580-fe8e-4bbc-a29a-4feaf3a8e760.gif"/>
   </details>
   
    <details>
   <summary> 카카오 로그인 </summary>
-    <img width="450" src="https://user-images.githubusercontent.com/79203932/136164915-2bcd1820-f3d8-4f05-aaab-b29d38662f14.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/79203932/136164915-2bcd1820-f3d8-4f05-aaab-b29d38662f14.gif"/>
   </details>
   
    <details>
   <summary> 구글 로그인 </summary>
-    <img width="450" src="https://user-images.githubusercontent.com/79203932/136164960-48de965c-3d0e-4628-b37c-9c48ef30060a.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/79203932/136164960-48de965c-3d0e-4628-b37c-9c48ef30060a.gif"/>
   </details>
   
   <details>
   <summary> 로그아웃 </summary>
-    <img width="450" src="https://user-images.githubusercontent.com/79203932/136152623-2dbbb67e-c760-474e-b689-1cb71ca981e5.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/79203932/136152623-2dbbb67e-c760-474e-b689-1cb71ca981e5.gif"/>
   </details>
   
 </details>
@@ -79,12 +79,12 @@ https://art-ground.io/
   
   <details>
   <summary> 텍스트 타이핑 및 화면전환 애니메이션 </summary>
-    <img width="450" src="https://images.velog.io/images/devjade/post/9b289852-1d23-4564-b0a7-5c7e64ddbd9a/landingAni.gif"/>
+    <img width="700" src="https://images.velog.io/images/devjade/post/9b289852-1d23-4564-b0a7-5c7e64ddbd9a/landingAni.gif"/>
   </details>
   
   <details>
   <summary> 이미지 슬라이드 </summary>
-    <img width="450" src=""/>
+    <img width="700" src=""/>
   </details>
   
 </details>
@@ -96,37 +96,37 @@ https://art-ground.io/
 
   <details>
   <summary> 전시 신청 </summary>
-    <img width="450" src="https://user-images.githubusercontent.com/83934037/136417302-6f29bb9e-e150-48ff-98e9-be480df33ca9.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136417302-6f29bb9e-e150-48ff-98e9-be480df33ca9.gif"/>
   </details>
   
   <details>
   <summary> 전시회 조회(standard/premium) </summary>
-    <img width="450" src="https://user-images.githubusercontent.com/83934037/136516368-b10be2eb-6126-4fe7-a5e8-f5f049032e00.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136516368-b10be2eb-6126-4fe7-a5e8-f5f049032e00.gif"/>
   </details>
   
   <details>
   <summary> 전시회 카테고리 필터링 </summary>
-    <img width="450" src="https://user-images.githubusercontent.com/83934037/136516954-cdba0410-1202-48c8-bcf3-2791e5a67f96.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136516954-cdba0410-1202-48c8-bcf3-2791e5a67f96.gif"/>
 
   </details>
   <details>
   <summary> 전시회 정렬(최신순/전시마감일순) </summary>
-    <img width="450" src="https://user-images.githubusercontent.com/83934037/136517652-14296813-1f1c-4414-9a74-84d02f310132.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136517652-14296813-1f1c-4414-9a74-84d02f310132.gif"/>
   </details>
   
   <details>
   <summary> 전시회 찜하기 </summary>
-    <img width="450" src="https://user-images.githubusercontent.com/79203932/136372525-587eb33b-3e27-4e61-b106-b8d0654263c0.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/79203932/136372525-587eb33b-3e27-4e61-b106-b8d0654263c0.gif"/>
   </details>
 
    <details>
   <summary> 전시회 찜하기 해제 </summary>
-    <img width="450" src="https://user-images.githubusercontent.com/79203932/136372588-5b67c09f-64ac-4b80-a6f5-ec3c8a6a8f0b.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/79203932/136372588-5b67c09f-64ac-4b80-a6f5-ec3c8a6a8f0b.gif"/>
   </details>
   
   <details>
   <summary> standard 전시 감상 </summary>
-    <img width="450" src="https://user-images.githubusercontent.com/83934037/136418579-091b84e5-f044-42a2-8957-56262ebcdb94.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136418579-091b84e5-f044-42a2-8957-56262ebcdb94.gif"/>
   </details>
   
   <details>
@@ -135,7 +135,7 @@ https://art-ground.io/
   </details>
   <details>
    <summary> premium 전시 감상 </summary>
-    <img width="450" src="https://user-images.githubusercontent.com/83934037/136419124-a80d41c4-82c9-4124-8502-b60af909d799.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136419124-a80d41c4-82c9-4124-8502-b60af909d799.gif"/>
     
   </details>
   
@@ -148,22 +148,22 @@ https://art-ground.io/
   
   <details>
    <summary>전시회 검색</summary>
-    <img width="450" src="https://user-images.githubusercontent.com/83934037/136518462-9744bcff-841c-4f8f-aae0-524d85a35772.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136518462-9744bcff-841c-4f8f-aae0-524d85a35772.gif"/>
   </details>
   
   <details>
    <summary>전시회 정렬</summary>
-    <img width="450" src="https://user-images.githubusercontent.com/83934037/136518767-cf9c6c4b-5721-45af-a1b4-79bcf8861e80.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136518767-cf9c6c4b-5721-45af-a1b4-79bcf8861e80.gif"/>
   </details>
   
   <details>
    <summary>리뷰 등록</summary>
-    <img width="450" src="https://user-images.githubusercontent.com/79203932/136377157-a1fad93c-8f2e-4e7e-bf2e-22d2082d973a.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/79203932/136377157-a1fad93c-8f2e-4e7e-bf2e-22d2082d973a.gif"/>
   </details>
   
   <details>
    <summary>리뷰 삭제</summary>
-    <img width="450" src="https://user-images.githubusercontent.com/79203932/136375382-0ec5893c-76f8-4761-a575-501890a8a680.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/79203932/136375382-0ec5893c-76f8-4761-a575-501890a8a680.gif"/>
   </details>
   
 </details>
@@ -176,26 +176,26 @@ https://art-ground.io/
  <summary>마이 페이지</summary>
   <details>
    <summary>내가 찜한 전시회 조회</summary>
-    <img width="450" src="https://user-images.githubusercontent.com/83934037/136748742-3bcda1fc-b2e6-4160-b82d-09d0df1785b9.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136748742-3bcda1fc-b2e6-4160-b82d-09d0df1785b9.gif"/>
   </details>
   <details>
    <summary>내가 오픈한 전시회 조회</summary>
-    <img width="450" src="https://user-images.githubusercontent.com/83934037/136748138-369319b5-82a8-4b21-ab65-a9c0cc34e211.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136748138-369319b5-82a8-4b21-ab65-a9c0cc34e211.gif"/>
   </details>
   
   <details>
    <summary>내 정보 수정(비밀번호 제외)</summary>
-    <img width="450" src="https://user-images.githubusercontent.com/79203932/136372647-bad6c81d-c8d4-4387-8020-e6c31df6f34c.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/79203932/136372647-bad6c81d-c8d4-4387-8020-e6c31df6f34c.gif"/>
   </details>
   
   <details>
    <summary>비밀번호 수정</summary>
-    <img width="450" src="https://user-images.githubusercontent.com/79203932/136375338-d7811c00-9a92-4585-a3a1-90d75a337877.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/79203932/136375338-d7811c00-9a92-4585-a3a1-90d75a337877.gif"/>
   </details>
   
   <details>
    <summary>회원 탈퇴</summary>
-    <img width="450" src="https://user-images.githubusercontent.com/79203932/136157748-0c1d9490-7278-4165-9b63-feaf563a9cda.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/79203932/136157748-0c1d9490-7278-4165-9b63-feaf563a9cda.gif"/>
   </details>
   
 </details>
@@ -207,17 +207,17 @@ https://art-ground.io/
   
   <details>
    <summary>전시 승인</summary>
-    <img src="https://user-images.githubusercontent.com/79203932/136372362-d3034a6e-df10-48d3-ae62-cc8345abffac.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/79203932/136372362-d3034a6e-df10-48d3-ae62-cc8345abffac.gif"/>
   </details>
   
    <details>
    <summary>전시 마감</summary>
-    <img src="https://user-images.githubusercontent.com/79203932/136372400-846c8cc8-5148-4e03-b894-468a33980223.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/79203932/136372400-846c8cc8-5148-4e03-b894-468a33980223.gif"/>
   </details>
   
   <details>
    <summary>회원 리뷰 삭제</summary>
-    <img src="https://user-images.githubusercontent.com/79203932/136372449-30c34f5c-df84-498d-b86d-3ba3d79adcda.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/79203932/136372449-30c34f5c-df84-498d-b86d-3ba3d79adcda.gif"/>
   </details>
   
 </details>
