@@ -78,7 +78,7 @@ const Gallery = ({ isLogin, userinfo }) => {
         </div>
       </section>
     )
-  } else if(isLogin && userinfo === null){ // 모바일기기에서 로그인 했지만 userinfo가 없어 흰 화면 뜨는 경우...
+  } else if(isLogin && !userinfo){ // 모바일기기에서 로그인 했지만 userinfo가 없어 흰 화면 뜨는 경우...
     return (
       <MobileBlocked goBack={() => history.goBack()}/>
     )

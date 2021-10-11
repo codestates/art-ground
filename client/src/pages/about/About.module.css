@@ -70,7 +70,7 @@ label {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.3;
+  opacity: 0.4;
 }
 
 .brand {
@@ -81,7 +81,7 @@ label {
 
 .mainContentBox {
   position: absolute;
-  top: 0;
+  top: -12%;
   left: 0;
   width: 100%;
   height: 100%;
@@ -212,6 +212,37 @@ label {
 }
 
 /* 움직이는 화살표 */
+.downArr2 {
+  position: absolute;
+  bottom: 9rem;
+  left: 0;
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+.arrSection2 {
+  max-width: 1024px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin-top: 4rem;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.arrowDown2 span {
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  border-bottom: 2px solid #606060;
+  border-right: 2px solid #606060;
+  transform: rotate(45deg);
+  margin: -8px;
+  animation: animate-arrows 1.5s infinite;
+}
 .downArr {
   width: 100%;
   height: 8vh;
@@ -221,7 +252,8 @@ label {
   background-color: #f1f1f1;
 }
 .arrSection {
-  width: 1024px;
+  max-width: 1024px;
+  width: 100%;
   height: 100%;
   display: flex;
   margin-top: 4rem;
@@ -547,11 +579,6 @@ label {
     background-color: #f1f1f1;
     width: 100%;
     height: 80vh;
-  }
-
-  /* 움직이는 화살표 */
-  .arrSection {
-    width: 100%;
   }
 
   /*섹션3: 관람(회색)*/

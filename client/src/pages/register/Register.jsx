@@ -260,7 +260,7 @@ const Register = ({ userinfo, isLogin }) => {
 
       {userinfo && userinfo.user_type === 1 ?
       <AuthorLogin goBack={() => history.goBack()}/> 
-      : !userinfo && !isLogin ?
+      : (!userinfo && !isLogin) || (userinfo && !isLogin) ?
       <RegisterLogin goBack={() => history.goBack()} />
       : !userinfo && isLogin ? 
       <MobileBlocked goBack={() => history.goBack()}/>

@@ -57,6 +57,15 @@ const About = () => {
                 누구나 자유롭게 작품 활동을 펼칠 수 있는 열린 놀이터입니다.
               </p>
             </div>
+            <section className={styles.downArr2}>
+              <div className={styles.arrSection2}>
+                <div className={styles.arrowDown2}>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </section>
