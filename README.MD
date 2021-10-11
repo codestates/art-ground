@@ -43,7 +43,7 @@ https://art-ground.io/
   
   <details>
   <summary> 일반 회원가입 </summary>
-    <img width="700" src="https://user-images.githubusercontent.com/79203932/136157015-f97d66f6-2eb1-4dfb-961a-372198eb7aef.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136782048-a72b9828-16f8-4ce5-af45-0d564a096682.gif"/>
   </details>
   
   <details>
@@ -53,7 +53,7 @@ https://art-ground.io/
   
   <details>
   <summary> 로그인 </summary>
-    <img width="700" src="https://user-images.githubusercontent.com/79203932/136155085-20caf580-fe8e-4bbc-a29a-4feaf3a8e760.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136782048-a72b9828-16f8-4ce5-af45-0d564a096682.gif"/>
   </details>
   
    <details>
