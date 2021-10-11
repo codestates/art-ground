@@ -43,10 +43,10 @@ const Modify = ({ userinfo, setUserinfo }) => {
                 <span className={styles.imgBorder}>
                   <img className={styles.ProfileView} src={img} alt="" />
                 </span>
-                <span className={styles.nickName}>
+                <div className={styles.nickName}>
                   <span>닉네임 :</span>
                   <span>{userinfo.nickname}</span>
-                </span>
+                </div>
               </div>
               <div className={styles.infoBtnBox}>
                 <button className={styles.deleteBtn} onClick={deleteId}>

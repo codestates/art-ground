@@ -135,6 +135,12 @@ span {
   .passEdit {
     width: 18rem;
   }
+  .ProfileView {
+    border: 1px solid gainsboro;
+    width: 70%;
+    height: 80%;
+    border-radius: 50%;
+  }
 }
 
 @keyframes fadein {
