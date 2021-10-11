@@ -79,13 +79,13 @@ https://art-ground.io/
   <summary> 랜딩 및 About 페이지(앱 소개) </summary>
   
   <details>
-  <summary> 텍스트 타이핑 및 화면전환 애니메이션 </summary>
-    <img width="700" src="https://images.velog.io/images/devjade/post/9b289852-1d23-4564-b0a7-5c7e64ddbd9a/landingAni.gif"/>
+  <summary> 랜딩페이지 텍스트 타이핑 및 화면전환 애니메이션 </summary>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136758716-54b3750e-a883-49c9-a444-2f1527638cae.gif"/>
   </details>
   
   <details>
-  <summary> 이미지 슬라이드 </summary>
-    <img width="700" src=""/>
+  <summary> About 페이지 </summary>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136758563-d8b1f644-5706-4273-a221-05a70c58d5a8.gif"/>
   </details>
   
 </details>
