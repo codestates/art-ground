@@ -60,17 +60,20 @@ module.exports = function (sequelize, DataTypes) {
     users.hasMany(models.comments, {
       as: "comments",
       foreignKey: "user_id",
-      onDelete: "cascade",
+      onDelete: "CASCADE",
+      hooks: true,
     });
     users.hasMany(models.exhibition, {
-      as: "exhibitions",
+      as: "exhibition",
       foreignKey: "author_id",
-      onDelete: "cascade",
+      onDelete: "CASCADE",
+      hooks: true,
     });
     users.hasMany(models.likes, {
       as: "likes",
       foreignKey: "user_id",
-      onDelete: "cascade",
+      onDelete: "CASCADE",
+      hooks: true,
     });
   };
   return users;

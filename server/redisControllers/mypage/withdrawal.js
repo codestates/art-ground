@@ -1,4 +1,5 @@
-const { users: userModel } = require("../../models");
+const { users } = require("../../models");
+const { redisClient } = require("../../utils/redis");
 const { isAuthorized } = require("../../utils/tokenFunction");
 
 module.exports.withdrawal = async (req, res) => {
@@ -7,16 +8,28 @@ module.exports.withdrawal = async (req, res) => {
   if (userInfo) {
     const { id } = userInfo;
 
-    const result = await userModel.destroy({
+    const result = await users.destroy({
       where: {
         id,
       },
     });
 
+    //comments = user_id
+    //exhibition = author_id
     if (result) {
-      res.status(200).clearCookie("accessToken").json({
-        message: "successfully deleted",
-      });
+      redisClient.flushall();
+      res
+        .clearCookie("accessToken", {
+          httpOnly: true,
+          sameSite: "none",
+          secure: true,
+          path: "/",
+          domain: "art-ground.link", // 쿠키 옵션 추가
+        })
+        .status(200)
+        .json({
+          message: "successfully deleted",
+        });
     }
   } else {
     res.status(401).json({

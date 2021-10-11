@@ -58,6 +58,8 @@ module.exports = function (sequelize, DataTypes) {
     images.belongsTo(models.exhibition, {
       as: "exhibition",
       foreignKey: "exhibition_id",
+      onDelete: "CASCADE",
+      hooks: true,
     });
   };
 

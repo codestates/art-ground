@@ -4,11 +4,29 @@ const {
   users: userModel,
   likes: likeModel,
 } = require("../../models");
+const {
+  getCached,
+  caching,
+  delCache,
+} = require("../../utils/redis/cache.ctrl");
+module.exports.getExhibition = async (req, res) => {
+  const { type: exhibit_type } = req.params;
+  const redisKey =
+    exhibit_type === undefined
+      ? "allExhibition"
+      : exhibit_type === "1"
+      ? "standard"
+      : "premium";
 
-module.exports = {
-  getExhibition: async (req, res) => {
-    const { type: exhibit_type } = req.params;
+  //캐시 확인 과정
+  const reply = await getCached(redisKey);
 
+  if (reply) {
+    //캐시가 존재한다.
+    const data = reply;
+    res.status(200).json({ data });
+  } else {
+    //캐시가 존재하지 않음
     if (!exhibit_type) {
       const result = await exhibitionModel.findAll({
         include: [
@@ -17,6 +35,7 @@ module.exports = {
             as: "images",
           },
           {
+            attributes: ["exhibition_id", "user_id"],
             model: likeModel,
             as: "likes",
           },
@@ -33,7 +52,7 @@ module.exports = {
         ],
       });
       const data = result.map((el) => el.dataValues);
-
+      caching(redisKey, data);
       res.status(200).json({ data });
     } else {
       const result = await exhibitionModel.findAll({
@@ -43,6 +62,7 @@ module.exports = {
             as: "images",
           },
           {
+            attributes: ["exhibition_id", "user_id"],
             model: likeModel,
             as: "likes",
           },
@@ -62,10 +82,10 @@ module.exports = {
           status: 1,
         },
       });
-      const data = result.map((el) => el.dataValues);
 
+      const data = result.map((el) => el.dataValues);
+      caching(redisKey, data);
       res.status(200).json({ data });
     }
-  },
+  }
 };
-//

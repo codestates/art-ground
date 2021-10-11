@@ -1,25 +1,9 @@
-/**
- * SELECT exhibition_id
- * FROM likes
- * WHERE user_id = userInfo.id
- *
- *
- * SELECT *
- * FROM exhibition
- * WHERE id in ()
- *
- * users: author(user_email), nickname, author_id,
- * exhibition: start_date, end_date, exhibit_desc, exhibit_type, exhibit_id, genre_hashtags, status, title
- * images: img_urls,
- * likes: likes,
- */
-
 const { exhibition, images, users, likes } = require("../../models");
 const { isAuthorized } = require("../../utils/tokenFunction");
 module.exports = {
   getMyLikes: async (req, res) => {
     const userInfo = isAuthorized(req);
-    console.log("userInfo:", userInfo);
+
     try {
       if (!userInfo) {
         res.status(401).json({ message: "invalid access token" });
@@ -130,4 +114,3 @@ module.exports = {
     }
   },
 };
-//

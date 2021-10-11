@@ -1,9 +1,9 @@
 const { isAuthorized } = require("../../utils/tokenFunction");
 const { users } = require("../../models");
+
 module.exports = {
   getMyInfo: async (req, res) => {
     const userInfo = isAuthorized(req);
-    delete userInfo.dataValues.password;
 
     if (userInfo) {
       const { id } = userInfo;

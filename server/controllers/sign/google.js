@@ -64,14 +64,24 @@ module.exports = {
       const result = await users.findOne({
         where: {
           user_email: userEmail,
-          password,
         },
       });
 
       if (result) {
         delete result.dataValues.password;
         const accessToken = generateAccessToken(result.dataValues);
-        sendAccessToken(res, accessToken);
+        res
+          .cookie("accessToken", accessToken, {
+            httpOnly: true,
+            sameSite: "none",
+            secure: true,
+            maxAge: 60 * 60 * 24 * 1000,
+            domain: "art-ground.link",
+            path: "/",
+            ovewrite: true,
+          })
+          .status(200)
+          .json({ data: result.dataValues, message: "AccessToken ready" });
       } else {
         const generatedInfo = await users.create({
           user_email: userEmail, //userInfo.data.kakao_account.email
@@ -81,16 +91,20 @@ module.exports = {
           login_type: "google",
         });
 
-        delete generatedInfo.dataValues.password;
-        const accessToken = generateAccessToken(generatedInfo.dataValues);
-        return res
+        delete result.dataValues.password;
+        const accessToken = generateAccessToken(result.dataValues);
+        res
           .cookie("accessToken", accessToken, {
             httpOnly: true,
-            secure: true,
             sameSite: "none",
+            secure: true,
+            maxAge: 60 * 60 * 24 * 1000,
+            domain: "art-ground.link",
+            path: "/",
+            ovewrite: true,
           })
-          .status(201)
-          .json({ message: "created ok" });
+          .status(200)
+          .json({ data: result.dataValues, message: "AccessToken ready" });
       }
     } catch (err) {
       console.log(err);

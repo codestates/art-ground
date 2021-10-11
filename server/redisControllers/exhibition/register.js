@@ -3,6 +3,7 @@ const {
   exhibition: exhibitionModels,
   images: imagesModel,
 } = require("../../models");
+const { redisClient } = require("../../utils/redis");
 
 module.exports.register = async (req, res) => {
   const userInfo = isAuthorized(req);
@@ -57,6 +58,7 @@ module.exports.register = async (req, res) => {
             image_add_desc,
           });
         });
+        redisClient.flushall();
         res
           .status(201)
           .json({ message: "exhibition created", data: JSON.parse(images) });

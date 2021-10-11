@@ -6,27 +6,6 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
 module.exports = {
-  getMyInfo: async (req, res) => {
-    const userInfo = isAuthorized(req);
-
-    if (userInfo) {
-      const { id } = userInfo;
-      const result = await users.findOne({
-        where: {
-          id,
-        },
-      });
-      const data = result.dataValues;
-      res.status(200).json({
-        data,
-      });
-    } else {
-      res.status(401).json({
-        message: "invalid access token",
-      });
-    }
-  },
-
   updatePassword: async (req, res) => {
     /*
         1. 현재 비밀번호, 새로 변경할 비밀번호 req.body로 암호화된 상태로 받기
@@ -36,7 +15,6 @@ module.exports = {
     try {
       const { currentPassword, newPassword } = req.body;
       const data = isAuthorized(req);
-      console.log("data:", data, currentPassword, newPassword);
 
       const userInfo = await users.findOne({
         where: {
@@ -48,17 +26,14 @@ module.exports = {
         currentPassword,
         process.env.ART_GROUND_CRYPTOJS_SECRETKEY
       );
-      console.log("byte1:", byte);
 
       let decodedPassword = await JSON.parse(byte.toString(CryptoJS.enc.Utf8));
-      console.log("decoded1:", decodedPassword);
 
       // compare password
       const validPassword = await bcrypt.compare(
         decodedPassword,
         userInfo.password
       );
-      console.log("validpw:", validPassword);
 
       // password가 유효하면
       if (validPassword) {
@@ -67,7 +42,6 @@ module.exports = {
           newPassword,
           process.env.ART_GROUND_CRYPTOJS_SECRETKEY
         );
-        console.log("byte2:", byte2);
 
         const decodedPassword2 = await JSON.parse(
           byte2.toString(CryptoJS.enc.Utf8)

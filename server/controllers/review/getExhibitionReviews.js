@@ -3,13 +3,25 @@ const {
   images: imagesModel,
   users: userModel,
   comments: commentsModel,
+  sequelize,
 } = require("../../models");
+const {
+  getCached,
+  caching,
+  delCache,
+} = require("../../utils/redis/cache.ctrl");
 //작가 관련 정보 {이름}
 //전시 타입 1, 2
 //스탠다드 프리미엄 둘 다
-module.exports = {
-  getExhibitionReviews: async (req, res) => {
-    const commentsResult = await commentsModel.find;
+module.exports.getExhibitionReview = async (req, res) => {
+  const redisKey = "exhibitionReview";
+
+  const reply = await getCached(redisKey);
+
+  if (reply) {
+    const data = reply;
+    res.status(200).json({ data });
+  } else {
     const result = await exhibitionModel.findAll({
       include: [
         {
@@ -30,10 +42,17 @@ module.exports = {
         status: [1, 2],
       },
     });
+    const { dataValues: lastCommentId } = await commentsModel.findOne({
+      attributes: ["id"],
+      order: [[sequelize.literal("createdAt"), "desc"]],
+    });
+
     const data = result.map((el) => el.dataValues);
 
+    caching(redisKey, data);
+    caching("lastCommentId", lastCommentId.id);
     res.status(200).json({ data });
-  },
+  }
 };
 
 /**
@@ -69,4 +88,3 @@ module.exports.getReviewPage = async (req, res) => {
 };
 
  */
-//

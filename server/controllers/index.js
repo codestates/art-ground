@@ -25,23 +25,24 @@ router.delete("/mypage", mypageCtrl.withdrawal);
 router.patch("/mypage/password", mypageCtrl.updatePassword);
 
 // exhibition
+router.get("/exhibition/detail/:postId", exhibitCtrl.getDetailExhibition);
 router.post("/exhibition/register", exhibitCtrl.register);
 router.get("/exhibition/:type", exhibitCtrl.getExhibition);
 router.get("/exhibition", exhibitCtrl.getExhibition);
 router.post("/exhibition/like", exhibitCtrl.exhibitionLike);
-router.delete("/exhibition/like/:postId", exhibitCtrl.withdrawalLike);
+router.delete("/exhibition/like/:postId/:type", exhibitCtrl.withdrawalLike);
 
 //review
 router.get("/review/:postId", reviewCtrl.getDetailReview);
 router.post("/review", reviewCtrl.postReview);
-router.delete("/review/:commentsId", reviewCtrl.deleteReview);
+router.delete("/review/:postId/:commentId", reviewCtrl.deleteReview);
 router.get("/review", reviewCtrl.getExhibitionReviews);
 
 // admin
 router.post("/admin/exhibition", adminCtrl.approveExhibitions);
-router.delete("/admin/exhibition/:postId", adminCtrl.closeExhibitions);
+router.delete("/admin/exhibition/:postId/:type", adminCtrl.closeExhibitions);
 router.get("/admin/review", adminCtrl.getAllReviews);
-router.delete("/admin/review/:commentId", adminCtrl.deleteReviews);
+router.delete("/admin/review/:postId/:commentId", adminCtrl.deleteReviews);
 
 module.exports = router;
 //
