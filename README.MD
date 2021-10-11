@@ -159,6 +159,11 @@ https://art-ground.io/
   </details>
   
   <details>
+   <summary>리뷰 조회(무한스크롤)</summary>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136781106-9f758f7e-8052-4d1a-9531-74f4c48ac303.gif"/>
+  </details>
+  
+  <details>
    <summary>리뷰 등록</summary>
     <img width="700" src="https://user-images.githubusercontent.com/83934037/136756199-672ac915-5a0f-4e61-bdc6-fd014fa2e2c7.gif"/>
   </details>
