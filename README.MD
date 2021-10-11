@@ -176,18 +176,23 @@ https://art-ground.io/
  <summary>마이 페이지</summary>
   
   <details>
+   <summary>내 전시회 조회</summary>
+    <img width="450" src="https://user-images.githubusercontent.com/83934037/136748138-369319b5-82a8-4b21-ab65-a9c0cc34e211.gif"/>
+  </details>
+  
+  <details>
    <summary>내 정보 수정(비밀번호 제외)</summary>
-    <img src="https://user-images.githubusercontent.com/79203932/136372647-bad6c81d-c8d4-4387-8020-e6c31df6f34c.gif"/>
+    <img width="450" src="https://user-images.githubusercontent.com/79203932/136372647-bad6c81d-c8d4-4387-8020-e6c31df6f34c.gif"/>
   </details>
   
   <details>
    <summary>비밀번호 수정</summary>
-    <img src="https://user-images.githubusercontent.com/79203932/136375338-d7811c00-9a92-4585-a3a1-90d75a337877.gif"/>
+    <img width="450" src="https://user-images.githubusercontent.com/79203932/136375338-d7811c00-9a92-4585-a3a1-90d75a337877.gif"/>
   </details>
   
   <details>
    <summary>회원 탈퇴</summary>
-    <img src="https://user-images.githubusercontent.com/79203932/136157748-0c1d9490-7278-4165-9b63-feaf563a9cda.gif"/>
+    <img width="450" src="https://user-images.githubusercontent.com/79203932/136157748-0c1d9490-7278-4165-9b63-feaf563a9cda.gif"/>
   </details>
   
 </details>
