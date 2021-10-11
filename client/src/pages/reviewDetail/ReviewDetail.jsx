@@ -49,8 +49,8 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
     setIsLoading(true);
     let result = await getReplyList(Number(location.pathname.substring(14)));
     setReplyCount(await getReplyList(Number(location.pathname.substring(14))));//전체 댓글 개수 랜더링
-    setReplyList(result.slice(0, 5)); //최초에 5개만 보여주고
-    result = result.slice(5); //보여준 5개 제외한 나머지만 추려서
+    setReplyList(result.slice(0, 4)); //최초에 4개만 보여주고
+    result = result.slice(4); //보여준 4개 제외한 나머지만 추려서
     setHiddenReplyList(result); //상태값에 저장
     setIsLoading(false);
   } 

@@ -169,8 +169,7 @@ input {
 }
 /*map section*/
 .mapBox {
-  margin-top: 3rem;
-  margin-bottom: 5rem;
+  margin: 4rem 6rem;
   height: 470px;
   display: flex;
   flex-direction: column;
@@ -178,6 +177,9 @@ input {
   align-items: center;
 }
 .mapBorder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
   border: none;
   background-color: white;

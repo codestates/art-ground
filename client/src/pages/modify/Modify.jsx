@@ -30,7 +30,7 @@ const Modify = ({ userinfo, setUserinfo }) => {
     deleteAccount();
   };
   const img = !userinfo.profile_img
-    ? "https://images.velog.io/images/beablessing/post/54131e26-0389-412e-b88d-a8b6a97600a8/noimg.png"
+    ? "../../../images/profile.jpeg"
     : userinfo.profile_img;
   return (
     <section className={styles.container}>
