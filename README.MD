@@ -39,7 +39,7 @@ https://art-ground.io/
 <작성중>
 
 <details>
-  <summary> 회원가입, 로그인, 로그아웃 </summary>
+  <summary> 회원가입, 로그인, 로그아웃</summary>
   
   <details>
   <summary> 일반 회원가입 </summary>
@@ -201,7 +201,7 @@ https://art-ground.io/
   
   <details>
    <summary>회원 탈퇴</summary>
-    <img width="700" src="https://user-images.githubusercontent.com/79203932/136157748-0c1d9490-7278-4165-9b63-feaf563a9cda.gif"/>
+    <img width="700" src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fdbecb0d6-6a76-4985-b391-fd9aab32244c%2F%E1%84%8B%E1%85%A1%E1%84%90%E1%85%B3%E1%84%80%E1%85%B3%E1%84%85%E1%85%A1%E1%84%8B%E1%85%AE%E1%86%AB%E1%84%83%E1%85%B3_%E1%84%92%E1%85%AC%E1%84%8B%E1%85%AF%E1%86%AB%E1%84%90%E1%85%A1%E1%86%AF%E1%84%90%E1%85%AC_GIF_%E1%84%80%E1%85%A9%E1%84%92%E1%85%AA%E1%84%8C%E1%85%B5%E1%86%AF.gif?id=94cfec35-24aa-41aa-aaeb-6bb2febf72e6&table=block&spaceId=&userId=196bbe4f-aa69-466d-9c5b-01d52f52ea74&cache=v2"/>
   </details>
   
 </details>
