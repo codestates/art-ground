@@ -240,4 +240,4 @@ https://art-ground.io/
 https://github.com/codestates/art-ground/wiki
 
 ##  👀더 자세한 내용은 아래 링크에서 확인
-<노션링크 작성 예정>
+https://www.notion.so/4-Klassiker-art-Ground-8065b7f612a746d7a7fbd4f329749474
