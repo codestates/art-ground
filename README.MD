@@ -101,17 +101,17 @@ https://art-ground.io/
   
   <details>
   <summary> 전시회 조회(standard/premium) </summary>
-    <img width="700" src="https://user-images.githubusercontent.com/83934037/136516368-b10be2eb-6126-4fe7-a5e8-f5f049032e00.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136749783-b6f2666a-f583-45fb-bc9f-cc35b2507ff8.gif"/>
   </details>
   
   <details>
   <summary> 전시회 카테고리 필터링 </summary>
-    <img width="700" src="https://user-images.githubusercontent.com/83934037/136516954-cdba0410-1202-48c8-bcf3-2791e5a67f96.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136750132-05caa68f-759a-4b2b-aef9-b9be1c095683.gif"/>
 
   </details>
   <details>
   <summary> 전시회 정렬(최신순/전시마감일순) </summary>
-    <img width="700" src="https://user-images.githubusercontent.com/83934037/136517652-14296813-1f1c-4414-9a74-84d02f310132.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136750408-8201f226-b392-4d91-bdb8-53b6efa13621.gif"/>
   </details>
   
   <details>
