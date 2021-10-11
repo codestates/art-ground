@@ -97,7 +97,7 @@ https://art-ground.io/
 
   <details>
   <summary> 전시 신청 </summary>
-    <img width="700" src="https://user-images.githubusercontent.com/83934037/136417302-6f29bb9e-e150-48ff-98e9-be480df33ca9.gif"/>
+    <img width="700" src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fb2b22b81-a94b-4e68-bfc5-1446d1431268%2F%E1%84%8B%E1%85%A1%E1%84%90%E1%85%B3%E1%84%80%E1%85%B3%E1%84%85%E1%85%A1%E1%84%8B%E1%85%AE%E1%86%AB%E1%84%83%E1%85%B3_%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%89%E1%85%B5%E1%84%89%E1%85%B5%E1%86%AB%E1%84%8E%E1%85%A5%E1%86%BC_GIF.gif?id=42a3a27d-f2a8-4ed0-97be-ede4dae53ed2&table=block&spaceId=82d63a72-8254-4cde-bf1e-b2597b7c099c&userId=196bbe4f-aa69-466d-9c5b-01d52f52ea74&cache=v2"/>
   </details>
   
   <details>
