@@ -128,12 +128,12 @@ https://art-ground.io/
   <details>
   <summary> standard 전시 감상 </summary>
     <img width="700" src="https://user-images.githubusercontent.com/83934037/136418579-091b84e5-f044-42a2-8957-56262ebcdb94.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136778793-ef71ed6c-987b-4d67-b7dd-1c03f6fa11e6.gif"/>
   </details>
   
   <details>
   <summary> standard 전시 감상(모바일) </summary>
     <img width="327" src="https://user-images.githubusercontent.com/83934037/136418162-e75c5f7b-cd59-41bc-8ced-55792d71863c.gif"/>
-    <img width="327" src="https://user-images.githubusercontent.com/83934037/136778793-ef71ed6c-987b-4d67-b7dd-1c03f6fa11e6.gif"/>
   </details>
   <details>
    <summary> premium 전시 감상(3D) </summary>
