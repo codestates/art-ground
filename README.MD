@@ -174,9 +174,12 @@ https://art-ground.io/
 
 <details>
  <summary>마이 페이지</summary>
-  
   <details>
-   <summary>내 전시회 조회</summary>
+   <summary>내가 찜한 전시회 조회</summary>
+    <img width="450" src="https://user-images.githubusercontent.com/83934037/136748742-3bcda1fc-b2e6-4160-b82d-09d0df1785b9.gif"/>
+  </details>
+  <details>
+   <summary>내가 오픈한 전시회 조회</summary>
     <img width="450" src="https://user-images.githubusercontent.com/83934037/136748138-369319b5-82a8-4b21-ab65-a9c0cc34e211.gif"/>
   </details>
   
