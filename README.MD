@@ -150,7 +150,7 @@ https://art-ground.io/
   
   <details>
    <summary>전시회 검색</summary>
-    <img width="700" src="https://user-images.githubusercontent.com/83934037/136756596-aa78dd20-6129-4e91-97a0-560b0731a881.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136779613-94019252-4b48-40c8-9b55-325ad7e63beb.gif"/>
   </details>
   
   <details>
