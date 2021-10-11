@@ -149,17 +149,21 @@ https://art-ground.io/
   
   <details>
    <summary>전시회 검색</summary>
-    <img width="700" src="https://user-images.githubusercontent.com/83934037/136518462-9744bcff-841c-4f8f-aae0-524d85a35772.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136756596-aa78dd20-6129-4e91-97a0-560b0731a881.gif"/>
   </details>
   
   <details>
    <summary>전시회 정렬</summary>
-    <img width="700" src="https://user-images.githubusercontent.com/83934037/136518767-cf9c6c4b-5721-45af-a1b4-79bcf8861e80.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136756495-d4b0421b-91d1-4830-b911-ed8469c7607f.gif"/>
   </details>
   
   <details>
-   <summary>리뷰 등록/삭제</summary>
-    <img width="700" src="https://user-images.githubusercontent.com/83934037/136755629-53e05c36-7d22-4095-be8e-7d1cac77c255.gif"/>
+   <summary>리뷰 등록</summary>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136756199-672ac915-5a0f-4e61-bdc6-fd014fa2e2c7.gif"/>
+  </details>
+   <details>
+   <summary>리뷰 삭제</summary>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136756221-9fcee8c1-2464-49cd-82df-714eee1b61d7.gif"/>
   </details>
   
 </details>
@@ -176,7 +180,7 @@ https://art-ground.io/
   </details>
   <details>
    <summary>내가 오픈한 전시회 조회</summary>
-    <img width="700" src="https://user-images.githubusercontent.com/83934037/136748138-369319b5-82a8-4b21-ab65-a9c0cc34e211.gif"/>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/136756781-332c727d-ff7e-4291-9413-fca6b52b0a31.gif"/>
   </details>
   
   <details>
