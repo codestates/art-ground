@@ -3,7 +3,7 @@ import SideBar from "../sidebar/SideBar";
 import styles from "./MyPick.module.css";
 
 const MyPick = ({ el }) => {
-  console.log(el, "D");
+  //console.log(el, "D");
   const history = useHistory();
   const goToGallery = () => {
     history.push(`gallerydetail/${el.exhibition_id}`);
@@ -24,10 +24,10 @@ const MyPick = ({ el }) => {
               />
             </div>
             <div className={styles.infoBox}>
-              <div className={styles.title} onClick={goToGallery}>
+              <span className={styles.title} onClick={goToGallery}>
                 {el.title}
-              </div>
-              <div className={styles.title}>{el.nickname}</div>
+              </span>
+              <span className={styles.title}>{el.nickname}</span>
               <div className={styles.date}>
                 <span>전시기간:</span>
                 <span>{el.start_date}</span>

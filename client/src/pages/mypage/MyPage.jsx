@@ -15,7 +15,7 @@ const MyPage = ({ userinfo, setUserinfo }) => {
   const [isMyExhibit, setIsMyExhibit] = useState(false);
   const [myEx, setMyEx] = useState(null); //data
   const [myPick, setMyPick] = useState(null);
-  const [infoRender, setInfoRender] = useState(false); //props 시간차
+  const [contentRender, setContentRender] = useState(false); //props 시간차
   const colorChange = !isInfoClicked ? styles.category : styles.clickCate; //css
   const colorChange2 = !isPickClicked ? styles.category : styles.clickCate;
   const colorChange3 = !isMyExhibit ? styles.category : styles.clickCate;
@@ -39,7 +39,7 @@ const MyPage = ({ userinfo, setUserinfo }) => {
   };
   useEffect(() => {
     setTimeout(() => {
-      setInfoRender(true);
+      setContentRender(true);
     }, 500);
   });
 
@@ -78,48 +78,43 @@ const MyPage = ({ userinfo, setUserinfo }) => {
           ) : null}
         </div>
       </div>
-      <div className={styles.content}>
-        {isInfoClicked ? (
-          <>
-            {infoRender ? (
-              <MyInfo userinfo={userinfo} setUserinfo={setUserinfo} />
-            ) : (
-              <Loading />
-            )}
-          </>
-        ) : null}
+      {contentRender ? (
+        <div className={styles.content}>
+          {isInfoClicked ? (
+            <MyInfo userinfo={userinfo} setUserinfo={setUserinfo} />
+          ) : null}
 
-        {isPickClicked ? (
-          <>
-            {infoRender ? (
-              <>
-                {myPick ? (
-                  <>
-                    {myPick.map((el, idx) => {
-                      return <MyPick key={idx} el={el} />;
-                    })}
-                  </>
-                ) : (
-                  <SideBar />
-                )}
-              </>
-            ) : null}
-          </>
-        ) : null}
-        {isMyExhibit ? (
-          <>
-            {myEx ? (
-              <>
-                {myEx.map((el, idx) => {
-                  return <MyExhibit key={idx} el={el} />;
-                })}
-              </>
-            ) : (
-              <SideBar />
-            )}
-          </>
-        ) : null}
-      </div>
+          {isPickClicked ? (
+            <>
+              {myPick ? (
+                <>
+                  {myPick.map((el, idx) => {
+                    return <MyPick key={idx} el={el} />;
+                  })}
+                </>
+              ) : (
+                <SideBar />
+              )}
+            </>
+          ) : null}
+
+          {isMyExhibit ? (
+            <>
+              {myEx ? (
+                <>
+                  {myEx.map((el, idx) => {
+                    return <MyExhibit key={idx} el={el} />;
+                  })}
+                </>
+              ) : (
+                <SideBar />
+              )}
+            </>
+          ) : null}
+        </div>
+      ) : (
+        <Loading />
+      )}
     </section>
   );
 };
