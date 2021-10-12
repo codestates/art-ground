@@ -10,6 +10,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"
 import { ko } from 'date-fns/esm/locale'
 import MobileBlocked from '../../components/modals/MobileBlocked';
+import RegisterIntro from '../../components/modals/RegisterIntro';
 
 const Register = ({ userinfo, isLogin }) => {
 
@@ -34,6 +35,7 @@ const Register = ({ userinfo, isLogin }) => {
 
   const [errorMessage, setErrorMessage] = useState(null); //모든 필드값 안 채워졌을 때 띄우는 에러메세지
   const [modalOpen, setModalOpen] = useState(false); //전시 신청 완료 모달창
+  const [introModal, setIntroModal] = useState(true);
 
   
   const handleTitle = (event) => {
@@ -153,7 +155,6 @@ const Register = ({ userinfo, isLogin }) => {
     }
   }
 
-  //if((userinfo && userinfo.user_type === 2) || (userinfo && userinfo.user_type === 3)){ //유효한 회원일 경우만.
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>전시 신청</h2>
@@ -254,16 +255,21 @@ const Register = ({ userinfo, isLogin }) => {
       </div>
       <div className={styles.error}>{errorMessage}</div>
 
-      {modalOpen ? //전시 신청 완료되었음을 알리는 모달창
-      <ConfirmRegister closeModal={() => setModalOpen(false)} />
+      {userinfo && userinfo.user_type === 1 ? //관람객으로 로그인 했을 시
+      <AuthorLogin goBack={() => history.goBack()}/> 
+      : (!userinfo && !isLogin) || (userinfo && !isLogin) ? //로그인한 상태가 아닐 때
+      <RegisterLogin goBack={() => history.goBack()} />
+      : !userinfo && isLogin ?  //로그인했지만 userinfo가 없는경우(쿠키만료, 모바일로그인)
+      <MobileBlocked goBack={() => history.goBack()}/>
       : null}
 
-      {userinfo && userinfo.user_type === 1 ?
-      <AuthorLogin goBack={() => history.goBack()}/> 
-      : (!userinfo && !isLogin) || (userinfo && !isLogin) ?
-      <RegisterLogin goBack={() => history.goBack()} />
-      : !userinfo && isLogin ? 
-      <MobileBlocked goBack={() => history.goBack()}/>
+      {((userinfo && userinfo.user_type === 2) && introModal) || ((userinfo && userinfo.user_type === 3) && introModal) ?
+       //전시 신청 방법 알리는 모달창
+      <RegisterIntro closeModal={() => setIntroModal(false)} />
+      : null}
+
+      {modalOpen ? //전시 신청 완료되었음을 알리는 모달창
+      <ConfirmRegister closeModal={() => setModalOpen(false)} />
       : null}
 
     </section>
