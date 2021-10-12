@@ -49,10 +49,10 @@ const About = () => {
               alt="about"
             ></img>
             <div className={styles.mainContentBox}>
-              <h1 data-aos="fade-down" data-aos-duration="3000">
+              <h1 data-aos="fade-down" data-aos-duration="2000">
                 누구나 예술가가 될 수 있는 공간
               </h1>
-              <p data-aos="fade-down" data-aos-duration="3000">
+              <p data-aos="fade-down" data-aos-duration="2000">
                 아트그라운드는 온라인 갤러리 대관 서비스로<br></br>
                 누구나 자유롭게 작품 활동을 펼칠 수 있는 열린 놀이터입니다.
               </p>
@@ -81,34 +81,34 @@ const About = () => {
           </div>
           <div
             data-aos="fade-up"
-            data-aos-duration="3000"
+            data-aos-duration="2000"
             className={styles.brand2}
           >
             <div className={styles.img1Wrap}>
               <img
                 className={styles.img1}
-                src="../../../images/image-4.webp"
+                src="../../../images/image-4.jpeg"
                 alt="about"
               ></img>
             </div>
             <div className={styles.img3Wrap}>
               <img
                 className={styles.img3}
-                src="../../../images/image-3.webp"
+                src="../../../images/image-3.jpeg"
                 alt="about"
               ></img>
             </div>
             <div className={styles.img4Wrap}>
               <img
                 className={styles.img4}
-                src="../../../images/image-1.webp"
+                src="../../../images/image-1.jpeg"
                 alt="about"
               ></img>
             </div>
             <div className={styles.img5Wrap}>
               <img
                 className={styles.img5}
-                src="../../../images/image-5.webp"
+                src="../../../images/image-5.jpeg"
                 alt="about"
               ></img>
             </div>
