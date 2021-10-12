@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './login.module.css'
 
-const ConfirmRegister = ({modalClose}) => {
+const ConfirmRegister = ({ closeModal }) => {
   return (
     <section className={styles.modalContainer}>
       <div className={styles.modalWrap}>
@@ -11,7 +11,7 @@ const ConfirmRegister = ({modalClose}) => {
         <div className={styles.ok}>
         <Link to="/gallery">
           <button className={styles.okBtn} 
-          onClick={modalClose}>확인</button>
+          onClick={closeModal}>확인</button>
         </Link>
         </div>
       </div>
