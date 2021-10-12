@@ -12,6 +12,7 @@
 
 .imgBox {
   width: 35%;
+  cursor: pointer;
 }
 .thumbnail {
   width: 100%;
