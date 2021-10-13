@@ -7,7 +7,7 @@ const ThreeDModal = ({ closeModal, threeDSelected}) => {
   const history = useHistory();
 
   const goDetailPage = () => { 
-    history.push(`/gallerydetail/${threeDSelected}`);
+    history.goBack();
   }
 
   return (
