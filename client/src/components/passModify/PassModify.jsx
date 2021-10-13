@@ -3,7 +3,7 @@ import { useState } from "react";
 import { passModify } from "../../api/mypageApi";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-
+require("dotenv").config();
 const CryptoJS = require("crypto-js");
 
 axios.defaults.withCredentials = true;
@@ -13,7 +13,7 @@ const PassModify = ({ setPassEditPage, setEditFront }) => {
   const [newPassword2, setNewPassword2] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
-  const secretKey = "Klassiker";
+  const secretKey = process.env.REACT_APP_CRYPTOJS_SECRETKEY;
 
   const history = useHistory();
   const currentPassHandle = (event) => {
