@@ -24,7 +24,7 @@ const GalleryDetail = ({ handle3dExhibition, location}) => {
     getAxiosData();
     setTimeout(()=> {
       setLoading(false);
-    }, 1000)
+    }, 1200)
   }, []); 
 
 

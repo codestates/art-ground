@@ -185,7 +185,7 @@ const About = () => {
             <img alt="관람" src="../../../images/about_video.gif"></img>
           </div>
           <div className={styles.exDetailTxt}>
-            <span>Standard Gallery(2D)</span>
+            <span>Standard Gallery<p className={styles.typeIcon}>2D</p></span>
             <span>
               standard gallery에서는 간단한 마우스 컨트롤로 <br></br>마치 실제
               갤러리의 작품 앞에 서서 관람하는 듯한 관람 경험을 제공합니다.
@@ -204,7 +204,7 @@ const About = () => {
             <img alt="about" src="../../../images/about_video2.gif"></img>
           </div>
           <div className={styles.exDetailTxt}>
-            <span>Premium Gallery(3D)</span>
+            <span>Premium Gallery<p className={styles.typeIcon}>3D</p></span>
             <span>
               premium gallery에서는 간단한 마우스 및 키보드 컨트롤로 <br></br>
               마치 실제 갤러리 내부를 둘러보는 듯한 보다 사실적이고 생생한 관람

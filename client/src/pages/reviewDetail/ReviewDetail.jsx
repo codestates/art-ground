@@ -76,7 +76,7 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
     getInfo();
     setTimeout(()=> {
       setPageLoading(false);
-    }, 700)
+    }, 1200)
   }, [])
 
 
