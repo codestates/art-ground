@@ -5,6 +5,7 @@ import { useHistory } from "react-router";
 import { getSingupAudRes, getSingupAuthRes } from "../../api/signApi";
 const CryptoJS = require("crypto-js");
 require("dotenv").config();
+
 axios.defaults.withCredentials = true;
 const SignUp = ({ isAudienceJoined }) => {
   const history = useHistory();
@@ -45,7 +46,8 @@ const SignUp = ({ isAudienceJoined }) => {
     return regExp.test(asValue);
   };
 
-  const secretKey = process.env.REACT_APP_CRYPTOJS_SECRETKEY;
+  const secretKey = `${process.env.REACT_APP_CRYPTOJS_SECRETKEY}`;
+
   const clickAudJoin = () => {
     const { userEmail, nickname, password, password2 } = audInfo;
     if (!userEmail || !nickname || !password || !password2) {
