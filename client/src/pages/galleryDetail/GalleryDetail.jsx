@@ -115,7 +115,9 @@ const GalleryDetail = ({ handle3dExhibition, location}) => {
         </div>
       </div>
 
-      <div className={styles.workList}>작품</div>
+      <div className={styles.workList}>작품
+        {/* <span className={styles.workListSub}>(작품을 클릭하시면 작품 설명을 확인할 수 있습니다)</span> */}
+      </div>
       <ul className={styles.workBox}>
         {exhibitionInfo.images.map(el =>
           <li key={el.id}>

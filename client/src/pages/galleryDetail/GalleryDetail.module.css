@@ -168,8 +168,8 @@
 }
 .workTitleMeta i {
   cursor: pointer;
-  font-size: 0.8rem;
-  margin-top: 0.2rem;
+  font-size: 1.2rem;
+  /* margin-top: 0.2rem; */
   margin-right: 0.3rem;
   position: relative;
 }
