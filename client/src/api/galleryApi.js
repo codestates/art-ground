@@ -10,15 +10,18 @@ export async function createExhibition(
   arts
 ) {
   try {
-    await axios.post("https://art-ground.link/exhibition/register", {
-      title: title,
-      startDate: startDate,
-      endDate: endDate,
-      exhibitType: type,
-      genreHashtags: JSON.stringify(isClicked),
-      exhibitInfo: content,
-      images: JSON.stringify(arts), //작품 9개
-    });
+    await axios.post(
+      `${process.env.REACT_APP_DEPOLOY_SERVER_URI}/exhibition/register`,
+      {
+        title: title,
+        startDate: startDate,
+        endDate: endDate,
+        exhibitType: type,
+        genreHashtags: JSON.stringify(isClicked),
+        exhibitInfo: content,
+        images: JSON.stringify(arts), //작품 9개
+      }
+    );
   } catch (err) {
     return console.log(err.message);
   }
@@ -27,7 +30,7 @@ export async function createExhibition(
 export async function getStandardGallery(tagClicked, sortValue) {
   try {
     let res = await axios.get(
-      "https://art-ground.link/exhibition/1" //파라미터 요청(standard) & 승인이 된 것만(status=1)
+      `${process.env.REACT_APP_DEPOLOY_SERVER_URI}/exhibition/1` //파라미터 요청(standard) & 승인이 된 것만(status=1)
     );
 
     let result = res.data.data.map((el) => {
@@ -67,7 +70,7 @@ export async function getStandardGallery(tagClicked, sortValue) {
 export async function getPremiumGallery(tagClicked, sortValue) {
   try {
     let res = await axios.get(
-      "https://art-ground.link/exhibition/2" //파라미터 요청(standard) & 승인이 된 것만(status=1)
+      `${process.env.REACT_APP_DEPOLOY_SERVER_URI}/exhibition/2` //파라미터 요청(standard) & 승인이 된 것만(status=1)
     );
 
     let result = res.data.data.map((el) => {
@@ -105,9 +108,14 @@ export async function getPremiumGallery(tagClicked, sortValue) {
 
 export async function getExhibitionInfo(postId) {
   try {
-    const res = await axios.get(`https://art-ground.link/exhibition/detail/${postId}`);
+    const res = await axios.get(
+      `${process.env.REACT_APP_DEPOLOY_SERVER_URI}/exhibition/detail/${postId}`
+    );
     //console.log('+++++++++', { ...res.data.data, genre_hashtags: JSON.parse(res.data.data.genre_hashtags) })
-    return { ...res.data.data, genre_hashtags: JSON.parse(res.data.data.genre_hashtags) }
+    return {
+      ...res.data.data,
+      genre_hashtags: JSON.parse(res.data.data.genre_hashtags),
+    };
   } catch (err) {
     return console.log(err);
   }
@@ -115,10 +123,13 @@ export async function getExhibitionInfo(postId) {
 
 export async function createLike(postId, exhibitionType) {
   try {
-    await axios.post("https://art-ground.link/exhibition/like", {
-      postId: postId,
-      type: exhibitionType
-    });
+    await axios.post(
+      `${process.env.REACT_APP_DEPOLOY_SERVER_URI}/exhibition/like`,
+      {
+        postId: postId,
+        type: exhibitionType,
+      }
+    );
   } catch (err) {
     return console.log(err);
   }
@@ -126,7 +137,9 @@ export async function createLike(postId, exhibitionType) {
 
 export async function deleteLike(postId, exhibitionType) {
   try {
-    await axios.delete(`https://art-ground.link/exhibition/like/${postId}/${exhibitionType}`);
+    await axios.delete(
+      `${process.env.REACT_APP_DEPOLOY_SERVER_URI}/exhibition/like/${postId}/${exhibitionType}`
+    );
   } catch (err) {
     return console.log(err);
   }
