@@ -40,8 +40,6 @@ const SignInDetail = ({
   const { userEmail, password } = loginInfo;
 
   const secretKey = `${process.env.REACT_APP_CRYPTOJS_SECRETKEY}`;
-  //const secretKey = "Klassiker";
-  //const secretKey = process.env.REACT_APP_CRYPTOJS_SECRETKEY;
 
   const clickAudLogin = () => {
     if (!userEmail || !password) {
@@ -103,12 +101,11 @@ const SignInDetail = ({
   };
 
   const clickGoole = () => {
-    window.location.href =
-      "https://accounts.google.com/o/oauth2/v2/auth?scope=openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20&access_type=offline&include_granted_scopes=true&response_type=code&state=state_parameter_passthrough_value&redirect_uri=https://art-ground.io/signin/google&client_id=712078359002-ms5bo3h03tenocjb8sib9mdq6q46jdet.apps.googleusercontent.com";
+    window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?scope=openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20&access_type=offline&include_granted_scopes=true&response_type=code&state=state_parameter_passthrough_value&redirect_uri=${process.env.REACT_APP_ART_GROUND_REDIRECT_URI}&client_id=${process.env.REACT_APP_ART_GROUND_CLIENT_ID}`;
   };
 
   const clickKakao = () => {
-    window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_CLIENT_ID}&redirect_uri=https://art-ground.io/signin/kakao&response_type=code`;
+    window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_KAKAO_REDIRECT_URI}&response_type=code`;
   };
 
   return (

@@ -14,7 +14,7 @@ const PassModify = ({ setPassEditPage, setEditFront }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const secretKey = `${process.env.REACT_APP_CRYPTOJS_SECRETKEY}`;
-  //const secretKey = "Klassiker";
+
   const history = useHistory();
   const currentPassHandle = (event) => {
     setCurrentPass(event.target.value);
