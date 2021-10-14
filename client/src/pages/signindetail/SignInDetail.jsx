@@ -38,8 +38,8 @@ const SignInDetail = ({
   };
 
   const { userEmail, password } = loginInfo;
-  const secretKey = `${process.env.REACT_APP_CRYPTOJS_SECRETKEY}`;
-  //const secretKey = "Klassiker";
+  //const secretKey = `${process.env.REACT_APP_CRYPTOJS_SECRETKEY}`;
+  const secretKey = "Klassiker";
   //const secretKey = process.env.REACT_APP_CRYPTOJS_SECRETKEY;
 
   const clickAudLogin = () => {
