@@ -1,0 +1,10 @@
+.kakaoBtn {
+  width: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+}
+
+.kakaoBtn img {
+  width: 100%;
+}

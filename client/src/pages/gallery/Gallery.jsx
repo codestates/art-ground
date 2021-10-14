@@ -28,10 +28,10 @@ const Gallery = ({ isLogin, userinfo }) => {
     async function getAxiosData() {
       if (isStandard) {
         setGalleryList(await getStandardGallery(tagClicked, sortValue));
-        console.log((await getStandardGallery(tagClicked, sortValue)));
+        //console.log((await getStandardGallery(tagClicked, sortValue)));
       } else {
         setGalleryList(await getPremiumGallery(tagClicked, sortValue));
-        console.log((await getPremiumGallery(tagClicked, sortValue)));
+        //console.log((await getPremiumGallery(tagClicked, sortValue)));
       }
     }
     setTimeout(() => {
