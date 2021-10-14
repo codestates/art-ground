@@ -107,7 +107,7 @@ const SignInDetail = ({
   };
 
   const clickKakao = () => {
-    window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=a3d0f7feebf7fca1ad114ff7da1dddc5&redirect_uri=https://art-ground.io/signin/kakao&response_type=code`;
+    window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_CLIENT_ID}&redirect_uri=https://art-ground.io/signin/kakao&response_type=code`;
   };
   return (
     <section className={styles.container}>
