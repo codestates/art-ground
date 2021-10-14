@@ -82,6 +82,7 @@ const GalleryDetail = ({ handle3dExhibition, location}) => {
       <div className={styles.title}>{exhibitionInfo.title}</div>
       <div className={styles.date}>{exhibitionInfo.start_date} ~ {exhibitionInfo.end_date}</div>
 
+      <div className={styles.explanation}>이미지를 클릭하면 작품 상세설명을 볼 수 있어요.</div>
       <GallerySlider
       btnSlider={btnSlider} 
       gallerySelected={exhibitionInfo}
@@ -115,9 +116,8 @@ const GalleryDetail = ({ handle3dExhibition, location}) => {
         </div>
       </div>
 
-      <div className={styles.workList}>작품
-        {/* <span className={styles.workListSub}>(작품을 클릭하시면 작품 설명을 확인할 수 있습니다)</span> */}
-      </div>
+      <div className={styles.workList}>작품</div>
+      <div className={styles.explanation2}>이미지를 클릭하면 작품 상세설명을 볼 수 있어요.</div>
       <ul className={styles.workBox}>
         {exhibitionInfo.images.map(el =>
           <li key={el.id}>
