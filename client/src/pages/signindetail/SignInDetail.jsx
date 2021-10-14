@@ -38,8 +38,9 @@ const SignInDetail = ({
   };
 
   const { userEmail, password } = loginInfo;
-  //const secretKey = `${process.env.REACT_APP_CRYPTOJS_SECRETKEY}`;
-  const secretKey = "Klassiker";
+
+  const secretKey = `${process.env.REACT_APP_CRYPTOJS_SECRETKEY}`;
+  //const secretKey = "Klassiker";
   //const secretKey = process.env.REACT_APP_CRYPTOJS_SECRETKEY;
 
   const clickAudLogin = () => {
@@ -109,6 +110,7 @@ const SignInDetail = ({
   const clickKakao = () => {
     window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_CLIENT_ID}&redirect_uri=https://art-ground.io/signin/kakao&response_type=code`;
   };
+
   return (
     <section className={styles.container}>
       <div>
