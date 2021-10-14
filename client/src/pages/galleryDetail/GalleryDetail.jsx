@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory, withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import ArtDetail from '../../components/artDetail/ArtDetail';
 import GallerySlider from '../../components/gallerySlider/GallerySlider';
 import PurchaseModal from '../../components/modals/PurchaseModal';
 import styles from './GalleryDetail.module.css';
 import { getExhibitionInfo } from "../../api/galleryApi";
+import KakaoShare from '../../components/kakaoShare/KakaoShare';
+import KakaoPremiumModal from '../../components/modals/KakaoPremiumModal';
 
-const GalleryDetail = ({ handle3dExhibition, location}) => {
+const GalleryDetail = ({ isLogin, handle3dExhibition, location}) => {
 
   const sliderNum = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const [exhibitionInfo, setExhibitionInfo] = useState(null);
@@ -15,11 +17,11 @@ const GalleryDetail = ({ handle3dExhibition, location}) => {
   const [showMoreOpt, setMoreOpt] = useState(null);
   const [purchaseModal, setpurchaseModal] = useState(false);
   const [isLoading, setLoading] = useState(true);
+  const [isLiked, setIsLiked] = useState(true);
 
   useEffect(() => {
     async function getAxiosData() {
-      setExhibitionInfo(await getExhibitionInfo(Number(location.pathname.substring(15))))
-      console.log(await getExhibitionInfo(Number(location.pathname.substring(15))))
+      setExhibitionInfo(await getExhibitionInfo(Number(location.pathname.substring(15))));
     }
     getAxiosData();
     setTimeout(()=> {
@@ -59,10 +61,8 @@ const GalleryDetail = ({ handle3dExhibition, location}) => {
     setpurchaseModal(false);
   }
 
-  const history = useHistory();
   const goThreeDPage = () => { 
     handle3dExhibition(exhibitionInfo.id);
-    //history.push(`/3dgallery/${exhibitionInfo.id}`);
   }
   
   if(isLoading){
@@ -77,18 +77,36 @@ const GalleryDetail = ({ handle3dExhibition, location}) => {
   return ( 
     <section className={styles.container}>
       <div className={styles.space}>
-        {exhibitionInfo.genre_hashtags.map(el=> <span key={el} className={styles.tag}>{el}</span>)}
+        <div className={styles.tagsWrap}>
+          {exhibitionInfo.genre_hashtags.map(el=> <span key={el} className={styles.tag}>{el}</span>)}
+        </div>
+        <div className={styles.tagsWrap}>
+          <KakaoShare 
+          image={exhibitionInfo.images[0].image_urls} 
+          url={location.pathname} 
+          title={exhibitionInfo.title} 
+          className={styles.kakaoBtn}
+          />
+          {isLiked ? 
+            <span className={styles.like}><i className="fas fa-heart"></i></span> : 
+            <span className={styles.notlike}><i className="far fa-heart"></i></span>
+          }
+        </div>
       </div>
+    
       <div className={styles.title}>{exhibitionInfo.title}</div>
       <div className={styles.date}>{exhibitionInfo.start_date} ~ {exhibitionInfo.end_date}</div>
 
       <div className={styles.explanation}>이미지를 클릭하면 작품 상세설명을 볼 수 있어요.</div>
-      <GallerySlider
-      btnSlider={btnSlider} 
-      gallerySelected={exhibitionInfo}
-      sliderUp={sliderUp}
-      sliderDown={sliderDown}
-      handleModalOpen={handleModalOpen}/>  
+      <div className={styles.kakaoAndLike}>
+        <GallerySlider
+        btnSlider={btnSlider} 
+        gallerySelected={exhibitionInfo}
+        sliderUp={sliderUp}
+        sliderDown={sliderDown}
+        handleModalOpen={handleModalOpen}
+        />
+      </div>  
       
       <div className={styles.btnWrap}>
         {sliderNum.map(el => <button key={el} className={el===btnSlider? styles.btnClicked : styles.btn} onClick={() => slider(el)}> </button>)}
@@ -148,6 +166,11 @@ const GalleryDetail = ({ handle3dExhibition, location}) => {
       {/* 모달창 섹션 */}
       {purchaseModal? 
       <PurchaseModal closeModal={closeModal}/>
+      : null}
+
+      {/* 모달창 섹션 */}
+      {!isLogin && exhibitionInfo.exhibit_type ===2 ? 
+      <KakaoPremiumModal/>
       : null}
 
     </section>

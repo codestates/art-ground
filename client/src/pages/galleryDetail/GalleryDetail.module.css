@@ -15,12 +15,17 @@
 }
 
 .space {
-  margin: 2rem 0rem;
+  margin: 1.5rem 0rem;
   border-bottom: 1px solid rgb(201, 201, 201);
   display: flex;
-  padding: 1.5rem 0 0.25rem 1.5rem;
+  padding: 1rem 1.3rem 0.25rem 1.5rem;
   border-bottom: 1px solid rgb(231, 231, 231);
   font-size: 0.75rem;
+  justify-content: space-between;
+}
+.tagsWrap {
+  display: flex;
+  align-items: flex-end;
 }
 
 .tag {
@@ -29,6 +34,32 @@
   border-radius: 5px;
   padding: 0.2rem;
   white-space: nowrap;
+}
+.kakaoAndLike {
+  display: flex;
+}
+
+.like,
+.notlike {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0.3rem;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  vertical-align: middle;
+  /* border: 1px solid rgb(210, 210, 210); */
+  /* border-radius: 50%; */
+}
+.notlike i {
+  color: rgb(171, 171, 171);
+  font-size: 1.4rem;
+}
+.like i {
+  color: rgb(241, 112, 112);
+  font-size: 1.4rem;
 }
 
 .title {
@@ -43,7 +74,7 @@
   justify-content: center;
   font-size: 0.75rem;
   color: rgb(156, 156, 156);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   font-style: italic;
 }
 .explanation {
@@ -235,6 +266,9 @@
   width: 6rem;
 }
 @media screen and (max-width: 768px) {
+  .space {
+    margin: 0.5rem 0rem;
+  }
   .container {
     padding: 4.5rem 0 5rem 0;
   }
@@ -247,6 +281,9 @@
 }
 
 @media screen and (max-width: 480px) {
+  .space {
+    padding: 1rem 0.6rem 0.25rem 0.8rem;
+  }
   .workBox {
     grid-template-columns: 1fr;
   }
