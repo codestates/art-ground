@@ -3,7 +3,7 @@ import axios from "axios";
 export function getAllExhibition(setExhibitData) {
   //art-ground.link
   return axios
-    .get("https://art-ground.link/exhibition")
+    .get(`${process.env.REACT_APP_DEPOLOY_SERVER_URI}/exhibition`)
     .then((result) => {
       setExhibitData(result.data.data);
     })
@@ -15,7 +15,7 @@ export function confirmExhibition(setConfirmModal, el) {
   //art-ground.link
 
   return axios
-    .post("https://art-ground.link/admin/exhibition", {
+    .post(`${process.env.REACT_APP_DEPOLOY_SERVER_URI}/admin/exhibition`, {
       //postId: el.id,
       data: el,
     })
@@ -31,7 +31,7 @@ export function deleteExhibition(setConfirmModal, el) {
   //art-ground.link/admin/exhibition/:postId/:type
   return axios
     .delete(
-      `https://art-ground.link/admin/exhibition/${el.id}/${el.exhibit_type}`
+      `${process.env.REACT_APP_DEPOLOY_SERVER_URI}/admin/exhibition/${el.id}/${el.exhibit_type}`
     )
     .then((result) => {
       //console.log(result, ":삭제 데이터 ????");
@@ -44,7 +44,7 @@ export function deleteExhibition(setConfirmModal, el) {
 export function getAllReviews(setReviewData) {
   //art-ground.link
   return axios
-    .get("https://art-ground.link/admin/review")
+    .get(`${process.env.REACT_APP_DEPOLOY_SERVER_URI}/admin/review`)
     .then((result) => {
       setReviewData(result.data.data);
     })
@@ -53,7 +53,9 @@ export function getAllReviews(setReviewData) {
 
 export async function getinfiniteData() {
   try {
-    const result = await axios.get("https://art-ground.link/admin/review");
+    const result = await axios.get(
+      `${process.env.REACT_APP_DEPOLOY_SERVER_URI}/admin/review`
+    );
     return result.data.data;
   } catch (err) {
     return console.log(err);
@@ -64,7 +66,9 @@ export async function getinfiniteData() {
 export function deleteReviews(setDeleteModal, el) {
   //art-ground.link/admin/review/:postId/:commentId
   return axios
-    .delete(`https://art-ground.link/admin/review/${el.exhibition_id}/${el.id}`)
+    .delete(
+      `${process.env.REACT_APP_DEPOLOY_SERVER_URI}/admin/review/${el.exhibition_id}/${el.id}`
+    )
     .then((result) => {
       //postid??
       if (result.data.message === "successfully delete comments") {

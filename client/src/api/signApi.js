@@ -3,7 +3,7 @@ import axios from "axios";
 export function getSigninRes(userData, handleResponseSuccess, setErrorMessage) {
   //art-ground.link
   return axios
-    .post("https://art-ground.link/sign-in", userData)
+    .post(`${process.env.REACT_APP_DEPOLOY_SERVER_URI}/sign-in`, userData)
     .then((result) => {
       if (result.data === "AccessToken ready") {
         handleResponseSuccess(result);
@@ -14,7 +14,7 @@ export function getSigninRes(userData, handleResponseSuccess, setErrorMessage) {
 export function getSignOutRes(setUserinfo, setIsLogin, setisAdmin) {
   //art-ground.link
   return axios
-    .post("https://art-ground.link/sign-out")
+    .post(`${process.env.REACT_APP_DEPOLOY_SERVER_URI}/sign-out`)
     .then((result) => {
       if (result.status === 205) {
         setUserinfo(null);
@@ -30,7 +30,10 @@ export function getSignOutRes(setUserinfo, setIsLogin, setisAdmin) {
 export function getSingupAudRes(userData, setErrorMessage, history) {
   return (
     axios
-      .post("https://art-ground.link/sign-up/user", userData)
+      .post(
+        `${process.env.REACT_APP_DEPOLOY_SERVER_URI}/sign-up/user`,
+        userData
+      )
       //.post("https://art-ground.link/sign-up/user", userData)
       .then((result) => {
         if (result.data.message === "sign-up ok") {
@@ -47,7 +50,10 @@ export function getSingupAudRes(userData, setErrorMessage, history) {
 export function getSingupAuthRes(userData, setErrorMessage, history) {
   return (
     axios
-      .post("https://art-ground.link/sign-up/author", userData)
+      .post(
+        `${process.env.REACT_APP_DEPOLOY_SERVER_URI}/sign-up/author`,
+        userData
+      )
       //.post("https://art-ground.link/sign-up/author", userData)
       .then((result) => {
         if (result.data.message === "sign-up ok") {
