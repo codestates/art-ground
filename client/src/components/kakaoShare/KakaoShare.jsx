@@ -10,8 +10,8 @@ function KakaoShare({ image, url, title}) {
         container: '.kakaoBtn',
         objectType: 'feed',
         content: {
-          title: title,
-          description: '누구나 예술가가 될 수 있는 공간, 아트그라운드',
+          title: '누구나 예술가가 될 수 있는 공간, 아트그라운드',
+          description: `전시명: ${title}`,
           imageUrl: image,
           link: {
             mobileWebUrl: `https://art-ground.io${url}`,

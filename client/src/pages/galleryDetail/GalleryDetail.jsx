@@ -4,11 +4,12 @@ import ArtDetail from '../../components/artDetail/ArtDetail';
 import GallerySlider from '../../components/gallerySlider/GallerySlider';
 import PurchaseModal from '../../components/modals/PurchaseModal';
 import styles from './GalleryDetail.module.css';
-import { getExhibitionInfo } from "../../api/galleryApi";
+import { createLike, deleteLike, getExhibitionInfo } from "../../api/galleryApi";
 import KakaoShare from '../../components/kakaoShare/KakaoShare';
 import KakaoPremiumModal from '../../components/modals/KakaoPremiumModal';
+import GalleryModal from '../../components/modals/GalleryModal';
 
-const GalleryDetail = ({ isLogin, handle3dExhibition, location}) => {
+const GalleryDetail = ({ isLogin, userinfo, handle3dExhibition, location}) => {
 
   const sliderNum = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const [exhibitionInfo, setExhibitionInfo] = useState(null);
@@ -16,19 +17,43 @@ const GalleryDetail = ({ isLogin, handle3dExhibition, location}) => {
   const [artDetail, setArtDetail] = useState(null); //모달창에 올라가는 확대시킬 이미지 src
   const [showMoreOpt, setMoreOpt] = useState(null);
   const [purchaseModal, setpurchaseModal] = useState(false);
+  const [likeModal, setLikeModal] = useState(false);
   const [isLoading, setLoading] = useState(true);
-  const [isLiked, setIsLiked] = useState(true);
+  const [isLiked, setLiked] = useState(false);
+  const [rerender, setRerender] = useState(false); //좋아요&좋아요해제 시 컴포넌트 재랜더링
 
   useEffect(() => {
     async function getAxiosData() {
       setExhibitionInfo(await getExhibitionInfo(Number(location.pathname.substring(15))));
+      if(isLogin){
+        const likeArr = (await getExhibitionInfo(Number(location.pathname.substring(15)))).likes.filter(el => userinfo.id === el.user_id) 
+        if(likeArr.length !==0){ //유저가 해당 gallerycontent컴포넌트를 좋아요 한 것일 때
+          setLiked(true);
+        } else{
+          setLiked(false); //유저가 해당 gallerycontent컴포넌트를 좋아요 한 게 아닐 때
+        }
+      }
     }
-    getAxiosData();
+    setTimeout(() => {
+      getAxiosData();
+    }, 300)
     setTimeout(()=> {
       setLoading(false);
     }, 1200)
-  }, []); 
+  }, [rerender]); 
 
+  const handleLike = () => {
+    //로그인 한 사람들에게만 작동.
+    if (isLiked) {
+      // 좋아요 해제
+      deleteLike(exhibitionInfo.id, exhibitionInfo.exhibit_type);
+      setRerender(!rerender);
+    } else {
+      //좋아요
+      createLike(exhibitionInfo.id, exhibitionInfo.exhibit_type);
+      setRerender(!rerender);
+    }
+  }
 
   const handleMoreOpt = (el) =>{
     if(showMoreOpt === null || el !== showMoreOpt){
@@ -87,10 +112,13 @@ const GalleryDetail = ({ isLogin, handle3dExhibition, location}) => {
           title={exhibitionInfo.title} 
           className={styles.kakaoBtn}
           />
-          {isLiked ? 
-            <span className={styles.like}><i className="fas fa-heart"></i></span> : 
-            <span className={styles.notlike}><i className="far fa-heart"></i></span>
-          }
+          {!isLogin ? 
+          <span className={styles.notlike} onClick={()=> setLikeModal(true)}>
+            <i className="far fa-heart"></i>
+          </span>
+          : isLiked ? 
+            <span className={styles.like} onClick={handleLike}><i className="fas fa-heart"></i></span> 
+            : <span className={styles.notlike} onClick={handleLike}><i className="far fa-heart"></i></span>}
         </div>
       </div>
     
@@ -171,6 +199,13 @@ const GalleryDetail = ({ isLogin, handle3dExhibition, location}) => {
       {/* 모달창 섹션 */}
       {!isLogin && exhibitionInfo.exhibit_type ===2 ? 
       <KakaoPremiumModal/>
+      : null}
+
+      {likeModal ?  //모달창
+      <GalleryModal
+      premiumBlocked={!likeModal}
+      closeModal={()=>setLikeModal(false)}
+      />
       : null}
 
     </section>
