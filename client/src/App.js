@@ -211,6 +211,7 @@ function App() {
           />
           <GalleryDetail 
           isLogin={isLogin}
+          userinfo={userinfo}
           handle3dExhibition={(el) => setThreeDSelected(el)} 
           />
           <ScrollButton />

@@ -284,6 +284,9 @@
   .space {
     padding: 1rem 0.6rem 0.25rem 0.8rem;
   }
+  .tag {
+    margin-right: 0.2rem;
+  }
   .workBox {
     grid-template-columns: 1fr;
   }
