@@ -25,6 +25,7 @@ const GalleryDetail = ({ isLogin, userinfo, handle3dExhibition, location}) => {
   useEffect(() => {
     async function getAxiosData() {
       setExhibitionInfo(await getExhibitionInfo(Number(location.pathname.substring(15))));
+      console.log(await getExhibitionInfo(Number(location.pathname.substring(15))));
       if(isLogin){
         const likeArr = (await getExhibitionInfo(Number(location.pathname.substring(15)))).likes.filter(el => userinfo.id === el.user_id) 
         if(likeArr.length !==0){ //유저가 해당 gallerycontent컴포넌트를 좋아요 한 것일 때
@@ -39,17 +40,14 @@ const GalleryDetail = ({ isLogin, userinfo, handle3dExhibition, location}) => {
     }, 300)
     setTimeout(()=> {
       setLoading(false);
-    }, 1200)
+    }, 1000)
   }, [rerender]); 
 
-  const handleLike = () => {
-    //로그인 한 사람들에게만 작동.
-    if (isLiked) {
-      // 좋아요 해제
+  const handleLike = () => { //로그인 한 사람들에게만 작동.
+    if (isLiked) { // 좋아요 해제
       deleteLike(exhibitionInfo.id, exhibitionInfo.exhibit_type);
       setRerender(!rerender);
-    } else {
-      //좋아요
+    } else { //좋아요
       createLike(exhibitionInfo.id, exhibitionInfo.exhibit_type);
       setRerender(!rerender);
     }
@@ -201,7 +199,8 @@ const GalleryDetail = ({ isLogin, userinfo, handle3dExhibition, location}) => {
       <KakaoPremiumModal/>
       : null}
 
-      {likeModal ?  //모달창
+      {/* 모달창 섹션 */}
+      {likeModal ? 
       <GalleryModal
       premiumBlocked={!likeModal}
       closeModal={()=>setLikeModal(false)}
