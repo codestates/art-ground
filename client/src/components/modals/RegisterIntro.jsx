@@ -13,7 +13,7 @@ const RegisterIntro = ({ closeModal }) => {
         <div className={styles.imgWrap}>
           <img className={styles.checkIcon}
           src="../../../images/checkboxIcon.png"
-          art="checkIcon"></img>
+          alt="checkIcon"></img>
         </div>
         <span className={styles.modalContent}>전시 신청 전 확인해주세요!</span>
         <div className={styles.contentWrap}>

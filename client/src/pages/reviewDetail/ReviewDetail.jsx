@@ -58,7 +58,7 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
   useEffect(() => { //해당 전시회의 댓글(배열) GET요청. 페이지최초랜더링(+댓글 등록/삭제)때에만 작동
     setTimeout(()=> {
       getFetchData();
-    }, 500)
+    }, 300)
   }, [rerender])
 
   useEffect(()=> {
@@ -70,13 +70,13 @@ const ReviewDetail = ({ isLogin, userinfo, location }) => {
     async function getInfo() {
       const result = await getExhibitionInfo(Number(location.pathname.substring(14)))
       setExhibitionInfo(result.exhibitionData)
-      console.log(result.exhibitionData)
+      //console.log(result.exhibitionData)
       setThumbnail(result.thumbnail)
     }
     getInfo();
     setTimeout(()=> {
       setPageLoading(false);
-    }, 1200)
+    }, 1000)
   }, [])
 
 

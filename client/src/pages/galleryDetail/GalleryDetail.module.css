@@ -50,13 +50,13 @@
   height: 2rem;
   text-align: center;
   vertical-align: middle;
-  /* border: 1px solid rgb(210, 210, 210); */
-  /* border-radius: 50%; */
 }
+
 .notlike i {
   color: rgb(171, 171, 171);
   font-size: 1.4rem;
 }
+
 .like i {
   color: rgb(241, 112, 112);
   font-size: 1.4rem;
@@ -68,6 +68,7 @@
   margin: 3rem 0 0.5rem 0;
   font-size: 1.3rem;
   font-family: "Nanum Gothic Coding", monospace;
+  letter-spacing: -2px;
 }
 .date {
   display: flex;
