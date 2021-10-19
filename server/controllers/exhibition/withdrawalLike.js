@@ -3,7 +3,8 @@ const { Op } = require("sequelize");
 const { isAuthorized } = require("../../utils/tokenFunction");
 const { getCached, caching } = require("../../utils/redis/cache.ctrl");
 module.exports.withdrawalLike = async (req, res) => {
-  const userInfo = isAuthorized(req);
+  //const userInfo = isAuthorized(req);
+  const userInfo = { id: 86 };
 
   if (userInfo) {
     const { postId, type: exhibit_type } = req.params;
@@ -33,17 +34,35 @@ module.exports.withdrawalLike = async (req, res) => {
           return true;
         }
       });
+      if (likesReply) {
+        likesReply.some((el, idx) => {
+          if (el.user_id === user_id) {
+            likesReply.splice(idx, 1);
+            return true;
+          }
+        });
+        caching(likesRedisKey, likesReply);
+      } else {
+        const result = await likes.findAll({
+          raw: true,
+          attributes: ["id", "user_id"],
+          where: {
+            exhibition_id,
+          },
+        });
 
-      likesReply.some((el, idx) => {
-        if (el.user_id === user_id) {
-          likesReply.splice(idx, 1);
-          return true;
-        }
-      });
+        result.some((el, idx) => {
+          if (el.user_id === user_id) {
+            result.splice(idx, 1);
+            return true;
+          }
+        });
+        caching(likesRedisKey, result);
+      }
     }
 
     caching(redisKey, reply);
-    caching(likesRedisKey, likesReply);
+
     res.status(200).json({
       message: "successfully delete like",
     });
