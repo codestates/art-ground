@@ -60,6 +60,11 @@
 .like i {
   color: rgb(241, 112, 112);
   font-size: 1.4rem;
+  opacity: 1;
+  animation-name: heartbeat;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
 }
 
 .title {
@@ -343,5 +348,20 @@
 
   to {
     opacity: 1;
+  }
+}
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
   }
 }

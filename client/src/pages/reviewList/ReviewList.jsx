@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { getAllGallery } from '../../api/reviewApi';
 import Review from '../../components/review/Review';
+import useHistoryState from '../../utils/useHistoryState';
 import styles from './ReviewList.module.css';
 
 const ReviewList = () => {
 
   const [galleryList, setGalleryList] = useState([]);
-  const [search, setSearch] = useState('');
-  const [searchWord, setSearchWord] = useState('');
-  const [sortValue, setSortValue] = useState('최신순');
+  const [search, setSearch] = useHistoryState('', 'search');
+  const [searchWord, setSearchWord] = useHistoryState('', 'searchWord');
+  const [sortValue, setSortValue] = useHistoryState('최신순', 'sortValue');
 
   const [isLoading, setLoading] = useState(true);
 
@@ -37,7 +38,7 @@ const ReviewList = () => {
     }
   }
   const handleSearchButton = () => {
-    setSearch(searchWord); //엔터나 클릭 시 검색어 전달
+    setSearch(searchWord); //엔터 or 클릭 시 검색어 전달
   }
 
   const handleSort = (e) => { //정렬

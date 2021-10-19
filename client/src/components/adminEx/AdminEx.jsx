@@ -15,7 +15,7 @@ const AdminEx = ({ el, updateEx, deleteEx, doneEx }) => {
   };
 
   const clickDelete = () => {
-    console.log(el, "elelelel");
+    //console.log(el, "elelelel");
     setConfirmModal(true);
   };
 

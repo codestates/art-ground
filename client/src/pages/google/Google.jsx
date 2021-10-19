@@ -7,10 +7,10 @@ const Google = ({ handleResponseSuccess }) => {
   const [userInfo, setUserInfo] = useState();
   const [refreshToken, setRefreshToken] = useState();
   useEffect(() => {
-    console.log("useEffect...");
+    //console.log("useEffect...");
     const url = new URL(window.location.href);
     const authorizationCode = url.searchParams.get("code");
-    console.log(authorizationCode);
+    //console.log(authorizationCode);
     if (authorizationCode) {
       getAccessToken(authorizationCode);
     }
@@ -35,11 +35,11 @@ const Google = ({ handleResponseSuccess }) => {
   };
 
   const getAccessToken = async (authorizationCode) => {
-    console.log(authorizationCode);
+    //console.log(authorizationCode);
     axios
       .post(`https://art-ground.link/receive/token`, { authorizationCode })
       .then((res) => {
-        console.log(res.data);
+        //console.log(res.data);
         if (!refreshToken) {
           setRefreshToken(res.data.refreshToken);
         }
