@@ -51,7 +51,7 @@ const InfoModify = ({
     promise.then(
       function (data) {
         setImg(data.Location); // 생성된 링크 넣어줌
-        console.log(data.Location);
+        //console.log(data.Location);
       },
       function (err) {
         console.log(err);
