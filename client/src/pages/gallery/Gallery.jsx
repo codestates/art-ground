@@ -37,7 +37,7 @@ const Gallery = ({ isLogin, userinfo }) => {
     }
     setTimeout(() => {
       getAxiosData();
-    }, 300)
+    }, 100)
     setTimeout(()=> {
       setLoading(false);
     }, 1000)

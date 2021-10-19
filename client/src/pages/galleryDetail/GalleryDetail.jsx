@@ -4,7 +4,7 @@ import ArtDetail from '../../components/artDetail/ArtDetail';
 import GallerySlider from '../../components/gallerySlider/GallerySlider';
 import PurchaseModal from '../../components/modals/PurchaseModal';
 import styles from './GalleryDetail.module.css';
-import { createLike, deleteLike, getExhibitionInfo } from "../../api/galleryApi";
+import { createLike, deleteLike, getExhibitionInfo, getLikesInfo } from "../../api/galleryApi";
 import KakaoShare from '../../components/kakaoShare/KakaoShare';
 import KakaoPremiumModal from '../../components/modals/KakaoPremiumModal';
 import GalleryModal from '../../components/modals/GalleryModal';
@@ -18,29 +18,35 @@ const GalleryDetail = ({ isLogin, userinfo, handle3dExhibition, location}) => {
   const [showMoreOpt, setMoreOpt] = useState(null);
   const [purchaseModal, setpurchaseModal] = useState(false);
   const [likeModal, setLikeModal] = useState(false);
+  const [isLiked, setLiked] = useState(false); //좋아요 상태값
+  const [rerender, setRerender] = useState(false); // 좋아요 & 좋아요해제 시 하트 컴포넌트 재랜더링
   const [isLoading, setLoading] = useState(true);
-  const [isLiked, setLiked] = useState(false);
-  const [rerender, setRerender] = useState(false); //좋아요&좋아요해제 시 컴포넌트 재랜더링
 
   useEffect(() => {
     async function getAxiosData() {
       setExhibitionInfo(await getExhibitionInfo(Number(location.pathname.substring(15))));
-      console.log(await getExhibitionInfo(Number(location.pathname.substring(15))));
-      if(isLogin){
-        const likeArr = (await getExhibitionInfo(Number(location.pathname.substring(15)))).likes.filter(el => userinfo.id === el.user_id) 
-        if(likeArr.length !==0){ //유저가 해당 gallerycontent컴포넌트를 좋아요 한 것일 때
-          setLiked(true);
-        } else{
-          setLiked(false); //유저가 해당 gallerycontent컴포넌트를 좋아요 한 게 아닐 때
-        }
-      }
     }
-    setTimeout(() => {
-      getAxiosData();
-    }, 300)
+    getAxiosData();
     setTimeout(()=> {
       setLoading(false);
     }, 1000)
+  }, []); 
+
+  useEffect(() => {
+    async function getLikesAxiosData() {
+      const likeArr = (await getLikesInfo(Number(location.pathname.substring(15)))).filter(el => userinfo.id === el.user_id) 
+      if(likeArr.length !==0){ //유저가 해당 전시를 좋아요 한 것일 때
+        setLiked(true);
+      } else{
+        setLiked(false); //유저가 해당 전시를 좋아요 한 게 아닐 때
+      }
+    }
+    if(isLogin){
+      setTimeout(() => {
+        console.log('좋아요 checking')
+        getLikesAxiosData();
+      }, 100)
+    }
   }, [rerender]); 
 
   const handleLike = () => { //로그인 한 사람들에게만 작동.
