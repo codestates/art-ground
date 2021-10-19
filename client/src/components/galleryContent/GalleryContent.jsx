@@ -33,7 +33,7 @@ const GalleryContent = ({
       } else{
         setLiked(false); //유저가 해당 gallerycontent컴포넌트를 좋아요 한 게 아닐 때
       }
-      console.log('GalleryContent 컴포넌트 내 좋아요 상태값 확인중')
+      //console.log('GalleryContent 컴포넌트 내 좋아요 상태값 확인중')
     }
   }, [exhibition.likes.length]); 
 

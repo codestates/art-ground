@@ -41,9 +41,9 @@ const GalleryDetail = ({ isLogin, userinfo, handle3dExhibition, location}) => {
         setLiked(false); //유저가 해당 전시를 좋아요 한 게 아닐 때
       }
     }
-    if(isLogin){
+    if(userinfo) {
       setTimeout(() => {
-        console.log('좋아요 checking')
+        //console.log('좋아요 checking')
         getLikesAxiosData();
       }, 100)
     }
@@ -84,14 +84,6 @@ const GalleryDetail = ({ isLogin, userinfo, handle3dExhibition, location}) => {
 
   const handleModalOpen = (el) => {
     setArtDetail(el); //모달에 띄울 art 전달
-  }
-
-  const closeModal = () => {
-    setpurchaseModal(false);
-  }
-
-  const goThreeDPage = () => { 
-    handle3dExhibition(exhibitionInfo.id);
   }
   
   if(isLoading){
@@ -150,7 +142,7 @@ const GalleryDetail = ({ isLogin, userinfo, handle3dExhibition, location}) => {
       {exhibitionInfo.exhibit_type ===2 ?
       <Link to="/3dgallery"> 
         <div className={styles.threeDBtn} 
-        onClick={goThreeDPage}
+        onClick={() => handle3dExhibition(exhibitionInfo.id)}
         >3D 전시관 둘러보기</div>
       </Link>
       : null}
@@ -197,7 +189,7 @@ const GalleryDetail = ({ isLogin, userinfo, handle3dExhibition, location}) => {
 
       {/* 모달창 섹션 */}
       {purchaseModal? 
-      <PurchaseModal closeModal={closeModal}/>
+      <PurchaseModal closeModal={() => setpurchaseModal(false)}/>
       : null}
 
       {/* 모달창 섹션 */}
@@ -209,7 +201,7 @@ const GalleryDetail = ({ isLogin, userinfo, handle3dExhibition, location}) => {
       {likeModal ? 
       <GalleryModal
       premiumBlocked={!likeModal}
-      closeModal={()=>setLikeModal(false)}
+      closeModal={() => setLikeModal(false)}
       />
       : null}
 
