@@ -3,8 +3,7 @@ const { Op } = require("sequelize");
 const { isAuthorized } = require("../../utils/tokenFunction");
 const { getCached, caching } = require("../../utils/redis/cache.ctrl");
 module.exports.withdrawalLike = async (req, res) => {
-  //const userInfo = isAuthorized(req);
-  const userInfo = { id: 86 };
+  const userInfo = isAuthorized(req);
 
   if (userInfo) {
     const { postId, type: exhibit_type } = req.params;
