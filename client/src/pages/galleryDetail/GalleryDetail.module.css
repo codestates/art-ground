@@ -70,10 +70,13 @@
 .title {
   display: flex;
   justify-content: center;
+  text-align: center;
+  line-height: 1.8rem;
   margin: 3rem 0 0.5rem 0;
+  padding: 0 5rem;
   font-size: 1.3rem;
   font-family: "Nanum Gothic Coding", monospace;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
 }
 .date {
   display: flex;

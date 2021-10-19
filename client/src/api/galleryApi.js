@@ -111,11 +111,21 @@ export async function getExhibitionInfo(postId) {
     const res = await axios.get(
       `${process.env.REACT_APP_DEPOLOY_SERVER_URI}/exhibition/detail/${postId}`
     );
-    //console.log('+++++++++', { ...res.data.data, genre_hashtags: JSON.parse(res.data.data.genre_hashtags) })
     return {
       ...res.data.data,
       genre_hashtags: JSON.parse(res.data.data.genre_hashtags),
     };
+  } catch (err) {
+    return console.log(err);
+  }
+}
+
+export async function getLikesInfo(postId) {
+  try {
+    const res = await axios.get(
+      `${process.env.REACT_APP_DEPOLOY_SERVER_URI}/exhibition/detail/${postId}`
+    );
+    return res.data.likes;
   } catch (err) {
     return console.log(err);
   }
