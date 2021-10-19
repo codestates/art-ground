@@ -241,8 +241,6 @@ https://art-ground.io/
 | [유다희](https://github.com/tkdkagody) | 💻 Front-end|
 | [이동욱](https://github.com/dongukuklee) | 💻 Back-end|
 
-## 💬프로젝트 회고
-<작성예정>
 
 ## 🗒 Wiki
 https://github.com/codestates/art-ground/wiki
