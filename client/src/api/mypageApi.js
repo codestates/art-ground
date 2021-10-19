@@ -9,7 +9,7 @@ export function getMyinfo(setUserinfo, setisAdmin) {
       if (result.status === 200) {
         const img =
           result.data.data.profile_img === null
-            ? "https://images.velog.io/images/beablessing/post/54131e26-0389-412e-b88d-a8b6a97600a8/noimg.png"
+            ? "../../../images/profile.jpeg"
             : result.data.data.profile_img;
 
         setUserinfo({ ...result.data.data, profile_img: img });
