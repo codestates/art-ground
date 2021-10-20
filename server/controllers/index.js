@@ -31,6 +31,7 @@ router.get("/exhibition/:type", exhibitCtrl.getExhibition);
 router.get("/exhibition", exhibitCtrl.getExhibition);
 router.post("/exhibition/like", exhibitCtrl.exhibitionLike);
 router.delete("/exhibition/like/:postId/:type", exhibitCtrl.withdrawalLike);
+router.get("/exhibition/like/:postId", exhibitCtrl.getLikesCached);
 
 //review
 router.get("/review/:postId", reviewCtrl.getDetailReview);
