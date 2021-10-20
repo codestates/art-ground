@@ -4,4 +4,5 @@ module.exports = {
   register: require("./register").register,
   withdrawalLike: require("./withdrawalLike").withdrawalLike,
   getDetailExhibition: require("./getDetailExhibition").getDetailExhibition,
+  getLikesCached: require("./getLikesCached").getLikesCached,
 }; //
