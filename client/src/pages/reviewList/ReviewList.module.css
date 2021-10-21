@@ -101,7 +101,7 @@
 }
 
 .loadingImg {
-  width: 6rem;
+  width: 3rem;
 }
 @media screen and (max-width: 768px) {
   .container {
