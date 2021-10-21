@@ -123,9 +123,10 @@ export async function getExhibitionInfo(postId) {
 export async function getLikesInfo(postId) {
   try {
     const res = await axios.get(
-      `${process.env.REACT_APP_DEPOLOY_SERVER_URI}/exhibition/detail/${postId}`
+      `${process.env.REACT_APP_DEPOLOY_SERVER_URI}/exhibition/like/${postId}`
     );
-    return res.data.likes;
+    //console.log(res.data)
+    return res.data;
   } catch (err) {
     return console.log(err);
   }

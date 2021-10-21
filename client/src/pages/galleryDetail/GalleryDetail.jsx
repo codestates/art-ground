@@ -25,6 +25,7 @@ const GalleryDetail = ({ isLogin, userinfo, handle3dExhibition, location}) => {
   useEffect(() => {
     async function getAxiosData() {
       setExhibitionInfo(await getExhibitionInfo(Number(location.pathname.substring(15))));
+      //console.log(await getExhibitionInfo(Number(location.pathname.substring(15))));
     }
     getAxiosData();
     setTimeout(()=> {
@@ -34,7 +35,8 @@ const GalleryDetail = ({ isLogin, userinfo, handle3dExhibition, location}) => {
 
   useEffect(() => {
     async function getLikesAxiosData() {
-      const likeArr = (await getLikesInfo(Number(location.pathname.substring(15)))).filter(el => userinfo.id === el.user_id) 
+      const likeArr = (await getLikesInfo(Number(location.pathname.substring(15)))).filter(el => userinfo.id === el.user_id);
+      //console.log(likeArr);  
       if(likeArr.length !==0){ //유저가 해당 전시를 좋아요 한 것일 때
         setLiked(true);
       } else{
