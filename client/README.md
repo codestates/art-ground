@@ -1,6 +1,7 @@
 ## 🏡  art-Ground  🏡 
 <img width="824" src="https://user-images.githubusercontent.com/83934037/138430276-8d79c0cf-4d9e-4303-8879-3324c7b3c0b8.gif">
 
+
 ### 누구나 예술가가 될 수 있는 공간, art-Ground.
 
 예술작품을 감상하는 것, 혹은 나의 작품을 다른 사람들과 공유하는 것. <br>
@@ -142,7 +143,13 @@ https://art-ground.io/
     <img width="700" src="https://user-images.githubusercontent.com/83934037/136777489-aa4b6e55-1b86-4826-a836-f776d21faf41.gif"/>
     
   </details>
-  
+
+  <details>
+   <summary> 카카오톡으로 링크 공유하기 </summary>
+    <img width="700" src="https://user-images.githubusercontent.com/83934037/137332607-6c814200-14fd-4e62-ac21-14962e78ad7f.gif"/>
+    
+  </details>
+
 </details>
 
 ---

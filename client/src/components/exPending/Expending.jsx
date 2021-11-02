@@ -9,7 +9,7 @@ const ExPending = ({ clickedId, deleteEx, doneEx, setClickStatus }) => {
     setClickStatus(false);
   }
   const tags = clickedId.genre_hashtags;
-  console.log(tags);
+  //console.log(tags);
   return (
     <section className={styles.container}>
       <div className={styles.liBtnBox1} onClick={() => setClickStatus(false)}>

@@ -15,12 +15,17 @@
 }
 
 .space {
-  margin: 2rem 0rem;
+  margin: 1.5rem 0rem;
   border-bottom: 1px solid rgb(201, 201, 201);
   display: flex;
-  padding: 1.5rem 0 0.25rem 1.5rem;
+  padding: 1rem 1.3rem 0.25rem 1.5rem;
   border-bottom: 1px solid rgb(231, 231, 231);
   font-size: 0.75rem;
+  justify-content: space-between;
+}
+.tagsWrap {
+  display: flex;
+  align-items: flex-end;
 }
 
 .tag {
@@ -30,23 +35,70 @@
   padding: 0.2rem;
   white-space: nowrap;
 }
+.kakaoAndLike {
+  display: flex;
+}
+
+.like,
+.notlike {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0.3rem;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.notlike i {
+  color: rgb(171, 171, 171);
+  font-size: 1.4rem;
+}
+
+.like i {
+  color: rgb(241, 112, 112);
+  font-size: 1.4rem;
+  opacity: 1;
+  animation-name: heartbeat;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
 
 .title {
   display: flex;
   justify-content: center;
+  text-align: center;
+  line-height: 1.8rem;
   margin: 3rem 0 0.5rem 0;
+  padding: 0 3rem;
   font-size: 1.3rem;
   font-family: "Nanum Gothic Coding", monospace;
+  letter-spacing: -1px;
 }
 .date {
   display: flex;
   justify-content: center;
   font-size: 0.75rem;
   color: rgb(156, 156, 156);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   font-style: italic;
 }
-
+.explanation {
+  text-align: end;
+  margin-bottom: 0.5rem;
+  color: rgb(156, 156, 156);
+  margin-right: 0.5rem;
+  font-size: 0.75rem;
+}
+.explanation2 {
+  display: inline-block;
+  text-align: end;
+  color: rgb(156, 156, 156);
+  font-size: 0.75rem;
+}
 .btnWrap {
   text-align: center;
 }
@@ -141,11 +193,12 @@
 
 .workList {
   padding: 4rem 0 0 0.5rem;
-  margin: 0 1rem;
+  margin: 0 0.5rem 0 1rem;
+  display: inline-block;
 }
 
 .workBox {
-  padding: 2rem 0.5rem;
+  padding: 1rem 0.5rem 2rem 0.5rem;
   margin: 0 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -168,8 +221,8 @@
 }
 .workTitleMeta i {
   cursor: pointer;
-  font-size: 0.8rem;
-  margin-top: 0.2rem;
+  font-size: 1.2rem;
+  /* margin-top: 0.2rem; */
   margin-right: 0.3rem;
   position: relative;
 }
@@ -222,6 +275,9 @@
   width: 3rem;
 }
 @media screen and (max-width: 768px) {
+  .space {
+    margin: 0.5rem 0rem;
+  }
   .container {
     padding: 4.5rem 0 5rem 0;
   }
@@ -231,15 +287,38 @@
   .sliderPic {
     box-shadow: 0px 10px 10px 3px #9c9c9c;
   }
+  .title {
+    padding: 0 1rem;
+    font-weight: bold;
+    margin: 2rem 0 0.5rem 0;
+  }
+  .date {
+    margin-bottom: 1.8rem;
+  }
 }
 
 @media screen and (max-width: 480px) {
+  .space {
+    padding: 1rem 0.6rem 0.25rem 0.8rem;
+  }
+  .tag {
+    margin-right: 0.2rem;
+  }
   .workBox {
     grid-template-columns: 1fr;
   }
   .leftArrow,
   .rightArrow {
     font-size: 1.5rem;
+  }
+  .explanation {
+    font-size: 0.5rem;
+  }
+  .explanation2 {
+    font-size: 0.5rem;
+  }
+  .title {
+    font-size: 1.1rem;
   }
 }
 
@@ -283,5 +362,20 @@
 
   to {
     opacity: 1;
+  }
+}
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
   }
 }

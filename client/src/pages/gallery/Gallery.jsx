@@ -8,6 +8,7 @@ import GalleryContent from "../../components/galleryContent/GalleryContent";
 import GalleryModal from "../../components/modals/GalleryModal";
 import MobileBlocked from "../../components/modals/MobileBlocked";
 import SubNavBar from "../../components/subNavBar/SubNavBar";
+import useHistoryState from "../../utils/useHistoryState";
 import styles from "./Gallery.module.css";
 
 const Gallery = ({ isLogin, userinfo }) => {
@@ -15,9 +16,9 @@ const Gallery = ({ isLogin, userinfo }) => {
   const history = useHistory();
 
   const [galleryList, setGalleryList] = useState([]);
-  const [isStandard, setStandard] = useState(true); //STANDARD, PREMIUM 카테고리 상태값
-  const [tagClicked, setTagClicked] = useState("전체"); //해시태그 카테고리 상태값
-  const [sortValue, setSortValue] = useState("최신순"); //최신순, 전시마감일순 정렬 상태값
+  const [isStandard, setStandard] = useHistoryState(true, 'isStandard'); //STANDARD, PREMIUM 카테고리 상태값
+  const [tagClicked, setTagClicked] = useHistoryState("전체", 'tagClicked'); //해시태그 카테고리 상태값
+  const [sortValue, setSortValue] = useHistoryState("최신순", 'sortValue'); //최신순, 전시마감일순 정렬 상태값
 
   const [modalOpen, setModalOpen] = useState(false); //찜하기 클릭시 나타나는 모달창
   const [premiumBlocked, setPremiumBlocked] = useState(false); //premium 클릭 시 나타나는 모달창
@@ -28,15 +29,15 @@ const Gallery = ({ isLogin, userinfo }) => {
     async function getAxiosData() {
       if (isStandard) {
         setGalleryList(await getStandardGallery(tagClicked, sortValue));
-        console.log((await getStandardGallery(tagClicked, sortValue)));
+        //console.log((await getStandardGallery(tagClicked, sortValue)));
       } else {
         setGalleryList(await getPremiumGallery(tagClicked, sortValue));
-        console.log((await getPremiumGallery(tagClicked, sortValue)));
+        //console.log((await getPremiumGallery(tagClicked, sortValue)));
       }
     }
     setTimeout(() => {
       getAxiosData();
-    }, 300)
+    }, 100)
     setTimeout(()=> {
       setLoading(false);
     }, 1000)

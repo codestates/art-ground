@@ -10,7 +10,7 @@ const ScrollTab = () => {
     document.body.scrollHeight
   );
 
-  console.log(scrollHeight, "전체높이");
+  //console.log(scrollHeight, "전체높이");
 
   const slider = (el) => {
     setListClicked(el);

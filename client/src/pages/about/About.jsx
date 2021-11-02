@@ -49,10 +49,10 @@ const About = () => {
               alt="about"
             ></img>
             <div className={styles.mainContentBox}>
-              <h1 data-aos="fade-down" data-aos-duration="3000">
+              <h1 data-aos="fade-down" data-aos-duration="2000">
                 누구나 예술가가 될 수 있는 공간
               </h1>
-              <p data-aos="fade-down" data-aos-duration="3000">
+              <p data-aos="fade-down" data-aos-duration="2000">
                 아트그라운드는 온라인 갤러리 대관 서비스로<br></br>
                 누구나 자유롭게 작품 활동을 펼칠 수 있는 열린 놀이터입니다.
               </p>
@@ -81,34 +81,34 @@ const About = () => {
           </div>
           <div
             data-aos="fade-up"
-            data-aos-duration="3000"
+            data-aos-duration="2000"
             className={styles.brand2}
           >
             <div className={styles.img1Wrap}>
               <img
                 className={styles.img1}
-                src="../../../images/image-4.webp"
+                src="../../../images/image-4.jpeg"
                 alt="about"
               ></img>
             </div>
             <div className={styles.img3Wrap}>
               <img
                 className={styles.img3}
-                src="../../../images/image-3.webp"
+                src="../../../images/image-3.jpeg"
                 alt="about"
               ></img>
             </div>
             <div className={styles.img4Wrap}>
               <img
                 className={styles.img4}
-                src="../../../images/image-1.webp"
+                src="../../../images/image-1.jpeg"
                 alt="about"
               ></img>
             </div>
             <div className={styles.img5Wrap}>
               <img
                 className={styles.img5}
-                src="../../../images/image-5.webp"
+                src="../../../images/image-5.jpeg"
                 alt="about"
               ></img>
             </div>
@@ -185,7 +185,7 @@ const About = () => {
             <img alt="관람" src="../../../images/about_video.gif"></img>
           </div>
           <div className={styles.exDetailTxt}>
-            <span>Standard Gallery(2D)</span>
+            <span>Standard Gallery<p className={styles.typeIcon}>2D</p></span>
             <span>
               standard gallery에서는 간단한 마우스 컨트롤로 <br></br>마치 실제
               갤러리의 작품 앞에 서서 관람하는 듯한 관람 경험을 제공합니다.
@@ -204,7 +204,7 @@ const About = () => {
             <img alt="about" src="../../../images/about_video2.gif"></img>
           </div>
           <div className={styles.exDetailTxt}>
-            <span>Premium Gallery(3D)</span>
+            <span>Premium Gallery<p className={styles.typeIcon}>3D</p></span>
             <span>
               premium gallery에서는 간단한 마우스 및 키보드 컨트롤로 <br></br>
               마치 실제 갤러리 내부를 둘러보는 듯한 보다 사실적이고 생생한 관람

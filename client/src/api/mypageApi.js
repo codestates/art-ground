@@ -3,13 +3,13 @@ require("dotenv").config();
 export function getMyinfo(setUserinfo, setisAdmin) {
   //art-ground.link
   return axios
-    .get(`https://art-ground.link/mypage`)
+    .get(`${process.env.REACT_APP_DEPOLOY_SERVER_URI}/mypage`)
     .then((result) => {
       //console.log(result, "마이인포 리쥴트 값!!");
       if (result.status === 200) {
         const img =
           result.data.data.profile_img === null
-            ? "https://images.velog.io/images/beablessing/post/54131e26-0389-412e-b88d-a8b6a97600a8/noimg.png"
+            ? "../../../images/profile.jpeg"
             : result.data.data.profile_img;
 
         setUserinfo({ ...result.data.data, profile_img: img });
@@ -25,7 +25,7 @@ export function getMyinfo(setUserinfo, setisAdmin) {
 export function getMyExhibition(setMyEx) {
   //art-ground.link
   return axios
-    .get("https://art-ground.link/mypage/exhibition")
+    .get(`${process.env.REACT_APP_DEPOLOY_SERVER_URI}/mypage/exhibition`)
     .then((result) => {
       //console.log(result.data.data, "전시데이터값");
       setMyEx(result.data.data);
@@ -36,7 +36,7 @@ export function getMyExhibition(setMyEx) {
 export function getMyPickExhibiton(setMyPick) {
   //localhost:5000
   return axios
-    .get("https://art-ground.link/mypage/like")
+    .get(`${process.env.REACT_APP_DEPOLOY_SERVER_URI}/mypage/like`)
     .then((result) => {
       //console.log(result.data.data, "라이크데이터값");
       setMyPick(result.data.data);
@@ -47,7 +47,7 @@ export function getMyPickExhibiton(setMyPick) {
 export function deleteAccount() {
   //art-ground.link
   return axios
-    .delete("https://art-ground.link/mypage")
+    .delete(`${process.env.REACT_APP_DEPOLOY_SERVER_URI}/mypage`)
     .then((result) => {
       if (result.data.message === "successfully deleted") {
         localStorage.removeItem("isLogin");
@@ -62,15 +62,17 @@ export function deleteAccount() {
 export function infoModify(userData, history, setUserinfo) {
   //art-ground.link
   return axios
-    .post("https://art-ground.link/mypage", {
+    .post(`${process.env.REACT_APP_DEPOLOY_SERVER_URI}/mypage`, {
       userData,
     })
     .then((result) => {
       if (result.data.message === "profile changed") {
-        axios.get("https://art-ground.link/mypage").then((result) => {
-          setUserinfo(result.data.data);
-          history.push("/mypage");
-        });
+        axios
+          .get(`${process.env.REACT_APP_DEPOLOY_SERVER_URI}/mypage`)
+          .then((result) => {
+            setUserinfo(result.data.data);
+            history.push("/mypage");
+          });
       }
     })
     .catch((err) => console.log(err));
@@ -80,7 +82,10 @@ export function infoModify(userData, history, setUserinfo) {
 export function passModify(passData, setModalOpen, history, setErrorMessage) {
   //art-ground.link
   return axios
-    .patch("https://art-ground.link/mypage/password", passData)
+    .patch(
+      `${process.env.REACT_APP_DEPOLOY_SERVER_URI}/mypage/password`,
+      passData
+    )
     .then((result) => {
       //  console.log(result.data, "비밀번호 수정 데이터 ");
       if (result.data.message === "password successfully updated!") {

@@ -47,14 +47,14 @@
   padding: 0.5rem 0.5rem;
 }
 .revImgtBox {
-  padding-top: 2rem;
-  width: auto;
-  height: 35%;
+  padding: 2rem 1rem 0rem 1rem;
+  width: 9rem;
+  height: 9rem;
   text-align: center;
 }
 .revimg {
   border-radius: 50%;
-  width: auto;
+  width: 100%;
   height: 100%;
   object-fit: cover;
 }
@@ -173,17 +173,16 @@
   }
   .revTxt:nth-child(1),
   .revTxt:nth-child(2) {
-    height: 20%;
+    height: 12%;
     text-align: center;
-    /* line-height: 3; */
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    font-family: "paybooc-Bold";
   }
 
   .revTxt:nth-child(3) {
     padding: 0 0.6rem;
     height: 60%;
-    /* line-height: 2; */
-    font-size: 0.65rem;
+    font-size: 0.6rem;
   }
   .revContent {
     width: 90%;
@@ -192,10 +191,14 @@
     padding: 0.5rem;
   }
   .btn {
-
     margin-top: 9rem;
     height: 2.1rem;
     font-size: 1rem;
+  }
+  .revImgtBox {
+    padding: 0rem 1rem 0rem 1rem;
+    width: 6rem;
+    height: 4rem;
   }
 }
 @media screen and (max-width: 374px) {
@@ -204,6 +207,5 @@
   }
   .btn {
     height: 1.9rem;
-
   }
 }
