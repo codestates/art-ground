@@ -143,12 +143,13 @@ https://art-ground.io/
     <img width="700" src="https://user-images.githubusercontent.com/83934037/136777489-aa4b6e55-1b86-4826-a836-f776d21faf41.gif"/>
     
   </details>
+
   <details>
    <summary> 카카오톡으로 링크 공유하기 </summary>
     <img width="700" src="https://user-images.githubusercontent.com/83934037/137332607-6c814200-14fd-4e62-ac21-14962e78ad7f.gif"/>
     
   </details>
-  
+
 </details>
 
 ---
