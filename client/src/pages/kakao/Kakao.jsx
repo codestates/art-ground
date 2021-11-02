@@ -9,10 +9,10 @@ const Kakao = ({ handleResponseSuccess }) => {
   const [refreshToken, setRefreshToken] = useState();
 
   useEffect(() => {
-    console.log("useEffect...");
+    //console.log("useEffect...");
     const url = new URL(window.location.href);
     const authorizationCode = url.searchParams.get("code");
-    console.log("code:", authorizationCode);
+    //console.log("code:", authorizationCode);
     if (authorizationCode) {
       getAccessToken(authorizationCode);
     }
@@ -20,12 +20,12 @@ const Kakao = ({ handleResponseSuccess }) => {
   }, []);
 
   useEffect(() => {
-    console.log("useEffect2...", accessToken);
+    //console.log("useEffect2...", accessToken);
     getUserInfo(accessToken);
     return () => {};
   }, [accessToken]);
 
-  console.log("accesstoken:", accessToken);
+  //console.log("accesstoken:", accessToken);
 
   const getAccessToken = (authorizationCode) => {
     axios({
@@ -36,7 +36,7 @@ const Kakao = ({ handleResponseSuccess }) => {
       },
     })
       .then((res) => {
-        console.log(res.data);
+        //console.log(res.data);
         if (!refreshToken) {
           setRefreshToken(res.data.refresh_token);
         }
@@ -61,7 +61,7 @@ const Kakao = ({ handleResponseSuccess }) => {
         console.log(error);
       });
   };
-  console.log("userinfo:", userInfo);
+  //console.log("userinfo:", userInfo);
   return (
     <section className={styles.container}>
       <div>카카오</div>

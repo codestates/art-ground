@@ -1,9 +1,10 @@
 const { isAuthorized } = require("../../utils/tokenFunction");
-const { likes } = require("../../models");
+const { likes, sequelize } = require("../../models");
 const {
   getCached,
   caching,
-  delCache,
+
+  cacheIncr,
 } = require("../../utils/redis/cache.ctrl");
 module.exports.exhibitionLike = async (req, res) => {
   const userInfo = isAuthorized(req);
@@ -22,9 +23,36 @@ module.exports.exhibitionLike = async (req, res) => {
     //캐싱 데이터에서
     //data[n].likes.push({data})
     //setCache
-
+    const likesRedisKey = `${exhibition_id}likes`;
+    let lastLikesId;
+    if (await getCached("lastLikesId")) {
+      lastLikesId = await cacheIncr("lastLikesId");
+    } else {
+      const { id } = await likes.findOne({
+        raw: true,
+        attributes: ["id"],
+        order: [[sequelize.literal("createdAt"), "desc"]],
+      });
+      caching("lastLikesId", id);
+      lastLikesId = await cacheIncr("lastLikesId");
+    }
     const reply = await getCached(redisKey);
+    const likesReply = await getCached(likesRedisKey);
 
+    if (likesReply) {
+      likesReply.push({ id: lastLikesId, user_id });
+      caching(likesRedisKey, likesReply);
+    } else {
+      const result = await likes.findAll({
+        raw: true,
+        attributes: ["id", "user_id"],
+        where: {
+          exhibition_id,
+        },
+      });
+      result.push({ id: lastLikesId, user_id });
+      caching(likesRedisKey, result);
+    }
     if (reply) {
       reply.some((el) => {
         if (el.id === exhibition_id) {

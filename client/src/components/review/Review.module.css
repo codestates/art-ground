@@ -12,6 +12,7 @@
 
 .imgBox {
   width: 35%;
+  cursor: pointer;
 }
 .thumbnail {
   width: 100%;
@@ -33,6 +34,9 @@
   justify-content: space-between;
 }
 
+.contentWrap {
+  margin-top: 0.3rem;
+}
 .title {
   font-size: 1rem;
   margin-top: 0.5rem;
@@ -76,6 +80,25 @@
 
 .reviewBtn:hover {
   background-color: rgb(241, 241, 241);
+}
+
+.exhibitType {
+  display: inline;
+  border: 1px solid rgb(238, 220, 223);
+  border-radius: 5px;
+  padding: 0.1rem 0.2rem;
+  background: rgb(238, 220, 223);
+  font-size: 0.8rem;
+  color: rgb(111, 111, 111);
+}
+.exhibitType2 {
+  display: inline;
+  border: 1px solid rgb(219, 226, 240);
+  border-radius: 5px;
+  padding: 0.1rem 0.2rem;
+  background: rgb(219, 226, 240);
+  font-size: 0.8rem;
+  color: rgb(111, 111, 111);
 }
 
 @media screen and (max-width: 768px) {
