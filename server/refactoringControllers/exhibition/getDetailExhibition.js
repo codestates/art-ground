@@ -9,32 +9,18 @@ const { getCached, caching } = require("../../utils/redis/cache.ctrl");
 module.exports.getDetailExhibition = async (req, res) => {
   const { postId: id } = req.params;
 
-  const redisKey = `${id}Exhibition`;
-  const likesRedisKey = `${id}likes`;
-  const reply = await getCached(redisKey);
-  const likesReply = await getCached(likesRedisKey);
-  console.log(likesRedisKey);
-  console.log(likesReply);
+  const redisKey = `exhibition:${id}`;
+  const likesRedisKey = `likes:${id}`;
 
-  if (reply) {
-    const data = reply;
-    if (!likesReply) {
-      let likes;
-      const result = await likeModel.findAll({
-        raw: true,
-        attributes: ["id", "user_id"],
-        where: {
-          exhibition_id: id,
-        },
-      });
-      caching(likesRedisKey, result);
-      likes = result;
-      res.status(200).json({ data, likes });
-    } else {
-      let likes = likesReply;
-      res.status(200).json({ data, likes });
-    }
+  const exhibitionReply = await getCached(redisKey);
+  const likesReply = await getLikeCache(likesRedisKey);
+
+  if (exhibitionReply) {
+    const data = exhibitionReply;
+    const likes = likesReply;
+    res.status(200).json({ data, likes });
   } else {
+    // 부수효과 나중에 한 번에 처리하기
     const result = await exhibitionModel.findOne({
       include: [
         {
