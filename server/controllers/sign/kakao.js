@@ -23,7 +23,6 @@ module.exports = {
       },
     })
       .then((response) => {
-        console.log("tokendata:", response.data);
         res.send(response.data);
       })
       .catch((error) => {
@@ -32,7 +31,6 @@ module.exports = {
   },
   // 받은 access token으로 사용자 정보 가져오기
   getUserInfo: async (req, res) => {
-    console.log("token:", req.query.accessToken);
     try {
       const userInfo = await axios({
         method: "get",
@@ -41,20 +39,14 @@ module.exports = {
           "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
         },
       });
-      console.log("userInfo:", userInfo.data);
 
       const nickname = userInfo.data.kakao_account.profile.nickname;
-      console.log("nickname:", nickname);
 
       let password = userInfo.data.id + nickname;
 
-      console.log("password:", password);
-
       const salt = await bcrypt.genSalt(saltRounds);
 
-      console.log("salt:", salt);
       password = await bcrypt.hash(password, salt);
-      console.log("password_2:", password);
 
       const result = await users.findOne({
         where: {
@@ -63,7 +55,6 @@ module.exports = {
       });
       // 이미 회원가입이 되어 있다면 accessToken 만들어서 보내고 로그인
       if (result) {
-        console.log("result:", result.dataValues);
         delete result.dataValues.password;
         const accessToken = generateAccessToken(result.dataValues);
         res
@@ -87,7 +78,6 @@ module.exports = {
           user_type: 1,
           login_type: "kakao",
         });
-        console.log("generatedInfo:", generatedInfo);
         delete generatedInfo.dataValues.password;
         const accessToken = generateAccessToken(generatedInfo.dataValues);
         return res

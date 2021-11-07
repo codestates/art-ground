@@ -5,4 +5,4 @@ module.exports = {
   authorSignUp: require("./authorSignUp").authorSignUp,
   google: require("./google"),
   kakao: require("./kakao"),
-}; //
+};
