@@ -1,7 +1,8 @@
 const { redisClient } = require("./index");
 
 module.exports = {
-  getCached: (key) => {
+  initialize: () => {},
+  getStringCached: (key) => {
     return new Promise((resolve, reject) => {
       redisClient.get(key, (err, reply) => {
         if (reply) {
@@ -12,7 +13,26 @@ module.exports = {
       });
     });
   },
-
+  isInSet: (key, value) => {
+    return new Promise((resolve, reject) => {
+      redisClient.SISMEMBER(key, value, (err, data) => {
+        return resolve(!!data);
+      });
+    });
+  },
+  addToSet: async (key, value) => {
+    await redisClient.SADD(key, value);
+  },
+  removeFromSet: async (key, value) => {
+    await redisClient.SREM(key, value);
+  },
+  getLikeCache: (key) => {
+    return new Promise((resolve, reject) => {
+      redisClient.SMEMBERS(key, (err, data) => {
+        resolve(data);
+      });
+    });
+  },
   caching: async (key, data) => {
     await redisClient.set(key, JSON.stringify(data));
   },
