@@ -30,6 +30,8 @@ router.post("/exhibition/register", exhibitCtrl.register);
 router.get("/exhibition/:type", exhibitCtrl.getExhibition);
 router.get("/exhibition", exhibitCtrl.getExhibition);
 router.post("/exhibition/like", exhibitCtrl.exhibitionLike);
+//router.delete("/exhibition/like/:postId/:type", exhibitCtrl.withdrawalLike); 삭제
+//router.get("/exhibition/like/:postId", exhibitCtrl.getLikesCached);   삭제
 
 //review
 router.get("/review/:postId", reviewCtrl.getDetailReview);
