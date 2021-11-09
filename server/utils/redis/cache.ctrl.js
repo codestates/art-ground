@@ -1,7 +1,21 @@
 const { redisClient } = require("./index");
 
 module.exports = {
-  initialize: () => {},
+  initialize: () => {
+    //TODO
+    /*
+      존재하는 exhibition 별로 캐싱 함수 만들기
+      ex)exhibition:85
+      존재하는 like 캐싱 함수 만들기
+      ex)like:64
+      Review 캐싱 함수만들기
+      review:82
+      allExhibition 캐싱 함수 만들기
+      primeum 함수 만들기
+      standard 함수 만들기
+     
+     */
+  },
   getStringCached: (key) => {
     return new Promise((resolve, reject) => {
       redisClient.get(key, (err, reply) => {
@@ -29,6 +43,13 @@ module.exports = {
   getLikeCache: (key) => {
     return new Promise((resolve, reject) => {
       redisClient.SMEMBERS(key, (err, data) => {
+        resolve(data);
+      });
+    });
+  },
+  getList: (key, start, stop) => {
+    return new Promise((resolve, reject) => {
+      redisClient.lrange(key, start, stop, (err, data) => {
         resolve(data);
       });
     });
