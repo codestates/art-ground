@@ -4,4 +4,8 @@ module.exports = {
     newObj[`${key}`] = value;
     return newObj;
   },
+  setGrading: (type, id) => {
+    if (type && id)
+      type === 1 ? addToSet("standard", id) : addToSet("premium", id);
+  },
 };
