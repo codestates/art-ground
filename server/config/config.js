@@ -4,7 +4,7 @@ dotenv.config();
 const config = {
   development: {
     username: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORS,
+    password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE_NAME,
     host: process.env.DATABASE_HOST,
     dialect: "mysql",
@@ -12,7 +12,7 @@ const config = {
   },
   test: {
     username: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORS,
+    password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE_NAME,
     host: process.env.DATABASE_HOST,
     dialect: "mysql",
@@ -20,7 +20,7 @@ const config = {
   },
   production: {
     username: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORS,
+    password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE_NAME,
     host: process.env.DATABASE_HOST,
     dialect: "mysql",
