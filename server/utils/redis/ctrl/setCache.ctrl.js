@@ -1,4 +1,5 @@
-const { redisClient } = require("./index");
+const { isNull } = require("underscore");
+const { redisClient } = require("../index");
 
 module.exports = {
   addToSet: async (key, value) => {
@@ -15,7 +16,11 @@ module.exports = {
     await redisClient.rpush(key, JSON.stringify(data));
   },
   setHash: async (key, field, value) => {
-    await redisClient.hset(key, field, value);
+    try {
+      await redisClient.hset(key, field, JSON.stringify(value));
+    } catch (error) {
+      console.log(error);
+    }
   },
   incrId: (key) => {
     return new Promise((resolve, reject) => {

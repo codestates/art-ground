@@ -1,8 +1,8 @@
-const { map, reject } = require("underscore");
-const { redisClient } = require("./index");
+const { map, reject, mapObject } = require("underscore");
+const { redisClient } = require("../index");
 
 module.exports = {
-  getStringCache: (key) => {
+  getString: (key) => {
     return new Promise((resolve, reject) => {
       redisClient.get(key, (err, reply) => {
         if (reply) {
@@ -13,20 +13,21 @@ module.exports = {
       });
     });
   },
-  getSetCache: (key) => {
+  getSet: (key) => {
     return new Promise((resolve, reject) => {
       redisClient.SMEMBERS(key, (err, data) => {
         resolve(data);
       });
     });
   },
-  getListCache: (key, start, stop) => {
+  getList: (key, start, stop) => {
     return new Promise((resolve, reject) => {
       redisClient.lrange(key, start, stop, (err, data) => {
-        const convertedData = map(data, (el) => {
-          return JSON.parse(el);
-        });
-        resolve(convertedData);
+        resolve(
+          map(data, (el) => {
+            return JSON.parse(el);
+          })
+        );
       });
     });
   },
@@ -37,10 +38,17 @@ module.exports = {
       });
     });
   },
-  getHashCache: (key) => {
+  getHash: (key) => {
     return new Promise((resolve, reject) => {
       redisClient.hgetall(key, (err, data) => {
-        resolve(data);
+        resolve(
+          mapObject(data, (val, key) => {
+            if (key === "createdAt" || key === "updatedAt") {
+              return Date(val);
+            }
+            return JSON.parse(val);
+          })
+        );
       });
     });
   },
