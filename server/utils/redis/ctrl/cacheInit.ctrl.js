@@ -6,12 +6,9 @@ const {
   comments,
 } = require("../../../models");
 const { each, keys, filter } = require("underscore");
-const { setList, setHash, addToSet } = require("./setCache.ctrl");
+const { addToList, setHash, addToSet } = require("./setCache.ctrl");
 const { findAll, findOne } = require("../../dbFunction");
-
-const setGrading = (type, id) => {
-  type === 1 ? addToSet("standard", id) : addToSet("premium", id);
-};
+const { setGrading } = require("../../customFunction");
 
 const setExhibitionCache = (exhibitionData) => {
   const { id, exhibit_type, status } = exhibitionData;
@@ -21,7 +18,7 @@ const setExhibitionCache = (exhibitionData) => {
     setHash(`exhibition:${id}`, `${el}`, exhibitionData[el]);
   });
   addToSet("allExhibition", id);
-  setGrading(exhibit_type, id, status);
+  if (status === 1) setGrading(exhibit_type, id);
 };
 
 const setUserCache = (userData) => {
@@ -37,11 +34,11 @@ const setLikeCache = (likeData) => {
 };
 
 const setImageCache = (imageData) => {
-  setList(`images:${imageData.exhibition_id}`, imageData);
+  addToList(`images:${imageData.exhibition_id}`, imageData);
 };
 
 const setCommentCache = (commentData) => {
-  setList(`comment:${commentData.exhibition_id}`, commentData);
+  addToList(`comment:${commentData.exhibition_id}`, commentData);
 };
 
 module.exports = {

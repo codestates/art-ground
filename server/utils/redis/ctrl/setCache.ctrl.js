@@ -12,7 +12,7 @@ module.exports = {
   setString: async (key, data) => {
     await redisClient.set(key, JSON.stringify(data));
   },
-  setList: async (key, data) => {
+  addToList: async (key, data) => {
     await redisClient.rpush(key, JSON.stringify(data));
   },
   setHash: async (key, field, value) => {
