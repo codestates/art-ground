@@ -3,14 +3,15 @@ const { exhibition, comments, users, images, likes } = require("../../models");
 const { isAuthorized } = require("../../utils/tokenFunction");
 const { findOne, update } = require("../../utils/dbFunction");
 const { isNull } = require("underscore");
+const { setGrading } = require("../../utils/customFunction");
 module.exports = {
   approveExhibitions: async (req, res) => {
     const userInfo = isAuthorized(req);
 
     const { id, exhibit_type } = req.body.data;
-    const redisKey = `exhibition:${id}`;
 
     if (userInfo.user_type === 3) {
+      setGrading(exhibit_type, id);
       res.status(200).json({
         message: "exhibition successfully approved",
       });
