@@ -1,4 +1,4 @@
-const { isNull } = require("underscore");
+const { isNull, each } = require("underscore");
 const { redisClient } = require("../index");
 
 module.exports = {
@@ -21,6 +21,11 @@ module.exports = {
     } catch (error) {
       console.log(error);
     }
+  },
+  removeHash: async (key) => {
+    await redisClient.hkeys(key, (err, data) => {
+      redisClient.hdel(key, ...data);
+    });
   },
   incrId: (key) => {
     return new Promise((resolve, reject) => {
