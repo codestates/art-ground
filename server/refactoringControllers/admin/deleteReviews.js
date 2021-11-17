@@ -1,6 +1,9 @@
 const { comments } = require("../../models");
 const { isAuthorized } = require("../../utils/tokenFunction");
-const { removeHash } = require("../../utils/redis/ctrl/setCache.ctrl");
+const {
+  removeHash,
+  removeFromSet,
+} = require("../../utils/redis/ctrl/setCache.ctrl");
 module.exports = {
   deleteReviews: async (req, res) => {
     const userInfo = isAuthorized(req);
@@ -9,6 +12,8 @@ module.exports = {
 
     //comment:exhibition_id 받아온다.
     if (userInfo.user_type === 3) {
+      await removeFromSet("allComments", id);
+      await removeFromSet(`exhibition:comment:${postId}`, id);
       await removeHash(`comment:${id}`);
       res.status(200).json({
         message: "successfully delete comments",
