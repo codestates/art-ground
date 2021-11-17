@@ -5,11 +5,7 @@ const {
   comments: commentsModel,
   sequelize,
 } = require("../../models");
-const {
-  getCached,
-  caching,
-  delCache,
-} = require("../../utils/redis/cache.ctrl");
+const {} = require("../../utils/redis/ctrl/getCache.ctrl");
 //작가 관련 정보 {이름}
 //전시 타입 1, 2
 //스탠다드 프리미엄 둘 다

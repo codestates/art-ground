@@ -1,11 +1,6 @@
 const { comments: commentsModel } = require("../../models");
 const { isAuthorized } = require("../../utils/tokenFunction");
-const {
-  getCached,
-  caching,
-  delCache,
-  cacheIncr,
-} = require("../../utils/redis/cache.ctrl");
+const {} = require("../../utils/redis/ctrl/getCache.ctrl");
 module.exports.postReview = async (req, res) => {
   const userInfo = isAuthorized(req);
 

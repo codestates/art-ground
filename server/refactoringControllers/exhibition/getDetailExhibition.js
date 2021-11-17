@@ -4,7 +4,7 @@ const {
   users: userModel,
   likes: likeModel,
 } = require("../../models");
-const { getSetCached, caching } = require("../../utils/redis/cache.ctrl");
+const {} = require("../../utils/redis/ctrl/getCache.ctrl");
 
 module.exports.getDetailExhibition = async (req, res) => {
   const { postId: id } = req.params;

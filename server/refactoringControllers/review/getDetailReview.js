@@ -1,9 +1,5 @@
 const { comments, users, exhibition, images } = require("../../models");
-const {
-  getCached,
-  caching,
-  delCache,
-} = require("../../utils/redis/cache.ctrl");
+const {} = require("../../utils/redis/ctrl/getCache.ctrl");
 
 module.exports.getDetailReview = async (req, res) => {
   const { postId: exhibition_id } = req.params;

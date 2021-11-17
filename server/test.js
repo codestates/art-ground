@@ -2,20 +2,17 @@ const { redisClient } = require("./utils/redis");
 const { images, exhibition } = require("./models");
 const { getHash, getList } = require("./utils/redis/ctrl/getCache.ctrl");
 const { cacheInitialization } = require("./utils/redis/cacheInitialization");
-const { filter, mapObject } = require("underscore");
+const { filter, mapObject, isEqual } = require("underscore");
 const { findAll, findOne } = require("./utils/dbFunction");
-const test = async (...arg) => {
-  const a = await findOne(exhibition, {
-    raw: true,
-    where: { id: 999 },
-  });
-  console.log(a);
+const { setHash } = require("./utils/redis/ctrl/setCache.ctrl");
 
-  const b = await getHash("exhibition:90");
-  console.log(b);
+const test = async (...arg) => {
+  console.log(isEqual("1", "1"));
+  // const arr = [];
+  // arr.push(await getHash("comment:61"));
+  // console.log(arr);
   // const a = await findAll(exhibition, { raw: true });
   // console.log(a[0]);
-
   //   await redisClient.hgetall("exhibition:64", (err, data) => {
   //     console.log(data);
   //   })

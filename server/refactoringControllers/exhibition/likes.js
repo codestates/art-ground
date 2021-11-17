@@ -6,7 +6,7 @@ const {
   addToSet,
   isInSet,
   initialize,
-} = require("../../utils/redis/cache.ctrl");
+} = require("../../utils/redis/ctrl/getCache.ctrl");
 module.exports.exhibitionLike = async (req, res) => {
   const userInfo = isAuthorized(req);
 

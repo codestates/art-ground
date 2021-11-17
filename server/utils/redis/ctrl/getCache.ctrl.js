@@ -52,4 +52,11 @@ module.exports = {
       });
     });
   },
+  getHashValue: (key, filed) => {
+    return new Promise((resolve, reject) => {
+      redisClient.hget(key, filed, (err, data) => {
+        resolve(JSON.parse(data));
+      });
+    });
+  },
 };

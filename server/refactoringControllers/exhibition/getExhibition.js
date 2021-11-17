@@ -4,7 +4,7 @@ const {
   users: userModel,
   likes: likeModel,
 } = require("../../models");
-const { getCached, caching } = require("../../utils/redis/cache.ctrl");
+const {} = require("../../utils/redis/ctrl/getCache.ctrl");
 module.exports.getExhibition = async (req, res) => {
   const { type: exhibit_type } = req.params;
   const redisKey =

@@ -38,6 +38,7 @@ const setImageCache = (imageData) => {
 };
 
 const setCommentCache = (commentData) => {
+  addToSet("allComments", commentData.id);
   addToList(`comment:${commentData.exhibition_id}`, commentData);
 };
 
@@ -62,7 +63,7 @@ module.exports = {
   commentCacheInitialization: async () => {
     each(
       await findAll(comments, {
-        attributes: ["exhibition_id", "user_id", "comments", "createdAt"],
+        attributes: ["id", "exhibition_id", "user_id", "comments", "createdAt"],
         raw: true,
       }),
       (el) => setCommentCache(el)
