@@ -1,4 +1,3 @@
-const { isNull, each } = require("underscore");
 const { redisClient } = require("../index");
 
 module.exports = {
@@ -24,6 +23,7 @@ module.exports = {
   },
   removeHash: async (key) => {
     await redisClient.hkeys(key, (err, data) => {
+      console.log(data);
       redisClient.hdel(key, ...data);
     });
   },
