@@ -1,4 +1,4 @@
-const { map, reject, mapObject } = require("underscore");
+const { map, mapObject, reduce } = require("underscore");
 const { redisClient } = require("../index");
 
 module.exports = {
@@ -52,10 +52,21 @@ module.exports = {
       });
     });
   },
-  getHashValue: (key, filed) => {
+
+  getHashValue: (key, ...arg) => {
+    console.log(arg);
+    console.log(...arg);
     return new Promise((resolve, reject) => {
-      redisClient.hget(key, filed, (err, data) => {
-        resolve(JSON.parse(data));
+      redisClient.hmget(key, ...arg, (err, data) => {
+        resolve(
+          reduce(
+            data,
+            (acc, cur, idx) => {
+              return Object.assign(acc, { [arg[idx]]: JSON.parse(cur) });
+            },
+            {}
+          )
+        );
       });
     });
   },
