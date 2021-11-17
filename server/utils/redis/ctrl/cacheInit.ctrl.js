@@ -38,8 +38,13 @@ const setImageCache = (imageData) => {
 };
 
 const setCommentCache = (commentData) => {
-  addToSet("allComments", commentData.id);
-  addToList(`comment:${commentData.exhibition_id}`, commentData);
+  const { id } = commentData;
+  const commentDataKeys = keys(commentData);
+  addToSet("allComments", id);
+  addToSet(`exhibition:comment:${commentData.exhibition_id}`, id);
+  each(commentDataKeys, (key) => {
+    setHash(`comment:${id}`, key, commentData[key]);
+  });
 };
 
 module.exports = {
