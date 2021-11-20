@@ -3,7 +3,11 @@ const {
   exhibition: exhibitionModels,
   images: imagesModel,
 } = require("../../models");
-const { redisClient } = require("../../utils/redis");
+const { each } = require("underscore");
+const {
+  setExhibitionCache,
+  setImageCache,
+} = require("../../utils/customFunction");
 
 module.exports.register = async (req, res) => {
   const userInfo = isAuthorized(req);
@@ -19,7 +23,7 @@ module.exports.register = async (req, res) => {
       endDate: end_date,
       images,
     } = req.body;
-
+    is;
     if (
       title &&
       genre_hashtags &&
@@ -40,9 +44,9 @@ module.exports.register = async (req, res) => {
       });
 
       if (result) {
-        const exhibition_id = result.dataValues.id;
-        const parsingImages = JSON.parse(images);
-        parsingImages.forEach(async (el) => {
+        await setExhibitionCache(result.dataValues);
+
+        each(JSON.parse(images), async (el) => {
           const {
             title,
             img: image_urls,
@@ -50,19 +54,22 @@ module.exports.register = async (req, res) => {
             subContent: image_add_desc,
           } = el;
 
-          await imagesModel.create({
-            exhibition_id,
-            title,
-            image_urls,
-            image_desc,
-            image_add_desc,
-          });
+          await setImageCache(
+            (
+              await imagesModel.create({
+                exhibition_id: result.dataValues.id,
+                title,
+                image_urls,
+                image_desc,
+                image_add_desc,
+              })
+            ).dataValues
+          );
         });
-        redisClient.flushall();
+
         res
           .status(201)
           .json({ message: "exhibition created", data: JSON.parse(images) });
-      } else {
       }
     } else {
       res.status(422).json({ message: "insufficient parameters supplied" });
