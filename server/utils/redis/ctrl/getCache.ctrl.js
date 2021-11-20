@@ -54,8 +54,6 @@ module.exports = {
   },
 
   getHashValue: (key, ...arg) => {
-    console.log(arg);
-    console.log(...arg);
     return new Promise((resolve, reject) => {
       redisClient.hmget(key, ...arg, (err, data) => {
         resolve(
