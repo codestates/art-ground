@@ -6,7 +6,7 @@
 
 
 #!/bin/bash
-cd /home/ubuntu/art-ground-Refactoring/server
+cd /home/ubuntu/art-ground/server
 
 
 

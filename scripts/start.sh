@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/ubuntu/art-ground-Refactoring/server
+cd /home/ubuntu/art-ground/server
 
 
 export ART_GROUND_ACCESS_SECRET=$(aws ssm get-parameters --region ap-northeast-2 --names ART_GROUND_ACCESS_SECRET --query Parameters[0].Value | sed 's/"//g')
