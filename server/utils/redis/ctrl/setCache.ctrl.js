@@ -1,4 +1,6 @@
+const { each } = require("underscore");
 const { redisClient } = require("../index");
+const { getSet } = require("../ctrl/getCache.ctrl");
 
 module.exports = {
   addToSet: async (key, value) => {
@@ -8,6 +10,12 @@ module.exports = {
   removeFromSet: async (key, value) => {
     await redisClient.SREM(key, value);
   },
+  removeSet: async (key) => {
+    each(await getSet(key), async (val) => {
+      await redisClient.SREM(key, val);
+    });
+  },
+
   setString: async (key, data) => {
     await redisClient.set(key, JSON.stringify(data));
   },
@@ -23,7 +31,6 @@ module.exports = {
   },
   removeHash: async (key) => {
     await redisClient.hkeys(key, (err, data) => {
-      console.log(data);
       redisClient.hdel(key, ...data);
     });
   },
