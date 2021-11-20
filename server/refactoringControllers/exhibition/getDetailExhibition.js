@@ -1,57 +1,35 @@
+const { map } = require("underscore");
 const {
-  exhibition: exhibitionModel,
-  images: imagesModel,
-  users: userModel,
-  likes: likeModel,
-} = require("../../models");
-const {} = require("../../utils/redis/ctrl/getCache.ctrl");
+  getSet,
+  getHash,
+  getHashValue,
+  getList,
+} = require("../../utils/redis/ctrl/getCache.ctrl");
 
 module.exports.getDetailExhibition = async (req, res) => {
   const { postId: id } = req.params;
 
-  const redisKey = `exhibition:${id}`;
-  const likesRedisKey = `likes:${id}`;
+  const exhibitionReply = await getHash(`exhibition:${id}`);
+  const imagesReply = await getList(`images:${id}`, 0, -1);
+  const userReply = await getHashValue(
+    `user:${exhibitionReply.author_id}`,
+    "user_email",
+    "nickname",
+    "profile_img",
+    "author_desc"
+  );
+  const likesReply = map(await getSet(`like:${id}`), (el) => {
+    return Number.parseInt(el);
+  });
 
-  const exhibitionReply = await getCached(redisKey);
-  const likesReply = await getLikeCache(likesRedisKey);
-
-  if (exhibitionReply) {
-    const data = exhibitionReply;
-    const likes = likesReply;
-    res.status(200).json({ data, likes });
+  if (exhibitionReply && likesReply) {
+    res.status(200).json({
+      data: { ...exhibitionReply, author: userReply, images: imagesReply },
+      likes: likesReply,
+    });
   } else {
-    // 부수효과 나중에 한 번에 처리하기
-    const result = await exhibitionModel.findOne({
-      include: [
-        {
-          model: imagesModel,
-          as: "images",
-        },
-
-        {
-          attributes: ["user_email", "nickname", "profile_img", "author_desc"],
-          model: userModel,
-          as: "author",
-        },
-      ],
-      where: {
-        id,
-        status: 1,
-      },
+    res.status(404).json({
+      message: "failed",
     });
-
-    const likesResult = await likeModel.findAll({
-      raw: true,
-      attributes: ["id", "user_id"],
-      where: {
-        exhibition_id: id,
-      },
-    });
-
-    const likes = likesResult;
-    const data = result.dataValues;
-    caching(redisKey, data);
-    caching(likesRedisKey, likes);
-    res.status(200).json({ data, likes });
   }
 };
