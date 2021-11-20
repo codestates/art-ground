@@ -6,13 +6,14 @@ const {
   getList,
 } = require("../../utils/redis/ctrl/getCache.ctrl");
 
-const { map } = require("underscore");
+const { map, keys, each } = require("underscore");
 const setGrading = (type, id) => {
   if (type && id)
     type === 1 ? addToSet("standard", id) : addToSet("premium", id);
 };
 
 module.exports = {
+  setGrading,
   getTotalExhibitionData: async (exhibitionId) => {
     const exhibitionReply = await getHash(`exhibition:${exhibitionId}`);
     return {
@@ -30,6 +31,7 @@ module.exports = {
       }),
     };
   },
+
   setExhibitionCache: (exhibitionData) => {
     const { id, exhibit_type, status, author_id } = exhibitionData;
     const exhibitionDataKeys = keys(exhibitionData);
