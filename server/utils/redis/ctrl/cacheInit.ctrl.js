@@ -30,7 +30,9 @@ const setUserCache = (userData) => {
 };
 
 const setLikeCache = (likeData) => {
-  addToSet(`like:${likeData.exhibition_id}`, likeData.user_id);
+  const { exhibition_id, user_id } = likeData;
+  addToSet(`like:${exhibition_id}`, user_id);
+  addToSet(`user:like:${user_id}`, exhibition_id);
 };
 
 const setImageCache = (imageData) => {
