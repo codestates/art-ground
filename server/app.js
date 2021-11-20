@@ -2,13 +2,16 @@ const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-
+const { cacheInitialization } = require("./utils/redis/cacheInitialization");
 class App {
   constructor() {
     this.app = express();
 
     // 미들웨어 셋팅
     this.setMiddleWare();
+
+    //캐시 초기화
+    this.setInit();
 
     // 라우팅
     this.getRouting();
@@ -58,6 +61,10 @@ class App {
     this.app.use((err, req, res, _) => {
       res.status(500);
     });
+  }
+
+  setInit() {
+    cacheInitialization();
   }
 }
 
