@@ -1,9 +1,11 @@
-const { exhibition, comments, users, images, likes } = require("../../models");
+const { exhibition } = require("../../models");
 
 const { isAuthorized } = require("../../utils/tokenFunction");
 
 const { isNull } = require("underscore");
 const { setGrading } = require("../../utils/customFunction");
+const { setHash } = require("../../utils/redis/ctrl/setCache.ctrl");
+
 module.exports = {
   approveExhibitions: async (req, res) => {
     const userInfo = isAuthorized(req);
@@ -11,7 +13,8 @@ module.exports = {
     const { id, exhibit_type } = req.body.data;
 
     if (userInfo.user_type === 3) {
-      setGrading(exhibit_type, id);
+      await setHash(`exhibition:${id}`, "status", "1");
+      await setGrading(exhibit_type, id);
       res.status(200).json({
         message: "exhibition successfully approved",
       });
