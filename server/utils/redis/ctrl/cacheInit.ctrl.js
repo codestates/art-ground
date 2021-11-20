@@ -7,16 +7,17 @@ const {
 } = require("../../../models");
 const { each, keys, filter } = require("underscore");
 const { addToList, setHash, addToSet } = require("./setCache.ctrl");
-const { findAll, findOne } = require("../../dbFunction");
+const { findAll } = require("../../dbFunction");
 const { setGrading } = require("../../customFunction");
 
 const setExhibitionCache = (exhibitionData) => {
-  const { id, exhibit_type, status } = exhibitionData;
+  const { id, exhibit_type, status, author_id } = exhibitionData;
   const exhibitionDataKeys = keys(exhibitionData);
 
   each(exhibitionDataKeys, (el) => {
     setHash(`exhibition:${id}`, `${el}`, exhibitionData[el]);
   });
+  addToSet(`exhibition:user:${author_id}`, id);
   addToSet("allExhibition", id);
   if (status === 1) setGrading(exhibit_type, id);
 };
@@ -74,15 +75,6 @@ module.exports = {
         raw: true,
       }),
       (el) => setCommentCache(el)
-    );
-  },
-
-  addExhibition: async (exhibitionId) => {
-    setExhibitionCache(
-      await findOne(exhibition, {
-        raw: true,
-        where: { status: 1, id: exhibitionId },
-      })
     );
   },
 };
