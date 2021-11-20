@@ -1,5 +1,5 @@
 const { exhibition, comments, users, images, likes } = require("../../models");
-const { update } = require("../../utils/dbFunction");
+
 const { getHash } = require("../../utils/redis/ctrl/getCache.ctrl");
 const {
   setHash,
@@ -31,8 +31,7 @@ module.exports = {
       res.status(200).json({
         message: "successfully close exhibitions",
       });
-      await update(
-        exhibition,
+      await exhibition.update(
         {
           status: 2, // 전시 종료
         },

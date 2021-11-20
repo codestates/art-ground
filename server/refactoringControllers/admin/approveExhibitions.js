@@ -1,7 +1,7 @@
 const { exhibition, comments, users, images, likes } = require("../../models");
 
 const { isAuthorized } = require("../../utils/tokenFunction");
-const { findOne, update } = require("../../utils/dbFunction");
+
 const { isNull } = require("underscore");
 const { setGrading } = require("../../utils/customFunction");
 module.exports = {
@@ -18,7 +18,7 @@ module.exports = {
 
       if (
         isNull(
-          await findOne(exhibition, {
+          await exhibition.findOne({
             where: {
               id,
             },

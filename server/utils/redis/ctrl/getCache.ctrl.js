@@ -34,7 +34,7 @@ module.exports = {
   isInSet: (key, value) => {
     return new Promise((resolve, reject) => {
       redisClient.SISMEMBER(key, value, (err, data) => {
-        return resolve(!!data);
+        return resolve(data);
       });
     });
   },

@@ -7,7 +7,7 @@ const {
 } = require("../../../models");
 const { each, keys, filter } = require("underscore");
 const { addToList, setHash, addToSet } = require("./setCache.ctrl");
-const { findAll } = require("../../dbFunction");
+
 const { setGrading } = require("../../customFunction");
 
 const setExhibitionCache = (exhibitionData) => {
@@ -53,24 +53,24 @@ const setCommentCache = (commentData) => {
 module.exports = {
   exhibitionCacheInitialization: async () => {
     each(
-      await findAll(exhibition, {
+      await exhibition.findAll({
         raw: true,
       }),
       (el) => setExhibitionCache(el)
     );
   },
   imageCacheInitialization: async () => {
-    each(await findAll(images, { raw: true }), (el) => setImageCache(el));
+    each(await images.findAll({ raw: true }), (el) => setImageCache(el));
   },
   userCacheInitialization: async () => {
-    each(await findAll(users, { raw: true }), (el) => setUserCache(el));
+    each(await users.findAll({ raw: true }), (el) => setUserCache(el));
   },
   likeCacheInitialization: async () => {
-    each(await findAll(likes, { raw: true }), (el) => setLikeCache(el));
+    each(await likes.findAll({ raw: true }), (el) => setLikeCache(el));
   },
   commentCacheInitialization: async () => {
     each(
-      await findAll(comments, {
+      await comments.findAll({
         attributes: ["id", "exhibition_id", "user_id", "comments", "createdAt"],
         raw: true,
       }),
