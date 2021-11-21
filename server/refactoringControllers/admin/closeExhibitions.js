@@ -1,4 +1,4 @@
-const { exhibition, comments, users, images, likes } = require("../../models");
+const { exhibition } = require("../../models");
 
 const { getHash } = require("../../utils/redis/ctrl/getCache.ctrl");
 const {
@@ -27,6 +27,7 @@ module.exports = {
       if (exhibitionResult) {
         setHash(exhibitionKey, "status", 2);
         removeFromSet(exhibitionType, id);
+        addToSet("closedExhibition", id);
       }
       res.status(200).json({
         message: "successfully close exhibitions",
