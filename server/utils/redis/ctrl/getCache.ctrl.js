@@ -1,6 +1,16 @@
 const { map, mapObject, reduce } = require("underscore");
 const { redisClient } = require("../index");
 
+function _curryr(fn) {
+  return function (a, b) {
+    return arguments.length === 2
+      ? fn(a, b)
+      : function (b) {
+          return fn(b, a);
+        };
+  };
+}
+
 module.exports = {
   getString: (key) => {
     return new Promise((resolve, reject) => {
@@ -31,13 +41,13 @@ module.exports = {
       });
     });
   },
-  isInSet: (key, value) => {
+  isInSet: _curryr(function (key, value) {
     return new Promise((resolve, reject) => {
       redisClient.SISMEMBER(key, value, (err, data) => {
-        return resolve(data);
+        return resolve(!!data);
       });
     });
-  },
+  }),
   getHash: (key) => {
     return new Promise((resolve, reject) => {
       redisClient.hgetall(key, (err, data) => {
