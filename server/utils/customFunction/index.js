@@ -8,8 +8,7 @@ const {
 
 const { map, keys, each } = require("underscore");
 const setGrading = (type, id) => {
-  if (type && id)
-    type === 1 ? addToSet("standard", id) : addToSet("premium", id);
+  type === 1 ? addToSet("standard", id) : addToSet("premium", id);
 };
 
 module.exports = {
@@ -42,6 +41,7 @@ module.exports = {
     addToSet(`exhibition:user:${author_id}`, id);
     addToSet("allExhibition", id);
     if (status === 1) setGrading(exhibit_type, id);
+    if (status === 2) addToSet("closedExhibition", id);
   },
   setImageCache: (imageData) => {
     addToList(`images:${imageData.exhibition_id}`, imageData);
