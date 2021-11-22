@@ -7,8 +7,8 @@ const {
 } = require("../../utils/redis/ctrl/getCache.ctrl");
 
 const { map, keys, each } = require("underscore");
-const setGrading = (type, id) => {
-  type === 1 ? addToSet("standard", id) : addToSet("premium", id);
+const setGrading = async (type, id) => {
+  type === 1 ? await addToSet("standard", id) : await addToSet("premium", id);
 };
 
 module.exports = {
