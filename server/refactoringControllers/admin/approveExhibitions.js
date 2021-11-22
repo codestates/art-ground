@@ -32,8 +32,7 @@ module.exports = {
           message: "exhibition not exist",
         });
       } else {
-        await update(
-          exhibition,
+        await exhibition.update(
           {
             status: 1, // 전시 승인
           },
