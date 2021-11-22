@@ -3,6 +3,7 @@ const {
   getSet,
   getHashValue,
   getList,
+  getHash,
 } = require("../../utils/redis/ctrl/getCache.ctrl");
 
 module.exports.getDetailReview = async (req, res) => {
