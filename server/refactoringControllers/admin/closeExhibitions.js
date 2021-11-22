@@ -16,18 +16,13 @@ module.exports = {
     const id = parseInt(postId);
     const exhibitionKey = `exhibition:${id}`;
     const exhibitionType = type === 1 ? "standard" : "premium";
-    //전체 전시 정보에서는 status 수정 하고
-    //type 별 전시 정보에는 삭제해야한다.
-
-    //Hash로 되어있는 exhibition:id 에서 status 수정.
-    //type 별 set에서는 제거
 
     if (userInfo.user_type === 3) {
-      const exhibitionResult = getHash(exhibitionKey);
+      const exhibitionResult = await getHash(exhibitionKey);
       if (exhibitionResult) {
-        setHash(exhibitionKey, "status", 2);
-        removeFromSet(exhibitionType, id);
-        addToSet("closedExhibition", id);
+        await setHash(exhibitionKey, "status", 2);
+        await removeFromSet(exhibitionType, id);
+        await addToSet("closedExhibition", id);
       }
       res.status(200).json({
         message: "successfully close exhibitions",
