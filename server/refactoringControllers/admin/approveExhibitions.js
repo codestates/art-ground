@@ -13,8 +13,10 @@ module.exports = {
     const { id, exhibit_type } = req.body.data;
 
     if (userInfo.user_type === 3) {
-      await setHash(`exhibition:${id}`, "status", "1");
+      await setHash(`exhibition:${id}`, "status", 1);
+
       await setGrading(exhibit_type, id);
+
       res.status(200).json({
         message: "exhibition successfully approved",
       });
