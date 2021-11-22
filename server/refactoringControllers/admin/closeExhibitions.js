@@ -15,7 +15,7 @@ module.exports = {
     const { postId, type } = req.params;
     const id = parseInt(postId);
     const exhibitionKey = `exhibition:${id}`;
-    const exhibitionType = type === 1 ? "standard" : "premium";
+    const exhibitionType = type === "1" ? "standard" : "premium";
 
     if (userInfo.user_type === 3) {
       const exhibitionResult = await getHash(exhibitionKey);
