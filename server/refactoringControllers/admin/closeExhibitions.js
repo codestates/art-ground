@@ -4,6 +4,7 @@ const { getHash } = require("../../utils/redis/ctrl/getCache.ctrl");
 const {
   setHash,
   removeFromSet,
+  addToSet,
 } = require("../../utils/redis/ctrl/setCache.ctrl");
 
 const { isAuthorized } = require("../../utils/tokenFunction");

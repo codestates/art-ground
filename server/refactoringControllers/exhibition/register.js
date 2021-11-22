@@ -14,6 +14,7 @@ module.exports.register = async (req, res) => {
 
   if (userInfo) {
     const { id: author_id } = userInfo;
+
     const {
       title,
       genreHashtags: genre_hashtags,
@@ -23,7 +24,7 @@ module.exports.register = async (req, res) => {
       endDate: end_date,
       images,
     } = req.body;
-    is;
+
     if (
       title &&
       genre_hashtags &&
