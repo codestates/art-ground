@@ -12,19 +12,15 @@ const { isAuthorized } = require("../../utils/tokenFunction");
 module.exports = {
   closeExhibitions: async (req, res) => {
     const userInfo = isAuthorized(req);
-
     const { postId, type } = req.params;
     const id = parseInt(postId);
-    const exhibitionKey = `exhibition:${id}`;
     const exhibitionType = type === "1" ? "standard" : "premium";
 
     if (userInfo.user_type === 3) {
-      const exhibitionResult = await getHash(exhibitionKey);
-      if (exhibitionResult) {
-        await setHash(exhibitionKey, "status", 2);
-        await removeFromSet(exhibitionType, id);
-        await addToSet("closedExhibition", id);
-      }
+      await setHash(`exhibition:${id}`, "status", 2);
+      await removeFromSet(exhibitionType, id);
+      await addToSet("closedExhibition", id);
+
       res.status(200).json({
         message: "successfully close exhibitions",
       });
@@ -45,4 +41,3 @@ module.exports = {
     }
   },
 };
-//
