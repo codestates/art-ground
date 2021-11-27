@@ -4,6 +4,7 @@ const axios = require("axios");
 const { users } = require("../../models");
 const { generateAccessToken } = require("../../utils/tokenFunction");
 const bcrypt = require("bcrypt");
+const { signUpCaching } = require("../../utils/customFunction");
 const saltRounds = 10;
 
 module.exports = {
@@ -80,14 +81,9 @@ module.exports = {
           login_type: "kakao",
         };
         const data = (await users.create(userInfo)).dataValues;
-
-        delete data.password;
-        const accessToken = generateAccessToken(data);
-        each(keys(data), async (key) => {
-          await setHash(`user:${data.id}`, key, data[key]);
-        });
+        await signUpCaching(data);
         return res
-          .cookie("accessToken", accessToken, {
+          .cookie("accessToken", generateAccessToken(data), {
             httpOnly: true,
             sameSite: "none",
             secure: true,

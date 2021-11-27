@@ -2,6 +2,7 @@ require("dotenv").config();
 const { users } = require("../../models");
 const CryptoJS = require("crypto-js");
 const bcrypt = require("bcrypt");
+const { signUpCaching } = require("../../utils/customFunction");
 const saltRounds = 10;
 
 module.exports = {
@@ -42,7 +43,9 @@ module.exports = {
           nickname: nickname,
           user_type: userType,
         });
-        console.log("info:", info);
+
+        const data = info.dataValues;
+        await signUpCaching(data);
         return res.status(201).json({ message: "sign-up ok" });
       }
     } catch (error) {

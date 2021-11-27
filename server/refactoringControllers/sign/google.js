@@ -2,13 +2,10 @@
 require("dotenv").config();
 const axios = require("axios");
 const { users } = require("../../models");
-const {
-  generateAccessToken,
-  sendAccessToken,
-} = require("../../utils/tokenFunction");
+const { generateAccessToken } = require("../../utils/tokenFunction");
 const bcrypt = require("bcrypt");
-const { each, keys } = require("underscore");
-const { setHash } = require("../../utils/redis/ctrl/setCache.ctrl");
+
+const { signUpCaching } = require("../../utils/customFunction");
 const saltRounds = 10;
 
 /**
@@ -89,12 +86,9 @@ module.exports = {
             login_type: "google",
           })
         ).dataValues;
-        delete data.password;
-        each(keys(data), async (key) => {
-          await setHash(`user:${data.id}`, key, data[key]);
-        });
+        await signUpCaching(data);
         res
-          .cookie("accessToken", await generateAccessToken(data), {
+          .cookie("accessToken", generateAccessToken(data), {
             httpOnly: true,
             sameSite: "none",
             secure: true,

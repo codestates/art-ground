@@ -2,8 +2,8 @@ require("dotenv").config();
 const { users } = require("../../models");
 const CryptoJS = require("crypto-js");
 const bcrypt = require("bcrypt");
-const { each } = require("underscore");
-const { setHash } = require("../../utils/redis/ctrl/setCache.ctrl");
+
+const { signUpCaching } = require("../../utils/customFunction");
 const saltRounds = 10;
 
 module.exports = {
@@ -43,11 +43,7 @@ module.exports = {
           user_type: userType,
         });
         const data = info.dataValues;
-        delete data.password;
-        each(keys(data), async (key) => {
-          await setHash(`user:${data.id}`, key, data[key]);
-        });
-
+        await signUpCaching(data);
         return res.status(201).json({ message: "sign-up ok" });
       }
     } catch (error) {
@@ -55,16 +51,3 @@ module.exports = {
     }
   },
 };
-//
-
-// attributes: [
-//   "id",
-//   "user_email",
-//   "nickname",
-//   "profile_img",
-//   "author_desc",
-//   "user_type",
-//   "createdAt",
-//   "updatedAt",
-// ],
-// raw: true,

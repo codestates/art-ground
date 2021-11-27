@@ -54,4 +54,10 @@ module.exports = {
     await removeFromSet(`like:${exhibition_id}`, user_id);
     await removeFromSet(`user:like:${user_id}`, exhibition_id);
   },
+  signUpCaching: async (data) => {
+    delete data.password;
+    each(keys(data), async (key) => {
+      await setHash(`user:${data.id}`, key, data[key]);
+    });
+  },
 };
