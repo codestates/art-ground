@@ -7,6 +7,8 @@ const {
   sendAccessToken,
 } = require("../../utils/tokenFunction");
 const bcrypt = require("bcrypt");
+const { each, keys } = require("underscore");
+const { setHash } = require("../../utils/redis/ctrl/setCache.ctrl");
 const saltRounds = 10;
 
 /**
@@ -17,32 +19,26 @@ const saltRounds = 10;
 module.exports = {
   getToken: async (req, res) => {
     const URL = process.env.ART_GROUND_OAUTH_URL;
-
     const code = req.body.authorizationCode;
     const client_id = process.env.ART_GROUND_CLIENT_ID;
     const client_secret = process.env.ART_GROUND_CLIENT_SECRET;
     const redirect_uri = process.env.ART_GROUND_REDIRECT_URI;
     const grant_type = process.env.ART_GROUND_GRANT_TYPE;
 
-    let data = {
-      code,
-      client_id,
-      client_secret,
-      redirect_uri,
-      grant_type,
-    };
-    let headers = {
-      "content-type": "application/x-www-form-urlencoded",
-    };
-
-    await axios
-      .post(URL, data, headers)
-      .then((el) => {
-        res.send(el.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const token = await axios.post(
+      URL,
+      {
+        code,
+        client_id,
+        client_secret,
+        redirect_uri,
+        grant_type,
+      },
+      {
+        "content-type": "application/x-www-form-urlencoded",
+      }
+    );
+    res.send(token.data);
   },
   getUserInfo: async (req, res) => {
     try {
@@ -61,15 +57,16 @@ module.exports = {
       const salt = await bcrypt.genSalt(saltRounds);
       password = await bcrypt.hash(password, salt);
 
-      const result = await users.findOne({
+      const data = await users.findOne({
+        raw: true,
         where: {
           user_email: userEmail,
         },
       });
 
-      if (result) {
-        delete result.dataValues.password;
-        const accessToken = generateAccessToken(result.dataValues);
+      if (data) {
+        delete data.password;
+        const accessToken = generateAccessToken(data);
         res
           .cookie("accessToken", accessToken, {
             httpOnly: true,
@@ -81,20 +78,23 @@ module.exports = {
             ovewrite: true,
           })
           .status(200)
-          .json({ data: result.dataValues, message: "AccessToken ready" });
+          .json({ data, message: "AccessToken ready" });
       } else {
-        const generatedInfo = await users.create({
-          user_email: userEmail, //userInfo.data.kakao_account.email
-          password,
-          nickname,
-          user_type: 1,
-          login_type: "google",
+        const data = (
+          await users.create({
+            user_email: userEmail,
+            password,
+            nickname,
+            user_type: 1,
+            login_type: "google",
+          })
+        ).dataValues;
+        delete data.password;
+        each(keys(data), async (key) => {
+          await setHash(`user:${data.id}`, key, data[key]);
         });
-
-        delete result.dataValues.password;
-        const accessToken = generateAccessToken(result.dataValues);
         res
-          .cookie("accessToken", accessToken, {
+          .cookie("accessToken", await generateAccessToken(data), {
             httpOnly: true,
             sameSite: "none",
             secure: true,
@@ -104,7 +104,10 @@ module.exports = {
             ovewrite: true,
           })
           .status(200)
-          .json({ data: result.dataValues, message: "AccessToken ready" });
+          .json({
+            data,
+            message: "AccessToken ready",
+          });
       }
     } catch (err) {
       console.log(err);
