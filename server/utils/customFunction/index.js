@@ -1,4 +1,9 @@
-const { addToSet, addToList, setHash } = require("../redis/ctrl/setCache.ctrl");
+const {
+  addToSet,
+  addToList,
+  setHash,
+  removeFromSet,
+} = require("../redis/ctrl/setCache.ctrl");
 const {
   getSet,
   getHash,
