@@ -11,10 +11,16 @@ const setGrading = async (type, id) => {
   type === 1 ? await addToSet("standard", id) : await addToSet("premium", id);
 };
 
+const getLikes = async (exhibitionId) => {
+  return map(await getSet(`like:${exhibitionId}`), (el) => {
+    return Number.parseInt(el);
+  });
+};
 module.exports = {
   setGrading,
   getTotalExhibitionData: async (exhibitionId) => {
     const exhibitionReply = await getHash(`exhibition:${exhibitionId}`);
+
     return {
       ...exhibitionReply,
       author: await getHashValue(
@@ -25,12 +31,10 @@ module.exports = {
         "author_desc"
       ),
       images: await getList(`images:${exhibitionId}`, 0, -1),
-      likes: map(await getSet(`like:${exhibitionId}`), (el) => {
-        return Number.parseInt(el);
-      }),
+      likes: await getLikes(exhibitionId),
     };
   },
-
+  getLikes,
   setExhibitionCache: (exhibitionData) => {
     const { id, exhibit_type, status, author_id } = exhibitionData;
     const exhibitionDataKeys = keys(exhibitionData);
