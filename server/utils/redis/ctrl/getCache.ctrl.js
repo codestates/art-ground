@@ -53,9 +53,6 @@ module.exports = {
       redisClient.hgetall(key, (err, data) => {
         resolve(
           mapObject(data, (val, key) => {
-            if (key === "createdAt" || key === "updatedAt") {
-              return Date(val);
-            }
             return JSON.parse(val);
           })
         );
