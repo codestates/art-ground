@@ -25,6 +25,11 @@
   border: none;
   font-size: 0.9rem;
 }
+
+.search::placeholder {
+  color: rgb(181, 181, 181);
+}
+
 .searchIcon {
   cursor: pointer;
   font-size: 1.2rem;

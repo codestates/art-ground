@@ -46,4 +46,3 @@ router.get("/admin/review", adminCtrl.getAllReviews);
 router.delete("/admin/review/:postId/:commentId", adminCtrl.deleteReviews);
 
 module.exports = router;
-//

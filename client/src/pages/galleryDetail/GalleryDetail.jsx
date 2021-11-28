@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
+import { useHistory, withRouter } from 'react-router-dom';
 import ArtDetail from '../../components/artDetail/ArtDetail';
 import GallerySlider from '../../components/gallerySlider/GallerySlider';
 import PurchaseModal from '../../components/modals/PurchaseModal';
@@ -8,8 +8,9 @@ import { createLike, deleteLike, getExhibitionInfo, getLikesInfo } from "../../a
 import KakaoShare from '../../components/kakaoShare/KakaoShare';
 import KakaoPremiumModal from '../../components/modals/KakaoPremiumModal';
 import GalleryModal from '../../components/modals/GalleryModal';
+import { ThreeDContextContextStore } from '../../contexts/ThreeDContext';
 
-const GalleryDetail = ({ isLogin, userinfo, handle3dExhibition, location}) => {
+const GalleryDetail = ({ isLogin, userinfo, location}) => {
 
   const sliderNum = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const [exhibitionInfo, setExhibitionInfo] = useState(null);
@@ -21,6 +22,8 @@ const GalleryDetail = ({ isLogin, userinfo, handle3dExhibition, location}) => {
   const [isLiked, setLiked] = useState(false); //좋아요 상태값
   const [rerender, setRerender] = useState(false); // 좋아요 & 좋아요해제 시 하트 컴포넌트 재랜더링
   const [isLoading, setLoading] = useState(true);
+  const threeDInfo = useContext(ThreeDContextContextStore);
+
 
   useEffect(() => {
     async function getAxiosData() {
@@ -35,8 +38,7 @@ const GalleryDetail = ({ isLogin, userinfo, handle3dExhibition, location}) => {
 
   useEffect(() => {
     async function getLikesAxiosData() {
-      const likeArr = (await getLikesInfo(Number(location.pathname.substring(15)))).filter(el => userinfo.id === el.user_id);
-      //console.log(likeArr);  
+      const likeArr = (await getLikesInfo(Number(location.pathname.substring(15)))).filter(el => userinfo.id === el);
       if(likeArr.length !==0){ //유저가 해당 전시를 좋아요 한 것일 때
         setLiked(true);
       } else{
@@ -53,10 +55,10 @@ const GalleryDetail = ({ isLogin, userinfo, handle3dExhibition, location}) => {
 
   const handleLike = () => { //로그인 한 사람들에게만 작동.
     if (isLiked) { // 좋아요 해제
-      deleteLike(exhibitionInfo.id, exhibitionInfo.exhibit_type);
+      createLike(exhibitionInfo.id);
       setRerender(!rerender);
     } else { //좋아요
-      createLike(exhibitionInfo.id, exhibitionInfo.exhibit_type);
+      createLike(exhibitionInfo.id);
       setRerender(!rerender);
     }
   }
@@ -86,6 +88,13 @@ const GalleryDetail = ({ isLogin, userinfo, handle3dExhibition, location}) => {
 
   const handleModalOpen = (el) => {
     setArtDetail(el); //모달에 띄울 art 전달
+  }
+
+  const history = useHistory();
+  const goThreeDPage = () => {
+    //handle3dExhibition(exhibitionInfo.id);
+    threeDInfo.setThreeDSelected(exhibitionInfo.id);
+    history.push('/3dgallery')
   }
   
   if(isLoading){
@@ -141,12 +150,8 @@ const GalleryDetail = ({ isLogin, userinfo, handle3dExhibition, location}) => {
 
       <p className={styles.content}>{exhibitionInfo.exhibit_desc}</p>
 
-      {exhibitionInfo.exhibit_type ===2 ?
-      <Link to="/3dgallery"> 
-        <div className={styles.threeDBtn} 
-        onClick={() => handle3dExhibition(exhibitionInfo.id)}
-        >3D 전시관 둘러보기</div>
-      </Link>
+      {exhibitionInfo.exhibit_type === 2 ?
+      <div className={styles.threeDBtn} onClick={goThreeDPage}>3D 전시관 둘러보기</div>
       : null}
 
       <div className={styles.intro}>작가</div>

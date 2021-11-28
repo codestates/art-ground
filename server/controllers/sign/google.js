@@ -9,11 +9,6 @@ const {
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
-/**
- *
- * router.post("/receive/token", getToken);
- * router.get("/receive/userinfo?", getUserInfo);
- */
 module.exports = {
   getToken: async (req, res) => {
     const URL = process.env.ART_GROUND_OAUTH_URL;
@@ -84,7 +79,7 @@ module.exports = {
           .json({ data: result.dataValues, message: "AccessToken ready" });
       } else {
         const generatedInfo = await users.create({
-          user_email: userEmail, //userInfo.data.kakao_account.email
+          user_email: userEmail,
           password,
           nickname,
           user_type: 1,

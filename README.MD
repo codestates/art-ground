@@ -243,7 +243,7 @@ https://art-ground.io/
 | 이름(깃헙링크) | Position & Role|
 | ------- | ----- |
 | [문순려(팀장)](https://github.com/Sunryeo) | 💻 Back-end|
-| [박지영](https://github.com/devjade) | 💻 Front-end|
+| [박지영](https://github.com/devLuenna) | 💻 Front-end|
 | [유다희](https://github.com/tkdkagody) | 💻 Front-end|
 | [이동욱](https://github.com/dongukuklee) | 💻 Back-end|
 

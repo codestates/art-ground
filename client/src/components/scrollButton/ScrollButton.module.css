@@ -15,7 +15,7 @@
   transition: opacity 0.5s ease-in;
 }
 
-.topBtnActive {
+.topBtnHide {
   display: none;
 }
 

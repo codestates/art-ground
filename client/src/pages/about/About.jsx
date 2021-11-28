@@ -36,8 +36,6 @@ const About = () => {
     };
   });
 
-  //console.log(position);
-
   return (
     <div className={styles.container}>
       <section className={styles.mainBrand}>

@@ -20,20 +20,18 @@ const GalleryContent = ({
     if(!isLogin && exhibition.exhibit_type === 2){
       handleModalPremium();
     } else{
-      //selectGallery(exhibition);
       history.push(`/gallerydetail/${exhibition.id}`);
     } 
   }
   
   useEffect(()=> { //좋아요 했는지 안 했는지 확인하여 좋아요 상태값 변동시킴.
     if(isLogin){
-      const likeArr = exhibition.likes.filter(el => userinfo.id === el.user_id) 
+      const likeArr = exhibition.likes.filter(el => userinfo.id === el) 
       if(likeArr.length !==0){ //유저가 해당 gallerycontent컴포넌트를 좋아요 한 것일 때
         setLiked(true);
       } else{
         setLiked(false); //유저가 해당 gallerycontent컴포넌트를 좋아요 한 게 아닐 때
       }
-      //console.log('GalleryContent 컴포넌트 내 좋아요 상태값 확인중')
     }
   }, [exhibition.likes.length]); 
 
@@ -41,11 +39,11 @@ const GalleryContent = ({
     //로그인 한 사람들에게만 작동.
     if (isLiked) {
       // 좋아요 해제
-      deleteLike(exhibition.id, exhibition.exhibit_type);
+      createLike(exhibition.id);
       render();
     } else {
       //좋아요
-      createLike(exhibition.id, exhibition.exhibit_type);
+      createLike(exhibition.id);
       render();
     }
   }
