@@ -10,11 +10,14 @@ module.exports.deleteReview = async (req, res) => {
 
   const { postId: exhibition_id, commentId } = req.params;
   if (userInfo) {
-    const { id: user_id } = userInfo;
-
     await removeFromSet(`exhibition:comment:${exhibition_id}`, commentId);
     await removeFromSet(`allExhibitionComment`, commentId);
     await removeHash(`comment:${commentId}`);
+    await commentsModel.destroy({
+      where: {
+        id: commentId,
+      },
+    });
   } else {
     res.status(401).json({
       message: "invalid user",
