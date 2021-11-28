@@ -1,6 +1,5 @@
 const { each } = require("underscore");
 const { users } = require("../../models");
-const { redisClient } = require("../../utils/redis");
 const { getSet } = require("../../utils/redis/ctrl/getCache.ctrl");
 const { removeFromSet } = require("../../utils/redis/ctrl/setCache.ctrl");
 const { isAuthorized } = require("../../utils/tokenFunction");
