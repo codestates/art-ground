@@ -18,10 +18,7 @@ module.exports.modifyMyInfo = async (req, res) => {
     await setUserInfo(userData, id);
 
     res.status(200).json({ message: "profile changed" });
-    await userModel.update(
-      { nickname, profile_img, author_desc },
-      { where: { id } }
-    );
+    await userModel.update(userData, { where: { id } });
   } else {
     res.status(401).json({
       message: "invalid access token",
