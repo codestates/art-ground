@@ -1,20 +1,13 @@
 const { isAuthorized } = require("../../utils/tokenFunction");
-const { users } = require("../../models");
+const { getHash } = require("../../utils/redis/ctrl/getCache.ctrl");
 
 module.exports = {
   getMyInfo: async (req, res) => {
     const userInfo = isAuthorized(req);
 
     if (userInfo) {
-      const { id } = userInfo;
-      const result = await users.findOne({
-        where: {
-          id,
-        },
-      });
-      const data = result.dataValues;
       res.status(200).json({
-        data,
+        data: await getHash(`user:${userInfo.id}`),
       });
     } else {
       res.status(401).json({

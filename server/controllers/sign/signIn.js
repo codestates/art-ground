@@ -10,7 +10,7 @@ const bcrypt = require("bcrypt");
 module.exports = {
   signIn: async (req, res) => {
     const { userEmail, password } = req.body;
-    console.log(userEmail, password);
+    userEmail, password;
     try {
       const userInfo = await users.findOne({
         where: {
@@ -24,20 +24,20 @@ module.exports = {
         password,
         process.env.ART_GROUND_CRYPTOJS_SECRETKEY
       );
-      console.log("byte:", byte);
+      "byte:", byte;
 
       let decodedPassword = await JSON.parse(byte.toString(CryptoJS.enc.Utf8));
-      console.log("decoded:", decodedPassword);
-      // console.log("data:", data.dataValues);
+      "decoded:", decodedPassword;
+      // ("data:", data.dataValues);
       const validPassword = await bcrypt.compare(
         decodedPassword,
         userInfo.dataValues.password
       );
-      console.log("validpw:", validPassword);
+      "validpw:", validPassword;
 
       if (validPassword) {
         delete userInfo.dataValues.password;
-        console.log("data:", userInfo.dataValues);
+        "data:", userInfo.dataValues;
         const accessToken = generateAccessToken(userInfo.dataValues);
         sendAccessToken(res, accessToken);
       } else {
