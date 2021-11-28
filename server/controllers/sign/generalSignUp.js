@@ -24,6 +24,7 @@ module.exports = {
 
       const decryptedPassword = JSON.parse(byte.toString(CryptoJS.enc.Utf8));
 
+      // bcrypt 재암호화
       const salt = await bcrypt.genSalt(saltRounds);
 
       const encryptedPassword = await bcrypt.hash(decryptedPassword, salt);
@@ -37,7 +38,7 @@ module.exports = {
       if (data) {
         return res.status(409).json({ message: "email exists" });
       } else {
-        const info = await users.create({
+        await users.create({
           user_email: userEmail,
           password: encryptedPassword,
           nickname: nickname,
@@ -53,4 +54,3 @@ module.exports = {
     }
   },
 };
-//

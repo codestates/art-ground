@@ -41,7 +41,6 @@ class App {
   }
 
   getRouting() {
-    // this.app.use(require("./controllers"));
     this.app.use(require("./controllers"));
     this.app.get("/", (req, res) => {
       res.status(200).send("hello world...");

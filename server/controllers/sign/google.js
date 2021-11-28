@@ -8,11 +8,6 @@ const bcrypt = require("bcrypt");
 const { signUpCaching } = require("../../utils/customFunction");
 const saltRounds = 10;
 
-/**
- *
- * router.post("/receive/token", getToken);
- * router.get("/receive/userinfo?", getUserInfo);
- */
 module.exports = {
   getToken: async (req, res) => {
     const URL = process.env.ART_GROUND_OAUTH_URL;

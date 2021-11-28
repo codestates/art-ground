@@ -46,15 +46,11 @@ module.exports = {
         const decodedPassword2 = await JSON.parse(
           byte2.toString(CryptoJS.enc.Utf8)
         );
-        console.log("decoded2:", decodedPassword2);
 
         // encode new password
         const salt = await bcrypt.genSalt(saltRounds);
-        console.log("salt:", salt);
         const encryptedPassword = await bcrypt.hash(decodedPassword2, salt);
-        console.log("encrypted:", encryptedPassword);
-
-        const newInfo = await users.update(
+        await users.update(
           {
             password: encryptedPassword,
           },
@@ -64,7 +60,6 @@ module.exports = {
             },
           }
         );
-        console.log("newInfo:", newInfo);
         res.status(200).json({ message: "password successfully updated!" });
       }
       // password가 유효하지 않으면
@@ -76,4 +71,3 @@ module.exports = {
     }
   },
 };
-//

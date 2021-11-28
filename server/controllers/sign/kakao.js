@@ -56,7 +56,6 @@ module.exports = {
       });
       // 이미 회원가입이 되어 있다면 accessToken 만들어서 보내고 로그인
       if (result) {
-        "result:", result.dataValues;
         delete result.dataValues.password;
         const accessToken = generateAccessToken(result.dataValues);
         res
