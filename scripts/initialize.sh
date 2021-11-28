@@ -17,3 +17,7 @@ sudo apt-get install authbind
 sudo touch /etc/authbind/byport/80
 sudo chown ubuntu /etc/authbind/byport/80
 sudo chmod 755 /etc/authbind/byport/80
+
+authbind --deep pm2 start init.js
+authbind --deep pm2 stop init.js 2> /dev/null || true
+authbind --deep pm2 delete init.js 2> /dev/null || true
