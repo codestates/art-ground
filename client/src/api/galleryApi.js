@@ -40,7 +40,7 @@ export async function getStandardGallery(tagClicked, sortValue) {
       if (sortValue === "최신순") {
         return result.sort(
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-        );
+        ).reverse();
       } else {
         //전시마감일순
         return result.sort(
@@ -54,7 +54,7 @@ export async function getStandardGallery(tagClicked, sortValue) {
       if (sortValue === "최신순") {
         return result.sort(
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-        );
+        ).reverse();
       } else {
         //전시마감일순
         return result.sort(
@@ -80,7 +80,7 @@ export async function getPremiumGallery(tagClicked, sortValue) {
       if (sortValue === "최신순") {
         return result.sort(
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-        );
+        ).reverse();
       } else {
         //전시마감일순
         return result.sort(
@@ -93,7 +93,7 @@ export async function getPremiumGallery(tagClicked, sortValue) {
       if (sortValue === "최신순") {
         return result.sort(
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-        );
+        ).reverse();
       } else {
         //전시마감일순
         return result.sort(
@@ -126,19 +126,18 @@ export async function getLikesInfo(postId) {
       `${process.env.REACT_APP_DEPOLOY_SERVER_URI}/exhibition/like/${postId}`
     );
     //console.log(res.data)
-    return res.data;
+    return res.data.likes;
   } catch (err) {
     return console.log(err);
   }
 }
 
-export async function createLike(postId, exhibitionType) {
+export async function createLike(postId) {
   try {
     await axios.post(
       `${process.env.REACT_APP_DEPOLOY_SERVER_URI}/exhibition/like`,
       {
         postId: postId,
-        type: exhibitionType,
       }
     );
   } catch (err) {

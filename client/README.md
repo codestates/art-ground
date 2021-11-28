@@ -1,6 +1,16 @@
-## 🏡  art-Ground  🏡 
-<img width="824" src="https://user-images.githubusercontent.com/83934037/138430276-8d79c0cf-4d9e-4303-8879-3324c7b3c0b8.gif">
+## Introduction
 
+안녕하세요!😀
+
+본 레포지토리는 코드스테이츠 소프트웨어 엔지니어링 프로그램에 참여하면서 개발한 팀 프로젝트 종료 이후, 개선 및 추가 사항들을 반영하면서 그 기록들을 남긴 곳입니다.
+수료 당시의 프로젝트의 원본 레포지토리는 여기(--> https://github.com/codestates/art-ground )를 참고해주세요!
+
+- 프로젝트 회고: https://bit.ly/3pAdBkU
+- 프로젝트 데브로그 & 에러핸들링로그: https://bit.ly/30OUjhx
+
+## 🏡 art-Ground 🏡
+
+<img width="800" src="https://user-images.githubusercontent.com/83934037/138681410-ba3a8726-9155-4fec-b178-f01071f7ce16.gif">
 
 ### 누구나 예술가가 될 수 있는 공간, art-Ground.
 
@@ -13,19 +23,19 @@
 - 소중한 나의 작품들로 특별한 나만의 전시회를 열 수 있어요.
 - 다양한 작가들의 전시회도 장르별로 필터링하여 관람할 수 있어요.
 - 전시 타입은 Standard(2D 전시), Premium(3D 전시)로 나누어져 있어, 작품을 다양한 시각으로 감상할 수 있어요.
-- 마음에 들었던 전시회를 찜할 수 있어요. 
-- 전시회에 대한 내 관람평 및 의견을 리뷰 페이지에 남길 수 있어요. 
+- 마음에 들었던 전시회를 찜할 수 있어요.
+- 전시회에 대한 내 관람평 및 의견을 리뷰 페이지에 남길 수 있어요.
 - 전시회 관람 전후 다른 유저들의 전시회 관람평도 궁금하다면, 전시회를 검색하여 리뷰를 확인할 수 있어요.
 - 마이페이지에서 나의 전시회(작가의 경우), 내가 찜한 전시회만 모아볼 수 있어요.
 - 전시회 관람 후 구매하고 싶은 작품이 있다면 운영자에게 요청할 수 있어요.(beta)
 
-## 📎 배포링크 
+## 📎 배포링크
+
 https://art-ground.io/
 
 ## 🛠 사용한 기술 스택
 
 <img width="824" alt="스크린샷 2021-10-04 오후 3 28 35" src="https://user-images.githubusercontent.com/79203932/135803679-8e5cc622-1d50-4663-b2e4-e9f83087cfab.png">
-
 
 ## 🏛 Architecture
 
@@ -34,10 +44,9 @@ https://art-ground.io/
 <img width="800" alt="스크린샷 2021-10-04 오후 3 28 35" src="https://user-images.githubusercontent.com/83934037/136751218-86d320b7-eb53-4c70-bc78-fc8c6cbc1210.jpg">
 <img width="800" alt="스크린샷 2021-10-04 오후 3 28 35" src="https://user-images.githubusercontent.com/83934037/136751229-4dae01b8-8059-4982-ad74-5d6892ca4532.jpg">
 
-
 ### DB Schema
-<img width="800" alt="스크린샷 2021-10-04 오후 3 28 35" src="https://user-images.githubusercontent.com/83934037/136808311-78a203ae-3190-4f3b-88e3-099d03870808.png">
 
+<img width="800" alt="스크린샷 2021-10-04 오후 3 28 35" src="https://user-images.githubusercontent.com/83934037/136808311-78a203ae-3190-4f3b-88e3-099d03870808.png">
 
 ## 📱 주요기능별 시연 GIF
 
@@ -143,13 +152,12 @@ https://art-ground.io/
     <img width="700" src="https://user-images.githubusercontent.com/83934037/136777489-aa4b6e55-1b86-4826-a836-f776d21faf41.gif"/>
     
   </details>
-
   <details>
    <summary> 카카오톡으로 링크 공유하기 </summary>
     <img width="700" src="https://user-images.githubusercontent.com/83934037/137332607-6c814200-14fd-4e62-ac21-14962e78ad7f.gif"/>
     
   </details>
-
+  
 </details>
 
 ---
@@ -239,18 +247,19 @@ https://art-ground.io/
 
 ---
 
-
 ## 👨‍👧‍👧Team Klassiker
-| 이름(깃헙링크) | Position & Role|
-| ------- | ----- |
-| [문순려(팀장)](https://github.com/Sunryeo) | 💻 Back-end|
-| [박지영](https://github.com/devLuenna) | 💻 Front-end|
-| [유다희](https://github.com/tkdkagody) | 💻 Front-end|
-| [이동욱](https://github.com/dongukuklee) | 💻 Back-end|
 
+| 이름(깃헙링크)                             | Position & Role |
+| ------------------------------------------ | --------------- |
+| [문순려(팀장)](https://github.com/Sunryeo) | 💻 Back-end     |
+| [박지영](https://github.com/devjade)       | 💻 Front-end    |
+| [유다희](https://github.com/tkdkagody)     | 💻 Front-end    |
+| [이동욱](https://github.com/dongukuklee)   | 💻 Back-end     |
 
 ## 🗒 Wiki
+
 https://github.com/codestates/art-ground/wiki
 
-##  👀더 자세한 내용은 아래 링크에서 확인
+## 👀더 자세한 내용은 아래 링크에서 확인
+
 https://www.notion.so/4-Klassiker-art-Ground-8065b7f612a746d7a7fbd4f329749474

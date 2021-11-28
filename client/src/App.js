@@ -20,7 +20,6 @@ import Admin from "./pages/admin/Admin";
 import Register from "./pages/register/Register";
 import ScrollButton from "./components/scrollButton/ScrollButton";
 import About from "./pages/about/About";
-// import ScrollTab from "./components/scrollTab/ScrollTab";
 import ThreeDGallery from "./pages/3dGallery/ThreeDGallery";
 import Loading from "./components/loading/Loading";
 import { getSignOutRes } from "./api/signApi";
@@ -39,6 +38,7 @@ function App() {
   const [isAdmin, setisAdmin] = useState(false);
   const [modifyRender, setModifyRender] = useState(false); //render
   const [modalOpen, setModalOpen] = useState(false);
+
 
   useEffect(() => {
     if (localStorage.getItem("isLogin")) {
@@ -71,19 +71,17 @@ function App() {
     history.push("/about");
   };
 
-  const [threeDSelected, setThreeDSelected] = useState(null);
-
   return (
     <ScrollTop>
-      {modalOpen ? <GoLoginModal setModalOpen={setModalOpen} /> : null}
+      {modalOpen ? 
+      <GoLoginModal setModalOpen={setModalOpen} /> : null}
       <Switch>
         <Route exact path="/">
-          <Landing isLogin={isLogin} userinfo={userinfo} />
+          <Landing />
         </Route>
         <Route exact path="/signin">
           <Navbar
             isLogin={isLogin}
-            userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
@@ -96,7 +94,6 @@ function App() {
         <Route path="/signin/detail">
           <Navbar
             isLogin={isLogin}
-            userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
@@ -108,11 +105,9 @@ function App() {
             setisAdmin={setisAdmin}
           />
         </Route>
-
         <Route path="/signin/google">
           <Navbar
             isLogin={isLogin}
-            userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
@@ -122,7 +117,6 @@ function App() {
         <Route path="/signin/kakao">
           <Navbar
             isLogin={isLogin}
-            userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
@@ -132,7 +126,6 @@ function App() {
         <Route exact path="/join">
           <Navbar
             isLogin={isLogin}
-            userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
@@ -145,7 +138,6 @@ function App() {
         <Route path="/join/signup">
           <Navbar
             isLogin={isLogin}
-            userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
@@ -158,10 +150,8 @@ function App() {
         <Route exact path="/mypage">
           <Navbar
             isLogin={isLogin}
-            userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
-            setUserinfo={setUserinfo}
             setModalOpen={setModalOpen}
           />
           {modifyRender ? (
@@ -173,24 +163,20 @@ function App() {
           ) : (
             <Loading />
           )}
-          {/* {isLogin ? <MyPage userinfo={userinfo} /> : <SideBar />} */}
         </Route>
         <Route path="/about">
           <Navbar
             isLogin={isLogin}
-            userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
           />
           <About />
           <ScrollButton />
-          {/* <ScrollTab /> */}
         </Route>
         <Route path="/gallery">
           <Navbar
             isLogin={isLogin}
-            userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
@@ -204,7 +190,6 @@ function App() {
         <Route path="/gallerydetail/:id">
           <Navbar
             isLogin={isLogin}
-            userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
@@ -212,50 +197,51 @@ function App() {
           <GalleryDetail 
           isLogin={isLogin}
           userinfo={userinfo}
-          handle3dExhibition={(el) => setThreeDSelected(el)} 
           />
           <ScrollButton />
         </Route>
         <Route path="/reviewlist">
           <Navbar
             isLogin={isLogin}
-            userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
           />
-          <ReviewList isLogin={isLogin} />
+          <ReviewList />
           <ScrollButton />
         </Route>
         <Route path="/reviewdetail/:id">
           <Navbar
             isLogin={isLogin}
-            userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
           />
-          <ReviewDetail userinfo={userinfo} isLogin={isLogin} />
+          <ReviewDetail 
+            userinfo={userinfo} 
+            isLogin={isLogin} 
+          />
           <ScrollButton />
         </Route>
         <Route path="/register">
           <Navbar
             isLogin={isLogin}
-            userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
           />
-          <Register userinfo={userinfo} isLogin={isLogin} />
+          <Register 
+            userinfo={userinfo} 
+            isLogin={isLogin} 
+          />
           <ScrollButton />
         </Route>
         <Route path="/3dgallery">
-          <ThreeDGallery threeDSelected={threeDSelected} />
+          <ThreeDGallery />
         </Route>
         <Route exact path="/modify">
           <Navbar
             isLogin={isLogin}
-            userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}
@@ -270,7 +256,6 @@ function App() {
         <Route exact path="/contact">
           <Navbar
             isLogin={isLogin}
-            userinfo={userinfo}
             handleLogout={handleLogout}
             isAdmin={isAdmin}
             setModalOpen={setModalOpen}

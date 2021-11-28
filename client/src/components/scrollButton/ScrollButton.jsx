@@ -7,6 +7,7 @@ const ScrollButton = (props) => {
 
   const handleFollow = () => {
     setScrollY(window.pageYOffset);
+    //console.log('follow')
     if (ScrollY > 100) {
       // 100 이상이면 버튼이 보이게
       setBtnStatus(true);
@@ -39,7 +40,9 @@ const ScrollButton = (props) => {
   return (
     <div className={styles.container}>
       <button
-        className={btnStatus ? styles.topBtn : styles.topBtnActive} // 버튼 노출 여부
+        className={
+          btnStatus && ScrollY !== 0 ? styles.topBtn 
+          : styles.topBtnHide } 
         onClick={handleTop} // 버튼 클릭시 함수 호출
       >
         <i className="fas fa-arrow-up"></i>

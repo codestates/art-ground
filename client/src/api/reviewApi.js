@@ -12,7 +12,7 @@ export async function getAllGallery(sortValue, search) {
       if (sortValue === "최신순") {
         return res.data.data.sort(
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-        );
+        ).reverse();
       } else {
         //인기순
         return res.data.data.sort(
@@ -39,7 +39,7 @@ export async function getAllGallery(sortValue, search) {
       if (sortValue === "최신순") {
         return result.sort(
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-        );
+        ).reverse();
       } else {
         //인기순
         return result.sort((a, b) => b.comments.length - a.comments.length);
@@ -57,7 +57,7 @@ export async function getReplyList(postId) {
     );
     return res.data.commentsData.sort(
       (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-    );
+    ).reverse();
   } catch (err) {
     return console.log(err);
   }
