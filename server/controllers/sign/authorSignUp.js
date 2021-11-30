@@ -2,6 +2,8 @@ require("dotenv").config();
 const { users } = require("../../models");
 const CryptoJS = require("crypto-js");
 const bcrypt = require("bcrypt");
+
+const { signUpCaching } = require("../../utils/customFunction");
 const saltRounds = 10;
 
 module.exports = {
@@ -15,8 +17,6 @@ module.exports = {
           .status(422)
           .json({ message: "insufficient parameters supplied" });
       }
-      // password 암호화 작업
-      // cryptojs 복호화
       let byte = CryptoJS.AES.decrypt(
         password,
         process.env.ART_GROUND_CRYPTOJS_SECRETKEY
@@ -44,6 +44,8 @@ module.exports = {
           nickname: name,
           user_type: userType,
         });
+        const data = info.dataValues;
+        await signUpCaching(data);
         return res.status(201).json({ message: "sign-up ok" });
       }
     } catch (error) {

@@ -4,13 +4,14 @@ const axios = require("axios");
 const { users } = require("../../models");
 const { generateAccessToken } = require("../../utils/tokenFunction");
 const bcrypt = require("bcrypt");
+const { signUpCaching } = require("../../utils/customFunction");
 const saltRounds = 10;
 
 module.exports = {
   // 받은 authorization code로 access token 받기
   getToken: (req, res) => {
     const code = req.body.authorizationCode;
-    console.log("authcode-----:", code);
+
     const client_id = process.env.ART_GROUND_KAKAO_CLIENT_ID;
     const redirect_uri = process.env.ART_GROUND_KAKAO_REDIRECT_URI;
     const grant_type = process.env.ART_GROUND_GRANT_TYPE;
@@ -71,17 +72,17 @@ module.exports = {
           .json({ data: result.dataValues, message: "AccessToken ready" });
       } else {
         // 최초 로그인 시 회원가입 진행
-        const generatedInfo = await users.create({
+        const userInfo = {
           user_email: userInfo.data.kakao_account.email || nickname,
-          password: password,
-          nickname: nickname,
+          password,
+          nickname,
           user_type: 1,
           login_type: "kakao",
-        });
-        delete generatedInfo.dataValues.password;
-        const accessToken = generateAccessToken(generatedInfo.dataValues);
+        };
+        const data = (await users.create(userInfo)).dataValues;
+        await signUpCaching(data);
         return res
-          .cookie("accessToken", accessToken, {
+          .cookie("accessToken", generateAccessToken(data), {
             httpOnly: true,
             sameSite: "none",
             secure: true,
@@ -91,7 +92,7 @@ module.exports = {
             ovewrite: true,
           })
           .status(201)
-          .json({ data: generatedInfo.dataValues, message: "created ok" });
+          .json({ data, message: "created ok" });
       }
     } catch (error) {
       console.log(error);
